@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { galaxies, getGalaxy } from "@/lib/galaxies";
+import { GalaxyRecordComparison } from "@/components/GalaxyRecordComparison";
+
+const signalLabels = {
+  large: "Large difference",
+  above: "Above expected",
+  expected: "Within expected",
+  pending: "Pending",
+};
 
 export function generateStaticParams() {
   return galaxies.map((galaxy) => ({ slug: galaxy.slug }));
@@ -46,21 +54,18 @@ export default async function GalaxyPage({ params }: { params: Promise<{ slug: s
       </section>
 
       <section className="record-layout">
-        <div className="record-image">
-          <img src="/rubin-virgo.jpg" alt={`Rubin survey illustration for ${galaxy.name}`} style={{ objectPosition: galaxy.crop }} />
-          <span className="record-image-label">RUBIN · RGB · DIFFUSE-LIGHT OPTIMIZED</span>
-          <span className="image-credit">NSF–DOE Vera C. Rubin Observatory / NOIRLab</span>
-        </div>
+        <GalaxyRecordComparison name={galaxy.name} crop={galaxy.crop} />
         <aside className="record-summary">
           <span className="card-label">LEGACY DISCREPANCY CARD · PROTOTYPE</span>
           <h2>The visible disk extends beyond the legacy measurement.</h2>
           <p>Illustrative processing recovers low-surface-brightness structure outside the published optical radius. This record demonstrates how the atlas will separate measurement from cosmological interpretation.</p>
           <div className="record-metrics">
-            <div><span>Outer radius</span><strong>{galaxy.diskDelta}</strong></div>
-            <div><span>Δg<sub>bar</sub></span><strong>{galaxy.gravityDelta}</strong></div>
-            <div><span>Inclination</span><strong>{galaxy.inclination}</strong></div>
-            <div><span>Confidence</span><strong>{galaxy.confidence}%</strong></div>
+            <div><span>Outer radius</span><strong>{galaxy.diskDelta}</strong><small className={`record-signal signal-${galaxy.outerLevel}`}>{signalLabels[galaxy.outerLevel]}</small></div>
+            <div><span>Δg<sub>bar</sub></span><strong>{galaxy.gravityDelta}</strong><small className={`record-signal signal-${galaxy.gravityLevel}`}>{signalLabels[galaxy.gravityLevel]}</small></div>
+            <div><span>Inclination revision</span><strong>{galaxy.inclinationDelta}</strong><small className={`record-signal signal-${galaxy.inclinationLevel}`}>{signalLabels[galaxy.inclinationLevel]}</small></div>
+            <div><span>Confidence</span><strong>{galaxy.confidence}%</strong><small className="record-signal signal-expected">Detection estimate</small></div>
           </div>
+          <p className="record-benchmark">Context is based on prototype audit ranges: 5–15% for recovered outer radius, under 3% for Δg<sub>bar</sub>, and ±3° for cross-survey inclination scatter.</p>
           <div className="review-badge"><i /> {galaxy.status} · independent review pending</div>
         </aside>
       </section>

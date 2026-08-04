@@ -12,6 +12,16 @@ export type Galaxy = {
   gravityDelta: string;
   confidence: number;
   crop: string;
+  outerContext: string;
+  outerLevel: "large" | "above" | "expected" | "pending";
+  gravityContext: string;
+  gravityLevel: "large" | "above" | "expected" | "pending";
+  inclinationDelta: string;
+  inclinationContext: string;
+  inclinationLevel: "large" | "above" | "expected" | "pending";
+  structures: string;
+  structuresContext: string;
+  structuresLevel: "large" | "above" | "expected" | "pending";
 };
 
 export const galaxies: Galaxy[] = [
@@ -29,6 +39,16 @@ export const galaxies: Galaxy[] = [
     gravityDelta: "+9%",
     confidence: 94,
     crop: "72% 62%",
+    outerContext: "Typical audit shift: 5–15%",
+    outerLevel: "large",
+    gravityContext: "Typical audit shift: under 3%",
+    gravityLevel: "large",
+    inclinationDelta: "−4°",
+    inclinationContext: "Typical survey scatter: ±3°",
+    inclinationLevel: "above",
+    structures: "02",
+    structuresContext: "Any validated feature is notable",
+    structuresLevel: "above",
   },
   {
     slug: "ngc-55",
@@ -44,6 +64,16 @@ export const galaxies: Galaxy[] = [
     gravityDelta: "+5%",
     confidence: 87,
     crop: "13% 23%",
+    outerContext: "Typical audit shift: 5–15%",
+    outerLevel: "above",
+    gravityContext: "Typical audit shift: under 3%",
+    gravityLevel: "above",
+    inclinationDelta: "−1°",
+    inclinationContext: "Typical survey scatter: ±3°",
+    inclinationLevel: "expected",
+    structures: "01",
+    structuresContext: "Candidate awaiting review",
+    structuresLevel: "above",
   },
   {
     slug: "ngc-7793",
@@ -59,6 +89,16 @@ export const galaxies: Galaxy[] = [
     gravityDelta: "+4%",
     confidence: 91,
     crop: "50% 44%",
+    outerContext: "Typical audit shift: 5–15%",
+    outerLevel: "above",
+    gravityContext: "Typical audit shift: under 3%",
+    gravityLevel: "above",
+    inclinationDelta: "+2°",
+    inclinationContext: "Typical survey scatter: ±3°",
+    inclinationLevel: "expected",
+    structures: "01",
+    structuresContext: "Candidate awaiting review",
+    structuresLevel: "above",
   },
   {
     slug: "ngc-24",
@@ -74,6 +114,16 @@ export const galaxies: Galaxy[] = [
     gravityDelta: "Pending",
     confidence: 76,
     crop: "88% 20%",
+    outerContext: "Measurement not yet run",
+    outerLevel: "pending",
+    gravityContext: "Requires a validated light profile",
+    gravityLevel: "pending",
+    inclinationDelta: "Pending",
+    inclinationContext: "Cross-survey fit queued",
+    inclinationLevel: "pending",
+    structures: "—",
+    structuresContext: "Diffuse-light review queued",
+    structuresLevel: "pending",
   },
   {
     slug: "eso-116-g012",
@@ -89,6 +139,16 @@ export const galaxies: Galaxy[] = [
     gravityDelta: "+3%",
     confidence: 82,
     crop: "32% 76%",
+    outerContext: "Typical audit shift: 5–15%",
+    outerLevel: "expected",
+    gravityContext: "Typical audit shift: under 3%",
+    gravityLevel: "expected",
+    inclinationDelta: "+1°",
+    inclinationContext: "Typical survey scatter: ±3°",
+    inclinationLevel: "expected",
+    structures: "01",
+    structuresContext: "Candidate awaiting review",
+    structuresLevel: "above",
   },
 ];
 

@@ -7,12 +7,19 @@ import { galaxies } from "@/lib/galaxies";
 const bands = ["RGB", "u", "g", "r", "i", "z", "y", "Diffuse"];
 const profileLegacy = [78, 70, 62, 54, 47, 39, 31, 25, 19, 15, 12, 10];
 const profileRubin = [80, 72, 64, 57, 50, 43, 36, 30, 25, 21, 18, 15];
+const signalLabels = {
+  large: "Large difference",
+  above: "Above expected",
+  expected: "Within expected",
+  pending: "Pending",
+};
 
 export function AtlasExperience() {
   const [band, setBand] = useState("RGB");
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("All");
   const [reveal, setReveal] = useState(52);
+  const [selectedSlug, setSelectedSlug] = useState(galaxies[0].slug);
 
   const filtered = useMemo(
     () =>
@@ -25,6 +32,12 @@ export function AtlasExperience() {
       }),
     [query, status],
   );
+
+  const selectedGalaxy = galaxies.find((galaxy) => galaxy.slug === selectedSlug) ?? galaxies[0];
+  const selectGalaxy = (slug: string) => {
+    setSelectedSlug(slug);
+    setReveal(52);
+  };
 
   return (
     <main>
@@ -90,7 +103,7 @@ export function AtlasExperience() {
             <span className="section-index">01 / THE ATLAS</span>
             <h2>Follow the missing light.</h2>
           </div>
-          <p>Search the SPARC audit queue, compare surveys, and inspect the evidence behind every reported feature.</p>
+          <p>Select any object to compare its registered survey views, then read each change against an expected audit range.</p>
         </div>
 
         <div className="workspace">
@@ -117,8 +130,14 @@ export function AtlasExperience() {
             </div>
             <div className="catalog-meta"><span>{filtered.length} prototype objects</span><span>Sort: confidence ↓</span></div>
             <div className="galaxy-list">
-              {filtered.map((galaxy, index) => (
-                <Link className={`galaxy-row ${index === 0 ? "selected" : ""}`} href={`/galaxy/${galaxy.slug}`} key={galaxy.slug}>
+              {filtered.map((galaxy) => (
+                <button
+                  type="button"
+                  className={`galaxy-row ${selectedGalaxy.slug === galaxy.slug ? "selected" : ""}`}
+                  onClick={() => selectGalaxy(galaxy.slug)}
+                  aria-pressed={selectedGalaxy.slug === galaxy.slug}
+                  key={galaxy.slug}
+                >
                   <span className="galaxy-thumb" style={{ backgroundPosition: galaxy.crop }} />
                   <span className="galaxy-identity">
                     <strong>{galaxy.name}</strong>
@@ -129,20 +148,20 @@ export function AtlasExperience() {
                     <small>outer radius</small>
                   </span>
                   <span className={`status-mark status-${galaxy.status.toLowerCase()}`} aria-label={galaxy.status} />
-                </Link>
+                </button>
               ))}
               {filtered.length === 0 && <p className="empty-state">No objects match this view.</p>}
             </div>
           </aside>
 
-          <article className="object-panel" id="ngc-300">
+          <article className="object-panel" id={selectedGalaxy.slug}>
             <div className="object-head">
               <div>
-                <span className="object-id">SPARC 001 · DEMONSTRATION RECORD</span>
-                <h3>NGC 300</h3>
-                <p>Flocculent spiral · Sculptor · 2.0 Mpc</p>
+                <span className="object-id">{selectedGalaxy.catalog} · DEMONSTRATION RECORD</span>
+                <h3>{selectedGalaxy.name}</h3>
+                <p>{selectedGalaxy.morphology} · {selectedGalaxy.constellation} · {selectedGalaxy.distance}</p>
               </div>
-              <Link className="open-record" href="/galaxy/ngc-300">Open record <span>↗</span></Link>
+              <Link className="open-record" href={`/galaxy/${selectedGalaxy.slug}`}>Open record <span>↗</span></Link>
             </div>
 
             <div className="viewer-tabs" role="group" aria-label="Image band">
@@ -152,9 +171,19 @@ export function AtlasExperience() {
             </div>
 
             <div className={`comparison-view band-${band.toLowerCase()}`}>
-              <img src="/rubin-virgo.jpg" alt="Galaxy comparison view" />
-              <div className="legacy-layer" style={{ width: `${reveal}%` }}>
-                <img src="/rubin-virgo.jpg" alt="" />
+              <div className="comparison-layer rubin-layer">
+                <img
+                  src="/rubin-virgo.jpg"
+                  alt={`${selectedGalaxy.name} Rubin comparison view`}
+                  style={{ objectPosition: selectedGalaxy.crop }}
+                />
+              </div>
+              <div
+                className="comparison-layer legacy-layer"
+                style={{ clipPath: `inset(0 ${100 - reveal}% 0 0)` }}
+                aria-hidden="true"
+              >
+                <img src="/rubin-virgo.jpg" alt="" style={{ objectPosition: selectedGalaxy.crop }} />
                 <span>LEGACY</span>
               </div>
               <span className="rubin-label">RUBIN · {band}</span>
@@ -171,15 +200,41 @@ export function AtlasExperience() {
             </div>
             <div className="viewer-caption">
               <span>Central galaxy · 2.5 × expected disk radius</span>
-              <span>Drag to compare</span>
+              <span className="alignment-status"><i /> REGISTERED · PSF MATCHED</span>
               <span>N ↑ · 12.4′ field</span>
             </div>
 
             <div className="metrics-row">
-              <div><span>Outer radius</span><strong>+38%</strong><small>vs. legacy profile</small></div>
-              <div><span>Δg<sub>bar</sub> at 15 kpc</span><strong>+9%</strong><small>illustrative change</small></div>
-              <div><span>Inclination</span><strong>42°</strong><small>−4° revision</small></div>
-              <div><span>New structures</span><strong>02</strong><small>awaiting review</small></div>
+              <div className="metric-tile">
+                <span className={`signal-badge signal-${selectedGalaxy.outerLevel}`}>{signalLabels[selectedGalaxy.outerLevel]}</span>
+                <span>Outer radius</span>
+                <strong>{selectedGalaxy.diskDelta}</strong>
+                <small>{selectedGalaxy.outerContext}</small>
+              </div>
+              <div className="metric-tile">
+                <span className={`signal-badge signal-${selectedGalaxy.gravityLevel}`}>{signalLabels[selectedGalaxy.gravityLevel]}</span>
+                <span>Δg<sub>bar</sub> at 15 kpc</span>
+                <strong>{selectedGalaxy.gravityDelta}</strong>
+                <small>{selectedGalaxy.gravityContext}</small>
+              </div>
+              <div className="metric-tile">
+                <span className={`signal-badge signal-${selectedGalaxy.inclinationLevel}`}>{signalLabels[selectedGalaxy.inclinationLevel]}</span>
+                <span>Inclination revision</span>
+                <strong>{selectedGalaxy.inclinationDelta}</strong>
+                <small>{selectedGalaxy.inclinationContext}</small>
+              </div>
+              <div className="metric-tile">
+                <span className={`signal-badge signal-${selectedGalaxy.structuresLevel}`}>{signalLabels[selectedGalaxy.structuresLevel]}</span>
+                <span>New structures</span>
+                <strong>{selectedGalaxy.structures}</strong>
+                <small>{selectedGalaxy.structuresContext}</small>
+              </div>
+            </div>
+            <div className="metric-key">
+              <strong>How to read these</strong>
+              <span><i className="key-large" /> Large: clearly beyond the prototype audit range</span>
+              <span><i className="key-above" /> Above expected: worth scientific review</span>
+              <span><i className="key-expected" /> Within expected: consistent with survey or pipeline differences</span>
             </div>
           </article>
         </div>
@@ -195,13 +250,17 @@ export function AtlasExperience() {
         </div>
         <div className="discrepancy-grid">
           <article className="quote-card">
-            <span className="card-label">AUTOMATED SUMMARY · PROTOTYPE</span>
-            <blockquote>
-              “Rubin traces the disk <em>38% farther</em> than the legacy image. The additional light raises estimated baryonic acceleration by <em>9% at 15 kpc</em>. Two faint outer structures merit follow-up.”
-            </blockquote>
+            <span className="card-label">{selectedGalaxy.name} · AUTOMATED SUMMARY · PROTOTYPE</span>
+            {selectedGalaxy.outerLevel === "pending" ? (
+              <blockquote>“This object is queued. Its aligned images are ready, but the light profile and significance tests have <em>not yet been run</em>.”</blockquote>
+            ) : (
+              <blockquote>
+                “Rubin traces the disk <em>{selectedGalaxy.diskDelta} farther</em> than the legacy image. The additional light changes estimated baryonic acceleration by <em>{selectedGalaxy.gravityDelta} at 15 kpc</em>. {selectedGalaxy.structures} outer structure candidates merit review.”
+              </blockquote>
+            )}
             <div className="confidence-row">
-              <span><i style={{ width: "94%" }} />Detection probability</span><strong>94%</strong>
-              <span><i style={{ width: "3%" }} />False-positive estimate</span><strong>3%</strong>
+              <span><i style={{ width: `${selectedGalaxy.confidence}%` }} />Detection probability</span><strong>{selectedGalaxy.confidence}%</strong>
+              <span><i style={{ width: `${100 - selectedGalaxy.confidence}%` }} />False-positive estimate</span><strong>{100 - selectedGalaxy.confidence}%</strong>
             </div>
           </article>
           <article className="profile-card">
@@ -213,7 +272,7 @@ export function AtlasExperience() {
               {profileLegacy.map((value, index) => <b className="plot-dot legacy-dot" style={{ left: `${8 + index * 7.7}%`, bottom: `${value}%` }} key={`l-${index}`} />)}
               {profileRubin.map((value, index) => <b className="plot-dot rubin-dot" style={{ left: `${8 + index * 7.7}%`, bottom: `${value}%` }} key={`r-${index}`} />)}
             </div>
-            <div className="chart-legend"><span><i className="rubin-key" /> Rubin</span><span><i className="legacy-key" /> Legacy</span><strong>Signal persists to 1.38 R<sub>legacy</sub></strong></div>
+            <div className="chart-legend"><span><i className="rubin-key" /> Rubin</span><span><i className="legacy-key" /> Legacy</span><strong>{selectedGalaxy.diskDelta === "Pending" ? "Profile queued" : `Outer-radius change: ${selectedGalaxy.diskDelta}`}</strong></div>
           </article>
         </div>
       </section>
