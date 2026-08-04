@@ -1,0 +1,26 @@
+{
+  "notice": "Demonstration record for the Rubin Missing Light Atlas interface. Values are illustrative, not published scientific measurements.",
+  "object_id": "ngc-300",
+  "release": "0.1-prototype",
+  "coordinates": { "ra_deg": 13.7228, "dec_deg": -37.6844 },
+  "measurements": {
+    "outer_radius_change_pct": 38,
+    "gbar_change_at_15_kpc_pct": 9,
+    "detection_probability": 0.94,
+    "false_positive_probability": 0.03,
+    "human_review_status": "demonstration"
+  },
+  "files": [
+    "metadata.parquet",
+    "rubin_g.fits",
+    "rubin_r.fits",
+    "rubin_i.fits",
+    "variance.fits",
+    "mask.fits",
+    "psf.fits",
+    "legacy_optical.fits",
+    "segmentation.fits",
+    "radial_profile.parquet",
+    "feature_annotations.json"
+  ]
+}
