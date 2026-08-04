@@ -4,13 +4,6 @@ import { notFound } from "next/navigation";
 import { galaxies, getGalaxy } from "@/lib/galaxies";
 import { GalaxyRecordComparison } from "@/components/GalaxyRecordComparison";
 
-const signalLabels = {
-  large: "Large difference",
-  above: "Above expected",
-  expected: "Within expected",
-  pending: "Pending",
-};
-
 export function generateStaticParams() {
   return galaxies.map((galaxy) => ({ slug: galaxy.slug }));
 }
@@ -21,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!galaxy) return {};
   return {
     title: galaxy.name,
-    description: `${galaxy.name}: a demonstration object record in the Rubin Missing Light Atlas.`,
+    description: `${galaxy.name}: an EDP2 ingest record in the Rubin Missing Light Atlas.`,
   };
 }
 
@@ -38,54 +31,54 @@ export default async function GalaxyPage({ params }: { params: Promise<{ slug: s
           <span>Rubin <strong>Missing Light</strong> Atlas</span>
         </Link>
         <Link className="back-link" href="/#atlas">← Back to atlas</Link>
-        <span className="release-pill"><span className="live-dot" /> Demonstration record</span>
+        <span className="release-pill"><span className="live-dot" /> EDP2 ingest record</span>
       </header>
 
       <section className="record-masthead">
         <div>
-          <span className="object-id">{galaxy.catalog} · PERMANENT OBJECT RECORD</span>
+          <span className="object-id">{galaxy.catalog} · PERMANENT TARGET RECORD</span>
           <h1>{galaxy.name}</h1>
-          <p>{galaxy.morphology} in {galaxy.constellation} · {galaxy.distance}</p>
+          <p>{galaxy.morphology} in {galaxy.constellation} · {galaxy.distance} · RA {galaxy.raDeg.toFixed(5)}° · Dec {galaxy.decDeg.toFixed(5)}°</p>
         </div>
         <div className="record-actions">
-          <a className="button button-primary" href="/sample-package.json" download>Download package ↓</a>
-          <button className="button button-outline" type="button">Copy citation</button>
+          <a className="button button-primary" href="https://github.com/lrspeiser/rubin-light-atlas/tree/main/pipeline">Run ingest ↗</a>
+          <Link className="button button-outline" href="/#data">Manifest contract</Link>
         </div>
       </section>
 
       <section className="record-layout">
-        <GalaxyRecordComparison name={galaxy.name} crop={galaxy.crop} />
+        <GalaxyRecordComparison galaxy={galaxy} />
         <aside className="record-summary">
-          <span className="card-label">LEGACY DISCREPANCY CARD · PROTOTYPE</span>
-          <h2>The visible disk extends beyond the legacy measurement.</h2>
-          <p>Illustrative processing recovers low-surface-brightness structure outside the published optical radius. This record demonstrates how the atlas will separate measurement from cosmological interpretation.</p>
+          <span className="card-label">MEASUREMENT STATE · NOT YET PUBLISHED</span>
+          <h2>No numerical discrepancy is asserted for this target.</h2>
+          <p>The record is intentionally gated. The July 2026 EDP2 coverage query, unique Rubin cutout, legacy registration, PSF/sky reconciliation, and validation report must all exist before images or statistics appear here.</p>
           <div className="record-metrics">
-            <div><span>Outer radius</span><strong>{galaxy.diskDelta}</strong><small className={`record-signal signal-${galaxy.outerLevel}`}>{signalLabels[galaxy.outerLevel]}</small></div>
-            <div><span>Δg<sub>bar</sub></span><strong>{galaxy.gravityDelta}</strong><small className={`record-signal signal-${galaxy.gravityLevel}`}>{signalLabels[galaxy.gravityLevel]}</small></div>
-            <div><span>Inclination revision</span><strong>{galaxy.inclinationDelta}</strong><small className={`record-signal signal-${galaxy.inclinationLevel}`}>{signalLabels[galaxy.inclinationLevel]}</small></div>
-            <div><span>Confidence</span><strong>{galaxy.confidence}%</strong><small className="record-signal signal-expected">Detection estimate</small></div>
+            <div><span>EDP2 coverage</span><strong>—</strong><small className="record-signal signal-pending">Unchecked</small></div>
+            <div><span>Image manifest</span><strong>—</strong><small className="record-signal signal-pending">Missing</small></div>
+            <div><span>Registration QA</span><strong>—</strong><small className="record-signal signal-pending">Not run</small></div>
+            <div><span>Difference stats</span><strong>—</strong><small className="record-signal signal-pending">Blocked</small></div>
           </div>
-          <p className="record-benchmark">Context is based on prototype audit ranges: 5–15% for recovered outer radius, under 3% for Δg<sub>bar</sub>, and ±3° for cross-survey inclination scatter.</p>
-          <div className="review-badge"><i /> {galaxy.status} · independent review pending</div>
+          <p className="record-benchmark">A future “large difference” label will require a ≥3σ change relative to a declared cross-survey baseline. The uncertainty and baseline will be published alongside the value.</p>
+          <div className="review-badge"><i /> awaiting authenticated EDP2 ingest</div>
         </aside>
       </section>
 
       <section className="record-evidence">
-        <div className="evidence-title"><span className="section-index">MEASUREMENT EVIDENCE</span><h2>Everything needed to reproduce the claim.</h2></div>
+        <div className="evidence-title"><span className="section-index">REQUIRED EVIDENCE</span><h2>Everything needed to turn this slot into a result.</h2></div>
         <div className="evidence-cards">
-          <article><span>01</span><h3>Images</h3><p>Six calibrated bands at five physical scales, plus star-removed and diffuse-light products.</p><strong>18 FITS products →</strong></article>
-          <article><span>02</span><h3>Profiles</h3><p>Surface brightness, color, mass density, isophotes, and local background with uncertainty.</p><strong>7 measurement tables →</strong></article>
-          <article><span>03</span><h3>Validation</h3><p>Injection–recovery completeness, sky-model sensitivity, and independent-pipeline agreement.</p><strong>{galaxy.confidence}% recovery →</strong></article>
-          <article><span>04</span><h3>Provenance</h3><p>Inputs, software versions, parameters, checksums, masks, and human-review history.</p><strong>Full audit log →</strong></article>
+          <article><span>01</span><h3>Rubin pixels</h3><p>All available EDP2 deep-coadd bands, variance, mask, WCS, PSF metadata, and Butler dataset UUIDs.</p><strong>AUTHENTICATED QUERY</strong></article>
+          <article><span>02</span><h3>Legacy pixels</h3><p>A named older survey product with source identifiers, calibration, filter response, and checksums.</p><strong>EXPLICIT SOURCE</strong></article>
+          <article><span>03</span><h3>Alignment</h3><p>Common WCS and pixel grid, plus measured astrometric residual, PSF matching, and sky reconciliation.</p><strong>QA MUST PASS</strong></article>
+          <article><span>04</span><h3>Significance</h3><p>Change, uncertainty, comparison baseline, σ score, injection–recovery performance, and review state.</p><strong>NO NAKED PERCENTAGES</strong></article>
         </div>
       </section>
 
-      <div className="record-notice"><strong>Prototype notice</strong><p>This interface demonstrates the intended data structure. Numerical changes shown here are illustrative and are not published scientific results.</p></div>
+      <div className="record-notice"><strong>Honest empty state</strong><p>This target page does not reuse the commissioning image or display illustrative measurements. It will activate automatically when a verified per-object manifest is published.</p></div>
 
       <footer>
         <Link className="brand footer-brand" href="/"><span className="brand-mark" aria-hidden="true"><i /></span><span>Rubin <strong>Missing Light</strong> Atlas</span></Link>
-        <p>Prototype concept · Not affiliated with Rubin Observatory</p>
-        <div><Link href="/#method">Method</Link><Link href="/#data">Data</Link></div>
+        <p>Independent prototype · Not affiliated with Rubin Observatory</p>
+        <div><Link href="/#method">Method</Link><Link href="/#data">Data contract</Link></div>
       </footer>
     </main>
   );

@@ -1,0 +1,14 @@
+{
+  "objectId": "ngc-300",
+  "legacySource": "name and release of the older survey product",
+  "legacySourceIds": ["required-source-identifier"],
+  "legacyRgb": "/absolute/path/to/registered-legacy-preview.png",
+  "commonWcs": true,
+  "psfMatched": true,
+  "skyMatched": true,
+  "maxResidualArcsec": 0.08,
+  "qaThresholdArcsec": 0.1,
+  "rubinDiffuse": "/absolute/path/to/injection-calibrated-diffuse-preview.png",
+  "legacyBands": {},
+  "metrics": []
+}

@@ -1,18 +1,20 @@
 # Rubin Missing Light Atlas
 
-A public-facing prototype for a measured atlas of faint visible matter around nearby galaxies. The interface demonstrates how Rubin-versus-legacy images, radial measurements, baryonic-acceleration revisions, injection–recovery evidence, and machine-readable object packages can live together in one durable record.
+A manifest-gated atlas for measuring faint visible matter around nearby galaxies and quantifying how Rubin changes older measurements.
+
+The website never substitutes a shared demonstration image for a target. Each comparison activates only when `public/atlas/<object-id>/manifest.json` identifies unique Rubin EDP2 pixels, a registered legacy image, the shared WCS/PSF/sky QA, source checksums, and Butler dataset UUIDs. Unverified targets remain explicit empty states, and no illustrative discrepancy statistics are shown.
 
 ## What is included
 
-- Searchable SPARC audit queue with analysis status and confidence
-- Interactive legacy-versus-Rubin comparison viewer
-- Permanent object routes such as `/galaxy/ngc-300`
-- Legacy discrepancy cards and radial profile visualization
-- Injection–recovery credibility layer
-- Downloadable demonstration package and social preview metadata
+- Compact, data-first target workspace
+- One permanent route per pilot galaxy
+- Manifest-driven, per-galaxy Rubin/legacy sliders
+- Per-band image controls that expose only ingested products
+- “Expected,” “above expected,” and “large” differences tied to uncertainty and σ
+- Authenticated EDP2 coadd export code and release-wide duplicate-image checks
 - Responsive layouts for desktop and mobile
 
-All numerical results shown in the interface are marked as illustrative. They are product examples, not published scientific measurements.
+See [`pipeline/README.md`](pipeline/README.md) for the complete RSP ingest, registration, verification, and publication flow.
 
 ## Run locally
 
@@ -28,10 +30,13 @@ Build and test:
 ```bash
 npm run build
 npm test
+python pipeline/validate_release.py
 ```
 
-The project uses vinext for Cloudflare-compatible output. Optional Sites infrastructure is declared in `.openai/hosting.json`.
+The project uses vinext for Cloudflare-compatible output. Sites infrastructure is declared in `.openai/hosting.json`.
 
-## Image credit
+## Data status
 
-The Virgo Cluster image is from the NSF–DOE Vera C. Rubin Observatory / NOIRLab commissioning release.
+Early DP2 was released July 27, 2026 with deep coadds and catalogs. Access currently requires Rubin data rights through the Rubin Science Platform. This public repository contains the pipeline and target contract, but no restricted Rubin pixels or credentials.
+
+This is an independent prototype and is not affiliated with Rubin Observatory.

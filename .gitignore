@@ -28,6 +28,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 .codex-dev.*.log
+.dev-*.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -41,3 +42,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+*.tsbuildinfo
+__pycache__/
+/pipeline/output/
