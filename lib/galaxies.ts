@@ -10,6 +10,9 @@ export type Galaxy = {
   decDeg: number;
   fieldWidthArcmin: number;
   coverage: "unchecked" | "covered" | "not-covered";
+  sparcProfileMaxArcsec: number;
+  legacyState: "ready" | "not-covered";
+  legacyPreview?: string;
 };
 
 export const galaxies: Galaxy[] = [
@@ -25,6 +28,9 @@ export const galaxies: Galaxy[] = [
     decDeg: -37.684214,
     fieldWidthArcmin: 36,
     coverage: "unchecked",
+    sparcProfileMaxArcsec: 209.03,
+    legacyState: "ready",
+    legacyPreview: "/legacy/ngc-300/spitzer-irac1.png",
   },
   {
     slug: "ngc-55",
@@ -38,6 +44,9 @@ export const galaxies: Galaxy[] = [
     decDeg: -39.196628,
     fieldWidthArcmin: 36,
     coverage: "unchecked",
+    sparcProfileMaxArcsec: 989.07,
+    legacyState: "ready",
+    legacyPreview: "/legacy/ngc-55/spitzer-irac1.png",
   },
   {
     slug: "ngc-7793",
@@ -51,6 +60,9 @@ export const galaxies: Galaxy[] = [
     decDeg: -32.591028,
     fieldWidthArcmin: 24,
     coverage: "unchecked",
+    sparcProfileMaxArcsec: 352.17,
+    legacyState: "ready",
+    legacyPreview: "/legacy/ngc-7793/spitzer-irac1.png",
   },
   {
     slug: "ngc-24",
@@ -64,6 +76,9 @@ export const galaxies: Galaxy[] = [
     decDeg: -24.963131,
     fieldWidthArcmin: 16,
     coverage: "unchecked",
+    sparcProfileMaxArcsec: 264.59,
+    legacyState: "ready",
+    legacyPreview: "/legacy/ngc-24/spitzer-irac1.png",
   },
   {
     slug: "eso-116-g012",
@@ -77,6 +92,8 @@ export const galaxies: Galaxy[] = [
     decDeg: -57.357247,
     fieldWidthArcmin: 12,
     coverage: "unchecked",
+    sparcProfileMaxArcsec: 102.01,
+    legacyState: "not-covered",
   },
 ];
 

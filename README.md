@@ -39,4 +39,6 @@ The project uses vinext for Cloudflare-compatible output. Sites infrastructure i
 
 Early DP2 was released July 27, 2026 with deep coadds and catalogs. Access currently requires Rubin data rights through the Rubin Science Platform. This public repository contains the pipeline and target contract, but no restricted Rubin pixels or credentials.
 
+The public side has been run for the pilot: official SPARC profiles and mass/rotation models exist for all five targets, and real Spitzer SEIP IRAC1 science/uncertainty/coverage mosaics cover four. The committed [overlap audit](pipeline/results/public-legacy-overlap.json) records source identifiers and spatial support. Rubin coverage remains explicitly unqueried until the authenticated RSP export runs.
+
 This is an independent prototype and is not affiliated with Rubin Observatory.

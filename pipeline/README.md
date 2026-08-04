@@ -4,6 +4,21 @@ The atlas does not download or subdivide one enormous release image. Early Data 
 
 The July 27, 2026 early release contains deep coadds and catalogs. Raw, visit, template, and difference images are planned for the complete DP2 release later in 2026. EDP2 access currently requires Rubin data rights and an authenticated Rubin Science Platform session.
 
+## 0. Fetch the public SPARC and Spitzer side
+
+This step does not require Rubin credentials:
+
+```bash
+python pipeline/fetch_public_legacy.py --cache pipeline/cache
+python pipeline/audit_overlap.py --legacy-cache pipeline/cache
+```
+
+`fetch_public_legacy.py` downloads the official SPARC sample table, surface-brightness profiles, rotation/mass models, and published diagnostic plots. It then queries NASA/IPAC IRSA's SIAv2 service for real Spitzer Enhanced Imaging Products at each target coordinate, downloads the IRAC channel 1 science/uncertainty/coverage mosaics, and makes target-centered FITS cutouts. The cache is ignored by Git; every source URL and SHA-256 digest is recorded.
+
+The SPARC mass-model PNG is a plot, not a sky image. It must never be put in an image slider or subtracted from Rubin pixels. The registered legacy image comes from the Spitzer FITS mosaic; the SPARC profile and rotation curve are separate measurement references.
+
+`audit_overlap.py` checks whether the SPARC radial profile lies within the declared field and whether valid Spitzer pixels exist at its outer accepted radius. It consumes the authenticated EDP2 coverage summary when one exists. Until that summary exists, it reports the precise Rubin blocker instead of inferring footprint coverage.
+
 ## 1. Export Rubin data inside the RSP
 
 Open an RSP Notebook Aspect session, clone or upload this repository, and run:

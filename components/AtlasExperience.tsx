@@ -53,10 +53,10 @@ export function AtlasExperience() {
           <p>Every slider is wired to its own cutout manifest. If the real Rubin and legacy inputs are absent, the atlas shows no image and makes the missing step explicit.</p>
         </div>
         <div className="release-facts" aria-label="Release facts">
-          <div><strong>{verifiedTargets.size} / {galaxies.length}</strong><span>verified pilot objects</span></div>
-          <div><strong>deep_coadd</strong><span>July image product</span></div>
-          <div><strong>6 bands</strong><span>u g r i z y</span></div>
-          <div><strong>RSP auth</strong><span>required to ingest</span></div>
+          <div><strong>{verifiedTargets.size} / {galaxies.length}</strong><span>complete comparisons</span></div>
+          <div><strong>5 / 5</strong><span>SPARC profiles loaded</span></div>
+          <div><strong>4 / 5</strong><span>Spitzer IRAC1 images</span></div>
+          <div><strong>0 / 5</strong><span>Rubin coverage queried</span></div>
         </div>
       </section>
 
@@ -71,7 +71,7 @@ export function AtlasExperience() {
               <span aria-hidden="true">⌕</span>
               <input aria-label="Search galaxies" placeholder="Search target or catalog" value={query} onChange={(event) => setQuery(event.target.value)} />
             </div>
-            <div className="catalog-meta"><span>{filtered.length} targets</span><span>EDP2 coverage unchecked</span></div>
+            <div className="catalog-meta"><span>{filtered.length} targets · SPARC loaded</span><span>EDP2 unchecked</span></div>
             <div className="galaxy-list">
               {filtered.map((galaxy, index) => (
                 <button
@@ -83,15 +83,15 @@ export function AtlasExperience() {
                 >
                   <span className="target-index">{String(index + 1).padStart(2, "0")}</span>
                   <span className="galaxy-identity"><strong>{galaxy.name}</strong><small>{galaxy.catalog} · {galaxy.distance}</small></span>
-                  <span className="galaxy-signal"><strong>{verifiedTargets.has(galaxy.slug) ? "VERIFIED" : "INGEST"}</strong><small>{galaxy.fieldWidthArcmin}′ field</small></span>
-                  <span className={`status-mark ${verifiedTargets.has(galaxy.slug) ? "status-analyzed" : "status-queued"}`} aria-label={verifiedTargets.has(galaxy.slug) ? "Verified" : "Awaiting ingest"} />
+                  <span className="galaxy-signal"><strong>{verifiedTargets.has(galaxy.slug) ? "VERIFIED" : galaxy.legacyState === "ready" ? "LEGACY READY" : "SPARC ONLY"}</strong><small>{galaxy.legacyState === "ready" ? "IRAC1 + profile" : "No SEIP image"}</small></span>
+                  <span className={`status-mark ${verifiedTargets.has(galaxy.slug) ? "status-analyzed" : galaxy.legacyState === "ready" ? "status-review" : "status-queued"}`} aria-label={verifiedTargets.has(galaxy.slug) ? "Verified" : galaxy.legacyState === "ready" ? "Legacy data ready" : "SPARC profile only"} />
                 </button>
               ))}
               {filtered.length === 0 && <p className="empty-state">No targets match this search.</p>}
             </div>
             <div className="catalog-foot">
-              <span>Coordinates are fixed before coverage review.</span>
-              <span>No shared demonstration image.</span>
+              <span>Official SPARC data loaded for all five targets.</span>
+              <span>Real Spitzer cutouts for four · Rubin authentication still required.</span>
             </div>
           </aside>
 

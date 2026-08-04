@@ -101,25 +101,28 @@ export function GalaxyComparison({ galaxy, record = false }: { galaxy: Galaxy; r
       </div>
     </>
   ) : (
-    <div className={`ingest-gate ${record ? "record-ingest-gate" : ""}`}>
+    <div className={`ingest-gate ${galaxy.legacyPreview ? "legacy-ready-gate" : ""} ${record ? "record-ingest-gate" : ""}`}>
+      {galaxy.legacyPreview && <img className="legacy-ready-preview" src={galaxy.legacyPreview} alt={`${galaxy.name} real Spitzer IRAC channel 1 archive cutout`} />}
       <div className="coordinate-reticle" aria-hidden="true"><i /><b /></div>
       <div className="ingest-copy">
-        <span className={`ingest-state state-${loadState}`}>{loadState === "loading" ? "Checking manifest" : loadState === "invalid" ? "Manifest blocked" : "Awaiting authenticated ingest"}</span>
-        <h4>No substitute image shown.</h4>
+        <span className={`ingest-state state-${loadState}`}>{loadState === "loading" ? "Checking Rubin manifest" : loadState === "invalid" ? "Rubin manifest blocked" : galaxy.legacyPreview ? "SPARC + Spitzer ready · Rubin pending" : "SPARC ready · Rubin + Spitzer pending"}</span>
+        <h4>{galaxy.legacyPreview ? "Real legacy pixels are ready." : "No substitute image shown."}</h4>
         <p>
-          This slot activates only after a unique Rubin EDP2 cutout and a registered legacy image pass provenance and alignment checks.
+          {galaxy.legacyPreview
+            ? "This is the target’s real public Spitzer/IRAC 3.6 μm cutout. The slider stays locked until authenticated Rubin EDP2 pixels are registered to it."
+            : "The SPARC profile is loaded, but no Spitzer SEIP image covers this target. A different named legacy survey and authenticated Rubin EDP2 pixels are required."}
         </p>
         <div className="target-coordinates">
           <span><small>RA</small>{galaxy.raDeg.toFixed(6)}°</span>
           <span><small>DEC</small>{galaxy.decDeg.toFixed(6)}°</span>
           <span><small>FIELD</small>{galaxy.fieldWidthArcmin}′</span>
-          <span><small>STATUS</small>{galaxy.coverage === "unchecked" ? "Coverage query needed" : galaxy.coverage}</span>
+          <span><small>SPARC RMAX</small>{galaxy.sparcProfileMaxArcsec.toFixed(1)}″</span>
         </div>
       </div>
       <div className="ingest-contract" aria-label="Required ingest checks">
-        <span><i>1</i> EDP2 coverage</span>
-        <span><i>2</i> Unique dataset IDs</span>
-        <span><i>3</i> Common WCS + PSF</span>
+        <span className="gate-done"><i>✓</i> SPARC profile</span>
+        <span className={galaxy.legacyPreview ? "gate-done" : ""}><i>{galaxy.legacyPreview ? "✓" : "2"}</i> Spitzer IRAC1</span>
+        <span><i>3</i> Rubin EDP2</span>
         <span><i>4</i> Registration QA</span>
       </div>
     </div>
@@ -140,7 +143,7 @@ export function GalaxyComparison({ galaxy, record = false }: { galaxy: Galaxy; r
         <>
           <div className="metrics-row">
             {(metrics ?? [
-              { label: "Outer radius", value: "Not measured", uncertainty: "Needs Rubin + legacy profile", expectedRange: "Benchmark computed after ingest" },
+              { label: "Outer radius", value: "Rubin pending", uncertainty: `SPARC profile accepted to ${galaxy.sparcProfileMaxArcsec.toFixed(1)}″`, expectedRange: "New optical extent not measured" },
               { label: "Δgbar", value: "Not measured", uncertainty: "Needs mass-to-light model", expectedRange: "No illustrative value shown" },
               { label: "Inclination revision", value: "Not measured", uncertainty: "Needs matched isophote fit", expectedRange: "Compared with fit uncertainty" },
               { label: "Faint structures", value: "Not reviewed", uncertainty: "Needs injection–recovery test", expectedRange: "False-positive rate required" },

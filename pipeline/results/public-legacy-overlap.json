@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-04T03:33:38.457312+00:00",
+  "meaning": "Availability and spatial-overlap audit; not a Rubin-versus-SPARC measurement",
+  "rubinCoverageActuallyQueried": false,
+  "targets": {
+    "ngc-300": {
+      "sparcId": "NGC0300",
+      "sparcProfile": {
+        "available": true,
+        "acceptedPoints": 50,
+        "maxAcceptedRadiusArcsec": 209.03,
+        "fitsInsideDeclaredField": true
+      },
+      "spitzerSeip": {
+        "coverage": "covered",
+        "scienceFiniteFraction": 0.7179381172839506,
+        "profileEdgeAnnulusFiniteFraction": 1.0,
+        "sourceProducts": [
+          {
+            "kind": "science",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070440/0/50070440-0/50070440.50070440-0.IRAC.1.mosaic.fits",
+            "obsId": "50070440.50070440-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070440.50070440-0.IRAC/50070440.50070440-0.IRAC",
+            "estimatedKbyte": 99769,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "uncertainty",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070440/0/50070440-0/50070440.50070440-0.IRAC.1.unc.fits",
+            "obsId": "50070440.50070440-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070440.50070440-0.IRAC/50070440.50070440-0.IRAC",
+            "estimatedKbyte": 99769,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "coverage",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070440/0/50070440-0/50070440.50070440-0.IRAC.1.cov.fits",
+            "obsId": "50070440.50070440-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070440.50070440-0.IRAC/50070440.50070440-0.IRAC",
+            "estimatedKbyte": 99769,
+            "bandpass": "IRAC1"
+          }
+        ]
+      },
+      "rubinEdp2": {
+        "coverageQueried": false,
+        "coveredBands": []
+      },
+      "analysisState": "awaiting-authenticated-rubin-coverage-query"
+    },
+    "ngc-55": {
+      "sparcId": "NGC0055",
+      "sparcProfile": {
+        "available": true,
+        "acceptedPoints": 28,
+        "maxAcceptedRadiusArcsec": 989.07,
+        "fitsInsideDeclaredField": true
+      },
+      "spitzerSeip": {
+        "coverage": "covered",
+        "scienceFiniteFraction": 0.4269712962962963,
+        "profileEdgeAnnulusFiniteFraction": 1.0,
+        "sourceProducts": [
+          {
+            "kind": "science",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070470/0/50070470-0/50070470.50070470-0.IRAC.1.mosaic.fits",
+            "obsId": "50070470.50070470-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070470.50070470-0.IRAC/50070470.50070470-0.IRAC",
+            "estimatedKbyte": 115013,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "uncertainty",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070470/0/50070470-0/50070470.50070470-0.IRAC.1.unc.fits",
+            "obsId": "50070470.50070470-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070470.50070470-0.IRAC/50070470.50070470-0.IRAC",
+            "estimatedKbyte": 115013,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "coverage",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0070/50070470/0/50070470-0/50070470.50070470-0.IRAC.1.cov.fits",
+            "obsId": "50070470.50070470-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50070470.50070470-0.IRAC/50070470.50070470-0.IRAC",
+            "estimatedKbyte": 115013,
+            "bandpass": "IRAC1"
+          }
+        ]
+      },
+      "rubinEdp2": {
+        "coverageQueried": false,
+        "coveredBands": []
+      },
+      "analysisState": "awaiting-authenticated-rubin-coverage-query"
+    },
+    "ngc-7793": {
+      "sparcId": "NGC7793",
+      "sparcProfile": {
+        "available": true,
+        "acceptedPoints": 67,
+        "maxAcceptedRadiusArcsec": 352.17,
+        "fitsInsideDeclaredField": true
+      },
+      "spitzerSeip": {
+        "coverage": "covered",
+        "scienceFiniteFraction": 0.43006059027777777,
+        "profileEdgeAnnulusFiniteFraction": 1.0,
+        "sourceProducts": [
+          {
+            "kind": "uncertainty",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0062/50062410/0/50062410-0/50062410.50062410-0.IRAC.1.unc.fits",
+            "obsId": "50062410.50062410-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50062410.50062410-0.IRAC/50062410.50062410-0.IRAC",
+            "estimatedKbyte": 35842,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "coverage",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0062/50062410/0/50062410-0/50062410.50062410-0.IRAC.1.cov.fits",
+            "obsId": "50062410.50062410-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50062410.50062410-0.IRAC/50062410.50062410-0.IRAC",
+            "estimatedKbyte": 35842,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "science",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0062/50062410/0/50062410-0/50062410.50062410-0.IRAC.1.mosaic.fits",
+            "obsId": "50062410.50062410-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50062410.50062410-0.IRAC/50062410.50062410-0.IRAC",
+            "estimatedKbyte": 35842,
+            "bandpass": "IRAC1"
+          }
+        ]
+      },
+      "rubinEdp2": {
+        "coverageQueried": false,
+        "coveredBands": []
+      },
+      "analysisState": "awaiting-authenticated-rubin-coverage-query"
+    },
+    "ngc-24": {
+      "sparcId": "NGC0024",
+      "sparcProfile": {
+        "available": true,
+        "acceptedPoints": 64,
+        "maxAcceptedRadiusArcsec": 264.59,
+        "fitsInsideDeclaredField": true
+      },
+      "spitzerSeip": {
+        "coverage": "covered",
+        "scienceFiniteFraction": 0.731005078125,
+        "profileEdgeAnnulusFiniteFraction": 1.0,
+        "sourceProducts": [
+          {
+            "kind": "coverage",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0069/50069950/0/50069950-0/50069950.50069950-0.IRAC.1.cov.fits",
+            "obsId": "50069950.50069950-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50069950.50069950-0.IRAC/50069950.50069950-0.IRAC",
+            "estimatedKbyte": 28541,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "uncertainty",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0069/50069950/0/50069950-0/50069950.50069950-0.IRAC.1.unc.fits",
+            "obsId": "50069950.50069950-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50069950.50069950-0.IRAC/50069950.50069950-0.IRAC",
+            "estimatedKbyte": 28541,
+            "bandpass": "IRAC1"
+          },
+          {
+            "kind": "science",
+            "url": "https://irsa.ipac.caltech.edu/data/SPITZER/Enhanced/SEIP/images/5/0069/50069950/0/50069950-0/50069950.50069950-0.IRAC.1.mosaic.fits",
+            "obsId": "50069950.50069950-0.IRAC",
+            "publisherDid": "ivo://irsa.ipac/spitzer_seip?50069950.50069950-0.IRAC/50069950.50069950-0.IRAC",
+            "estimatedKbyte": 28541,
+            "bandpass": "IRAC1"
+          }
+        ]
+      },
+      "rubinEdp2": {
+        "coverageQueried": false,
+        "coveredBands": []
+      },
+      "analysisState": "awaiting-authenticated-rubin-coverage-query"
+    },
+    "eso-116-g012": {
+      "sparcId": "ESO116-G012",
+      "sparcProfile": {
+        "available": true,
+        "acceptedPoints": 43,
+        "maxAcceptedRadiusArcsec": 102.01,
+        "fitsInsideDeclaredField": true
+      },
+      "spitzerSeip": {
+        "coverage": "not-covered",
+        "scienceFiniteFraction": null,
+        "profileEdgeAnnulusFiniteFraction": null,
+        "sourceProducts": []
+      },
+      "rubinEdp2": {
+        "coverageQueried": false,
+        "coveredBands": []
+      },
+      "analysisState": "legacy-image-not-covered"
+    }
+  }
+}
