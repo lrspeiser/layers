@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-12T22:40:09.636364+00:00",
+  "generatedAt": "2026-08-12T23:19:47.681295+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -7564,8 +7564,8 @@
             ],
             "commonWcs": true,
             "commonFootprint": true,
-            "psfMatched": false,
-            "skyMatched": false,
+            "psfMatched": true,
+            "skyMatched": true,
             "unitsMatched": true,
             "filterMatched": false,
             "filterTransform": null,
@@ -7585,7 +7585,17 @@
             "astrometricResidualP95Arcsec": 0.23679642384585858,
             "astrometryPass": true,
             "rubinMedianFwhmArcsec": 2.058165300431642,
-            "comparisonMedianFwhmArcsec": 2.027216962325514
+            "comparisonMedianFwhmArcsec": 2.027216962325514,
+            "reconciliationStatus": "matched-not-photometrically-comparable",
+            "matchedCommonValidPixelFraction": 0.9384058641975309,
+            "postMatchAstrometricResidualP95Arcsec": 0.23771962928468154,
+            "postMatchFractionalFwhmDifference": 0.012899243195493045,
+            "filterMatchBlocking": true
+          },
+          "products": {
+            "matchedPairSha256": "662f911a099cc2bb18a4cd368599f077a5ec52be61d698b18c62a65562d18979",
+            "sourceRubinSha256": "2d245f4157af25354dad1e750c8515b555ed6c4549da06dc41c5464c1b7d6249",
+            "sourceComparisonSha256": "27052ad0bca271a0d8ad570184b8d90635300a97406b3dee41e6e055114c555c"
           },
           "measurements": [],
           "inferences": [],
@@ -7767,8 +7777,8 @@
             ],
             "commonWcs": true,
             "commonFootprint": true,
-            "psfMatched": false,
-            "skyMatched": false,
+            "psfMatched": true,
+            "skyMatched": true,
             "unitsMatched": true,
             "filterMatched": false,
             "filterTransform": null,
@@ -7788,7 +7798,17 @@
             "astrometricResidualP95Arcsec": 0.21652992608622,
             "astrometryPass": true,
             "rubinMedianFwhmArcsec": 2.11266219975829,
-            "comparisonMedianFwhmArcsec": 2.0399541174716447
+            "comparisonMedianFwhmArcsec": 2.0399541174716447,
+            "reconciliationStatus": "matched-not-photometrically-comparable",
+            "matchedCommonValidPixelFraction": 0.9600462962962963,
+            "postMatchAstrometricResidualP95Arcsec": 0.20990679349122096,
+            "postMatchFractionalFwhmDifference": 0.013752029815112594,
+            "filterMatchBlocking": true
+          },
+          "products": {
+            "matchedPairSha256": "af07cdc3f865446ee359bf4813117320f05e4aafbc8b29d612046cc3b59efa5c",
+            "sourceRubinSha256": "b436f6d0943520226d264159d7e886ab9313b1c1a4f16e76c754a5f624f88a3e",
+            "sourceComparisonSha256": "f1154ee383a41817677f43f3df6bfd895af5d9cfc85b39edba4a1233a79ec15d"
           },
           "measurements": [],
           "inferences": [],
@@ -8097,7 +8117,12 @@
             "astrometricResidualP95Arcsec": 0.408143488111138,
             "astrometryPass": false,
             "rubinMedianFwhmArcsec": 2.330481761516664,
-            "comparisonMedianFwhmArcsec": 2.401274707543058
+            "comparisonMedianFwhmArcsec": 2.401274707543058,
+            "reconciliationStatus": "blocked",
+            "matchedCommonValidPixelFraction": null,
+            "postMatchAstrometricResidualP95Arcsec": null,
+            "postMatchFractionalFwhmDifference": null,
+            "filterMatchBlocking": true
           },
           "measurements": [],
           "inferences": [],

@@ -26,6 +26,7 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
   const [reveal, setReveal] = useState(50);
   const [showCoverage, setShowCoverage] = useState(true);
   const [showMasks, setShowMasks] = useState(true);
+  const [showInspector, setShowInspector] = useState(true);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const drag = useRef<DragState>(null);
 
@@ -150,6 +151,7 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
                 <span className="compare-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
                 <input className="compare-slider" type="range" min="2" max="98" value={reveal} onChange={(event) => setReveal(Number(event.target.value))} aria-label="Reveal Rubin DP2 over Legacy DR10" />
                 <label className="mask-toggle"><input type="checkbox" checked={showMasks} onChange={(event) => setShowMasks(event.target.checked)} /> show data-quality masks</label>
+                <button className="data-inspector-toggle" onClick={() => setShowInspector((value) => !value)}>{showInspector ? "HIDE" : "SHOW"} DATA INSPECTOR</button>
                 <span className="visual-qa-chip">LOCKED VIEW · SHARED FLUX STRETCH · PSF + FILTER MATCH PENDING</span>
               </>
             )}
@@ -162,6 +164,32 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
         </div>
 
         <aside className="prototype-analysis">
+          {showInspector && <section className="prototype-panel data-inspector-panel">
+            <div className="panel-heading"><span className="eyebrow">WHAT IS BEHIND EACH PIXEL?</span><span>CALIBRATED FITS</span></div>
+            <p className="mono-explainer"><strong>Why grayscale?</strong> The aligned view compares one physical band—z—to keep artificial color recipes from looking like new structure. The full-field view remains a color composite for orientation. The picture is only a stretch; every location retains calibrated data.</p>
+            <div className="pixel-payload">
+              <span><i>01</i><strong>FLUX</strong><small>nJy per 0.4″ pixel</small></span>
+              <span><i>02</i><strong>UNCERTAINTY</strong><small>variance / inverse variance</small></span>
+              <span><i>03</i><strong>QUALITY</strong><small>mask bits + valid coverage</small></span>
+              <span><i>04</i><strong>POSITION</strong><small>ICRS coordinate from WCS</small></span>
+            </div>
+          </section>}
+
+          {showInspector && <section className="prototype-panel better-panel">
+            <div className="panel-heading"><span className="eyebrow">WHICH IS BETTER?</span><span>DEPENDS ON THE QUESTION</span></div>
+            <h3>No single winner. Compare the dimensions.</h3>
+            <div className="better-table" role="table" aria-label="Rubin and Legacy data quality comparison">
+              <div className="better-head" role="row"><span>DIMENSION</span><strong>RUBIN DP2 z</strong><strong>LEGACY DR10 z</strong></div>
+              <div role="row"><span>Valid field</span><strong>96.2%</strong><strong className="dimension-winner">99.6% ↑</strong></div>
+              <div role="row"><span>Bands here</span><strong className="dimension-winner">g · r · i · z ↑</strong><strong>g · r · z</strong></div>
+              <div role="row"><span>Median pixel noise*</span><strong className="dimension-winner">34.7 nJy ↑</strong><strong>38.1 nJy</strong></div>
+              <div role="row"><span>Measured FWHM</span><strong>2.06″</strong><strong className="dimension-winner">2.03″ ↑</strong></div>
+              <div role="row"><span>Native support</span><strong>image · variance · mask</strong><strong>image · inverse variance · mask</strong></div>
+            </div>
+            <p className="scorecard-note">*Lower formal per-pixel uncertainty is better here. Rubin is about 9% lower in this field; Legacy covers 3.4 percentage points more area. The measured resolution is effectively tied before formal PSF matching.</p>
+            <div className="provisional-verdict"><strong>PROVISIONAL READ</strong><p>Rubin carries an extra usable band and slightly lower formal z-band noise. Legacy is more spatially complete. Neither is yet allowed to win on faint outer light because filter response, correlated noise, PSF wings, and injection/recovery are still unresolved.</p></div>
+          </section>}
+
           <section className="prototype-panel overlap-panel">
             <div className="panel-heading"><span className="eyebrow">OVERLAP FOUND</span><span className="qa-pass-dot">ASTROMETRY PASS</span></div>
             <h1>One sky position.<br />Three useful layers.</h1>
@@ -187,8 +215,8 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
             <ol>
               <li className="done"><i>✓</i><span><strong>Common sky grid</strong><small>same 12′ WCS and pixels</small></span></li>
               <li className="done"><i>✓</i><span><strong>Astrometry</strong><small>below declared threshold</small></span></li>
-              <li><i>3</i><span><strong>PSF + filter response</strong><small>match resolution and color terms</small></span></li>
-              <li><i>4</i><span><strong>Sky + uncertainty</strong><small>measure whether change is expected</small></span></li>
+              <li className="done"><i>✓</i><span><strong>PSF + sky intermediate</strong><small>matched FITS pair; ~1.3% FWHM difference</small></span></li>
+              <li><i>4</i><span><strong>Filter + recovery tests</strong><small>required before a missing-light claim</small></span></li>
             </ol>
           </section>
 

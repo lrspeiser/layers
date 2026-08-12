@@ -97,6 +97,16 @@ export type Comparison = {
     astrometryPass?: boolean;
     rubinMedianFwhmArcsec?: number;
     comparisonMedianFwhmArcsec?: number;
+    reconciliationStatus?: string;
+    matchedCommonValidPixelFraction?: number;
+    postMatchAstrometricResidualP95Arcsec?: number;
+    postMatchFractionalFwhmDifference?: number;
+    filterMatchBlocking?: boolean;
+  };
+  products?: {
+    matchedPairSha256?: string;
+    sourceRubinSha256?: string;
+    sourceComparisonSha256?: string;
   };
   measurements: DifferenceMeasurement[];
   inferences: Inference[];

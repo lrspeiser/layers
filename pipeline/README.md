@@ -90,6 +90,16 @@ python pipeline/audit_layer_registration.py
 
 The audit chooses the best-covered common band, measures matched-source residuals, common valid coverage, empirical PSF widths, and robust sky planes. It leaves `psfMatched`, `filterMatched`, and `skyMatched` false because measuring those quantities does not perform the matching operation. Its predeclared astrometric publication threshold is 0.30 arcsec p95.
 
+Create the calibrated reconciliation intermediates:
+
+```bash
+python pipeline/reconcile_image_layers.py
+```
+
+This stage applies the measured translational astrometric correction, subtracts independently fitted robust sky planes, convolves both images and their variance planes to a common Gaussian PSF target, erodes masks across every convolution kernel, and writes one checksum-protected multi-extension `matched-pair.fits` per passing target. The file contains both matched images, both variance planes, the common mask, and a QA-only difference plane.
+
+The stage intentionally leaves `filterResponse.matched` false and `quantitativeDifferenceAllowed` false. Similar band names are not proof of equal throughput; a documented color transformation or synthetic-photometry model, correlated-noise treatment, and injection/recovery must pass before the QA difference plane can be interpreted as missing light. A target whose astrometric residual exceeds 0.30 arcsec p95 is recorded as blocked rather than silently warped into compliance.
+
 All acquired pixels, support planes, derived mosaics, manifests, and the SQLite store live under ignored `pipeline/output/`. Only metadata suitable for public release is copied into the catalog.
 
 ## 1. Export Rubin data inside the RSP

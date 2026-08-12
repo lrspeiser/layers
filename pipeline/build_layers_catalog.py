@@ -158,6 +158,13 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     source_registration = audit.get("sourceRegistration", {})
     residual = source_registration.get("residualP95Arcsec")
     threshold = audit.get("astrometryThresholdArcsec")
+    reconciliation_path = path.parent / "reconciliation.json"
+    reconciliation = load_json(reconciliation_path) if reconciliation_path.is_file() else None
+    reconciliation_registration = reconciliation.get("registration", {}) if reconciliation else {}
+    reconciliation_psf = reconciliation.get("psf", {}) if reconciliation else {}
+    reconciliation_sky = reconciliation.get("sky", {}) if reconciliation else {}
+    matched_product = reconciliation.get("products", {}) if reconciliation else {}
+    effective_status = reconciliation.get("status") if reconciliation else "audit-only"
     return {
         "id": f"{audit['objectId']}-registration-audit",
         "layerIds": audit["layerIds"],
@@ -166,8 +173,8 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "layerIds": audit["layerIds"],
             "commonWcs": audit.get("commonWcs", False),
             "commonFootprint": audit.get("commonFootprint", False),
-            "psfMatched": audit.get("psfMatched", False),
-            "skyMatched": audit.get("skyMatched", False),
+            "psfMatched": reconciliation_psf.get("matched", audit.get("psfMatched", False)),
+            "skyMatched": reconciliation_sky.get("matched", audit.get("skyMatched", False)),
             "unitsMatched": audit.get("unitsMatched", False),
             "filterMatched": audit.get("filterMatched", False),
             "filterTransform": audit.get("filterTransform"),
@@ -184,7 +191,19 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "astrometryPass": audit.get("astrometryPass", False),
             "rubinMedianFwhmArcsec": source_registration.get("rubinMedianFwhmArcsec"),
             "comparisonMedianFwhmArcsec": source_registration.get("comparisonMedianFwhmArcsec"),
+            "reconciliationStatus": effective_status,
+            "matchedCommonValidPixelFraction": reconciliation_registration.get("commonValidPixelFraction"),
+            "postMatchAstrometricResidualP95Arcsec": reconciliation_registration.get("sourceRegistration", {}).get("residualP95Arcsec"),
+            "postMatchFractionalFwhmDifference": reconciliation_psf.get("postMatchFractionalFwhmDifference"),
+            "filterMatchBlocking": bool(reconciliation and not reconciliation.get("filterResponse", {}).get("matched", False)),
         },
+        **({
+            "products": {
+                "matchedPairSha256": matched_product.get("matchedPairSha256"),
+                "sourceRubinSha256": matched_product.get("sourceRubinSha256"),
+                "sourceComparisonSha256": matched_product.get("sourceComparisonSha256"),
+            },
+        } if matched_product else {}),
         "measurements": [],
         "inferences": [],
         "assumptionAudits": [],

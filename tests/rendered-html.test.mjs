@@ -37,9 +37,12 @@ test("real-field prototype exposes discoverable overlap and honest QA gates", as
   assert.match(html, /0\.237/);
   assert.match(html, /This does/);
   assert.match(html, /brightness differences are scientifically comparable/);
-  assert.match(html, /PSF \+ filter response/);
+  assert.match(html, /PSF \+ sky intermediate/);
   assert.match(html, /Legacy really does fill more of this field/);
   assert.match(html, /Open an official source FITS/);
+  assert.match(html, /WHAT IS BEHIND EACH PIXEL/);
+  assert.match(html, /No single winner/);
+  assert.match(html, /Median pixel noise/);
 });
 
 test("catalog contains the complete SPARC sample and generic layer records", async () => {

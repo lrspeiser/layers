@@ -139,7 +139,9 @@ function DifferencePanel({ comparison }: { comparison?: Comparison }) {
           <span className={`claim-state ${comparison.qa.astrometryPass ? "qa-pass" : "qa-fail"}`}>{comparison.qa.astrometryPass ? "ASTROMETRY PASSED" : "ASTROMETRY BLOCKED"}</span>
         </div>
         <h3>{comparison.qa.comparisonLayerLabel} · {comparison.qa.band}-band</h3>
-        <p>This is data-readiness evidence, not a scientific difference claim. PSF, filter response, and sky matching are still unapplied.</p>
+        <p>{comparison.registration.psfMatched && comparison.registration.skyMatched
+          ? "A matched FITS pair now shares the sky grid, physical units, PSF target, masks, and sky subtraction. Filter response and injection/recovery still block a scientific difference claim."
+          : "This is data-readiness evidence, not a scientific difference claim. PSF, filter response, and sky matching are still unapplied."}</p>
         <div className="qa-readout">
           <span><small>P95 RESIDUAL</small><strong>{residual?.toFixed(3) ?? "—"}″</strong><em>limit {threshold?.toFixed(2) ?? "—"}″</em></span>
           <span><small>COMMON VALID AREA</small><strong>{comparison.qa.commonValidPixelFraction !== undefined ? `${(comparison.qa.commonValidPixelFraction * 100).toFixed(1)}%` : "—"}</strong><em>after masks</em></span>
