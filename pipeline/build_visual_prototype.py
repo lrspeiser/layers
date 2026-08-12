@@ -83,12 +83,50 @@ def save_rgb(path: Path, rgb: np.ndarray) -> None:
     Image.fromarray(rgb, mode="RGB").save(path, quality=92, optimize=True, progressive=True)
 
 
+def shared_grayscale_pair(
+    left: tuple[np.ndarray, np.ndarray],
+    right: tuple[np.ndarray, np.ndarray],
+) -> tuple[np.ndarray, np.ndarray]:
+    """Render two calibrated planes with one shared physical-flux stretch."""
+    left_image, left_valid = left
+    right_image, right_valid = right
+    common = left_valid & right_valid
+    samples = np.concatenate([left_image[common], right_image[common]])
+    _, _, noise = sigma_clipped_stats(samples, sigma=3.0, maxiters=6)
+    scale = max(float(noise) * 1.6, 1e-6)
+    positive = samples[samples > 0]
+    high = float(np.percentile(positive, 99.85)) if positive.size else scale * 40
+    high = max(high, scale * 20)
+
+    rendered = []
+    for image, valid in (left, right):
+        normalized = np.arcsinh(np.clip(image, 0, None) / scale) / np.arcsinh(high / scale)
+        gray = np.uint8(np.clip(normalized, 0, 1) ** 0.88 * 255)
+        rgb = np.empty((*gray.shape, 3), dtype=np.uint8)
+        rgb[:] = [3, 7, 14]
+        rgb[valid] = np.stack([gray[valid], gray[valid], gray[valid]], axis=-1)
+        rendered.append(rgb)
+    return rendered[0], rendered[1]
+
+
 def coverage_overlay(path: Path, valid: np.ndarray) -> None:
     """Encode real reference-layer validity as a cyan translucent mask."""
     edge = valid & ~binary_erosion(valid, iterations=3)
     rgba = np.zeros((*valid.shape, 4), dtype=np.uint8)
     rgba[valid] = [54, 228, 210, 24]
     rgba[edge] = [108, 255, 233, 196]
+    Image.fromarray(rgba, mode="RGBA").save(path, optimize=True)
+
+
+def invalid_pixel_overlay(path: Path, valid: np.ndarray) -> None:
+    """Make missing/invalid pixels unmistakable without inventing replacements."""
+    invalid = ~valid
+    edge = invalid & ~binary_erosion(invalid, iterations=2)
+    y, x = np.indices(valid.shape)
+    hatch = invalid & (((x + y) % 18) < 3)
+    rgba = np.zeros((*valid.shape, 4), dtype=np.uint8)
+    rgba[hatch] = [255, 183, 94, 76]
+    rgba[edge] = [255, 196, 118, 205]
     Image.fromarray(rgba, mode="RGBA").save(path, optimize=True)
 
 
@@ -113,9 +151,16 @@ def main() -> None:
 
     rubin_rgb, rubin_valid = color_composite(rubin_planes)
     legacy_rgb, legacy_valid = color_composite(legacy_planes)
+    rubin_z, legacy_z = shared_grayscale_pair(rubin_planes["z"], legacy_planes["z"])
     save_rgb(output_dir / "rubin-dp2.jpg", rubin_rgb)
     save_rgb(output_dir / "legacy-dr10.jpg", legacy_rgb)
+    save_rgb(output_dir / "rubin-dp2-z.jpg", rubin_z)
+    save_rgb(output_dir / "legacy-dr10-z.jpg", legacy_z)
     coverage_overlay(output_dir / "legacy-coverage.png", legacy_valid)
+    invalid_pixel_overlay(output_dir / "rubin-mask.png", rubin_valid)
+    invalid_pixel_overlay(output_dir / "legacy-mask.png", legacy_valid)
+    invalid_pixel_overlay(output_dir / "rubin-z-mask.png", rubin_planes["z"][1])
+    invalid_pixel_overlay(output_dir / "legacy-z-mask.png", legacy_planes["z"][1])
 
     manifest = {
         "schemaVersion": 1,
@@ -130,7 +175,13 @@ def main() -> None:
         "assets": {
             "rubin": "rubin-dp2.jpg",
             "legacy": "legacy-dr10.jpg",
+            "rubinZ": "rubin-dp2-z.jpg",
+            "legacyZ": "legacy-dr10-z.jpg",
             "coverage": "legacy-coverage.png",
+            "rubinMask": "rubin-mask.png",
+            "legacyMask": "legacy-mask.png",
+            "rubinZMask": "rubin-z-mask.png",
+            "legacyZMask": "legacy-z-mask.png",
         },
         "notice": "Display stretches only. Original calibrated FITS products remain the analysis inputs.",
     }

@@ -25,6 +25,7 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [reveal, setReveal] = useState(50);
   const [showCoverage, setShowCoverage] = useState(true);
+  const [showMasks, setShowMasks] = useState(true);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const drag = useRef<DragState>(null);
 
@@ -48,11 +49,12 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
     event.preventDefault();
+    if (mode === "compare") return;
     setZoomLevel(zoom * (event.deltaY < 0 ? 1.18 : 0.84));
   };
 
   const handlePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
-    if (event.button !== 0 || zoom <= 1) return;
+    if (mode === "compare" || event.button !== 0 || zoom <= 1) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     drag.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, panX: pan.x, panY: pan.y };
   };
@@ -98,10 +100,12 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <button className={mode === "compare" ? "active" : ""} onClick={focusTarget}>Aligned comparison</button>
             </div>
             <div className="field-tools">
-              <label className="coverage-toggle"><input type="checkbox" checked={showCoverage} onChange={(event) => setShowCoverage(event.target.checked)} /><i /> Legacy footprint</label>
-              <button onClick={() => setZoomLevel(zoom / 1.45)} aria-label="Zoom out">−</button>
-              <button className="zoom-readout" onClick={showFullField} aria-label="Reset zoom">{zoom.toFixed(1)}×</button>
-              <button onClick={() => setZoomLevel(zoom * 1.45)} aria-label="Zoom in">+</button>
+              {mode === "overview" ? <>
+                <label className="coverage-toggle"><input type="checkbox" checked={showCoverage} onChange={(event) => setShowCoverage(event.target.checked)} /><i /> Legacy footprint</label>
+                <button onClick={() => setZoomLevel(zoom / 1.45)} aria-label="Zoom out">−</button>
+                <button className="zoom-readout" onClick={showFullField} aria-label="Reset zoom">{zoom.toFixed(1)}×</button>
+                <button onClick={() => setZoomLevel(zoom * 1.45)} aria-label="Zoom in">+</button>
+              </> : <span className="comparison-lock">VIEW LOCKED · DRAG REVEAL ONLY</span>}
             </div>
           </div>
 
@@ -122,9 +126,13 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               </div>
             )}
             <div className="field-transform" style={transformStyle}>
-              {mode === "compare" && <img className="field-image" src="/private-preview/ugc00191/legacy-dr10.jpg" alt="UGC 00191 in Legacy Survey DR10" onError={() => setPixelsAvailable(false)} draggable={false} />}
+              {mode === "compare" && <>
+                <img className="field-image" src="/private-preview/ugc00191/legacy-dr10-z.jpg" alt="UGC 00191 in Legacy Survey DR10 z band" onError={() => setPixelsAvailable(false)} draggable={false} />
+                {showMasks && <img className="quality-mask" src="/private-preview/ugc00191/legacy-z-mask.png" alt="Legacy Survey masked or missing pixels" draggable={false} />}
+              </>}
               <div className={mode === "compare" ? "rubin-reveal" : "rubin-full"} style={mode === "compare" ? { clipPath: `inset(0 ${100 - reveal}% 0 0)` } : undefined}>
-                <img className="field-image" src="/private-preview/ugc00191/rubin-dp2.jpg" alt="UGC 00191 in Rubin DP2" onError={() => setPixelsAvailable(false)} draggable={false} />
+                <img className="field-image" src={mode === "compare" ? "/private-preview/ugc00191/rubin-dp2-z.jpg" : "/private-preview/ugc00191/rubin-dp2.jpg"} alt={mode === "compare" ? "UGC 00191 in Rubin DP2 z band" : "UGC 00191 in Rubin DP2"} onError={() => setPixelsAvailable(false)} draggable={false} />
+                {showMasks && <img className="quality-mask" src={mode === "compare" ? "/private-preview/ugc00191/rubin-z-mask.png" : "/private-preview/ugc00191/rubin-mask.png"} alt="Rubin masked or missing pixels" draggable={false} />}
               </div>
               {showCoverage && mode === "overview" && <img className="coverage-footprint" src="/private-preview/ugc00191/legacy-coverage.png" alt="Legacy Survey valid-pixel footprint" draggable={false} />}
               {mode === "overview" && <span className="science-region" aria-hidden="true"><i>SPARC 1.27′ region</i></span>}
@@ -134,18 +142,23 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
             </div>
 
             {mode === "overview" ? (
-              <div className="overview-caption"><span><i /> Legacy valid-pixel footprint</span><strong>Click the pin to inspect the overlap</strong></div>
+              <div className="overview-caption"><span><i /> Legacy valid-pixel footprint · <b /> amber hatch = masked Rubin pixels</span><strong>Click the pin to inspect the overlap</strong></div>
             ) : (
               <>
-                <span className="image-label image-label-left">RUBIN DP2</span>
-                <span className="image-label image-label-right">LEGACY DR10</span>
+                <span className="image-label image-label-left">RUBIN DP2 · z</span>
+                <span className="image-label image-label-right">LEGACY DR10 · z</span>
                 <span className="compare-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
                 <input className="compare-slider" type="range" min="2" max="98" value={reveal} onChange={(event) => setReveal(Number(event.target.value))} aria-label="Reveal Rubin DP2 over Legacy DR10" />
-                <span className="visual-qa-chip">VISUAL QA ONLY · PSF + FILTER MATCH PENDING</span>
+                <label className="mask-toggle"><input type="checkbox" checked={showMasks} onChange={(event) => setShowMasks(event.target.checked)} /> show data-quality masks</label>
+                <span className="visual-qa-chip">LOCKED VIEW · SHARED FLUX STRETCH · PSF + FILTER MATCH PENDING</span>
               </>
             )}
           </div>
-          <div className="field-bottomline"><span>Scroll or use + / − to zoom · drag while zoomed</span><span>North up · east left</span><span>Display stretch; calibrated FITS drive analysis</span></div>
+          <div className="field-bottomline">
+            <span>{mode === "compare" ? "Drag horizontally to reveal · field position locked" : "Scroll or use + / − to zoom · drag while zoomed"}</span>
+            <span>North up · east left</span>
+            <span>Display stretch; calibrated FITS drive analysis</span>
+          </div>
         </div>
 
         <aside className="prototype-analysis">
@@ -164,6 +177,8 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
             <div className="evidence-number"><strong>{qa.residualArcsec.toFixed(3)}″</strong><span>P95 registration residual<small>{qa.matchedSources} matched sources</small></span></div>
             <div className="threshold-line"><i style={{ width: `${Math.min(100, qa.residualArcsec / qa.thresholdArcsec * 100)}%` }} /><b /><span>0″</span><span>pass limit {qa.thresholdArcsec.toFixed(2)}″</span></div>
             <p>The layers line up closely enough for visual review. This does <strong>not</strong> yet mean brightness differences are scientifically comparable.</p>
+            <div className="valid-pixel-pair"><span><small>RUBIN VALID z PIXELS</small><strong>96.2%</strong></span><span><small>LEGACY VALID z PIXELS</small><strong>99.6%</strong></span></div>
+            <p>Legacy really does fill more of this field: 3.4 percentage points more valid z-band pixels. That is coverage and masking—not evidence that it detects more faint light.</p>
           </section>
 
           <section className="prototype-panel next-panel">
@@ -175,6 +190,18 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <li><i>3</i><span><strong>PSF + filter response</strong><small>match resolution and color terms</small></span></li>
               <li><i>4</i><span><strong>Sky + uncertainty</strong><small>measure whether change is expected</small></span></li>
             </ol>
+          </section>
+
+          <section className="prototype-panel source-panel">
+            <div className="panel-heading"><span className="eyebrow">SOURCE + PROVENANCE</span><span>FILES RETAINED</span></div>
+            <h3>Legacy Survey DR10 public coadds</h3>
+            <p>Downloaded from the official Legacy Survey FITS cutout service at RA 5.02167°, Dec +10.88000°. Sixteen original 512-pixel FITS tiles retain the griz science cube, inverse variance, source URL, and SHA-256.</p>
+            <dl>
+              <div><dt>Original FITS</dt><dd>16 · 128.1 MiB</dd></div>
+              <div><dt>Local products</dt><dd>g · r · z + IVAR + mask</dd></div>
+              <div><dt>Pipeline layer</dt><dd>ls-dr10</dd></div>
+            </dl>
+            <a href="https://www.legacysurvey.org/viewer/fits-cutout?ra=5.02167&dec=10.88000&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=" target="_blank" rel="noreferrer">Open an official source FITS ↗</a>
           </section>
 
           <section className="prototype-panel prototype-question">
