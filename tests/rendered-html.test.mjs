@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -7,7 +6,6 @@ async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
   const { default: worker } = await import(workerUrl.href);
-
   return worker.fetch(
     new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
@@ -15,61 +13,61 @@ async function render(pathname = "/") {
   );
 }
 
-test("server-renders the data-first atlas and honest ingest state", async () => {
+test("server-renders Layers as a survey-neutral science workspace", async () => {
   const response = await render();
   assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
   const html = await response.text();
-  assert.match(html, /Rubin Missing Light Atlas/);
-  assert.match(html, /Compare verified pixels, galaxy by galaxy/);
-  assert.match(html, /Real legacy pixels are ready/);
-  assert.match(html, /\/legacy\/ngc-300\/spitzer-irac1\.png/);
-  assert.match(html, /No published pixels/);
-  assert.doesNotMatch(html, /rubin-virgo\.jpg/);
-  assert.doesNotMatch(html, /codex-preview|SkeletonPreview|react-loading-skeleton/);
+  assert.match(html, /Layers/);
+  assert.match(html, /See the same sky through every credible layer/);
+  assert.match(html, /175/);
+  assert.match(html, /ASSUMPTIONS WORTH RECHECKING/);
+  assert.match(html, /TRIAGE, NOT A VERDICT/);
+  assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
 });
 
-test("server-renders a gated permanent object record", async () => {
-  const response = await render("/galaxy/ngc-300");
-  assert.equal(response.status, 200);
-
-  const html = await response.text();
-  assert.match(html, /NGC 300/);
-  assert.match(html, /PERMANENT TARGET RECORD/);
-  assert.match(html, /No numerical discrepancy is asserted/);
-  assert.match(html, /Honest empty state/);
-  assert.match(html, /real public Spitzer\/IRAC 3\.6 μm cutout/);
-  assert.doesNotMatch(html, /rubin-virgo\.jpg/);
+test("catalog contains the complete SPARC sample and generic layer records", async () => {
+  const catalog = JSON.parse(await readFile(new URL("../public/data/layers-catalog.json", import.meta.url), "utf8"));
+  assert.equal(catalog.product, "Layers");
+  assert.equal(catalog.targetSelection.complete, true);
+  assert.equal(catalog.targets.length, 175);
+  assert.equal(new Set(catalog.targets.map((target) => target.id)).size, 175);
+  assert.equal(catalog.summary.rubinSiaMatches, 4);
+  assert.equal(catalog.summary.rubinUsableLocal, 3);
+  assert.equal(catalog.summary.rubinFootprintFalsePositives, 1);
+  for (const target of catalog.targets) {
+    assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
+    assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
+  }
 });
 
-test("ships four unique public Spitzer previews and a real overlap audit", async () => {
-  const slugs = ["ngc-300", "ngc-55", "ngc-7793", "ngc-24"];
-  const buffers = await Promise.all(slugs.map((slug) => readFile(new URL(`../public/legacy/${slug}/spitzer-irac1.png`, import.meta.url))));
-  const hashes = buffers.map((buffer) => createHash("sha256").update(buffer).digest("hex"));
-  assert.equal(new Set(hashes).size, slugs.length);
+test("permanent target records expose honest pixel-level coverage states", async () => {
+  const usable = await render("/target/ugc00191");
+  assert.equal(usable.status, 200);
+  const usableHtml = await usable.text();
+  assert.match(usableHtml, /UGC00191/);
+  assert.match(usableHtml, /Local Rubin pixels verified/);
+  assert.match(usableHtml, /No publishable cross-layer comparison yet/);
 
-  const audit = JSON.parse(await readFile(new URL("../public/data/public-legacy-overlap.json", import.meta.url), "utf8"));
-  assert.equal(audit.rubinCoverageActuallyQueried, false);
-  assert.equal(audit.targets["ngc-300"].spitzerSeip.coverage, "covered");
-  assert.equal(audit.targets["eso-116-g012"].spitzerSeip.coverage, "not-covered");
+  const footprintOnly = await render("/target/ngc0100");
+  assert.equal(footprintOnly.status, 200);
+  const footprintHtml = await footprintOnly.text();
+  assert.match(footprintHtml, /Footprint false positive/);
+  assert.match(footprintHtml, /every intersecting Rubin pixel is masked NO_DATA/);
 });
 
-test("comparison code is manifest-gated and pipeline checks duplicates", async () => {
-  const [layout, comparison, manifestContract, publisher, validator] = await Promise.all([
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../components/GalaxyComparison.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../lib/atlas-manifest.ts", import.meta.url), "utf8"),
-    readFile(new URL("../pipeline/publish_verified.py", import.meta.url), "utf8"),
-    readFile(new URL("../pipeline/validate_release.py", import.meta.url), "utf8"),
+test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
+  const [model, workspace, validator] = await Promise.all([
+    readFile(new URL("../lib/layers.ts", import.meta.url), "utf8"),
+    readFile(new URL("../components/AtlasExperience.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../pipeline/validate_layers_catalog.py", import.meta.url), "utf8"),
   ]);
-
-  assert.match(layout, /summary_large_image/);
-  assert.match(layout, /og\.png/);
-  assert.match(comparison, /manifestUrl/);
-  assert.match(manifestContract, /manifest\.json/);
-  assert.match(comparison, /verified === true/);
-  assert.doesNotMatch(comparison, /rubin-virgo/);
-  assert.match(publisher, /byte-identical/);
-  assert.match(validator, /duplicates/);
+  assert.match(model, /type LayerTarget/);
+  assert.match(model, /type Registration/);
+  assert.match(model, /type DifferenceMeasurement/);
+  assert.match(model, /type Inference/);
+  assert.match(model, /type AssumptionAudit/);
+  assert.match(workspace, /comparisonIsSwipeable/);
+  assert.match(workspace, /MIXED DATA TYPES/);
+  assert.match(validator, /non-image layer forced into image view/);
+  assert.match(validator, /classification disagrees with sigma/);
 });

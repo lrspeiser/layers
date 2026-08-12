@@ -1,44 +1,51 @@
-# Rubin Missing Light Atlas
+# Layers
 
-A manifest-gated atlas for measuring faint visible matter around nearby galaxies and quantifying how Rubin changes older measurements.
+Layers is a scientific comparison workspace for discovering what changes when different datasets observe the same region of space. Rubin, SPARC, Spitzer, HSC, Legacy Survey, Pan-STARRS, GALEX, WISE, H I surveys, lensing maps, catalogs, and simulations can all be represented as typed layers tied to a reproducible sky target.
 
-The website never substitutes a shared demonstration image for a target. Each comparison activates only when `public/atlas/<object-id>/manifest.json` identifies unique Rubin EDP2 pixels, a registered legacy image, the shared WCS/PSF/sky QA, source checksums, and Butler dataset UUIDs. Unverified targets remain explicit empty states, and no illustrative discrepancy statistics are shown.
+The product deliberately separates four things:
 
-## What is included
+1. acquired evidence and provenance;
+2. measured differences with statistical and systematic uncertainty;
+3. model-dependent scientific inference;
+4. assumptions worth rechecking and proposed follow-up.
 
-- Compact, data-first target workspace
-- One permanent route per pilot galaxy
-- Manifest-driven, per-galaxy Rubin/legacy sliders
-- Per-band image controls that expose only ingested products
-- “Expected,” “above expected,” and “large” differences tied to uncertainty and σ
-- Authenticated EDP2 coadd export code and release-wide duplicate-image checks
-- Responsive layouts for desktop and mobile
+A difference is an observation, not an automatic claim that prior science was wrong.
 
-See [`pipeline/README.md`](pipeline/README.md) for the complete RSP ingest, registration, verification, and publication flow.
+## Current pilot
 
-## Run locally
+The first catalog contains the complete 175-object SPARC sample and an authenticated Rubin DP2 coverage audit. Four SPARC fields intersect DP2 footprint metadata, but local calibrated-pixel validation finds:
 
-Requires Node.js 22.13 or newer.
+- usable Rubin mosaics for UGC 00191, UGC 00634, and UGC 00891;
+- a footprint false positive for NGC 0100: the intersecting pixels are all masked `NO_DATA`;
+- no published cross-survey comparisons yet, because legacy registration, PSF/sky reconciliation, uncertainty analysis, and validation are still required.
+
+No image or statistic is fabricated, substituted, or reused. Image sliders activate only when two image layers pass the complete comparison gate. Profiles, catalogs, spectra, and maps retain their appropriate plot, table, or overlay representation.
+
+## Architecture
+
+- `lib/layers.ts` defines Target, Layer, Registration, Comparison, Difference Measurement, Inference, and Assumption Audit entities.
+- `public/data/layers-catalog.json` is the website and API catalog.
+- `/api/catalog` and `/api/targets/:id` expose the same records used by the interface.
+- `pipeline/build_layers_catalog.py` rebuilds the public metadata catalog.
+- `pipeline/build_local_layer_store.py` builds `pipeline/output/layers.sqlite`, including an R-tree sky index over locally stored files and datasets.
+- `pipeline/validate_layers_catalog.py` enforces the generic catalog and publication invariants.
+- `pipeline/query_dp2_sia.py` and `pipeline/download_dp2_matches.py` implement quota-aware Rubin discovery and calibrated local ingestion.
+
+See `pipeline/README.md` for the Rubin/SPARC ingest and scientific publication workflow.
+
+## Run and validate
+
+Requires Node.js 22.13 or newer and Python with the pipeline dependencies.
 
 ```bash
 npm install
 npm run dev
-```
-
-Build and test:
-
-```bash
-npm run build
 npm test
-python pipeline/validate_release.py
+npm run build:vercel
+python pipeline/validate_layers_catalog.py
+python pipeline/build_local_layer_store.py
 ```
 
-The project uses vinext for Cloudflare-compatible output. Sites infrastructure is declared in `.openai/hosting.json`.
+`npm run build` produces the existing Sites-compatible build. `npm run build:vercel` produces the preferred Vercel Next.js build. Restricted Rubin pixels and credentials remain ignored local artifacts and are never included in a public deployment.
 
-## Data status
-
-Early DP2 was released July 27, 2026 with deep coadds and catalogs. Access currently requires Rubin data rights through the Rubin Science Platform. This public repository contains the pipeline and target contract, but no restricted Rubin pixels or credentials.
-
-The public side has been run for the pilot: official SPARC profiles and mass/rotation models exist for all five targets, and real Spitzer SEIP IRAC1 science/uncertainty/coverage mosaics cover four. The committed [overlap audit](pipeline/results/public-legacy-overlap.json) records source identifiers and spatial support. Rubin coverage remains explicitly unqueried until the authenticated RSP export runs.
-
-This is an independent prototype and is not affiliated with Rubin Observatory.
+This is an independent prototype and is not affiliated with Rubin Observatory or SPARC.

@@ -1,176 +1,260 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import { galaxies } from "@/lib/galaxies";
-import { GalaxyComparison } from "@/components/GalaxyComparison";
-import { manifestUrl } from "@/lib/atlas-manifest";
+import { useMemo, useState } from "react";
+import type { Comparison, Layer, LayersCatalog, LayerTarget } from "@/lib/layers";
+import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 
-export function AtlasExperience() {
-  const [query, setQuery] = useState("");
-  const [selectedSlug, setSelectedSlug] = useState(galaxies[0].slug);
-  const [verifiedTargets, setVerifiedTargets] = useState<Set<string>>(() => new Set());
+type CoverageFilter = "all" | "rubin" | "no-coverage";
 
-  useEffect(() => {
-    Promise.all(
-      galaxies.map((galaxy) =>
-        fetch(manifestUrl(galaxy.slug))
-          .then((response) => response.ok ? response.json() : null)
-          .then((manifest) => manifest?.objectId === galaxy.slug && manifest?.verified === true),
-      ),
-    ).then((states) => setVerifiedTargets(new Set(galaxies.filter((_, index) => states[index]).map((galaxy) => galaxy.slug))))
-      .catch(() => setVerifiedTargets(new Set()));
-  }, []);
+function layerTone(layer: Layer) {
+  if (layer.availability === "available" || layer.availability === "published") return "ready";
+  if (layer.availability === "available-local") return "local";
+  if (layer.availability === "metadata-match" || layer.availability === "no-valid-pixels") return "review";
+  return "muted";
+}
 
-  const filtered = useMemo(
-    () => galaxies.filter((galaxy) =>
-      `${galaxy.name} ${galaxy.catalog} ${galaxy.constellation}`.toLowerCase().includes(query.toLowerCase()),
-    ),
-    [query],
+function layerById(target: LayerTarget, id: string) {
+  return target.layers.find((layer) => layer.id === id) ?? target.layers[0];
+}
+
+function matchingComparison(target: LayerTarget, leftId: string, rightId: string) {
+  return target.comparisons.find((item) => item.layerIds.includes(leftId) && item.layerIds.includes(rightId));
+}
+
+function LayerBadge({ layer }: { layer: Layer }) {
+  return (
+    <span className={`layer-badge tone-${layerTone(layer)}`}>
+      <i /> {layerStatusLabel(layer)}
+    </span>
   );
-  const selectedGalaxy = galaxies.find((galaxy) => galaxy.slug === selectedSlug) ?? galaxies[0];
+}
+
+function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
+  return (
+    <article className="layer-card">
+      <div className="layer-card-top">
+        <span className="layer-side">{side}</span>
+        <LayerBadge layer={layer} />
+      </div>
+      <h3>{layer.survey}</h3>
+      <p>{layer.release} · {layer.instrument}</p>
+      <div className="layer-specs">
+        <span><small>TYPE</small>{layer.kind}</span>
+        <span><small>VIEW</small>{layer.renderMode}</span>
+        <span><small>BANDS</small>{layer.bands.length ? layer.bands.join(" · ") : "—"}</span>
+        <span><small>DATASETS</small>{layer.datasetCount ?? "—"}</span>
+      </div>
+    </article>
+  );
+}
+
+function LayerViewport({ target, left, right }: { target: LayerTarget; left: Layer; right: Layer }) {
+  const [reveal, setReveal] = useState(50);
+  const comparison = matchingComparison(target, left.id, right.id);
+  const swipeable = Boolean(comparison && comparisonIsSwipeable(comparison, target.layers));
+
+  if (swipeable && comparison) {
+    return (
+      <div className="layers-viewport image-viewport">
+        <img src={right.assets?.preview} alt={`${target.name}, ${right.survey}`} />
+        <div className="reveal-layer" style={{ clipPath: `inset(0 ${100 - reveal}% 0 0)` }}>
+          <img src={left.assets?.preview} alt={`${target.name}, ${left.survey}`} />
+        </div>
+        <span className="viewport-label label-left">{left.survey}</span>
+        <span className="viewport-label label-right">{right.survey}</span>
+        <span className="reveal-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
+        <input
+          type="range"
+          min="3"
+          max="97"
+          value={reveal}
+          onChange={(event) => setReveal(Number(event.target.value))}
+          aria-label={`Reveal ${left.survey} over ${right.survey}`}
+        />
+      </div>
+    );
+  }
+
+  const noValidPixels = [left, right].find((layer) => layer.availability === "no-valid-pixels");
+  const bothImages = left.kind === "image" && right.kind === "image";
+  return (
+    <div className="layers-viewport blocked-viewport">
+      <div className="sky-grid" aria-hidden="true"><i /><i /><i /><i /></div>
+      <div className="target-reticle" aria-hidden="true"><i /><b /></div>
+      <div className="viewport-message">
+        <span className="eyebrow">{noValidPixels ? "FOOTPRINT AUDIT" : bothImages ? "COMPARISON GATE" : "MIXED DATA TYPES"}</span>
+        <h3>{noValidPixels ? "A metadata match is not usable sky coverage." : bothImages ? "Swipe view waits for matched, publishable pixels." : "These layers need different views."}</h3>
+        <p>
+          {noValidPixels
+            ? noValidPixels.note
+            : bothImages
+              ? "Both image layers must share a sky grid and footprint, with PSF, units, masks, and background reconciled. Until then, Layers shows their evidence without implying a pixel difference."
+              : `${left.survey} is a ${left.kind} layer and ${right.survey} is a ${right.kind} layer. Layers will combine them as an image plus a linked ${left.kind === "profile" || right.kind === "profile" ? "radial plot" : "scientific view"}, not as two fake pictures.`}
+        </p>
+        <div className="coordinate-strip">
+          <span><small>RA</small>{target.center.raDeg.toFixed(5)}°</span>
+          <span><small>DEC</small>{target.center.decDeg.toFixed(5)}°</span>
+          <span><small>FIELD</small>{target.region.widthArcmin}′</span>
+          <span><small>FRAME</small>{target.center.frame}</span>
+        </div>
+      </div>
+      <div className="gate-checks">
+        <span className="gate-pass"><i>✓</i> target identity</span>
+        <span className={left.availability !== "not-covered" ? "gate-pass" : ""}><i>{left.availability !== "not-covered" ? "✓" : "2"}</i> layer A</span>
+        <span className={right.availability !== "not-covered" ? "gate-pass" : ""}><i>{right.availability !== "not-covered" ? "✓" : "3"}</i> layer B</span>
+        <span><i>4</i> registration + QA</span>
+      </div>
+    </div>
+  );
+}
+
+function DifferencePanel({ comparison }: { comparison?: Comparison }) {
+  if (!comparison || comparison.status !== "published") {
+    return (
+      <section className="difference-panel">
+        <div className="panel-heading">
+          <span className="eyebrow">WHAT CHANGED?</span>
+          <span className="claim-state">NO CLAIM YET</span>
+        </div>
+        <h3>Measurements stay blank until the comparison is valid.</h3>
+        <p>Layers will publish the change, statistical and systematic uncertainty, expected cross-survey range, significance, provenance, and caveats together.</p>
+        <div className="difference-scale">
+          <span><i className="expected" /> Expected <small>&lt;2σ</small></span>
+          <span><i className="noteworthy" /> Noteworthy <small>2–3σ</small></span>
+          <span><i className="large" /> Large <small>≥3σ</small></span>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="difference-panel">
+      <div className="panel-heading"><span className="eyebrow">WHAT CHANGED?</span><span className="claim-state published">QA PASSED</span></div>
+      <div className="measurement-grid">
+        {comparison.measurements.map((measurement) => (
+          <article key={measurement.id}>
+            <span>{measurement.classification}</span>
+            <h3>{measurement.label}</h3>
+            <strong>{measurement.value} {measurement.unit}</strong>
+            <p>±{measurement.statisticalUncertainty} stat · ±{measurement.systematicUncertainty} sys · {measurement.significanceSigma.toFixed(1)}σ</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparison?: Comparison }) {
+  const falseFootprint = target.layers.some((layer) => layer.availability === "no-valid-pixels");
+  return (
+    <section className="assumption-panel">
+      <div className="panel-heading"><span className="eyebrow">ASSUMPTIONS WORTH RECHECKING</span><span className="triage-only">TRIAGE, NOT A VERDICT</span></div>
+      {comparison?.assumptionAudits.length ? comparison.assumptionAudits.map((audit) => (
+        <article key={audit.id}><h3>{audit.title}</h3><p>{audit.newEvidence}</p><strong>{audit.confidence}</strong></article>
+      )) : (
+        <div className="assumption-empty">
+          <span className="assumption-number">{falseFootprint ? "01" : "—"}</span>
+          <div>
+            <h3>{falseFootprint ? "Survey footprint means science pixels exist here." : "No scientific assumption is flagged yet."}</h3>
+            <p>{falseFootprint ? "The SIA polygon intersected this field, but every intersecting pixel was NO_DATA. Coverage must be validated at pixel level before a target enters an analysis sample." : "Candidate audits for baryonic mass, morphology, lensing, distance, or source counts appear only after a measured difference and systematic checks exist."}</p>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
+  const firstUseful = catalog.targets.find((target) => target.layers.some((layer) => layer.availability === "available-local")) ?? catalog.targets[0];
+  const [query, setQuery] = useState("");
+  const [coverageFilter, setCoverageFilter] = useState<CoverageFilter>("rubin");
+  const [selectedId, setSelectedId] = useState(firstUseful.id);
+  const selected = catalog.targets.find((target) => target.id === selectedId) ?? firstUseful;
+  const [leftId, setLeftId] = useState(selected.layers[0].id);
+  const [rightId, setRightId] = useState(selected.layers[1]?.id ?? selected.layers[0].id);
+
+  const filtered = useMemo(() => catalog.targets.filter((target) => {
+    const text = `${target.name} ${Object.values(target.identifiers).join(" ")}`.toLowerCase();
+    if (!text.includes(query.toLowerCase())) return false;
+    const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
+    if (coverageFilter === "rubin") return rubin?.availability !== "not-covered";
+    if (coverageFilter === "no-coverage") return rubin?.availability === "not-covered";
+    return true;
+  }), [catalog.targets, coverageFilter, query]);
+
+  const chooseTarget = (target: LayerTarget) => {
+    setSelectedId(target.id);
+    setLeftId(target.layers[0].id);
+    setRightId(target.layers[1]?.id ?? target.layers[0].id);
+  };
+  const left = layerById(selected, leftId);
+  const right = layerById(selected, rightId);
+  const comparison = matchingComparison(selected, left.id, right.id);
 
   return (
     <main id="top">
-      <header className="site-header">
-        <Link className="brand" href="#top" aria-label="Rubin Missing Light Atlas home">
-          <span className="brand-mark" aria-hidden="true"><i /></span>
-          <span>Rubin <strong>Missing Light</strong> Atlas</span>
-        </Link>
-        <nav aria-label="Primary navigation">
-          <a href="#atlas">Atlas</a>
-          <a href="#method">Method</a>
-          <a href="#data">Data contract</a>
-          <a href="#about">About</a>
-        </nav>
-        <a className="release-pill" href="#release-notes"><span className="live-dot" /> EDP2 pilot</a>
+      <header className="layers-header">
+        <Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
+        <nav><a href="#workspace">Workspace</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
+        <span className="release-chip">SPARC × RUBIN DP2 · PILOT</span>
       </header>
 
-      <section className="release-console" id="atlas">
-        <div className="release-title">
-          <span className="section-index">EARLY DATA PREVIEW 2 · 27 JUL 2026</span>
-          <h1>Compare verified pixels, galaxy by galaxy.</h1>
-          <p>Every slider is wired to its own cutout manifest. If the real Rubin and legacy inputs are absent, the atlas shows no image and makes the missing step explicit.</p>
-        </div>
-        <div className="release-facts" aria-label="Release facts">
-          <div><strong>{verifiedTargets.size} / {galaxies.length}</strong><span>complete comparisons</span></div>
-          <div><strong>5 / 5</strong><span>SPARC profiles loaded</span></div>
-          <div><strong>4 / 5</strong><span>Spitzer IRAC1 images</span></div>
-          <div><strong>0 / 5</strong><span>Rubin coverage queried</span></div>
+      <section className="release-bar">
+        <div><span className="eyebrow">CURRENT RELEASE</span><h1>See the same sky through every credible layer.</h1><p>Align observations, measure what changed, and find assumptions worth rechecking—without confusing a difference with a discovery.</p></div>
+        <div className="release-stats">
+          <span><strong>{catalog.summary.targets}</strong><small>targets audited</small></span>
+          <span><strong>{catalog.summary.rubinSiaMatches}</strong><small>Rubin footprint matches</small></span>
+          <span><strong>{catalog.summary.rubinUsableLocal}</strong><small>usable local mosaics</small></span>
+          <span><strong>{catalog.summary.publishedComparisons}</strong><small>published comparisons</small></span>
         </div>
       </section>
 
-      <section className="atlas-section atlas-first">
-        <div className="workspace">
-          <aside className="catalog-panel">
-            <div className="catalog-head">
-              <span className="section-index">SPARC PILOT QUEUE</span>
-              <strong>Select a target</strong>
-            </div>
-            <div className="search-wrap">
-              <span aria-hidden="true">⌕</span>
-              <input aria-label="Search galaxies" placeholder="Search target or catalog" value={query} onChange={(event) => setQuery(event.target.value)} />
-            </div>
-            <div className="catalog-meta"><span>{filtered.length} targets · SPARC loaded</span><span>EDP2 unchecked</span></div>
-            <div className="galaxy-list">
-              {filtered.map((galaxy, index) => (
-                <button
-                  type="button"
-                  className={`galaxy-row ${selectedGalaxy.slug === galaxy.slug ? "selected" : ""}`}
-                  onClick={() => setSelectedSlug(galaxy.slug)}
-                  aria-pressed={selectedGalaxy.slug === galaxy.slug}
-                  key={galaxy.slug}
-                >
-                  <span className="target-index">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="galaxy-identity"><strong>{galaxy.name}</strong><small>{galaxy.catalog} · {galaxy.distance}</small></span>
-                  <span className="galaxy-signal"><strong>{verifiedTargets.has(galaxy.slug) ? "VERIFIED" : galaxy.legacyState === "ready" ? "LEGACY READY" : "SPARC ONLY"}</strong><small>{galaxy.legacyState === "ready" ? "IRAC1 + profile" : "No SEIP image"}</small></span>
-                  <span className={`status-mark ${verifiedTargets.has(galaxy.slug) ? "status-analyzed" : galaxy.legacyState === "ready" ? "status-review" : "status-queued"}`} aria-label={verifiedTargets.has(galaxy.slug) ? "Verified" : galaxy.legacyState === "ready" ? "Legacy data ready" : "SPARC profile only"} />
-                </button>
-              ))}
-              {filtered.length === 0 && <p className="empty-state">No targets match this search.</p>}
-            </div>
-            <div className="catalog-foot">
-              <span>Official SPARC data loaded for all five targets.</span>
-              <span>Real Spitzer cutouts for four · Rubin authentication still required.</span>
-            </div>
-          </aside>
-
-          <article className="object-panel" id={selectedGalaxy.slug}>
-            <div className="object-head">
-              <div>
-                <span className="object-id">{selectedGalaxy.catalog} · EDP2 INGEST RECORD</span>
-                <h2>{selectedGalaxy.name}</h2>
-                <p>{selectedGalaxy.morphology} · {selectedGalaxy.constellation} · {selectedGalaxy.distance}</p>
-              </div>
-              <Link className="open-record" href={`/galaxy/${selectedGalaxy.slug}`}>Open record <span>↗</span></Link>
-            </div>
-            <GalaxyComparison galaxy={selectedGalaxy} />
-          </article>
-        </div>
-      </section>
-
-      <section className="method-section" id="method">
-        <div className="method-copy">
-          <span className="section-index">THE SCIENCE GATE</span>
-          <h2>A difference is not a result until the baseline is measured.</h2>
-          <p>The atlas will label a change “large” only from its measured uncertainty and a declared cross-survey baseline. Filter response, PSF, sky subtraction, masks, and registration are reconciled before profiles are compared.</p>
-          <a className="text-link light" href="#data">Inspect the ingest contract <span>→</span></a>
-        </div>
-        <div className="method-flow">
-          <div><span>01</span><strong>Locate</strong><p>Query EDP2 deep-coadd patches that overlap a predeclared target field.</p></div>
-          <div><span>02</span><strong>Reproject</strong><p>Mosaic every band and legacy input onto one target-centered WCS.</p></div>
-          <div><span>03</span><strong>Match</strong><p>Reconcile PSF, sky, masks, photometric scale, and filter choice.</p></div>
-          <div><span>04</span><strong>Verify</strong><p>Reject duplicate pixels, failed astrometry, missing provenance, and uncalibrated claims.</p></div>
-        </div>
-      </section>
-
-      <section className="data-section" id="data">
-        <div className="data-copy">
-          <span className="section-index">PER-OBJECT DATA CONTRACT</span>
-          <h2>One manifest turns each target on.</h2>
-          <p>The included RSP pipeline exports Rubin bands, dataset UUIDs, WCS, variance and masks. A separate alignment step adds the legacy image. Only a manifest marked verified is allowed into the slider.</p>
-          <div className="data-actions">
-            <a className="button button-dark" href="https://github.com/lrspeiser/rubin-light-atlas/tree/main/pipeline">View ingest pipeline ↗</a>
-            <a className="text-link" href="#release-notes">Read release limits →</a>
+      <section className="layers-workspace" id="workspace">
+        <aside className="target-browser">
+          <div className="browser-title"><span className="eyebrow">TARGETS</span><strong>{catalog.targetSelection.name}</strong></div>
+          <label className="target-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Name or identifier" aria-label="Search targets" /></label>
+          <div className="filter-tabs" role="group" aria-label="Coverage filter">
+            {(["rubin", "all", "no-coverage"] as CoverageFilter[]).map((item) => <button key={item} className={coverageFilter === item ? "active" : ""} onClick={() => setCoverageFilter(item)}>{item === "rubin" ? "Rubin matches" : item === "all" ? "All 175" : "No coverage"}</button>)}
           </div>
-        </div>
-        <div className="package-card">
-          <div className="package-head"><span>public/atlas/ngc-300/</span><span>verified only</span></div>
-          <div className="file-tree">
-            <span><i>JSON</i>manifest.json</span>
-            <span><i>FITS</i>rubin_u · g · r · i · z · y</span>
-            <span><i>FITS</i>variance · mask · WCS</span>
-            <span><i>FITS</i>legacy_registered</span>
-            <span><i>WEB</i>rubin_rgb · legacy_rgb</span>
-            <span><i>JSON</i>registration_qa.json</span>
-            <span><i>SHA256</i>source checksums</span>
+          <div className="target-count">{filtered.length} targets</div>
+          <div className="target-list">
+            {filtered.map((target) => {
+              const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd")!;
+              return <button key={target.id} className={target.id === selected.id ? "selected" : ""} onClick={() => chooseTarget(target)}>
+                <span className="target-dot" />
+                <span><strong>{target.name}</strong><small>{target.center.raDeg.toFixed(3)}° · {target.center.decDeg.toFixed(3)}°</small></span>
+                <em className={`tone-${layerTone(rubin)}`}>{layerStatusLabel(rubin)}</em>
+              </button>;
+            })}
           </div>
-          <div className="package-foot"><span>✓ unique datasets</span><span>✓ aligned grids</span><span>✓ provenance</span></div>
-        </div>
+        </aside>
+
+        <section className="comparison-workbench">
+          <div className="target-heading">
+            <div><span className="eyebrow">{selected.selection.sample} · TARGET RECORD</span><h2>{selected.name}</h2><p>{selected.identifiers.SIMBAD} · RA {selected.center.raDeg.toFixed(5)}° · Dec {selected.center.decDeg.toFixed(5)}°</p></div>
+            <Link href={`/target/${selected.id}`}>Permanent record ↗</Link>
+          </div>
+
+          <div className="layer-selectors">
+            <label><span>LAYER A</span><select value={left.id} onChange={(event) => setLeftId(event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
+            <span className="versus">COMPARE</span>
+            <label><span>LAYER B</span><select value={right.id} onChange={(event) => setRightId(event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
+          </div>
+
+          <div className="layer-cards"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
+          <div className="view-tabs"><button className="active">Evidence</button><button disabled={!comparisonIsSwipeable(comparison ?? { id: "", layerIds: [left.id, right.id], status: "blocked", measurements: [], inferences: [], assumptionAudits: [] }, selected.layers)}>Swipe</button><button disabled>Overlay</button><button>Profiles</button><span>Views activate by data type + QA</span></div>
+          <LayerViewport target={selected} left={left} right={right} />
+          <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
+        </section>
       </section>
 
-      <section className="release-notes" id="release-notes">
-        <div><span className="section-index">WHAT JULY 2026 ACTUALLY CONTAINS</span><h2>Start with coadds—not the whole release.</h2></div>
-        <div className="release-note-grid">
-          <article><strong>Available now</strong><p>Early DP2 deep coadded images and catalogs, processed from LSSTCam observations taken April 2025 through January 2026.</p></article>
-          <article><strong>Not available yet</strong><p>Raw, visit, template, and difference images are scheduled for the complete DP2 release later in 2026.</p></article>
-          <article><strong>Access boundary</strong><p>Rubin data rights and an authenticated Rubin Science Platform session are currently required. Credentials never belong in this repository.</p></article>
-          <article><strong>Coverage test</strong><p>Each target must be queried against the actual EDP2 footprint. A familiar catalog name is not proof that its sky position is covered.</p></article>
-        </div>
+      <section className="method-band" id="method">
+        <div><span className="eyebrow">THE SCIENCE CONTRACT</span><h2>Comparable before compared.</h2><p>Every published result retains original data, provenance, registration, uncertainty, systematic alternatives, and enough information to reproduce the claim.</p></div>
+        <ol><li><span>01</span><strong>Locate</strong><p>Find layers covering the declared sky region.</p></li><li><span>02</span><strong>Reconcile</strong><p>Match WCS, footprint, PSF, units, masks, and sky.</p></li><li><span>03</span><strong>Measure</strong><p>Propagate statistical and systematic uncertainty.</p></li><li><span>04</span><strong>Audit</strong><p>Separate observation, inference, and speculation.</p></li></ol>
       </section>
 
-      <section className="closing" id="about">
-        <span className="closing-orbit" aria-hidden="true"><i /></span>
-        <p>A neutral measurement layer for the visible universe.</p>
-        <h2>No borrowed pixels.<br />No unexplained numbers.</h2>
-        <a className="button button-primary" href="#atlas">Return to targets <span>↑</span></a>
-      </section>
-
-      <footer>
-        <Link className="brand footer-brand" href="#top"><span className="brand-mark" aria-hidden="true"><i /></span><span>Rubin <strong>Missing Light</strong> Atlas</span></Link>
-        <p>Independent prototype · Not affiliated with Rubin Observatory</p>
-        <div><a href="#method">Method</a><a href="#data">Data contract</a></div>
-      </footer>
+      <footer><Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link><p>Independent scientific prototype · No fabricated pixels or claims.</p><div><a href="https://github.com/lrspeiser/rubin-light-atlas">Source ↗</a><a href="/api/catalog">Catalog API</a></div></footer>
     </main>
   );
 }

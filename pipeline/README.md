@@ -1,5 +1,17 @@
 # EDP2 per-galaxy ingest
 
+This EDP2 adapter now feeds the survey-neutral **Layers** product. Rubin is one typed image layer; SPARC is a profile/rotation-curve layer. New surveys should produce the same generic target/layer/provenance records without adding survey-specific UI code.
+
+After mosaicking, rebuild the public metadata catalog and local query store:
+
+```bash
+python pipeline/build_layers_catalog.py
+python pipeline/validate_layers_catalog.py
+python pipeline/build_local_layer_store.py
+```
+
+`pipeline/output/layers.sqlite` indexes all 175 targets, sky bounding boxes, layers, dataset identifiers, local FITS paths and hashes, per-band products, and future comparisons. The `target_sky_index` R-tree supports local coordinate intersection queries. Raw pixels remain local and ignored; the public catalog contains metadata only.
+
 The atlas does not download or subdivide one enormous release image. Early Data Preview 2 is a collection of tract/patch `deep_coadd` datasets. This pipeline queries only the coadd patches that overlap each predeclared galaxy field, mosaics them onto a common target-centered WCS, and records the Butler dataset UUID for every input.
 
 The July 27, 2026 early release contains deep coadds and catalogs. Raw, visit, template, and difference images are planned for the complete DP2 release later in 2026. EDP2 access currently requires Rubin data rights and an authenticated Rubin Science Platform session.
@@ -18,6 +30,32 @@ python pipeline/audit_overlap.py --legacy-cache pipeline/cache
 The SPARC mass-model PNG is a plot, not a sky image. It must never be put in an image slider or subtracted from Rubin pixels. The registered legacy image comes from the Spitzer FITS mosaic; the SPARC profile and rotation curve are separate measurement references.
 
 `audit_overlap.py` checks whether the SPARC radial profile lies within the declared field and whether valid Spitzer pixels exist at its outer accepted radius. It consumes the authenticated EDP2 coverage summary when one exists. Until that summary exists, it reports the precise Rubin blocker instead of inferring footprint coverage.
+
+## 0.5. Audit all 175 SPARC coordinates against DP2
+
+Create a local, Git-ignored `.env` containing an RSP token with `read:image` scope:
+
+```dotenv
+RUBIN_RSP_TOKEN=your-token
+```
+
+Then run the resumable SIAv2 audit from a local machine:
+
+```bash
+python pipeline/query_dp2_sia.py
+```
+
+The script obtains the 175 coordinate-resolved SPARC paper objects from SIMBAD, queries only `lsst.deep_coadd` metadata, caches every successful VOTable, and writes `pipeline/results/dp2-sparc-coverage.json`. It is sequential and defaults to 55 SIA requests per minute, below the account limit of 70. Its hard cap is 60 requests per minute. Restarting the command reuses successful cached responses; use `--refresh` only when a new Rubin release makes a repeat audit intentional.
+
+Pixel downloads are a later, match-only step. Keep them sequential and at or below 30 cutout requests per minute, below the account limit of 35.
+
+For the actual matches, download calibrated full patches through one batched DataLink request and mosaic them locally:
+
+```bash
+python pipeline/download_dp2_matches.py
+```
+
+This route uses no SODA cutout calls. The downloader follows DataLink's `#this` links to the immutable FITS patches, verifies each file, records SHA-256 digests and publisher dataset identifiers, and reprojects the image/variance/mask planes to one 0.4 arcsec/pixel target WCS. A maximum of four object-storage downloads run concurrently by default; use `--workers 1` for a strictly serial transfer.
 
 ## 1. Export Rubin data inside the RSP
 

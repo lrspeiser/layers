@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
 import { AtlasExperience } from "@/components/AtlasExperience";
-
-export const metadata: Metadata = {
-  title: "Rubin Missing Light Atlas",
-  description: "A measured atlas of what previous surveys failed to see around nearby galaxies.",
-};
+import catalogData from "@/public/data/layers-catalog.json";
+import type { LayersCatalog } from "@/lib/layers";
 
 export default function Home() {
-  return <AtlasExperience />;
+  return <AtlasExperience catalog={catalogData as unknown as LayersCatalog} />;
 }

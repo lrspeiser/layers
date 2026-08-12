@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typescript: {
+    tsconfigPath: process.env.VERCEL ? "tsconfig.vercel.json" : "tsconfig.json",
+  },
 };
 
 export default nextConfig;

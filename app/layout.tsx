@@ -16,22 +16,22 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const description = "A measured atlas of what previous surveys failed to see around nearby galaxies.";
+  const description = "Compare credible observations of the same sky, measure what changed, and find scientific assumptions worth rechecking.";
 
   return {
     metadataBase: new URL(origin),
-    title: { default: "Rubin Missing Light Atlas", template: "%s · Rubin Missing Light Atlas" },
+    title: { default: "Layers", template: "%s · Layers" },
     description,
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
-      title: "Rubin Missing Light Atlas",
+      title: "Layers · Scientific comparison workspace",
       description,
       type: "website",
-      images: [{ url: `${origin}/og.png`, width: 1672, height: 941, alt: "Rubin Missing Light Atlas" }],
+      images: [{ url: `${origin}/og.png`, width: 1672, height: 941, alt: "Layers scientific comparison workspace" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Rubin Missing Light Atlas",
+      title: "Layers · Scientific comparison workspace",
       description,
       images: [`${origin}/og.png`],
     },
