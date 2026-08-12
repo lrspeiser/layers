@@ -50,7 +50,7 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
           </div>
 
           <div className="record-section-title"><span className="eyebrow">COMPARISONS</span><h2>Published only after reconciliation and QA.</h2></div>
-          <div className="record-empty-comparison"><strong>{target.comparisons.length}</strong><div><h3>No publishable cross-layer comparison yet.</h3><p>Images will activate the swipe view only after common WCS, common footprint, PSF, units, masks, background, and astrometric residual checks pass. Profiles remain linked plots.</p></div></div>
+          <div className="record-empty-comparison"><strong>{target.comparisons.length}</strong><div><h3>No publishable cross-layer comparison yet.</h3><p>Images will activate the swipe view only after common WCS, common footprint, PSF, filter response, units, masks, background, and astrometric residual checks pass. Profiles remain linked plots.</p></div></div>
         </div>
 
         <aside className="record-aside">

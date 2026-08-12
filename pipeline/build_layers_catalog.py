@@ -40,8 +40,10 @@ def rubin_layer(target: dict, mosaic: dict | None, selected_dataset_ids: list[st
         note = mosaic.get("coverage_note") or "Footprint metadata matched, but no usable science pixels intersect the field."
 
     bands = []
+    band_coverage = {}
     if mosaic:
         bands = [name for name, product in mosaic.get("bands", {}).items() if product.get("science_coverage")]
+        band_coverage = {name: product["valid_pixel_fraction"] for name, product in mosaic.get("bands", {}).items() if product.get("science_coverage")}
     return {
         "id": "rubin-dp2-deep-coadd",
         "survey": "Vera C. Rubin Observatory",
@@ -51,6 +53,7 @@ def rubin_layer(target: dict, mosaic: dict | None, selected_dataset_ids: list[st
         "availability": availability,
         "renderMode": "image" if availability == "published" else "metadata",
         "bands": bands,
+        **({"bandCoverage": band_coverage} if band_coverage else {}),
         "datasetCount": len(selected_dataset_ids),
         "datasetIds": selected_dataset_ids,
         "units": {"image": "nJy", "variance": "nJy^2"},
@@ -87,12 +90,116 @@ def sparc_layer(target: dict, bibcode: str) -> dict:
     }
 
 
+def legacy_survey_layer(record: dict) -> dict:
+    usable_bands = [name for name, product in record.get("bands", {}).items() if product.get("science_coverage")]
+    return {
+        "id": "legacy-survey-dr10",
+        "survey": "DESI Legacy Imaging Surveys",
+        "release": "DR10",
+        "instrument": "DECam + BASS/MzLS",
+        "kind": "image",
+        "availability": "available-local" if usable_bands else "no-valid-pixels",
+        "renderMode": "metadata",
+        "bands": usable_bands,
+        "bandCoverage": {name: product["valid_pixel_fraction"] for name, product in record.get("bands", {}).items() if product.get("science_coverage")},
+        "datasetCount": len(record.get("tiles", [])),
+        "datasetIds": [tile["url"] for tile in record.get("tiles", [])],
+        "units": {"image": "nanomaggy", "inverseVariance": "nanomaggy^-2"},
+        "calibration": "Legacy Survey DR10 coadded calibrated flux",
+        "hasVariance": bool(usable_bands),
+        "hasMask": bool(usable_bands),
+        "hasWcs": True,
+        "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+        "provenance": {
+            "service": "Legacy Survey FITS cutout service",
+            "layer": "ls-dr10",
+            "documentation": "https://www.legacysurvey.org/dr10/description/",
+        },
+    }
+
+
+def panstarrs_layer(record: dict) -> dict:
+    usable_bands = [name for name, product in record.get("bands", {}).items() if product.get("science_coverage")]
+    originals = [item for product in record.get("bands", {}).values() for item in product.get("originals", [])]
+    return {
+        "id": "panstarrs-dr1-stack",
+        "survey": "Pan-STARRS1",
+        "release": "DR1 3pi stacks",
+        "instrument": "PS1 GPC1",
+        "kind": "image",
+        "availability": "available-local" if usable_bands else "no-valid-pixels",
+        "renderMode": "metadata",
+        "bands": usable_bands,
+        "bandCoverage": {name: product["valid_pixel_fraction"] for name, product in record.get("bands", {}).items() if product.get("science_coverage")},
+        "datasetCount": len(originals),
+        "datasetIds": [item["url"] for item in originals],
+        "units": {"image": "nJy", "variance": "nJy^2"},
+        "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+        "hasVariance": bool(usable_bands),
+        "hasMask": bool(usable_bands),
+        "hasWcs": True,
+        "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+        "provenance": {
+            "service": "MAST Pan-STARRS image-list service and full skycell archive",
+            "product": "unconvolved stack + stack.wt + stack.mask",
+            "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service",
+        },
+    }
+
+
+def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
+    if not path.is_file():
+        return None
+    audit = load_json(path)
+    if audit.get("status") != "qa" or len(audit.get("layerIds", [])) != 2:
+        return None
+    if not set(audit["layerIds"]).issubset(layer_ids):
+        return None
+    source_registration = audit.get("sourceRegistration", {})
+    residual = source_registration.get("residualP95Arcsec")
+    threshold = audit.get("astrometryThresholdArcsec")
+    return {
+        "id": f"{audit['objectId']}-registration-audit",
+        "layerIds": audit["layerIds"],
+        "status": "qa",
+        "registration": {
+            "layerIds": audit["layerIds"],
+            "commonWcs": audit.get("commonWcs", False),
+            "commonFootprint": audit.get("commonFootprint", False),
+            "psfMatched": audit.get("psfMatched", False),
+            "skyMatched": audit.get("skyMatched", False),
+            "unitsMatched": audit.get("unitsMatched", False),
+            "filterMatched": audit.get("filterMatched", False),
+            "filterTransform": audit.get("filterTransform"),
+            "maxResidualArcsec": residual,
+            "qaThresholdArcsec": threshold,
+            "limitations": audit.get("limitations", []),
+        },
+        "qa": {
+            "band": audit.get("band"),
+            "comparisonLayerLabel": audit.get("comparisonLayerLabel"),
+            "commonValidPixelFraction": audit.get("commonValidPixelFraction"),
+            "matchedSources": source_registration.get("matchedSources"),
+            "astrometricResidualP95Arcsec": residual,
+            "astrometryPass": audit.get("astrometryPass", False),
+            "rubinMedianFwhmArcsec": source_registration.get("rubinMedianFwhmArcsec"),
+            "comparisonMedianFwhmArcsec": source_registration.get("comparisonMedianFwhmArcsec"),
+        },
+        "measurements": [],
+        "inferences": [],
+        "assumptionAudits": [],
+    }
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
     parser.add_argument("--coverage", type=Path, default=root / "pipeline" / "results" / "dp2-sparc-coverage.json")
     parser.add_argument("--mosaics", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "mosaic-summary.json")
     parser.add_argument("--downloads", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "download-manifest.json")
+    parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
+    parser.add_argument("--panstarrs", type=Path, default=root / "pipeline" / "output" / "panstarrs" / "manifest.json")
+    parser.add_argument("--registration-audits", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--output", type=Path, default=root / "public" / "data" / "layers-catalog.json")
     args = parser.parse_args()
 
@@ -102,10 +209,24 @@ def main() -> None:
     if args.downloads.is_file():
         for record in load_json(args.downloads).get("records", []):
             selected_ids.setdefault(record["target_slug"], []).append(record["publisher_id"])
+    legacy_records = {}
+    if args.legacy.is_file():
+        legacy_records = {item["target"]["slug"]: item for item in load_json(args.legacy).get("targets", [])}
+    panstarrs_records = {}
+    if args.panstarrs.is_file():
+        panstarrs_records = {item["target"]["slug"]: item for item in load_json(args.panstarrs).get("targets", [])}
     targets = []
     for source in coverage["targets"]:
         mosaic = mosaics.get(source["slug"])
         layers = [sparc_layer(source, coverage["sparc_bibcode"]), rubin_layer(source, mosaic, selected_ids.get(source["slug"], []))]
+        if source["slug"] in legacy_records:
+            layers.append(legacy_survey_layer(legacy_records[source["slug"]]))
+        if source["slug"] in panstarrs_records:
+            layers.append(panstarrs_layer(panstarrs_records[source["slug"]]))
+        comparison = registration_comparison(
+            args.registration_audits / source["slug"] / "registration-audit.json",
+            {layer["id"] for layer in layers},
+        )
         targets.append(
             {
                 "id": source["slug"],
@@ -119,7 +240,7 @@ def main() -> None:
                     "majorAxisArcmin": source["major_axis_arcmin"],
                 },
                 "layers": layers,
-                "comparisons": [],
+                "comparisons": [comparison] if comparison else [],
             }
         )
 
@@ -131,10 +252,13 @@ def main() -> None:
         any(layer["id"] == "rubin-dp2-deep-coadd" and layer["availability"] == "no-valid-pixels" for layer in target["layers"])
         for target in targets
     )
+    legacy_local = sum(any(layer["id"] == "legacy-survey-dr10" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
+    panstarrs_local = sum(any(layer["id"] == "panstarrs-dr1-stack" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
+    registration_audits = sum(len(target["comparisons"]) for target in targets)
     catalog = {
         "schemaVersion": 1,
         "product": "Layers",
-        "release": "SPARC x Rubin DP2 pilot",
+        "release": "SPARC multi-survey pilot",
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "targetSelection": {
             "name": "SPARC 2016 master sample",
@@ -146,6 +270,10 @@ def main() -> None:
             "rubinSiaMatches": coverage["targets_with_deep_coadds"],
             "rubinUsableLocal": usable,
             "rubinFootprintFalsePositives": footprint_only,
+            "legacySurveyUsableLocal": legacy_local,
+            "panStarrsUsableLocal": panstarrs_local,
+            "localImageLayers": usable + legacy_local + panstarrs_local,
+            "registrationAudits": registration_audits,
             "publishedComparisons": 0,
         },
         "targets": targets,

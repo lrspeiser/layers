@@ -22,6 +22,14 @@ function matchingComparison(target: LayerTarget, leftId: string, rightId: string
   return target.comparisons.find((item) => item.layerIds.includes(leftId) && item.layerIds.includes(rightId));
 }
 
+function defaultLayerIds(target: LayerTarget): [string, string] {
+  const audited = target.comparisons.find((comparison) => comparison.status === "published" || comparison.status === "qa");
+  if (audited) return audited.layerIds;
+  const images = target.layers.filter((layer) => layer.kind === "image" && layer.availability !== "not-covered");
+  if (images.length >= 2) return [images[0].id, images[1].id];
+  return [target.layers[0].id, target.layers[1]?.id ?? target.layers[0].id];
+}
+
 function LayerBadge({ layer }: { layer: Layer }) {
   return (
     <span className={`layer-badge tone-${layerTone(layer)}`}>
@@ -31,6 +39,11 @@ function LayerBadge({ layer }: { layer: Layer }) {
 }
 
 function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
+  const coverageValues = Object.values(layer.bandCoverage ?? {});
+  const hasBandCoverage = coverageValues.length > 0;
+  const validArea = hasBandCoverage
+    ? `${Math.round(Math.max(...coverageValues) * 100)}% max`
+    : layer.renderMode;
   return (
     <article className="layer-card">
       <div className="layer-card-top">
@@ -41,7 +54,7 @@ function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
       <p>{layer.release} · {layer.instrument}</p>
       <div className="layer-specs">
         <span><small>TYPE</small>{layer.kind}</span>
-        <span><small>VIEW</small>{layer.renderMode}</span>
+        <span><small>{hasBandCoverage ? "VALID AREA" : "VIEW"}</small>{validArea}</span>
         <span><small>BANDS</small>{layer.bands.length ? layer.bands.join(" · ") : "—"}</span>
         <span><small>DATASETS</small>{layer.datasetCount ?? "—"}</span>
       </div>
@@ -53,6 +66,12 @@ function LayerViewport({ target, left, right }: { target: LayerTarget; left: Lay
   const [reveal, setReveal] = useState(50);
   const comparison = matchingComparison(target, left.id, right.id);
   const swipeable = Boolean(comparison && comparisonIsSwipeable(comparison, target.layers));
+  const registration = comparison?.registration;
+  const astrometryPass = Boolean(
+    registration?.maxResidualArcsec !== undefined
+    && registration.qaThresholdArcsec !== undefined
+    && registration.maxResidualArcsec <= registration.qaThresholdArcsec,
+  );
 
   if (swipeable && comparison) {
     return (
@@ -89,7 +108,7 @@ function LayerViewport({ target, left, right }: { target: LayerTarget; left: Lay
           {noValidPixels
             ? noValidPixels.note
             : bothImages
-              ? "Both image layers must share a sky grid and footprint, with PSF, units, masks, and background reconciled. Until then, Layers shows their evidence without implying a pixel difference."
+              ? "Both image layers must share a sky grid and footprint, with PSF, filter response, units, masks, and background reconciled. Until then, Layers shows their evidence without implying a pixel difference."
               : `${left.survey} is a ${left.kind} layer and ${right.survey} is a ${right.kind} layer. Layers will combine them as an image plus a linked ${left.kind === "profile" || right.kind === "profile" ? "radial plot" : "scientific view"}, not as two fake pictures.`}
         </p>
         <div className="coordinate-strip">
@@ -101,15 +120,34 @@ function LayerViewport({ target, left, right }: { target: LayerTarget; left: Lay
       </div>
       <div className="gate-checks">
         <span className="gate-pass"><i>✓</i> target identity</span>
-        <span className={left.availability !== "not-covered" ? "gate-pass" : ""}><i>{left.availability !== "not-covered" ? "✓" : "2"}</i> layer A</span>
-        <span className={right.availability !== "not-covered" ? "gate-pass" : ""}><i>{right.availability !== "not-covered" ? "✓" : "3"}</i> layer B</span>
-        <span><i>4</i> registration + QA</span>
+        <span className={registration?.commonWcs && registration.commonFootprint ? "gate-pass" : ""}><i>{registration?.commonWcs && registration.commonFootprint ? "✓" : "2"}</i> common grid</span>
+        <span className={astrometryPass ? "gate-pass" : ""}><i>{astrometryPass ? "✓" : "3"}</i> astrometry</span>
+        <span className={registration?.psfMatched && registration.skyMatched && registration.filterMatched ? "gate-pass" : ""}><i>{registration?.psfMatched && registration.skyMatched && registration.filterMatched ? "✓" : "4"}</i> PSF + filter + sky</span>
       </div>
     </div>
   );
 }
 
 function DifferencePanel({ comparison }: { comparison?: Comparison }) {
+  if (comparison?.status === "qa" && comparison.qa && comparison.registration) {
+    const residual = comparison.qa.astrometricResidualP95Arcsec;
+    const threshold = comparison.registration.qaThresholdArcsec;
+    return (
+      <section className="difference-panel">
+        <div className="panel-heading">
+          <span className="eyebrow">REGISTRATION QA</span>
+          <span className={`claim-state ${comparison.qa.astrometryPass ? "qa-pass" : "qa-fail"}`}>{comparison.qa.astrometryPass ? "ASTROMETRY PASSED" : "ASTROMETRY BLOCKED"}</span>
+        </div>
+        <h3>{comparison.qa.comparisonLayerLabel} · {comparison.qa.band}-band</h3>
+        <p>This is data-readiness evidence, not a scientific difference claim. PSF, filter response, and sky matching are still unapplied.</p>
+        <div className="qa-readout">
+          <span><small>P95 RESIDUAL</small><strong>{residual?.toFixed(3) ?? "—"}″</strong><em>limit {threshold?.toFixed(2) ?? "—"}″</em></span>
+          <span><small>COMMON VALID AREA</small><strong>{comparison.qa.commonValidPixelFraction !== undefined ? `${(comparison.qa.commonValidPixelFraction * 100).toFixed(1)}%` : "—"}</strong><em>after masks</em></span>
+          <span><small>MATCHED SOURCES</small><strong>{comparison.qa.matchedSources ?? "—"}</strong><em>QA sample</em></span>
+        </div>
+      </section>
+    );
+  }
   if (!comparison || comparison.status !== "published") {
     return (
       <section className="difference-panel">
@@ -171,8 +209,9 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
   const [coverageFilter, setCoverageFilter] = useState<CoverageFilter>("rubin");
   const [selectedId, setSelectedId] = useState(firstUseful.id);
   const selected = catalog.targets.find((target) => target.id === selectedId) ?? firstUseful;
-  const [leftId, setLeftId] = useState(selected.layers[0].id);
-  const [rightId, setRightId] = useState(selected.layers[1]?.id ?? selected.layers[0].id);
+  const initialLayers = defaultLayerIds(firstUseful);
+  const [leftId, setLeftId] = useState(initialLayers[0]);
+  const [rightId, setRightId] = useState(initialLayers[1]);
 
   const filtered = useMemo(() => catalog.targets.filter((target) => {
     const text = `${target.name} ${Object.values(target.identifiers).join(" ")}`.toLowerCase();
@@ -184,9 +223,10 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
   }), [catalog.targets, coverageFilter, query]);
 
   const chooseTarget = (target: LayerTarget) => {
+    const [nextLeft, nextRight] = defaultLayerIds(target);
     setSelectedId(target.id);
-    setLeftId(target.layers[0].id);
-    setRightId(target.layers[1]?.id ?? target.layers[0].id);
+    setLeftId(nextLeft);
+    setRightId(nextRight);
   };
   const left = layerById(selected, leftId);
   const right = layerById(selected, rightId);
@@ -196,8 +236,8 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
     <main id="top">
       <header className="layers-header">
         <Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
-        <nav><a href="#workspace">Workspace</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
-        <span className="release-chip">SPARC × RUBIN DP2 · PILOT</span>
+        <nav><Link href="/prototype">Real-pixel prototype</Link><a href="#workspace">Workspace</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
+        <span className="release-chip">MULTI-SURVEY · PILOT</span>
       </header>
 
       <section className="release-bar">
@@ -205,7 +245,7 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
         <div className="release-stats">
           <span><strong>{catalog.summary.targets}</strong><small>targets audited</small></span>
           <span><strong>{catalog.summary.rubinSiaMatches}</strong><small>Rubin footprint matches</small></span>
-          <span><strong>{catalog.summary.rubinUsableLocal}</strong><small>usable local mosaics</small></span>
+          <span><strong>{catalog.summary.localImageLayers ?? catalog.summary.rubinUsableLocal}</strong><small>local image layers</small></span>
           <span><strong>{catalog.summary.publishedComparisons}</strong><small>published comparisons</small></span>
         </div>
       </section>

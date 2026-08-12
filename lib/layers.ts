@@ -17,6 +17,7 @@ export type Layer = {
   availability: LayerAvailability;
   renderMode: RenderMode;
   bands: string[];
+  bandCoverage?: Record<string, number>;
   datasetCount?: number;
   datasetIds?: string[];
   units: Record<string, string>;
@@ -40,6 +41,8 @@ export type Registration = {
   psfMatched: boolean;
   skyMatched: boolean;
   unitsMatched: boolean;
+  filterMatched: boolean;
+  filterTransform?: string;
   maxResidualArcsec?: number;
   qaThresholdArcsec?: number;
   limitations: string[];
@@ -85,6 +88,16 @@ export type Comparison = {
   layerIds: [string, string];
   status: "blocked" | "qa" | "published";
   registration?: Registration;
+  qa?: {
+    band?: string;
+    comparisonLayerLabel?: string;
+    commonValidPixelFraction?: number;
+    matchedSources?: number;
+    astrometricResidualP95Arcsec?: number;
+    astrometryPass?: boolean;
+    rubinMedianFwhmArcsec?: number;
+    comparisonMedianFwhmArcsec?: number;
+  };
   measurements: DifferenceMeasurement[];
   inferences: Inference[];
   assumptionAudits: AssumptionAudit[];
@@ -112,6 +125,10 @@ export type LayersCatalog = {
     rubinSiaMatches: number;
     rubinUsableLocal: number;
     rubinFootprintFalsePositives: number;
+    legacySurveyUsableLocal?: number;
+    panStarrsUsableLocal?: number;
+    localImageLayers?: number;
+    registrationAudits?: number;
     publishedComparisons: number;
   };
   targets: LayerTarget[];
@@ -137,5 +154,6 @@ export function comparisonIsSwipeable(comparison: Comparison, layers: Layer[]): 
     && comparison.registration.commonFootprint
     && comparison.registration.psfMatched
     && comparison.registration.skyMatched
-    && comparison.registration.unitsMatched;
+    && comparison.registration.unitsMatched
+    && comparison.registration.filterMatched;
 }

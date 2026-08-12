@@ -22,7 +22,22 @@ test("server-renders Layers as a survey-neutral science workspace", async () => 
   assert.match(html, /175/);
   assert.match(html, /ASSUMPTIONS WORTH RECHECKING/);
   assert.match(html, /TRIAGE, NOT A VERDICT/);
+  assert.match(html, /REGISTRATION QA/);
+  assert.match(html, /0\.237/);
   assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
+});
+
+test("real-field prototype exposes discoverable overlap and honest QA gates", async () => {
+  const response = await render("/prototype");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /FULL RUBIN FIELD/i);
+  assert.match(html, /ALIGNED COMPARISON/i);
+  assert.match(html, /Rubin \+ Legacy \+ SPARC/);
+  assert.match(html, /0\.237/);
+  assert.match(html, /This does/);
+  assert.match(html, /brightness differences are scientifically comparable/);
+  assert.match(html, /PSF \+ filter response/);
 });
 
 test("catalog contains the complete SPARC sample and generic layer records", async () => {
@@ -34,6 +49,13 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.rubinSiaMatches, 4);
   assert.equal(catalog.summary.rubinUsableLocal, 3);
   assert.equal(catalog.summary.rubinFootprintFalsePositives, 1);
+  assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
+  assert.equal(catalog.summary.panStarrsUsableLocal, 1);
+  assert.equal(catalog.summary.localImageLayers, 7);
+  assert.equal(catalog.summary.registrationAudits, 3);
+  assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
+  assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, false);
+  assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
   for (const target of catalog.targets) {
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
     assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
@@ -66,6 +88,7 @@ test("comparison architecture keeps evidence, measurements, inference, and audit
   assert.match(model, /type DifferenceMeasurement/);
   assert.match(model, /type Inference/);
   assert.match(model, /type AssumptionAudit/);
+  assert.match(model, /filterMatched/);
   assert.match(workspace, /comparisonIsSwipeable/);
   assert.match(workspace, /MIXED DATA TYPES/);
   assert.match(validator, /non-image layer forced into image view/);

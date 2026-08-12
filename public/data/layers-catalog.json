@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "product": "Layers",
-  "release": "SPARC x Rubin DP2 pilot",
-  "generatedAt": "2026-08-12T21:39:45.249981+00:00",
+  "release": "SPARC multi-survey pilot",
+  "generatedAt": "2026-08-12T22:40:09.636364+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -13,6 +13,10 @@
     "rubinSiaMatches": 4,
     "rubinUsableLocal": 3,
     "rubinFootprintFalsePositives": 1,
+    "legacySurveyUsableLocal": 3,
+    "panStarrsUsableLocal": 1,
+    "localImageLayers": 7,
+    "registrationAudits": 3,
     "publishedComparisons": 0
   },
   "targets": [
@@ -7452,6 +7456,12 @@
             "r",
             "z"
           ],
+          "bandCoverage": {
+            "g": 0.9161722222222223,
+            "i": 0.9624388888888888,
+            "r": 0.9711216049382716,
+            "z": 0.9621219135802469
+          },
           "datasetCount": 16,
           "datasetIds": [
             "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-683d-74b6-91ca-c11b0e25efcb",
@@ -7485,9 +7495,103 @@
             "datasetType": "lsst.deep_coadd",
             "queryStatus": "OK"
           }
+        },
+        {
+          "id": "legacy-survey-dr10",
+          "survey": "DESI Legacy Imaging Surveys",
+          "release": "DR10",
+          "instrument": "DECam + BASS/MzLS",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "g",
+            "r",
+            "z"
+          ],
+          "bandCoverage": {
+            "g": 0.9928703703703704,
+            "r": 0.9959317901234568,
+            "z": 0.9964293209876544
+          },
+          "datasetCount": 16,
+          "datasetIds": [
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0980235719&dec=10.8049906745&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0471212040&dec=10.8049990019&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9962187960&dec=10.8049990019&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9453164281&dec=10.8049906745&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0980363778&dec=10.8549905888&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0471254727&dec=10.8549989557&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9962145273&dec=10.8549989557&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9453036222&dec=10.8549905888&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0980491880&dec=10.9049905412&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0471297427&dec=10.9049989476&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9962102573&dec=10.9049989476&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9452908120&dec=10.9049905412&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0980620025&dec=10.9549904556&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=5.0471340142&dec=10.9549989014&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9962059858&dec=10.9549989014&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=4.9452779975&dec=10.9549904556&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar="
+          ],
+          "units": {
+            "image": "nanomaggy",
+            "inverseVariance": "nanomaggy^-2"
+          },
+          "calibration": "Legacy Survey DR10 coadded calibrated flux",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+          "provenance": {
+            "service": "Legacy Survey FITS cutout service",
+            "layer": "ls-dr10",
+            "documentation": "https://www.legacysurvey.org/dr10/description/"
+          }
         }
       ],
-      "comparisons": []
+      "comparisons": [
+        {
+          "id": "ugc00191-registration-audit",
+          "layerIds": [
+            "rubin-dp2-deep-coadd",
+            "legacy-survey-dr10"
+          ],
+          "status": "qa",
+          "registration": {
+            "layerIds": [
+              "rubin-dp2-deep-coadd",
+              "legacy-survey-dr10"
+            ],
+            "commonWcs": true,
+            "commonFootprint": true,
+            "psfMatched": false,
+            "skyMatched": false,
+            "unitsMatched": true,
+            "filterMatched": false,
+            "filterTransform": null,
+            "maxResidualArcsec": 0.23679642384585858,
+            "qaThresholdArcsec": 0.3,
+            "limitations": [
+              "Sky planes have been measured but not yet applied to a released matched product.",
+              "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+              "Rubin and Legacy Survey DR10 nominal bandpasses are not identical; no color transformation has been applied."
+            ]
+          },
+          "qa": {
+            "band": "z",
+            "comparisonLayerLabel": "Legacy Survey DR10",
+            "commonValidPixelFraction": 0.9598021604938272,
+            "matchedSources": 232,
+            "astrometricResidualP95Arcsec": 0.23679642384585858,
+            "astrometryPass": true,
+            "rubinMedianFwhmArcsec": 2.058165300431642,
+            "comparisonMedianFwhmArcsec": 2.027216962325514
+          },
+          "measurements": [],
+          "inferences": [],
+          "assumptionAudits": []
+        }
+      ]
     },
     {
       "id": "ugc00634",
@@ -7549,6 +7653,11 @@
             "r",
             "z"
           ],
+          "bandCoverage": {
+            "i": 0.8251570987654321,
+            "r": 0.9145799382716049,
+            "z": 0.9749308641975308
+          },
           "datasetCount": 21,
           "datasetIds": [
             "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8be-fe61-7bbe-b40e-13c29d82a972",
@@ -7587,9 +7696,105 @@
             "datasetType": "lsst.deep_coadd",
             "queryStatus": "OK"
           }
+        },
+        {
+          "id": "legacy-survey-dr10",
+          "survey": "DESI Legacy Imaging Surveys",
+          "release": "DR10",
+          "instrument": "DECam + BASS/MzLS",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "bandCoverage": {
+            "g": 0.9999333333333333,
+            "r": 0.9999077160493827,
+            "i": 0.9971743827160494,
+            "z": 0.9999373456790124
+          },
+          "datasetCount": 16,
+          "datasetIds": [
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305339575&dec=7.5509845359&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3800966655&dec=7.5509903198&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296593345&dec=7.5509903198&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792220425&dec=7.5509845359&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305427967&dec=7.6009844511&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3800996119&dec=7.6009902738&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296563881&dec=7.6009902738&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792132033&dec=7.6009844511&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305516380&dec=7.6509844043&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3801025590&dec=7.6509902657&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296534410&dec=7.6509902657&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792043620&dec=7.6509844043&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305604813&dec=7.7009843194&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3801055068&dec=7.7009902196&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296504932&dec=7.7009902196&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2791955187&dec=7.7009843194&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar="
+          ],
+          "units": {
+            "image": "nanomaggy",
+            "inverseVariance": "nanomaggy^-2"
+          },
+          "calibration": "Legacy Survey DR10 coadded calibrated flux",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+          "provenance": {
+            "service": "Legacy Survey FITS cutout service",
+            "layer": "ls-dr10",
+            "documentation": "https://www.legacysurvey.org/dr10/description/"
+          }
         }
       ],
-      "comparisons": []
+      "comparisons": [
+        {
+          "id": "ugc00634-registration-audit",
+          "layerIds": [
+            "rubin-dp2-deep-coadd",
+            "legacy-survey-dr10"
+          ],
+          "status": "qa",
+          "registration": {
+            "layerIds": [
+              "rubin-dp2-deep-coadd",
+              "legacy-survey-dr10"
+            ],
+            "commonWcs": true,
+            "commonFootprint": true,
+            "psfMatched": false,
+            "skyMatched": false,
+            "unitsMatched": true,
+            "filterMatched": false,
+            "filterTransform": null,
+            "maxResidualArcsec": 0.21652992608622,
+            "qaThresholdArcsec": 0.3,
+            "limitations": [
+              "Sky planes have been measured but not yet applied to a released matched product.",
+              "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+              "Rubin and Legacy Survey DR10 nominal bandpasses are not identical; no color transformation has been applied."
+            ]
+          },
+          "qa": {
+            "band": "z",
+            "comparisonLayerLabel": "Legacy Survey DR10",
+            "commonValidPixelFraction": 0.9749154320987654,
+            "matchedSources": 230,
+            "astrometricResidualP95Arcsec": 0.21652992608622,
+            "astrometryPass": true,
+            "rubinMedianFwhmArcsec": 2.11266219975829,
+            "comparisonMedianFwhmArcsec": 2.0399541174716447
+          },
+          "measurements": [],
+          "inferences": [],
+          "assumptionAudits": []
+        }
+      ]
     },
     {
       "id": "ugc00731",
@@ -7725,6 +7930,9 @@
           "bands": [
             "i"
           ],
+          "bandCoverage": {
+            "i": 0.8696679012345679
+          },
           "datasetCount": 17,
           "datasetIds": [
             "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-25a2-7ab1-9c6c-2dd9dac3a3ba",
@@ -7759,9 +7967,143 @@
             "datasetType": "lsst.deep_coadd",
             "queryStatus": "OK"
           }
+        },
+        {
+          "id": "legacy-survey-dr10",
+          "survey": "DESI Legacy Imaging Surveys",
+          "release": "DR10",
+          "instrument": "DECam + BASS/MzLS",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "g",
+            "r",
+            "i",
+            "z"
+          ],
+          "bandCoverage": {
+            "g": 0.9998842592592593,
+            "r": 0.9999114197530864,
+            "i": 0.24691234567901235,
+            "z": 0.9998586419753086
+          },
+          "datasetCount": 16,
+          "datasetIds": [
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055227247&dec=12.3369293069&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543409218&dec=12.3369388500&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031590782&dec=12.3369388500&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519772753&dec=12.3369293069&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055374681&dec=12.3869292208&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543458363&dec=12.3869388037&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031541637&dec=12.3869388037&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519625319&dec=12.3869292208&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055522172&dec=12.4369291727&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543507527&dec=12.4369387956&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031492473&dec=12.4369387956&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519477828&dec=12.4369291727&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055669719&dec=12.4869290865&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543556709&dec=12.4869387493&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031443291&dec=12.4869387493&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+            "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519330281&dec=12.4869290865&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar="
+          ],
+          "units": {
+            "image": "nanomaggy",
+            "inverseVariance": "nanomaggy^-2"
+          },
+          "calibration": "Legacy Survey DR10 coadded calibrated flux",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+          "provenance": {
+            "service": "Legacy Survey FITS cutout service",
+            "layer": "ls-dr10",
+            "documentation": "https://www.legacysurvey.org/dr10/description/"
+          }
+        },
+        {
+          "id": "panstarrs-dr1-stack",
+          "survey": "Pan-STARRS1",
+          "release": "DR1 3pi stacks",
+          "instrument": "PS1 GPC1",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "i"
+          ],
+          "bandCoverage": {
+            "i": 0.586607098765432
+          },
+          "datasetCount": 6,
+          "datasetIds": [
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2"
+          },
+          "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "provenance": {
+            "service": "MAST Pan-STARRS image-list service and full skycell archive",
+            "product": "unconvolved stack + stack.wt + stack.mask",
+            "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          }
         }
       ],
-      "comparisons": []
+      "comparisons": [
+        {
+          "id": "ugc00891-registration-audit",
+          "layerIds": [
+            "rubin-dp2-deep-coadd",
+            "panstarrs-dr1-stack"
+          ],
+          "status": "qa",
+          "registration": {
+            "layerIds": [
+              "rubin-dp2-deep-coadd",
+              "panstarrs-dr1-stack"
+            ],
+            "commonWcs": true,
+            "commonFootprint": true,
+            "psfMatched": false,
+            "skyMatched": false,
+            "unitsMatched": true,
+            "filterMatched": false,
+            "filterTransform": null,
+            "maxResidualArcsec": 0.408143488111138,
+            "qaThresholdArcsec": 0.3,
+            "limitations": [
+              "Sky planes have been measured but not yet applied to a released matched product.",
+              "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+              "Rubin and Pan-STARRS1 DR1 nominal bandpasses are not identical; no color transformation has been applied."
+            ]
+          },
+          "qa": {
+            "band": "i",
+            "comparisonLayerLabel": "Pan-STARRS1 DR1",
+            "commonValidPixelFraction": 0.5172503086419753,
+            "matchedSources": 131,
+            "astrometricResidualP95Arcsec": 0.408143488111138,
+            "astrometryPass": false,
+            "rubinMedianFwhmArcsec": 2.330481761516664,
+            "comparisonMedianFwhmArcsec": 2.401274707543058
+          },
+          "measurements": [],
+          "inferences": [],
+          "assumptionAudits": []
+        }
+      ]
     },
     {
       "id": "ugc01230",

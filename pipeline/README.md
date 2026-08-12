@@ -12,6 +12,13 @@ python pipeline/build_local_layer_store.py
 
 `pipeline/output/layers.sqlite` indexes all 175 targets, sky bounding boxes, layers, dataset identifiers, local FITS paths and hashes, per-band products, and future comparisons. The `target_sky_index` R-tree supports local coordinate intersection queries. Raw pixels remain local and ignored; the public catalog contains metadata only.
 
+Query the store without opening or mutating it:
+
+```bash
+python pipeline/query_local_layers.py --target UGC00891
+python pipeline/query_local_layers.py --ra 20.32875 --dec 12.41194 --radius-arcmin 2 --layer panstarrs-dr1-stack
+```
+
 The atlas does not download or subdivide one enormous release image. Early Data Preview 2 is a collection of tract/patch `deep_coadd` datasets. This pipeline queries only the coadd patches that overlap each predeclared galaxy field, mosaics them onto a common target-centered WCS, and records the Butler dataset UUID for every input.
 
 The July 27, 2026 early release contains deep coadds and catalogs. Raw, visit, template, and difference images are planned for the complete DP2 release later in 2026. EDP2 access currently requires Rubin data rights and an authenticated Rubin Science Platform session.
@@ -57,6 +64,34 @@ python pipeline/download_dp2_matches.py
 
 This route uses no SODA cutout calls. The downloader follows DataLink's `#this` links to the immutable FITS patches, verifies each file, records SHA-256 digests and publisher dataset identifiers, and reprojects the image/variance/mask planes to one 0.4 arcsec/pixel target WCS. A maximum of four object-storage downloads run concurrently by default; use `--workers 1` for a strictly serial transfer.
 
+## 0.75. Acquire full-resolution reference image layers
+
+Acquire Legacy Survey DR10 data on the exact Rubin target WCS:
+
+```bash
+python pipeline/fetch_legacy_survey.py
+```
+
+The Legacy cutout service currently caps responses at 512 pixels. The adapter therefore downloads a deterministic overlapping tile grid, retains every original FITS response and hash, and mosaics the science and inverse-variance planes locally. For the three usable Rubin targets this is 48 retained tiles.
+
+For a Rubin field without a sufficiently covered Legacy band, acquire Pan-STARRS1:
+
+```bash
+python pipeline/fetch_panstarrs.py
+```
+
+This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
+
+Audit registration readiness:
+
+```bash
+python pipeline/audit_layer_registration.py
+```
+
+The audit chooses the best-covered common band, measures matched-source residuals, common valid coverage, empirical PSF widths, and robust sky planes. It leaves `psfMatched`, `filterMatched`, and `skyMatched` false because measuring those quantities does not perform the matching operation. Its predeclared astrometric publication threshold is 0.30 arcsec p95.
+
+All acquired pixels, support planes, derived mosaics, manifests, and the SQLite store live under ignored `pipeline/output/`. Only metadata suitable for public release is copied into the catalog.
+
 ## 1. Export Rubin data inside the RSP
 
 Open an RSP Notebook Aspect session, clone or upload this repository, and run:
@@ -100,6 +135,14 @@ Obtain the scientifically appropriate older-survey image for the same field and 
 - create a web preview from the matched arrays, not from an unrelated survey JPEG.
 
 Literal pixel subtraction before these operations is not a valid cross-survey measurement.
+
+For an early visual review using the acquired local FITS products:
+
+```bash
+python pipeline/build_visual_prototype.py
+```
+
+This writes ignored display assets for the site's `/prototype` route: a Rubin field, a Legacy Survey view on the identical WCS, and an alpha mask encoding actual Legacy valid pixels. These are visual stretches only. They are excluded from Git and deployment uploads, and must not be used as quantitative inputs.
 
 Record the results using `registration-qa.example.json`. Boolean values are assertions backed by the analyst's QA artifacts, not switches that perform the work. The residual threshold must be declared before publication.
 

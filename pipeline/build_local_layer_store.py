@@ -85,6 +85,8 @@ def main() -> None:
     parser.add_argument("--catalog", type=Path, default=root / "public" / "data" / "layers-catalog.json")
     parser.add_argument("--downloads", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "download-manifest.json")
     parser.add_argument("--mosaics", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "mosaic-summary.json")
+    parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
+    parser.add_argument("--panstarrs", type=Path, default=root / "pipeline" / "output" / "panstarrs" / "manifest.json")
     parser.add_argument("--output", type=Path, default=root / "pipeline" / "output" / "layers.sqlite")
     args = parser.parse_args()
 
@@ -93,6 +95,15 @@ def main() -> None:
     mosaics = read_json(args.mosaics) if args.mosaics.is_file() else []
     download_by_id = {item["publisher_id"]: item for item in downloads}
     mosaic_by_slug = {item["target"]["slug"]: item for item in mosaics}
+    legacy_records = {item["target"]["slug"]: item for item in read_json(args.legacy).get("targets", [])} if args.legacy.is_file() else {}
+    legacy_tile_by_url = {tile["url"]: tile for item in legacy_records.values() for tile in item.get("tiles", [])}
+    panstarrs_records = {item["target"]["slug"]: item for item in read_json(args.panstarrs).get("targets", [])} if args.panstarrs.is_file() else {}
+    panstarrs_original_by_url = {
+        original["url"]: {**original, "band": band}
+        for item in panstarrs_records.values()
+        for band, product in item.get("bands", {}).items()
+        for original in product.get("originals", [])
+    }
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.unlink(missing_ok=True)
@@ -136,7 +147,7 @@ def main() -> None:
                     ),
                 )
                 for dataset_id in layer.get("datasetIds", []):
-                    record = download_by_id.get(dataset_id, {})
+                    record = download_by_id.get(dataset_id) or legacy_tile_by_url.get(dataset_id) or panstarrs_original_by_url.get(dataset_id, {})
                     connection.execute(
                         "INSERT INTO datasets VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                         (dataset_id, target_index, layer["id"], record.get("obs_id"), record.get("band"), record.get("path"), record.get("bytes"), record.get("sha256")),
@@ -154,6 +165,42 @@ def main() -> None:
                             product["valid_pixel_fraction"],
                             product.get("mosaic"),
                             product.get("mosaic_sha256"),
+                            product.get("preview"),
+                            product.get("preview_sha256"),
+                        ),
+                    )
+            legacy = legacy_records.get(target["id"])
+            if legacy:
+                for band, product in legacy.get("bands", {}).items():
+                    connection.execute(
+                        "INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            target_index,
+                            "legacy-survey-dr10",
+                            band,
+                            int(product["science_coverage"]),
+                            product["valid_pixel_fraction"],
+                            product.get("product"),
+                            product.get("product_sha256"),
+                            product.get("preview"),
+                            product.get("preview_sha256"),
+                        ),
+                    )
+            panstarrs = panstarrs_records.get(target["id"])
+            if panstarrs:
+                for band, product in panstarrs.get("bands", {}).items():
+                    if "product" not in product:
+                        continue
+                    connection.execute(
+                        "INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (
+                            target_index,
+                            "panstarrs-dr1-stack",
+                            band,
+                            int(product["science_coverage"]),
+                            product["valid_pixel_fraction"],
+                            product.get("product"),
+                            product.get("product_sha256"),
                             product.get("preview"),
                             product.get("preview_sha256"),
                         ),

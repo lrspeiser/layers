@@ -14,7 +14,7 @@ REQUIRED_LAYER_FIELDS = {
     "hasMask", "hasWcs", "note", "provenance",
 }
 REGISTRATION_GATES = {
-    "commonWcs", "commonFootprint", "psfMatched", "skyMatched", "unitsMatched",
+    "commonWcs", "commonFootprint", "psfMatched", "skyMatched", "unitsMatched", "filterMatched",
 }
 MEASUREMENT_FIELDS = {
     "id", "label", "quantity", "value", "unit", "statisticalUncertainty",
