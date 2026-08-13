@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT / "pipeline"))
 
 from download_dp2_matches import pixel_area_arcsec2  # noqa: E402
 from fetch_legacy_survey import NATIVE_COADD_PIXEL_SCALE_ARCSEC  # noqa: E402
+from fetch_panstarrs import NATIVE_PIXEL_SCALE_ARCSEC, pixel_area_arcsec2 as ps1_pixel_area  # noqa: E402
 
 
 def make_wcs(size: int, scale_arcsec: float) -> WCS:
@@ -46,6 +47,9 @@ def main() -> None:
     service_scale = 0.4**2 / NATIVE_COADD_PIXEL_SCALE_ARCSEC**2
     if not math.isclose(service_scale, 2.331, rel_tol=0.001):
         raise SystemExit("Legacy cutout pixel-area scaling failed")
+    panstarrs_scale = ps1_pixel_area(target_wcs) / ps1_pixel_area(make_wcs(201, NATIVE_PIXEL_SCALE_ARCSEC))
+    if not math.isclose(panstarrs_scale, 2.56, rel_tol=0.001):
+        raise SystemExit("Pan-STARRS full-skycell pixel-area scaling failed")
     print(f"Flux-conserving reprojection passed: relative error {relative_flux_error:.6f}")
 
 

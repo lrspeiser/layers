@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T04:46:23.782657+00:00",
+  "generatedAt": "2026-08-13T05:11:58.871896+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -148,7 +148,7 @@
       "unitsMatched": true,
       "filterMatched": false,
       "filterTransform": null,
-      "maxResidualArcsec": 0.10980877166902493,
+      "maxResidualArcsec": 0.10980877906800941,
       "qaThresholdArcsec": 0.3,
       "limitations": [
         "Sky planes have been measured but not yet applied to a released matched product.",
@@ -161,22 +161,22 @@
       "comparisonLayerLabel": "Pan-STARRS1 DR1",
       "commonValidPixelFraction": 0.5172503086419753,
       "matchedSources": 25,
-      "astrometricResidualP95Arcsec": 0.10980877166902493,
+      "astrometricResidualP95Arcsec": 0.10980877906800941,
       "astrometryPass": true,
       "rubinMedianFwhmArcsec": 1.5291533801502533,
-      "comparisonMedianFwhmArcsec": 1.5957191075824084,
+      "comparisonMedianFwhmArcsec": 1.5957191116246068,
       "reconciliationStatus": "matched-not-photometrically-comparable",
       "matchedCommonValidPixelFraction": 0.34210092592592595,
-      "postMatchAstrometricResidualP95Arcsec": 0.1365176752954764,
-      "postMatchFractionalFwhmDifference": 0.027150077979193606,
+      "postMatchAstrometricResidualP95Arcsec": 0.13651767120950806,
+      "postMatchFractionalFwhmDifference": 0.027150078025772385,
       "filterMatchBlocking": true,
-      "pointSourceCalibrationPass": false,
-      "filterHeldOutRmsMag": 0.007901443782823517,
+      "pointSourceCalibrationPass": true,
+      "filterHeldOutRmsMag": 0.00995229668263567,
       "extendedSourceTransferPass": false,
-      "extendedSourceTransferStatus": "blocked",
-      "extendedSourceResolvedCells": null,
-      "extendedSourceMedianAbsoluteResidualMag": null,
-      "extendedSourceRobustScatterMag": null,
+      "extendedSourceTransferStatus": "qa-failed",
+      "extendedSourceResolvedCells": 7,
+      "extendedSourceMedianAbsoluteResidualMag": 0.3792660070788342,
+      "extendedSourceRobustScatterMag": 0.03518301659681943,
       "injectionRecoveryStatus": "pass",
       "injectionNullTestPass": true,
       "injectionRecoveryGridPass": true,
@@ -189,9 +189,9 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "6e524d0deeff7be82641bfc60ba522ba35c15be6aa9b4f258e025aaf1c375ca6",
+      "matchedPairSha256": "9c2a3d9c7635a2b2bbb2f4ff7cd4f1103d7b501c9e12def4b7df02b8b7a9fd6d",
       "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
-      "sourceComparisonSha256": "4a3f352368a4bb0311f5ace84cdd51c14ab29144d69b132505fe01e0cfcc7c1c",
+      "sourceComparisonSha256": "1978d37cc029c42466c4c22bc32acaf16254d00ac5b930430ff60635eea0f85f",
       "qaPackage": "/data/comparisons/ugc00891.json"
     },
     "measurements": [
@@ -210,8 +210,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "6e524d0deeff7be82641bfc60ba522ba35c15be6aa9b4f258e025aaf1c375ca6",
-          "a8a4f31b81dbacb6cfb72cdd143ba8b98f3c20790bdd4a6bbc0256b85d0188ce"
+          "9c2a3d9c7635a2b2bbb2f4ff7cd4f1103d7b501c9e12def4b7df02b8b7a9fd6d",
+          "6ee008cc2c5b75ad496fc57d0fa3a0d01c269d92ce5ef0d7b7162f5211670232"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -236,8 +236,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "6e524d0deeff7be82641bfc60ba522ba35c15be6aa9b4f258e025aaf1c375ca6",
-          "a8a4f31b81dbacb6cfb72cdd143ba8b98f3c20790bdd4a6bbc0256b85d0188ce"
+          "9c2a3d9c7635a2b2bbb2f4ff7cd4f1103d7b501c9e12def4b7df02b8b7a9fd6d",
+          "6ee008cc2c5b75ad496fc57d0fa3a0d01c269d92ce5ef0d7b7162f5211670232"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -251,24 +251,24 @@
         "id": "panstarrs-dr1-stack-diffuse-limit-re-3",
         "label": "90% diffuse recovery limit (3 arcsec Re)",
         "quantity": "central surface brightness recovery limit",
-        "value": 24.0,
+        "value": 23.0,
         "unit": "AB mag arcsec^-2",
         "statisticalUncertainty": 0.5,
         "systematicUncertainty": 1.0,
         "expectedRange": [
-          23.0,
-          25.0
+          22.0,
+          24.0
         ],
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "6e524d0deeff7be82641bfc60ba522ba35c15be6aa9b4f258e025aaf1c375ca6",
-          "a8a4f31b81dbacb6cfb72cdd143ba8b98f3c20790bdd4a6bbc0256b85d0188ce"
+          "9c2a3d9c7635a2b2bbb2f4ff7cd4f1103d7b501c9e12def4b7df02b8b7a9fd6d",
+          "6ee008cc2c5b75ad496fc57d0fa3a0d01c269d92ce5ef0d7b7162f5211670232"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
           "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
-          "Measured completeness 0.938; 68% Wilson interval 0.900\u20130.962.",
+          "Measured completeness 0.922; 68% Wilson interval 0.881\u20130.949.",
           "Empirical blank-position noise is 483.3\u00d7 the formal template-fit uncertainty.",
           "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
         ]
@@ -277,19 +277,19 @@
         "id": "panstarrs-dr1-stack-diffuse-limit-re-6",
         "label": "90% diffuse recovery limit (6 arcsec Re)",
         "quantity": "central surface brightness recovery limit",
-        "value": 24.0,
+        "value": 23.0,
         "unit": "AB mag arcsec^-2",
         "statisticalUncertainty": 0.5,
         "systematicUncertainty": 1.0,
         "expectedRange": [
-          23.0,
-          25.0
+          22.0,
+          24.0
         ],
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "6e524d0deeff7be82641bfc60ba522ba35c15be6aa9b4f258e025aaf1c375ca6",
-          "a8a4f31b81dbacb6cfb72cdd143ba8b98f3c20790bdd4a6bbc0256b85d0188ce"
+          "9c2a3d9c7635a2b2bbb2f4ff7cd4f1103d7b501c9e12def4b7df02b8b7a9fd6d",
+          "6ee008cc2c5b75ad496fc57d0fa3a0d01c269d92ce5ef0d7b7162f5211670232"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -306,28 +306,28 @@
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 3469,
-      "sha256": "c1ca978578fbfdd682de9a13cbb582293f11276e04a40f9e67651cc6edbf728f"
+      "bytes": 3472,
+      "sha256": "dad3cb542a8b030973f99477f505139db7fa72ce61215fa4ebbc62a940adfc3b"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 7631,
-      "sha256": "69363cdd980a48f0a73927850822e0b00a8c7396589f80e98398816313d6c466"
+      "bytes": 8090,
+      "sha256": "77c52e0b5b1708951b1fe09f6588a5f360a00336f0aea24692b14b10231eb3b5"
     },
     {
       "name": "filter-response-audit.json",
-      "bytes": 5226,
-      "sha256": "37d81fdaf8c1f6310cd10594e18e8f8d485640a49302b1de44a5447aa7622bfb"
+      "bytes": 5674,
+      "sha256": "b8f6b6dfe7f2930753b8c6f0fd43f2b8a4a0a7a30e84930e65b667ac3a31a36b"
     },
     {
       "name": "extended-source-filter-audit.json",
-      "bytes": 173,
-      "sha256": "33e72ab76e75227f9843bf7e3d07309753ef13034858572d682dec3fa784c2ba"
+      "bytes": 4546,
+      "sha256": "8d147826e65c13bdf19a3a057ab9a8e1aaa4c2a262a0839a585f531e8aa99b27"
     },
     {
       "name": "diffuse-recovery.json",
-      "bytes": 31069,
-      "sha256": "a8a4f31b81dbacb6cfb72cdd143ba8b98f3c20790bdd4a6bbc0256b85d0188ce"
+      "bytes": 31111,
+      "sha256": "6ee008cc2c5b75ad496fc57d0fa3a0d01c269d92ce5ef0d7b7162f5211670232"
     }
   ],
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."

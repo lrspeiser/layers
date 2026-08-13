@@ -103,7 +103,8 @@ def panstarrs_catalog_rows(
     coverage: dict,
     reconciliation: dict,
     catalog_root: Path,
-) -> tuple[list[dict], list[dict], int, dict, dict]:
+    rubin_root: Path,
+) -> tuple[list[dict], list[dict], int, dict, dict, dict]:
     """Measure Rubin fluxes at independently calibrated PS1 stellar positions."""
     catalog_path = catalog_root / f"{slug}.csv"
     manifest_path = catalog_root / "manifest.json"
@@ -117,15 +118,33 @@ def panstarrs_catalog_rows(
     if manifest_record is None or manifest_record.get("sha256") != sha256(catalog_path):
         raise RuntimeError("The Pan-STARRS catalog cache does not match its acquisition manifest.")
 
-    rubin_path = Path(reconciliation["products"]["sourceRubin"])
+    calibration_manifest_path = rubin_root / slug / "rubin_i_calibration_manifest.json"
+    calibration_manifest = (
+        json.loads(calibration_manifest_path.read_text(encoding="utf-8"))
+        if calibration_manifest_path.is_file()
+        else None
+    )
+    if calibration_manifest:
+        rubin_path = Path(calibration_manifest["product"])
+        if not rubin_path.is_file() or sha256(rubin_path) != calibration_manifest["productSha256"]:
+            raise RuntimeError("The Rubin calibration field does not match its checksum manifest.")
+    else:
+        rubin_path = Path(reconciliation["products"]["sourceRubin"])
     rubin_i, rubin_variance, rubin_valid, rubin_header = read_rubin(rubin_path)
     pixel_scale = float(rubin_header["PIXSCALE"])
     exclusion = max(coverage[slug]["major_axis_arcmin"] * 60 / pixel_scale * 1.5, 60)
     rubin_sky, rubin_sky_record = fit_sky_plane(rubin_i, rubin_valid, exclusion)
     rubin_i -= rubin_sky
     sources = centroid_sources(rubin_i, rubin_valid, exclusion, pixel_scale)
+    rubin_support = {
+        "path": str(rubin_path.resolve()),
+        "sha256": sha256(rubin_path),
+        "calibrationFieldManifest": str(calibration_manifest_path.resolve()) if calibration_manifest else None,
+        "calibrationFieldManifestSha256": sha256(calibration_manifest_path) if calibration_manifest else None,
+        "fieldWidthArcmin": calibration_manifest.get("fieldWidthArcmin") if calibration_manifest else coverage[slug]["field_width_arcmin"],
+    }
     if not sources:
-        return [], [], 0, manifest_record, rubin_sky_record
+        return [], [], 0, manifest_record, rubin_sky_record, rubin_support
     positions = np.asarray([[source["x"], source["y"]] for source in sources])
     tree = cKDTree(positions)
     wcs = WCS(rubin_header).celestial
@@ -195,7 +214,7 @@ def panstarrs_catalog_rows(
                 "catalogToRubinCentroidArcsec": float(distance * pixel_scale),
             }
         )
-    return rows, sources, len(catalog_matches), manifest_record, rubin_sky_record
+    return rows, sources, len(catalog_matches), manifest_record, rubin_sky_record, rubin_support
 
 
 def bootstrap_coefficients(color: np.ndarray, delta: np.ndarray, samples: int = 400) -> dict:
@@ -251,8 +270,8 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
     catalog_candidates = None
     if comparison_layer == "panstarrs-dr1-stack":
         try:
-            rows, detected_sources, catalog_candidates, catalog_record, rubin_sky_record = panstarrs_catalog_rows(
-                slug, coverage, reconciliation, args.panstarrs_catalog_root
+            rows, detected_sources, catalog_candidates, catalog_record, rubin_sky_record, rubin_support = panstarrs_catalog_rows(
+                slug, coverage, reconciliation, args.panstarrs_catalog_root, args.rubin_root
             )
         except (FileNotFoundError, RuntimeError) as error:
             return {
@@ -269,8 +288,7 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
             "catalogRows": catalog_record["rows"],
             "queryUrl": catalog_record["queryUrl"],
             "documentation": catalog_record["documentation"],
-            "rubinSource": reconciliation["products"]["sourceRubin"],
-            "rubinSourceSha256": reconciliation["products"]["sourceRubinSha256"],
+            "rubinCalibrationField": rubin_support,
             "rubinSkyModelNjy": rubin_sky_record,
             "positionMatchRadiusArcsec": CATALOG_MATCH_RADIUS_ARCSEC,
             "maximumCatalogMagnitudeError": MAX_CATALOG_MAG_ERROR,
@@ -514,6 +532,7 @@ def main() -> None:
     parser.add_argument("--legacy-root", type=Path, default=root / "pipeline" / "output" / "legacy-survey")
     parser.add_argument("--panstarrs-root", type=Path, default=root / "pipeline" / "output" / "panstarrs")
     parser.add_argument("--panstarrs-catalog-root", type=Path, default=root / "pipeline" / "cache" / "panstarrs-dr2-mean")
+    parser.add_argument("--rubin-root", type=Path, default=root / "pipeline" / "output" / "dp2-sparc")
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}

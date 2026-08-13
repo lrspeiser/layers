@@ -90,7 +90,7 @@ Pass `--only TARGET` to deliberately add or refresh Pan-STARRS support for a Rub
 
 Use `--bands r,i,z` with `--only` to add predictor bands needed by a filter-response adapter. Existing bands and source provenance for that target are preserved when the selected bands are refreshed.
 
-This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
+This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, scales integrated flux and variance by the target/native pixel-area ratio during reprojection, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
 
 Cache Gaia DR3 stars with proper motions before registering Pan-STARRS to Rubin:
 

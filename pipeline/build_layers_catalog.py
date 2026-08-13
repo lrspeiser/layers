@@ -239,7 +239,8 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
         support_fraction = extended_audit.get("colorSupportFraction")
         qualified = extended_audit.get("qualifiedCells")
         supported = extended_audit.get("cellsWithinStellarColorSupport")
-        if all(value is not None for value in (median_residual, scatter, median_limit, scatter_limit)):
+        minimum_cells = thresholds.get("minimumResolvedCells", 20)
+        if all(value is not None for value in (median_residual, scatter, median_limit, scatter_limit)) and qualified >= minimum_cells:
             priority_score = max(median_residual / median_limit, scatter / scatter_limit)
             assumption_audits.append(
                 {
@@ -395,15 +396,28 @@ def pilot_audit(target: dict, mosaic: dict | None, comparison: dict | None, audi
         }
     if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "qa-failed":
         extended_path = audit_dir / target_id / "extended-source-filter-audit.json"
+        extended_audit = load_json(extended_path) if extended_path.is_file() else {}
+        qualified_cells = extended_audit.get("qualifiedCells", 0)
+        required_cells = extended_audit.get("thresholds", {}).get("minimumResolvedCells", 20)
+        residual = comparison["qa"]["extendedSourceMedianAbsoluteResidualMag"]
+        residual_limit = extended_audit.get("thresholds", {}).get("maximumMedianAbsoluteResidualMag", 0.08)
+        sample_pass = qualified_cells >= required_cells
         return {
             "id": f"{target_id}-filter-transfer-limit",
             "outcome": "filter-transfer-blocked",
             "stage": "filter-response",
-            "observation": "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the color transform fails on resolved galaxy light.",
-            "metric": {"label": "resolved median absolute filter-transfer residual", "value": comparison["qa"]["extendedSourceMedianAbsoluteResidualMag"], "unit": "mag", "passThreshold": 0.08, "comparison": "must be less than or equal to"},
+            "observation": (
+                "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the resolved-galaxy transfer does not. "
+                f"Only {qualified_cells}/{required_cells} required cells survive the common mask, and their {residual:.3f} mag median residual exceeds the {residual_limit:.2f} mag tolerance."
+            ),
+            "metric": (
+                {"label": "resolved median absolute filter-transfer residual", "value": residual, "unit": "mag", "passThreshold": residual_limit, "comparison": "must be less than or equal to"}
+                if sample_pass
+                else {"label": "qualified resolved galaxy cells", "value": qualified_cells, "unit": "cells", "passThreshold": required_cells, "comparison": "must be greater than or equal to"}
+            ),
             "claimStatus": "blocked",
             "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/extended-source-filter-audit.json", "sha256": sha256(extended_path)}],
-            "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference.",
+            "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference.",
         }
     if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "blocked":
         filter_path = audit_dir / target_id / "filter-response-audit.json"

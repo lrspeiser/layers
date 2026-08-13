@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T04:46:23.709955+00:00",
+  "generatedAt": "2026-08-13T05:11:58.811340+00:00",
   "target": {
     "id": "ugc00634",
     "name": "UGC00634",
@@ -247,7 +247,7 @@
     "id": "ugc00634-filter-transfer-limit",
     "outcome": "filter-transfer-blocked",
     "stage": "filter-response",
-    "observation": "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the color transform fails on resolved galaxy light.",
+    "observation": "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the resolved-galaxy transfer does not. Only 37/20 required cells survive the common mask, and their 0.474 mag median residual exceeds the 0.08 mag tolerance.",
     "metric": {
       "label": "resolved median absolute filter-transfer residual",
       "value": 0.4739768569919122,
@@ -259,10 +259,10 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-        "sha256": "a4ac4806b26511b4a9eb4621946d390fe722ddcfa4d5660091fe0f1cf57b097e"
+        "sha256": "3ca3668b364fb01fd2b00870f96d2293385ad30e6a948443df8ace1e89a7b4a8"
       }
     ],
-    "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
+    "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
   },
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
 }

@@ -123,6 +123,12 @@ def celestial_wcs(header: fits.Header) -> WCS:
     return WCS(header).celestial
 
 
+def pixel_area_arcsec2(wcs: WCS) -> float:
+    """Projected pixel area for images whose values are integrated flux/pixel."""
+    matrix = wcs.pixel_scale_matrix * 3600.0
+    return float(abs(np.linalg.det(matrix)))
+
+
 def linear_stack_flux(data: np.ndarray, header: fits.Header) -> np.ndarray:
     values = np.asarray(data, dtype=np.float32)
     if "BSOFTEN" not in header or "BOFFSET" not in header:
@@ -338,7 +344,13 @@ def main() -> None:
                 )
                 exptime = float(science_header["EXPTIME"])
                 zero_point = 25.0 + 2.5 * math.log10(exptime)
-                factor = 10 ** ((AB_ZERO_NJY_MAG - zero_point) / 2.5)
+                photometric_factor = 10 ** ((AB_ZERO_NJY_MAG - zero_point) / 2.5)
+                # Stack data units are integrated flux per native skycell
+                # pixel. reproject_interp preserves values, so resampling from
+                # 0.25" to 0.4" pixels requires target/source pixel area to
+                # conserve integrated flux, and its square for variance.
+                area_factor = pixel_area_arcsec2(target_wcs) / pixel_area_arcsec2(science_wcs)
+                factor = photometric_factor * area_factor
                 cell_image = np.asarray(cell_image, dtype=np.float32) * np.float32(factor)
                 cell_variance = np.asarray(cell_variance, dtype=np.float32) * np.float32(factor * factor)
                 cell_valid = (
@@ -364,6 +376,10 @@ def main() -> None:
                         "skycell": cell,
                         "exptime_seconds": exptime,
                         "zero_point": zero_point,
+                        "native_pixel_area_arcsec2": pixel_area_arcsec2(science_wcs),
+                        "target_pixel_area_arcsec2": pixel_area_arcsec2(target_wcs),
+                        "pixel_area_flux_factor": area_factor,
+                        "nJy_per_native_data_unit": photometric_factor,
                         "nJy_per_data_unit": factor,
                     }
                 )
@@ -385,6 +401,7 @@ def main() -> None:
                 "calibrations": calibrations,
                 "originals": originals,
                 "variance_note": "PS1 stack.wt is documented as variance; nearest-neighbour reprojection does not model resampling covariance.",
+                "flux_note": "Integrated flux is conserved by multiplying reprojected stack data units by target/native pixel area before AB conversion.",
             }
         manifest["targets"].append(
             {

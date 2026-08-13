@@ -93,8 +93,9 @@ test("permanent target records expose honest pixel-level coverage states", async
 
   const calibrationBlocked = await render("/target/ugc00891");
   const calibrationHtml = await calibrationBlocked.text();
-  assert.match(calibrationHtml, /retained color-calibration stars/);
-  assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}50/);
+  assert.match(calibrationHtml, /qualified resolved galaxy cells/);
+  assert.match(calibrationHtml, /Only 7\/20 required cells survive the common mask/);
+  assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}20/);
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
@@ -170,7 +171,7 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
   assert.deepEqual(pilotTargets.map((target) => target.id).sort(), ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]);
   assert.equal(catalog.targets.find((target) => target.id === "ngc0100").pilotAudit.evidence[0].sha256, "7e6824743209cf467572c47e2c90624310ac681643629d99af81dd104123643c");
   const registrationPilot = catalog.targets.find((target) => target.id === "ugc00891").pilotAudit;
-  assert.equal(registrationPilot.outcome, "filter-adapter-blocked");
+  assert.equal(registrationPilot.outcome, "filter-transfer-blocked");
   assert.equal(registrationPilot.metric.value < registrationPilot.metric.passThreshold, true);
   const audits = catalog.targets.flatMap((target) => target.comparisons.flatMap((comparison) => comparison.assumptionAudits));
   assert.deepEqual(audits.sort((a, b) => a.rank - b.rank).map((audit) => audit.id), [
