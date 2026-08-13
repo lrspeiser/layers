@@ -235,10 +235,11 @@ def bootstrap_coefficients(color: np.ndarray, delta: np.ndarray, samples: int = 
     }
 
 
-def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
-    output_dir = args.comparisons / slug
+def audit_target(comparison_key: str, coverage: dict, args: argparse.Namespace) -> dict:
+    output_dir = args.comparisons / comparison_key
     reconciliation_path = output_dir / "reconciliation.json"
     reconciliation = json.loads(reconciliation_path.read_text(encoding="utf-8"))
+    slug = reconciliation["objectId"]
     if reconciliation.get("status") == "blocked":
         return {
             "schemaVersion": 1,
@@ -536,17 +537,17 @@ def main() -> None:
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}
-    slugs = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
+    comparison_keys = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
     if args.only:
-        slugs = [slug for slug in slugs if slug in set(args.only)]
+        comparison_keys = [key for key in comparison_keys if json.loads((args.comparisons / key / "reconciliation.json").read_text(encoding="utf-8")).get("objectId") in set(args.only)]
     summary = []
-    for slug in slugs:
-        result = audit_target(slug, coverage, args)
-        output = args.comparisons / slug / "filter-response-audit.json"
+    for comparison_key in comparison_keys:
+        result = audit_target(comparison_key, coverage, args)
+        output = args.comparisons / comparison_key / "filter-response-audit.json"
         if not output.is_file():
             output.write_text(json.dumps(result, indent=2), encoding="utf-8")
-        summary.append({"objectId": slug, "status": result["status"]})
-        print(f"[{slug}] {result['status']}")
+        summary.append({"comparisonKey": comparison_key, "objectId": result["objectId"], "status": result["status"]})
+        print(f"[{comparison_key}] {result['status']}")
     (args.comparisons / "filter-response-summary.json").write_text(
         json.dumps({"schemaVersion": 1, "targets": summary}, indent=2), encoding="utf-8"
     )

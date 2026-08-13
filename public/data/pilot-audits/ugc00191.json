@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T05:34:34.394310+00:00",
+  "generatedAt": "2026-08-13T06:32:51.326091+00:00",
   "target": {
     "id": "ugc00191",
     "name": "UGC00191",
@@ -244,7 +244,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00191/extended-source-filter-audit.json",
-        "sha256": "da3df01b14163ebe1da35af1387f9905768d832722a003b6ccaf5cdd954fb29f"
+        "sha256": "fd24e1a7f448671f9568836454dc6911406877edd7b61639f47f222f5e329517"
       }
     ],
     "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

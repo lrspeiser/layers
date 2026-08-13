@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers comparison QA package",
+  "generatedAt": "2026-08-13T06:32:51.394656+00:00",
+  "target": {
+    "id": "ugc00191",
+    "name": "UGC00191",
+    "identifiers": {
+      "SPARC": "UGC00191",
+      "SIMBAD": "Z 434-1"
+    },
+    "center": {
+      "raDeg": 5.021669999999999,
+      "decDeg": 10.88,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 1.26923
+    }
+  },
+  "layers": [
+    {
+      "id": "rubin-dp2-deep-coadd",
+      "survey": "Vera C. Rubin Observatory",
+      "release": "DP2",
+      "instrument": "LSSTCam",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "bandCoverage": {
+        "g": 0.9161722222222223,
+        "i": 0.9624388888888888,
+        "r": 0.9711216049382716,
+        "z": 0.9621219135802469
+      },
+      "datasetCount": 16,
+      "datasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-683d-74b6-91ca-c11b0e25efcb",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7c78-740b-ba68-94aed2b6d56c",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-86df-784c-8ef5-01cb9e1f8808",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d3f5-7525-b804-73f5810afec9",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-32dd-7c7b-bd53-d583face45ec",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-af2e-7f56-990d-0396507afeb1",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b292-7163-889b-ccd0466beb7e",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-dbda-788f-b69d-90060ed294a3",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-0195-7550-9fb5-ab0866fdb355",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-129b-7869-a91d-6e38d95dc247",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-161e-7278-a4b1-61bc7c34f42c",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b178-7820-b654-402d4867b1dc",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-65f4-7467-af43-7e5d9f326cc0",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7a71-7272-8fe1-f1ce784f4cba",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-8ec7-7408-b58a-e09b75c2c443",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-fb97-7fa5-ac4e-53616e6980a0"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "Rubin Science Pipelines deep coadd",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "provenance": {
+        "service": "Rubin Science Platform SIA v2 + DataLink",
+        "datasetType": "lsst.deep_coadd",
+        "queryStatus": "OK"
+      }
+    },
+    {
+      "id": "panstarrs-dr1-stack",
+      "survey": "Pan-STARRS1",
+      "release": "DR1 3pi stacks",
+      "instrument": "PS1 GPC1",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "bandCoverage": {
+        "g": 0.4355901234567901,
+        "i": 0.5295219135802469,
+        "r": 0.43969783950617286,
+        "z": 0.4698506172839506
+      },
+      "datasetCount": 24,
+      "datasetIds": [
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.mask.fits"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+      "provenance": {
+        "service": "MAST Pan-STARRS image-list service and full skycell archive",
+        "product": "unconvolved stack + stack.wt + stack.mask",
+        "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+      }
+    }
+  ],
+  "comparison": {
+    "id": "ugc00191--panstarrs-dr1-stack-registration-audit",
+    "comparisonKey": "ugc00191--panstarrs-dr1-stack",
+    "layerIds": [
+      "rubin-dp2-deep-coadd",
+      "panstarrs-dr1-stack"
+    ],
+    "status": "qa",
+    "registration": {
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "commonWcs": true,
+      "commonFootprint": true,
+      "psfMatched": true,
+      "skyMatched": true,
+      "unitsMatched": true,
+      "filterMatched": false,
+      "filterTransform": null,
+      "maxResidualArcsec": 0.0763893032621141,
+      "qaThresholdArcsec": 0.3,
+      "limitations": [
+        "Sky planes have been measured but not yet applied to a released matched product.",
+        "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+        "Rubin and Pan-STARRS1 DR1 nominal bandpasses are not identical; no color transformation has been applied."
+      ]
+    },
+    "qa": {
+      "band": "i",
+      "comparisonLayerLabel": "Pan-STARRS1 DR1",
+      "commonValidPixelFraction": 0.5020299382716049,
+      "matchedSources": 19,
+      "astrometricResidualP95Arcsec": 0.0763893032621141,
+      "astrometryPass": true,
+      "rubinMedianFwhmArcsec": 1.3969527252990477,
+      "comparisonMedianFwhmArcsec": 1.5034250083905039,
+      "reconciliationStatus": "matched-not-photometrically-comparable",
+      "matchedCommonValidPixelFraction": 0.30978055555555556,
+      "postMatchAstrometricResidualP95Arcsec": 0.06615213110822227,
+      "postMatchFractionalFwhmDifference": 0.011307231214502177,
+      "filterMatchBlocking": true,
+      "pointSourceCalibrationPass": true,
+      "filterHeldOutRmsMag": 0.03225378737598934,
+      "extendedSourceTransferPass": false,
+      "extendedSourceTransferStatus": "qa-failed",
+      "extendedSourceResolvedCells": 0,
+      "extendedSourceMedianAbsoluteResidualMag": null,
+      "extendedSourceRobustScatterMag": null,
+      "injectionRecoveryStatus": "pass",
+      "injectionNullTestPass": true,
+      "injectionRecoveryGridPass": true,
+      "injectionProfile": "elliptical exponential convolved with the matched Gaussian PSF",
+      "injectionEffectiveRadiiArcsec": [
+        3.0,
+        6.0,
+        12.0,
+        24.0
+      ]
+    },
+    "products": {
+      "matchedPairSha256": "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+      "sourceRubinSha256": "3deb8f9624bc432297f992be9cd9963e1da457f1c1361356dbbba810b1e2a455",
+      "sourceComparisonSha256": "1dee5152e27806733bc93283f60d9bee66ab5eb2388900b0008c1ed9abc48411",
+      "qaPackage": "/data/comparisons/ugc00191--panstarrs-dr1-stack.json"
+    },
+    "measurements": [
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+          "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.953; 68% Wilson interval 0.919\u20130.973.",
+          "Empirical blank-position noise is 4.9\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+          "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.984; 68% Wilson interval 0.960\u20130.994.",
+          "Empirical blank-position noise is 8.6\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "panstarrs-dr1-stack-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 23.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          22.0,
+          24.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+          "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.953; 68% Wilson interval 0.919\u20130.973.",
+          "Empirical blank-position noise is 526.6\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "panstarrs-dr1-stack-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 23.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          22.0,
+          24.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+          "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 1.000; 68% Wilson interval 0.985\u20131.000.",
+          "Empirical blank-position noise is 831.0\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      }
+    ],
+    "inferences": [],
+    "assumptionAudits": []
+  },
+  "localReproductionArtifacts": [
+    {
+      "name": "registration-audit.json",
+      "bytes": 3514,
+      "sha256": "f2b1b0d978fa7b567817f9cfbe2090ffa96b0f1cac2404f591207118fb537b9c"
+    },
+    {
+      "name": "reconciliation.json",
+      "bytes": 8196,
+      "sha256": "68f7a50fec9de4f9e81af7edcb70e2f3137c4e14f87a4741831bf57139f7eccc"
+    },
+    {
+      "name": "filter-response-audit.json",
+      "bytes": 5397,
+      "sha256": "9e0eaa1e7a7950fe976b171583390bd742d30fb4685c44b07b9dad0e57f833e5"
+    },
+    {
+      "name": "extended-source-filter-audit.json",
+      "bytes": 2252,
+      "sha256": "9059193123e9ab76b39080160f5146a027f259dbd785f9c02a9bb6dbd2b40cda"
+    },
+    {
+      "name": "diffuse-recovery.json",
+      "bytes": 30585,
+      "sha256": "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+    }
+  ],
+  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."
+}

@@ -76,8 +76,9 @@ def main() -> None:
             continue
         for comparison in target["comparisons"]:
             slug = target["id"]
-            source_dir = args.comparisons / slug
-            local_dir = args.local_output / slug
+            comparison_key = comparison.get("comparisonKey", slug)
+            source_dir = args.comparisons / comparison_key
+            local_dir = args.local_output / comparison_key
             local_dir.mkdir(parents=True, exist_ok=True)
             artifact_records = []
             for filename in AUDIT_FILES:
@@ -106,7 +107,7 @@ def main() -> None:
                 "localReproductionArtifacts": artifact_records,
                 "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized.",
             }
-            public_path = args.public_output / f"{slug}.json"
+            public_path = args.public_output / f"{comparison_key}.json"
             public_path.write_text(json.dumps(public_record, indent=2), encoding="utf-8")
             expected_public.add(public_path.name)
             local_manifest = {
@@ -116,11 +117,11 @@ def main() -> None:
             }
             manifest_path = local_dir / "manifest.json"
             manifest_path.write_text(json.dumps(local_manifest, indent=2), encoding="utf-8")
-            zip_path = args.local_output / f"{slug}-reproducibility.zip"
+            zip_path = args.local_output / f"{comparison_key}-reproducibility.zip"
             with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
                 for path in sorted(local_dir.iterdir()):
                     if path.is_file():
-                        archive.write(path, arcname=f"{slug}/{path.name}")
+                        archive.write(path, arcname=f"{comparison_key}/{path.name}")
             package_count += 1
     for path in args.public_output.glob("*.json"):
         if path.name not in expected_public:

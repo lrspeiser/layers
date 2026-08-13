@@ -27,14 +27,20 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def shared_render(left: np.ndarray, right: np.ndarray, common: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+def shared_render(
+    left: np.ndarray,
+    right: np.ndarray,
+    common: np.ndarray,
+    left_valid: np.ndarray,
+    right_valid: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray]:
     samples = np.concatenate((left[common], right[common]))
     _, _, noise = sigma_clipped_stats(samples, sigma=3.0, maxiters=6)
     scale = max(float(noise) * 1.6, 1e-6)
     positive = samples[samples > 0]
     high = max(float(np.percentile(positive, 99.85)) if positive.size else scale * 40, scale * 20)
     output = []
-    for image in (left, right):
+    for image, valid in ((left, left_valid), (right, right_valid)):
         values = np.nan_to_num(
             np.arcsinh(np.clip(image, 0, None) / scale) / np.arcsinh(high / scale),
             nan=0.0,
@@ -43,8 +49,10 @@ def shared_render(left: np.ndarray, right: np.ndarray, common: np.ndarray) -> tu
         )
         gray = np.uint8(np.clip(values, 0, 1) ** 0.88 * 255)
         rgb = np.empty((*gray.shape, 3), dtype=np.uint8)
-        rgb[:] = [3, 7, 14]
-        rgb[common] = np.stack((gray[common], gray[common], gray[common]), axis=-1)
+        yy, xx = np.indices(gray.shape)
+        checker = ((xx // 12 + yy // 12) % 2).astype(bool)
+        rgb[:] = np.where(checker[..., None], [46, 34, 25], [23, 26, 29])
+        rgb[valid] = np.stack((gray[valid], gray[valid], gray[valid]), axis=-1)
         output.append(rgb)
     return output[0], output[1]
 
@@ -64,10 +72,11 @@ def main() -> None:
     selected = {item.lower() for item in args.only}
     manifests = []
     for reconciliation_path in sorted(args.comparisons.glob("*/reconciliation.json")):
-        slug = reconciliation_path.parent.name
-        if selected and slug.lower() not in selected:
-            continue
         reconciliation = json.loads(reconciliation_path.read_text(encoding="utf-8"))
+        comparison_key = reconciliation.get("comparisonKey", reconciliation_path.parent.name)
+        object_id = reconciliation["objectId"]
+        if selected and object_id.lower() not in selected and comparison_key.lower() not in selected:
+            continue
         pair_path = Path(reconciliation.get("products", {}).get("matchedPair", ""))
         if reconciliation.get("status") == "blocked" or not pair_path.is_file():
             continue
@@ -75,37 +84,50 @@ def main() -> None:
             rubin = np.asarray(hdus["RUBIN"].data, dtype=np.float64)
             reference = np.asarray(hdus["COMPARISON"].data, dtype=np.float64)
             common = np.asarray(hdus["COMMON_MASK"].data, dtype=bool)
-        rubin_rgb, reference_rgb = shared_render(rubin, reference, common)
-        output_dir = args.output / slug
+            rubin_valid = np.asarray(hdus["RUBIN_MASK"].data, dtype=bool)
+            reference_valid = np.asarray(hdus["COMPARISON_MASK"].data, dtype=bool)
+        rubin_rgb, reference_rgb = shared_render(rubin, reference, common, rubin_valid, reference_valid)
+        output_dir = args.output / comparison_key
         output_dir.mkdir(parents=True, exist_ok=True)
         rubin_path = output_dir / "rubin-matched.jpg"
         reference_path = output_dir / "reference-matched.jpg"
         coverage_path = output_dir / "common-coverage.png"
         save_rgb(rubin_path, rubin_rgb)
         save_rgb(reference_path, reference_rgb)
+        rubin_only = rubin_valid & ~reference_valid
+        reference_only = reference_valid & ~rubin_valid
+        neither = ~rubin_valid & ~reference_valid
         rgba = np.zeros((*common.shape, 4), dtype=np.uint8)
-        rgba[~common] = [255, 174, 79, 100]
+        rgba[rubin_only] = [239, 69, 85, 145]
+        rgba[reference_only] = [57, 145, 255, 145]
+        rgba[neither] = [255, 174, 79, 115]
         Image.fromarray(rgba, mode="RGBA").save(coverage_path, optimize=True)
         manifest = {
             "schemaVersion": 1,
             "createdAt": reconciliation["createdAt"],
-            "objectId": slug,
+            "objectId": object_id,
+            "comparisonKey": comparison_key,
             "layerIds": reconciliation["layerIds"],
             "band": reconciliation["band"],
             "shape": list(common.shape),
             "commonValidPixelFraction": float(common.mean()),
+            "coverageFractions": {
+                "rubinOnly": float(rubin_only.mean()),
+                "referenceOnly": float(reference_only.mean()),
+                "neither": float(neither.mean()),
+            },
             "analysisProductSha256": sha256(pair_path),
             "assets": {
-                "rubin": {"path": f"/private-preview/{slug}/{rubin_path.name}", "sha256": sha256(rubin_path)},
-                "reference": {"path": f"/private-preview/{slug}/{reference_path.name}", "sha256": sha256(reference_path)},
-                "commonCoverage": {"path": f"/private-preview/{slug}/{coverage_path.name}", "sha256": sha256(coverage_path)},
+                "rubin": {"path": f"/private-preview/{comparison_key}/{rubin_path.name}", "sha256": sha256(rubin_path)},
+                "reference": {"path": f"/private-preview/{comparison_key}/{reference_path.name}", "sha256": sha256(reference_path)},
+                "commonCoverage": {"path": f"/private-preview/{comparison_key}/{coverage_path.name}", "sha256": sha256(coverage_path)},
             },
-            "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim.",
+            "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim.",
         }
         manifest_path = output_dir / "comparison-preview.json"
         manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
         manifests.append(manifest)
-        print(f"[{slug}] {reconciliation['band']}-band matched preview; {common.mean():.3f} common valid")
+        print(f"[{comparison_key}] {reconciliation['band']}-band matched preview; {common.mean():.3f} common valid")
     args.index.parent.mkdir(parents=True, exist_ok=True)
     args.index.write_text(
         json.dumps({"schemaVersion": 1, "comparisons": manifests}, indent=2), encoding="utf-8"

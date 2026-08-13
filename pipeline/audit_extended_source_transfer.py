@@ -40,11 +40,12 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def audit_target(slug: str, coverage: dict, comparisons: Path, legacy_root: Path, panstarrs_root: Path) -> dict:
-    output_dir = comparisons / slug
+def audit_target(comparison_key: str, coverage: dict, comparisons: Path, legacy_root: Path, panstarrs_root: Path) -> dict:
+    output_dir = comparisons / comparison_key
     reconciliation_path = output_dir / "reconciliation.json"
     stellar_path = output_dir / "filter-response-audit.json"
     reconciliation = json.loads(reconciliation_path.read_text(encoding="utf-8"))
+    slug = reconciliation["objectId"]
     stellar = json.loads(stellar_path.read_text(encoding="utf-8"))
     if reconciliation.get("status") == "blocked" or not stellar.get("pointSourceCalibrationPass"):
         return {
@@ -223,17 +224,17 @@ def main() -> None:
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}
-    slugs = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
+    comparison_keys = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
     if args.only:
-        slugs = [slug for slug in slugs if slug in set(args.only)]
+        comparison_keys = [key for key in comparison_keys if json.loads((args.comparisons / key / "reconciliation.json").read_text(encoding="utf-8")).get("objectId") in set(args.only)]
     summary = []
-    for slug in slugs:
-        result = audit_target(slug, coverage, args.comparisons, args.legacy_root, args.panstarrs_root)
-        output = args.comparisons / slug / "extended-source-filter-audit.json"
+    for comparison_key in comparison_keys:
+        result = audit_target(comparison_key, coverage, args.comparisons, args.legacy_root, args.panstarrs_root)
+        output = args.comparisons / comparison_key / "extended-source-filter-audit.json"
         if not output.is_file():
             output.write_text(json.dumps(result, indent=2), encoding="utf-8")
-        summary.append({"objectId": slug, "status": result["status"]})
-        print(f"[{slug}] {result['status']}")
+        summary.append({"comparisonKey": comparison_key, "objectId": result["objectId"], "status": result["status"]})
+        print(f"[{comparison_key}] {result['status']}")
     (args.comparisons / "extended-source-filter-summary.json").write_text(
         json.dumps({"schemaVersion": 1, "targets": summary}, indent=2), encoding="utf-8"
     )

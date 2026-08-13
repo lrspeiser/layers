@@ -25,10 +25,12 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
   if (!target) notFound();
   const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
   const pilot = target.pilotAudit;
-  const preview = previewData.comparisons.find((item) => item.objectId === target.id);
-  const comparison = preview
-    ? target.comparisons.find((item) => preview.layerIds.every((layerId) => item.layerIds.includes(layerId)))
-    : target.comparisons[0];
+  const comparisonPreviews = target.comparisons.flatMap((comparison) => {
+    const preview = previewData.comparisons.find((item) =>
+      item.objectId === target.id && item.layerIds.every((layerId) => comparison.layerIds.includes(layerId)),
+    );
+    return preview ? [{ comparison, preview }] : [];
+  });
 
   return (
     <main className="target-record-page">
@@ -45,7 +47,7 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
 
       <section className="record-content">
         <div className="record-main">
-          {comparison && preview && <TargetComparisonViewer target={target} comparison={comparison} preview={preview} />}
+          {comparisonPreviews.map(({ comparison, preview }) => <TargetComparisonViewer key={comparison.id} target={target} comparison={comparison} preview={preview} />)}
           <div className="record-section-title"><span className="eyebrow">AVAILABLE LAYERS</span><h2>Evidence attached to this place in the sky.</h2></div>
           <div className="record-layer-list">
             {target.layers.map((layer, index) => (

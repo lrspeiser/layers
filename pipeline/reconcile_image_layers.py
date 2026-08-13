@@ -117,6 +117,8 @@ def write_pair(
     rubin_variance: np.ndarray,
     comparison: np.ndarray,
     comparison_variance: np.ndarray,
+    rubin_valid: np.ndarray,
+    comparison_valid: np.ndarray,
     common: np.ndarray,
     metadata: dict,
 ) -> None:
@@ -141,6 +143,8 @@ def write_pair(
         fits.ImageHDU(rubin_variance.astype(np.float32), header=variance_header, name="RUBIN_VAR"),
         fits.ImageHDU(comparison.astype(np.float32), header=science_header, name="COMPARISON"),
         fits.ImageHDU(comparison_variance.astype(np.float32), header=variance_header, name="COMPARISON_VAR"),
+        fits.ImageHDU(rubin_valid.astype(np.uint8), name="RUBIN_MASK"),
+        fits.ImageHDU(comparison_valid.astype(np.uint8), name="COMPARISON_MASK"),
         fits.ImageHDU(common.astype(np.uint8), name="COMMON_MASK"),
         fits.ImageHDU(difference, header=science_header, name="DIFFERENCE"),
         fits.ImageHDU(difference_variance, header=variance_header, name="DIFF_VAR"),
@@ -160,7 +164,8 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
     else:
         raise ValueError(f"unsupported comparison layer {comparison_layer}")
     rubin_path = args.rubin_root / slug / f"rubin_{band}.fits"
-    output_dir = args.output / slug
+    comparison_key = audit.get("comparisonKey", audit_path.parent.name)
+    output_dir = args.output / comparison_key
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / "matched-pair.fits"
     if not audit.get("astrometryPass"):
@@ -202,10 +207,12 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
         comparison, comparison_variance, comparison_valid, comparison_sigma
     )
     common = rubin_valid & comparison_valid
-    rubin[~common] = np.nan
-    rubin_variance[~common] = np.nan
-    comparison[~common] = np.nan
-    comparison_variance[~common] = np.nan
+    # Keep each registered layer's own valid footprint for honest display. All
+    # cross-survey calculations remain strictly gated by COMMON_MASK below.
+    rubin[~rubin_valid] = np.nan
+    rubin_variance[~rubin_valid] = np.nan
+    comparison[~comparison_valid] = np.nan
+    comparison_variance[~comparison_valid] = np.nan
 
     post_rubin_sources = centroid_sources(rubin, common, exclusion, pixel_scale)
     post_comparison_sources = centroid_sources(comparison, common, exclusion, pixel_scale)
@@ -247,6 +254,8 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
         rubin_variance,
         comparison,
         comparison_variance,
+        rubin_valid,
+        comparison_valid,
         common,
         {
             "OBJECT": slug,
@@ -259,6 +268,7 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
     result = {
         "schemaVersion": 1,
         "objectId": slug,
+        "comparisonKey": comparison_key,
         "createdAt": datetime.now(timezone.utc).isoformat(),
         "status": status,
         "layerIds": audit["layerIds"],
@@ -333,7 +343,7 @@ def main() -> None:
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}
     audit_paths = sorted(args.audits.glob("*/registration-audit.json"))
     if args.only:
-        audit_paths = [path for path in audit_paths if path.parent.name in set(args.only)]
+        audit_paths = [path for path in audit_paths if json.loads(path.read_text(encoding="utf-8")).get("objectId") in set(args.only)]
     summary = []
     for audit_path in audit_paths:
         result = reconcile_one(root, audit_path, coverage, args)

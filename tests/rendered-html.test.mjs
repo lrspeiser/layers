@@ -63,7 +63,7 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
   assert.equal(catalog.summary.panStarrsUsableLocal, 3);
   assert.equal(catalog.summary.localImageLayers, 9);
-  assert.equal(catalog.summary.registrationAudits, 3);
+  assert.equal(catalog.summary.registrationAudits, 6);
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
@@ -84,6 +84,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(usableHtml, /QA comparison record available; no scientific difference published/);
   assert.match(usableHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
+  assert.match(usableHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
   assert.match(usableHtml, /type="range"/);
   assert.match(usableHtml, /SCIENCE CLAIM[\s\S]*NOT PUBLISHED/);
 
@@ -91,6 +92,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   const secondLegacyHtml = await secondLegacy.text();
   assert.match(secondLegacyHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(secondLegacyHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
+  assert.match(secondLegacyHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
 
   const footprintOnly = await render("/target/ngc0100");
   assert.equal(footprintOnly.status, 200);
@@ -104,6 +106,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   const calibrationHtml = await calibrationBlocked.text();
   assert.match(calibrationHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(calibrationHtml, /Rubin DP2[\s\S]*Pan-STARRS/);
+  assert.match(calibrationHtml, /Rubin DP2[\s\S]*DESI Legacy Imaging Surveys/);
   assert.match(calibrationHtml, /qualified resolved galaxy cells/);
   assert.match(calibrationHtml, /Only 7\/20 required cells survive the common mask/);
   assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}20/);
@@ -111,13 +114,27 @@ test("permanent target records expose honest pixel-level coverage states", async
 
 test("every authentic matched pilot has a deterministic preview manifest", async () => {
   const previews = JSON.parse(await readFile(join(root, "public", "data", "comparison-previews.json"), "utf8"));
-  assert.deepEqual(previews.comparisons.map((item) => item.objectId), ["ugc00191", "ugc00634", "ugc00891"]);
+  assert.deepEqual(previews.comparisons.map((item) => item.comparisonKey), [
+    "ugc00191",
+    "ugc00191--panstarrs-dr1-stack",
+    "ugc00634",
+    "ugc00634--panstarrs-dr1-stack",
+    "ugc00891",
+    "ugc00891--legacy-survey-dr10",
+  ]);
   for (const preview of previews.comparisons) {
     assert.match(preview.analysisProductSha256, /^[a-f0-9]{64}$/);
     assert.ok(preview.commonValidPixelFraction > 0);
-    assert.match(preview.assets.rubin.path, new RegExp(`^/private-preview/${preview.objectId}/`));
-    assert.match(preview.assets.reference.path, new RegExp(`^/private-preview/${preview.objectId}/`));
+    assert.match(preview.assets.rubin.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
+    assert.match(preview.assets.reference.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
     assert.match(preview.notice, /Display stretch only/);
+    assert.match(preview.notice, /invalid pixels in that individual layer/);
+    assert.match(preview.notice, /Rubin-only \(red\), reference-only \(blue\), and neither usable \(amber\)/);
+    const partition = preview.commonValidPixelFraction
+      + preview.coverageFractions.rubinOnly
+      + preview.coverageFractions.referenceOnly
+      + preview.coverageFractions.neither;
+    assert.ok(Math.abs(partition - 1) < 1e-9);
   }
 });
 

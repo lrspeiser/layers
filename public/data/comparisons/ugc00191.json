@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T05:34:34.417416+00:00",
+  "generatedAt": "2026-08-13T06:32:51.348239+00:00",
   "target": {
     "id": "ugc00191",
     "name": "UGC00191",
@@ -134,6 +134,7 @@
   ],
   "comparison": {
     "id": "ugc00191-registration-audit",
+    "comparisonKey": "ugc00191",
     "layerIds": [
       "rubin-dp2-deep-coadd",
       "legacy-survey-dr10"
@@ -192,7 +193,7 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
+      "matchedPairSha256": "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
       "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
       "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
       "qaPackage": "/data/comparisons/ugc00191.json"
@@ -213,8 +214,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -239,8 +240,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -265,8 +266,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -291,8 +292,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -317,8 +318,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -343,8 +344,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -369,8 +370,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -395,8 +396,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -437,8 +438,8 @@
           "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
         ],
         "provenance": [
-          "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
-          "da3df01b14163ebe1da35af1387f9905768d832722a003b6ccaf5cdd954fb29f"
+          "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+          "fd24e1a7f448671f9568836454dc6911406877edd7b61639f47f222f5e329517"
         ],
         "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
         "independentCheck": {
@@ -451,7 +452,7 @@
           "qualifiedForArbitration": false,
           "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
           "provenance": [
-            "8adbc07fea9848753239f302e6fb7ed08abdfc9631d26e65d3dd87d9676b3f49"
+            "6f9e0ca7f9f1221a16a2beb505ac3040257be9b589bab0ccc8e6695153c3dd48"
           ]
         },
         "rank": 1
@@ -461,33 +462,33 @@
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 2309,
-      "sha256": "5705dbf83a78b2469a5f4692387b12f34a7dbcf6512453bfbca025d037609bfd"
+      "bytes": 2341,
+      "sha256": "efa3ae06f15f81cde4598ad40ccb79369f650e7f52a68d25e04f542d58daa3fe"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 6906,
-      "sha256": "8074bd52a8e8212b38588d0a716662c1220304863bc867a23c06ed6d08153c3b"
+      "bytes": 6937,
+      "sha256": "d42e694205f476d3e31f7de56900e3b22a1e4dd3d93bc2b6bb1c6127958bdcdb"
     },
     {
       "name": "filter-response-audit.json",
       "bytes": 4165,
-      "sha256": "8808845b2d5f513585316fd2bed383151c83fbd12976312979be9a83fe2cd642"
+      "sha256": "95b2c6f4bd4117b1ab845dd0a24ad879715f8be448a87dbfe1f99907b7206bb0"
     },
     {
       "name": "extended-source-filter-audit.json",
       "bytes": 20463,
-      "sha256": "da3df01b14163ebe1da35af1387f9905768d832722a003b6ccaf5cdd954fb29f"
+      "sha256": "fd24e1a7f448671f9568836454dc6911406877edd7b61639f47f222f5e329517"
     },
     {
       "name": "diffuse-recovery.json",
       "bytes": 55161,
-      "sha256": "8fcb5299f5faa7266223627f20bb225e22f70fc620e57ebe5294d4d8dddfc985"
+      "sha256": "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
     },
     {
       "name": "three-survey-consistency.json",
       "bytes": 6385,
-      "sha256": "8adbc07fea9848753239f302e6fb7ed08abdfc9631d26e65d3dd87d9676b3f49"
+      "sha256": "6f9e0ca7f9f1221a16a2beb505ac3040257be9b589bab0ccc8e6695153c3dd48"
     }
   ],
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."

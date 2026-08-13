@@ -162,6 +162,7 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     if not path.is_file():
         return None
     audit = load_json(path)
+    comparison_key = audit.get("comparisonKey", path.parent.name)
     if audit.get("status") != "qa" or len(audit.get("layerIds", [])) != 2:
         return None
     if not set(audit["layerIds"]).issubset(layer_ids):
@@ -296,7 +297,8 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
                 }
             )
     return {
-        "id": f"{audit['objectId']}-registration-audit",
+        "id": f"{comparison_key}-registration-audit",
+        "comparisonKey": comparison_key,
         "layerIds": audit["layerIds"],
         "status": "qa",
         "registration": {
@@ -348,7 +350,7 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
                 "matchedPairSha256": matched_product.get("matchedPairSha256"),
                 "sourceRubinSha256": matched_product.get("sourceRubinSha256"),
                 "sourceComparisonSha256": matched_product.get("sourceComparisonSha256"),
-                "qaPackage": f"/data/comparisons/{audit['objectId']}.json",
+                "qaPackage": f"/data/comparisons/{comparison_key}.json",
             },
         } if matched_product else {}),
         "measurements": measurements,
@@ -479,10 +481,15 @@ def main() -> None:
             layers.append(legacy_survey_layer(legacy_records[source["slug"]]))
         if source["slug"] in panstarrs_records:
             layers.append(panstarrs_layer(panstarrs_records[source["slug"]]))
-        comparison = registration_comparison(
-            args.registration_audits / source["slug"] / "registration-audit.json",
-            {layer["id"] for layer in layers},
-        )
+        comparison_paths = sorted(args.registration_audits.glob("*/registration-audit.json"))
+        comparisons = [
+            comparison
+            for path in comparison_paths
+            if load_json(path).get("objectId") == source["slug"]
+            for comparison in [registration_comparison(path, {layer["id"] for layer in layers})]
+            if comparison
+        ]
+        comparison = next((item for item in comparisons if item.get("comparisonKey") == source["slug"]), comparisons[0] if comparisons else None)
         target_record = {
                 "id": source["slug"],
                 "name": source["sparc_id"],
@@ -495,7 +502,7 @@ def main() -> None:
                     "majorAxisArcmin": source["major_axis_arcmin"],
                 },
                 "layers": layers,
-                "comparisons": [comparison] if comparison else [],
+                "comparisons": comparisons,
             }
         audit = pilot_audit(source, mosaic, comparison, args.registration_audits)
         if audit:

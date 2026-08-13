@@ -250,10 +250,11 @@ def validate_layer(
     return {"sizes": size_records}
 
 
-def validate_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
-    output_dir = args.comparisons / slug
+def validate_target(comparison_key: str, coverage: dict, args: argparse.Namespace) -> dict:
+    output_dir = args.comparisons / comparison_key
     reconciliation_path = output_dir / "reconciliation.json"
     reconciliation = json.loads(reconciliation_path.read_text(encoding="utf-8"))
+    slug = reconciliation["objectId"]
     if reconciliation.get("status") == "blocked" or not reconciliation.get("products", {}).get("matchedPair"):
         return {
             "schemaVersion": 1,
@@ -352,19 +353,19 @@ def main() -> None:
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}
-    slugs = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
+    comparison_keys = sorted(path.parent.name for path in args.comparisons.glob("*/reconciliation.json"))
     if args.only:
         selected = set(args.only)
-        slugs = [slug for slug in slugs if slug in selected]
+        comparison_keys = [key for key in comparison_keys if json.loads((args.comparisons / key / "reconciliation.json").read_text(encoding="utf-8")).get("objectId") in selected]
     summary = []
-    for slug in slugs:
-        result = validate_target(slug, coverage, args)
+    for comparison_key in comparison_keys:
+        result = validate_target(comparison_key, coverage, args)
         if result["status"] == "blocked":
-            (args.comparisons / slug / "diffuse-recovery.json").write_text(
+            (args.comparisons / comparison_key / "diffuse-recovery.json").write_text(
                 json.dumps(result, indent=2), encoding="utf-8"
             )
-        summary.append({"objectId": slug, "status": result["status"]})
-        print(f"[{slug}] {result['status']}", flush=True)
+        summary.append({"comparisonKey": comparison_key, "objectId": result["objectId"], "status": result["status"]})
+        print(f"[{comparison_key}] {result['status']}", flush=True)
     (args.comparisons / "diffuse-recovery-summary.json").write_text(
         json.dumps({"schemaVersion": 1, "targets": summary}, indent=2), encoding="utf-8"
     )

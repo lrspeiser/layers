@@ -86,7 +86,7 @@ def main() -> None:
     for key, (slug, comparison) in expected.items():
         if key in database and canonical(database[key]) != canonical(comparison):
             errors.append(f"{key}: database record differs from catalog")
-        package_path = args.packages / f"{slug}.json"
+        package_path = args.packages / f"{comparison.get('comparisonKey', slug)}.json"
         if not package_path.is_file():
             errors.append(f"{key}: missing public QA package")
             continue

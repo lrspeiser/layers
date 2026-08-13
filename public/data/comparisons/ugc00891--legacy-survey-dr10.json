@@ -1,0 +1,439 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers comparison QA package",
+  "generatedAt": "2026-08-13T06:32:51.547727+00:00",
+  "target": {
+    "id": "ugc00891",
+    "name": "UGC00891",
+    "identifiers": {
+      "SPARC": "UGC00891",
+      "SIMBAD": "Z 436-33"
+    },
+    "center": {
+      "raDeg": 20.328750000000003,
+      "decDeg": 12.41194,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 1.80204
+    }
+  },
+  "layers": [
+    {
+      "id": "rubin-dp2-deep-coadd",
+      "survey": "Vera C. Rubin Observatory",
+      "release": "DP2",
+      "instrument": "LSSTCam",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "i"
+      ],
+      "bandCoverage": {
+        "i": 0.8696679012345679
+      },
+      "datasetCount": 17,
+      "datasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-25a2-7ab1-9c6c-2dd9dac3a3ba",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-2c2b-73d4-a5c0-a12c8266c03f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-3367-7cc9-90f1-532f0b1008bb",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-47d4-733b-87bd-7ad440517393",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-5254-7354-a35a-e0d0e2cd2909",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-66a1-7293-88a8-f1ba5ff66b2f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7b1b-7527-a132-ffcdd9b246b4",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-91ad-77b9-907f-07a419a4631e",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-9f19-70d6-807b-d20320d39876",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-bdf9-7182-a81a-6cdfa1c63ddc",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d97a-7a71-88d1-cd5bc4d58100",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-0c6b-7ab2-82e0-2b7adb5de203",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-1d91-7cbd-af3b-0fc26f3f86b3",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-9707-7cec-af2b-e549e188ae2b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b282-71e5-a9e7-f2b6087b430a",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-c6d9-7ff6-bbe0-e38fb14a9a62",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d136-758d-b414-8b06bca9877e"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "Rubin Science Pipelines deep coadd",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "provenance": {
+        "service": "Rubin Science Platform SIA v2 + DataLink",
+        "datasetType": "lsst.deep_coadd",
+        "queryStatus": "OK"
+      }
+    },
+    {
+      "id": "legacy-survey-dr10",
+      "survey": "DESI Legacy Imaging Surveys",
+      "release": "DR10",
+      "instrument": "DECam + BASS/MzLS",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "g",
+        "r",
+        "i",
+        "z"
+      ],
+      "bandCoverage": {
+        "g": 0.9998842592592593,
+        "r": 0.9999114197530864,
+        "i": 0.24691234567901235,
+        "z": 0.9998586419753086
+      },
+      "datasetCount": 16,
+      "datasetIds": [
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055227247&dec=12.3369293069&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543409218&dec=12.3369388500&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031590782&dec=12.3369388500&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519772753&dec=12.3369293069&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055374681&dec=12.3869292208&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543458363&dec=12.3869388037&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031541637&dec=12.3869388037&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519625319&dec=12.3869292208&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055522172&dec=12.4369291727&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543507527&dec=12.4369387956&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031492473&dec=12.4369387956&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519477828&dec=12.4369291727&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.4055669719&dec=12.4869290865&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3543556709&dec=12.4869387493&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.3031443291&dec=12.4869387493&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=20.2519330281&dec=12.4869290865&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar="
+      ],
+      "units": {
+        "image": "nanomaggy",
+        "inverseVariance": "nanomaggy^-2"
+      },
+      "calibration": "Legacy Survey DR10 coadded calibrated flux",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+      "provenance": {
+        "service": "Legacy Survey FITS cutout service",
+        "layer": "ls-dr10",
+        "documentation": "https://www.legacysurvey.org/dr10/description/"
+      }
+    }
+  ],
+  "comparison": {
+    "id": "ugc00891--legacy-survey-dr10-registration-audit",
+    "comparisonKey": "ugc00891--legacy-survey-dr10",
+    "layerIds": [
+      "rubin-dp2-deep-coadd",
+      "legacy-survey-dr10"
+    ],
+    "status": "qa",
+    "registration": {
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "commonWcs": true,
+      "commonFootprint": false,
+      "psfMatched": true,
+      "skyMatched": true,
+      "unitsMatched": true,
+      "filterMatched": false,
+      "filterTransform": null,
+      "maxResidualArcsec": 0.256577232066438,
+      "qaThresholdArcsec": 0.3,
+      "limitations": [
+        "Sky planes have been measured but not yet applied to a released matched product.",
+        "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+        "Rubin and Legacy Survey DR10 nominal bandpasses are not identical; no color transformation has been applied."
+      ]
+    },
+    "qa": {
+      "band": "i",
+      "comparisonLayerLabel": "Legacy Survey DR10",
+      "commonValidPixelFraction": 0.2225858024691358,
+      "matchedSources": 103,
+      "astrometricResidualP95Arcsec": 0.256577232066438,
+      "astrometryPass": true,
+      "rubinMedianFwhmArcsec": 2.361614002525046,
+      "comparisonMedianFwhmArcsec": 2.3067305317466977,
+      "reconciliationStatus": "matched-not-photometrically-comparable",
+      "matchedCommonValidPixelFraction": 0.2157496913580247,
+      "postMatchAstrometricResidualP95Arcsec": 0.28395360804274333,
+      "postMatchFractionalFwhmDifference": 0.015876013299245678,
+      "filterMatchBlocking": true,
+      "pointSourceCalibrationPass": false,
+      "filterHeldOutRmsMag": null,
+      "extendedSourceTransferPass": false,
+      "extendedSourceTransferStatus": "blocked",
+      "extendedSourceResolvedCells": null,
+      "extendedSourceMedianAbsoluteResidualMag": null,
+      "extendedSourceRobustScatterMag": null,
+      "injectionRecoveryStatus": "pass",
+      "injectionNullTestPass": true,
+      "injectionRecoveryGridPass": true,
+      "injectionProfile": "elliptical exponential convolved with the matched Gaussian PSF",
+      "injectionEffectiveRadiiArcsec": [
+        3.0,
+        6.0,
+        12.0,
+        24.0
+      ]
+    },
+    "products": {
+      "matchedPairSha256": "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+      "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
+      "sourceComparisonSha256": "fb07791aebee925df819050839a2c57a23bee5a207137c9f48e721801a5abd74",
+      "qaPackage": "/data/comparisons/ugc00891--legacy-survey-dr10.json"
+    },
+    "measurements": [
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.938; 68% Wilson interval 0.900\u20130.962.",
+          "Empirical blank-position noise is 2.8\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.953; 68% Wilson interval 0.919\u20130.973.",
+          "Empirical blank-position noise is 4.9\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-12",
+        "label": "90% diffuse recovery limit (12 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.969; 68% Wilson interval 0.939\u20130.984.",
+          "Empirical blank-position noise is 11.1\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-24",
+        "label": "90% diffuse recovery limit (24 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 23.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          22.0,
+          24.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.969; 68% Wilson interval 0.939\u20130.984.",
+          "Empirical blank-position noise is 17.1\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "legacy-survey-dr10-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.953; 68% Wilson interval 0.919\u20130.973.",
+          "Empirical blank-position noise is 4.1\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "legacy-survey-dr10-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.906; 68% Wilson interval 0.863\u20130.937.",
+          "Empirical blank-position noise is 7.8\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "legacy-survey-dr10-diffuse-limit-re-12",
+        "label": "90% diffuse recovery limit (12 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.969; 68% Wilson interval 0.939\u20130.984.",
+          "Empirical blank-position noise is 14.2\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "legacy-survey-dr10-diffuse-limit-re-24",
+        "label": "90% diffuse recovery limit (24 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 23.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          22.0,
+          24.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+          "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.969; 68% Wilson interval 0.939\u20130.984.",
+          "Empirical blank-position noise is 22.9\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      }
+    ],
+    "inferences": [],
+    "assumptionAudits": []
+  },
+  "localReproductionArtifacts": [
+    {
+      "name": "registration-audit.json",
+      "bytes": 2358,
+      "sha256": "6935f4993042d0423be02b649b866742412e7f15903f7fc2129209affdb9812d"
+    },
+    {
+      "name": "reconciliation.json",
+      "bytes": 6155,
+      "sha256": "bbf0b8ea663894bd8f12be120072964ffd36d079883f70840640e0365554d1bf"
+    },
+    {
+      "name": "filter-response-audit.json",
+      "bytes": 183,
+      "sha256": "ba8dcef2a9d646df43dde79e118b5f6f9664bcd8434967ee7c23a8943f053d31"
+    },
+    {
+      "name": "extended-source-filter-audit.json",
+      "bytes": 173,
+      "sha256": "33e72ab76e75227f9843bf7e3d07309753ef13034858572d682dec3fa784c2ba"
+    },
+    {
+      "name": "diffuse-recovery.json",
+      "bytes": 55280,
+      "sha256": "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+    }
+  ],
+  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."
+}

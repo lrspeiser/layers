@@ -180,6 +180,84 @@ def wcs_grid_residual(left: WCS, right: WCS, shape: tuple[int, int]) -> float:
     return float(np.max(separation))
 
 
+def audit_candidate(root: Path, args: argparse.Namespace, coverage: dict, slug: str, candidate: dict, comparison_key: str) -> dict:
+    target = coverage[slug]
+    band = candidate["band"]
+    with fits.open(args.rubin_root / slug / f"rubin_{band}.fits", memmap=True) as rubin_hdus, fits.open(candidate["path"], memmap=False) as comparison_hdus:
+        rubin_image = np.asarray(rubin_hdus["IMAGE"].data, dtype=np.float64)
+        rubin_variance = np.asarray(rubin_hdus["VARIANCE"].data, dtype=np.float64)
+        rubin_wcs = WCS(rubin_hdus["IMAGE"].header)
+        comparison_wcs = WCS(comparison_hdus["IMAGE"].header)
+        pixel_scale = float(rubin_hdus["IMAGE"].header["PIXSCALE"])
+        if candidate["format"] == "legacy":
+            comparison_image = np.asarray(comparison_hdus["IMAGE"].data, dtype=np.float64) * NANOMAGGY_TO_NJY
+            comparison_variance = np.full(comparison_image.shape, np.nan, dtype=np.float64)
+            comparison_ivar = np.asarray(comparison_hdus["IVAR"].data, dtype=np.float64) / (NANOMAGGY_TO_NJY ** 2)
+            good_ivar = np.isfinite(comparison_ivar) & (comparison_ivar > 0)
+            comparison_variance[good_ivar] = 1.0 / comparison_ivar[good_ivar]
+            unit_transform = {"from": "nanomaggy", "to": "nJy", "factor": NANOMAGGY_TO_NJY}
+        else:
+            comparison_image = np.asarray(comparison_hdus["IMAGE"].data, dtype=np.float64)
+            comparison_variance = np.asarray(comparison_hdus["VARIANCE"].data, dtype=np.float64)
+            comparison_mask = np.asarray(comparison_hdus["MASK"].data)
+            comparison_variance[comparison_mask != 0] = np.nan
+            unit_transform = {"from": "PS1 stack data units", "to": "nJy", "factor": "per-skycell; see acquisition manifest"}
+    valid = np.isfinite(rubin_image) & np.isfinite(rubin_variance) & (rubin_variance > 0) & np.isfinite(comparison_image) & np.isfinite(comparison_variance) & (comparison_variance > 0)
+    major_axis_pixels = target["major_axis_arcmin"] * 60 / pixel_scale
+    exclusion = max(major_axis_pixels * 1.5, 60)
+    rubin_sky, rubin_sky_record = fit_sky_plane(rubin_image, valid, exclusion)
+    comparison_sky, comparison_sky_record = fit_sky_plane(comparison_image, valid, exclusion)
+    rubin_sources = centroid_sources(rubin_image - rubin_sky, valid, exclusion, pixel_scale)
+    comparison_sources = centroid_sources(comparison_image - comparison_sky, valid, exclusion, pixel_scale)
+    astrometry = match_sources(rubin_sources, comparison_sources, pixel_scale)
+    if candidate["layerId"] == "panstarrs-dr1-stack":
+        corrected_astrometry = gaia_epoch_registration(
+            rubin_sources, comparison_sources, rubin_wcs, pixel_scale,
+            root / "pipeline/cache/gaia-dr3" / f"{slug}.csv",
+            product_epochs(root, slug, band), root,
+        )
+        if corrected_astrometry:
+            astrometry = {**corrected_astrometry, "uncorrectedSourceRegistration": astrometry}
+    measured_residual = astrometry.get("residualP95Arcsec")
+    qa = {
+        "schemaVersion": 1,
+        "objectId": slug,
+        "comparisonKey": comparison_key,
+        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "layerIds": ["rubin-dp2-deep-coadd", candidate["layerId"]],
+        "comparisonLayerLabel": candidate["label"],
+        "status": "qa",
+        "band": band,
+        "commonWcs": wcs_grid_residual(rubin_wcs, comparison_wcs, rubin_image.shape) < 0.001,
+        "commonFootprint": float(valid.mean()) > 0.5,
+        "unitsMatched": True,
+        "unitTransform": unit_transform,
+        "skyModelMeasured": True,
+        "skyMatched": False,
+        "psfMeasured": astrometry.get("matchedSources", 0) >= 5,
+        "psfMatched": False,
+        "filterMatched": False,
+        "filterTransform": None,
+        "wcsGridResidualArcsec": wcs_grid_residual(rubin_wcs, comparison_wcs, rubin_image.shape),
+        "astrometryThresholdArcsec": ASTROMETRY_THRESHOLD_ARCSEC,
+        "astrometryPass": measured_residual is not None and measured_residual <= ASTROMETRY_THRESHOLD_ARCSEC,
+        "commonValidPixelFraction": float(valid.mean()),
+        "rubinSkyModel": rubin_sky_record,
+        "comparisonSkyModelNjy": comparison_sky_record,
+        "sourceRegistration": astrometry,
+        "limitations": [
+            "Sky planes have been measured but not yet applied to a released matched product.",
+            "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+            f"Rubin and {candidate['label']} nominal bandpasses are not identical; no color transformation has been applied.",
+        ],
+    }
+    output_dir = args.output / comparison_key
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / "registration-audit.json").write_text(json.dumps(qa, indent=2), encoding="utf-8")
+    print(f"[{target['sparc_id']}] {candidate['label']} {band}: {astrometry.get('matchedSources', 0)} sources, p95={measured_residual}")
+    return qa
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
@@ -234,94 +312,23 @@ def main() -> None:
                         "format": "panstarrs",
                     }
                 )
-        output_dir = args.output / slug
-        output_dir.mkdir(parents=True, exist_ok=True)
         if not candidates:
+            output_dir = args.output / slug
+            output_dir.mkdir(parents=True, exist_ok=True)
             qa = {"schemaVersion": 1, "objectId": slug, "status": "blocked", "reason": "No common usable optical band between Rubin DP2 and an acquired reference image layer."}
             (output_dir / "registration-audit.json").write_text(json.dumps(qa, indent=2), encoding="utf-8")
             print(f"[{target['sparc_id']}] blocked: no common band")
             continue
-        candidate = max(candidates, key=lambda item: item["coverage"])
-        band = candidate["band"]
-        with fits.open(args.rubin_root / slug / f"rubin_{band}.fits", memmap=True) as rubin_hdus, fits.open(candidate["path"], memmap=False) as comparison_hdus:
-            rubin_image = np.asarray(rubin_hdus["IMAGE"].data, dtype=np.float64)
-            rubin_variance = np.asarray(rubin_hdus["VARIANCE"].data, dtype=np.float64)
-            rubin_wcs = WCS(rubin_hdus["IMAGE"].header)
-            comparison_wcs = WCS(comparison_hdus["IMAGE"].header)
-            pixel_scale = float(rubin_hdus["IMAGE"].header["PIXSCALE"])
-            if candidate["format"] == "legacy":
-                comparison_image = np.asarray(comparison_hdus["IMAGE"].data, dtype=np.float64) * NANOMAGGY_TO_NJY
-                comparison_variance = np.full(comparison_image.shape, np.nan, dtype=np.float64)
-                comparison_ivar = np.asarray(comparison_hdus["IVAR"].data, dtype=np.float64) / (NANOMAGGY_TO_NJY ** 2)
-                good_ivar = np.isfinite(comparison_ivar) & (comparison_ivar > 0)
-                comparison_variance[good_ivar] = 1.0 / comparison_ivar[good_ivar]
-                unit_transform = {"from": "nanomaggy", "to": "nJy", "factor": NANOMAGGY_TO_NJY}
-            else:
-                comparison_image = np.asarray(comparison_hdus["IMAGE"].data, dtype=np.float64)
-                comparison_variance = np.asarray(comparison_hdus["VARIANCE"].data, dtype=np.float64)
-                comparison_mask = np.asarray(comparison_hdus["MASK"].data)
-                comparison_variance[comparison_mask != 0] = np.nan
-                unit_transform = {"from": "PS1 stack data units", "to": "nJy", "factor": "per-skycell; see acquisition manifest"}
-        valid = np.isfinite(rubin_image) & np.isfinite(rubin_variance) & (rubin_variance > 0) & np.isfinite(comparison_image) & np.isfinite(comparison_variance) & (comparison_variance > 0)
-        major_axis_pixels = coverage[slug]["major_axis_arcmin"] * 60 / pixel_scale
-        exclusion = max(major_axis_pixels * 1.5, 60)
-        rubin_sky, rubin_sky_record = fit_sky_plane(rubin_image, valid, exclusion)
-        comparison_sky, comparison_sky_record = fit_sky_plane(comparison_image, valid, exclusion)
-        rubin_subtracted = rubin_image - rubin_sky
-        comparison_subtracted = comparison_image - comparison_sky
-        rubin_sources = centroid_sources(rubin_subtracted, valid, exclusion, pixel_scale)
-        comparison_sources = centroid_sources(comparison_subtracted, valid, exclusion, pixel_scale)
-        astrometry = match_sources(rubin_sources, comparison_sources, pixel_scale)
-        if candidate["layerId"] == "panstarrs-dr1-stack":
-            corrected_astrometry = gaia_epoch_registration(
-                rubin_sources,
-                comparison_sources,
-                rubin_wcs,
-                pixel_scale,
-                root / "pipeline/cache/gaia-dr3" / f"{slug}.csv",
-                product_epochs(root, slug, band),
-                root,
-            )
-            if corrected_astrometry:
-                astrometry = {
-                    **corrected_astrometry,
-                    "uncorrectedSourceRegistration": astrometry,
-                }
-        wcs_residual = wcs_grid_residual(rubin_wcs, comparison_wcs, rubin_image.shape)
-        measured_residual = astrometry.get("residualP95Arcsec")
-        qa = {
-            "schemaVersion": 1,
-            "objectId": slug,
-            "createdAt": datetime.now(timezone.utc).isoformat(),
-            "layerIds": ["rubin-dp2-deep-coadd", candidate["layerId"]],
-            "comparisonLayerLabel": candidate["label"],
-            "status": "qa",
-            "band": band,
-            "commonWcs": wcs_residual < 0.001,
-            "commonFootprint": float(valid.mean()) > 0.5,
-            "unitsMatched": True,
-            "unitTransform": unit_transform,
-            "skyModelMeasured": True,
-            "skyMatched": False,
-            "psfMeasured": astrometry.get("matchedSources", 0) >= 5,
-            "psfMatched": False,
-            "filterMatched": False,
-            "filterTransform": None,
-            "wcsGridResidualArcsec": wcs_residual,
-            "astrometryThresholdArcsec": ASTROMETRY_THRESHOLD_ARCSEC,
-            "astrometryPass": measured_residual is not None and measured_residual <= ASTROMETRY_THRESHOLD_ARCSEC,
-            "commonValidPixelFraction": float(valid.mean()),
-            "rubinSkyModel": rubin_sky_record,
-            "comparisonSkyModelNjy": comparison_sky_record,
-            "sourceRegistration": astrometry,
-            "limitations": [
-                "Sky planes have been measured but not yet applied to a released matched product.",
-                "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
-                f"Rubin and {candidate['label']} nominal bandpasses are not identical; no color transformation has been applied.",
-            ],
-        }
-        (output_dir / "registration-audit.json").write_text(json.dumps(qa, indent=2), encoding="utf-8")
-        print(f"[{target['sparc_id']}] {candidate['label']} {band}: {astrometry.get('matchedSources', 0)} sources, p95={measured_residual}")
+        primary = max(candidates, key=lambda item: item["coverage"])
+        selected = {}
+        for layer_id in sorted({item["layerId"] for item in candidates}):
+            layer_candidates = [item for item in candidates if item["layerId"] == layer_id]
+            preferred_band = "z" if layer_id == "legacy-survey-dr10" else "i"
+            selected[layer_id] = next((item for item in layer_candidates if item["band"] == preferred_band), max(layer_candidates, key=lambda item: item["coverage"]))
+        selected[primary["layerId"]] = primary
+        for layer_id, candidate in selected.items():
+            comparison_key = slug if layer_id == primary["layerId"] else f"{slug}--{layer_id}"
+            audit_candidate(root, args, coverage, slug, candidate, comparison_key)
 
 
 if __name__ == "__main__":

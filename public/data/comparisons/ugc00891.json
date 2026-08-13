@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T05:34:34.515550+00:00",
+  "generatedAt": "2026-08-13T06:32:51.507638+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -131,6 +131,7 @@
   ],
   "comparison": {
     "id": "ugc00891-registration-audit",
+    "comparisonKey": "ugc00891",
     "layerIds": [
       "rubin-dp2-deep-coadd",
       "panstarrs-dr1-stack"
@@ -189,7 +190,7 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
+      "matchedPairSha256": "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
       "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
       "sourceComparisonSha256": "1978d37cc029c42466c4c22bc32acaf16254d00ac5b930430ff60635eea0f85f",
       "qaPackage": "/data/comparisons/ugc00891.json"
@@ -210,8 +211,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
-          "4a332cf39eb4d4b2aa8a870eee7c282f75ca51ca6964ebe49675f3eccbe39c82"
+          "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
+          "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -236,8 +237,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
-          "4a332cf39eb4d4b2aa8a870eee7c282f75ca51ca6964ebe49675f3eccbe39c82"
+          "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
+          "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -262,8 +263,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
-          "4a332cf39eb4d4b2aa8a870eee7c282f75ca51ca6964ebe49675f3eccbe39c82"
+          "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
+          "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -288,8 +289,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
-          "4a332cf39eb4d4b2aa8a870eee7c282f75ca51ca6964ebe49675f3eccbe39c82"
+          "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
+          "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -306,28 +307,28 @@
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 3472,
-      "sha256": "55004a9b3f7b0f58c154aa104443f03d6f63f8afdc438ecf1081ce23530e287f"
+      "bytes": 3504,
+      "sha256": "2fd4df17d5488c732de3c19cb094b85b0bec5126a72865c494da46c441d97d67"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 8090,
-      "sha256": "101c912da53d69f0b073884ca0c7b37f5c4afc7fafc6664512ca25a95e748a28"
+      "bytes": 8122,
+      "sha256": "476863932aebeeb36ade74101cfe905d06b5ecfd1d6c8f87a0c0d34d03a22ea5"
     },
     {
       "name": "filter-response-audit.json",
       "bytes": 5674,
-      "sha256": "7b5dc7445ad9042c49f6ca4e55770d9f8186027501b23525719c243db1addd34"
+      "sha256": "c3b5b48a73ab4dbf75f2d3d5ed90ad6e83d9a109c53f0502703420aae6b0a43a"
     },
     {
       "name": "extended-source-filter-audit.json",
       "bytes": 4546,
-      "sha256": "74ac0cbf6560ef5f220665b51436acd9ca732d50677db50671ec26565eb30ed6"
+      "sha256": "38718fdcde3a1e454a7a317e98c17e608a0dff738be1b8e292ab103afd7b6993"
     },
     {
       "name": "diffuse-recovery.json",
       "bytes": 31111,
-      "sha256": "4a332cf39eb4d4b2aa8a870eee7c282f75ca51ca6964ebe49675f3eccbe39c82"
+      "sha256": "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
     }
   ],
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."

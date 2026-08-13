@@ -3,8 +3,9 @@
   "comparisons": [
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T05:31:30.239139+00:00",
+      "createdAt": "2026-08-13T06:28:11.323127+00:00",
       "objectId": "ugc00191",
+      "comparisonKey": "ugc00191",
       "layerIds": [
         "rubin-dp2-deep-coadd",
         "legacy-survey-dr10"
@@ -15,27 +16,70 @@
         1800
       ],
       "commonValidPixelFraction": 0.9384058641975309,
-      "analysisProductSha256": "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
+      "coverageFractions": {
+        "rubinOnly": 0.0077666666666666665,
+        "referenceOnly": 0.04427993827160494,
+        "neither": 0.009547530864197531
+      },
+      "analysisProductSha256": "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00191/rubin-matched.jpg",
-          "sha256": "fbf76fd55856adbb0a4c3ad980dcfe3026d24f1370042106b6602149b2b73348"
+          "sha256": "afe21b986554bb8cf1dd71c4924587b96dd34f5a65e9fc93df58fd30b373c0d5"
         },
         "reference": {
           "path": "/private-preview/ugc00191/reference-matched.jpg",
-          "sha256": "28a0b6d57f3f411d356f52e4de0602f9f35d2793c8ea8466c4d07c5c716a32f5"
+          "sha256": "4f46aefbb7c8a4b4a829337ea565854dc7e632b5bdd85923b19ea6fa802c7507"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00191/common-coverage.png",
-          "sha256": "3e5fa1d428fa14231a25fde656672127f1da16fd896ee27ca919fbae9e39d411"
+          "sha256": "d6ee8de394378c7c6d3ce77d4cbbe315aa9038a752a378738ee4724ac8438e30"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T05:31:41.145876+00:00",
+      "createdAt": "2026-08-13T06:28:18.016123+00:00",
+      "objectId": "ugc00191",
+      "comparisonKey": "ugc00191--panstarrs-dr1-stack",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "band": "i",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.30978055555555556,
+      "coverageFractions": {
+        "rubinOnly": 0.6271509259259259,
+        "referenceOnly": 0.02834567901234568,
+        "neither": 0.03472283950617284
+      },
+      "analysisProductSha256": "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00191--panstarrs-dr1-stack/rubin-matched.jpg",
+          "sha256": "23d5cae519184e5f7f9d21b955e3dd632c628c345c77414ba3e1231d327664bc"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00191--panstarrs-dr1-stack/reference-matched.jpg",
+          "sha256": "d8dd5984bc8052d845e0012b6828b085434e4289a23ccfb0b59e6cad2e5fc71c"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00191--panstarrs-dr1-stack/common-coverage.png",
+          "sha256": "2eabfbeab705d08551e4bc55c9c85c8fda921efd93ae3dec57e9a5d80b0d7bd9"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+    },
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T06:28:28.644473+00:00",
       "objectId": "ugc00634",
+      "comparisonKey": "ugc00634",
       "layerIds": [
         "rubin-dp2-deep-coadd",
         "legacy-survey-dr10"
@@ -46,27 +90,70 @@
         1800
       ],
       "commonValidPixelFraction": 0.9600311728395061,
-      "analysisProductSha256": "68bee08054a38dcc4df35ae6f756f637360480ae1d33aa1a9ecb6d85b58cda5c",
+      "coverageFractions": {
+        "rubinOnly": 0.0034515432098765433,
+        "referenceOnly": 0.029379012345679013,
+        "neither": 0.007138271604938271
+      },
+      "analysisProductSha256": "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00634/rubin-matched.jpg",
-          "sha256": "b9c3966b41439b0cfdf7e2817a9e46ad08df9f26ce4ce53306448fc5621f370a"
+          "sha256": "85b49d8d898c1b4c6dc21ec4fca852e69e404f2a5d3de4a45337fa5d588b4498"
         },
         "reference": {
           "path": "/private-preview/ugc00634/reference-matched.jpg",
-          "sha256": "56c033df491565069f727aeb3991b6a16e95adc6646e0d3d25b8189543311c98"
+          "sha256": "96d2fa58725506ae3f856da85f13b41666065c24ba2d915aea9cccf11cbae105"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00634/common-coverage.png",
-          "sha256": "777632600526cb9dfdbb8c93ca609ca4a151d11ffc79a4cc18c99156505269c8"
+          "sha256": "6a5dd997cacdc503bff5df350dc572835fe95aa21278b46cee9c8fde38dacc26"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T05:31:47.744009+00:00",
+      "createdAt": "2026-08-13T06:28:35.322471+00:00",
+      "objectId": "ugc00634",
+      "comparisonKey": "ugc00634--panstarrs-dr1-stack",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "band": "i",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.25421944444444444,
+      "coverageFractions": {
+        "rubinOnly": 0.5455925925925926,
+        "referenceOnly": 0.05965956790123457,
+        "neither": 0.1405283950617284
+      },
+      "analysisProductSha256": "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00634--panstarrs-dr1-stack/rubin-matched.jpg",
+          "sha256": "dfad4be1b8fdfdf7a077b043a9256a4bb5924d656745aacca1744af59fe0c223"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00634--panstarrs-dr1-stack/reference-matched.jpg",
+          "sha256": "4cd31dfadda1088cd820f3d1e6398aa7458e419ab714852f36debabd93622fa4"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00634--panstarrs-dr1-stack/common-coverage.png",
+          "sha256": "437eff6ea3b78abf3aa86754c3eb0a4f2943544a49e39e9cc3d30c97ccd6299d"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+    },
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T06:28:41.699691+00:00",
       "objectId": "ugc00891",
+      "comparisonKey": "ugc00891",
       "layerIds": [
         "rubin-dp2-deep-coadd",
         "panstarrs-dr1-stack"
@@ -77,22 +164,64 @@
         1800
       ],
       "commonValidPixelFraction": 0.34210092592592595,
-      "analysisProductSha256": "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
+      "coverageFractions": {
+        "rubinOnly": 0.51345,
+        "referenceOnly": 0.0508820987654321,
+        "neither": 0.09356697530864197
+      },
+      "analysisProductSha256": "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00891/rubin-matched.jpg",
-          "sha256": "e9b471feefb51ff12f5e2ab6f9831baf558cde61ba301220ff7f6ed3040bcdf3"
+          "sha256": "15fffde8a4228ac145c902ba3089f7187398e7fc733fe6e0f9255d44afd4e3f2"
         },
         "reference": {
           "path": "/private-preview/ugc00891/reference-matched.jpg",
-          "sha256": "106d05328c6c7494de8ef10690db8bcf00cd9e669bca3f6e75f8c88284a373da"
+          "sha256": "1308999a363d023ce65380955fea752143ca41d8d8805e23d0bdf2ff8abc1daa"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00891/common-coverage.png",
-          "sha256": "0975a35bfa9e6da2d7ed010297873e573f0e4f2a6a5ef6bc85e62b1b20150868"
+          "sha256": "e0f38e15a3f2a0c434450d31eca2b3e62c7699f1df29db37d0a9e16db9267c86"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+    },
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T06:28:45.687043+00:00",
+      "objectId": "ugc00891",
+      "comparisonKey": "ugc00891--legacy-survey-dr10",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "band": "i",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.2157496913580247,
+      "coverageFractions": {
+        "rubinOnly": 0.6351716049382716,
+        "referenceOnly": 0.025566666666666668,
+        "neither": 0.12351203703703703
+      },
+      "analysisProductSha256": "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00891--legacy-survey-dr10/rubin-matched.jpg",
+          "sha256": "e952ddaf0010a931eb6ce047ebfe89a819979529bd1b3ad750d198a6a39c7cd6"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00891--legacy-survey-dr10/reference-matched.jpg",
+          "sha256": "8f1115f2e192b000321e3f98366ef00f15b6f6def17c885f7d8e692195501329"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00891--legacy-survey-dr10/common-coverage.png",
+          "sha256": "3376a52f8291c38205432db798509e931691d37e56fbd32875e38ef1903acea9"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     }
   ]
 }
