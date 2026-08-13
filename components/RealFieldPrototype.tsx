@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent } from "react";
+import { SignalCandidateList, type SignalCandidate } from "@/components/SignalCandidateList";
 
 type PrototypeQa = {
   residualArcsec: number;
@@ -10,17 +11,8 @@ type PrototypeQa = {
   matchedSources: number;
 };
 
-type CandidateRegion = {
-  id: string;
-  xPercent: number;
-  yPercent: number;
-  pixelCount: number;
-  peakEmpiricalSigma: number;
-  direction: "rubin-excess" | "comparison-excess";
-};
-
 export type PrototypeScience = {
-  candidateRegions: CandidateRegion[];
+  candidateRegions: SignalCandidate[];
   differenceMethod: {
     thresholdEmpiricalSigma: number;
     outerFieldRobustScatterNjy: number;
@@ -44,9 +36,8 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
   const [reveal, setReveal] = useState(50);
   const [showCoverage, setShowCoverage] = useState(true);
   const [showMasks, setShowMasks] = useState(true);
-  const [showInspector, setShowInspector] = useState(true);
   const [analysisLayer, setAnalysisLayer] = useState<"swipe" | "coverage" | "candidates">("swipe");
-  const [selectedCandidate, setSelectedCandidate] = useState<CandidateRegion | null>(null);
+  const [selectedCandidate, setSelectedCandidate] = useState<SignalCandidate | null>(null);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const drag = useRef<DragState>(null);
 
@@ -117,6 +108,13 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
         <span><small>COMMON PIXELS</small><strong>{qa.commonValidPercent.toFixed(1)}%</strong><em>z-band QA mask</em></span>
         <span><small>REGISTRATION</small><strong>{qa.residualArcsec.toFixed(3)}″</strong><em>P95; limit {qa.thresholdArcsec.toFixed(2)}″</em></span>
       </section>
+
+      <section className="page-brief prototype-page-brief" aria-label="Goal, details, and issues">
+        <article><span>GOAL</span><h3>Find credible differences</h3><p>Compare Rubin DP2 and Legacy DR10 at exactly the same sky position, then identify places worth testing.</p></article>
+        <article><span>DETAILS</span><h3>Field 1 of 3 usable Rubin matches</h3><p>UGC 00191 is one separate 12&prime; field with four Rubin bands. This viewer compares the aligned z-band pixels.</p></article>
+        <article className="brief-issue"><span>ISSUES</span><h3>Brightness QA failed</h3><p>The layers align, but the extended-source filter transfer does not. All {science.candidateRegions.length} residual regions are leads, not discoveries.</p></article>
+      </section>
+      <p className="prototype-scope-note"><strong>Current ingestion, not a Rubin archive limit:</strong> we searched 175 preselected SPARC positions, received four Rubin footprint responses, and verified usable pixels in three separate fields. Early DP2 contains 925,460 deep-coadd datasets; we have not yet run a general search across that full collection.</p>
 
       <section className="prototype-workspace">
         <div className="real-field-card">
@@ -189,7 +187,6 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
                 {analysisLayer === "coverage" && <div className="difference-legend"><strong>COVERAGE</strong><span className="legend-red">Rubin valid / Legacy missing</span><span className="legend-blue">Legacy valid / Rubin missing</span><small>Exact mask comparison · not a brightness claim</small></div>}
                 {analysisLayer === "candidates" && <div className="difference-legend"><strong>EMPIRICAL SIGNAL CANDIDATES</strong><span className="legend-red">Rubin excess</span><span className="legend-blue">Legacy excess</span><small>≥ {science.differenceMethod.thresholdEmpiricalSigma.toFixed(0)}σ-like outer-field residual · click a numbered region</small></div>}
                 {selectedCandidate && <div className="candidate-popover"><button onClick={() => setSelectedCandidate(null)} aria-label="Close candidate">×</button><strong>{selectedCandidate.direction === "rubin-excess" ? "RUBIN-EXCESS CANDIDATE" : "LEGACY-EXCESS CANDIDATE"}</strong><span>{Math.abs(selectedCandidate.peakEmpiricalSigma) > 99 ? ">99" : Math.abs(selectedCandidate.peakEmpiricalSigma).toFixed(1)}σ-like peak · {selectedCandidate.pixelCount} connected pixels</span><p>This is a place to inspect, not a discovery. Variable sources, residual PSF shape, filter response, masking, or diffuse light can all produce it.</p></div>}
-                <button className="data-inspector-toggle" onClick={() => setShowInspector((value) => !value)}>{showInspector ? "HIDE" : "SHOW"} DATA INSPECTOR</button>
                 <span className="visual-qa-chip">LOCKED VIEW · FLUX-CONSERVING GRID · EXTENDED-SOURCE QA PENDING</span>
               </>
             )}
@@ -199,10 +196,23 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
             <span>North up · east left</span>
             <span>Display stretch; calibrated FITS drive analysis</span>
           </div>
+          <SignalCandidateList candidates={science.candidateRegions} onSelect={(candidate) => {
+            setMode("compare");
+            setAnalysisLayer("candidates");
+            setSelectedCandidate(candidate);
+            requestAnimationFrame(() => document.querySelector(".real-field-viewer")?.scrollIntoView({ behavior: "smooth", block: "center" }));
+          }} />
         </div>
 
         <aside className="prototype-analysis">
-          {showInspector && <section className="prototype-panel data-inspector-panel">
+          <section className="prototype-panel prototype-summary-panel"><span className="eyebrow">GOAL</span><h2>Make one comparison understandable.</h2><p>Start with the aligned view, then use the candidate list to choose a specific follow-up.</p></section>
+          <section className="prototype-panel prototype-summary-panel"><span className="eyebrow">DETAILS</span><h2>Real calibrated pixels.</h2><p>Rubin and Legacy FITS retain flux, uncertainty, masks, and WCS behind the display images.</p></section>
+          <section className="prototype-panel prototype-summary-panel issue-summary"><span className="eyebrow">ISSUES</span><h2>Alignment is not photometric proof.</h2><p>The filter-transfer QA failed, so the red and blue residuals cannot yet support missing-light or mass claims.</p></section>
+
+          <details className="prototype-technical-disclosure">
+            <summary>Technical details and provenance</summary>
+            <div className="prototype-technical-content">
+          <section className="prototype-panel data-inspector-panel">
             <div className="panel-heading"><span className="eyebrow">WHAT IS BEHIND EACH PIXEL?</span><span>CALIBRATED FITS</span></div>
             <p className="mono-explainer"><strong>Why grayscale?</strong> The aligned view compares one physical band—z—to keep artificial color recipes from looking like new structure. The full-field view remains a color composite for orientation. The picture is only a stretch; every location retains calibrated data.</p>
             <div className="pixel-payload">
@@ -211,9 +221,9 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
               <span><i>03</i><strong>QUALITY</strong><small>mask bits + valid coverage</small></span>
               <span><i>04</i><strong>POSITION</strong><small>ICRS coordinate from WCS</small></span>
             </div>
-          </section>}
+          </section>
 
-          {showInspector && <section className="prototype-panel better-panel">
+          <section className="prototype-panel better-panel">
             <div className="panel-heading"><span className="eyebrow">WHICH IS BETTER?</span><span>DEPENDS ON THE QUESTION</span></div>
             <h3>No single winner. Compare the dimensions.</h3>
             <div className="better-table" role="table" aria-label="Rubin and Legacy data quality comparison">
@@ -226,7 +236,7 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
             </div>
             <p className="scorecard-note">*After flux-conserving resampling to 0.4″ pixels. Lower is better, but interpolation covariance means this is not yet a point-source or surface-brightness depth measurement. The measured resolution is effectively tied.</p>
             <div className="provisional-verdict"><strong>PROVISIONAL READ</strong><p>Rubin carries an extra usable band; Legacy is more spatially complete and has lower formal z-band pixel noise here. Neither wins on faint outer light until correlated noise, PSF wings, extended-source color transfer, and injection/recovery are measured.</p></div>
-          </section>}
+          </section>
 
           <section className="prototype-panel overlap-panel">
             <div className="panel-heading"><span className="eyebrow">OVERLAP FOUND</span><span className="qa-pass-dot">ASTROMETRY PASS</span></div>
@@ -275,6 +285,8 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
             <span className="eyebrow">FEEDBACK TARGET</span>
             <p>Does the full-field pin make the tiny scientific overlap discoverable? Is the transition into the comparison the right level of zoom?</p>
           </section>
+            </div>
+          </details>
         </aside>
       </section>
     </main>

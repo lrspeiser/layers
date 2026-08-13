@@ -5,19 +5,12 @@ import { useMemo, useState } from "react";
 import type { Comparison, Layer, LayersCatalog, LayerTarget, SparcProfile } from "@/lib/layers";
 import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 import comparisonPreviewData from "@/public/data/comparison-previews.json";
+import { SignalCandidateList, type SignalCandidate } from "@/components/SignalCandidateList";
 
 type CoverageFilter = "all" | "rubin" | "wise-mass" | "no-coverage";
 type WorkbenchView = "evidence" | "swipe" | "coverage" | "candidates" | "profiles";
-type CandidateRegion = {
-  id: string;
-  xPercent: number;
-  yPercent: number;
-  pixelCount: number;
-  peakEmpiricalSigma: number;
-  direction: string;
-};
-type PrototypeScience = {
-  candidateRegions: CandidateRegion[];
+export type PrototypeScience = {
+  candidateRegions: SignalCandidate[];
   differenceMethod: { thresholdEmpiricalSigma: number };
 };
 type ComparisonPreview = (typeof comparisonPreviewData.comparisons)[number];
@@ -199,7 +192,7 @@ function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
 
 function LayerViewport({ target, left, right, view, science, profile }: { target: LayerTarget; left: Layer; right: Layer; view: WorkbenchView; science: PrototypeScience; profile?: SparcProfile }) {
   const [reveal, setReveal] = useState(50);
-  const [selectedCandidate, setSelectedCandidate] = useState<CandidateRegion | null>(null);
+  const [selectedCandidate, setSelectedCandidate] = useState<SignalCandidate | null>(null);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const comparison = matchingComparison(target, left.id, right.id);
   const swipeable = Boolean(comparison && comparisonIsSwipeable(comparison, target.layers));
@@ -386,6 +379,10 @@ function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparis
 }
 
 export function AtlasExperience({ catalog, prototypeScience }: { catalog: LayersCatalog; prototypeScience: PrototypeScience }) {
+  const rubinBandMosaics = catalog.targets.reduce((total, target) => {
+    const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
+    return total + (rubin?.availability === "available-local" ? rubin.bands.length : 0);
+  }, 0);
   const firstUseful = catalog.targets.find((target) => target.id === "ugc00191")
     ?? catalog.targets.find((target) => target.layers.some((layer) => layer.availability === "available-local"))
     ?? catalog.targets[0];
@@ -439,6 +436,11 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
   const candidateViewEnabled = authenticQaViewer && selected.id === "ugc00191";
   const swipeEnabled = Boolean(comparison && comparisonIsSwipeable(comparison, selected.layers)) || Boolean(authenticQaViewer);
   const profilesEnabled = left.kind === "profile" || right.kind === "profile";
+  const comparisonIssue = comparison?.status === "published"
+    ? "This comparison passed its declared publication gates, but its interpretation remains model-dependent."
+    : comparison?.qa?.extendedSourceTransferPass === false
+      ? "The images align, but extended-source brightness transfer failed QA. Residuals are investigation leads, not missing-light detections."
+      : "No scientific difference is published until WCS, PSF, filters, masks, sky, and uncertainty pass their declared checks.";
   const rankedAudits = useMemo(() => catalog.targets.flatMap((target) =>
     target.comparisons.flatMap((item) => item.assumptionAudits.map((audit) => ({ target, audit })))
   ).sort((a, b) => a.audit.rank - b.audit.rank), [catalog.targets]);
@@ -472,10 +474,10 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
       <section className="release-bar">
         <div><span className="eyebrow">CURRENT RELEASE</span><h1>See the same sky through every credible layer.</h1><p>Align observations, measure what changed, and find assumptions worth rechecking—without confusing a difference with a discovery.</p></div>
         <div className="release-stats">
-          <span><strong>{catalog.summary.targets}</strong><small>targets audited</small></span>
-          <span><strong>{catalog.summary.rubinSiaMatches}</strong><small>Rubin footprint matches</small></span>
-          <span><strong>{catalog.summary.localImageLayers ?? catalog.summary.rubinUsableLocal}</strong><small>local image layers</small></span>
-          <span><strong>{catalog.summary.publishedComparisons}</strong><small>published comparisons</small></span>
+          <span><strong>{catalog.summary.targets}</strong><small>preselected SPARC targets searched</small></span>
+          <span><strong>{catalog.summary.rubinSiaMatches}</strong><small>Rubin footprint responses</small></span>
+          <span><strong>{catalog.summary.rubinUsableLocal}</strong><small>separate usable Rubin fields</small></span>
+          <span><strong>{rubinBandMosaics}</strong><small>usable Rubin band mosaics</small></span>
         </div>
       </section>
 
@@ -505,6 +507,12 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
             <Link href={`/target/${selected.id}`}>Permanent record ↗</Link>
           </div>
 
+          <section className="page-brief" aria-label="Goal, details, and issues">
+            <article><span>GOAL</span><h3>Compare the same sky</h3><p>Test what {left.survey} and {right.survey} each contribute at one fixed position.</p></article>
+            <article><span>DETAILS</span><h3>{selected.name}</h3><p>{selected.region.widthArcmin}&prime; field · {left.bands.join("/") || left.kind} versus {right.bands.join("/") || right.kind}. The swipe reveals aligned layers; it does not move the sky.</p></article>
+            <article className="brief-issue"><span>ISSUES</span><h3>{comparison?.status === "published" ? "Published with limits" : "QA limits the claim"}</h3><p>{comparisonIssue}</p></article>
+          </section>
+
           <div className="layer-selectors">
             <label><span>LAYER A</span><select value={left.id} onChange={(event) => selectLayer("left", event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
             <span className="versus">COMPARE</span>
@@ -520,8 +528,12 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
             <span>{authenticQaViewer ? `Real ${selected.name} matched pixels · QA only` : "Views activate by data type + QA"}</span>
           </div>
           <LayerViewport key={`${selected.id}-${left.id}-${right.id}`} target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} profile={profiles[selected.id]} />
-          <div className="layer-cards layer-cards-after-view"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
-          <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
+          {candidateViewEnabled && <SignalCandidateList candidates={prototypeScience.candidateRegions} />}
+          <details className="technical-disclosure">
+            <summary>Layer details, measurements, and QA evidence</summary>
+            <div className="layer-cards layer-cards-after-view"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
+            <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
+          </details>
         </section>
       </section>
 

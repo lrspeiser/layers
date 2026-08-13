@@ -46,6 +46,12 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
         <Link href={`/#workspace`}>← Back to workspace</Link>
       </section>
 
+      <section className="page-brief record-page-brief" aria-label="Goal, details, and issues">
+        <article><span>GOAL</span><h3>Audit this sky position</h3><p>Keep every available image, catalog, and profile layer for {target.name} in one reproducible record.</p></article>
+        <article><span>DETAILS</span><h3>{target.layers.length} layers · {target.comparisons.length} comparisons</h3><p>{rubin?.availability === "available-local" ? "Usable local Rubin pixels are verified for this separate field." : rubin?.note ?? "Coverage state recorded."}</p></article>
+        <article className="brief-issue"><span>ISSUES</span><h3>{publishedComparisons.length ? "Published results have limits" : "No image difference published"}</h3><p>{pilot?.observation ?? "Cross-layer claims remain blocked until the declared reconciliation and QA gates pass."}</p></article>
+      </section>
+
       <section className="record-content">
         <div className="record-main">
           {comparisonPreviews.map(({ comparison, preview }) => <TargetComparisonViewer key={comparison.id} target={target} comparison={comparison} preview={preview} />)}
