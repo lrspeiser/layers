@@ -242,6 +242,7 @@ a { color: inherit; text-decoration: none; }
 .assumption-evidence { align-items: center; background: #191f21; color: white; display: flex; gap: 12px; margin: 12px 0; padding: 10px 12px; }
 .assumption-evidence strong { color: var(--acid); font-family: var(--font-mono), monospace; font-size: 21px; }.assumption-evidence span { color: #9eaaa9; font-size: 9px; }
 .assumption-audit .affected-inference { border-left: 2px solid #9151dd; padding-left: 9px; }.assumption-audit .affected-inference strong { color: #3d4644; }
+.independent-check { background: #e5e9e5; border-left: 2px solid #e5a029; display: grid; gap: 3px; margin: 12px 0; padding: 10px; }.independent-check small { color: #7d6d50; font-family: var(--font-mono), monospace; font-size: 7px; }.independent-check > strong { color: #985f10; font-family: var(--font-mono), monospace; font-size: 9px; }.independent-check > span { color: #4e5b58; font-size: 9px; }.independent-check p { color: #6d7774; font-size: 9px; line-height: 1.45; margin: 4px 0 0; }
 .assumption-audit details { border-top: 1px solid #d6dbd8; color: #697371; font-size: 9px; margin-top: 12px; padding-top: 9px; }.assumption-audit summary { color: #48524f; cursor: pointer; font-weight: 700; }.assumption-audit details li { line-height: 1.45; margin: 5px 0; }
 .assumption-caveat { color: #8d9694; display: block; font-size: 8px; line-height: 1.45; margin-top: 12px; }
 

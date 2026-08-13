@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-13T02:49:39.821364+00:00",
+  "generatedAt": "2026-08-13T03:06:47.676481+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -14,8 +14,8 @@
     "rubinUsableLocal": 3,
     "rubinFootprintFalsePositives": 1,
     "legacySurveyUsableLocal": 3,
-    "panStarrsUsableLocal": 1,
-    "localImageLayers": 7,
+    "panStarrsUsableLocal": 3,
+    "localImageLayers": 9,
     "registrationAudits": 3,
     "pilotAudits": 4,
     "assumptionsWorthRechecking": 2,
@@ -8452,6 +8452,68 @@
             "layer": "ls-dr10",
             "documentation": "https://www.legacysurvey.org/dr10/description/"
           }
+        },
+        {
+          "id": "panstarrs-dr1-stack",
+          "survey": "Pan-STARRS1",
+          "release": "DR1 3pi stacks",
+          "instrument": "PS1 GPC1",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "g",
+            "i",
+            "r",
+            "z"
+          ],
+          "bandCoverage": {
+            "g": 0.4355901234567901,
+            "i": 0.5295219135802469,
+            "r": 0.43969783950617286,
+            "z": 0.4698506172839506
+          },
+          "datasetCount": 24,
+          "datasetIds": [
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.mask.fits"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2"
+          },
+          "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "provenance": {
+            "service": "MAST Pan-STARRS image-list service and full skycell archive",
+            "product": "unconvolved stack + stack.wt + stack.mask",
+            "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          }
         }
       ],
       "comparisons": [
@@ -8515,7 +8577,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
+            "matchedPairSha256": "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
             "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
             "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
             "qaPackage": "/data/comparisons/ugc00191.json"
@@ -8536,8 +8598,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8562,8 +8624,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8588,8 +8650,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8614,8 +8676,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8640,8 +8702,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8666,8 +8728,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8692,8 +8754,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8718,8 +8780,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "f40ba63ecafffb6ab2fd5d5c9231048622b5ce959eaba2472375efbe482e698d"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "21de1d76d18be94e188f52cea5ede5dab916c88ff15e97b6a33a2097189800d1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8760,10 +8822,21 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "f7da863cb16b9a3c5a3dbded24856129cd611df61abd57ff25fb8ae917d49995",
-                "eca100f9861474f538ee3978f143eafc64a86ba0d3a089b086273dd036cad35e"
+                "35d51098d9861a46c0052887ab4b50c56c4d31ec2c9a9c2389dc63880a9344d2",
+                "06c70a87a82271e7fc72aabf6054d16187e30ffb31173ef9c144059043970a91"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
+              "independentCheck": {
+                "survey": "Pan-STARRS1 DR1",
+                "status": "registration-blocked",
+                "registrationP95Arcsec": 0.373058271912441,
+                "passThresholdArcsec": 0.3,
+                "qualifiedForArbitration": false,
+                "note": "The independent layer cannot arbitrate the Rubin-Legacy resolved-light disagreement until its own registration passes.",
+                "provenance": [
+                  "60ab5cb0266c6d392d362db0e11845d5051c5250948efe7e4963baf82302c089"
+                ]
+              },
               "rank": 1
             }
           ]
@@ -8785,7 +8858,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00191/extended-source-filter-audit.json",
-            "sha256": "eca100f9861474f538ee3978f143eafc64a86ba0d3a089b086273dd036cad35e"
+            "sha256": "06c70a87a82271e7fc72aabf6054d16187e30ffb31173ef9c144059043970a91"
           }
         ],
         "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -8957,6 +9030,78 @@
             "layer": "ls-dr10",
             "documentation": "https://www.legacysurvey.org/dr10/description/"
           }
+        },
+        {
+          "id": "panstarrs-dr1-stack",
+          "survey": "Pan-STARRS1",
+          "release": "DR1 3pi stacks",
+          "instrument": "PS1 GPC1",
+          "kind": "image",
+          "availability": "available-local",
+          "renderMode": "metadata",
+          "bands": [
+            "i",
+            "r",
+            "z"
+          ],
+          "bandCoverage": {
+            "i": 0.45540185185185184,
+            "r": 0.3891682098765432,
+            "z": 0.447208024691358
+          },
+          "datasetCount": 36,
+          "datasetIds": [
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.mask.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.wt.fits",
+            "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.mask.fits"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2"
+          },
+          "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "provenance": {
+            "service": "MAST Pan-STARRS image-list service and full skycell archive",
+            "product": "unconvolved stack + stack.wt + stack.mask",
+            "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          }
         }
       ],
       "comparisons": [
@@ -9020,7 +9165,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
+            "matchedPairSha256": "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
             "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
             "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5",
             "qaPackage": "/data/comparisons/ugc00634.json"
@@ -9041,8 +9186,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9067,8 +9212,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9093,8 +9238,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9119,8 +9264,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9145,8 +9290,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9171,8 +9316,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9197,8 +9342,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9223,8 +9368,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "ef0a0046a35433b97d762462642901419d30352ffde864fad465c3ac8f317e34"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "7a5df0090db7c422998e3b8c86bc14cded3e480dc069b415cd76a855b871078c"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9265,10 +9410,21 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "354e6551e0718df6849ca27021c649ad5fb2623b45c7dfd55ef4266db8513498",
-                "235a45f862a489b67d41003147552fc5cacffb78c171a04763f2c0486ff66937"
+                "b6d3878beceb903444dd5a47a824ec15f7ad284aee1dfdab03aed55afe68069f",
+                "8e60dfaeefd38636472f0d53c308b5b9ea2294ff63a4f6bfbd3e96b7e46d5902"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
+              "independentCheck": {
+                "survey": "Pan-STARRS1 DR1",
+                "status": "registration-blocked",
+                "registrationP95Arcsec": 0.43364208603692317,
+                "passThresholdArcsec": 0.3,
+                "qualifiedForArbitration": false,
+                "note": "The independent layer cannot arbitrate the Rubin-Legacy resolved-light disagreement until its own registration passes.",
+                "provenance": [
+                  "c92a019d075273bd8cd7e4f1c4ed75c23b52e80b58f7badb489956aeea543f63"
+                ]
+              },
               "rank": 2
             }
           ]
@@ -9290,7 +9446,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-            "sha256": "235a45f862a489b67d41003147552fc5cacffb78c171a04763f2c0486ff66937"
+            "sha256": "8e60dfaeefd38636472f0d53c308b5b9ea2294ff63a4f6bfbd3e96b7e46d5902"
           }
         ],
         "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -9655,7 +9811,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00891/registration-audit.json",
-            "sha256": "6396bf42186dd383e5b069673583cd386deae03bbcfa0b4ea80b83cb978a839a"
+            "sha256": "1f493ec0792aab402fff6d801d91f3695e1796eaf138f6c30a9de16e7ce8cdf0"
           }
         ],
         "nextAction": "Diagnose spatially varying astrometry or adopt an independently validated reference layer; do not force-warp the pixels into compliance."

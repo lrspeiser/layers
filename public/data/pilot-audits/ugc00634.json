@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T02:49:40.275032+00:00",
+  "generatedAt": "2026-08-13T03:06:48.507829+00:00",
   "target": {
     "id": "ugc00634",
     "name": "UGC00634",
@@ -169,6 +169,78 @@
         "layer": "ls-dr10",
         "documentation": "https://www.legacysurvey.org/dr10/description/"
       }
+    },
+    {
+      "id": "panstarrs-dr1-stack",
+      "survey": "Pan-STARRS1",
+      "release": "DR1 3pi stacks",
+      "instrument": "PS1 GPC1",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "i",
+        "r",
+        "z"
+      ],
+      "bandCoverage": {
+        "i": 0.45540185185185184,
+        "r": 0.3891682098765432,
+        "z": 0.447208024691358
+      },
+      "datasetCount": 36,
+      "datasetIds": [
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/086/rings.v3.skycell.1416.086.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/087/rings.v3.skycell.1416.087.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/096/rings.v3.skycell.1416.096.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1416/097/rings.v3.skycell.1416.097.stk.z.unconv.mask.fits"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+      "provenance": {
+        "service": "MAST Pan-STARRS image-list service and full skycell archive",
+        "product": "unconvolved stack + stack.wt + stack.mask",
+        "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+      }
     }
   ],
   "pilotAudit": {
@@ -187,7 +259,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-        "sha256": "235a45f862a489b67d41003147552fc5cacffb78c171a04763f2c0486ff66937"
+        "sha256": "8e60dfaeefd38636472f0d53c308b5b9ea2294ff63a4f6bfbd3e96b7e46d5902"
       }
     ],
     "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

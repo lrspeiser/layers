@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T02:49:40.227864+00:00",
+  "generatedAt": "2026-08-13T03:06:48.458825+00:00",
   "target": {
     "id": "ugc00191",
     "name": "UGC00191",
@@ -164,6 +164,68 @@
         "layer": "ls-dr10",
         "documentation": "https://www.legacysurvey.org/dr10/description/"
       }
+    },
+    {
+      "id": "panstarrs-dr1-stack",
+      "survey": "Pan-STARRS1",
+      "release": "DR1 3pi stacks",
+      "instrument": "PS1 GPC1",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "g",
+        "i",
+        "r",
+        "z"
+      ],
+      "bandCoverage": {
+        "g": 0.4355901234567901,
+        "i": 0.5295219135802469,
+        "r": 0.43969783950617286,
+        "z": 0.4698506172839506
+      },
+      "datasetCount": 24,
+      "datasetIds": [
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.g.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.g.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/062/rings.v3.skycell.1502.062.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1502/072/rings.v3.skycell.1502.072.stk.z.unconv.mask.fits"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+      "provenance": {
+        "service": "MAST Pan-STARRS image-list service and full skycell archive",
+        "product": "unconvolved stack + stack.wt + stack.mask",
+        "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+      }
     }
   ],
   "pilotAudit": {
@@ -182,7 +244,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00191/extended-source-filter-audit.json",
-        "sha256": "eca100f9861474f538ee3978f143eafc64a86ba0d3a089b086273dd036cad35e"
+        "sha256": "06c70a87a82271e7fc72aabf6054d16187e30ffb31173ef9c144059043970a91"
       }
     ],
     "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

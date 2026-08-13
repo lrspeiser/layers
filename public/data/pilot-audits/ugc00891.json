@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T02:49:40.318310+00:00",
+  "generatedAt": "2026-08-13T03:06:48.615339+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -217,7 +217,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00891/registration-audit.json",
-        "sha256": "6396bf42186dd383e5b069673583cd386deae03bbcfa0b4ea80b83cb978a839a"
+        "sha256": "1f493ec0792aab402fff6d801d91f3695e1796eaf138f6c30a9de16e7ce8cdf0"
       }
     ],
     "nextAction": "Diagnose spatially varying astrometry or adopt an independently validated reference layer; do not force-warp the pixels into compliance."

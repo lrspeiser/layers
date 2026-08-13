@@ -122,6 +122,9 @@ def main() -> None:
                     errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: unsupported confidence")
                 if not audit.get("provenance") or any(not item for item in audit.get("provenance", [])):
                     errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: audit has incomplete provenance")
+                independent = audit.get("independentCheck")
+                if independent and (not independent.get("provenance") or independent.get("qualifiedForArbitration") and independent.get("registrationP95Arcsec", 1) > independent.get("passThresholdArcsec", 0)):
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: independent check is inconsistent or lacks provenance")
             if comparison.get("status") != "published":
                 continue
             published_count += 1

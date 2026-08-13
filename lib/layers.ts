@@ -128,6 +128,15 @@ export type AssumptionAudit = {
   recommendedFollowUp: string[];
   provenance: string[];
   caveat: string;
+  independentCheck?: {
+    survey: string;
+    status: string;
+    registrationP95Arcsec: number | null;
+    passThresholdArcsec: number | null;
+    qualifiedForArbitration: boolean;
+    note: string;
+    provenance: string[];
+  };
 };
 
 export type Comparison = {

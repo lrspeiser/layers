@@ -180,6 +180,8 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     recovery_audit = load_json(recovery_path) if recovery_path.is_file() else None
     extended_path = path.parent / "extended-source-filter-audit.json"
     extended_audit = load_json(extended_path) if extended_path.is_file() else None
+    three_survey_path = path.parent / "three-survey-consistency.json"
+    three_survey_audit = load_json(three_survey_path) if three_survey_path.is_file() else None
     matched_product = reconciliation.get("products", {}) if reconciliation else {}
     effective_status = reconciliation.get("status") if reconciliation else "audit-only"
     measurements = []
@@ -277,6 +279,17 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
                         reconciliation_filter.get("extendedSourceAuditSha256", ""),
                     ],
                     "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
+                    **({
+                        "independentCheck": {
+                            "survey": "Pan-STARRS1 DR1",
+                            "status": three_survey_audit["status"],
+                            "registrationP95Arcsec": three_survey_audit.get("registrationsToRubin", {}).get("panstarrs", {}).get("residualP95Arcsec"),
+                            "passThresholdArcsec": three_survey_audit.get("astrometryThresholdArcsec"),
+                            "qualifiedForArbitration": three_survey_audit.get("status") == "diagnostic",
+                            "note": "The independent layer cannot arbitrate the Rubin-Legacy resolved-light disagreement until its own registration passes.",
+                            "provenance": [sha256(three_survey_path)],
+                        }
+                    } if three_survey_audit else {}),
                 }
             )
     return {

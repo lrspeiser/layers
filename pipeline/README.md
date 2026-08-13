@@ -86,6 +86,8 @@ For a Rubin field without a sufficiently covered Legacy band, acquire Pan-STARRS
 python pipeline/fetch_panstarrs.py
 ```
 
+Pass `--only TARGET` to deliberately add or refresh Pan-STARRS support for a Rubin target even when another common-band reference layer already exists. Selected runs merge with the existing manifest instead of discarding previously ingested targets.
+
 This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
 
 Audit registration readiness:

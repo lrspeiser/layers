@@ -302,6 +302,7 @@ function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparis
           <p>{audit.newEvidence}</p>
           <div className="assumption-evidence"><strong>{audit.evidenceMagnitude.thresholdMultiple.toFixed(1)}×</strong><span>over the {audit.evidenceMagnitude.passThreshold.toFixed(2)} {audit.evidenceMagnitude.unit} pass threshold</span></div>
           <p className="affected-inference"><strong>Inference gate:</strong> {audit.affectedInference}</p>
+          {audit.independentCheck && <div className="independent-check"><small>INDEPENDENT CHECK · {audit.independentCheck.survey}</small><strong>{audit.independentCheck.qualifiedForArbitration ? "READY" : "REGISTRATION BLOCKED"}</strong><span>{audit.independentCheck.registrationP95Arcsec?.toFixed(3) ?? "—"}″ p95 · limit {audit.independentCheck.passThresholdArcsec?.toFixed(2) ?? "—"}″</span><p>{audit.independentCheck.note}</p></div>}
           <details><summary>Systematics + recommended follow-up</summary><ul>{audit.systematicAlternatives.map((item) => <li key={item}>{item}</li>)}</ul><ol>{audit.recommendedFollowUp.map((item) => <li key={item}>{item}</li>)}</ol></details>
           <small className="assumption-caveat">{audit.caveat}</small>
         </article>

@@ -18,6 +18,7 @@ AUDIT_FILES = (
     "filter-response-audit.json",
     "extended-source-filter-audit.json",
     "diffuse-recovery.json",
+    "three-survey-consistency.json",
 )
 
 

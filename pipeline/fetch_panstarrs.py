@@ -203,11 +203,23 @@ def main() -> None:
     rubin_manifest = json.loads(args.rubin_mosaics.read_text(encoding="utf-8"))
     legacy_manifest = json.loads(args.legacy.read_text(encoding="utf-8")) if args.legacy.is_file() else {"targets": []}
     selected = {value.lower() for value in args.only}
-    candidates = [
-        (target, bands)
-        for target, bands in needed_targets(coverage, rubin_manifest, legacy_manifest, args.coverage_threshold)
-        if not selected or target["slug"].lower() in selected or target["sparc_id"].lower() in selected
-    ]
+    if selected:
+        target_by_slug = {target["slug"]: target for target in coverage["targets"]}
+        candidates = [
+            (target_by_slug[record["target"]["slug"]], [band for band, product in record.get("bands", {}).items() if product.get("science_coverage")])
+            for record in rubin_manifest
+            if record.get("science_coverage")
+            and (record["target"]["slug"].lower() in selected or record["target"]["sparc_id"].lower() in selected)
+        ]
+    else:
+        candidates = needed_targets(coverage, rubin_manifest, legacy_manifest, args.coverage_threshold)
+    existing_targets = []
+    existing_manifest_path = args.output / "manifest.json"
+    if selected and existing_manifest_path.is_file():
+        existing_targets = [
+            record for record in json.loads(existing_manifest_path.read_text(encoding="utf-8")).get("targets", [])
+            if record.get("target", {}).get("slug", "").lower() not in selected
+        ]
     manifest = {
         "schema_version": 1,
         "created_at": datetime.now(timezone.utc).isoformat(),
@@ -215,7 +227,7 @@ def main() -> None:
         "release": "DR1 3pi stacks",
         "image_list_endpoint": IMAGE_LIST_ENDPOINT,
         "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service",
-        "targets": [],
+        "targets": existing_targets,
     }
     for target, bands in candidates:
         print(f"[{target['sparc_id']}] querying Pan-STARRS for {','.join(bands)}", flush=True)

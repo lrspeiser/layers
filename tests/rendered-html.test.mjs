@@ -61,8 +61,8 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.rubinUsableLocal, 3);
   assert.equal(catalog.summary.rubinFootprintFalsePositives, 1);
   assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
-  assert.equal(catalog.summary.panStarrsUsableLocal, 1);
-  assert.equal(catalog.summary.localImageLayers, 7);
+  assert.equal(catalog.summary.panStarrsUsableLocal, 3);
+  assert.equal(catalog.summary.localImageLayers, 9);
   assert.equal(catalog.summary.registrationAudits, 3);
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
@@ -161,6 +161,9 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
     assert.ok(comparison.qa.extendedSourceMedianAbsoluteResidualMag > 0.08);
     assert.equal(comparison.registration.filterMatched, false);
     assert.equal(comparison.status, "qa");
+    assert.equal(comparison.assumptionAudits[0].independentCheck.qualifiedForArbitration, false);
+    assert.ok(comparison.assumptionAudits[0].independentCheck.registrationP95Arcsec > 0.3);
+    assert.match(comparison.assumptionAudits[0].independentCheck.provenance[0], /^[a-f0-9]{64}$/);
   }
   const pilotTargets = catalog.targets.filter((target) => target.pilotAudit);
   assert.deepEqual(pilotTargets.map((target) => target.id).sort(), ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]);
