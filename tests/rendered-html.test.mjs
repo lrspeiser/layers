@@ -140,3 +140,17 @@ test("all 175 SPARC layers expose real profile records rather than fake images",
     assert.match(record.target.provenance.rotationMemberSha256, /^[a-f0-9]{64}$/);
   }
 });
+
+test("resolved galaxy filter-transfer failures remain hard science gates", async () => {
+  const catalog = JSON.parse(await readFile(join(root, "public", "data", "layers-catalog.json"), "utf8"));
+  for (const targetId of ["ugc00191", "ugc00634"]) {
+    const comparison = catalog.targets.find((target) => target.id === targetId).comparisons[0];
+    assert.equal(comparison.qa.pointSourceCalibrationPass, true);
+    assert.equal(comparison.qa.extendedSourceTransferPass, false);
+    assert.equal(comparison.qa.extendedSourceTransferStatus, "qa-failed");
+    assert.ok(comparison.qa.extendedSourceResolvedCells >= 20);
+    assert.ok(comparison.qa.extendedSourceMedianAbsoluteResidualMag > 0.08);
+    assert.equal(comparison.registration.filterMatched, false);
+    assert.equal(comparison.status, "qa");
+  }
+});

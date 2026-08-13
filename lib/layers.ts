@@ -139,6 +139,10 @@ export type Comparison = {
     pointSourceCalibrationPass?: boolean;
     filterHeldOutRmsMag?: number;
     extendedSourceTransferPass?: boolean;
+    extendedSourceTransferStatus?: string;
+    extendedSourceResolvedCells?: number;
+    extendedSourceMedianAbsoluteResidualMag?: number;
+    extendedSourceRobustScatterMag?: number;
     injectionRecoveryStatus?: string;
     injectionNullTestPass?: boolean;
     injectionRecoveryGridPass?: boolean;

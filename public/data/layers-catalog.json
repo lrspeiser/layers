@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-13T01:55:20.869155+00:00",
+  "generatedAt": "2026-08-13T02:10:08.018046+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -8476,6 +8476,10 @@
             "pointSourceCalibrationPass": true,
             "filterHeldOutRmsMag": 0.03961533683047767,
             "extendedSourceTransferPass": false,
+            "extendedSourceTransferStatus": "qa-failed",
+            "extendedSourceResolvedCells": 56,
+            "extendedSourceMedianAbsoluteResidualMag": 1.0804442934993235,
+            "extendedSourceRobustScatterMag": 0.5116969116156729,
             "injectionRecoveryStatus": "pass",
             "injectionNullTestPass": true,
             "injectionRecoveryGridPass": true,
@@ -8488,7 +8492,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+            "matchedPairSha256": "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
             "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
             "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
             "qaPackage": "/data/comparisons/ugc00191.json"
@@ -8509,8 +8513,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8535,8 +8539,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8561,8 +8565,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8587,8 +8591,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8613,8 +8617,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8639,8 +8643,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8665,8 +8669,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8691,8 +8695,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
-                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
+                "2807337aa8c5ea9ff168db9474db5e5eea5101990fc6565661a3fd1b4d1c13b0",
+                "b64363cef611203030e5dcaa3e058cd5091a28662bcacbb60c548ead5e2bfff3"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8921,6 +8925,10 @@
             "pointSourceCalibrationPass": true,
             "filterHeldOutRmsMag": 0.05110780745526081,
             "extendedSourceTransferPass": false,
+            "extendedSourceTransferStatus": "qa-failed",
+            "extendedSourceResolvedCells": 37,
+            "extendedSourceMedianAbsoluteResidualMag": 0.4739768569919122,
+            "extendedSourceRobustScatterMag": 0.3113884282551534,
             "injectionRecoveryStatus": "pass",
             "injectionNullTestPass": true,
             "injectionRecoveryGridPass": true,
@@ -8933,7 +8941,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+            "matchedPairSha256": "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
             "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
             "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5",
             "qaPackage": "/data/comparisons/ugc00634.json"
@@ -8954,8 +8962,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8980,8 +8988,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9006,8 +9014,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9032,8 +9040,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9058,8 +9066,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9084,8 +9092,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9110,8 +9118,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9136,8 +9144,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
-                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
+                "5f4a4ca841e857dd89ea31417cb63f1d4be89539d59489733c64197408301b5d",
+                "67afec20a930be1976c83d376fdf64ab5d89d11abb148d210ba7cbb1f83bfccc"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9481,6 +9489,10 @@
             "pointSourceCalibrationPass": false,
             "filterHeldOutRmsMag": null,
             "extendedSourceTransferPass": false,
+            "extendedSourceTransferStatus": "blocked",
+            "extendedSourceResolvedCells": null,
+            "extendedSourceMedianAbsoluteResidualMag": null,
+            "extendedSourceRobustScatterMag": null,
             "injectionRecoveryStatus": null,
             "injectionNullTestPass": false,
             "injectionRecoveryGridPass": false,

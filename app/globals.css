@@ -224,6 +224,8 @@ a { color: inherit; text-decoration: none; }
 .recovery-readout small { color: #7c8885; font-family: var(--font-mono), monospace; font-size: 7px; }
 .recovery-readout strong { color: #294c3a; font-size: 13px; margin-top: 3px; }
 .recovery-readout em { color: #7a8582; font-size: 7px; font-style: normal; margin-top: 2px; }
+.filter-failure-readout { background: #f4ded8; border-left: 3px solid #bd5b4c; display: grid; gap: 4px; grid-template-columns: auto auto 1fr; margin-top: 10px; padding: 10px; }
+.filter-failure-readout small { color: #885044; font-family: var(--font-mono), monospace; font-size: 7px; }.filter-failure-readout strong { color: #7d382b; font-size: 9px; }.filter-failure-readout span { color: #775d57; font-size: 8px; text-align: right; }
 .measurement-grid { display: grid; gap: 8px; margin-top: 14px; }
 .measurement-grid article { border-top: 1px solid var(--line); padding-top: 10px; }
 .measurement-grid strong { display: block; font-size: 20px; }

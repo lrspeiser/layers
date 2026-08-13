@@ -250,6 +250,14 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "pointSourceCalibrationPass": reconciliation_filter.get("pointSourceCalibrationPass", False),
             "filterHeldOutRmsMag": reconciliation_filter.get("heldOutRmsMag"),
             "extendedSourceTransferPass": reconciliation_filter.get("extendedSourceTransferPass", False),
+            "extendedSourceTransferStatus": (
+                "pass" if reconciliation_filter.get("extendedSourceTransferPass") is True
+                else "qa-failed" if reconciliation_filter.get("resolvedCellCount") is not None
+                else "blocked"
+            ),
+            "extendedSourceResolvedCells": reconciliation_filter.get("resolvedCellCount"),
+            "extendedSourceMedianAbsoluteResidualMag": reconciliation_filter.get("resolvedMedianAbsoluteResidualMag"),
+            "extendedSourceRobustScatterMag": reconciliation_filter.get("resolvedRobustScatterMag"),
             "injectionRecoveryStatus": recovery.get("status"),
             "injectionNullTestPass": recovery.get("nullTestPass", False),
             "injectionRecoveryGridPass": recovery.get("recoveryGridPass", False),

@@ -237,7 +237,9 @@ function DifferencePanel({ comparison }: { comparison?: Comparison }) {
         <h3>{comparison.qa.comparisonLayerLabel} · {comparison.qa.band}-band</h3>
         <p>{comparison.registration.psfMatched && comparison.registration.skyMatched
           ? comparison.qa.injectionRecoveryStatus === "pass"
-            ? "The matched pair now has empirical diffuse-source recovery limits and null tests. Extended-source filter transfer still blocks a Rubin-minus-reference missing-light claim."
+            ? comparison.qa.extendedSourceTransferStatus === "qa-failed"
+              ? `The matched pair passes astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery. Its resolved-galaxy color transfer failed (${comparison.qa.extendedSourceResolvedCells ?? "—"} cells; median |residual| ${comparison.qa.extendedSourceMedianAbsoluteResidualMag?.toFixed(2) ?? "—"} mag), so missing-light and mass claims remain blocked.`
+              : "The matched pair now has empirical diffuse-source recovery limits and null tests. Extended-source filter transfer still blocks a Rubin-minus-reference missing-light claim."
             : "A matched FITS pair now shares the sky grid, physical units, PSF target, masks, and sky subtraction. Filter response and injection/recovery still block a scientific difference claim."
           : "This is data-readiness evidence, not a scientific difference claim. PSF, filter response, and sky matching are still unapplied."}</p>
         <div className="qa-readout">
@@ -249,6 +251,7 @@ function DifferencePanel({ comparison }: { comparison?: Comparison }) {
           <div><small>INJECTION / RECOVERY</small><strong>PASS</strong><em>smooth exponentials · empirical nulls</em></div>
           {representativeLimits.map((measurement) => <div key={measurement.id}><small>{measurement.id.startsWith("rubin") ? "RUBIN" : "REFERENCE"} · 24″ Re</small><strong>{measurement.value.toFixed(1)} mag/arcsec²</strong><em>90% recovered · discrete grid</em></div>)}
         </div>}
+        {comparison.qa.extendedSourceTransferStatus === "qa-failed" && <div className="filter-failure-readout"><small>RESOLVED FILTER TRANSFER</small><strong>QA FAILED</strong><span>{comparison.qa.extendedSourceResolvedCells ?? "—"} resolved cells · median |residual| {comparison.qa.extendedSourceMedianAbsoluteResidualMag?.toFixed(2) ?? "—"} mag · robust scatter {comparison.qa.extendedSourceRobustScatterMag?.toFixed(2) ?? "—"} mag</span></div>}
       </section>
     );
   }

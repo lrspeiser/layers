@@ -18,6 +18,7 @@ STAGES = (
     ("reconciliation", "reconcile_image_layers.py"),
     ("stellar-filter-audit", "audit_filter_response.py"),
     ("diffuse-recovery", "validate_diffuse_recovery.py"),
+    ("extended-source-filter-audit", "audit_extended_source_transfer.py"),
     ("catalog", "build_layers_catalog.py"),
     ("catalog-validation", "validate_layers_catalog.py"),
     ("local-store", "build_local_layer_store.py"),

@@ -16,6 +16,7 @@ AUDIT_FILES = (
     "registration-audit.json",
     "reconciliation.json",
     "filter-response-audit.json",
+    "extended-source-filter-audit.json",
     "diffuse-recovery.json",
 )
 

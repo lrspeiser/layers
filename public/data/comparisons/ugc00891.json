@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T01:55:21.767647+00:00",
+  "generatedAt": "2026-08-13T02:10:08.652115+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -157,6 +157,10 @@
       "pointSourceCalibrationPass": false,
       "filterHeldOutRmsMag": null,
       "extendedSourceTransferPass": false,
+      "extendedSourceTransferStatus": "blocked",
+      "extendedSourceResolvedCells": null,
+      "extendedSourceMedianAbsoluteResidualMag": null,
+      "extendedSourceRobustScatterMag": null,
       "injectionRecoveryStatus": null,
       "injectionNullTestPass": false,
       "injectionRecoveryGridPass": false,
@@ -171,7 +175,7 @@
     {
       "name": "registration-audit.json",
       "bytes": 2343,
-      "sha256": "1c71c43bbbcf9636e44f26c0e447ca44ce9b4bb7d4f8dc7bdb8e6f41578e9a11"
+      "sha256": "839ca8e3d663d62c5970bf81fd0f4056d31a8e60d07e58ab0f9d6395076290f0"
     },
     {
       "name": "reconciliation.json",
@@ -182,6 +186,11 @@
       "name": "filter-response-audit.json",
       "bytes": 154,
       "sha256": "865b5963cd275de4a5d208e199c181cc448850c5f0bf602f1b50e14a4907b088"
+    },
+    {
+      "name": "extended-source-filter-audit.json",
+      "bytes": 173,
+      "sha256": "33e72ab76e75227f9843bf7e3d07309753ef13034858572d682dec3fa784c2ba"
     },
     {
       "name": "diffuse-recovery.json",

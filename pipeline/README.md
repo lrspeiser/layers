@@ -114,6 +114,17 @@ python pipeline/audit_filter_response.py
 
 The audit fits `Rubin z - Legacy z` as a function of Legacy `r-z`, uses five spatial cross-validation folds, bootstraps the coefficients, and enforces predeclared sample, color-span, and held-out-scatter thresholds. A pass validates point-source calibration only. Extended-source color transfer and injection/recovery remain mandatory.
 
+Test that stellar relation on resolved galaxy light before using it:
+
+```bash
+python pipeline/audit_extended_source_transfer.py
+```
+
+This independently PSF-matches Legacy r to the reconciled z pair and tests
+6.4-arcsec cells inside each galaxy. Failure is a hard science gate: the
+pipeline records the residuals and must not publish missing-light, stellar-mass,
+or baryonic-acceleration changes from that pair.
+
 Every image reprojection conserves integrated flux with the target/source pixel-area ratio, while variance uses its square. Run the synthetic regression independently with:
 
 ```bash
