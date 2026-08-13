@@ -40,7 +40,13 @@ def shared_render(
     positive = samples[samples > 0]
     high = max(float(np.percentile(positive, 99.85)) if positive.size else scale * 40, scale * 20)
     output = []
-    for image, valid in ((left, left_valid), (right, right_valid)):
+    # Give each survey a distinct invalid-pixel hatch. A saturated-star mask
+    # at the same sky coordinate must not look like one layer showing through.
+    invalid_palettes = (
+        (np.array([50, 25, 31], dtype=np.uint8), np.array([91, 43, 52], dtype=np.uint8)),
+        (np.array([23, 34, 45], dtype=np.uint8), np.array([39, 68, 91], dtype=np.uint8)),
+    )
+    for layer_index, (image, valid) in enumerate(((left, left_valid), (right, right_valid))):
         values = np.nan_to_num(
             np.arcsinh(np.clip(image, 0, None) / scale) / np.arcsinh(high / scale),
             nan=0.0,
@@ -50,8 +56,9 @@ def shared_render(
         gray = np.uint8(np.clip(values, 0, 1) ** 0.88 * 255)
         rgb = np.empty((*gray.shape, 3), dtype=np.uint8)
         yy, xx = np.indices(gray.shape)
-        checker = ((xx // 12 + yy // 12) % 2).astype(bool)
-        rgb[:] = np.where(checker[..., None], [46, 34, 25], [23, 26, 29])
+        hatch = ((xx + yy) // 9 % 2).astype(bool)
+        dark, light = invalid_palettes[layer_index]
+        rgb[:] = np.where(hatch[..., None], light, dark)
         rgb[valid] = np.stack((gray[valid], gray[valid], gray[valid]), axis=-1)
         output.append(rgb)
     return output[0], output[1]
@@ -122,7 +129,7 @@ def main() -> None:
                 "reference": {"path": f"/private-preview/{comparison_key}/{reference_path.name}", "sha256": sha256(reference_path)},
                 "commonCoverage": {"path": f"/private-preview/{comparison_key}/{coverage_path.name}", "sha256": sha256(coverage_path)},
             },
-            "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim.",
+            "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim.",
         }
         manifest_path = output_dir / "comparison-preview.json"
         manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")

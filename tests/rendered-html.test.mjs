@@ -66,10 +66,10 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.externalCatalogLayers, 111);
   assert.equal(catalog.summary.allWisePublished, 4);
   assert.equal(catalog.summary.localImageLayers, 13);
-  assert.equal(catalog.summary.registrationAudits, 117);
+  assert.equal(catalog.summary.registrationAudits, 121);
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 4);
-  assert.equal(catalog.summary.publishedComparisons, 111);
+  assert.equal(catalog.summary.publishedComparisons, 113);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, true);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
@@ -83,7 +83,8 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
     assert.equal(wise.bandCoverage.W1, 1);
     assert.equal(wise.assets.preview, `/layer-previews/wise-allwise/${targetId}-w1.jpg`);
     const provenance = JSON.parse(await readFile(join(root, "public", wise.assets.data), "utf8"));
-    assert.equal(provenance.scienceGate.status, "blocked");
+    const expectedTransferStatus = ["ugc00191", "ugc00634"].includes(targetId) ? "pass" : "blocked";
+    assert.equal(provenance.scienceGate.status, expectedTransferStatus);
     assert.ok(provenance.scienceGate.unsupportedClaims.includes("stellar-mass change"));
     assert.match(provenance.standardProduct.sha256, /^[a-f0-9]{64}$/);
     for (const source of Object.values(provenance.sources)) assert.match(source.sha256, /^[a-f0-9]{64}$/);
@@ -92,13 +93,25 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
     assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
   }
-  const massComparisons = catalog.targets.flatMap((target) => target.comparisons.filter((comparison) => comparison.comparisonMode === "catalog-profile"));
+  const massComparisons = catalog.targets.flatMap((target) => target.comparisons.filter((comparison) => comparison.layerIds.includes("wise-w1-stellar-mass-2025")));
   assert.equal(massComparisons.length, 111);
   assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "expected").length, 109);
   assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "noteworthy").length, 2);
   assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "large").length, 0);
   for (const targetId of ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]) {
     assert.equal(catalog.targets.find((target) => target.id === targetId).layers.some((layer) => layer.id === "wise-w1-stellar-mass-2025"), false);
+  }
+  const transfers = catalog.targets.flatMap((target) => target.comparisons.filter((comparison) => comparison.id.endsWith("--wise-sparc-transfer")));
+  assert.equal(transfers.length, 4);
+  assert.deepEqual(transfers.filter((comparison) => comparison.status === "published").map((comparison) => comparison.id), [
+    "ugc00191--wise-sparc-transfer",
+    "ugc00634--wise-sparc-transfer",
+  ]);
+  for (const comparison of transfers.filter((item) => item.status === "published")) {
+    assert.equal(comparison.measurements.length, 2);
+    assert.ok(comparison.radialSeries.length >= 6);
+    assert.equal(comparison.transferSummary.massInferenceStatus, "blocked");
+    assert.match(comparison.transferSummary.massInferenceReason, /validated optical-color W1 mass-to-light ratio/);
   }
 });
 
@@ -108,7 +121,9 @@ test("permanent target records expose honest pixel-level coverage states", async
   const usableHtml = await usable.text();
   assert.match(usableHtml, /UGC00191/);
   assert.match(usableHtml, /Local Rubin pixels verified/);
-  assert.match(usableHtml, /QA comparison records are available; no scientific difference is published/);
+  assert.match(usableHtml, /1 scientific comparison is published/);
+  assert.match(usableHtml, /Rubin image comparisons remain QA-only; no Rubin optical scientific difference is published/);
+  assert.match(usableHtml, /WISE W1 − SPARC 3.6 µm aperture light/);
   assert.match(usableHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
@@ -156,7 +171,7 @@ test("every authentic matched pilot has a deterministic preview manifest", async
     assert.match(preview.assets.rubin.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
     assert.match(preview.assets.reference.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
     assert.match(preview.notice, /Display stretch only/);
-    assert.match(preview.notice, /invalid pixels in that individual layer/);
+    assert.match(preview.notice, /invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels/);
     assert.match(preview.notice, /Rubin-only \(red\), reference-only \(blue\), and neither usable \(amber\)/);
     const partition = preview.commonValidPixelFraction
       + preview.coverageFractions.rubinOnly
@@ -185,7 +200,9 @@ test("comparison architecture keeps evidence, measurements, inference, and audit
   assert.match(validator, /classification disagrees with sigma/);
   assert.match(externalBuilder, /layers-image-layer-v1/);
   assert.match(externalBuilder, /layers-catalog-layer-v1/);
-  assert.doesNotMatch(workspace, /wise-allwise-atlas/);
+  assert.match(externalBuilder, /layers-comparison-audit-v1/);
+  assert.match(workspace, /wise-allwise-atlas/);
+  assert.match(workspace, /Mass inference blocked/);
 });
 
 test("diffuse recovery limits are exposed as caveated QA measurements", async () => {

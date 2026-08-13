@@ -186,6 +186,22 @@ def external_catalog_records(paths: list[Path]) -> dict[str, dict[str, list[dict
     return records
 
 
+def external_comparison_records(paths: list[Path]) -> dict[str, list[dict]]:
+    records: dict[str, list[dict]] = {}
+    for path in paths:
+        if not path.is_file():
+            continue
+        manifest = load_json(path)
+        if manifest.get("schemaVersion") != 1 or manifest.get("adapterContract") != "layers-comparison-audit-v1":
+            raise RuntimeError(f"Unsupported external comparison manifest: {path}")
+        for item in manifest.get("targets", []):
+            comparison = item.get("comparison")
+            if not comparison:
+                raise RuntimeError(f"External comparison record has no catalog comparison: {item.get('targetId')}")
+            records.setdefault(item["targetId"], []).append(comparison)
+    return records
+
+
 def synchronize_external_catalog_records(root: Path, targets: list[dict]) -> None:
     """Keep public source records aligned after release-wide audit ranking."""
     for target in targets:
@@ -521,6 +537,12 @@ def main() -> None:
         type=Path,
         default=[root / "pipeline" / "output" / "wise-stellar-masses" / "manifest.json"],
     )
+    parser.add_argument(
+        "--external-comparison-manifest",
+        action="append",
+        type=Path,
+        default=[root / "pipeline" / "output" / "wise-sparc-transfer" / "manifest.json"],
+    )
     parser.add_argument("--registration-audits", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--sparc-profiles", type=Path, default=root / "public" / "data" / "sparc-profiles.json")
     parser.add_argument("--output", type=Path, default=root / "public" / "data" / "layers-catalog.json")
@@ -541,6 +563,7 @@ def main() -> None:
         panstarrs_records = {item["target"]["slug"]: item for item in load_json(args.panstarrs).get("targets", [])}
     external_records = external_image_records(args.external_image_manifest)
     external_catalogs = external_catalog_records(args.external_catalog_manifest)
+    external_comparisons = external_comparison_records(args.external_comparison_manifest)
     targets = []
     for source in coverage["targets"]:
         mosaic = mosaics.get(source["slug"])
@@ -560,6 +583,7 @@ def main() -> None:
             if comparison
         ]
         comparisons.extend(external_catalogs.get(source["slug"], {}).get("comparisons", []))
+        comparisons.extend(external_comparisons.get(source["slug"], []))
         comparison = next((item for item in comparisons if item.get("comparisonKey") == source["slug"]), comparisons[0] if comparisons else None)
         target_record = {
                 "id": source["slug"],
@@ -615,7 +639,10 @@ def main() -> None:
         "schemaVersion": 1,
         "product": "Layers",
         "release": "SPARC multi-survey pilot",
-        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "generatedAt": (
+            load_json(args.output).get("generatedAt")
+            if args.output.is_file() else datetime.now(timezone.utc).isoformat()
+        ),
         "targetSelection": {
             "name": "SPARC 2016 master sample",
             "count": len(targets),

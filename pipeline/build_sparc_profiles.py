@@ -167,7 +167,10 @@ def main() -> None:
     output = {
         "schemaVersion": 1,
         "product": "Layers SPARC profile index",
-        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "generatedAt": (
+            json.loads(args.output.read_text(encoding="utf-8")).get("generatedAt")
+            if args.output.is_file() else datetime.now(timezone.utc).isoformat()
+        ),
         "targetCount": len(records),
         "targets": index_targets,
     }

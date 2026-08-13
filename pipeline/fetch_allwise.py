@@ -179,9 +179,13 @@ def main() -> None:
     args = parser.parse_args()
     coverage = json.loads(args.coverage.read_text(encoding="utf-8"))
     selected = set(args.only)
+    # By default the first-release fetch remains scoped to Rubin pilots.  An
+    # explicit --only target may select any SPARC object, which is useful for
+    # validation against the published WISE/SPARC aperture-photometry cohort.
     targets = [
         item for item in coverage["targets"]
-        if item.get("deep_coadd_rows", 0) > 0 and (not selected or item["slug"] in selected)
+        if (item.get("deep_coadd_rows", 0) > 0 or item["slug"] in selected)
+        and (not selected or item["slug"] in selected)
     ]
     service = pyvo.dal.sia2.SIA2Service(SIA_URL)
     records = []

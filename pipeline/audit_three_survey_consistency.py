@@ -40,6 +40,14 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def stable_created_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("createdAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def stellar_offset(a, av, b, bv, valid, sources) -> dict:
     values = []
     for source in sources:
@@ -159,7 +167,7 @@ def audit(slug: str, coverage: dict, root: Path) -> dict:
     return {
         "schemaVersion": 1,
         "objectId": slug,
-        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "createdAt": stable_created_at(root / "pipeline" / "output" / "comparisons" / slug / "three-survey-consistency.json"),
         "status": status,
         "band": "z",
         "method": "Three-survey 6.4-arcsec resolved-cell comparison after independent source registration, sky subtraction, Gaussian PSF matching, and pair-specific median field-star calibration.",

@@ -40,6 +40,14 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def stable_created_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("createdAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def audit_target(comparison_key: str, coverage: dict, comparisons: Path, legacy_root: Path, panstarrs_root: Path) -> dict:
     output_dir = comparisons / comparison_key
     reconciliation_path = output_dir / "reconciliation.json"
@@ -150,7 +158,7 @@ def audit_target(comparison_key: str, coverage: dict, comparisons: Path, legacy_
     audit = {
         "schemaVersion": 1,
         "objectId": slug,
-        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "createdAt": stable_created_at(output_dir / "extended-source-filter-audit.json"),
         "status": "pass" if transfer_pass else "qa-failed",
         "method": f"6.4-arcsec resolved cells within 1.5 times the catalogued semi-major axis; {reference_label} r matched to the {target_band}-pair PSF and sky model",
         "layerIds": reconciliation["layerIds"],

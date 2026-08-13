@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-13T08:11:03.303030+00:00",
+  "generatedAt": "2026-08-13T17:07:08.173513+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -19,10 +19,10 @@
     "externalCatalogLayers": 111,
     "allWisePublished": 4,
     "localImageLayers": 13,
-    "registrationAudits": 117,
+    "registrationAudits": 121,
     "pilotAudits": 4,
     "assumptionsWorthRechecking": 4,
-    "publishedComparisons": 111
+    "publishedComparisons": 113
   },
   "targets": [
     {
@@ -4371,7 +4371,7 @@
           "hasVariance": true,
           "hasMask": true,
           "hasWcs": true,
-          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer remains QA-only because one or more radial-profile gates failed; no light or mass difference is published.",
           "provenance": {
             "service": "IRSA SIAv2 + IBE FITS cutout service",
             "collection": "wise_allwise",
@@ -4385,7 +4385,60 @@
           }
         }
       ],
-      "comparisons": [],
+      "comparisons": [
+        {
+          "id": "ngc0100--wise-sparc-transfer",
+          "comparisonKey": "ngc0100--wise-sparc-transfer",
+          "comparisonMode": "catalog-profile",
+          "layerIds": [
+            "wise-allwise-atlas",
+            "sparc-2016"
+          ],
+          "status": "qa",
+          "compatibility": {
+            "targetIdentityMatched": true,
+            "quantityMatched": true,
+            "unitsMatched": true,
+            "distanceScaleShared": true,
+            "modelDeclared": true,
+            "limitations": [
+              "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+              "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+              "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+              "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+              "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+            ]
+          },
+          "transferSummary": {
+            "status": "qa-failed",
+            "apertureRadiusArcsec": 152.14968858131482,
+            "wiseW1MagnitudeVega": 10.329814834447097,
+            "sparc36MagnitudeVega": 10.30118688454115,
+            "w1Minus36Mag": 0.028627949905947858,
+            "statisticalUncertaintyMag": 0.02419954169876861,
+            "systematicUncertaintyMag": 0.16739652604456862,
+            "expectedCenterMag": 0.15000000000000036,
+            "qualifiedRadialBins": 35,
+            "profileResidualScatterMag": 0.2171406835568992,
+            "retainedSkyBoxes": 490,
+            "injectionRecoveryPass": true,
+            "failedGates": [
+              "maximumMedianProfileResidual",
+              "maximumProfileScatter"
+            ],
+            "massInferenceStatus": "blocked",
+            "massInferenceReason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+          },
+          "radialSeries": [],
+          "products": {
+            "qaPackage": "/data/comparisons/ngc0100--wise-sparc-transfer.json",
+            "reproductionAudit": "pipeline/output/wise-sparc-transfer/ngc0100.json"
+          },
+          "measurements": [],
+          "inferences": [],
+          "assumptionAudits": []
+        }
+      ],
       "pilotAudit": {
         "id": "ngc0100-pixel-coverage-audit",
         "outcome": "no-valid-pixels",
@@ -15665,7 +15718,7 @@
           "hasVariance": true,
           "hasMask": true,
           "hasWcs": true,
-          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer passes for relative W1\u2212[3.6] light and structure; stellar-mass, baryonic-mass, and g_bar claims remain blocked.",
           "provenance": {
             "service": "IRSA SIAv2 + IBE FITS cutout service",
             "collection": "wise_allwise",
@@ -15741,7 +15794,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
+            "matchedPairSha256": "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
             "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
             "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
             "qaPackage": "/data/comparisons/ugc00191.json"
@@ -15762,8 +15815,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15788,8 +15841,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15814,8 +15867,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15840,8 +15893,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15866,8 +15919,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15892,8 +15945,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15918,8 +15971,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15944,8 +15997,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "196b4f7ef649312790b078c9bace1e2bc6e6b47ffed24ab583bd184ceddc2376"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "d9b88a01ee6d630ab7888941c34c0b191a29231d8728fd84aa6ab19270193135"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -15986,8 +16039,8 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
-                "7372575b44ff8c38ebc5aa8e21dfab0514243af700b80115ef4fabe3c30cf610"
+                "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
+                "8d5207a00191694f917923a7a5ac78c68e68b6572d9aba8ab76411c70d85be62"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
               "independentCheck": {
@@ -16000,7 +16053,7 @@
                 "qualifiedForArbitration": false,
                 "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
                 "provenance": [
-                  "b5db21dd0a095dcf11accbb5c9c35bce885fc233425166514fe492ca3ba31fe5"
+                  "27a9caac6f4922db83f14da7577a44452260f06813e00537690afe8387ce5b7a"
                 ]
               },
               "rank": 1
@@ -16068,7 +16121,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
+            "matchedPairSha256": "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
             "sourceRubinSha256": "3deb8f9624bc432297f992be9cd9963e1da457f1c1361356dbbba810b1e2a455",
             "sourceComparisonSha256": "1dee5152e27806733bc93283f60d9bee66ab5eb2388900b0008c1ed9abc48411",
             "qaPackage": "/data/comparisons/ugc00191--panstarrs-dr1-stack.json"
@@ -16089,8 +16142,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
-                "ed5b6f7dc3fd7757f20e61ede7939293c6439c4ae75b63556cce954502d52549"
+                "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
+                "e490dc6f4fabf04c45cc4e575040631b5b4c40ad43ead86fc63226c616b754e1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16115,8 +16168,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
-                "ed5b6f7dc3fd7757f20e61ede7939293c6439c4ae75b63556cce954502d52549"
+                "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
+                "e490dc6f4fabf04c45cc4e575040631b5b4c40ad43ead86fc63226c616b754e1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16141,8 +16194,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
-                "ed5b6f7dc3fd7757f20e61ede7939293c6439c4ae75b63556cce954502d52549"
+                "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
+                "e490dc6f4fabf04c45cc4e575040631b5b4c40ad43ead86fc63226c616b754e1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16167,8 +16220,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
-                "ed5b6f7dc3fd7757f20e61ede7939293c6439c4ae75b63556cce954502d52549"
+                "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
+                "e490dc6f4fabf04c45cc4e575040631b5b4c40ad43ead86fc63226c616b754e1"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16180,6 +16233,291 @@
             }
           ],
           "inferences": [],
+          "assumptionAudits": []
+        },
+        {
+          "id": "ugc00191--wise-sparc-transfer",
+          "comparisonKey": "ugc00191--wise-sparc-transfer",
+          "comparisonMode": "catalog-profile",
+          "layerIds": [
+            "wise-allwise-atlas",
+            "sparc-2016"
+          ],
+          "status": "published",
+          "compatibility": {
+            "targetIdentityMatched": true,
+            "quantityMatched": true,
+            "unitsMatched": true,
+            "distanceScaleShared": true,
+            "modelDeclared": true,
+            "limitations": [
+              "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+              "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+              "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+              "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+              "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+            ]
+          },
+          "transferSummary": {
+            "status": "pass",
+            "apertureRadiusArcsec": 71.63384217335057,
+            "wiseW1MagnitudeVega": 11.302532998022219,
+            "sparc36MagnitudeVega": 11.096289395088943,
+            "w1Minus36Mag": 0.20624360293327548,
+            "statisticalUncertaintyMag": 0.10857428411936343,
+            "systematicUncertaintyMag": 0.16739652604456862,
+            "expectedCenterMag": 0.15000000000000036,
+            "qualifiedRadialBins": 12,
+            "profileResidualScatterMag": 0.17352824057885133,
+            "retainedSkyBoxes": 437,
+            "injectionRecoveryPass": true,
+            "failedGates": [],
+            "massInferenceStatus": "blocked",
+            "massInferenceReason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+          },
+          "radialSeries": [
+            {
+              "radiusArcsec": 1.525,
+              "wiseSurfaceBrightnessMagArcsec2": 19.360084666851797,
+              "wiseUncertaintyMag": 0.016073587943808892,
+              "sparcSurfaceBrightnessMagArcsec2": 18.916464285714287,
+              "w1Minus36Mag": 0.4436203811375101
+            },
+            {
+              "radiusArcsec": 4.574999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 19.443266300217807,
+              "wiseUncertaintyMag": 0.017038938424846713,
+              "sparcSurfaceBrightnessMagArcsec2": 19.13081818181818,
+              "w1Minus36Mag": 0.31244811839962594
+            },
+            {
+              "radiusArcsec": 7.624999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 19.56755588719686,
+              "wiseUncertaintyMag": 0.019034190980704992,
+              "sparcSurfaceBrightnessMagArcsec2": 19.363471830985915,
+              "w1Minus36Mag": 0.20408405621094516
+            },
+            {
+              "radiusArcsec": 10.674999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 19.741890362623373,
+              "wiseUncertaintyMag": 0.022296763721987026,
+              "sparcSurfaceBrightnessMagArcsec2": 19.566121359223303,
+              "w1Minus36Mag": 0.1757690034000703
+            },
+            {
+              "radiusArcsec": 13.725,
+              "wiseSurfaceBrightnessMagArcsec2": 19.927628482131663,
+              "wiseUncertaintyMag": 0.026431139355579985,
+              "sparcSurfaceBrightnessMagArcsec2": 19.857336,
+              "w1Minus36Mag": 0.07029248213166284
+            },
+            {
+              "radiusArcsec": 16.775,
+              "wiseSurfaceBrightnessMagArcsec2": 20.13911566346408,
+              "wiseUncertaintyMag": 0.03211018761330734,
+              "sparcSurfaceBrightnessMagArcsec2": 20.099745508982036,
+              "w1Minus36Mag": 0.03937015448204306
+            },
+            {
+              "radiusArcsec": 19.824999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 20.281237471597166,
+              "wiseUncertaintyMag": 0.03657467448298908,
+              "sparcSurfaceBrightnessMagArcsec2": 20.290109289617487,
+              "w1Minus36Mag": -0.008871818020320887
+            },
+            {
+              "radiusArcsec": 22.875,
+              "wiseSurfaceBrightnessMagArcsec2": 20.466312864454046,
+              "wiseUncertaintyMag": 0.043401130889249295,
+              "sparcSurfaceBrightnessMagArcsec2": 20.379716216216217,
+              "w1Minus36Mag": 0.08659664823782975
+            },
+            {
+              "radiusArcsec": 25.924999999999997,
+              "wiseSurfaceBrightnessMagArcsec2": 20.76529173814166,
+              "wiseUncertaintyMag": 0.057803649667522765,
+              "sparcSurfaceBrightnessMagArcsec2": 20.490745901639343,
+              "w1Minus36Mag": 0.2745458365023161
+            },
+            {
+              "radiusArcsec": 28.975,
+              "wiseSurfaceBrightnessMagArcsec2": 20.76584454671398,
+              "wiseUncertaintyMag": 0.05720330100980846,
+              "sparcSurfaceBrightnessMagArcsec2": 20.61956319702602,
+              "w1Minus36Mag": 0.14628134968795692
+            },
+            {
+              "radiusArcsec": 32.025,
+              "wiseSurfaceBrightnessMagArcsec2": 20.939985594530715,
+              "wiseUncertaintyMag": 0.06678557704304719,
+              "sparcSurfaceBrightnessMagArcsec2": 20.717152542372883,
+              "w1Minus36Mag": 0.22283305215783145
+            },
+            {
+              "radiusArcsec": 35.074999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 21.17850922711167,
+              "wiseUncertaintyMag": 0.08174620497468958,
+              "sparcSurfaceBrightnessMagArcsec2": 20.873615384615384,
+              "w1Minus36Mag": 0.3048938424962877
+            },
+            {
+              "radiusArcsec": 38.125,
+              "wiseSurfaceBrightnessMagArcsec2": 21.3977496980532,
+              "wiseUncertaintyMag": 0.10308030516991286,
+              "sparcSurfaceBrightnessMagArcsec2": 21.09078351955307,
+              "w1Minus36Mag": 0.3069661785001294
+            },
+            {
+              "radiusArcsec": 41.175,
+              "wiseSurfaceBrightnessMagArcsec2": 21.64889869041467,
+              "wiseUncertaintyMag": 0.12943723892196038,
+              "sparcSurfaceBrightnessMagArcsec2": 21.308286259541983,
+              "w1Minus36Mag": 0.3406124308726852
+            },
+            {
+              "radiusArcsec": 44.224999999999994,
+              "wiseSurfaceBrightnessMagArcsec2": 21.885746023254388,
+              "wiseUncertaintyMag": 0.16117924557294486,
+              "sparcSurfaceBrightnessMagArcsec2": 21.55663741339492,
+              "w1Minus36Mag": 0.32910860985946755
+            },
+            {
+              "radiusArcsec": 47.275,
+              "wiseSurfaceBrightnessMagArcsec2": 22.034895509100995,
+              "wiseUncertaintyMag": 0.1845868733723435,
+              "sparcSurfaceBrightnessMagArcsec2": 21.890517321016166,
+              "w1Minus36Mag": 0.14437818808482916
+            },
+            {
+              "radiusArcsec": 50.324999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 22.25864309665115,
+              "wiseUncertaintyMag": 0.22573868693394486,
+              "sparcSurfaceBrightnessMagArcsec2": 22.061175420168066,
+              "w1Minus36Mag": 0.1974676764830825
+            },
+            {
+              "radiusArcsec": 53.375,
+              "wiseSurfaceBrightnessMagArcsec2": 22.432897737073922,
+              "wiseUncertaintyMag": 0.2649949238412937,
+              "sparcSurfaceBrightnessMagArcsec2": 22.214131931166346,
+              "w1Minus36Mag": 0.21876580590757655
+            },
+            {
+              "radiusArcsec": 56.425,
+              "wiseSurfaceBrightnessMagArcsec2": 22.492208982290624,
+              "wiseUncertaintyMag": 0.2797614674479705,
+              "sparcSurfaceBrightnessMagArcsec2": 22.36925621414914,
+              "w1Minus36Mag": 0.12295276814148437
+            },
+            {
+              "radiusArcsec": 59.474999999999994,
+              "wiseSurfaceBrightnessMagArcsec2": 22.64241313286228,
+              "wiseUncertaintyMag": 0.32048556537514644,
+              "sparcSurfaceBrightnessMagArcsec2": 22.447081597222223,
+              "w1Minus36Mag": 0.195331535640058
+            },
+            {
+              "radiusArcsec": 62.525,
+              "wiseSurfaceBrightnessMagArcsec2": 22.76144162981219,
+              "wiseUncertaintyMag": 0.3569454321639394,
+              "sparcSurfaceBrightnessMagArcsec2": 22.477793402777777,
+              "w1Minus36Mag": 0.28364822703441206
+            },
+            {
+              "radiusArcsec": 65.57499999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 23.014800480373236,
+              "wiseUncertaintyMag": 0.45005209311568,
+              "sparcSurfaceBrightnessMagArcsec2": 22.59069952681388,
+              "w1Minus36Mag": 0.42410095355935695
+            },
+            {
+              "radiusArcsec": 68.625,
+              "wiseSurfaceBrightnessMagArcsec2": 23.325740126768352,
+              "wiseUncertaintyMag": 0.6024764519381811,
+              "sparcSurfaceBrightnessMagArcsec2": 22.73357807570978,
+              "w1Minus36Mag": 0.5921620510585726
+            },
+            {
+              "radiusArcsec": 70.89192108667528,
+              "wiseSurfaceBrightnessMagArcsec2": 23.629187520148577,
+              "wiseUncertaintyMag": 0.7954837594532925,
+              "sparcSurfaceBrightnessMagArcsec2": 22.91759985632184,
+              "w1Minus36Mag": 0.7115876638267373
+            }
+          ],
+          "products": {
+            "qaPackage": "/data/comparisons/ugc00191--wise-sparc-transfer.json",
+            "reproductionAudit": "pipeline/output/wise-sparc-transfer/ugc00191.json"
+          },
+          "measurements": [
+            {
+              "id": "ugc00191-wise-w1-minus-sparc36-aperture",
+              "label": "WISE W1 \u2212 SPARC 3.6 \u00b5m aperture light",
+              "quantity": "W1 minus 3.6 micron aperture magnitude",
+              "value": 0.20624360293327548,
+              "unit": "mag",
+              "statisticalUncertainty": 0.10857428411936343,
+              "systematicUncertainty": 0.16739652604456862,
+              "expectedCenter": 0.15000000000000036,
+              "expectedRange": [
+                -0.40299999999999975,
+                0.3405999999999991
+              ],
+              "significanceSigma": 0.2707485851045158,
+              "classification": "expected",
+              "provenance": [
+                "https://arxiv.org/abs/2404.02339",
+                "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/168/19?format=html&tex=true",
+                "sha256:16fe0e68c2d34378e4e524b262dee3ae281c9c128cf4665b4ec32682f9142417",
+                "sha256:39df182022641097c2716ed93eb926355ed76ccca0c5fda0733338fff8dcb2fd",
+                "sha256:d25f5ed333e70fad4f312c5e4763e7c991cb45faaa0d539660b2f688ad1baee0"
+              ],
+              "caveats": [
+                "This is matched-aperture relative photometry; AllWISE Atlas pixels do not provide absolute sky surface brightness.",
+                "The empirical control-sample RMS is propagated as a systematic and is not subtracted as a fitted correction.",
+                "W1\u2212[3.6] is not a stellar-mass calibration and does not revise baryonic mass or g_bar."
+              ]
+            },
+            {
+              "id": "ugc00191-wise-to-sparc-scale-length",
+              "label": "WISE-to-SPARC outer scale-length ratio",
+              "quantity": "log10 W1 to 3.6 micron exponential scale-length ratio",
+              "value": -0.04513980948010399,
+              "unit": "dex",
+              "statisticalUncertainty": 0.04582212239956505,
+              "systematicUncertainty": 0.0045874648261024125,
+              "expectedCenter": 0.0,
+              "expectedRange": [
+                -0.09026032461798665,
+                0.09026032461798665
+              ],
+              "significanceSigma": 0.9802094880054655,
+              "classification": "expected",
+              "provenance": [
+                "sha256:16fe0e68c2d34378e4e524b262dee3ae281c9c128cf4665b4ec32682f9142417",
+                "sha256:39df182022641097c2716ed93eb926355ed76ccca0c5fda0733338fff8dcb2fd"
+              ],
+              "caveats": [
+                "The null expectation is equal outer exponential scale length after PSF separation; it is not a population prior.",
+                "The systematic converts the measured radial-profile residual scatter into a conservative slope uncertainty.",
+                "Catalogued fixed ellipse geometry is used because spatially varying SPARC isophotal geometry is unavailable."
+              ]
+            }
+          ],
+          "inferences": [
+            {
+              "id": "ugc00191-relative-near-ir-light",
+              "domain": "outer-light",
+              "observation": "Matched-aperture photometry gives W1\u2212[3.6] = 0.206 mag at 71.6 arcsec.",
+              "modelDependentInterpretation": "The relative near-IR light and outer-profile shape are supported by the transfer gates. No stellar-mass, baryonic-mass, or radial-acceleration revision is supported without an independent optical-color M/L calibration.",
+              "confidence": "supported",
+              "assumptions": [
+                "The published SPARC radial profile and catalogued fixed ellipse describe the same aperture.",
+                "The control-cohort intrinsic W1\u2212[3.6] scatter is 0.058 mag.",
+                "Local sky blocks capture the relevant AllWISE background covariance."
+              ]
+            }
+          ],
           "assumptionAudits": []
         }
       ],
@@ -16199,7 +16537,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00191/extended-source-filter-audit.json",
-            "sha256": "7372575b44ff8c38ebc5aa8e21dfab0514243af700b80115ef4fabe3c30cf610"
+            "sha256": "8d5207a00191694f917923a7a5ac78c68e68b6572d9aba8ab76411c70d85be62"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -16473,7 +16811,7 @@
           "hasVariance": true,
           "hasMask": true,
           "hasWcs": true,
-          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer passes for relative W1\u2212[3.6] light and structure; stellar-mass, baryonic-mass, and g_bar claims remain blocked.",
           "provenance": {
             "service": "IRSA SIAv2 + IBE FITS cutout service",
             "collection": "wise_allwise",
@@ -16549,7 +16887,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
+            "matchedPairSha256": "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
             "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
             "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5",
             "qaPackage": "/data/comparisons/ugc00634.json"
@@ -16570,8 +16908,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16596,8 +16934,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16622,8 +16960,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16648,8 +16986,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16674,8 +17012,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16700,8 +17038,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16726,8 +17064,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16752,8 +17090,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "d8f2dd1fb3b8aca4a9df30ea6b7af9706a1bc744cbd4d4eceb2f9c34d220ea6b"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "ad10b574be6d2c7f1ba2b4db125e46cc50d12330e7012efc21688658aeb372f6"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16794,8 +17132,8 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
-                "08e8da74a0350f658491fe06c7fb9f88bdaba26c1b70fb9c5ebff3d1f26680ee"
+                "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
+                "7b8bf38959650946794cdf4b11c2b30924d43cc35349347949dfdd6811777482"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
               "independentCheck": {
@@ -16808,7 +17146,7 @@
                 "qualifiedForArbitration": false,
                 "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
                 "provenance": [
-                  "da95d2a458d99fa1b720080312d94949d3517f351a2de204b9257cf9ab08ce07"
+                  "1076752e3f559beaed5fb9bcdfef50fcfab5fc0fe0956b7383ea42d4aeebac04"
                 ]
               },
               "rank": 2
@@ -16876,7 +17214,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
+            "matchedPairSha256": "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
             "sourceRubinSha256": "a7caf619d90aa548d37182cabe184a387ce49c8f945371db642387934cfd5cc6",
             "sourceComparisonSha256": "245c604bcbd5126f3ac462c38beadf4f93c1f8965ef9d1a20a5e68354029cc34",
             "qaPackage": "/data/comparisons/ugc00634--panstarrs-dr1-stack.json"
@@ -16897,8 +17235,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-                "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+                "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+                "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16923,8 +17261,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-                "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+                "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+                "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16949,8 +17287,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-                "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+                "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+                "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16975,8 +17313,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-                "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+                "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+                "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -16988,6 +17326,249 @@
             }
           ],
           "inferences": [],
+          "assumptionAudits": []
+        },
+        {
+          "id": "ugc00634--wise-sparc-transfer",
+          "comparisonKey": "ugc00634--wise-sparc-transfer",
+          "comparisonMode": "catalog-profile",
+          "layerIds": [
+            "wise-allwise-atlas",
+            "sparc-2016"
+          ],
+          "status": "published",
+          "compatibility": {
+            "targetIdentityMatched": true,
+            "quantityMatched": true,
+            "unitsMatched": true,
+            "distanceScaleShared": true,
+            "modelDeclared": true,
+            "limitations": [
+              "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+              "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+              "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+              "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+              "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+            ]
+          },
+          "transferSummary": {
+            "status": "pass",
+            "apertureRadiusArcsec": 52.10134328358204,
+            "wiseW1MagnitudeVega": 12.325125972223978,
+            "sparc36MagnitudeVega": 12.311554897047884,
+            "w1Minus36Mag": 0.013571075176093572,
+            "statisticalUncertaintyMag": 0.07040864985461687,
+            "systematicUncertaintyMag": 0.16739652604456862,
+            "expectedCenterMag": 0.15000000000000036,
+            "qualifiedRadialBins": 12,
+            "profileResidualScatterMag": 0.06876437771985502,
+            "retainedSkyBoxes": 517,
+            "injectionRecoveryPass": true,
+            "failedGates": [],
+            "massInferenceStatus": "blocked",
+            "massInferenceReason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+          },
+          "radialSeries": [
+            {
+              "radiusArcsec": 1.525,
+              "wiseSurfaceBrightnessMagArcsec2": 20.019146668830288,
+              "wiseUncertaintyMag": 0.01855689926309661,
+              "sparcSurfaceBrightnessMagArcsec2": 19.719714285714286,
+              "w1Minus36Mag": 0.2994323831160024
+            },
+            {
+              "radiusArcsec": 4.574999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 20.10486262871604,
+              "wiseUncertaintyMag": 0.019213425634329727,
+              "sparcSurfaceBrightnessMagArcsec2": 19.91171590909091,
+              "w1Minus36Mag": 0.1931467196251333
+            },
+            {
+              "radiusArcsec": 7.624999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 20.206385418675513,
+              "wiseUncertaintyMag": 0.020893123419997113,
+              "sparcSurfaceBrightnessMagArcsec2": 20.036147887323942,
+              "w1Minus36Mag": 0.17023753135157094
+            },
+            {
+              "radiusArcsec": 10.674999999999999,
+              "wiseSurfaceBrightnessMagArcsec2": 20.402645415567456,
+              "wiseUncertaintyMag": 0.024820699260220805,
+              "sparcSurfaceBrightnessMagArcsec2": 20.248291262135922,
+              "w1Minus36Mag": 0.1543541534315338
+            },
+            {
+              "radiusArcsec": 13.725,
+              "wiseSurfaceBrightnessMagArcsec2": 20.577911885769936,
+              "wiseUncertaintyMag": 0.029070161876191176,
+              "sparcSurfaceBrightnessMagArcsec2": 20.383404,
+              "w1Minus36Mag": 0.19450788576993716
+            },
+            {
+              "radiusArcsec": 16.775,
+              "wiseSurfaceBrightnessMagArcsec2": 20.703060431457153,
+              "wiseUncertaintyMag": 0.03254730000060463,
+              "sparcSurfaceBrightnessMagArcsec2": 20.700763473053893,
+              "w1Minus36Mag": 0.002296958403260163
+            },
+            {
+              "radiusArcsec": 19.824999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 20.836303604883632,
+              "wiseUncertaintyMag": 0.036753847015997224,
+              "sparcSurfaceBrightnessMagArcsec2": 20.824303278688525,
+              "w1Minus36Mag": 0.012000326195106936
+            },
+            {
+              "radiusArcsec": 22.875,
+              "wiseSurfaceBrightnessMagArcsec2": 20.99729047840418,
+              "wiseUncertaintyMag": 0.04259864264895148,
+              "sparcSurfaceBrightnessMagArcsec2": 20.968864864864866,
+              "w1Minus36Mag": 0.02842561353931572
+            },
+            {
+              "radiusArcsec": 25.924999999999997,
+              "wiseSurfaceBrightnessMagArcsec2": 21.208400029380062,
+              "wiseUncertaintyMag": 0.051687232906092055,
+              "sparcSurfaceBrightnessMagArcsec2": 21.242752049180325,
+              "w1Minus36Mag": -0.03435201980026292
+            },
+            {
+              "radiusArcsec": 28.975,
+              "wiseSurfaceBrightnessMagArcsec2": 21.38121746742426,
+              "wiseUncertaintyMag": 0.0605642737476275,
+              "sparcSurfaceBrightnessMagArcsec2": 21.6415594795539,
+              "w1Minus36Mag": -0.2603420121296409
+            },
+            {
+              "radiusArcsec": 32.025,
+              "wiseSurfaceBrightnessMagArcsec2": 21.564223009850004,
+              "wiseUncertaintyMag": 0.07167159198834876,
+              "sparcSurfaceBrightnessMagArcsec2": 21.770822033898305,
+              "w1Minus36Mag": -0.20659902404830177
+            },
+            {
+              "radiusArcsec": 35.074999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 21.82442306687332,
+              "wiseUncertaintyMag": 0.09102044018624657,
+              "sparcSurfaceBrightnessMagArcsec2": 21.905184615384613,
+              "w1Minus36Mag": -0.08076154851129402
+            },
+            {
+              "radiusArcsec": 38.125,
+              "wiseSurfaceBrightnessMagArcsec2": 22.07136390219401,
+              "wiseUncertaintyMag": 0.11422209175288643,
+              "sparcSurfaceBrightnessMagArcsec2": 22.109822625698325,
+              "w1Minus36Mag": -0.03845872350431634
+            },
+            {
+              "radiusArcsec": 41.175,
+              "wiseSurfaceBrightnessMagArcsec2": 22.317358126184622,
+              "wiseUncertaintyMag": 0.1432480597059496,
+              "sparcSurfaceBrightnessMagArcsec2": 22.326103053435116,
+              "w1Minus36Mag": -0.008744927250493362
+            },
+            {
+              "radiusArcsec": 44.224999999999994,
+              "wiseSurfaceBrightnessMagArcsec2": 22.517752625554543,
+              "wiseUncertaintyMag": 0.1722312009179607,
+              "sparcSurfaceBrightnessMagArcsec2": 22.561368360277136,
+              "w1Minus36Mag": -0.04361573472259295
+            },
+            {
+              "radiusArcsec": 47.275,
+              "wiseSurfaceBrightnessMagArcsec2": 22.729655515964744,
+              "wiseUncertaintyMag": 0.2095551920485972,
+              "sparcSurfaceBrightnessMagArcsec2": 22.843827944572748,
+              "w1Minus36Mag": -0.11417242860800414
+            },
+            {
+              "radiusArcsec": 50.324999999999996,
+              "wiseSurfaceBrightnessMagArcsec2": 23.009207023072378,
+              "wiseUncertaintyMag": 0.27070338113032133,
+              "sparcSurfaceBrightnessMagArcsec2": 22.94999369747899,
+              "w1Minus36Mag": 0.059213325593386656
+            },
+            {
+              "radiusArcsec": 51.97567164179102,
+              "wiseSurfaceBrightnessMagArcsec2": 22.97674631502978,
+              "wiseUncertaintyMag": 0.27333748323780116,
+              "sparcSurfaceBrightnessMagArcsec2": 22.996462184873952,
+              "w1Minus36Mag": -0.019715869844173284
+            }
+          ],
+          "products": {
+            "qaPackage": "/data/comparisons/ugc00634--wise-sparc-transfer.json",
+            "reproductionAudit": "pipeline/output/wise-sparc-transfer/ugc00634.json"
+          },
+          "measurements": [
+            {
+              "id": "ugc00634-wise-w1-minus-sparc36-aperture",
+              "label": "WISE W1 \u2212 SPARC 3.6 \u00b5m aperture light",
+              "quantity": "W1 minus 3.6 micron aperture magnitude",
+              "value": 0.013571075176093572,
+              "unit": "mag",
+              "statisticalUncertainty": 0.07040864985461687,
+              "systematicUncertainty": 0.16739652604456862,
+              "expectedCenter": 0.15000000000000036,
+              "expectedRange": [
+                -0.40299999999999975,
+                0.3405999999999991
+              ],
+              "significanceSigma": 0.7158464087270305,
+              "classification": "expected",
+              "provenance": [
+                "https://arxiv.org/abs/2404.02339",
+                "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/168/19?format=html&tex=true",
+                "sha256:37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9",
+                "sha256:575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c",
+                "sha256:d25f5ed333e70fad4f312c5e4763e7c991cb45faaa0d539660b2f688ad1baee0"
+              ],
+              "caveats": [
+                "This is matched-aperture relative photometry; AllWISE Atlas pixels do not provide absolute sky surface brightness.",
+                "The empirical control-sample RMS is propagated as a systematic and is not subtracted as a fitted correction.",
+                "W1\u2212[3.6] is not a stellar-mass calibration and does not revise baryonic mass or g_bar."
+              ]
+            },
+            {
+              "id": "ugc00634-wise-to-sparc-scale-length",
+              "label": "WISE-to-SPARC outer scale-length ratio",
+              "quantity": "log10 W1 to 3.6 micron exponential scale-length ratio",
+              "value": 0.04639259880472301,
+              "unit": "dex",
+              "statisticalUncertainty": 0.030962675753049018,
+              "systematicUncertainty": 0.011571977105856186,
+              "expectedCenter": 0.0,
+              "expectedRange": [
+                -0.06478675992353386,
+                0.06478675992353386
+              ],
+              "significanceSigma": 1.4035196969964052,
+              "classification": "expected",
+              "provenance": [
+                "sha256:37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9",
+                "sha256:575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c"
+              ],
+              "caveats": [
+                "The null expectation is equal outer exponential scale length after PSF separation; it is not a population prior.",
+                "The systematic converts the measured radial-profile residual scatter into a conservative slope uncertainty.",
+                "Catalogued fixed ellipse geometry is used because spatially varying SPARC isophotal geometry is unavailable."
+              ]
+            }
+          ],
+          "inferences": [
+            {
+              "id": "ugc00634-relative-near-ir-light",
+              "domain": "outer-light",
+              "observation": "Matched-aperture photometry gives W1\u2212[3.6] = 0.014 mag at 52.1 arcsec.",
+              "modelDependentInterpretation": "The relative near-IR light and outer-profile shape are supported by the transfer gates. No stellar-mass, baryonic-mass, or radial-acceleration revision is supported without an independent optical-color M/L calibration.",
+              "confidence": "supported",
+              "assumptions": [
+                "The published SPARC radial profile and catalogued fixed ellipse describe the same aperture.",
+                "The control-cohort intrinsic W1\u2212[3.6] scatter is 0.058 mag.",
+                "Local sky blocks capture the relevant AllWISE background covariance."
+              ]
+            }
+          ],
           "assumptionAudits": []
         }
       ],
@@ -17007,7 +17588,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-            "sha256": "08e8da74a0350f658491fe06c7fb9f88bdaba26c1b70fb9c5ebff3d1f26680ee"
+            "sha256": "7b8bf38959650946794cdf4b11c2b30924d43cc35349347949dfdd6811777482"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -17340,7 +17921,7 @@
           "hasVariance": true,
           "hasMask": true,
           "hasWcs": true,
-          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer remains QA-only because one or more radial-profile gates failed; no light or mass difference is published.",
           "provenance": {
             "service": "IRSA SIAv2 + IBE FITS cutout service",
             "collection": "wise_allwise",
@@ -17416,7 +17997,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
+            "matchedPairSha256": "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
             "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
             "sourceComparisonSha256": "1978d37cc029c42466c4c22bc32acaf16254d00ac5b930430ff60635eea0f85f",
             "qaPackage": "/data/comparisons/ugc00891.json"
@@ -17437,8 +18018,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-                "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+                "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+                "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17463,8 +18044,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-                "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+                "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+                "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17489,8 +18070,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-                "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+                "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+                "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17515,8 +18096,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-                "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+                "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+                "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17591,7 +18172,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
+            "matchedPairSha256": "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
             "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
             "sourceComparisonSha256": "fb07791aebee925df819050839a2c57a23bee5a207137c9f48e721801a5abd74",
             "qaPackage": "/data/comparisons/ugc00891--legacy-survey-dr10.json"
@@ -17612,8 +18193,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17638,8 +18219,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17664,8 +18245,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17690,8 +18271,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17716,8 +18297,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17742,8 +18323,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17768,8 +18349,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17794,8 +18375,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
-                "c332427979c2e131b2b6ad52de525533465e777cff535ffc1613787479d6d594"
+                "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
+                "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -17806,6 +18387,57 @@
               ]
             }
           ],
+          "inferences": [],
+          "assumptionAudits": []
+        },
+        {
+          "id": "ugc00891--wise-sparc-transfer",
+          "comparisonKey": "ugc00891--wise-sparc-transfer",
+          "comparisonMode": "catalog-profile",
+          "layerIds": [
+            "wise-allwise-atlas",
+            "sparc-2016"
+          ],
+          "status": "qa",
+          "compatibility": {
+            "targetIdentityMatched": true,
+            "quantityMatched": true,
+            "unitsMatched": true,
+            "distanceScaleShared": true,
+            "modelDeclared": true,
+            "limitations": [
+              "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+              "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+              "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+              "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+              "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+            ]
+          },
+          "transferSummary": {
+            "status": "qa-failed",
+            "apertureRadiusArcsec": 88.56757575757581,
+            "wiseW1MagnitudeVega": 11.974401158095514,
+            "sparc36MagnitudeVega": 11.778953268931314,
+            "w1Minus36Mag": 0.19544788916419975,
+            "statisticalUncertaintyMag": 0.10450414409014468,
+            "systematicUncertaintyMag": 0.16739652604456862,
+            "expectedCenterMag": 0.15000000000000036,
+            "qualifiedRadialBins": 19,
+            "profileResidualScatterMag": 0.20142879429730676,
+            "retainedSkyBoxes": 493,
+            "injectionRecoveryPass": true,
+            "failedGates": [
+              "maximumProfileScatter"
+            ],
+            "massInferenceStatus": "blocked",
+            "massInferenceReason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+          },
+          "radialSeries": [],
+          "products": {
+            "qaPackage": "/data/comparisons/ugc00891--wise-sparc-transfer.json",
+            "reproductionAudit": "pipeline/output/wise-sparc-transfer/ugc00891.json"
+          },
+          "measurements": [],
           "inferences": [],
           "assumptionAudits": []
         }
@@ -17826,7 +18458,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00891/extended-source-filter-audit.json",
-            "sha256": "594eb86924236723d8e74cfe8ce4bbeabe1e44610ef3d3a0cb8ae6559c94c3d6"
+            "sha256": "15e338aceca151c3d9bdb86f411c0201cd639ab532e82107ade17e0ef970935f"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

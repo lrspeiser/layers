@@ -34,6 +34,14 @@ def canonical(value: object) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
 
 
+def stable_generated_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("generatedAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
@@ -53,10 +61,11 @@ def main() -> None:
     pilot_count = 0
     for target in catalog["targets"]:
         if target.get("pilotAudit"):
+            pilot_path = args.pilot_output / f"{target['id']}.json"
             pilot_record = {
                 "schemaVersion": 1,
                 "product": "Layers pilot audit package",
-                "generatedAt": datetime.now(timezone.utc).isoformat(),
+                "generatedAt": stable_generated_at(pilot_path),
                 "target": {
                     "id": target["id"], "name": target["name"], "identifiers": target["identifiers"],
                     "center": target["center"], "region": target["region"], "selection": target["selection"],
@@ -65,7 +74,6 @@ def main() -> None:
                 "pilotAudit": target["pilotAudit"],
                 "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized.",
             }
-            pilot_path = args.pilot_output / f"{target['id']}.json"
             pilot_path.write_text(json.dumps(pilot_record, indent=2), encoding="utf-8")
             expected_pilot.add(pilot_path.name)
             local_dir = args.local_output / target["id"]
@@ -78,6 +86,7 @@ def main() -> None:
             slug = target["id"]
             comparison_key = comparison.get("comparisonKey", slug)
             source_dir = args.comparisons / comparison_key
+            public_path = args.public_output / f"{comparison_key}.json"
             local_dir = args.local_output / comparison_key
             local_dir.mkdir(parents=True, exist_ok=True)
             artifact_records = []
@@ -93,7 +102,7 @@ def main() -> None:
             public_record = {
                 "schemaVersion": 1,
                 "product": "Layers published comparison package" if comparison["status"] == "published" else "Layers comparison QA package",
-                "generatedAt": datetime.now(timezone.utc).isoformat(),
+                "generatedAt": stable_generated_at(public_path),
                 "target": {
                     "id": slug,
                     "name": target["name"],
@@ -107,7 +116,21 @@ def main() -> None:
                 "localReproductionArtifacts": artifact_records,
                 "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized.",
             }
-            public_path = args.public_output / f"{comparison_key}.json"
+            reproduction_audit = comparison.get("products", {}).get("reproductionAudit")
+            if reproduction_audit:
+                audit_path = root / reproduction_audit
+                if not audit_path.is_file():
+                    raise RuntimeError(f"Missing declared reproduction audit: {audit_path}")
+                audit_record = json.loads(audit_path.read_text(encoding="utf-8"))
+                public_record["scienceAudit"] = audit_record
+                audit_copy = local_dir / "wise-sparc-transfer-audit.json"
+                shutil.copy2(audit_path, audit_copy)
+                artifact_records.append({
+                    "name": audit_copy.name,
+                    "bytes": audit_copy.stat().st_size,
+                    "sha256": sha256(audit_copy),
+                })
+                public_record["localReproductionArtifacts"] = artifact_records
             public_path.write_text(json.dumps(public_record, indent=2), encoding="utf-8")
             expected_public.add(public_path.name)
             local_manifest = {

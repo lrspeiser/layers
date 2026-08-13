@@ -3,7 +3,7 @@
   "comparisons": [
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:05.961672+00:00",
+      "createdAt": "2026-08-13T17:14:28.789138+00:00",
       "objectId": "ugc00191",
       "comparisonKey": "ugc00191",
       "layerIds": [
@@ -21,26 +21,26 @@
         "referenceOnly": 0.04427993827160494,
         "neither": 0.009547530864197531
       },
-      "analysisProductSha256": "f664430bfa15b447f0fed0af66c6f5bba25e9b3cb494b3c7e26fe65624ecd18d",
+      "analysisProductSha256": "3bbd8574e9cf4646f1ab57c4ce97b21ce68ef15775536bb5a4bfe33177d83152",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00191/rubin-matched.jpg",
-          "sha256": "afe21b986554bb8cf1dd71c4924587b96dd34f5a65e9fc93df58fd30b373c0d5"
+          "sha256": "d257508d874e6c1eeeaa0c0efbd98db9be3a0006d4a28a434140716520290803"
         },
         "reference": {
           "path": "/private-preview/ugc00191/reference-matched.jpg",
-          "sha256": "4f46aefbb7c8a4b4a829337ea565854dc7e632b5bdd85923b19ea6fa802c7507"
+          "sha256": "a0e5a50e0f6c5154d0257ed1d91515498ccc5ee52d818818cf076c98c6f065ed"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00191/common-coverage.png",
           "sha256": "d6ee8de394378c7c6d3ce77d4cbbe315aa9038a752a378738ee4724ac8438e30"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:12.913213+00:00",
+      "createdAt": "2026-08-13T17:14:32.981827+00:00",
       "objectId": "ugc00191",
       "comparisonKey": "ugc00191--panstarrs-dr1-stack",
       "layerIds": [
@@ -58,26 +58,26 @@
         "referenceOnly": 0.02834567901234568,
         "neither": 0.03472283950617284
       },
-      "analysisProductSha256": "c10158c68de429644174ad9b96d1c46729a6bbc39987685c98f142f8d89125c6",
+      "analysisProductSha256": "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00191--panstarrs-dr1-stack/rubin-matched.jpg",
-          "sha256": "23d5cae519184e5f7f9d21b955e3dd632c628c345c77414ba3e1231d327664bc"
+          "sha256": "91d091631e52712e8f27dc250e5d339fc1382b5fa9fc47f70aa30e1c12cc7ea0"
         },
         "reference": {
           "path": "/private-preview/ugc00191--panstarrs-dr1-stack/reference-matched.jpg",
-          "sha256": "d8dd5984bc8052d845e0012b6828b085434e4289a23ccfb0b59e6cad2e5fc71c"
+          "sha256": "2a9b5683c6b3946b0ff12a93b4b40e1bebfaf92e87f04e7f7be127d52a27f998"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00191--panstarrs-dr1-stack/common-coverage.png",
           "sha256": "2eabfbeab705d08551e4bc55c9c85c8fda921efd93ae3dec57e9a5d80b0d7bd9"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:23.717297+00:00",
+      "createdAt": "2026-08-13T17:14:39.414743+00:00",
       "objectId": "ugc00634",
       "comparisonKey": "ugc00634",
       "layerIds": [
@@ -95,26 +95,26 @@
         "referenceOnly": 0.029379012345679013,
         "neither": 0.007138271604938271
       },
-      "analysisProductSha256": "e5f97e132609a31400242dfff4a4d66210a77512ae952125877f7d1ceef4daca",
+      "analysisProductSha256": "f5504fdade2f3cda21488f27a3965497dd2f54c6b9ddd00c1f8132396ab891bc",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00634/rubin-matched.jpg",
-          "sha256": "85b49d8d898c1b4c6dc21ec4fca852e69e404f2a5d3de4a45337fa5d588b4498"
+          "sha256": "07ea2ee3ca4ae1fd8cab26f852844934c1e27cc2a5d723540a3a5069d37b4ae4"
         },
         "reference": {
           "path": "/private-preview/ugc00634/reference-matched.jpg",
-          "sha256": "96d2fa58725506ae3f856da85f13b41666065c24ba2d915aea9cccf11cbae105"
+          "sha256": "24f7a753986efbbb7bf7edec0923055f1702e741c947cc03c663720756262c8d"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00634/common-coverage.png",
           "sha256": "6a5dd997cacdc503bff5df350dc572835fe95aa21278b46cee9c8fde38dacc26"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:30.951573+00:00",
+      "createdAt": "2026-08-13T17:14:43.981266+00:00",
       "objectId": "ugc00634",
       "comparisonKey": "ugc00634--panstarrs-dr1-stack",
       "layerIds": [
@@ -132,26 +132,26 @@
         "referenceOnly": 0.05965956790123457,
         "neither": 0.1405283950617284
       },
-      "analysisProductSha256": "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
+      "analysisProductSha256": "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00634--panstarrs-dr1-stack/rubin-matched.jpg",
-          "sha256": "dfad4be1b8fdfdf7a077b043a9256a4bb5924d656745aacca1744af59fe0c223"
+          "sha256": "5aa0fba4e0329e9dd84d67f5875437425c1dbd58048defa90b35e93527fa2002"
         },
         "reference": {
           "path": "/private-preview/ugc00634--panstarrs-dr1-stack/reference-matched.jpg",
-          "sha256": "4cd31dfadda1088cd820f3d1e6398aa7458e419ab714852f36debabd93622fa4"
+          "sha256": "58d11921ef7e844e146fb4d53a57e7ae7ab1126c459b6bb49a90fb593bb950ed"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00634--panstarrs-dr1-stack/common-coverage.png",
           "sha256": "437eff6ea3b78abf3aa86754c3eb0a4f2943544a49e39e9cc3d30c97ccd6299d"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:37.717603+00:00",
+      "createdAt": "2026-08-13T17:14:48.156579+00:00",
       "objectId": "ugc00891",
       "comparisonKey": "ugc00891",
       "layerIds": [
@@ -169,26 +169,26 @@
         "referenceOnly": 0.0508820987654321,
         "neither": 0.09356697530864197
       },
-      "analysisProductSha256": "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
+      "analysisProductSha256": "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00891/rubin-matched.jpg",
-          "sha256": "15fffde8a4228ac145c902ba3089f7187398e7fc733fe6e0f9255d44afd4e3f2"
+          "sha256": "437e4da045ee9977955470a7edf689cfe292bcb1596ef8357c8772e8f9f2b9d1"
         },
         "reference": {
           "path": "/private-preview/ugc00891/reference-matched.jpg",
-          "sha256": "1308999a363d023ce65380955fea752143ca41d8d8805e23d0bdf2ff8abc1daa"
+          "sha256": "17c65fd5076ed980f71e24ce385dabb44129156bbbd8c11c9da9e298a86daf04"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00891/common-coverage.png",
           "sha256": "e0f38e15a3f2a0c434450d31eca2b3e62c7699f1df29db37d0a9e16db9267c86"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     },
     {
       "schemaVersion": 1,
-      "createdAt": "2026-08-13T08:06:41.849758+00:00",
+      "createdAt": "2026-08-13T17:14:50.737381+00:00",
       "objectId": "ugc00891",
       "comparisonKey": "ugc00891--legacy-survey-dr10",
       "layerIds": [
@@ -206,22 +206,22 @@
         "referenceOnly": 0.025566666666666668,
         "neither": 0.12351203703703703
       },
-      "analysisProductSha256": "6a8a4856722f46612ca09de083872719edaabb177d8b5b02155fbada1e75dbd0",
+      "analysisProductSha256": "54e5ddb1a944c715a324c110b39fb2911d9bb39a303baa13ce1fb3213728c76a",
       "assets": {
         "rubin": {
           "path": "/private-preview/ugc00891--legacy-survey-dr10/rubin-matched.jpg",
-          "sha256": "e952ddaf0010a931eb6ce047ebfe89a819979529bd1b3ad750d198a6a39c7cd6"
+          "sha256": "7bc8a0bfcb5034240f49c2e6438b659fab1f095afad9c98736a2a2cfedb58a96"
         },
         "reference": {
           "path": "/private-preview/ugc00891--legacy-survey-dr10/reference-matched.jpg",
-          "sha256": "8f1115f2e192b000321e3f98366ef00f15b6f6def17c885f7d8e692195501329"
+          "sha256": "1a1073796d4fe4cdd0dc0fb6705eeb9272922c8a47f028b9f8722df4634321fc"
         },
         "commonCoverage": {
           "path": "/private-preview/ugc00891--legacy-survey-dr10/common-coverage.png",
           "sha256": "3376a52f8291c38205432db798509e931691d37e56fbd32875e38ef1903acea9"
         }
       },
-      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Checks mark invalid pixels in that individual layer. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
     }
   ]
 }

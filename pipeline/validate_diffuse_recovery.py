@@ -46,6 +46,14 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def stable_created_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("createdAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def exponential_template(
     effective_radius_arcsec: float,
     pixel_scale_arcsec: float,
@@ -300,7 +308,7 @@ def validate_target(comparison_key: str, coverage: dict, args: argparse.Namespac
     result = {
         "schemaVersion": 1,
         "objectId": slug,
-        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "createdAt": stable_created_at(output_dir / "diffuse-recovery.json"),
         "status": "pass" if false_positive_pass and any_recovery else "qa-failed",
         "layerIds": reconciliation["layerIds"],
         "band": reconciliation["band"],

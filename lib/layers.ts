@@ -106,7 +106,7 @@ export type DifferenceMeasurement = {
 
 export type Inference = {
   id: string;
-  domain: "baryonic-mass" | "morphology" | "lensing" | "distance" | "source-counts" | "other";
+  domain: "outer-light" | "baryonic-mass" | "morphology" | "lensing" | "distance" | "source-counts" | "other";
   observation: string;
   modelDependentInterpretation: string;
   confidence: "unreviewed" | "candidate" | "supported" | "confirmed";
@@ -173,6 +173,30 @@ export type Comparison = {
     sparcFixedMassToLight: number;
     sparcBaselineLogStellarMassMsun: number;
   };
+  transferSummary?: {
+    status: "pass" | "qa-failed";
+    apertureRadiusArcsec: number;
+    wiseW1MagnitudeVega: number;
+    sparc36MagnitudeVega: number;
+    w1Minus36Mag: number;
+    statisticalUncertaintyMag: number;
+    systematicUncertaintyMag: number;
+    expectedCenterMag: number;
+    qualifiedRadialBins: number;
+    profileResidualScatterMag: number;
+    retainedSkyBoxes: number;
+    injectionRecoveryPass: boolean;
+    failedGates: string[];
+    massInferenceStatus: "blocked";
+    massInferenceReason: string;
+  };
+  radialSeries?: Array<{
+    radiusArcsec: number;
+    wiseSurfaceBrightnessMagArcsec2: number;
+    wiseUncertaintyMag: number;
+    sparcSurfaceBrightnessMagArcsec2: number;
+    w1Minus36Mag: number;
+  }>;
   qa?: {
     band?: string;
     comparisonLayerLabel?: string;
@@ -205,6 +229,7 @@ export type Comparison = {
     sourceRubinSha256?: string;
     sourceComparisonSha256?: string;
     qaPackage?: string;
+    reproductionAudit?: string;
   };
   measurements: DifferenceMeasurement[];
   inferences: Inference[];

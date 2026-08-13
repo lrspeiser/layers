@@ -21,6 +21,8 @@ STAGES = (
     ("extended-source-filter-audit", "audit_extended_source_transfer.py"),
     ("three-survey-consistency", "audit_three_survey_consistency.py"),
     ("external-image-layers", "validate_external_image_layers.py"),
+    ("wise-sparc-photometry-validation", "validate_wise_sparc_photometry.py"),
+    ("wise-sparc-transfer", "audit_wise_sparc_transfer.py"),
     ("wise-stellar-mass-layers", "build_wise_stellar_mass_layers.py"),
     ("external-catalog-layers", "validate_external_catalog_layers.py"),
     ("comparison-previews", "build_comparison_previews.py"),

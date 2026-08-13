@@ -42,7 +42,7 @@
     "hasVariance": true,
     "hasMask": true,
     "hasWcs": true,
-    "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+    "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer remains QA-only because one or more radial-profile gates failed; no light or mass difference is published.",
     "provenance": {
       "service": "IRSA SIAv2 + IBE FITS cutout service",
       "collection": "wise_allwise",
@@ -102,12 +102,13 @@
   },
   "scienceGate": {
     "status": "blocked",
-    "reason": "No validated extended-source W1-to-SPARC 3.6 micron aperture/background transfer exists for this target.",
+    "reason": "Extended-source transfer failed: maximumProfileScatter.",
+    "supportedClaims": [],
     "unsupportedClaims": [
-      "outer-light difference",
       "stellar-mass change",
       "baryonic-mass change",
       "delta g_bar"
-    ]
+    ],
+    "evidencePackage": "/data/comparisons/ugc00891--wise-sparc-transfer.json"
   }
 }

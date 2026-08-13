@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T08:11:06.235583+00:00",
+  "generatedAt": "2026-08-13T17:07:09.627946+00:00",
   "target": {
     "id": "ugc00634",
     "name": "UGC00634",
@@ -216,7 +216,7 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
+      "matchedPairSha256": "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
       "sourceRubinSha256": "a7caf619d90aa548d37182cabe184a387ce49c8f945371db642387934cfd5cc6",
       "sourceComparisonSha256": "245c604bcbd5126f3ac462c38beadf4f93c1f8965ef9d1a20a5e68354029cc34",
       "qaPackage": "/data/comparisons/ugc00634--panstarrs-dr1-stack.json"
@@ -237,8 +237,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-          "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+          "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+          "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -263,8 +263,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-          "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+          "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+          "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -289,8 +289,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-          "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+          "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+          "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -315,8 +315,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "80e1f2273465fa3a8766b87aa7159d58f4e1b1c8fb2ca870d5bc5dc81f64adf5",
-          "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+          "94016f440d1ef083c2527e5fc903e3043aa5d88ae1fbc24b2d16e4ca71552d33",
+          "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -333,18 +333,18 @@
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 3530,
-      "sha256": "ebb23bc313f9c3774dfb0375c681b912cd67670f371c56e3ee0ec2a3ef8baade"
+      "bytes": 3532,
+      "sha256": "21a4a3ad9ba1761f0daa346c9c08f1f11904d93d53add6b6e105423071d3e5e7"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 7757,
-      "sha256": "591d2df2a028fe5157f2f5f8472917c9b212d0405dc2e05f13fd6d9ff835047d"
+      "bytes": 7761,
+      "sha256": "368def012816dfd7b25d7ce5cc1dd53ce997e8f12f68a4ada24adec0d4302c96"
     },
     {
       "name": "filter-response-audit.json",
-      "bytes": 5365,
-      "sha256": "ac4bc6a805061a86041466221af838694b497cfe8e604165b45f307893b492b2"
+      "bytes": 5366,
+      "sha256": "46ae29a2c89ee0fe5f0baf1091683bf99734b8011b8a5589616bc03a405e8a3b"
     },
     {
       "name": "extended-source-filter-audit.json",
@@ -353,8 +353,8 @@
     },
     {
       "name": "diffuse-recovery.json",
-      "bytes": 30678,
-      "sha256": "61aa2754963c93caba779b72789cd5646bc3e06c688017c557f638b0d0bcc8f9"
+      "bytes": 30680,
+      "sha256": "e3be60bfb12e713b42b0f7aa7d8305fdf9af0328c76c254a38ff32279cb220f7"
     }
   ],
   "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized."

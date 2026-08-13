@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T08:11:06.161997+00:00",
+  "generatedAt": "2026-08-13T17:07:09.559435+00:00",
   "target": {
     "id": "ugc00634",
     "name": "UGC00634",
@@ -271,7 +271,7 @@
       "hasVariance": true,
       "hasMask": true,
       "hasWcs": true,
-      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer passes for relative W1\u2212[3.6] light and structure; stellar-mass, baryonic-mass, and g_bar claims remain blocked.",
       "provenance": {
         "service": "IRSA SIAv2 + IBE FITS cutout service",
         "collection": "wise_allwise",
@@ -301,7 +301,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-        "sha256": "08e8da74a0350f658491fe06c7fb9f88bdaba26c1b70fb9c5ebff3d1f26680ee"
+        "sha256": "7b8bf38959650946794cdf4b11c2b30924d43cc35349347949dfdd6811777482"
       }
     ],
     "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

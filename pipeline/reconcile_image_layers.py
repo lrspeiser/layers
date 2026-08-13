@@ -36,6 +36,14 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def stable_created_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("createdAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def gaussian_kernel(sigma: float) -> np.ndarray:
     if sigma <= 0.01:
         return np.array([1.0], dtype=np.float64)
@@ -149,7 +157,13 @@ def write_pair(
         fits.ImageHDU(difference, header=science_header, name="DIFFERENCE"),
         fits.ImageHDU(difference_variance, header=variance_header, name="DIFF_VAR"),
     ]
-    fits.HDUList(hdus).writeto(path, overwrite=True, checksum=True)
+    # CHECKSUM cards produced by the installed Astropy/CFITSIO stack are not
+    # byte-stable across otherwise identical writes.  These generated
+    # intermediates already receive an external SHA-256 in reconciliation.json,
+    # so omit FITS CHECKSUM cards and replace the file cleanly to keep release
+    # provenance byte-for-byte reproducible.
+    path.unlink(missing_ok=True)
+    fits.HDUList(hdus).writeto(path)
 
 
 def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.Namespace) -> dict:
@@ -269,7 +283,7 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
         "schemaVersion": 1,
         "objectId": slug,
         "comparisonKey": comparison_key,
-        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "createdAt": stable_created_at(output_dir / "reconciliation.json"),
         "status": status,
         "layerIds": audit["layerIds"],
         "comparisonLayerLabel": audit["comparisonLayerLabel"],

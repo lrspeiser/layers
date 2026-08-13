@@ -138,7 +138,9 @@ def main() -> None:
                 failed = [gate for gate in CATALOG_COMPATIBILITY_GATES if compatibility.get(gate) is not True]
                 if failed:
                     errors.append(f"{target_id}/{comparison.get('id')}: failed catalog compatibility gates {sorted(failed)}")
-                if not compatibility.get("limitations") or not comparison.get("catalogValues"):
+                if not compatibility.get("limitations") or not (
+                    comparison.get("catalogValues") or comparison.get("transferSummary")
+                ):
                     errors.append(f"{target_id}/{comparison.get('id')}: catalog comparison lacks limitations or source values")
                 continue
             registration = comparison.get("registration", {})

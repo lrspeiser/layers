@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T08:11:06.264374+00:00",
+  "generatedAt": "2026-08-13T17:07:09.693951+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -190,7 +190,7 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
+      "matchedPairSha256": "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
       "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
       "sourceComparisonSha256": "1978d37cc029c42466c4c22bc32acaf16254d00ac5b930430ff60635eea0f85f",
       "qaPackage": "/data/comparisons/ugc00891.json"
@@ -211,8 +211,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-          "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+          "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+          "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -237,8 +237,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-          "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+          "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+          "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -263,8 +263,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-          "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+          "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+          "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -289,8 +289,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "768aea6e4309e9b4f0de77df2032a948d0f129d74dc1f38c900f3bd623b806ee",
-          "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+          "e5f3d6e1a6f04de655055e1e3893c7a6ff5e4edd6ce4015f540e576ab36d92ff",
+          "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -307,28 +307,28 @@
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 3504,
-      "sha256": "c3c6b5ef128d0c96a7b6a0ffc8ef77f8eb0a97d13086dca6427fc71648a2f8e5"
+      "bytes": 3507,
+      "sha256": "4732992790a6d0953cb317d914c1f4ec3ac6f9e6102343b5310497e867cb490e"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 8122,
-      "sha256": "7b4b815d78714575f98bc2762202e256d94a2ea84985e82f6634c5e9829c3a8c"
+      "bytes": 8121,
+      "sha256": "2380af4723e45d573984806648a97fae22510f668fc6a6e6240017a88501b7d6"
     },
     {
       "name": "filter-response-audit.json",
-      "bytes": 5674,
-      "sha256": "7275de77bfe0cf016ae478ff110893a92b51cfdcb3336e599f7ff5c5fc2ee1b2"
+      "bytes": 5672,
+      "sha256": "465ba7dc917f5aa5628bb9fac307350d410d28e13fb642650fd8c750c97089ea"
     },
     {
       "name": "extended-source-filter-audit.json",
       "bytes": 4546,
-      "sha256": "594eb86924236723d8e74cfe8ce4bbeabe1e44610ef3d3a0cb8ae6559c94c3d6"
+      "sha256": "15e338aceca151c3d9bdb86f411c0201cd639ab532e82107ade17e0ef970935f"
     },
     {
       "name": "diffuse-recovery.json",
-      "bytes": 31111,
-      "sha256": "24bfdb88fe69ee1a3d06cc51f8260466145e193b6af3baf2bee5e49aafa6a89d"
+      "bytes": 31113,
+      "sha256": "4b9fd5da39a9e6f36ac72cdd1e87d10e2e952b5b9740f04e1363c14cd3c92e0f"
     }
   ],
   "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized."

@@ -1,0 +1,862 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers published comparison package",
+  "generatedAt": "2026-08-13T17:13:18.093641+00:00",
+  "target": {
+    "id": "ugc00634",
+    "name": "UGC00634",
+    "identifiers": {
+      "SPARC": "UGC00634",
+      "SIMBAD": "Z 410-23"
+    },
+    "center": {
+      "raDeg": 15.354878,
+      "decDeg": 7.625991,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 0.993793
+    }
+  },
+  "layers": [
+    {
+      "id": "sparc-2016",
+      "survey": "SPARC",
+      "release": "2016 master sample",
+      "instrument": "Spitzer photometry + published rotation curves",
+      "kind": "profile",
+      "availability": "available",
+      "renderMode": "plot",
+      "bands": [
+        "3.6um"
+      ],
+      "units": {
+        "surfaceBrightness": "mag arcsec^-2",
+        "velocity": "km s^-1"
+      },
+      "calibration": "SPARC published tables",
+      "hasVariance": false,
+      "hasMask": false,
+      "hasWcs": false,
+      "note": "A radial photometry and rotation-curve layer; it must be plotted or overlaid, never treated as a sky image.",
+      "provenance": {
+        "bibcode": "2016AJ....152..157L",
+        "sampleId": "UGC00634"
+      },
+      "assets": {
+        "data": "/data/sparc-profiles/ugc00634.json"
+      },
+      "profileSummary": {
+        "acceptedPhotometryPoints": 48,
+        "maximumAcceptedRadiusArcsec": 57.58,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 18.01
+      }
+    },
+    {
+      "id": "wise-allwise-atlas",
+      "survey": "WISE",
+      "release": "AllWISE Atlas",
+      "instrument": "WISE W1",
+      "kind": "image",
+      "availability": "published",
+      "renderMode": "image",
+      "bands": [
+        "W1"
+      ],
+      "bandCoverage": {
+        "W1": 1.0
+      },
+      "datasetCount": 3,
+      "datasetIds": [
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-int-3.fits?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false",
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-unc-3.fits.gz?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false",
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-cov-3.fits.gz?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2",
+        "coverage": "exposures"
+      },
+      "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer passes for relative W1\u2212[3.6] light and structure; stellar-mass, baryonic-mass, and g_bar claims remain blocked.",
+      "provenance": {
+        "service": "IRSA SIAv2 + IBE FITS cutout service",
+        "collection": "wise_allwise",
+        "doi": "10.26131/IRSA1",
+        "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+        "standardProductSha256": "37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9"
+      },
+      "assets": {
+        "preview": "/layer-previews/wise-allwise/ugc00634-w1.jpg",
+        "data": "/data/layers/wise-allwise/ugc00634.json"
+      }
+    }
+  ],
+  "comparison": {
+    "id": "ugc00634--wise-sparc-transfer",
+    "comparisonKey": "ugc00634--wise-sparc-transfer",
+    "comparisonMode": "catalog-profile",
+    "layerIds": [
+      "wise-allwise-atlas",
+      "sparc-2016"
+    ],
+    "status": "published",
+    "compatibility": {
+      "targetIdentityMatched": true,
+      "quantityMatched": true,
+      "unitsMatched": true,
+      "distanceScaleShared": true,
+      "modelDeclared": true,
+      "limitations": [
+        "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+        "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+        "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+        "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+        "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+      ]
+    },
+    "transferSummary": {
+      "status": "pass",
+      "apertureRadiusArcsec": 52.10134328358204,
+      "wiseW1MagnitudeVega": 12.325125972223978,
+      "sparc36MagnitudeVega": 12.311554897047884,
+      "w1Minus36Mag": 0.013571075176093572,
+      "statisticalUncertaintyMag": 0.07040864985461687,
+      "systematicUncertaintyMag": 0.16739652604456862,
+      "expectedCenterMag": 0.15000000000000036,
+      "qualifiedRadialBins": 12,
+      "profileResidualScatterMag": 0.06876437771985502,
+      "retainedSkyBoxes": 517,
+      "injectionRecoveryPass": true,
+      "failedGates": [],
+      "massInferenceStatus": "blocked",
+      "massInferenceReason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+    },
+    "radialSeries": [
+      {
+        "radiusArcsec": 1.525,
+        "wiseSurfaceBrightnessMagArcsec2": 20.019146668830288,
+        "wiseUncertaintyMag": 0.01855689926309661,
+        "sparcSurfaceBrightnessMagArcsec2": 19.719714285714286,
+        "w1Minus36Mag": 0.2994323831160024
+      },
+      {
+        "radiusArcsec": 4.574999999999999,
+        "wiseSurfaceBrightnessMagArcsec2": 20.10486262871604,
+        "wiseUncertaintyMag": 0.019213425634329727,
+        "sparcSurfaceBrightnessMagArcsec2": 19.91171590909091,
+        "w1Minus36Mag": 0.1931467196251333
+      },
+      {
+        "radiusArcsec": 7.624999999999999,
+        "wiseSurfaceBrightnessMagArcsec2": 20.206385418675513,
+        "wiseUncertaintyMag": 0.020893123419997113,
+        "sparcSurfaceBrightnessMagArcsec2": 20.036147887323942,
+        "w1Minus36Mag": 0.17023753135157094
+      },
+      {
+        "radiusArcsec": 10.674999999999999,
+        "wiseSurfaceBrightnessMagArcsec2": 20.402645415567456,
+        "wiseUncertaintyMag": 0.024820699260220805,
+        "sparcSurfaceBrightnessMagArcsec2": 20.248291262135922,
+        "w1Minus36Mag": 0.1543541534315338
+      },
+      {
+        "radiusArcsec": 13.725,
+        "wiseSurfaceBrightnessMagArcsec2": 20.577911885769936,
+        "wiseUncertaintyMag": 0.029070161876191176,
+        "sparcSurfaceBrightnessMagArcsec2": 20.383404,
+        "w1Minus36Mag": 0.19450788576993716
+      },
+      {
+        "radiusArcsec": 16.775,
+        "wiseSurfaceBrightnessMagArcsec2": 20.703060431457153,
+        "wiseUncertaintyMag": 0.03254730000060463,
+        "sparcSurfaceBrightnessMagArcsec2": 20.700763473053893,
+        "w1Minus36Mag": 0.002296958403260163
+      },
+      {
+        "radiusArcsec": 19.824999999999996,
+        "wiseSurfaceBrightnessMagArcsec2": 20.836303604883632,
+        "wiseUncertaintyMag": 0.036753847015997224,
+        "sparcSurfaceBrightnessMagArcsec2": 20.824303278688525,
+        "w1Minus36Mag": 0.012000326195106936
+      },
+      {
+        "radiusArcsec": 22.875,
+        "wiseSurfaceBrightnessMagArcsec2": 20.99729047840418,
+        "wiseUncertaintyMag": 0.04259864264895148,
+        "sparcSurfaceBrightnessMagArcsec2": 20.968864864864866,
+        "w1Minus36Mag": 0.02842561353931572
+      },
+      {
+        "radiusArcsec": 25.924999999999997,
+        "wiseSurfaceBrightnessMagArcsec2": 21.208400029380062,
+        "wiseUncertaintyMag": 0.051687232906092055,
+        "sparcSurfaceBrightnessMagArcsec2": 21.242752049180325,
+        "w1Minus36Mag": -0.03435201980026292
+      },
+      {
+        "radiusArcsec": 28.975,
+        "wiseSurfaceBrightnessMagArcsec2": 21.38121746742426,
+        "wiseUncertaintyMag": 0.0605642737476275,
+        "sparcSurfaceBrightnessMagArcsec2": 21.6415594795539,
+        "w1Minus36Mag": -0.2603420121296409
+      },
+      {
+        "radiusArcsec": 32.025,
+        "wiseSurfaceBrightnessMagArcsec2": 21.564223009850004,
+        "wiseUncertaintyMag": 0.07167159198834876,
+        "sparcSurfaceBrightnessMagArcsec2": 21.770822033898305,
+        "w1Minus36Mag": -0.20659902404830177
+      },
+      {
+        "radiusArcsec": 35.074999999999996,
+        "wiseSurfaceBrightnessMagArcsec2": 21.82442306687332,
+        "wiseUncertaintyMag": 0.09102044018624657,
+        "sparcSurfaceBrightnessMagArcsec2": 21.905184615384613,
+        "w1Minus36Mag": -0.08076154851129402
+      },
+      {
+        "radiusArcsec": 38.125,
+        "wiseSurfaceBrightnessMagArcsec2": 22.07136390219401,
+        "wiseUncertaintyMag": 0.11422209175288643,
+        "sparcSurfaceBrightnessMagArcsec2": 22.109822625698325,
+        "w1Minus36Mag": -0.03845872350431634
+      },
+      {
+        "radiusArcsec": 41.175,
+        "wiseSurfaceBrightnessMagArcsec2": 22.317358126184622,
+        "wiseUncertaintyMag": 0.1432480597059496,
+        "sparcSurfaceBrightnessMagArcsec2": 22.326103053435116,
+        "w1Minus36Mag": -0.008744927250493362
+      },
+      {
+        "radiusArcsec": 44.224999999999994,
+        "wiseSurfaceBrightnessMagArcsec2": 22.517752625554543,
+        "wiseUncertaintyMag": 0.1722312009179607,
+        "sparcSurfaceBrightnessMagArcsec2": 22.561368360277136,
+        "w1Minus36Mag": -0.04361573472259295
+      },
+      {
+        "radiusArcsec": 47.275,
+        "wiseSurfaceBrightnessMagArcsec2": 22.729655515964744,
+        "wiseUncertaintyMag": 0.2095551920485972,
+        "sparcSurfaceBrightnessMagArcsec2": 22.843827944572748,
+        "w1Minus36Mag": -0.11417242860800414
+      },
+      {
+        "radiusArcsec": 50.324999999999996,
+        "wiseSurfaceBrightnessMagArcsec2": 23.009207023072378,
+        "wiseUncertaintyMag": 0.27070338113032133,
+        "sparcSurfaceBrightnessMagArcsec2": 22.94999369747899,
+        "w1Minus36Mag": 0.059213325593386656
+      },
+      {
+        "radiusArcsec": 51.97567164179102,
+        "wiseSurfaceBrightnessMagArcsec2": 22.97674631502978,
+        "wiseUncertaintyMag": 0.27333748323780116,
+        "sparcSurfaceBrightnessMagArcsec2": 22.996462184873952,
+        "w1Minus36Mag": -0.019715869844173284
+      }
+    ],
+    "products": {
+      "qaPackage": "/data/comparisons/ugc00634--wise-sparc-transfer.json",
+      "reproductionAudit": "pipeline/output/wise-sparc-transfer/ugc00634.json"
+    },
+    "measurements": [
+      {
+        "id": "ugc00634-wise-w1-minus-sparc36-aperture",
+        "label": "WISE W1 \u2212 SPARC 3.6 \u00b5m aperture light",
+        "quantity": "W1 minus 3.6 micron aperture magnitude",
+        "value": 0.013571075176093572,
+        "unit": "mag",
+        "statisticalUncertainty": 0.07040864985461687,
+        "systematicUncertainty": 0.16739652604456862,
+        "expectedCenter": 0.15000000000000036,
+        "expectedRange": [
+          -0.40299999999999975,
+          0.3405999999999991
+        ],
+        "significanceSigma": 0.7158464087270305,
+        "classification": "expected",
+        "provenance": [
+          "https://arxiv.org/abs/2404.02339",
+          "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/168/19?format=html&tex=true",
+          "sha256:37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9",
+          "sha256:575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c",
+          "sha256:d25f5ed333e70fad4f312c5e4763e7c991cb45faaa0d539660b2f688ad1baee0"
+        ],
+        "caveats": [
+          "This is matched-aperture relative photometry; AllWISE Atlas pixels do not provide absolute sky surface brightness.",
+          "The empirical control-sample RMS is propagated as a systematic and is not subtracted as a fitted correction.",
+          "W1\u2212[3.6] is not a stellar-mass calibration and does not revise baryonic mass or g_bar."
+        ]
+      },
+      {
+        "id": "ugc00634-wise-to-sparc-scale-length",
+        "label": "WISE-to-SPARC outer scale-length ratio",
+        "quantity": "log10 W1 to 3.6 micron exponential scale-length ratio",
+        "value": 0.04639259880472301,
+        "unit": "dex",
+        "statisticalUncertainty": 0.030962675753049018,
+        "systematicUncertainty": 0.011571977105856186,
+        "expectedCenter": 0.0,
+        "expectedRange": [
+          -0.06478675992353386,
+          0.06478675992353386
+        ],
+        "significanceSigma": 1.4035196969964052,
+        "classification": "expected",
+        "provenance": [
+          "sha256:37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9",
+          "sha256:575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c"
+        ],
+        "caveats": [
+          "The null expectation is equal outer exponential scale length after PSF separation; it is not a population prior.",
+          "The systematic converts the measured radial-profile residual scatter into a conservative slope uncertainty.",
+          "Catalogued fixed ellipse geometry is used because spatially varying SPARC isophotal geometry is unavailable."
+        ]
+      }
+    ],
+    "inferences": [
+      {
+        "id": "ugc00634-relative-near-ir-light",
+        "domain": "outer-light",
+        "observation": "Matched-aperture photometry gives W1\u2212[3.6] = 0.014 mag at 52.1 arcsec.",
+        "modelDependentInterpretation": "The relative near-IR light and outer-profile shape are supported by the transfer gates. No stellar-mass, baryonic-mass, or radial-acceleration revision is supported without an independent optical-color M/L calibration.",
+        "confidence": "supported",
+        "assumptions": [
+          "The published SPARC radial profile and catalogued fixed ellipse describe the same aperture.",
+          "The control-cohort intrinsic W1\u2212[3.6] scatter is 0.058 mag.",
+          "Local sky blocks capture the relevant AllWISE background covariance."
+        ]
+      }
+    ],
+    "assumptionAudits": []
+  },
+  "localReproductionArtifacts": [
+    {
+      "name": "wise-sparc-transfer-audit.json",
+      "bytes": 19175,
+      "sha256": "516011ebfcd53d9a57927d2b0b19b6789b5cd614bd1ea506d01f4227d2b1cf5c"
+    }
+  ],
+  "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized.",
+  "scienceAudit": {
+    "schemaVersion": 1,
+    "product": "Layers WISE-to-SPARC extended-source transfer audit",
+    "targetId": "ugc00634",
+    "sparcId": "UGC00634",
+    "createdAt": "2026-08-13T17:06:58.484309+00:00",
+    "status": "pass",
+    "layerIds": [
+      "wise-allwise-atlas",
+      "sparc-2016"
+    ],
+    "method": {
+      "aperture": "SPARC 23 mag/arcsec^2 isophote",
+      "sky": "robust plane from automated source-rejected 20x20-pixel outer boxes",
+      "alternativeReductions": [
+        "constant sky",
+        "planar sky",
+        "quadratic sky"
+      ],
+      "foregroundControl": "asymmetric iterative clipping within narrow elliptical annuli plus sky-box quality rejection",
+      "psf": "profile bins start beyond 2x the 6.1-arcsec WISE FWHM; injections convolve the SPARC model from 1.7 to 6.1 arcsec"
+    },
+    "geometry": {
+      "name": "UGC00634",
+      "raDeg": 15.354878,
+      "decDeg": 7.625991,
+      "majorAxisArcmin": 0.993793,
+      "minorAxisArcmin": 0.567854,
+      "axisRatio": 0.5714006840458726,
+      "positionAngleDegEastOfNorth": 33.0,
+      "objectType": "LSB"
+    },
+    "aperture": {
+      "radiusArcsec": 52.10134328358204,
+      "isophoteStatus": "interpolated",
+      "axisRatio": 0.5714006840458726,
+      "positionAngleDegEastOfNorth": 33.0,
+      "wiseW1MagnitudeVega": 12.325125972223978,
+      "wiseW1UncertaintyMag": 0.07012132386503384,
+      "sparc36MagnitudeVega": 12.311554897047884,
+      "sparc36UncertaintyMag": 0.0020923464734782754,
+      "w1Minus36Mag": 0.013571075176093572,
+      "statisticalUncertaintyMag": 0.07040864985461687,
+      "systematicUncertaintyMag": 0.16739652604456862,
+      "expectedCenterMag": 0.15000000000000036,
+      "expectedRangeMag": [
+        -0.40299999999999975,
+        0.3405999999999991
+      ],
+      "significanceSigma": 0.7158464087270305,
+      "classification": "expected"
+    },
+    "sky": {
+      "candidateBoxes": 660,
+      "cleanBoxes": 525,
+      "retainedPlaneBoxes": 517,
+      "typicalWithinBoxSigmaNjy": 151.87964716925336,
+      "skyLevelUncertaintyNjyPerPixel": 89.18425273272176,
+      "models": {
+        "constant": {
+          "degree": 0,
+          "coefficientsNjy": [
+            8299.076109701495
+          ],
+          "retainedBoxes": 516
+        },
+        "plane": {
+          "degree": 1,
+          "coefficientsNjy": [
+            8299.413414214929,
+            10.776611678119373,
+            -14.684971403277686
+          ],
+          "retainedBoxes": 517
+        },
+        "quadratic": {
+          "degree": 2,
+          "coefficientsNjy": [
+            8323.03381944165,
+            25.557848408567395,
+            -5.47949056304319,
+            -242.57021589425798,
+            -210.206090335943,
+            -60.197648772362705
+          ],
+          "retainedBoxes": 516
+        }
+      }
+    },
+    "radialTransfer": {
+      "qualifiedBins": 12,
+      "qualifiedRadiiArcsec": [
+        13.725,
+        16.775,
+        19.824999999999996,
+        22.875,
+        25.924999999999997,
+        28.975,
+        32.025,
+        35.074999999999996,
+        38.125,
+        41.175,
+        44.224999999999994,
+        47.275
+      ],
+      "fittedW1Minus36Mag": 0.025401299042605845,
+      "fittedColorStatisticalUncertaintyMag": 0.02447227588523567,
+      "medianAbsoluteProfileResidualMag": 0.0664385281560605,
+      "robustProfileResidualScatterMag": 0.06876437771985502,
+      "radialLeverage": 3.4444444444444446,
+      "medianClippedFraction": 0.05937279774489074,
+      "wiseExponentialFit": {
+        "interceptMagArcsec2": 19.48781449265956,
+        "slopeMagPerArcsec": 0.06664263799231263,
+        "slopeUncertaintyMagPerArcsec": 0.0032118988214209134,
+        "scaleLengthArcsec": 16.291915168234663,
+        "scaleLengthUncertaintyArcsec": 0.7852027576336124,
+        "robustResidualScatterMag": 0.059575536069947414,
+        "points": 10
+      },
+      "sparcExponentialFit": {
+        "interceptMagArcsec2": 19.333054922540732,
+        "slopeMagPerArcsec": 0.07415574096292031,
+        "slopeUncertaintyMagPerArcsec": 0.0038958394676739698,
+        "scaleLengthArcsec": 14.641296690717773,
+        "scaleLengthUncertaintyArcsec": 0.7691938717751341,
+        "robustResidualScatterMag": 0.05179116938692608,
+        "points": 10
+      }
+    },
+    "structuralComparison": {
+      "log10WiseToSparcScaleLengthRatio": 0.04639259880472301,
+      "statisticalUncertaintyDex": 0.030962675753049018,
+      "profileResidualSystematicDex": 0.011571977105856186,
+      "nullSignificanceSigma": 1.4035196969964052,
+      "wiseScaleLengthArcsec": 16.291915168234663,
+      "sparcScaleLengthArcsec": 14.641296690717773
+    },
+    "injectionRecovery": {
+      "status": "pass",
+      "trials": 32,
+      "profile": "SPARC 3.6 radial profile shifted by measured W1-[3.6] color and convolved to the WISE PSF",
+      "trueInjectedFluxNjy": 3554642.5753144403,
+      "recoveredFluxFractionP16P50P84": [
+        1.0023028161455048,
+        1.0050105079112959,
+        1.0076650704360772
+      ],
+      "nullMedianAsTargetFluxFraction": -0.009715359372517633,
+      "nullRobustSigmaAsTargetFluxFraction": 0.017390852291033283,
+      "pass": true,
+      "thresholds": {
+        "medianRecoveryFraction": [
+          0.9,
+          1.1
+        ],
+        "central68RecoveryFraction": [
+          0.8,
+          1.2
+        ],
+        "maximumAbsoluteNullMedianFraction": 0.1,
+        "maximumNullRobustSigmaFraction": 0.25
+      }
+    },
+    "gates": {
+      "externalControlValidation": true,
+      "spitzer23IsophoteReached": true,
+      "minimum30ArcsecAperture": true,
+      "minimumTenSkyBoxes": true,
+      "aperturePhotometryUncertainty": true,
+      "minimumQualifiedProfileBins": true,
+      "minimumRadialLeverage": true,
+      "maximumMedianProfileResidual": true,
+      "maximumProfileScatter": true,
+      "maximumClippedPixelFraction": true,
+      "injectionAndNullTests": true
+    },
+    "scienceGates": {
+      "relativeOuterLight": {
+        "supported": true,
+        "reason": "All extended-source transfer gates pass."
+      },
+      "relativeStructure": {
+        "supported": true,
+        "reason": "Requires the transfer and two valid exponential fits."
+      },
+      "stellarMass": {
+        "supported": false,
+        "reason": "The pilot lacks a validated optical-color W1 mass-to-light ratio; W1-[3.6] alone is not a stellar-mass calibration."
+      },
+      "baryonicMass": {
+        "supported": false,
+        "reason": "Blocked by the stellar-mass gate; published SPARC H I is retained unchanged."
+      },
+      "deltaGbar": {
+        "supported": false,
+        "reason": "Blocked until a validated radial stellar-mass normalization can be propagated through the SPARC mass model."
+      }
+    },
+    "cohortExpectation": {
+      "records": 111,
+      "recordsAtLeast30Arcsec": 105,
+      "medianW1Minus36Mag": 0.15000000000000036,
+      "robustScatterMag": 0.05782139999999955,
+      "central68PercentRangeMag": [
+        0.061280000000000924,
+        0.20508
+      ],
+      "central95PercentRangeMag": [
+        -0.40299999999999975,
+        0.3405999999999991
+      ],
+      "sha256": "55a3c241ac37f30d6261e2b87a5216675e6de9efc83c3406bfa2a3d6fb2d83e3"
+    },
+    "externalValidation": {
+      "status": "pass",
+      "qualifiedControls": 6,
+      "combinedColorSystematicMag": 0.16739652604456862,
+      "wiseRmsResidualMag": 0.07873441238365003,
+      "sparcIntegrationRmsResidualMag": 0.1477243691419641
+    },
+    "sparcGlobal": {
+      "distanceMpc": 30.9,
+      "distanceUncertaintyMpc": 7.7,
+      "inclinationDeg": 37.0,
+      "inclinationUncertaintyDeg": 8.0,
+      "luminosity36BillionLsun": 2.989,
+      "luminosity36UncertaintyBillionLsun": 0.146,
+      "effectiveRadiusKpc": 4.26,
+      "diskScaleLengthKpc": 2.45,
+      "hiMassBillionMsun": 3.663,
+      "hiRadiusKpc": 16.78,
+      "sourceRow": "   UGC00634  9  30.90  7.70  1 37.0  8.0   2.989   0.146  4.26    26.11  2.45   126.13   3.663 16.78   0.0   0.0   2           vZ97"
+    },
+    "radialProfile": [
+      {
+        "radiusArcsec": 1.525,
+        "innerRadiusArcsec": 0.0,
+        "outerRadiusArcsec": 3.05,
+        "wiseSurfaceBrightnessMagArcsec2": 20.019146668830288,
+        "wiseUncertaintyMag": 0.01855689926309661,
+        "sparcSurfaceBrightnessMagArcsec2": 19.719714285714286,
+        "sparcUncertaintyMag": 0.015,
+        "w1Minus36Mag": 0.2994323831160024,
+        "validPixels": 10,
+        "retainedPixels": 10,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.734380848292426
+      },
+      {
+        "radiusArcsec": 4.574999999999999,
+        "innerRadiusArcsec": 3.05,
+        "outerRadiusArcsec": 6.1,
+        "wiseSurfaceBrightnessMagArcsec2": 20.10486262871604,
+        "wiseUncertaintyMag": 0.019213425634329727,
+        "sparcSurfaceBrightnessMagArcsec2": 19.91171590909091,
+        "sparcUncertaintyMag": 0.019420454545454543,
+        "w1Minus36Mag": 0.1931467196251333,
+        "validPixels": 27,
+        "retainedPixels": 27,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.728157194536095
+      },
+      {
+        "radiusArcsec": 7.624999999999999,
+        "innerRadiusArcsec": 6.1,
+        "outerRadiusArcsec": 9.149999999999999,
+        "wiseSurfaceBrightnessMagArcsec2": 20.206385418675513,
+        "wiseUncertaintyMag": 0.020893123419997113,
+        "sparcSurfaceBrightnessMagArcsec2": 20.036147887323942,
+        "sparcUncertaintyMag": 0.02421830985915493,
+        "w1Minus36Mag": 0.17023753135157094,
+        "validPixels": 41,
+        "retainedPixels": 41,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.734119570953577
+      },
+      {
+        "radiusArcsec": 10.674999999999999,
+        "innerRadiusArcsec": 9.149999999999999,
+        "outerRadiusArcsec": 12.2,
+        "wiseSurfaceBrightnessMagArcsec2": 20.402645415567456,
+        "wiseUncertaintyMag": 0.024820699260220805,
+        "sparcSurfaceBrightnessMagArcsec2": 20.248291262135922,
+        "sparcUncertaintyMag": 0.030305825242718444,
+        "w1Minus36Mag": 0.1543541534315338,
+        "validPixels": 63,
+        "retainedPixels": 63,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.723089752746798
+      },
+      {
+        "radiusArcsec": 13.725,
+        "innerRadiusArcsec": 12.2,
+        "outerRadiusArcsec": 15.25,
+        "wiseSurfaceBrightnessMagArcsec2": 20.577911885769936,
+        "wiseUncertaintyMag": 0.029070161876191176,
+        "sparcSurfaceBrightnessMagArcsec2": 20.383404,
+        "sparcUncertaintyMag": 0.03978,
+        "w1Minus36Mag": 0.19450788576993716,
+        "validPixels": 77,
+        "retainedPixels": 77,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.713294266278496
+      },
+      {
+        "radiusArcsec": 16.775,
+        "innerRadiusArcsec": 15.25,
+        "outerRadiusArcsec": 18.299999999999997,
+        "wiseSurfaceBrightnessMagArcsec2": 20.703060431457153,
+        "wiseUncertaintyMag": 0.03254730000060463,
+        "sparcSurfaceBrightnessMagArcsec2": 20.700763473053893,
+        "sparcUncertaintyMag": 0.04488622754491018,
+        "w1Minus36Mag": 0.002296958403260163,
+        "validPixels": 99,
+        "retainedPixels": 99,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.71765697784385
+      },
+      {
+        "radiusArcsec": 19.824999999999996,
+        "innerRadiusArcsec": 18.299999999999997,
+        "outerRadiusArcsec": 21.349999999999998,
+        "wiseSurfaceBrightnessMagArcsec2": 20.836303604883632,
+        "wiseUncertaintyMag": 0.036753847015997224,
+        "sparcSurfaceBrightnessMagArcsec2": 20.824303278688525,
+        "sparcUncertaintyMag": 0.04783606557377048,
+        "w1Minus36Mag": 0.012000326195106936,
+        "validPixels": 117,
+        "retainedPixels": 117,
+        "clippedFraction": 0.0,
+        "backgroundModelSpreadNjyPerPixel": 13.705915778328798
+      },
+      {
+        "radiusArcsec": 22.875,
+        "innerRadiusArcsec": 21.349999999999998,
+        "outerRadiusArcsec": 24.4,
+        "wiseSurfaceBrightnessMagArcsec2": 20.99729047840418,
+        "wiseUncertaintyMag": 0.04259864264895148,
+        "sparcSurfaceBrightnessMagArcsec2": 20.968864864864866,
+        "sparcUncertaintyMag": 0.05082432432432433,
+        "w1Minus36Mag": 0.02842561353931572,
+        "validPixels": 132,
+        "retainedPixels": 124,
+        "clippedFraction": 0.06060606060606055,
+        "backgroundModelSpreadNjyPerPixel": 13.69724619465975
+      },
+      {
+        "radiusArcsec": 25.924999999999997,
+        "innerRadiusArcsec": 24.4,
+        "outerRadiusArcsec": 27.45,
+        "wiseSurfaceBrightnessMagArcsec2": 21.208400029380062,
+        "wiseUncertaintyMag": 0.051687232906092055,
+        "sparcSurfaceBrightnessMagArcsec2": 21.242752049180325,
+        "sparcUncertaintyMag": 0.06240163934426228,
+        "w1Minus36Mag": -0.03435201980026292,
+        "validPixels": 151,
+        "retainedPixels": 141,
+        "clippedFraction": 0.06622516556291391,
+        "backgroundModelSpreadNjyPerPixel": 13.692357703092846
+      },
+      {
+        "radiusArcsec": 28.975,
+        "innerRadiusArcsec": 27.45,
+        "outerRadiusArcsec": 30.5,
+        "wiseSurfaceBrightnessMagArcsec2": 21.38121746742426,
+        "wiseUncertaintyMag": 0.0605642737476275,
+        "sparcSurfaceBrightnessMagArcsec2": 21.6415594795539,
+        "sparcUncertaintyMag": 0.0898011152416357,
+        "w1Minus36Mag": -0.2603420121296409,
+        "validPixels": 168,
+        "retainedPixels": 162,
+        "clippedFraction": 0.0357142857142857,
+        "backgroundModelSpreadNjyPerPixel": 13.661946426193671
+      },
+      {
+        "radiusArcsec": 32.025,
+        "innerRadiusArcsec": 30.5,
+        "outerRadiusArcsec": 33.55,
+        "wiseSurfaceBrightnessMagArcsec2": 21.564223009850004,
+        "wiseUncertaintyMag": 0.07167159198834876,
+        "sparcSurfaceBrightnessMagArcsec2": 21.770822033898305,
+        "sparcUncertaintyMag": 0.09935593220338984,
+        "w1Minus36Mag": -0.20659902404830177,
+        "validPixels": 179,
+        "retainedPixels": 173,
+        "clippedFraction": 0.03351955307262566,
+        "backgroundModelSpreadNjyPerPixel": 13.670672493083744
+      },
+      {
+        "radiusArcsec": 35.074999999999996,
+        "innerRadiusArcsec": 33.55,
+        "outerRadiusArcsec": 36.599999999999994,
+        "wiseSurfaceBrightnessMagArcsec2": 21.82442306687332,
+        "wiseUncertaintyMag": 0.09102044018624657,
+        "sparcSurfaceBrightnessMagArcsec2": 21.905184615384613,
+        "sparcUncertaintyMag": 0.11346923076923075,
+        "w1Minus36Mag": -0.08076154851129402,
+        "validPixels": 204,
+        "retainedPixels": 190,
+        "clippedFraction": 0.06862745098039214,
+        "backgroundModelSpreadNjyPerPixel": 13.629042120540715
+      },
+      {
+        "radiusArcsec": 38.125,
+        "innerRadiusArcsec": 36.599999999999994,
+        "outerRadiusArcsec": 39.65,
+        "wiseSurfaceBrightnessMagArcsec2": 22.07136390219401,
+        "wiseUncertaintyMag": 0.11422209175288643,
+        "sparcSurfaceBrightnessMagArcsec2": 22.109822625698325,
+        "sparcUncertaintyMag": 0.13491201117318435,
+        "w1Minus36Mag": -0.03845872350431634,
+        "validPixels": 222,
+        "retainedPixels": 206,
+        "clippedFraction": 0.07207207207207211,
+        "backgroundModelSpreadNjyPerPixel": 13.605054439784851
+      },
+      {
+        "radiusArcsec": 41.175,
+        "innerRadiusArcsec": 39.65,
+        "outerRadiusArcsec": 42.699999999999996,
+        "wiseSurfaceBrightnessMagArcsec2": 22.317358126184622,
+        "wiseUncertaintyMag": 0.1432480597059496,
+        "sparcSurfaceBrightnessMagArcsec2": 22.326103053435116,
+        "sparcUncertaintyMag": 0.15902290076335876,
+        "w1Minus36Mag": -0.008744927250493362,
+        "validPixels": 240,
+        "retainedPixels": 220,
+        "clippedFraction": 0.08333333333333337,
+        "backgroundModelSpreadNjyPerPixel": 13.589476740672202
+      },
+      {
+        "radiusArcsec": 44.224999999999994,
+        "innerRadiusArcsec": 42.699999999999996,
+        "outerRadiusArcsec": 45.75,
+        "wiseSurfaceBrightnessMagArcsec2": 22.517752625554543,
+        "wiseUncertaintyMag": 0.1722312009179607,
+        "sparcSurfaceBrightnessMagArcsec2": 22.561368360277136,
+        "sparcUncertaintyMag": 0.19093187066974587,
+        "w1Minus36Mag": -0.04361573472259295,
+        "validPixels": 258,
+        "retainedPixels": 243,
+        "clippedFraction": 0.05813953488372092,
+        "backgroundModelSpreadNjyPerPixel": 13.57534214648373
+      },
+      {
+        "radiusArcsec": 47.275,
+        "innerRadiusArcsec": 45.75,
+        "outerRadiusArcsec": 48.8,
+        "wiseSurfaceBrightnessMagArcsec2": 22.729655515964744,
+        "wiseUncertaintyMag": 0.2095551920485972,
+        "sparcSurfaceBrightnessMagArcsec2": 22.843827944572748,
+        "sparcUncertaintyMag": 0.23812586605080824,
+        "w1Minus36Mag": -0.11417242860800414,
+        "validPixels": 273,
+        "retainedPixels": 252,
+        "clippedFraction": 0.07692307692307687,
+        "backgroundModelSpreadNjyPerPixel": 14.217751982163891
+      },
+      {
+        "radiusArcsec": 50.324999999999996,
+        "innerRadiusArcsec": 48.8,
+        "outerRadiusArcsec": 51.849999999999994,
+        "wiseSurfaceBrightnessMagArcsec2": 23.009207023072378,
+        "wiseUncertaintyMag": 0.27070338113032133,
+        "sparcSurfaceBrightnessMagArcsec2": 22.94999369747899,
+        "sparcUncertaintyMag": 0.2608119747899159,
+        "w1Minus36Mag": 0.059213325593386656,
+        "validPixels": 297,
+        "retainedPixels": 271,
+        "clippedFraction": 0.08754208754208759,
+        "backgroundModelSpreadNjyPerPixel": 13.529782223585231
+      },
+      {
+        "radiusArcsec": 51.97567164179102,
+        "innerRadiusArcsec": 51.849999999999994,
+        "outerRadiusArcsec": 52.10134328358204,
+        "wiseSurfaceBrightnessMagArcsec2": 22.97674631502978,
+        "wiseUncertaintyMag": 0.27333748323780116,
+        "sparcSurfaceBrightnessMagArcsec2": 22.996462184873952,
+        "sparcUncertaintyMag": 0.2715621472469583,
+        "w1Minus36Mag": -0.019715869844173284,
+        "validPixels": 20,
+        "retainedPixels": 18,
+        "clippedFraction": 0.09999999999999998,
+        "backgroundModelSpreadNjyPerPixel": 13.54718785358398
+      }
+    ],
+    "provenance": {
+      "wiseProductSha256": "37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9",
+      "sparcProfileSha256": "575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c",
+      "cohortTableSha256": "55a3c241ac37f30d6261e2b87a5216675e6de9efc83c3406bfa2a3d6fb2d83e3",
+      "externalValidationSha256": "d25f5ed333e70fad4f312c5e4763e7c991cb45faaa0d539660b2f688ad1baee0",
+      "wisePaper": "https://arxiv.org/abs/2404.02339",
+      "wiseTable": "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/168/19?format=html&tex=true",
+      "allWiseDocumentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/faq.html",
+      "sparcArchive": "https://astroweb.cwru.edu/SPARC/"
+    },
+    "limitations": [
+      "AllWISE Atlas pixels support local-background relative photometry, not absolute sky surface brightness.",
+      "The ellipse uses the catalogued SIMBAD geometry; spatially varying SPARC isophotal geometry is not available in the public profile table.",
+      "Automated annular clipping is not a substitute for expert manual masking of every foreground-star wing.",
+      "Block-bootstrap trials approximate correlated background/confusion using accepted local sky boxes.",
+      "A failed gate is a statement about this automated transfer, not evidence that WISE, Spitzer, SPARC, or the galaxy is wrong."
+    ]
+  }
+}

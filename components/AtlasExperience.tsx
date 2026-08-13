@@ -33,29 +33,41 @@ function linePath(points: Array<{ x: number; y: number }>) {
   return points.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(" ");
 }
 
-function ProfileChart({ profile, kind }: { profile: SparcProfile; kind: "photometry" | "rotation" }) {
+function ProfileChart({ profile, kind, comparison }: { profile: SparcProfile; kind: "photometry" | "rotation"; comparison?: Comparison }) {
   const width = 680;
   const height = 280;
   const padding = { left: 54, right: 18, top: 18, bottom: 42 };
   if (kind === "photometry") {
     const data = profile.surfaceBrightness;
-    const maxX = Math.max(...data.map((point) => point.radiusArcsec));
-    const minY = Math.floor(Math.min(...data.map((point) => point.surfaceBrightnessMagArcsec2)));
-    const maxY = Math.ceil(Math.max(...data.map((point) => point.surfaceBrightnessMagArcsec2)));
+    const wiseData = comparison?.status === "published" ? comparison.radialSeries ?? [] : [];
+    const maxX = Math.max(...data.map((point) => point.radiusArcsec), ...wiseData.map((point) => point.radiusArcsec));
+    const yValues = [
+      ...data.map((point) => point.surfaceBrightnessMagArcsec2),
+      ...wiseData.map((point) => point.wiseSurfaceBrightnessMagArcsec2),
+    ];
+    const minY = Math.floor(Math.min(...yValues));
+    const maxY = Math.ceil(Math.max(...yValues));
     const points = data.map((point) => ({
       x: padding.left + point.radiusArcsec / maxX * (width - padding.left - padding.right),
       y: padding.top + (point.surfaceBrightnessMagArcsec2 - minY) / Math.max(maxY - minY, 1) * (height - padding.top - padding.bottom),
       source: point,
     }));
-    return <div className="profile-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`SPARC 3.6 micron surface brightness for ${profile.sparcId}`}>
+    const wisePoints = wiseData.map((point) => ({
+      x: padding.left + point.radiusArcsec / maxX * (width - padding.left - padding.right),
+      y: padding.top + (point.wiseSurfaceBrightnessMagArcsec2 - minY) / Math.max(maxY - minY, 1) * (height - padding.top - padding.bottom),
+      source: point,
+    }));
+    return <div className="profile-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`${wisePoints.length > 1 ? "WISE W1 and " : ""}SPARC 3.6 micron surface brightness for ${profile.sparcId}`}>
       <path className="chart-axis" d={`M${padding.left},${padding.top}V${height - padding.bottom}H${width - padding.right}`} />
       <path className="profile-line photometry-line" d={linePath(points)} />
+      {wisePoints.length > 1 && <path className="profile-line wise-photometry-line" d={linePath(wisePoints)} />}
       {points.map((point, index) => <circle key={index} className={point.source.accepted ? "accepted-point" : "rejected-point"} cx={point.x} cy={point.y} r={point.source.accepted ? 2.7 : 2.1}><title>{point.source.radiusArcsec.toFixed(1)} arcsec: {point.source.surfaceBrightnessMagArcsec2.toFixed(2)}{point.source.uncertaintyMag === null ? "" : ` ± ${point.source.uncertaintyMag.toFixed(2)}`} mag/arcsec²</title></circle>)}
+      {wisePoints.map((point, index) => <circle key={`wise-${index}`} className="wise-profile-point" cx={point.x} cy={point.y} r="2.2"><title>{point.source.radiusArcsec.toFixed(1)} arcsec: W1 {point.source.wiseSurfaceBrightnessMagArcsec2.toFixed(2)} ± {point.source.wiseUncertaintyMag.toFixed(2)} mag/arcsec²</title></circle>)}
       <text className="chart-label" x={width / 2} y={height - 8}>Radius (arcsec)</text>
       <text className="chart-label" transform={`translate(13 ${height / 2}) rotate(-90)`}>3.6 µm surface brightness (mag/arcsec²)</text>
       <text className="chart-tick" x={padding.left} y={height - 24}>0</text><text className="chart-tick" x={width - padding.right} y={height - 24} textAnchor="end">{maxX.toFixed(0)}</text>
       <text className="chart-tick" x={padding.left - 8} y={padding.top + 4} textAnchor="end">{minY}</text><text className="chart-tick" x={padding.left - 8} y={height - padding.bottom} textAnchor="end">{maxY}</text>
-    </svg><span className="chart-orientation">Brighter ↑</span></div>;
+    </svg><span className="chart-orientation">Brighter ↑</span>{wisePoints.length > 1 && <div className="photometry-series"><span className="sparc-photometry-key">SPARC 3.6 µm</span><span className="wise-photometry-key">WISE W1</span></div>}</div>;
   }
   const data = profile.rotationCurve;
   const maxX = Math.max(...data.map((point) => point.radiusKpc));
@@ -94,6 +106,26 @@ function MassComparisonCard({ comparison }: { comparison: Comparison }) {
   </section>;
 }
 
+function WiseSparcTransferCard({ comparison }: { comparison: Comparison }) {
+  const summary = comparison.transferSummary;
+  if (!summary) return null;
+  const aperture = comparison.measurements[0];
+  const structure = comparison.measurements[1];
+  const passing = comparison.status === "published";
+  return <section className={`wise-transfer-card ${passing ? "published" : "qa-failed"}`}>
+    <div className="mass-card-heading"><div><span className="eyebrow">WISE W1 ↔ SPARC 3.6 µm TRANSFER</span><h3>{passing ? "Validated relative light and structure" : "Result withheld by QA"}</h3></div><span className={`transfer-status ${passing ? "pass" : "failed"}`}>{passing ? "PUBLISHED" : "QA FAILED"}</span></div>
+    {passing && aperture ? <div className="transfer-measurements">
+      <span><small>MATCHED APERTURE</small><strong>{summary.apertureRadiusArcsec.toFixed(1)}″</strong><em>SPARC 23 mag/arcsec² isophote</em></span>
+      <span><small>W1 − [3.6]</small><strong>{aperture.value > 0 ? "+" : ""}{aperture.value.toFixed(3)} mag</strong><em>±{aperture.statisticalUncertainty.toFixed(3)} stat · ±{aperture.systematicUncertainty.toFixed(3)} sys</em></span>
+      <span><small>OUTER SCALE RATIO</small><strong>{structure ? `${structure.value > 0 ? "+" : ""}${structure.value.toFixed(3)} dex` : "—"}</strong><em>{structure ? `${structure.significanceSigma.toFixed(2)}σ from equal scale` : "not supported"}</em></span>
+      <span><small>EXPECTED?</small><strong>{aperture.classification.toUpperCase()}</strong><em>{aperture.significanceSigma.toFixed(2)}σ from the control cohort</em></span>
+    </div> : <div className="transfer-failure"><strong>Failed publication gates</strong><span>{summary.failedGates.map((gate) => gate.replace(/([A-Z])/g, " $1").toLowerCase()).join(" · ")}</span></div>}
+    <div className="transfer-evidence"><span>{summary.retainedSkyBoxes} local sky boxes</span><span>{summary.qualifiedRadialBins} qualified radial bins</span><span>Injection/null {summary.injectionRecoveryPass ? "pass" : "failed"}</span><span>Profile scatter {summary.profileResidualScatterMag.toFixed(3)} mag</span></div>
+    <p><strong>Mass inference blocked:</strong> {summary.massInferenceReason}</p>
+    <a href={comparison.products?.qaPackage}>Download measurements, radial bins, gates, and provenance ↗</a>
+  </section>;
+}
+
 function SparcProfileViewport({ target, profile, companionLayer, comparison }: { target: LayerTarget; profile?: SparcProfile; companionLayer?: Layer; comparison?: Comparison }) {
   const [chart, setChart] = useState<"photometry" | "rotation">("photometry");
   if (!profile) return <div className="layers-viewport blocked-viewport"><div className="viewport-message"><span className="eyebrow">PROFILE DATA UNAVAILABLE</span><h3>No SPARC record was loaded for {target.name}.</h3></div></div>;
@@ -101,9 +133,10 @@ function SparcProfileViewport({ target, profile, companionLayer, comparison }: {
     <div className="profile-view-heading"><div><span className="eyebrow">PUBLISHED NON-IMAGE LAYER</span><h3>{profile.sparcId} · SPARC 2016</h3><p>Radial photometry and dynamical measurements retain their physical axes; they are linked to the same target rather than converted into fake pixels.</p></div><div className="profile-view-tabs"><button className={chart === "photometry" ? "active" : ""} onClick={() => setChart("photometry")}>Surface brightness</button><button className={chart === "rotation" ? "active" : ""} onClick={() => setChart("rotation")}>Rotation curve</button></div></div>
     <div className={companionLayer?.assets?.preview ? "linked-profile-layout" : undefined}>
       {companionLayer?.assets?.preview && <figure className="linked-layer-image"><img src={companionLayer.assets.preview} alt={`${target.name}, ${companionLayer.survey} ${companionLayer.bands.join(" ")}`} /><figcaption><strong>{companionLayer.survey} · {companionLayer.bands.join(" ")}</strong><span>Authentic image layer · display stretch</span><small>{companionLayer.note}</small></figcaption></figure>}
-      <ProfileChart profile={profile} kind={chart} />
+      <ProfileChart profile={profile} kind={chart} comparison={comparison} />
     </div>
     {companionLayer?.kind === "catalog" && comparison?.comparisonMode === "catalog-profile" && <MassComparisonCard comparison={comparison} />}
+    {companionLayer?.id === "wise-allwise-atlas" && comparison?.transferSummary && <WiseSparcTransferCard comparison={comparison} />}
     <div className="profile-facts"><span><small>DISTANCE</small><strong>{profile.distanceMpc?.toFixed(1) ?? "—"} Mpc</strong></span><span><small>ACCEPTED PHOTOMETRY</small><strong>{profile.summary.acceptedPhotometryPoints} points</strong></span><span><small>ACCEPTED EXTENT</small><strong>{profile.summary.maximumAcceptedRadiusArcsec.toFixed(1)}″</strong></span><span><small>ROTATION CURVE</small><strong>{profile.summary.rotationCurvePoints} points · {profile.summary.maximumRotationRadiusKpc.toFixed(1)} kpc</strong></span></div>
     <div className="profile-provenance"><span>Source: Lelli, McGaugh & Schombert (2016), AJ 152, 157</span><a href="https://astroweb.cwru.edu/SPARC/" target="_blank" rel="noreferrer">Official SPARC archive ↗</a></div>
   </div>;
@@ -188,6 +221,7 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
   if ((swipeable && comparison) || authenticQaViewer) {
     const showSwipe = view === "evidence" || view === "swipe";
     const leftIsRubin = left.id === "rubin-dp2-deep-coadd";
+    const referenceLayer = leftIsRubin ? right : left;
     const leftImage = preview ? (leftIsRubin ? preview.assets.rubin.path : preview.assets.reference.path) : left.assets?.preview;
     const rightImage = preview ? (leftIsRubin ? preview.assets.reference.path : preview.assets.rubin.path) : right.assets?.preview;
     return (
@@ -202,6 +236,7 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
         </> : <div className="qa-pixel-fallback"><span className="eyebrow">AUTHENTIC PIXELS REQUIRE DATA ACCESS</span><h3>The interactive controls are ready; this public host does not redistribute the protected DP2 cutout.</h3><p>Open the private Layers deployment or run the repository locally with the downloaded Rubin and Legacy assets.</p><Link href="/prototype">Open the documented real-pixel analysis</Link></div>}
         {showSwipe && <><span className="viewport-label label-left">{left.survey}</span>
         <span className="viewport-label label-right">{right.survey}</span>
+        <span className="swipe-mask-legend"><i className="rubin-mask-swatch" /> Rubin masked <i className="reference-mask-swatch" /> {referenceLayer.survey} masked</span>
         <span className="reveal-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
         <input
           type="range"

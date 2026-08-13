@@ -27,6 +27,14 @@ NANOMAGGY_TO_NJY = 3630.780547701
 ASTROMETRY_THRESHOLD_ARCSEC = 0.30
 
 
+def stable_created_at(path: Path) -> str:
+    if path.is_file():
+        existing = json.loads(path.read_text(encoding="utf-8")).get("createdAt")
+        if existing:
+            return existing
+    return datetime.now(timezone.utc).isoformat()
+
+
 def robust_sigma(values: np.ndarray) -> float:
     values = values[np.isfinite(values)]
     if not values.size:
@@ -219,11 +227,14 @@ def audit_candidate(root: Path, args: argparse.Namespace, coverage: dict, slug: 
         if corrected_astrometry:
             astrometry = {**corrected_astrometry, "uncorrectedSourceRegistration": astrometry}
     measured_residual = astrometry.get("residualP95Arcsec")
+    output_dir = args.output / comparison_key
+    output_dir.mkdir(parents=True, exist_ok=True)
+    audit_output = output_dir / "registration-audit.json"
     qa = {
         "schemaVersion": 1,
         "objectId": slug,
         "comparisonKey": comparison_key,
-        "createdAt": datetime.now(timezone.utc).isoformat(),
+        "createdAt": stable_created_at(audit_output),
         "layerIds": ["rubin-dp2-deep-coadd", candidate["layerId"]],
         "comparisonLayerLabel": candidate["label"],
         "status": "qa",
@@ -251,9 +262,7 @@ def audit_candidate(root: Path, args: argparse.Namespace, coverage: dict, slug: 
             f"Rubin and {candidate['label']} nominal bandpasses are not identical; no color transformation has been applied.",
         ],
     }
-    output_dir = args.output / comparison_key
-    output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "registration-audit.json").write_text(json.dumps(qa, indent=2), encoding="utf-8")
+    audit_output.write_text(json.dumps(qa, indent=2), encoding="utf-8")
     print(f"[{target['sparc_id']}] {candidate['label']} {band}: {astrometry.get('matchedSources', 0)} sources, p95={measured_residual}")
     return qa
 

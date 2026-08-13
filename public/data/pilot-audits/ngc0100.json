@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T08:11:04.615807+00:00",
+  "generatedAt": "2026-08-13T17:07:08.635147+00:00",
   "target": {
     "id": "ngc0100",
     "name": "NGC0100",
@@ -117,7 +117,7 @@
       "hasVariance": true,
       "hasMask": true,
       "hasWcs": true,
-      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The extended-source transfer remains QA-only because one or more radial-profile gates failed; no light or mass difference is published.",
       "provenance": {
         "service": "IRSA SIAv2 + IBE FITS cutout service",
         "collection": "wise_allwise",

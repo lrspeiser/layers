@@ -111,7 +111,11 @@ def main() -> None:
     if len(wise_rows) != 111:
         raise SystemExit(f"Expected 111 published WISE rows, found {len(wise_rows)}")
 
-    created_at = datetime.now(timezone.utc).isoformat()
+    summary_path = args.public_output / "summary.json"
+    created_at = (
+        json.loads(summary_path.read_text(encoding="utf-8")).get("createdAt")
+        if summary_path.is_file() else datetime.now(timezone.utc).isoformat()
+    )
     wise_sha = sha256(args.wise)
     sparc_sha = sha256(args.sparc)
     targets = []
@@ -314,7 +318,7 @@ def main() -> None:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    (args.public_output / "summary.json").write_text(json.dumps({key: value for key, value in manifest.items() if key != "targets"}, indent=2), encoding="utf-8")
+    summary_path.write_text(json.dumps({key: value for key, value in manifest.items() if key != "targets"}, indent=2), encoding="utf-8")
     print(f"Built {len(targets)} WISE–SPARC stellar-mass comparisons: {categories}; Rubin pilots with measurements={pilot_matches}")
 
 
