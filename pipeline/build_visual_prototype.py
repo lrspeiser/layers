@@ -17,7 +17,7 @@ import numpy as np
 from astropy.io import fits
 from astropy.stats import sigma_clipped_stats
 from PIL import Image
-from scipy.ndimage import binary_erosion, gaussian_filter
+from scipy.ndimage import binary_erosion, gaussian_filter, label
 
 LEGACY_NANOMAGGY_TO_NJY = 3630.780547701
 
@@ -130,13 +130,100 @@ def invalid_pixel_overlay(path: Path, valid: np.ndarray) -> None:
     Image.fromarray(rgba, mode="RGBA").save(path, optimize=True)
 
 
+def coverage_difference_overlay(path: Path, rubin_valid: np.ndarray, comparison_valid: np.ndarray) -> None:
+    """Show exact, non-photometric coverage differences between two layers."""
+    rubin_only = rubin_valid & ~comparison_valid
+    comparison_only = comparison_valid & ~rubin_valid
+    rgba = np.zeros((*rubin_valid.shape, 4), dtype=np.uint8)
+    rgba[rubin_only] = [239, 72, 83, 205]
+    rgba[comparison_only] = [66, 139, 255, 205]
+    Image.fromarray(rgba, mode="RGBA").save(path, optimize=True)
+
+
+def candidate_difference_overlay(
+    path: Path,
+    matched_pair: Path,
+    zeropoint_offset_mag: float,
+) -> tuple[list[dict], dict]:
+    """Render empirical-significance candidates, explicitly not science claims.
+
+    The stellar zeropoint offset is applied globally, then the residual is
+    smoothed and standardized by the robust scatter measured in the outer
+    field.  This deliberately avoids claiming independent-pixel Gaussian
+    significance after resampling and PSF convolution.
+    """
+    with fits.open(matched_pair, memmap=False) as hdus:
+        rubin = np.asarray(hdus["RUBIN"].data, dtype=np.float64)
+        comparison = np.asarray(hdus["COMPARISON"].data, dtype=np.float64)
+        common = np.asarray(hdus["COMMON_MASK"].data, dtype=bool)
+
+    comparison_scale = 10 ** (-0.4 * zeropoint_offset_mag)
+    residual = rubin - comparison * comparison_scale
+    weight = gaussian_filter(common.astype(np.float32), sigma=3.0)
+    smooth = np.divide(
+        gaussian_filter(np.where(common, residual, 0.0), sigma=3.0),
+        weight,
+        out=np.zeros_like(residual),
+        where=weight > 0.98,
+    )
+    height, width = residual.shape
+    yy, xx = np.indices(residual.shape)
+    outer = common & (weight > 0.98) & (np.hypot(xx - width / 2, yy - height / 2) > width * 0.22)
+    center = float(np.median(smooth[outer]))
+    scatter = float(1.4826 * np.median(np.abs(smooth[outer] - center)))
+    score = np.divide(smooth - center, scatter, out=np.zeros_like(smooth), where=scatter > 0)
+    candidate = common & (weight > 0.98) & (np.abs(score) >= 4.0)
+
+    rgba = np.zeros((*common.shape, 4), dtype=np.uint8)
+    strength = np.uint8(np.clip((np.abs(score) - 4.0) / 5.0, 0, 1) * 145 + 80)
+    positive = candidate & (score > 0)
+    negative = candidate & (score < 0)
+    rgba[positive, :3] = [239, 72, 83]
+    rgba[negative, :3] = [66, 139, 255]
+    rgba[candidate, 3] = strength[candidate]
+
+    components, count = label(candidate)
+    regions = []
+    for component_id in range(1, count + 1):
+        component = components == component_id
+        pixel_count = int(component.sum())
+        if pixel_count < 24:
+            continue
+        component_scores = score[component]
+        peak_index = int(np.argmax(np.abs(component_scores)))
+        y_values, x_values = np.nonzero(component)
+        peak_score = float(component_scores[peak_index])
+        regions.append(
+            {
+                "id": f"candidate-{component_id}",
+                "xPercent": float(x_values[peak_index] / (width - 1) * 100),
+                "yPercent": float(y_values[peak_index] / (height - 1) * 100),
+                "pixelCount": pixel_count,
+                "peakEmpiricalSigma": peak_score,
+                "direction": "rubin-excess" if peak_score > 0 else "comparison-excess",
+            }
+        )
+    regions.sort(key=lambda item: abs(item["peakEmpiricalSigma"]), reverse=True)
+    regions = regions[:8]
+    Image.fromarray(rgba, mode="RGBA").save(path, optimize=True)
+    return regions, {
+        "thresholdEmpiricalSigma": 4.0,
+        "outerFieldRobustScatterNjy": scatter,
+        "stellarZeropointOffsetMag": zeropoint_offset_mag,
+        "comparisonFluxScale": comparison_scale,
+        "interpretation": "candidate QA residuals only; extended-source filter transfer and injection/recovery pending",
+    }
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", default="ugc00191")
     parser.add_argument("--rubin-root", type=Path, default=root / "pipeline" / "output" / "dp2-sparc")
     parser.add_argument("--legacy-root", type=Path, default=root / "pipeline" / "output" / "legacy-survey")
+    parser.add_argument("--comparison-root", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--output", type=Path, default=root / "public" / "private-preview")
+    parser.add_argument("--public-data", type=Path, default=root / "public" / "data" / "prototype-science.json")
     args = parser.parse_args()
 
     output_dir = args.output / args.target
@@ -161,6 +248,19 @@ def main() -> None:
     invalid_pixel_overlay(output_dir / "legacy-mask.png", legacy_valid)
     invalid_pixel_overlay(output_dir / "rubin-z-mask.png", rubin_planes["z"][1])
     invalid_pixel_overlay(output_dir / "legacy-z-mask.png", legacy_planes["z"][1])
+    coverage_difference_overlay(
+        output_dir / "coverage-difference.png",
+        rubin_planes["z"][1],
+        legacy_planes["z"][1],
+    )
+    filter_audit = json.loads(
+        (args.comparison_root / args.target / "filter-response-audit.json").read_text(encoding="utf-8")
+    )
+    candidate_regions, difference_method = candidate_difference_overlay(
+        output_dir / "candidate-difference.png",
+        args.comparison_root / args.target / "matched-pair.fits",
+        float(filter_audit["model"]["interceptMag"]),
+    )
 
     manifest = {
         "schemaVersion": 1,
@@ -182,10 +282,27 @@ def main() -> None:
             "legacyMask": "legacy-mask.png",
             "rubinZMask": "rubin-z-mask.png",
             "legacyZMask": "legacy-z-mask.png",
+            "coverageDifference": "coverage-difference.png",
+            "candidateDifference": "candidate-difference.png",
         },
+        "candidateRegions": candidate_regions,
+        "differenceMethod": difference_method,
         "notice": "Display stretches only. Original calibrated FITS products remain the analysis inputs.",
     }
     (output_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    args.public_data.parent.mkdir(parents=True, exist_ok=True)
+    args.public_data.write_text(
+        json.dumps(
+            {
+                "schemaVersion": 1,
+                "target": args.target,
+                "candidateRegions": candidate_regions,
+                "differenceMethod": difference_method,
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     print(json.dumps(manifest, indent=2))
 
 

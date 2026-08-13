@@ -10,6 +10,24 @@ type PrototypeQa = {
   matchedSources: number;
 };
 
+type CandidateRegion = {
+  id: string;
+  xPercent: number;
+  yPercent: number;
+  pixelCount: number;
+  peakEmpiricalSigma: number;
+  direction: "rubin-excess" | "comparison-excess";
+};
+
+type PrototypeScience = {
+  candidateRegions: CandidateRegion[];
+  differenceMethod: {
+    thresholdEmpiricalSigma: number;
+    outerFieldRobustScatterNjy: number;
+    stellarZeropointOffsetMag: number;
+  };
+};
+
 type DragState = { pointerId: number; x: number; y: number; panX: number; panY: number } | null;
 
 const MIN_ZOOM = 1;
@@ -19,7 +37,7 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
-export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
+export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: PrototypeScience }) {
   const [mode, setMode] = useState<"overview" | "compare">("overview");
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
@@ -27,6 +45,8 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
   const [showCoverage, setShowCoverage] = useState(true);
   const [showMasks, setShowMasks] = useState(true);
   const [showInspector, setShowInspector] = useState(true);
+  const [analysisLayer, setAnalysisLayer] = useState<"swipe" | "coverage" | "candidates">("swipe");
+  const [selectedCandidate, setSelectedCandidate] = useState<CandidateRegion | null>(null);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const drag = useRef<DragState>(null);
 
@@ -40,6 +60,11 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
     setMode("compare");
     setZoom(4.6);
     setPan({ x: 0, y: 0 });
+  };
+
+  const selectAnalysisLayer = (next: "swipe" | "coverage" | "candidates") => {
+    setAnalysisLayer(next);
+    setSelectedCandidate(null);
   };
 
   const showFullField = () => {
@@ -100,13 +125,18 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <button className={mode === "overview" ? "active" : ""} onClick={showFullField}>Full Rubin field</button>
               <button className={mode === "compare" ? "active" : ""} onClick={focusTarget}>Aligned comparison</button>
             </div>
+            {mode === "compare" && <div className="analysis-layer-tabs" role="group" aria-label="Analysis layer">
+              <button className={analysisLayer === "swipe" ? "active" : ""} onClick={() => selectAnalysisLayer("swipe")}>Swipe</button>
+              <button className={analysisLayer === "coverage" ? "active" : ""} onClick={() => selectAnalysisLayer("coverage")}>Coverage diff</button>
+              <button className={analysisLayer === "candidates" ? "active" : ""} onClick={() => selectAnalysisLayer("candidates")}>Signal candidates</button>
+            </div>}
             <div className="field-tools">
               {mode === "overview" ? <>
                 <label className="coverage-toggle"><input type="checkbox" checked={showCoverage} onChange={(event) => setShowCoverage(event.target.checked)} /><i /> Legacy footprint</label>
                 <button onClick={() => setZoomLevel(zoom / 1.45)} aria-label="Zoom out">−</button>
                 <button className="zoom-readout" onClick={showFullField} aria-label="Reset zoom">{zoom.toFixed(1)}×</button>
                 <button onClick={() => setZoomLevel(zoom * 1.45)} aria-label="Zoom in">+</button>
-              </> : <span className="comparison-lock">VIEW LOCKED · DRAG REVEAL ONLY</span>}
+              </> : <span className="comparison-lock">VIEW LOCKED · {analysisLayer === "swipe" ? "DRAG REVEAL ONLY" : "ANALYSIS OVERLAY"}</span>}
             </div>
           </div>
 
@@ -129,12 +159,17 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
             <div className="field-transform" style={transformStyle}>
               {mode === "compare" && <>
                 <img className="field-image" src="/private-preview/ugc00191/legacy-dr10-z.jpg" alt="UGC 00191 in Legacy Survey DR10 z band" onError={() => setPixelsAvailable(false)} draggable={false} />
-                {showMasks && <img className="quality-mask" src="/private-preview/ugc00191/legacy-z-mask.png" alt="Legacy Survey masked or missing pixels" draggable={false} />}
+                {analysisLayer === "swipe" && showMasks && <img className="quality-mask" src="/private-preview/ugc00191/legacy-z-mask.png" alt="Legacy Survey masked or missing pixels" draggable={false} />}
               </>}
-              <div className={mode === "compare" ? "rubin-reveal" : "rubin-full"} style={mode === "compare" ? { clipPath: `inset(0 ${100 - reveal}% 0 0)` } : undefined}>
+              <div className={mode === "compare" ? "rubin-reveal" : "rubin-full"} style={mode === "compare" && analysisLayer === "swipe" ? { clipPath: `inset(0 ${100 - reveal}% 0 0)` } : undefined}>
                 <img className="field-image" src={mode === "compare" ? "/private-preview/ugc00191/rubin-dp2-z.jpg" : "/private-preview/ugc00191/rubin-dp2.jpg"} alt={mode === "compare" ? "UGC 00191 in Rubin DP2 z band" : "UGC 00191 in Rubin DP2"} onError={() => setPixelsAvailable(false)} draggable={false} />
-                {showMasks && <img className="quality-mask" src={mode === "compare" ? "/private-preview/ugc00191/rubin-z-mask.png" : "/private-preview/ugc00191/rubin-mask.png"} alt="Rubin masked or missing pixels" draggable={false} />}
+                {(mode !== "compare" || analysisLayer === "swipe") && showMasks && <img className="quality-mask" src={mode === "compare" ? "/private-preview/ugc00191/rubin-z-mask.png" : "/private-preview/ugc00191/rubin-mask.png"} alt="Rubin masked or missing pixels" draggable={false} />}
               </div>
+              {mode === "compare" && analysisLayer === "coverage" && <img className="science-difference-overlay" src="/private-preview/ugc00191/coverage-difference.png" alt="Red Rubin-only and blue Legacy-only valid-pixel coverage" draggable={false} />}
+              {mode === "compare" && analysisLayer === "candidates" && <>
+                <img className="science-difference-overlay" src="/private-preview/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical residual candidates" draggable={false} />
+                {science.candidateRegions.map((candidate, index) => <button className={`difference-pin direction-${candidate.direction}`} key={candidate.id} style={{ left: `${candidate.xPercent}%`, top: `${candidate.yPercent}%` }} onClick={() => setSelectedCandidate(candidate)} aria-label={`Inspect candidate ${index + 1}`}>{index + 1}</button>)}
+              </>}
               {showCoverage && mode === "overview" && <img className="coverage-footprint" src="/private-preview/ugc00191/legacy-coverage.png" alt="Legacy Survey valid-pixel footprint" draggable={false} />}
               {mode === "overview" && <span className="science-region" aria-hidden="true"><i>SPARC 1.27′ region</i></span>}
               <button className="overlap-pin" onClick={focusTarget} aria-label="Zoom to UGC 00191 overlap">
@@ -146,18 +181,21 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <div className="overview-caption"><span><i /> Legacy valid-pixel footprint · <b /> amber hatch = masked Rubin pixels</span><strong>Click the pin to inspect the overlap</strong></div>
             ) : (
               <>
-                <span className="image-label image-label-left">RUBIN DP2 · z</span>
+                {analysisLayer === "swipe" && <><span className="image-label image-label-left">RUBIN DP2 · z</span>
                 <span className="image-label image-label-right">LEGACY DR10 · z</span>
                 <span className="compare-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
                 <input className="compare-slider" type="range" min="2" max="98" value={reveal} onChange={(event) => setReveal(Number(event.target.value))} aria-label="Reveal Rubin DP2 over Legacy DR10" />
-                <label className="mask-toggle"><input type="checkbox" checked={showMasks} onChange={(event) => setShowMasks(event.target.checked)} /> show data-quality masks</label>
+                <label className="mask-toggle"><input type="checkbox" checked={showMasks} onChange={(event) => setShowMasks(event.target.checked)} /> show data-quality masks</label></>}
+                {analysisLayer === "coverage" && <div className="difference-legend"><strong>COVERAGE</strong><span className="legend-red">Rubin valid / Legacy missing</span><span className="legend-blue">Legacy valid / Rubin missing</span><small>Exact mask comparison · not a brightness claim</small></div>}
+                {analysisLayer === "candidates" && <div className="difference-legend"><strong>EMPIRICAL SIGNAL CANDIDATES</strong><span className="legend-red">Rubin excess</span><span className="legend-blue">Legacy excess</span><small>≥ {science.differenceMethod.thresholdEmpiricalSigma.toFixed(0)}σ-like outer-field residual · click a numbered region</small></div>}
+                {selectedCandidate && <div className="candidate-popover"><button onClick={() => setSelectedCandidate(null)} aria-label="Close candidate">×</button><strong>{selectedCandidate.direction === "rubin-excess" ? "RUBIN-EXCESS CANDIDATE" : "LEGACY-EXCESS CANDIDATE"}</strong><span>{Math.abs(selectedCandidate.peakEmpiricalSigma) > 99 ? ">99" : Math.abs(selectedCandidate.peakEmpiricalSigma).toFixed(1)}σ-like peak · {selectedCandidate.pixelCount} connected pixels</span><p>This is a place to inspect, not a discovery. Variable sources, residual PSF shape, filter response, masking, or diffuse light can all produce it.</p></div>}
                 <button className="data-inspector-toggle" onClick={() => setShowInspector((value) => !value)}>{showInspector ? "HIDE" : "SHOW"} DATA INSPECTOR</button>
-                <span className="visual-qa-chip">LOCKED VIEW · SHARED FLUX STRETCH · PSF + FILTER MATCH PENDING</span>
+                <span className="visual-qa-chip">LOCKED VIEW · FLUX-CONSERVING GRID · EXTENDED-SOURCE QA PENDING</span>
               </>
             )}
           </div>
           <div className="field-bottomline">
-            <span>{mode === "compare" ? "Drag horizontally to reveal · field position locked" : "Scroll or use + / − to zoom · drag while zoomed"}</span>
+            <span>{mode === "compare" ? analysisLayer === "swipe" ? "Drag horizontally to reveal · field position locked" : "Analysis overlay · field position locked" : "Scroll or use + / − to zoom · drag while zoomed"}</span>
             <span>North up · east left</span>
             <span>Display stretch; calibrated FITS drive analysis</span>
           </div>
@@ -182,19 +220,19 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <div className="better-head" role="row"><span>DIMENSION</span><strong>RUBIN DP2 z</strong><strong>LEGACY DR10 z</strong></div>
               <div role="row"><span>Valid field</span><strong>96.2%</strong><strong className="dimension-winner">99.6% ↑</strong></div>
               <div role="row"><span>Bands here</span><strong className="dimension-winner">g · r · i · z ↑</strong><strong>g · r · z</strong></div>
-              <div role="row"><span>Median pixel noise*</span><strong className="dimension-winner">34.7 nJy ↑</strong><strong>38.1 nJy</strong></div>
+              <div role="row"><span>Median formal pixel noise*</span><strong>139.0 nJy</strong><strong className="dimension-winner">88.8 nJy ↑</strong></div>
               <div role="row"><span>Measured FWHM</span><strong>2.06″</strong><strong className="dimension-winner">2.03″ ↑</strong></div>
               <div role="row"><span>Native support</span><strong>image · variance · mask</strong><strong>image · inverse variance · mask</strong></div>
             </div>
-            <p className="scorecard-note">*Lower formal per-pixel uncertainty is better here. Rubin is about 9% lower in this field; Legacy covers 3.4 percentage points more area. The measured resolution is effectively tied before formal PSF matching.</p>
-            <div className="provisional-verdict"><strong>PROVISIONAL READ</strong><p>Rubin carries an extra usable band and slightly lower formal z-band noise. Legacy is more spatially complete. Neither is yet allowed to win on faint outer light because filter response, correlated noise, PSF wings, and injection/recovery are still unresolved.</p></div>
+            <p className="scorecard-note">*After flux-conserving resampling to 0.4″ pixels. Lower is better, but interpolation covariance means this is not yet a point-source or surface-brightness depth measurement. The measured resolution is effectively tied.</p>
+            <div className="provisional-verdict"><strong>PROVISIONAL READ</strong><p>Rubin carries an extra usable band; Legacy is more spatially complete and has lower formal z-band pixel noise here. Neither wins on faint outer light until correlated noise, PSF wings, extended-source color transfer, and injection/recovery are measured.</p></div>
           </section>}
 
           <section className="prototype-panel overlap-panel">
             <div className="panel-heading"><span className="eyebrow">OVERLAP FOUND</span><span className="qa-pass-dot">ASTROMETRY PASS</span></div>
             <h1>One sky position.<br />Three useful layers.</h1>
             <div className="layer-stack-mini">
-              <span><i className="rubin-color" /><strong>Rubin DP2</strong><small>deeper optical image</small></span>
+              <span><i className="rubin-color" /><strong>Rubin DP2</strong><small>four-band optical image</small></span>
               <span><i className="legacy-color" /><strong>Legacy DR10</strong><small>reference image</small></span>
               <span><i className="sparc-color" /><strong>SPARC</strong><small>rotation + mass profile</small></span>
             </div>
@@ -216,7 +254,8 @@ export function RealFieldPrototype({ qa }: { qa: PrototypeQa }) {
               <li className="done"><i>✓</i><span><strong>Common sky grid</strong><small>same 12′ WCS and pixels</small></span></li>
               <li className="done"><i>✓</i><span><strong>Astrometry</strong><small>below declared threshold</small></span></li>
               <li className="done"><i>✓</i><span><strong>PSF + sky intermediate</strong><small>matched FITS pair; ~1.3% FWHM difference</small></span></li>
-              <li><i>4</i><span><strong>Filter + recovery tests</strong><small>required before a missing-light claim</small></span></li>
+              <li className="done"><i>✓</i><span><strong>Held-out stellar color term</strong><small>122 stars · 0.040 mag validation RMS</small></span></li>
+              <li><i>5</i><span><strong>Extended-source + recovery tests</strong><small>required before a missing-light claim</small></span></li>
             </ol>
           </section>
 

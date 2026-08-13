@@ -163,6 +163,7 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     reconciliation_registration = reconciliation.get("registration", {}) if reconciliation else {}
     reconciliation_psf = reconciliation.get("psf", {}) if reconciliation else {}
     reconciliation_sky = reconciliation.get("sky", {}) if reconciliation else {}
+    reconciliation_filter = reconciliation.get("filterResponse", {}) if reconciliation else {}
     matched_product = reconciliation.get("products", {}) if reconciliation else {}
     effective_status = reconciliation.get("status") if reconciliation else "audit-only"
     return {
@@ -176,7 +177,7 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "psfMatched": reconciliation_psf.get("matched", audit.get("psfMatched", False)),
             "skyMatched": reconciliation_sky.get("matched", audit.get("skyMatched", False)),
             "unitsMatched": audit.get("unitsMatched", False),
-            "filterMatched": audit.get("filterMatched", False),
+            "filterMatched": reconciliation_filter.get("matched", audit.get("filterMatched", False)),
             "filterTransform": audit.get("filterTransform"),
             "maxResidualArcsec": residual,
             "qaThresholdArcsec": threshold,
@@ -196,6 +197,9 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "postMatchAstrometricResidualP95Arcsec": reconciliation_registration.get("sourceRegistration", {}).get("residualP95Arcsec"),
             "postMatchFractionalFwhmDifference": reconciliation_psf.get("postMatchFractionalFwhmDifference"),
             "filterMatchBlocking": bool(reconciliation and not reconciliation.get("filterResponse", {}).get("matched", False)),
+            "pointSourceCalibrationPass": reconciliation_filter.get("pointSourceCalibrationPass", False),
+            "filterHeldOutRmsMag": reconciliation_filter.get("heldOutRmsMag"),
+            "extendedSourceTransferPass": reconciliation_filter.get("extendedSourceTransferPass", False),
         },
         **({
             "products": {

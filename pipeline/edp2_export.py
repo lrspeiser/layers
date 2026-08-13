@@ -87,6 +87,11 @@ def query_patch_refs(butler: Butler, target: Target, band: str, spacing_arcmin: 
     return list(unique.values())
 
 
+def pixel_area_arcsec2(wcs: WCS) -> float:
+    matrix = wcs.pixel_scale_matrix * 3600.0
+    return float(abs(np.linalg.det(matrix)))
+
+
 def mosaic_refs(butler: Butler, refs: Iterable, target_wcs: WCS, shape: tuple[int, int]):
     weighted_sum = np.zeros(shape, dtype=np.float64)
     weight_sum = np.zeros(shape, dtype=np.float64)
@@ -94,6 +99,7 @@ def mosaic_refs(butler: Butler, refs: Iterable, target_wcs: WCS, shape: tuple[in
 
     for ref in refs:
         coadd = butler.get(ref)
+        flux_scale = pixel_area_arcsec2(target_wcs) / pixel_area_arcsec2(coadd.astropy_wcs)
         image, footprint = reproject_interp(
             (np.asarray(coadd.image.array, dtype=np.float32), coadd.astropy_wcs),
             target_wcs,
@@ -108,6 +114,8 @@ def mosaic_refs(butler: Butler, refs: Iterable, target_wcs: WCS, shape: tuple[in
             order="bilinear",
             return_footprint=True,
         )
+        image *= flux_scale
+        variance *= flux_scale**2
         mask, mask_footprint = reproject_interp(
             (np.asarray(coadd.mask.array, dtype=np.float32), coadd.astropy_wcs),
             target_wcs,
@@ -137,6 +145,7 @@ def write_fits(path: Path, science: np.ndarray, variance: np.ndarray, mask: np.n
     header["BAND"] = band
     header["RELEASE"] = "EDP2"
     header["BUNIT"] = "nJy"
+    header["FLUXCONS"] = (True, "Pixel-area flux conservation applied")
     hdus = fits.HDUList([
         fits.PrimaryHDU(),
         fits.ImageHDU(science, header=header, name="SCI"),

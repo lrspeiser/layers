@@ -72,7 +72,7 @@ Acquire Legacy Survey DR10 data on the exact Rubin target WCS:
 python pipeline/fetch_legacy_survey.py
 ```
 
-The Legacy cutout service currently caps responses at 512 pixels. The adapter therefore downloads a deterministic overlapping tile grid, retains every original FITS response and hash, and mosaics the science and inverse-variance planes locally. For the three usable Rubin targets this is 48 retained tiles.
+The Legacy cutout service currently caps responses at 512 pixels. The adapter therefore downloads a deterministic overlapping tile grid, retains every original FITS response and hash, and mosaics the science and inverse-variance planes locally. For the three usable Rubin targets this is 48 retained tiles. Because DR10 coadds store integrated nanomaggies per native 0.262-arcsec pixel, the adapter explicitly scales flux by output/native pixel area and inverse variance by the inverse square of that factor.
 
 For a Rubin field without a sufficiently covered Legacy band, acquire Pan-STARRS1:
 
@@ -99,6 +99,20 @@ python pipeline/reconcile_image_layers.py
 This stage applies the measured translational astrometric correction, subtracts independently fitted robust sky planes, convolves both images and their variance planes to a common Gaussian PSF target, erodes masks across every convolution kernel, and writes one checksum-protected multi-extension `matched-pair.fits` per passing target. The file contains both matched images, both variance planes, the common mask, and a QA-only difference plane.
 
 The stage intentionally leaves `filterResponse.matched` false and `quantitativeDifferenceAllowed` false. Similar band names are not proof of equal throughput; a documented color transformation or synthetic-photometry model, correlated-noise treatment, and injection/recovery must pass before the QA difference plane can be interpreted as missing light. A target whose astrometric residual exceeds 0.30 arcsec p95 is recorded as blocked rather than silently warped into compliance.
+
+Constrain the field-specific stellar color term with held-out stars:
+
+```bash
+python pipeline/audit_filter_response.py
+```
+
+The audit fits `Rubin z - Legacy z` as a function of Legacy `r-z`, uses five spatial cross-validation folds, bootstraps the coefficients, and enforces predeclared sample, color-span, and held-out-scatter thresholds. A pass validates point-source calibration only. Extended-source color transfer and injection/recovery remain mandatory.
+
+Every image reprojection conserves integrated flux with the target/source pixel-area ratio, while variance uses its square. Run the synthetic regression independently with:
+
+```bash
+python pipeline/test_flux_conservation.py
+```
 
 All acquired pixels, support planes, derived mosaics, manifests, and the SQLite store live under ignored `pipeline/output/`. Only metadata suitable for public release is copied into the catalog.
 

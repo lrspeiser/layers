@@ -276,6 +276,12 @@ def serialized_image_metadata(hdus: fits.HDUList) -> dict:
     }
 
 
+def pixel_area_arcsec2(wcs: WCS) -> float:
+    """Projected pixel area; image values are integrated flux per pixel."""
+    matrix = wcs.pixel_scale_matrix * 3600.0
+    return float(abs(np.linalg.det(matrix)))
+
+
 def mosaic_band(paths: list[Path], target_wcs: WCS, shape: tuple[int, int]):
     weighted_sum = np.zeros(shape, dtype=np.float64)
     weight_sum = np.zeros(shape, dtype=np.float64)
@@ -289,6 +295,7 @@ def mosaic_band(paths: list[Path], target_wcs: WCS, shape: tuple[int, int]):
             mask_hdu = hdus["MASK"]
             serialized_image_metadata(hdus)
             source_wcs = WCS(image_hdu.header)
+            flux_scale = pixel_area_arcsec2(target_wcs) / pixel_area_arcsec2(source_wcs)
             image, footprint = reproject_interp(
                 (np.asarray(image_hdu.data, dtype=np.float32), source_wcs),
                 target_wcs,
@@ -303,6 +310,11 @@ def mosaic_band(paths: list[Path], target_wcs: WCS, shape: tuple[int, int]):
                 order="bilinear",
                 return_footprint=True,
             )
+            # reproject_interp preserves pixel values.  Rubin IMAGE is nJy per
+            # pixel, so changing pixel area requires the same area scaling for
+            # integrated flux and its square for variance.
+            image *= flux_scale
+            variance *= flux_scale**2
             mask, mask_footprint = reproject_interp(
                 (np.asarray(mask_hdu.data, dtype=np.float32), WCS(mask_hdu.header)),
                 target_wcs,
@@ -341,6 +353,7 @@ def write_mosaic(path: Path, science, variance, mask, wcs: WCS, target: dict, ba
     header["RELEASE"] = "DP2"
     header["BUNIT"] = "nJy"
     header["PIXSCALE"] = abs(wcs.wcs.cdelt[0]) * 3600.0
+    header["FLUXCONS"] = (True, "Pixel-area flux conservation applied")
     fits.HDUList(
         [
             fits.PrimaryHDU(),

@@ -31,6 +31,10 @@ CUTOUT_ENDPOINT = "https://www.legacysurvey.org/viewer/fits-cutout"
 LAYER = "ls-dr10"
 BANDS = "griz"
 TILE_SIZE = 512
+# DR10 coadd bricks are sampled at 0.262 arcsec/pixel.  The viewer cutout
+# service changes its output WCS when pixscale= is requested but preserves the
+# coadd pixel values, so flux-per-output-pixel needs this explicit area factor.
+NATIVE_COADD_PIXEL_SCALE_ARCSEC = 0.262
 
 
 def sha256(path: Path) -> str:
@@ -52,6 +56,11 @@ def output_wcs(target: dict, pixel_scale_arcsec: float) -> tuple[WCS, tuple[int,
     wcs.wcs.ctype = ["RA---TAN", "DEC--TAN"]
     wcs.wcs.cunit = ["deg", "deg"]
     return wcs, (pixels, pixels)
+
+
+def pixel_area_arcsec2(wcs: WCS) -> float:
+    matrix = wcs.pixel_scale_matrix * 3600.0
+    return float(abs(np.linalg.det(matrix)))
 
 
 def tile_centers(wcs: WCS, shape: tuple[int, int]) -> list[tuple[int, int, float, float]]:
@@ -114,10 +123,15 @@ def mosaic_tiles(tile_paths: list[Path], target_wcs: WCS, shape: tuple[int, int]
             science_cube = np.asarray(hdus[0].data, dtype=np.float32)
             inverse_variance_cube = np.asarray(hdus[1].data, dtype=np.float32)
             tile_wcs = WCS(hdus[0].header).celestial
+            service_scale = pixel_area_arcsec2(tile_wcs) / NATIVE_COADD_PIXEL_SCALE_ARCSEC**2
+            reprojection_scale = pixel_area_arcsec2(target_wcs) / pixel_area_arcsec2(tile_wcs)
+            flux_scale = service_scale * reprojection_scale
             bands = [str(hdus[0].header[f"BAND{index}"]).strip() for index in range(science_cube.shape[0])]
             for index, band in enumerate(bands):
                 image, image_footprint = reproject_interp((science_cube[index], tile_wcs), target_wcs, shape_out=shape, order="bilinear", return_footprint=True)
                 ivar, ivar_footprint = reproject_interp((inverse_variance_cube[index], tile_wcs), target_wcs, shape_out=shape, order="bilinear", return_footprint=True)
+                image *= flux_scale
+                ivar /= flux_scale**2
                 valid = (image_footprint > 0) & (ivar_footprint > 0) & np.isfinite(image) & np.isfinite(ivar) & (ivar > 0)
                 images.setdefault(band, np.full(shape, np.nan, dtype=np.float32))
                 inverse_variances.setdefault(band, np.zeros(shape, dtype=np.float32))
@@ -138,6 +152,8 @@ def write_product(path: Path, image: np.ndarray, inverse_variance: np.ndarray, w
     header["BAND"] = band
     header["BUNIT"] = "nanomaggy"
     header["PIXSCALE"] = abs(wcs.wcs.cdelt[0]) * 3600.0
+    header["FLUXCONS"] = (True, "Pixel-area flux conservation applied")
+    header["NATPIXS"] = (NATIVE_COADD_PIXEL_SCALE_ARCSEC, "DR10 coadd sampling, arcsec")
     no_data = np.uint8(inverse_variance <= 0)
     fits.HDUList(
         [
@@ -182,6 +198,7 @@ def main() -> None:
         "layer": LAYER,
         "cutout_endpoint": CUTOUT_ENDPOINT,
         "units": "nanomaggy",
+        "native_coadd_pixel_scale_arcsec": NATIVE_COADD_PIXEL_SCALE_ARCSEC,
         "targets": [],
     }
     for target in targets:

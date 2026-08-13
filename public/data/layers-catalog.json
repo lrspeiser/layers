@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-12T23:19:47.681295+00:00",
+  "generatedAt": "2026-08-13T00:09:29.484395+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -7569,7 +7569,7 @@
             "unitsMatched": true,
             "filterMatched": false,
             "filterTransform": null,
-            "maxResidualArcsec": 0.23679642384585858,
+            "maxResidualArcsec": 0.23679642589797834,
             "qaThresholdArcsec": 0.3,
             "limitations": [
               "Sky planes have been measured but not yet applied to a released matched product.",
@@ -7582,20 +7582,23 @@
             "comparisonLayerLabel": "Legacy Survey DR10",
             "commonValidPixelFraction": 0.9598021604938272,
             "matchedSources": 232,
-            "astrometricResidualP95Arcsec": 0.23679642384585858,
+            "astrometricResidualP95Arcsec": 0.23679642589797834,
             "astrometryPass": true,
             "rubinMedianFwhmArcsec": 2.058165300431642,
-            "comparisonMedianFwhmArcsec": 2.027216962325514,
+            "comparisonMedianFwhmArcsec": 2.0272169555758484,
             "reconciliationStatus": "matched-not-photometrically-comparable",
             "matchedCommonValidPixelFraction": 0.9384058641975309,
-            "postMatchAstrometricResidualP95Arcsec": 0.23771962928468154,
-            "postMatchFractionalFwhmDifference": 0.012899243195493045,
-            "filterMatchBlocking": true
+            "postMatchAstrometricResidualP95Arcsec": 0.23771963109303695,
+            "postMatchFractionalFwhmDifference": 0.012899245858136465,
+            "filterMatchBlocking": true,
+            "pointSourceCalibrationPass": true,
+            "filterHeldOutRmsMag": 0.03962088675195481,
+            "extendedSourceTransferPass": false
           },
           "products": {
-            "matchedPairSha256": "662f911a099cc2bb18a4cd368599f077a5ec52be61d698b18c62a65562d18979",
-            "sourceRubinSha256": "2d245f4157af25354dad1e750c8515b555ed6c4549da06dc41c5464c1b7d6249",
-            "sourceComparisonSha256": "27052ad0bca271a0d8ad570184b8d90635300a97406b3dee41e6e055114c555c"
+            "matchedPairSha256": "58fd1952a37e6a21b5d8633216f8bccfd06091670df67a28722ea73043313da8",
+            "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
+            "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f"
           },
           "measurements": [],
           "inferences": [],
@@ -7782,7 +7785,7 @@
             "unitsMatched": true,
             "filterMatched": false,
             "filterTransform": null,
-            "maxResidualArcsec": 0.21652992608622,
+            "maxResidualArcsec": 0.2165299248669751,
             "qaThresholdArcsec": 0.3,
             "limitations": [
               "Sky planes have been measured but not yet applied to a released matched product.",
@@ -7795,20 +7798,23 @@
             "comparisonLayerLabel": "Legacy Survey DR10",
             "commonValidPixelFraction": 0.9749154320987654,
             "matchedSources": 230,
-            "astrometricResidualP95Arcsec": 0.21652992608622,
+            "astrometricResidualP95Arcsec": 0.2165299248669751,
             "astrometryPass": true,
             "rubinMedianFwhmArcsec": 2.11266219975829,
-            "comparisonMedianFwhmArcsec": 2.0399541174716447,
+            "comparisonMedianFwhmArcsec": 2.0399541099028737,
             "reconciliationStatus": "matched-not-photometrically-comparable",
             "matchedCommonValidPixelFraction": 0.9600462962962963,
-            "postMatchAstrometricResidualP95Arcsec": 0.20990679349122096,
-            "postMatchFractionalFwhmDifference": 0.013752029815112594,
-            "filterMatchBlocking": true
+            "postMatchAstrometricResidualP95Arcsec": 0.2099068005715379,
+            "postMatchFractionalFwhmDifference": 0.01375202506263761,
+            "filterMatchBlocking": true,
+            "pointSourceCalibrationPass": true,
+            "filterHeldOutRmsMag": 0.05104535845549648,
+            "extendedSourceTransferPass": false
           },
           "products": {
-            "matchedPairSha256": "af07cdc3f865446ee359bf4813117320f05e4aafbc8b29d612046cc3b59efa5c",
-            "sourceRubinSha256": "b436f6d0943520226d264159d7e886ab9313b1c1a4f16e76c754a5f624f88a3e",
-            "sourceComparisonSha256": "f1154ee383a41817677f43f3df6bfd895af5d9cfc85b39edba4a1233a79ec15d"
+            "matchedPairSha256": "19237a65794ffa7f6e853747d2c92549cf46bc73bffa76cda390f2d989d3178c",
+            "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
+            "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5"
           },
           "measurements": [],
           "inferences": [],
@@ -8122,7 +8128,10 @@
             "matchedCommonValidPixelFraction": null,
             "postMatchAstrometricResidualP95Arcsec": null,
             "postMatchFractionalFwhmDifference": null,
-            "filterMatchBlocking": true
+            "filterMatchBlocking": true,
+            "pointSourceCalibrationPass": false,
+            "filterHeldOutRmsMag": null,
+            "extendedSourceTransferPass": false
           },
           "measurements": [],
           "inferences": [],
