@@ -21,6 +21,11 @@ MEASUREMENT_FIELDS = {
     "systematicUncertainty", "expectedRange", "significanceSigma",
     "classification", "provenance", "caveats",
 }
+ASSUMPTION_AUDIT_FIELDS = {
+    "id", "rank", "title", "priorAssumption", "newEvidence",
+    "affectedInference", "confidence", "priorityScore", "evidenceMagnitude",
+    "systematicAlternatives", "recommendedFollowUp", "provenance", "caveat",
+}
 
 
 def main() -> None:
@@ -45,6 +50,7 @@ def main() -> None:
 
     published_count = 0
     plotted_profile_count = 0
+    assumption_audits = []
     for target in targets:
         target_id = target.get("id", "<missing>")
         layers = target.get("layers", [])
@@ -82,6 +88,18 @@ def main() -> None:
                     errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: measurement has no provenance")
                 if not measurement.get("caveats"):
                     errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: measurement has no caveats")
+            for audit in comparison.get("assumptionAudits", []):
+                assumption_audits.append(audit)
+                missing = ASSUMPTION_AUDIT_FIELDS - audit.keys()
+                if missing:
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: missing {sorted(missing)}")
+                evidence = audit.get("evidenceMagnitude", {})
+                if evidence.get("thresholdMultiple", 0) <= 1:
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: audit does not exceed its pass threshold")
+                if audit.get("confidence") not in {"unreviewed", "candidate", "supported", "confirmed"}:
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: unsupported confidence")
+                if not audit.get("provenance") or any(not item for item in audit.get("provenance", [])):
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: audit has incomplete provenance")
             if comparison.get("status") != "published":
                 continue
             published_count += 1
@@ -99,6 +117,11 @@ def main() -> None:
         errors.append("catalog: summary target count is wrong")
     if summary.get("publishedComparisons") != published_count:
         errors.append("catalog: summary published comparison count is wrong")
+    if summary.get("assumptionsWorthRechecking") != len(assumption_audits):
+        errors.append("catalog: assumption audit count is wrong")
+    ranks = [audit.get("rank") for audit in sorted(assumption_audits, key=lambda item: item.get("priorityScore", 0), reverse=True)]
+    if ranks != list(range(1, len(assumption_audits) + 1)):
+        errors.append("catalog: assumption audits are not ranked by descending priority")
     if plotted_profile_count != len(targets):
         errors.append("catalog: every target must expose one available SPARC profile")
 

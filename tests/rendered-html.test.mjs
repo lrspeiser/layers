@@ -64,6 +64,7 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.panStarrsUsableLocal, 1);
   assert.equal(catalog.summary.localImageLayers, 7);
   assert.equal(catalog.summary.registrationAudits, 3);
+  assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, false);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
@@ -153,4 +154,12 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
     assert.equal(comparison.registration.filterMatched, false);
     assert.equal(comparison.status, "qa");
   }
+  const audits = catalog.targets.flatMap((target) => target.comparisons.flatMap((comparison) => comparison.assumptionAudits));
+  assert.deepEqual(audits.sort((a, b) => a.rank - b.rank).map((audit) => audit.id), [
+    "ugc00191-stellar-to-resolved-filter-transfer",
+    "ugc00634-stellar-to-resolved-filter-transfer",
+  ]);
+  assert.ok(audits[0].evidenceMagnitude.thresholdMultiple > 5);
+  assert.equal(audits[0].confidence, "candidate");
+  assert.match(audits[0].caveat, /not evidence that either survey or the galaxy is wrong/);
 });

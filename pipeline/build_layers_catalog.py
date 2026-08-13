@@ -169,6 +169,8 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     recovery = reconciliation.get("injectionRecovery", {}) if reconciliation else {}
     recovery_path = path.parent / "diffuse-recovery.json"
     recovery_audit = load_json(recovery_path) if recovery_path.is_file() else None
+    extended_path = path.parent / "extended-source-filter-audit.json"
+    extended_audit = load_json(extended_path) if extended_path.is_file() else None
     matched_product = reconciliation.get("products", {}) if reconciliation else {}
     effective_status = reconciliation.get("status") if reconciliation else "audit-only"
     measurements = []
@@ -216,6 +218,58 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
                         ],
                     }
                 )
+    assumption_audits = []
+    if extended_audit and extended_audit.get("status") == "qa-failed":
+        thresholds = extended_audit.get("thresholds", {})
+        median_residual = extended_audit.get("medianAbsoluteResidualMag")
+        scatter = extended_audit.get("robustResidualScatterMag")
+        median_limit = thresholds.get("maximumMedianAbsoluteResidualMag")
+        scatter_limit = thresholds.get("maximumRobustResidualScatterMag")
+        support_fraction = extended_audit.get("colorSupportFraction")
+        qualified = extended_audit.get("qualifiedCells")
+        supported = extended_audit.get("cellsWithinStellarColorSupport")
+        if all(value is not None for value in (median_residual, scatter, median_limit, scatter_limit)):
+            priority_score = max(median_residual / median_limit, scatter / scatter_limit)
+            assumption_audits.append(
+                {
+                    "id": f"{audit['objectId']}-stellar-to-resolved-filter-transfer",
+                    "title": "A stellar color transform also calibrates resolved galaxy light.",
+                    "priorAssumption": "A color relation validated on isolated field stars can be transferred to resolved galaxy cells after WCS, PSF, sky, units, and masks are reconciled.",
+                    "newEvidence": (
+                        f"Point sources pass at {reconciliation_filter.get('heldOutRmsMag', 0):.3f} mag held-out RMS, "
+                        f"but {qualified} resolved cells yield a {median_residual:.3f} mag median absolute residual "
+                        f"and {scatter:.3f} mag robust scatter. Only {supported} cells "
+                        f"({support_fraction * 100:.0f}%) lie inside the stellar training-color range."
+                    ),
+                    "affectedInference": "No Rubin-minus-reference outer-light, stellar-mass, baryonic-mass, lensing, or baryonic-acceleration inference is supported for this target until the transfer is resolved.",
+                    "confidence": "candidate",
+                    "priorityScore": priority_score,
+                    "evidenceMagnitude": {
+                        "metric": "resolved median absolute filter-transfer residual",
+                        "value": median_residual,
+                        "unit": "mag",
+                        "passThreshold": median_limit,
+                        "thresholdMultiple": median_residual / median_limit,
+                        "qualifiedCells": qualified,
+                        "cellsWithinTrainingSupport": supported,
+                    },
+                    "systematicAlternatives": [
+                        "Galaxy color gradients, dust, emission lines, or composite stellar populations make a stellar relation inappropriate.",
+                        "Residual sky structure, PSF wings, resampling covariance, masks, or contaminating sources bias the resolved cells.",
+                        "Survey passband or calibration differences require full synthetic photometry rather than an empirical linear color term.",
+                    ],
+                    "recommendedFollowUp": [
+                        "Run synthetic photometry through the Rubin and reference throughput curves over galaxy SED templates.",
+                        "Fit resolved multi-band SEDs and repeat the transfer test with spatial covariance and PSF-wing models.",
+                        "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference.",
+                    ],
+                    "provenance": [
+                        extended_audit.get("supportingProducts", {}).get("matchedPairSha256", ""),
+                        reconciliation_filter.get("extendedSourceAuditSha256", ""),
+                    ],
+                    "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
+                }
+            )
     return {
         "id": f"{audit['objectId']}-registration-audit",
         "layerIds": audit["layerIds"],
@@ -274,7 +328,7 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
         } if matched_product else {}),
         "measurements": measurements,
         "inferences": [],
-        "assumptionAudits": [],
+        "assumptionAudits": assumption_audits,
     }
 
 
@@ -333,6 +387,19 @@ def main() -> None:
             }
         )
 
+    ranked_audits = sorted(
+        (
+            audit
+            for target in targets
+            for comparison in target["comparisons"]
+            for audit in comparison["assumptionAudits"]
+        ),
+        key=lambda item: item["priorityScore"],
+        reverse=True,
+    )
+    for rank, audit in enumerate(ranked_audits, start=1):
+        audit["rank"] = rank
+
     usable = sum(
         any(layer["id"] == "rubin-dp2-deep-coadd" and layer["availability"] == "available-local" for layer in target["layers"])
         for target in targets
@@ -363,6 +430,7 @@ def main() -> None:
             "panStarrsUsableLocal": panstarrs_local,
             "localImageLayers": usable + legacy_local + panstarrs_local,
             "registrationAudits": registration_audits,
+            "assumptionsWorthRechecking": len(ranked_audits),
             "publishedComparisons": 0,
         },
         "targets": targets,

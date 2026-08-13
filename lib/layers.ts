@@ -108,13 +108,26 @@ export type Inference = {
 
 export type AssumptionAudit = {
   id: string;
+  rank: number;
   title: string;
   priorAssumption: string;
   newEvidence: string;
   affectedInference: string;
   confidence: "unreviewed" | "candidate" | "supported" | "confirmed";
+  priorityScore: number;
+  evidenceMagnitude: {
+    metric: string;
+    value: number;
+    unit: string;
+    passThreshold: number;
+    thresholdMultiple: number;
+    qualifiedCells: number;
+    cellsWithinTrainingSupport: number;
+  };
   systematicAlternatives: string[];
   recommendedFollowUp: string[];
+  provenance: string[];
+  caveat: string;
 };
 
 export type Comparison = {
@@ -186,6 +199,7 @@ export type LayersCatalog = {
     panStarrsUsableLocal?: number;
     localImageLayers?: number;
     registrationAudits?: number;
+    assumptionsWorthRechecking?: number;
     publishedComparisons: number;
   };
   targets: LayerTarget[];

@@ -296,7 +296,15 @@ function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparis
     <section className="assumption-panel">
       <div className="panel-heading"><span className="eyebrow">ASSUMPTIONS WORTH RECHECKING</span><span className="triage-only">TRIAGE, NOT A VERDICT</span></div>
       {comparison?.assumptionAudits.length ? comparison.assumptionAudits.map((audit) => (
-        <article key={audit.id}><h3>{audit.title}</h3><p>{audit.newEvidence}</p><strong>{audit.confidence}</strong></article>
+        <article className="assumption-audit" key={audit.id}>
+          <div className="assumption-audit-rank"><span>#{String(audit.rank).padStart(2, "0")}</span><small>{audit.confidence} calibration candidate</small></div>
+          <h3>{audit.title}</h3>
+          <p>{audit.newEvidence}</p>
+          <div className="assumption-evidence"><strong>{audit.evidenceMagnitude.thresholdMultiple.toFixed(1)}×</strong><span>over the {audit.evidenceMagnitude.passThreshold.toFixed(2)} {audit.evidenceMagnitude.unit} pass threshold</span></div>
+          <p className="affected-inference"><strong>Inference gate:</strong> {audit.affectedInference}</p>
+          <details><summary>Systematics + recommended follow-up</summary><ul>{audit.systematicAlternatives.map((item) => <li key={item}>{item}</li>)}</ul><ol>{audit.recommendedFollowUp.map((item) => <li key={item}>{item}</li>)}</ol></details>
+          <small className="assumption-caveat">{audit.caveat}</small>
+        </article>
       )) : (
         <div className="assumption-empty">
           <span className="assumption-number">{falseFootprint ? "01" : "—"}</span>
@@ -348,6 +356,9 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     && comparison?.layerIds.includes("legacy-survey-dr10");
   const swipeEnabled = Boolean(comparison && comparisonIsSwipeable(comparison, selected.layers)) || Boolean(authenticQaViewer);
   const profilesEnabled = left.kind === "profile" || right.kind === "profile";
+  const rankedAudits = useMemo(() => catalog.targets.flatMap((target) =>
+    target.comparisons.flatMap((item) => item.assumptionAudits.map((audit) => ({ target, audit })))
+  ).sort((a, b) => a.audit.rank - b.audit.rank), [catalog.targets]);
 
   const loadProfile = async () => {
     if (profiles[selected.id]) return;
@@ -377,7 +388,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     <main id="top">
       <header className="layers-header">
         <Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
-        <nav><Link href="/prototype">Real-pixel prototype</Link><a href="#workspace">Workspace</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
+        <nav><Link href="/prototype">Real-pixel prototype</Link><a href="#workspace">Workspace</a><a href="#assumptions">Assumptions</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
         <span className="release-chip">MULTI-SURVEY · PILOT</span>
       </header>
 
@@ -435,6 +446,17 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
           <LayerViewport target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} profile={profiles[selected.id]} />
           <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
         </section>
+      </section>
+
+      <section className="assumption-leaderboard" id="assumptions">
+        <div className="leaderboard-heading"><div><span className="eyebrow">RANKED CALIBRATION AUDITS</span><h2>Assumptions worth rechecking now.</h2></div><p>The score is the largest multiple by which a predeclared resolved-light transfer threshold failed. It prioritizes follow-up; it is not an astrophysical significance or a verdict on either survey.</p></div>
+        <div className="leaderboard-grid">
+          {rankedAudits.map(({ target, audit }) => <button key={audit.id} onClick={() => chooseTarget(target)}>
+            <span className="leaderboard-rank">#{String(audit.rank).padStart(2, "0")}</span>
+            <span><small>{target.name} · {audit.confidence}</small><strong>{audit.title}</strong><em>{audit.evidenceMagnitude.value.toFixed(3)} {audit.evidenceMagnitude.unit} median residual · limit {audit.evidenceMagnitude.passThreshold.toFixed(2)}</em></span>
+            <b>{audit.evidenceMagnitude.thresholdMultiple.toFixed(1)}×</b>
+          </button>)}
+        </div>
       </section>
 
       <section className="method-band" id="method">
