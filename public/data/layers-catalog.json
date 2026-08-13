@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-13T06:32:50.559550+00:00",
+  "generatedAt": "2026-08-13T07:27:38.267397+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -15,7 +15,9 @@
     "rubinFootprintFalsePositives": 1,
     "legacySurveyUsableLocal": 3,
     "panStarrsUsableLocal": 3,
-    "localImageLayers": 9,
+    "externalImageLayers": 4,
+    "allWisePublished": 4,
+    "localImageLayers": 13,
     "registrationAudits": 6,
     "pilotAudits": 4,
     "assumptionsWorthRechecking": 2,
@@ -2995,6 +2997,48 @@
             "service": "Rubin Science Platform SIA v2 + DataLink",
             "datasetType": "lsst.deep_coadd",
             "queryStatus": "OK"
+          }
+        },
+        {
+          "id": "wise-allwise-atlas",
+          "survey": "WISE",
+          "release": "AllWISE Atlas",
+          "instrument": "WISE W1",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "W1"
+          ],
+          "bandCoverage": {
+            "W1": 1.0
+          },
+          "datasetCount": 3,
+          "datasetIds": [
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-int-3.fits?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-unc-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-cov-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2",
+            "coverage": "exposures"
+          },
+          "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "provenance": {
+            "service": "IRSA SIAv2 + IBE FITS cutout service",
+            "collection": "wise_allwise",
+            "doi": "10.26131/IRSA1",
+            "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+            "standardProductSha256": "7f6d8969668e9003eedf7413f0c0e6db1d0b60c5a0c0f6c481e7a6c44a8a22a8"
+          },
+          "assets": {
+            "preview": "/layer-previews/wise-allwise/ngc0100-w1.jpg",
+            "data": "/data/layers/wise-allwise/ngc0100.json"
           }
         }
       ],
@@ -8514,6 +8558,48 @@
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
           }
+        },
+        {
+          "id": "wise-allwise-atlas",
+          "survey": "WISE",
+          "release": "AllWISE Atlas",
+          "instrument": "WISE W1",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "W1"
+          ],
+          "bandCoverage": {
+            "W1": 1.0
+          },
+          "datasetCount": 3,
+          "datasetIds": [
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0046/0046p106_ac51/0046p106_ac51-w1-int-3.fits?center=5.021670000,10.880000000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0046/0046p106_ac51/0046p106_ac51-w1-unc-3.fits.gz?center=5.021670000,10.880000000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0046/0046p106_ac51/0046p106_ac51-w1-cov-3.fits.gz?center=5.021670000,10.880000000deg&size=12arcmin&gzip=false"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2",
+            "coverage": "exposures"
+          },
+          "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "provenance": {
+            "service": "IRSA SIAv2 + IBE FITS cutout service",
+            "collection": "wise_allwise",
+            "doi": "10.26131/IRSA1",
+            "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+            "standardProductSha256": "16fe0e68c2d34378e4e524b262dee3ae281c9c128cf4665b4ec32682f9142417"
+          },
+          "assets": {
+            "preview": "/layer-previews/wise-allwise/ugc00191-w1.jpg",
+            "data": "/data/layers/wise-allwise/ugc00191.json"
+          }
         }
       ],
       "comparisons": [
@@ -8578,7 +8664,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
+            "matchedPairSha256": "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
             "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
             "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
             "qaPackage": "/data/comparisons/ugc00191.json"
@@ -8599,8 +8685,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8625,8 +8711,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8651,8 +8737,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8677,8 +8763,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8703,8 +8789,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8729,8 +8815,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8755,8 +8841,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8781,8 +8867,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "57b1ed08c80878f4d23e6d80bac1b923599c9b56adb399eeaf113c73bfd59e3b"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "ee7c09123d6430ec93e7bf76fe5ec1bf1b0f77b7b5867b45b1cfa2a773c81902"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8823,8 +8909,8 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "f8e9c9e296244e6603ea5cf8947258dae344012eef5c511b9b62c4e8f464021f",
-                "fd24e1a7f448671f9568836454dc6911406877edd7b61639f47f222f5e329517"
+                "6476f6d76f06a019e292226eba6d8e23e4ecc589e8151a6a60482ffe9e2045fb",
+                "cd15a0a8447d964d7838ad7f7a4c834b7fd2ceef7604ece82b8942535e3adf8d"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
               "independentCheck": {
@@ -8837,7 +8923,7 @@
                 "qualifiedForArbitration": false,
                 "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
                 "provenance": [
-                  "6f9e0ca7f9f1221a16a2beb505ac3040257be9b589bab0ccc8e6695153c3dd48"
+                  "97f0157f004d8d7b64fd7976a0d4a98ca08be39b1bd534caf5adbacbd65e088d"
                 ]
               },
               "rank": 1
@@ -8905,7 +8991,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
+            "matchedPairSha256": "0a0ac58d92116609da0c002c1106b2fe16855f749a4de8b7e2df6aab5bc1006f",
             "sourceRubinSha256": "3deb8f9624bc432297f992be9cd9963e1da457f1c1361356dbbba810b1e2a455",
             "sourceComparisonSha256": "1dee5152e27806733bc93283f60d9bee66ab5eb2388900b0008c1ed9abc48411",
             "qaPackage": "/data/comparisons/ugc00191--panstarrs-dr1-stack.json"
@@ -8926,8 +9012,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
-                "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+                "0a0ac58d92116609da0c002c1106b2fe16855f749a4de8b7e2df6aab5bc1006f",
+                "86d4997ac13423fcb915062fdc155ee230bdb7553a4dd713ebffbb687b6c5816"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8952,8 +9038,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
-                "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+                "0a0ac58d92116609da0c002c1106b2fe16855f749a4de8b7e2df6aab5bc1006f",
+                "86d4997ac13423fcb915062fdc155ee230bdb7553a4dd713ebffbb687b6c5816"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8978,8 +9064,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
-                "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+                "0a0ac58d92116609da0c002c1106b2fe16855f749a4de8b7e2df6aab5bc1006f",
+                "86d4997ac13423fcb915062fdc155ee230bdb7553a4dd713ebffbb687b6c5816"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9004,8 +9090,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "6500ddaebc5c0ef63012311c86c10a4c4a55c9e9bb72946559bb625556e21e0d",
-                "975552df74713302eb7ece1d4a258308cbb6b7bd858dc5ec894fa5995412764d"
+                "0a0ac58d92116609da0c002c1106b2fe16855f749a4de8b7e2df6aab5bc1006f",
+                "86d4997ac13423fcb915062fdc155ee230bdb7553a4dd713ebffbb687b6c5816"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9036,7 +9122,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00191/extended-source-filter-audit.json",
-            "sha256": "fd24e1a7f448671f9568836454dc6911406877edd7b61639f47f222f5e329517"
+            "sha256": "cd15a0a8447d964d7838ad7f7a4c834b7fd2ceef7604ece82b8942535e3adf8d"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -9280,6 +9366,48 @@
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
           }
+        },
+        {
+          "id": "wise-allwise-atlas",
+          "survey": "WISE",
+          "release": "AllWISE Atlas",
+          "instrument": "WISE W1",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "W1"
+          ],
+          "bandCoverage": {
+            "W1": 1.0
+          },
+          "datasetCount": 3,
+          "datasetIds": [
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-int-3.fits?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-unc-3.fits.gz?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/01/0152/0152p075_ac51/0152p075_ac51-w1-cov-3.fits.gz?center=15.354878000,7.625991000deg&size=12arcmin&gzip=false"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2",
+            "coverage": "exposures"
+          },
+          "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "provenance": {
+            "service": "IRSA SIAv2 + IBE FITS cutout service",
+            "collection": "wise_allwise",
+            "doi": "10.26131/IRSA1",
+            "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+            "standardProductSha256": "37bd5fd46b57b4c803c8b19b2f4432f1929832ed159cfdf9e3565ac9826ec0a9"
+          },
+          "assets": {
+            "preview": "/layer-previews/wise-allwise/ugc00634-w1.jpg",
+            "data": "/data/layers/wise-allwise/ugc00634.json"
+          }
         }
       ],
       "comparisons": [
@@ -9344,7 +9472,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
+            "matchedPairSha256": "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
             "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
             "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5",
             "qaPackage": "/data/comparisons/ugc00634.json"
@@ -9365,8 +9493,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9391,8 +9519,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9417,8 +9545,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9443,8 +9571,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9469,8 +9597,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9495,8 +9623,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9521,8 +9649,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9547,8 +9675,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "6288ee3df32bdf6c75c69a20885b07300c673e255717155f32aac070a99c830e"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "bfee8fa5fc6a8567de591569b5b54366b5e1f24c5eda2cec682d4b81326ba3e0"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9589,8 +9717,8 @@
                 "Compare an independent deeper image layer and inspect the residual map before publishing any astrophysical difference."
               ],
               "provenance": [
-                "7eb831ab4e77c7bf563d43bebaf53ce4010dc7c478e7cc477aa2a05c455803e0",
-                "5086dde2eaef6370dbc7889c2a4ae938986bb1d5be0ae0a11096bce50d9054ed"
+                "dd64fc1eb0a135e13a2b357b5e3d35c03b15fdac94be788f93649a637ed7fbd6",
+                "07ccbd520c6d72d9d876dc8e4dec6fe3023df815079e5ec97c5d203d0203dc1e"
               ],
               "caveat": "This ranking identifies a calibration assumption worth rechecking; it is not evidence that either survey or the galaxy is wrong.",
               "independentCheck": {
@@ -9603,7 +9731,7 @@
                 "qualifiedForArbitration": false,
                 "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
                 "provenance": [
-                  "c4b985509bb0120502a9550b346c3d3dd49688b59087ad355ab739e01d0a199e"
+                  "2259e670d53b3749abe90658e45ae5ce5c2ca6e0f69780c65a40de33141695a2"
                 ]
               },
               "rank": 2
@@ -9671,7 +9799,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
+            "matchedPairSha256": "af896e95358b2026df30dcb3773326bca05515712cd2ca9b759247f983e52093",
             "sourceRubinSha256": "a7caf619d90aa548d37182cabe184a387ce49c8f945371db642387934cfd5cc6",
             "sourceComparisonSha256": "245c604bcbd5126f3ac462c38beadf4f93c1f8965ef9d1a20a5e68354029cc34",
             "qaPackage": "/data/comparisons/ugc00634--panstarrs-dr1-stack.json"
@@ -9692,8 +9820,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
-                "39378aa6890853b75825b8d2dbe430398e607057846b0759c7c3dc6d4df36f7b"
+                "af896e95358b2026df30dcb3773326bca05515712cd2ca9b759247f983e52093",
+                "a8768ed290b5b275bc30921be1f26dd55bc36b9664b7b437d199150273010a4b"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9718,8 +9846,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
-                "39378aa6890853b75825b8d2dbe430398e607057846b0759c7c3dc6d4df36f7b"
+                "af896e95358b2026df30dcb3773326bca05515712cd2ca9b759247f983e52093",
+                "a8768ed290b5b275bc30921be1f26dd55bc36b9664b7b437d199150273010a4b"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9744,8 +9872,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
-                "39378aa6890853b75825b8d2dbe430398e607057846b0759c7c3dc6d4df36f7b"
+                "af896e95358b2026df30dcb3773326bca05515712cd2ca9b759247f983e52093",
+                "a8768ed290b5b275bc30921be1f26dd55bc36b9664b7b437d199150273010a4b"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9770,8 +9898,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "b988d072d8ca85da631319ce4e6f01bf080056f83a348b99ab7b3a96db3b4f34",
-                "39378aa6890853b75825b8d2dbe430398e607057846b0759c7c3dc6d4df36f7b"
+                "af896e95358b2026df30dcb3773326bca05515712cd2ca9b759247f983e52093",
+                "a8768ed290b5b275bc30921be1f26dd55bc36b9664b7b437d199150273010a4b"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -9802,7 +9930,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-            "sha256": "5086dde2eaef6370dbc7889c2a4ae938986bb1d5be0ae0a11096bce50d9054ed"
+            "sha256": "07ccbd520c6d72d9d876dc8e4dec6fe3023df815079e5ec97c5d203d0203dc1e"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
@@ -10105,6 +10233,48 @@
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
           }
+        },
+        {
+          "id": "wise-allwise-atlas",
+          "survey": "WISE",
+          "release": "AllWISE Atlas",
+          "instrument": "WISE W1",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "W1"
+          ],
+          "bandCoverage": {
+            "W1": 1.0
+          },
+          "datasetCount": 3,
+          "datasetIds": [
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-int-3.fits?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-unc-3.fits.gz?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false",
+            "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-cov-3.fits.gz?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false"
+          ],
+          "units": {
+            "image": "nJy",
+            "variance": "nJy^2",
+            "coverage": "exposures"
+          },
+          "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+          "provenance": {
+            "service": "IRSA SIAv2 + IBE FITS cutout service",
+            "collection": "wise_allwise",
+            "doi": "10.26131/IRSA1",
+            "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+            "standardProductSha256": "c35e5985d54bc5d2a7a08b5d233ac97e25bebd096e0b24e33a2922fa82e03b8a"
+          },
+          "assets": {
+            "preview": "/layer-previews/wise-allwise/ugc00891-w1.jpg",
+            "data": "/data/layers/wise-allwise/ugc00891.json"
+          }
         }
       ],
       "comparisons": [
@@ -10169,7 +10339,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
+            "matchedPairSha256": "865ddb2dcdead7b6a01d73a970376b0750f728dc3343a7ec3e3fff150143b877",
             "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
             "sourceComparisonSha256": "1978d37cc029c42466c4c22bc32acaf16254d00ac5b930430ff60635eea0f85f",
             "qaPackage": "/data/comparisons/ugc00891.json"
@@ -10190,8 +10360,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
-                "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
+                "865ddb2dcdead7b6a01d73a970376b0750f728dc3343a7ec3e3fff150143b877",
+                "61ddd3eb966fd2ade7b635de94ffd641ca8b9f17f2b5ace292d9114163e5e22d"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10216,8 +10386,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
-                "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
+                "865ddb2dcdead7b6a01d73a970376b0750f728dc3343a7ec3e3fff150143b877",
+                "61ddd3eb966fd2ade7b635de94ffd641ca8b9f17f2b5ace292d9114163e5e22d"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10242,8 +10412,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
-                "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
+                "865ddb2dcdead7b6a01d73a970376b0750f728dc3343a7ec3e3fff150143b877",
+                "61ddd3eb966fd2ade7b635de94ffd641ca8b9f17f2b5ace292d9114163e5e22d"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10268,8 +10438,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "90ab89a885c75a5136adebef64434e6bc8751ddc42ad5d052a367427b090d020",
-                "3736fc523a30b7308728a80fcab0bc1a5ddab5610eeb37f9b8660822ff8a3b41"
+                "865ddb2dcdead7b6a01d73a970376b0750f728dc3343a7ec3e3fff150143b877",
+                "61ddd3eb966fd2ade7b635de94ffd641ca8b9f17f2b5ace292d9114163e5e22d"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10344,7 +10514,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
+            "matchedPairSha256": "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
             "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
             "sourceComparisonSha256": "fb07791aebee925df819050839a2c57a23bee5a207137c9f48e721801a5abd74",
             "qaPackage": "/data/comparisons/ugc00891--legacy-survey-dr10.json"
@@ -10365,8 +10535,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10391,8 +10561,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10417,8 +10587,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10443,8 +10613,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10469,8 +10639,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10495,8 +10665,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10521,8 +10691,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10547,8 +10717,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "17df9b4bd74e6d47c287887e3e3ac12c95194f477eed7dbe88629fd8c01fc8b3",
-                "6aa7e5d40433b06c4c5e012e77bde163b279c42798fb2080ea0ea863d711cecd"
+                "967516f244436b79dd0e635448f21baf15b7c906fe7067547d7af4743ac946b9",
+                "214898291bd76b5cdc31bb3d1cbcb9a68d231b0e2de66523851f4c326b41d0fa"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -10579,7 +10749,7 @@
         "evidence": [
           {
             "path": "pipeline/output/comparisons/ugc00891/extended-source-filter-audit.json",
-            "sha256": "38718fdcde3a1e454a7a317e98c17e608a0dff738be1b8e292ab103afd7b6993"
+            "sha256": "e4b3939f180938f54b78c087d941ea111102820d5d8abdf4ae37c6e342323446"
           }
         ],
         "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

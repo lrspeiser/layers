@@ -199,6 +199,11 @@ a { color: inherit; text-decoration: none; }
 .profile-facts span { border-right: 1px solid #2f3b3e; display: flex; flex-direction: column; padding: 9px 13px; }
 .profile-facts small { color: #6f7e80; font-family: var(--font-mono), monospace; font-size: 7px; }.profile-facts strong { font-size: 11px; margin-top: 3px; }
 .profile-provenance { align-items: center; border-top: 1px solid #2d393d; color: #738184; display: flex; font-size: 8px; justify-content: space-between; margin-top: 14px; padding: 11px 0; }.profile-provenance a { color: #a994ff; }
+.linked-profile-layout { align-items: stretch; display: grid; gap: 14px; grid-template-columns: minmax(260px,.7fr) minmax(420px,1.3fr); }
+.linked-layer-image { background: #090d12; border: 1px solid rgba(255,255,255,.1); display: grid; grid-template-rows: minmax(260px,1fr) auto; margin: 0; min-width: 0; }
+.linked-layer-image img { height: 100%; min-height: 260px; object-fit: cover; width: 100%; }
+.linked-layer-image figcaption { border-top: 1px solid rgba(255,255,255,.1); display: grid; gap: 3px; padding: 11px 13px 13px; }
+.linked-layer-image figcaption strong { color: var(--paper); }.linked-layer-image figcaption span { color: var(--orange); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }.linked-layer-image figcaption small { color: var(--muted); line-height: 1.45; }
 
 .analysis-grid { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin-top: 10px; }
 .difference-panel, .assumption-panel { background: var(--panel); border: 1px solid #d0d6d3; min-height: 235px; padding: 18px; }
@@ -537,6 +542,7 @@ footer > div { display: flex; font-size: 10px; gap: 22px; }
   .view-tabs span { display: none; }
   .layers-viewport { min-height: 480px; }
   .sparc-profile-viewport { padding: 18px 12px 0; }
+  .linked-profile-layout { grid-template-columns: 1fr; }
   .profile-view-heading { flex-direction: column; }.profile-view-tabs { width: 100%; }.profile-view-tabs button { flex: 1; }
   .profile-facts { grid-template-columns: 1fr 1fr; }
   .viewport-message { margin-bottom: 154px; padding: 20px; }

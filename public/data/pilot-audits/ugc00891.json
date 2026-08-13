@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T06:32:51.496547+00:00",
+  "generatedAt": "2026-08-13T07:27:39.353272+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -215,6 +215,48 @@
         "product": "unconvolved stack + stack.wt + stack.mask",
         "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
       }
+    },
+    {
+      "id": "wise-allwise-atlas",
+      "survey": "WISE",
+      "release": "AllWISE Atlas",
+      "instrument": "WISE W1",
+      "kind": "image",
+      "availability": "published",
+      "renderMode": "image",
+      "bands": [
+        "W1"
+      ],
+      "bandCoverage": {
+        "W1": 1.0
+      },
+      "datasetCount": 3,
+      "datasetIds": [
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-int-3.fits?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false",
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-unc-3.fits.gz?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false",
+        "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/02/0200/0200p121_ac51/0200p121_ac51-w1-cov-3.fits.gz?center=20.328750000,12.411940000deg&size=12arcmin&gzip=false"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2",
+        "coverage": "exposures"
+      },
+      "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+      "provenance": {
+        "service": "IRSA SIAv2 + IBE FITS cutout service",
+        "collection": "wise_allwise",
+        "doi": "10.26131/IRSA1",
+        "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+        "standardProductSha256": "c35e5985d54bc5d2a7a08b5d233ac97e25bebd096e0b24e33a2922fa82e03b8a"
+      },
+      "assets": {
+        "preview": "/layer-previews/wise-allwise/ugc00891-w1.jpg",
+        "data": "/data/layers/wise-allwise/ugc00891.json"
+      }
     }
   ],
   "pilotAudit": {
@@ -233,7 +275,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00891/extended-source-filter-audit.json",
-        "sha256": "38718fdcde3a1e454a7a317e98c17e608a0dff738be1b8e292ab103afd7b6993"
+        "sha256": "e4b3939f180938f54b78c087d941ea111102820d5d8abdf4ae37c6e342323446"
       }
     ],
     "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

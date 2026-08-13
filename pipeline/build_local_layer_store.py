@@ -88,6 +88,12 @@ def main() -> None:
     parser.add_argument("--mosaics", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "mosaic-summary.json")
     parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
     parser.add_argument("--panstarrs", type=Path, default=root / "pipeline" / "output" / "panstarrs" / "manifest.json")
+    parser.add_argument(
+        "--external-image-manifest",
+        action="append",
+        type=Path,
+        default=[root / "pipeline" / "output" / "wise-allwise" / "manifest.json"],
+    )
     parser.add_argument("--output", type=Path, default=root / "pipeline" / "output" / "layers.sqlite")
     args = parser.parse_args()
 
@@ -104,6 +110,17 @@ def main() -> None:
         for item in panstarrs_records.values()
         for band, product in item.get("bands", {}).items()
         for original in product.get("originals", [])
+    }
+    external_records = {
+        item["targetId"]: item
+        for path in args.external_image_manifest
+        if path.is_file()
+        for item in read_json(path).get("targets", [])
+    }
+    external_source_by_url = {
+        source["cutoutUrl"]: {**source, "band": item["layer"]["bands"][0]}
+        for item in external_records.values()
+        for source in item.get("sources", {}).values()
     }
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -149,10 +166,19 @@ def main() -> None:
                     ),
                 )
                 for dataset_id in layer.get("datasetIds", []):
-                    record = download_by_id.get(dataset_id) or legacy_tile_by_url.get(dataset_id) or panstarrs_original_by_url.get(dataset_id, {})
+                    record = download_by_id.get(dataset_id) or legacy_tile_by_url.get(dataset_id) or panstarrs_original_by_url.get(dataset_id) or external_source_by_url.get(dataset_id, {})
                     connection.execute(
                         "INSERT INTO datasets VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                        (dataset_id, target_index, layer["id"], record.get("obs_id"), record.get("band"), record.get("path"), record.get("bytes"), record.get("sha256")),
+                        (
+                            dataset_id,
+                            target_index,
+                            layer["id"],
+                            record.get("obs_id") or record.get("obsId"),
+                            record.get("band"),
+                            record.get("path") or record.get("localPath"),
+                            record.get("bytes"),
+                            record.get("sha256"),
+                        ),
                     )
             mosaic = mosaic_by_slug.get(target["id"])
             if mosaic:
@@ -207,6 +233,24 @@ def main() -> None:
                             product.get("preview_sha256"),
                         ),
                     )
+            external = external_records.get(target["id"])
+            if external:
+                product = external["standardProduct"]
+                preview = external["preview"]
+                connection.execute(
+                    "INSERT INTO products VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (
+                        target_index,
+                        external["layer"]["id"],
+                        external["layer"]["bands"][0],
+                        int(product["validPixelFraction"] > 0),
+                        product["validPixelFraction"],
+                        product.get("path"),
+                        product.get("sha256"),
+                        preview.get("path"),
+                        preview.get("sha256"),
+                    ),
+                )
             for comparison in target.get("comparisons", []):
                 connection.execute(
                     "INSERT INTO comparisons VALUES (?, ?, ?, ?, ?, ?)",

@@ -76,12 +76,15 @@ function ProfileChart({ profile, kind }: { profile: SparcProfile; kind: "photome
   </svg><div className="chart-series"><span className="observed-key">Observed</span><span className="gas-key">Gas</span><span className="disk-key">Stellar disk</span></div></div>;
 }
 
-function SparcProfileViewport({ target, profile }: { target: LayerTarget; profile?: SparcProfile }) {
+function SparcProfileViewport({ target, profile, imageLayer }: { target: LayerTarget; profile?: SparcProfile; imageLayer?: Layer }) {
   const [chart, setChart] = useState<"photometry" | "rotation">("photometry");
   if (!profile) return <div className="layers-viewport blocked-viewport"><div className="viewport-message"><span className="eyebrow">PROFILE DATA UNAVAILABLE</span><h3>No SPARC record was loaded for {target.name}.</h3></div></div>;
   return <div className="layers-viewport sparc-profile-viewport">
     <div className="profile-view-heading"><div><span className="eyebrow">PUBLISHED NON-IMAGE LAYER</span><h3>{profile.sparcId} · SPARC 2016</h3><p>Radial photometry and dynamical measurements retain their physical axes; they are linked to the same target rather than converted into fake pixels.</p></div><div className="profile-view-tabs"><button className={chart === "photometry" ? "active" : ""} onClick={() => setChart("photometry")}>Surface brightness</button><button className={chart === "rotation" ? "active" : ""} onClick={() => setChart("rotation")}>Rotation curve</button></div></div>
-    <ProfileChart profile={profile} kind={chart} />
+    <div className={imageLayer?.assets?.preview ? "linked-profile-layout" : undefined}>
+      {imageLayer?.assets?.preview && <figure className="linked-layer-image"><img src={imageLayer.assets.preview} alt={`${target.name}, ${imageLayer.survey} ${imageLayer.bands.join(" ")}`} /><figcaption><strong>{imageLayer.survey} · {imageLayer.bands.join(" ")}</strong><span>Authentic image layer · display stretch</span><small>{imageLayer.note}</small></figcaption></figure>}
+      <ProfileChart profile={profile} kind={chart} />
+    </div>
     <div className="profile-facts"><span><small>DISTANCE</small><strong>{profile.distanceMpc?.toFixed(1) ?? "—"} Mpc</strong></span><span><small>ACCEPTED PHOTOMETRY</small><strong>{profile.summary.acceptedPhotometryPoints} points</strong></span><span><small>ACCEPTED EXTENT</small><strong>{profile.summary.maximumAcceptedRadiusArcsec.toFixed(1)}″</strong></span><span><small>ROTATION CURVE</small><strong>{profile.summary.rotationCurvePoints} points · {profile.summary.maximumRotationRadiusKpc.toFixed(1)} kpc</strong></span></div>
     <div className="profile-provenance"><span>Source: Lelli, McGaugh & Schombert (2016), AJ 152, 157</span><a href="https://astroweb.cwru.edu/SPARC/" target="_blank" rel="noreferrer">Official SPARC archive ↗</a></div>
   </div>;
@@ -159,7 +162,8 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
   );
 
   if (view === "profiles" && (left.kind === "profile" || right.kind === "profile")) {
-    return <SparcProfileViewport target={target} profile={profile} />;
+    const imageLayer = left.kind === "image" ? left : right.kind === "image" ? right : undefined;
+    return <SparcProfileViewport target={target} profile={profile} imageLayer={imageLayer} />;
   }
 
   if ((swipeable && comparison) || authenticQaViewer) {
@@ -473,7 +477,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
         <ol><li><span>01</span><strong>Locate</strong><p>Find layers covering the declared sky region.</p></li><li><span>02</span><strong>Reconcile</strong><p>Match WCS, footprint, PSF, units, masks, and sky.</p></li><li><span>03</span><strong>Measure</strong><p>Propagate statistical and systematic uncertainty.</p></li><li><span>04</span><strong>Audit</strong><p>Separate observation, inference, and speculation.</p></li></ol>
       </section>
 
-      <footer><Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link><p>Independent scientific prototype · No fabricated pixels or claims.</p><div><a href="https://github.com/lrspeiser/rubin-light-atlas">Source ↗</a><a href="/api/catalog">Catalog API</a></div></footer>
+      <footer><Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link><p>Independent scientific prototype · No fabricated pixels or claims.</p><div><a href="https://github.com/lrspeiser/layers">Source ↗</a><a href="/api/catalog">Catalog API</a></div></footer>
     </main>
   );
 }

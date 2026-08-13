@@ -62,13 +62,30 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.rubinFootprintFalsePositives, 1);
   assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
   assert.equal(catalog.summary.panStarrsUsableLocal, 3);
-  assert.equal(catalog.summary.localImageLayers, 9);
+  assert.equal(catalog.summary.externalImageLayers, 4);
+  assert.equal(catalog.summary.allWisePublished, 4);
+  assert.equal(catalog.summary.localImageLayers, 13);
   assert.equal(catalog.summary.registrationAudits, 6);
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, true);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
+  for (const targetId of ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]) {
+    const wise = catalog.targets.find((target) => target.id === targetId).layers.find((layer) => layer.id === "wise-allwise-atlas");
+    assert.equal(wise.kind, "image");
+    assert.equal(wise.availability, "published");
+    assert.equal(wise.hasVariance, true);
+    assert.equal(wise.hasMask, true);
+    assert.equal(wise.hasWcs, true);
+    assert.equal(wise.bandCoverage.W1, 1);
+    assert.equal(wise.assets.preview, `/layer-previews/wise-allwise/${targetId}-w1.jpg`);
+    const provenance = JSON.parse(await readFile(join(root, "public", wise.assets.data), "utf8"));
+    assert.equal(provenance.scienceGate.status, "blocked");
+    assert.ok(provenance.scienceGate.unsupportedClaims.includes("stellar-mass change"));
+    assert.match(provenance.standardProduct.sha256, /^[a-f0-9]{64}$/);
+    for (const source of Object.values(provenance.sources)) assert.match(source.sha256, /^[a-f0-9]{64}$/);
+  }
   for (const target of catalog.targets) {
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
     assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
@@ -85,6 +102,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(usableHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
+  assert.match(usableHtml, /WISE[\s\S]*AllWISE Atlas/);
   assert.match(usableHtml, /type="range"/);
   assert.match(usableHtml, /SCIENCE CLAIM[\s\S]*NOT PUBLISHED/);
 
@@ -139,10 +157,11 @@ test("every authentic matched pilot has a deterministic preview manifest", async
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
-  const [model, workspace, validator] = await Promise.all([
+  const [model, workspace, validator, externalBuilder] = await Promise.all([
     readFile(new URL("../lib/layers.ts", import.meta.url), "utf8"),
     readFile(new URL("../components/AtlasExperience.tsx", import.meta.url), "utf8"),
     readFile(new URL("../pipeline/validate_layers_catalog.py", import.meta.url), "utf8"),
+    readFile(new URL("../pipeline/build_layers_catalog.py", import.meta.url), "utf8"),
   ]);
   assert.match(model, /type LayerTarget/);
   assert.match(model, /type Registration/);
@@ -154,6 +173,8 @@ test("comparison architecture keeps evidence, measurements, inference, and audit
   assert.match(workspace, /MIXED DATA TYPES/);
   assert.match(validator, /non-image layer forced into image view/);
   assert.match(validator, /classification disagrees with sigma/);
+  assert.match(externalBuilder, /layers-image-layer-v1/);
+  assert.doesNotMatch(workspace, /wise-allwise-atlas/);
 });
 
 test("diffuse recovery limits are exposed as caveated QA measurements", async () => {

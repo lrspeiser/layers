@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers external image-layer provenance",
+  "targetId": "ngc0100",
+  "target": {
+    "center": {
+      "raDeg": 6.011820833333334,
+      "decDeg": 16.48638888888889,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    }
+  },
+  "layer": {
+    "id": "wise-allwise-atlas",
+    "survey": "WISE",
+    "release": "AllWISE Atlas",
+    "instrument": "WISE W1",
+    "kind": "image",
+    "availability": "published",
+    "renderMode": "image",
+    "bands": [
+      "W1"
+    ],
+    "bandCoverage": {
+      "W1": 1.0
+    },
+    "datasetCount": 3,
+    "datasetIds": [
+      "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-int-3.fits?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+      "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-unc-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+      "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-cov-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false"
+    ],
+    "units": {
+      "image": "nJy",
+      "variance": "nJy^2",
+      "coverage": "exposures"
+    },
+    "calibration": "AllWISE W1 Atlas MAGZP; locally background-referenced Vega photometry converted to nJy",
+    "hasVariance": true,
+    "hasMask": true,
+    "hasWcs": true,
+    "note": "Authentic public W1 science, uncertainty, and coverage cutouts. The JPEG is display-only; absolute surface brightness and stellar-mass claims require a validated local-background and extended-source model.",
+    "provenance": {
+      "service": "IRSA SIAv2 + IBE FITS cutout service",
+      "collection": "wise_allwise",
+      "doi": "10.26131/IRSA1",
+      "documentation": "https://irsa.ipac.caltech.edu/data/WISE/docs/release/AllWISE/expsup/sec4_1b.html",
+      "standardProductSha256": "7f6d8969668e9003eedf7413f0c0e6db1d0b60c5a0c0f6c481e7a6c44a8a22a8"
+    },
+    "assets": {
+      "preview": "/layer-previews/wise-allwise/ngc0100-w1.jpg",
+      "data": "/data/layers/wise-allwise/ngc0100.json"
+    }
+  },
+  "sources": {
+    "science": {
+      "obsId": "0062p166_ac51",
+      "publisherDid": "ivo://irsa.ipac/wise_allwise?0062p166_ac51/0062p166_ac51_W1",
+      "accessUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-int-3.fits",
+      "pixelScaleArcsec": 1.375,
+      "resolutionArcsec": 6.1,
+      "cutoutUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-int-3.fits?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+      "sha256": "f0c747e792f70d80a667bdc714d1d67f298b0f948eb41a5ac0b8016292dceb1c"
+    },
+    "noise": {
+      "obsId": "0062p166_ac51",
+      "publisherDid": "ivo://irsa.ipac/wise_allwise?0062p166_ac51/0062p166_ac51_W1",
+      "accessUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-unc-3.fits.gz",
+      "pixelScaleArcsec": 1.375,
+      "resolutionArcsec": 6.1,
+      "cutoutUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-unc-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+      "sha256": "56558a0924ae20cfecf79b232d5347a47ee3b66edcf1f21f225ef6b098dee02a"
+    },
+    "weight": {
+      "obsId": "0062p166_ac51",
+      "publisherDid": "ivo://irsa.ipac/wise_allwise?0062p166_ac51/0062p166_ac51_W1",
+      "accessUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-cov-3.fits.gz",
+      "pixelScaleArcsec": 1.375,
+      "resolutionArcsec": 6.1,
+      "cutoutUrl": "https://irsa.ipac.caltech.edu/ibe/data/wise/allwise/p3am_cdd/00/0062/0062p166_ac51/0062p166_ac51-w1-cov-3.fits.gz?center=6.011820833,16.486388889deg&size=12arcmin&gzip=false",
+      "sha256": "3470412f49b93ef5df7ca4e8233b085a553b90552097798b89792c1420825ca7"
+    }
+  },
+  "standardProduct": {
+    "sha256": "7f6d8969668e9003eedf7413f0c0e6db1d0b60c5a0c0f6c481e7a6c44a8a22a8",
+    "shape": [
+      525,
+      525
+    ],
+    "validPixelFraction": 1.0,
+    "magZeroPointVega": 20.5,
+    "magZeroPointUncertainty": 0.006,
+    "w1ZeroPointJy": 306.682,
+    "nJyPerDn": 1935.0326031987415
+  },
+  "preview": {
+    "path": "/layer-previews/wise-allwise/ngc0100-w1.jpg",
+    "sha256": "e18ca61dd68fef65fd1c5f8c944437ef06002d141af4f5a2373eb9f7283e5be1"
+  },
+  "scienceGate": {
+    "status": "blocked",
+    "reason": "No validated extended-source W1-to-SPARC 3.6 micron aperture/background transfer exists for this target.",
+    "unsupportedClaims": [
+      "outer-light difference",
+      "stellar-mass change",
+      "baryonic-mass change",
+      "delta g_bar"
+    ]
+  }
+}

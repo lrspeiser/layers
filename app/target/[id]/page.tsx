@@ -80,7 +80,7 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
         </aside>
       </section>
 
-      <footer><Link className="layers-brand" href="/"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link><p>Independent scientific prototype · No fabricated pixels or claims.</p><div><a href="https://github.com/lrspeiser/rubin-light-atlas">Source ↗</a><a href="/api/catalog">Catalog API</a></div></footer>
+      <footer><Link className="layers-brand" href="/"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link><p>Independent scientific prototype · No fabricated pixels or claims.</p><div><a href="https://github.com/lrspeiser/layers">Source ↗</a><a href="/api/catalog">Catalog API</a></div></footer>
     </main>
   );
 }

@@ -92,6 +92,17 @@ Use `--bands r,i,z` with `--only` to add predictor bands needed by a filter-resp
 
 This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, scales integrated flux and variance by the target/native pixel-area ratio during reprojection, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
 
+### Add a generic public image layer (AllWISE example)
+
+```powershell
+python pipeline/fetch_allwise.py --only ngc0100 --only ugc00191 --only ugc00634 --only ugc00891
+python pipeline/validate_external_image_layers.py
+```
+
+`fetch_allwise.py` discovers the official AllWISE W1 Atlas science, uncertainty, and exposure-coverage products through IRSA SIAv2 and requests bounded FITS cutouts from IBE. It retains every archive URL, publisher ID, checksum, WCS, and photometric zero point. The standardized FITS contains image, variance, coverage, and validity-mask planes in the generic `layers-image-layer-v1` contract. `build_layers_catalog.py` consumes that contract without survey-specific page code.
+
+AllWISE Atlas pixels support locally background-referenced photometry; they are not absolute surface-brightness maps. The four Rubin/SPARC pilots are also absent from the published 111-object WISE stellar-mass table (Duey et al. 2025). Therefore the release exposes authentic W1 images linked to SPARC profiles but explicitly blocks outer-light, stellar/baryonic-mass, and delta-g-bar claims until a target-specific extended-source background/aperture transfer is validated.
+
 Cache Gaia DR3 stars with proper motions before registering Pan-STARRS to Rubin:
 
 ```bash

@@ -220,6 +220,8 @@ export type LayersCatalog = {
     rubinFootprintFalsePositives: number;
     legacySurveyUsableLocal?: number;
     panStarrsUsableLocal?: number;
+    externalImageLayers?: number;
+    allWisePublished?: number;
     localImageLayers?: number;
     registrationAudits?: number;
     pilotAudits?: number;

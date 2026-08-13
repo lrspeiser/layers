@@ -158,6 +158,19 @@ def panstarrs_layer(record: dict) -> dict:
     }
 
 
+def external_image_records(paths: list[Path]) -> dict[str, list[dict]]:
+    records: dict[str, list[dict]] = {}
+    for path in paths:
+        if not path.is_file():
+            continue
+        manifest = load_json(path)
+        if manifest.get("schemaVersion") != 1 or manifest.get("adapterContract") != "layers-image-layer-v1":
+            raise RuntimeError(f"Unsupported external image-layer manifest: {path}")
+        for item in manifest.get("targets", []):
+            records.setdefault(item["targetId"], []).append(item["layer"])
+    return records
+
+
 def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     if not path.is_file():
         return None
@@ -455,6 +468,12 @@ def main() -> None:
     parser.add_argument("--downloads", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "download-manifest.json")
     parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
     parser.add_argument("--panstarrs", type=Path, default=root / "pipeline" / "output" / "panstarrs" / "manifest.json")
+    parser.add_argument(
+        "--external-image-manifest",
+        action="append",
+        type=Path,
+        default=[root / "pipeline" / "output" / "wise-allwise" / "manifest.json"],
+    )
     parser.add_argument("--registration-audits", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--sparc-profiles", type=Path, default=root / "public" / "data" / "sparc-profiles.json")
     parser.add_argument("--output", type=Path, default=root / "public" / "data" / "layers-catalog.json")
@@ -473,6 +492,7 @@ def main() -> None:
     panstarrs_records = {}
     if args.panstarrs.is_file():
         panstarrs_records = {item["target"]["slug"]: item for item in load_json(args.panstarrs).get("targets", [])}
+    external_records = external_image_records(args.external_image_manifest)
     targets = []
     for source in coverage["targets"]:
         mosaic = mosaics.get(source["slug"])
@@ -481,6 +501,7 @@ def main() -> None:
             layers.append(legacy_survey_layer(legacy_records[source["slug"]]))
         if source["slug"] in panstarrs_records:
             layers.append(panstarrs_layer(panstarrs_records[source["slug"]]))
+        layers.extend(external_records.get(source["slug"], []))
         comparison_paths = sorted(args.registration_audits.glob("*/registration-audit.json"))
         comparisons = [
             comparison
@@ -532,6 +553,10 @@ def main() -> None:
     )
     legacy_local = sum(any(layer["id"] == "legacy-survey-dr10" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     panstarrs_local = sum(any(layer["id"] == "panstarrs-dr1-stack" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
+    external_images = sum(len(items) for items in external_records.values())
+    allwise_published = sum(
+        1 for items in external_records.values() for layer in items if layer.get("id") == "wise-allwise-atlas"
+    )
     registration_audits = sum(len(target["comparisons"]) for target in targets)
     pilot_audits = sum("pilotAudit" in target for target in targets)
     catalog = {
@@ -551,7 +576,9 @@ def main() -> None:
             "rubinFootprintFalsePositives": footprint_only,
             "legacySurveyUsableLocal": legacy_local,
             "panStarrsUsableLocal": panstarrs_local,
-            "localImageLayers": usable + legacy_local + panstarrs_local,
+            "externalImageLayers": external_images,
+            "allWisePublished": allwise_published,
+            "localImageLayers": usable + legacy_local + panstarrs_local + external_images,
             "registrationAudits": registration_audits,
             "pilotAudits": pilot_audits,
             "assumptionsWorthRechecking": len(ranked_audits),

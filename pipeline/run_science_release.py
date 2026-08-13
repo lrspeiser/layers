@@ -20,6 +20,7 @@ STAGES = (
     ("diffuse-recovery", "validate_diffuse_recovery.py"),
     ("extended-source-filter-audit", "audit_extended_source_transfer.py"),
     ("three-survey-consistency", "audit_three_survey_consistency.py"),
+    ("external-image-layers", "validate_external_image_layers.py"),
     ("comparison-previews", "build_comparison_previews.py"),
     ("catalog", "build_layers_catalog.py"),
     ("catalog-validation", "validate_layers_catalog.py"),
