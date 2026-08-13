@@ -6,7 +6,7 @@ import type { Comparison, Layer, LayersCatalog, LayerTarget, SparcProfile } from
 import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 import comparisonPreviewData from "@/public/data/comparison-previews.json";
 
-type CoverageFilter = "all" | "rubin" | "no-coverage";
+type CoverageFilter = "all" | "rubin" | "wise-mass" | "no-coverage";
 type WorkbenchView = "evidence" | "swipe" | "coverage" | "candidates" | "profiles";
 type CandidateRegion = {
   id: string;
@@ -76,15 +76,34 @@ function ProfileChart({ profile, kind }: { profile: SparcProfile; kind: "photome
   </svg><div className="chart-series"><span className="observed-key">Observed</span><span className="gas-key">Gas</span><span className="disk-key">Stellar disk</span></div></div>;
 }
 
-function SparcProfileViewport({ target, profile, imageLayer }: { target: LayerTarget; profile?: SparcProfile; imageLayer?: Layer }) {
+function MassComparisonCard({ comparison }: { comparison: Comparison }) {
+  const values = comparison.catalogValues;
+  const measurement = comparison.measurements[0];
+  if (!values || !measurement) return null;
+  const minimum = Math.floor(Math.min(values.wiseLogStellarMassMsun, values.sparcBaselineLogStellarMassMsun) - 0.25);
+  const maximum = Math.ceil(Math.max(values.wiseLogStellarMassMsun, values.sparcBaselineLogStellarMassMsun) + 0.25);
+  const width = (value: number) => `${Math.max(4, (value - minimum) / Math.max(maximum - minimum, 1) * 100)}%`;
+  return <section className="mass-comparison-card">
+    <div className="mass-card-heading"><div><span className="eyebrow">LINKED CATALOG COMPARISON</span><h3>Total stellar-mass normalization</h3></div><span className={`mass-classification ${measurement.classification}`}>{measurement.classification} · {measurement.significanceSigma.toFixed(2)}σ</span></div>
+    <div className="mass-bars">
+      <div><span><strong>WISE W1 color model</strong><small>{values.wiseLogStellarMassMsun.toFixed(3)} ± {values.wiseStatisticalUncertaintyDex.toFixed(3)} dex</small></span><i style={{ width: width(values.wiseLogStellarMassMsun) }} /></div>
+      <div><span><strong>SPARC 3.6 µm baseline</strong><small>{values.sparcBaselineLogStellarMassMsun.toFixed(3)} dex · fixed M/L 0.5</small></span><i style={{ width: width(values.sparcBaselineLogStellarMassMsun) }} /></div>
+    </div>
+    <div className="mass-difference-readout"><span><small>OBSERVED MODEL DIFFERENCE</small><strong>{measurement.value > 0 ? "+" : ""}{measurement.value.toFixed(3)} dex</strong></span><span><small>EXPECTED W1 OFFSET</small><strong>+{measurement.expectedCenter?.toFixed(2)} ± {measurement.systematicUncertainty.toFixed(2)} dex</strong></span></div>
+    <p>The bars compare published target-level model outputs. They do not imply a radial mass map or a Rubin measurement.</p>
+  </section>;
+}
+
+function SparcProfileViewport({ target, profile, companionLayer, comparison }: { target: LayerTarget; profile?: SparcProfile; companionLayer?: Layer; comparison?: Comparison }) {
   const [chart, setChart] = useState<"photometry" | "rotation">("photometry");
   if (!profile) return <div className="layers-viewport blocked-viewport"><div className="viewport-message"><span className="eyebrow">PROFILE DATA UNAVAILABLE</span><h3>No SPARC record was loaded for {target.name}.</h3></div></div>;
   return <div className="layers-viewport sparc-profile-viewport">
     <div className="profile-view-heading"><div><span className="eyebrow">PUBLISHED NON-IMAGE LAYER</span><h3>{profile.sparcId} · SPARC 2016</h3><p>Radial photometry and dynamical measurements retain their physical axes; they are linked to the same target rather than converted into fake pixels.</p></div><div className="profile-view-tabs"><button className={chart === "photometry" ? "active" : ""} onClick={() => setChart("photometry")}>Surface brightness</button><button className={chart === "rotation" ? "active" : ""} onClick={() => setChart("rotation")}>Rotation curve</button></div></div>
-    <div className={imageLayer?.assets?.preview ? "linked-profile-layout" : undefined}>
-      {imageLayer?.assets?.preview && <figure className="linked-layer-image"><img src={imageLayer.assets.preview} alt={`${target.name}, ${imageLayer.survey} ${imageLayer.bands.join(" ")}`} /><figcaption><strong>{imageLayer.survey} · {imageLayer.bands.join(" ")}</strong><span>Authentic image layer · display stretch</span><small>{imageLayer.note}</small></figcaption></figure>}
+    <div className={companionLayer?.assets?.preview ? "linked-profile-layout" : undefined}>
+      {companionLayer?.assets?.preview && <figure className="linked-layer-image"><img src={companionLayer.assets.preview} alt={`${target.name}, ${companionLayer.survey} ${companionLayer.bands.join(" ")}`} /><figcaption><strong>{companionLayer.survey} · {companionLayer.bands.join(" ")}</strong><span>Authentic image layer · display stretch</span><small>{companionLayer.note}</small></figcaption></figure>}
       <ProfileChart profile={profile} kind={chart} />
     </div>
+    {companionLayer?.kind === "catalog" && comparison?.comparisonMode === "catalog-profile" && <MassComparisonCard comparison={comparison} />}
     <div className="profile-facts"><span><small>DISTANCE</small><strong>{profile.distanceMpc?.toFixed(1) ?? "—"} Mpc</strong></span><span><small>ACCEPTED PHOTOMETRY</small><strong>{profile.summary.acceptedPhotometryPoints} points</strong></span><span><small>ACCEPTED EXTENT</small><strong>{profile.summary.maximumAcceptedRadiusArcsec.toFixed(1)}″</strong></span><span><small>ROTATION CURVE</small><strong>{profile.summary.rotationCurvePoints} points · {profile.summary.maximumRotationRadiusKpc.toFixed(1)} kpc</strong></span></div>
     <div className="profile-provenance"><span>Source: Lelli, McGaugh & Schombert (2016), AJ 152, 157</span><a href="https://astroweb.cwru.edu/SPARC/" target="_blank" rel="noreferrer">Official SPARC archive ↗</a></div>
   </div>;
@@ -162,8 +181,8 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
   );
 
   if (view === "profiles" && (left.kind === "profile" || right.kind === "profile")) {
-    const imageLayer = left.kind === "image" ? left : right.kind === "image" ? right : undefined;
-    return <SparcProfileViewport target={target} profile={profile} imageLayer={imageLayer} />;
+    const companionLayer = left.kind === "profile" ? right : left;
+    return <SparcProfileViewport target={target} profile={profile} companionLayer={companionLayer} comparison={comparison} />;
   }
 
   if ((swipeable && comparison) || authenticQaViewer) {
@@ -186,8 +205,8 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
         <span className="reveal-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
         <input
           type="range"
-          min="3"
-          max="97"
+          min="0"
+          max="100"
           value={reveal}
           onChange={(event) => setReveal(Number(event.target.value))}
           aria-label={`Reveal ${left.survey} over ${right.survey}`}
@@ -309,7 +328,7 @@ function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparis
       <div className="panel-heading"><span className="eyebrow">ASSUMPTIONS WORTH RECHECKING</span><span className="triage-only">TRIAGE, NOT A VERDICT</span></div>
       {comparison?.assumptionAudits.length ? comparison.assumptionAudits.map((audit) => (
         <article className="assumption-audit" key={audit.id}>
-          <div className="assumption-audit-rank"><span>#{String(audit.rank).padStart(2, "0")}</span><small>{audit.confidence} calibration candidate</small></div>
+          <div className="assumption-audit-rank"><span>#{String(audit.rank).padStart(2, "0")}</span><small>{audit.confidence} follow-up candidate</small></div>
           <h3>{audit.title}</h3>
           <p>{audit.newEvidence}</p>
           <div className="assumption-evidence"><strong>{audit.evidenceMagnitude.thresholdMultiple.toFixed(1)}×</strong><span>over the {audit.evidenceMagnitude.passThreshold.toFixed(2)} {audit.evidenceMagnitude.unit} pass threshold</span></div>
@@ -350,9 +369,20 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     if (!text.includes(query.toLowerCase())) return false;
     const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
     if (coverageFilter === "rubin") return rubin?.availability !== "not-covered";
+    if (coverageFilter === "wise-mass") return target.layers.some((layer) => layer.id === "wise-w1-stellar-mass-2025");
     if (coverageFilter === "no-coverage") return rubin?.availability === "not-covered";
     return true;
   }), [catalog.targets, coverageFilter, query]);
+
+  const loadProfileFor = async (target: LayerTarget) => {
+    if (profiles[target.id]) return;
+    const profileLayer = target.layers.find((layer) => layer.kind === "profile");
+    if (!profileLayer?.assets?.data) return;
+    const response = await fetch(profileLayer.assets.data);
+    if (!response.ok) return;
+    const payload = await response.json() as { target: SparcProfile };
+    setProfiles((current) => ({ ...current, [target.id]: payload.target }));
+  };
 
   const chooseTarget = (target: LayerTarget) => {
     const [nextLeft, nextRight] = defaultLayerIds(target);
@@ -360,7 +390,12 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     setLeftId(nextLeft);
     setRightId(nextRight);
     const targetComparison = target.comparisons.find((item) => item.status === "published" || item.status === "qa");
-    setWorkbenchView(matchingPreview(target.id, targetComparison) ? "swipe" : "evidence");
+    if (targetComparison?.comparisonMode === "catalog-profile") {
+      setWorkbenchView("profiles");
+      void loadProfileFor(target);
+    } else {
+      setWorkbenchView(matchingPreview(target.id, targetComparison) ? "swipe" : "evidence");
+    }
   };
   const left = layerById(selected, leftId);
   const right = layerById(selected, rightId);
@@ -374,13 +409,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
   ).sort((a, b) => a.audit.rank - b.audit.rank), [catalog.targets]);
 
   const loadProfile = async () => {
-    if (profiles[selected.id]) return;
-    const profileLayer = selected.layers.find((layer) => layer.kind === "profile");
-    if (!profileLayer?.assets?.data) return;
-    const response = await fetch(profileLayer.assets.data);
-    if (!response.ok) return;
-    const payload = await response.json() as { target: SparcProfile };
-    setProfiles((current) => ({ ...current, [selected.id]: payload.target }));
+    await loadProfileFor(selected);
   };
 
   const selectLayer = (side: "left" | "right", id: string) => {
@@ -420,7 +449,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
           <div className="browser-title"><span className="eyebrow">TARGETS</span><strong>{catalog.targetSelection.name}</strong></div>
           <label className="target-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Name or identifier" aria-label="Search targets" /></label>
           <div className="filter-tabs" role="group" aria-label="Coverage filter">
-            {(["rubin", "all", "no-coverage"] as CoverageFilter[]).map((item) => <button key={item} className={coverageFilter === item ? "active" : ""} onClick={() => setCoverageFilter(item)}>{item === "rubin" ? "Rubin matches" : item === "all" ? "All 175" : "No coverage"}</button>)}
+            {(["rubin", "wise-mass", "all", "no-coverage"] as CoverageFilter[]).map((item) => <button key={item} className={coverageFilter === item ? "active" : ""} onClick={() => setCoverageFilter(item)}>{item === "rubin" ? "Rubin matches" : item === "wise-mass" ? "WISE masses" : item === "all" ? "All 175" : "No coverage"}</button>)}
           </div>
           <div className="target-count">{filtered.length} targets</div>
           <div className="target-list">
@@ -462,7 +491,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
       </section>
 
       <section className="assumption-leaderboard" id="assumptions">
-        <div className="leaderboard-heading"><div><span className="eyebrow">RANKED CALIBRATION AUDITS</span><h2>Assumptions worth rechecking now.</h2></div><p>The score is the largest multiple by which a predeclared resolved-light transfer threshold failed. It prioritizes follow-up; it is not an astrophysical significance or a verdict on either survey.</p></div>
+        <div className="leaderboard-heading"><div><span className="eyebrow">RANKED ASSUMPTION AUDITS</span><h2>Assumptions worth rechecking now.</h2></div><p>Image audits rank failed resolved-light transfer gates; catalog audits rank deviations from their declared cross-survey expectation. Both prioritize follow-up and are neither discovery claims nor verdicts on a survey.</p></div>
         <div className="leaderboard-grid">
           {rankedAudits.map(({ target, audit }) => <button key={audit.id} onClick={() => chooseTarget(target)}>
             <span className="leaderboard-rank">#{String(audit.rank).padStart(2, "0")}</span>

@@ -171,6 +171,47 @@ def external_image_records(paths: list[Path]) -> dict[str, list[dict]]:
     return records
 
 
+def external_catalog_records(paths: list[Path]) -> dict[str, dict[str, list[dict]]]:
+    records: dict[str, dict[str, list[dict]]] = {}
+    for path in paths:
+        if not path.is_file():
+            continue
+        manifest = load_json(path)
+        if manifest.get("schemaVersion") != 1 or manifest.get("adapterContract") != "layers-catalog-layer-v1":
+            raise RuntimeError(f"Unsupported external catalog-layer manifest: {path}")
+        for item in manifest.get("targets", []):
+            target = records.setdefault(item["targetId"], {"layers": [], "comparisons": []})
+            target["layers"].append(item["layer"])
+            target["comparisons"].append(item["comparison"])
+    return records
+
+
+def synchronize_external_catalog_records(root: Path, targets: list[dict]) -> None:
+    """Keep public source records aligned after release-wide audit ranking."""
+    for target in targets:
+        for layer in target["layers"]:
+            if layer.get("kind") != "catalog" or not layer.get("assets", {}).get("data"):
+                continue
+            public_path = root / "public" / layer["assets"]["data"].lstrip("/")
+            if not public_path.is_file():
+                continue
+            record = load_json(public_path)
+            if record.get("product") != "Layers external catalog-layer record":
+                continue
+            comparison = next(
+                (
+                    item for item in target["comparisons"]
+                    if layer["id"] in item.get("layerIds", []) and item.get("comparisonMode") == "catalog-profile"
+                ),
+                None,
+            )
+            if not comparison:
+                continue
+            record["layer"] = layer
+            record["comparison"] = comparison
+            public_path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+
+
 def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     if not path.is_file():
         return None
@@ -474,6 +515,12 @@ def main() -> None:
         type=Path,
         default=[root / "pipeline" / "output" / "wise-allwise" / "manifest.json"],
     )
+    parser.add_argument(
+        "--external-catalog-manifest",
+        action="append",
+        type=Path,
+        default=[root / "pipeline" / "output" / "wise-stellar-masses" / "manifest.json"],
+    )
     parser.add_argument("--registration-audits", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--sparc-profiles", type=Path, default=root / "public" / "data" / "sparc-profiles.json")
     parser.add_argument("--output", type=Path, default=root / "public" / "data" / "layers-catalog.json")
@@ -493,6 +540,7 @@ def main() -> None:
     if args.panstarrs.is_file():
         panstarrs_records = {item["target"]["slug"]: item for item in load_json(args.panstarrs).get("targets", [])}
     external_records = external_image_records(args.external_image_manifest)
+    external_catalogs = external_catalog_records(args.external_catalog_manifest)
     targets = []
     for source in coverage["targets"]:
         mosaic = mosaics.get(source["slug"])
@@ -502,6 +550,7 @@ def main() -> None:
         if source["slug"] in panstarrs_records:
             layers.append(panstarrs_layer(panstarrs_records[source["slug"]]))
         layers.extend(external_records.get(source["slug"], []))
+        layers.extend(external_catalogs.get(source["slug"], {}).get("layers", []))
         comparison_paths = sorted(args.registration_audits.glob("*/registration-audit.json"))
         comparisons = [
             comparison
@@ -510,6 +559,7 @@ def main() -> None:
             for comparison in [registration_comparison(path, {layer["id"] for layer in layers})]
             if comparison
         ]
+        comparisons.extend(external_catalogs.get(source["slug"], {}).get("comparisons", []))
         comparison = next((item for item in comparisons if item.get("comparisonKey") == source["slug"]), comparisons[0] if comparisons else None)
         target_record = {
                 "id": source["slug"],
@@ -542,6 +592,7 @@ def main() -> None:
     )
     for rank, audit in enumerate(ranked_audits, start=1):
         audit["rank"] = rank
+    synchronize_external_catalog_records(root, targets)
 
     usable = sum(
         any(layer["id"] == "rubin-dp2-deep-coadd" and layer["availability"] == "available-local" for layer in target["layers"])
@@ -554,6 +605,7 @@ def main() -> None:
     legacy_local = sum(any(layer["id"] == "legacy-survey-dr10" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     panstarrs_local = sum(any(layer["id"] == "panstarrs-dr1-stack" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     external_images = sum(len(items) for items in external_records.values())
+    external_catalog_layers = sum(len(item["layers"]) for item in external_catalogs.values())
     allwise_published = sum(
         1 for items in external_records.values() for layer in items if layer.get("id") == "wise-allwise-atlas"
     )
@@ -577,12 +629,17 @@ def main() -> None:
             "legacySurveyUsableLocal": legacy_local,
             "panStarrsUsableLocal": panstarrs_local,
             "externalImageLayers": external_images,
+            "externalCatalogLayers": external_catalog_layers,
             "allWisePublished": allwise_published,
             "localImageLayers": usable + legacy_local + panstarrs_local + external_images,
             "registrationAudits": registration_audits,
             "pilotAudits": pilot_audits,
             "assumptionsWorthRechecking": len(ranked_audits),
-            "publishedComparisons": 0,
+            "publishedComparisons": sum(
+                comparison["status"] == "published"
+                for target in targets
+                for comparison in target["comparisons"]
+            ),
         },
         "targets": targets,
     }

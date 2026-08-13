@@ -103,6 +103,16 @@ python pipeline/validate_external_image_layers.py
 
 AllWISE Atlas pixels support locally background-referenced photometry; they are not absolute surface-brightness maps. The four Rubin/SPARC pilots are also absent from the published 111-object WISE stellar-mass table (Duey et al. 2025). Therefore the release exposes authentic W1 images linked to SPARC profiles but explicitly blocks outer-light, stellar/baryonic-mass, and delta-g-bar claims until a target-specific extended-source background/aperture transfer is validated.
 
+The same Duey et al. catalog is ingested independently through the generic
+`layers-catalog-layer-v1` adapter for all 111 SPARC matches.  Those records
+compare the published color-model W1 stellar mass to the declared SPARC
+reference model `Mstar = L[3.6] * 0.5`.  Significance is measured relative to
+the paper-supported expected +0.10 dex W1 shift with 0.18 dex cross-survey
+scatter.  These are catalog/model comparisons, not measurements from the WISE
+preview pixels and not radial baryonic-acceleration revisions.  The four Rubin
+pilots retain an explicit no-measurement state because none appears in the
+published 111-object mass table.
+
 Cache Gaia DR3 stars with proper motions before registering Pan-STARRS to Rubin:
 
 ```bash

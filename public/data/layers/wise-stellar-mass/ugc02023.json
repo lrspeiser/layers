@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers external catalog-layer record",
+  "generatedAt": "2026-08-13T08:10:45.572010+00:00",
+  "targetId": "ugc02023",
+  "targetName": "UGC02023",
+  "publishedInputs": {
+    "wise": {
+      "name": "UGC 02023",
+      "logLuminosityW1Lsun": 9.091,
+      "logStellarMassW1Msun": 8.829,
+      "logStellarMassUncertaintyDex": 0.027,
+      "gMinusW1Mag": 2.35,
+      "massToLightW1": 0.55,
+      "sourceRow": "UGC 02023     9.091  8.829 0.027 2.35 0.55"
+    },
+    "sparc": {
+      "name": "UGC02023",
+      "luminosity36BillionLsun": 1.308,
+      "luminosity36UncertaintyBillionLsun": 0.033,
+      "sourceRow": "   UGC02023 10  10.40  3.10  1 19.0 10.0   1.308   0.033  2.73    27.59  1.55   121.57   0.477  6.50   0.0   0.0   2      Sw09,Sw02"
+    }
+  },
+  "declaredModel": {
+    "sparcMassToLight36": 0.5,
+    "expectedOffsetDex": 0.1,
+    "expectedScatterDex": 0.18
+  },
+  "layer": {
+    "id": "wise-w1-stellar-mass-2025",
+    "survey": "WISE + SDSS",
+    "release": "Duey et al. 2025",
+    "instrument": "WISE W1 + SDSS g photometry",
+    "kind": "catalog",
+    "availability": "published",
+    "renderMode": "table",
+    "bands": [
+      "W1",
+      "g"
+    ],
+    "datasetCount": 1,
+    "units": {
+      "stellarMass": "log10(Msun)",
+      "massToLight": "Msun/Lsun",
+      "color": "mag"
+    },
+    "calibration": "Published g\u2212W1 color-dependent stellar-population mass model",
+    "hasVariance": true,
+    "hasMask": false,
+    "hasWcs": false,
+    "note": "Published target-level stellar-mass catalog. Link it to SPARC as a table/plot; never render it as an image.",
+    "provenance": {
+      "catalog": "https://cdsarc.cds.unistra.fr/ftp/J/AJ/169/186/table1.dat",
+      "readme": "https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/169/186?format=html&tex=true",
+      "paper": "https://arxiv.org/abs/2501.10919",
+      "sourceRow": "UGC 02023",
+      "sourceSha256": "59ca12af9ffe85e5099cda6b0ef5563ecb80491856e610a9027b2885ff2a36ff"
+    },
+    "assets": {
+      "data": "/data/layers/wise-stellar-mass/ugc02023.json"
+    },
+    "catalogSummary": {
+      "logStellarMassMsun": 8.829,
+      "uncertaintyDex": 0.027,
+      "gMinusW1Mag": 2.35,
+      "massToLight": 0.55
+    }
+  },
+  "comparison": {
+    "id": "ugc02023--wise-stellar-mass",
+    "comparisonKey": "ugc02023--wise-stellar-mass",
+    "comparisonMode": "catalog-profile",
+    "layerIds": [
+      "sparc-2016",
+      "wise-w1-stellar-mass-2025"
+    ],
+    "status": "published",
+    "compatibility": {
+      "targetIdentityMatched": true,
+      "quantityMatched": true,
+      "unitsMatched": true,
+      "distanceScaleShared": true,
+      "modelDeclared": true,
+      "limitations": [
+        "Global catalog masses only; no radial stellar-mass profile is inferred.",
+        "SPARC fixed-M/L and WISE color-dependent M/L are deliberately different models."
+      ]
+    },
+    "catalogValues": {
+      "wiseLogStellarMassMsun": 8.829,
+      "wiseStatisticalUncertaintyDex": 0.027,
+      "wiseMassToLight": 0.55,
+      "wiseGMinusW1Mag": 2.35,
+      "sparcLuminosity36BillionLsun": 1.308,
+      "sparcLuminosity36UncertaintyBillionLsun": 0.033,
+      "sparcFixedMassToLight": 0.5,
+      "sparcBaselineLogStellarMassMsun": 8.815578
+    },
+    "products": {
+      "qaPackage": "/data/comparisons/ugc02023--wise-stellar-mass.json"
+    },
+    "measurements": [
+      {
+        "id": "ugc02023-wise-minus-sparc-stellar-mass",
+        "label": "WISE W1 \u2212 SPARC fixed-M/L stellar mass",
+        "quantity": "log stellar mass difference",
+        "value": 0.013422,
+        "unit": "dex",
+        "statisticalUncertainty": 0.029139,
+        "systematicUncertainty": 0.18,
+        "expectedRange": [
+          -0.264686,
+          0.464686
+        ],
+        "expectedCenter": 0.1,
+        "significanceSigma": 0.474806,
+        "classification": "expected",
+        "provenance": [
+          "https://cdsarc.cds.unistra.fr/ftp/J/AJ/169/186/table1.dat",
+          "https://arxiv.org/abs/2501.10919",
+          "https://arxiv.org/abs/1606.09251",
+          "sha256:59ca12af9ffe85e5099cda6b0ef5563ecb80491856e610a9027b2885ff2a36ff",
+          "sha256:5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243"
+        ],
+        "caveats": [
+          "The SPARC reference is a model baseline: total 3.6 \u00b5m luminosity multiplied by the explicitly declared fixed M/L = 0.5 Msun/Lsun.",
+          "The WISE value uses the published g\u2212W1 color-dependent stellar-population model; this is not a mass measured from the Layers display cutout.",
+          "The 0.18 dex systematic is the published W1-versus-Spitzer stellar-mass scatter; the paper reports an expected approximately +0.1 dex W1 M/L shift.",
+          "Foreground-star contamination, aperture choices, star-formation history, and bulge/disk decomposition can move the WISE estimate.",
+          "Classification is triage relative to the cross-survey expectation, not evidence that either catalog is wrong."
+        ]
+      }
+    ],
+    "inferences": [
+      {
+        "id": "ugc02023-stellar-mass-normalization",
+        "domain": "baryonic-mass",
+        "observation": "Published WISE and SPARC inputs give a WISE\u2212SPARC fixed-M/L stellar-mass offset of +0.013 dex.",
+        "modelDependentInterpretation": "If photometric systematics are excluded, the offset quantifies sensitivity of the global stellar-mass normalization to the adopted near-IR M/L model. It does not by itself revise the radial baryonic acceleration.",
+        "confidence": "supported",
+        "assumptions": [
+          "Both catalogs use the same target distance scale.",
+          "SPARC baseline M/L[3.6] is fixed at 0.5 Msun/Lsun.",
+          "Published WISE g\u2212W1 mass calibration and uncertainty apply to this target."
+        ]
+      }
+    ],
+    "assumptionAudits": []
+  }
+}

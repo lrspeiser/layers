@@ -69,6 +69,23 @@ def main() -> None:
     for key, layer in catalog_layers.items():
         if key in database_layers and canonical(database_layers[key]) != canonical(layer):
             errors.append(f"{key[0]}/{key[1]}: database layer differs from catalog/API source")
+        if layer.get("kind") == "catalog" and layer.get("assets", {}).get("data"):
+            record_path = root / "public" / layer["assets"]["data"].lstrip("/")
+            if not record_path.is_file():
+                errors.append(f"{key[0]}/{key[1]}: public catalog-layer record is missing")
+            else:
+                record = json.loads(record_path.read_text(encoding="utf-8"))
+                comparison = next(
+                    (
+                        item for item in catalog["targets"]
+                        if item["id"] == key[0]
+                        for item in item.get("comparisons", [])
+                        if key[1] in item.get("layerIds", []) and item.get("comparisonMode") == "catalog-profile"
+                    ),
+                    None,
+                )
+                if canonical(record.get("layer")) != canonical(layer) or canonical(record.get("comparison")) != canonical(comparison):
+                    errors.append(f"{key[0]}/{key[1]}: public catalog-layer record differs from catalog/API source")
     catalog_pilot_audits = {target["id"]: target.get("pilotAudit") for target in catalog["targets"]}
     if set(database_pilot_audits) != set(catalog_pilot_audits):
         errors.append("database pilot audit target keys differ from catalog")

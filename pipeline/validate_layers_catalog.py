@@ -17,6 +17,9 @@ REQUIRED_LAYER_FIELDS = {
 REGISTRATION_GATES = {
     "commonWcs", "commonFootprint", "psfMatched", "skyMatched", "unitsMatched", "filterMatched",
 }
+CATALOG_COMPATIBILITY_GATES = {
+    "targetIdentityMatched", "quantityMatched", "unitsMatched", "distanceScaleShared", "modelDeclared",
+}
 MEASUREMENT_FIELDS = {
     "id", "label", "quantity", "value", "unit", "statisticalUncertainty",
     "systematicUncertainty", "expectedRange", "significanceSigma",
@@ -130,6 +133,14 @@ def main() -> None:
             if comparison.get("status") != "published":
                 continue
             published_count += 1
+            if comparison.get("comparisonMode") == "catalog-profile":
+                compatibility = comparison.get("compatibility", {})
+                failed = [gate for gate in CATALOG_COMPATIBILITY_GATES if compatibility.get(gate) is not True]
+                if failed:
+                    errors.append(f"{target_id}/{comparison.get('id')}: failed catalog compatibility gates {sorted(failed)}")
+                if not compatibility.get("limitations") or not comparison.get("catalogValues"):
+                    errors.append(f"{target_id}/{comparison.get('id')}: catalog comparison lacks limitations or source values")
+                continue
             registration = comparison.get("registration", {})
             failed = [gate for gate in REGISTRATION_GATES if registration.get(gate) is not True]
             if failed:

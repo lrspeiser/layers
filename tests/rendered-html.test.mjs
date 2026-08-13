@@ -63,11 +63,13 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
   assert.equal(catalog.summary.panStarrsUsableLocal, 3);
   assert.equal(catalog.summary.externalImageLayers, 4);
+  assert.equal(catalog.summary.externalCatalogLayers, 111);
   assert.equal(catalog.summary.allWisePublished, 4);
   assert.equal(catalog.summary.localImageLayers, 13);
-  assert.equal(catalog.summary.registrationAudits, 6);
+  assert.equal(catalog.summary.registrationAudits, 117);
   assert.equal(catalog.summary.pilotAudits, 4);
-  assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
+  assert.equal(catalog.summary.assumptionsWorthRechecking, 4);
+  assert.equal(catalog.summary.publishedComparisons, 111);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, true);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
@@ -90,6 +92,14 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
     assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
   }
+  const massComparisons = catalog.targets.flatMap((target) => target.comparisons.filter((comparison) => comparison.comparisonMode === "catalog-profile"));
+  assert.equal(massComparisons.length, 111);
+  assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "expected").length, 109);
+  assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "noteworthy").length, 2);
+  assert.equal(massComparisons.filter((comparison) => comparison.measurements[0].classification === "large").length, 0);
+  for (const targetId of ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]) {
+    assert.equal(catalog.targets.find((target) => target.id === targetId).layers.some((layer) => layer.id === "wise-w1-stellar-mass-2025"), false);
+  }
 });
 
 test("permanent target records expose honest pixel-level coverage states", async () => {
@@ -98,7 +108,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   const usableHtml = await usable.text();
   assert.match(usableHtml, /UGC00191/);
   assert.match(usableHtml, /Local Rubin pixels verified/);
-  assert.match(usableHtml, /QA comparison record available; no scientific difference published/);
+  assert.match(usableHtml, /QA comparison records are available; no scientific difference is published/);
   assert.match(usableHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
@@ -174,6 +184,7 @@ test("comparison architecture keeps evidence, measurements, inference, and audit
   assert.match(validator, /non-image layer forced into image view/);
   assert.match(validator, /classification disagrees with sigma/);
   assert.match(externalBuilder, /layers-image-layer-v1/);
+  assert.match(externalBuilder, /layers-catalog-layer-v1/);
   assert.doesNotMatch(workspace, /wise-allwise-atlas/);
 });
 
@@ -238,8 +249,34 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
   assert.deepEqual(audits.sort((a, b) => a.rank - b.rank).map((audit) => audit.id), [
     "ugc00191-stellar-to-resolved-filter-transfer",
     "ugc00634-stellar-to-resolved-filter-transfer",
+    "ugc02885-stellar-mass-baseline-audit",
+    "ugc06917-stellar-mass-baseline-audit",
   ]);
   assert.ok(audits[0].evidenceMagnitude.thresholdMultiple > 5);
   assert.equal(audits[0].confidence, "candidate");
   assert.match(audits[0].caveat, /not evidence that either survey or the galaxy is wrong/);
+});
+
+test("published WISE catalog masses retain uncertainties, expected range, and model boundaries", async () => {
+  const catalog = JSON.parse(await readFile(join(root, "public", "data", "layers-catalog.json"), "utf8"));
+  const target = catalog.targets.find((item) => item.id === "ugc02885");
+  const layer = target.layers.find((item) => item.id === "wise-w1-stellar-mass-2025");
+  const comparison = target.comparisons.find((item) => item.comparisonMode === "catalog-profile");
+  assert.equal(layer.kind, "catalog");
+  assert.equal(layer.renderMode, "table");
+  assert.equal(comparison.status, "published");
+  assert.equal(comparison.registration, undefined);
+  for (const gate of ["targetIdentityMatched", "quantityMatched", "unitsMatched", "distanceScaleShared", "modelDeclared"]) assert.equal(comparison.compatibility[gate], true);
+  const measurement = comparison.measurements[0];
+  assert.equal(measurement.systematicUncertainty, 0.18);
+  assert.equal(measurement.expectedCenter, 0.1);
+  assert.equal(measurement.classification, "noteworthy");
+  assert.ok(measurement.significanceSigma >= 2 && measurement.significanceSigma < 3);
+  assert.equal(measurement.expectedRange.length, 2);
+  assert.ok(measurement.caveats.some((item) => item.includes("fixed M/L")));
+  assert.ok(measurement.caveats.some((item) => item.includes("triage")));
+  assert.match(comparison.inferences[0].modelDependentInterpretation, /does not by itself revise the radial baryonic acceleration/);
+  const record = JSON.parse(await readFile(join(root, "public", layer.assets.data), "utf8"));
+  assert.equal(record.targetId, target.id);
+  assert.deepEqual(record.comparison, comparison);
 });

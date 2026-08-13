@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "adapterContract": "layers-catalog-layer-v1",
+  "createdAt": "2026-08-13T08:10:45.572010+00:00",
+  "layerId": "wise-w1-stellar-mass-2025",
+  "sources": {
+    "wiseCatalog": {
+      "url": "https://cdsarc.cds.unistra.fr/ftp/J/AJ/169/186/table1.dat",
+      "sha256": "59ca12af9ffe85e5099cda6b0ef5563ecb80491856e610a9027b2885ff2a36ff",
+      "records": 111
+    },
+    "sparcCatalog": {
+      "url": "https://astroweb.cwru.edu/SPARC/",
+      "sha256": "5aa0501f6b0d881fa579030e315e7b5b6ef561a5bd3a07472f9929c7e5728243",
+      "records": 175
+    },
+    "wisePaper": "https://arxiv.org/abs/2501.10919",
+    "sparcPaper": "https://arxiv.org/abs/1606.09251"
+  },
+  "scienceContract": {
+    "referenceModel": "log10(L[3.6] * 1e9 * 0.5 Msun/Lsun)",
+    "difference": "log10(Mstar_WISE/Msun) - log10(Mstar_SPARC_fixed_ML/Msun)",
+    "expectedOffsetDex": 0.1,
+    "expectedScatterDex": 0.18,
+    "classification": "expected <2 sigma; noteworthy 2-3 sigma; large >=3 sigma",
+    "observationVsInference": "Catalog values and their difference are observations/model outputs; baryonic implications remain model-dependent."
+  },
+  "cohort": {
+    "matched": 111,
+    "classifications": {
+      "expected": 109,
+      "noteworthy": 2,
+      "large": 0
+    },
+    "rubinPilotMeasurements": []
+  }
+}

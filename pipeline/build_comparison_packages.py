@@ -92,7 +92,7 @@ def main() -> None:
                 )
             public_record = {
                 "schemaVersion": 1,
-                "product": "Layers comparison QA package",
+                "product": "Layers published comparison package" if comparison["status"] == "published" else "Layers comparison QA package",
                 "generatedAt": datetime.now(timezone.utc).isoformat(),
                 "target": {
                     "id": slug,
@@ -105,7 +105,7 @@ def main() -> None:
                 "layers": [layer for layer in target["layers"] if layer["id"] in comparison["layerIds"]],
                 "comparison": comparison,
                 "localReproductionArtifacts": artifact_records,
-                "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized.",
+                "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized.",
             }
             public_path = args.public_output / f"{comparison_key}.json"
             public_path.write_text(json.dumps(public_record, indent=2), encoding="utf-8")

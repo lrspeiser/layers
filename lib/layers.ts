@@ -38,6 +38,12 @@ export type Layer = {
     rotationCurvePoints: number;
     maximumRotationRadiusKpc: number;
   };
+  catalogSummary?: {
+    logStellarMassMsun: number;
+    uncertaintyDex: number;
+    gMinusW1Mag: number;
+    massToLight: number;
+  };
 };
 
 export type SparcProfilePoint = {
@@ -91,6 +97,7 @@ export type DifferenceMeasurement = {
   statisticalUncertainty: number;
   systematicUncertainty: number;
   expectedRange: [number, number];
+  expectedCenter?: number;
   significanceSigma: number;
   classification: "expected" | "noteworthy" | "large";
   provenance: string[];
@@ -143,9 +150,29 @@ export type AssumptionAudit = {
 
 export type Comparison = {
   id: string;
+  comparisonKey?: string;
+  comparisonMode?: "image" | "catalog-profile";
   layerIds: [string, string];
   status: "blocked" | "qa" | "published";
   registration?: Registration;
+  compatibility?: {
+    targetIdentityMatched: boolean;
+    quantityMatched: boolean;
+    unitsMatched: boolean;
+    distanceScaleShared: boolean;
+    modelDeclared: boolean;
+    limitations: string[];
+  };
+  catalogValues?: {
+    wiseLogStellarMassMsun: number;
+    wiseStatisticalUncertaintyDex: number;
+    wiseMassToLight: number;
+    wiseGMinusW1Mag: number;
+    sparcLuminosity36BillionLsun: number;
+    sparcLuminosity36UncertaintyBillionLsun: number;
+    sparcFixedMassToLight: number;
+    sparcBaselineLogStellarMassMsun: number;
+  };
   qa?: {
     band?: string;
     comparisonLayerLabel?: string;
@@ -221,6 +248,7 @@ export type LayersCatalog = {
     legacySurveyUsableLocal?: number;
     panStarrsUsableLocal?: number;
     externalImageLayers?: number;
+    externalCatalogLayers?: number;
     allWisePublished?: number;
     localImageLayers?: number;
     registrationAudits?: number;
