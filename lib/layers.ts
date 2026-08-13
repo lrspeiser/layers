@@ -102,11 +102,20 @@ export type Comparison = {
     postMatchAstrometricResidualP95Arcsec?: number;
     postMatchFractionalFwhmDifference?: number;
     filterMatchBlocking?: boolean;
+    pointSourceCalibrationPass?: boolean;
+    filterHeldOutRmsMag?: number;
+    extendedSourceTransferPass?: boolean;
+    injectionRecoveryStatus?: string;
+    injectionNullTestPass?: boolean;
+    injectionRecoveryGridPass?: boolean;
+    injectionProfile?: string;
+    injectionEffectiveRadiiArcsec?: number[];
   };
   products?: {
     matchedPairSha256?: string;
     sourceRubinSha256?: string;
     sourceComparisonSha256?: string;
+    qaPackage?: string;
   };
   measurements: DifferenceMeasurement[];
   inferences: Inference[];

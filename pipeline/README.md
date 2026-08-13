@@ -114,7 +114,23 @@ Every image reprojection conserves integrated flux with the target/source pixel-
 python pipeline/test_flux_conservation.py
 ```
 
+Measure the empirical diffuse-source limit on the real matched fields:
+
+```bash
+python pipeline/validate_diffuse_recovery.py
+```
+
+This injects deterministic, PSF-convolved exponential sources with 3, 6, 12, and 24 arcsec effective radii into blank common-mask positions. A local plane and source amplitude are fit simultaneously. Detection thresholds come from identical fits at blank positions, so confusion, resampling covariance, sky residuals, and artifacts contribute to the limit. The recorded 90% recovery boundary requires both detection and flux recovery within 25%; it validates these smooth profiles only and does not prove that streams, shells, cirrus, or filter-dependent galaxy structure are recoverable.
+
 All acquired pixels, support planes, derived mosaics, manifests, and the SQLite store live under ignored `pipeline/output/`. Only metadata suitable for public release is copied into the catalog.
+
+After authenticated/public acquisition products exist, reproduce every science QA stage, catalog, local database, public comparison package, and regression check with:
+
+```bash
+python pipeline/run_science_release.py
+```
+
+The command stops at the first failed stage and records the commands, outputs, checksums, and final status in the ignored local release manifest. Acquisition remains a separate cached step so a validation rerun does not consume Rubin API quota or redownload hundreds of megabytes of retained source products.
 
 ## 1. Export Rubin data inside the RSP
 

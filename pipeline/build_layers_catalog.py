@@ -164,8 +164,56 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     reconciliation_psf = reconciliation.get("psf", {}) if reconciliation else {}
     reconciliation_sky = reconciliation.get("sky", {}) if reconciliation else {}
     reconciliation_filter = reconciliation.get("filterResponse", {}) if reconciliation else {}
+    recovery = reconciliation.get("injectionRecovery", {}) if reconciliation else {}
+    recovery_path = path.parent / "diffuse-recovery.json"
+    recovery_audit = load_json(recovery_path) if recovery_path.is_file() else None
     matched_product = reconciliation.get("products", {}) if reconciliation else {}
     effective_status = reconciliation.get("status") if reconciliation else "audit-only"
+    measurements = []
+    if recovery_audit and recovery_audit.get("status") == "pass":
+        for layer_id in audit["layerIds"]:
+            layer_recovery = recovery_audit.get("layers", {}).get(layer_id, {})
+            for size in layer_recovery.get("sizes", []):
+                limit = size.get("faintest90PercentCompleteMu0MagArcsec2")
+                if limit is None:
+                    continue
+                trials = size.get("trials", [])
+                trial = next(
+                    (
+                        item
+                        for item in trials
+                        if item.get("centralSurfaceBrightnessMagArcsec2") == limit
+                    ),
+                    None,
+                )
+                if not trial:
+                    continue
+                interval = trial.get("completeFractionWilson68", [None, None])
+                measurements.append(
+                    {
+                        "id": f"{layer_id}-diffuse-limit-re-{size['effectiveRadiusArcsec']:g}",
+                        "label": f"90% diffuse recovery limit ({size['effectiveRadiusArcsec']:g} arcsec Re)",
+                        "quantity": "central surface brightness recovery limit",
+                        "value": limit,
+                        "unit": "AB mag arcsec^-2",
+                        "statisticalUncertainty": 0.5,
+                        "systematicUncertainty": 1.0,
+                        "expectedRange": [limit - 1.0, limit + 1.0],
+                        "significanceSigma": 0.0,
+                        "classification": "expected",
+                        "provenance": [
+                            recovery_audit.get("sourceMatchedPairSha256", ""),
+                            recovery.get("auditSha256", ""),
+                        ],
+                        "caveats": [
+                            f"Discrete 1-mag injection grid; statistical grid resolution is ±0.5 mag.",
+                            f"Smooth exponential profile with axis ratio {recovery_audit['model']['axisRatio']}; morphology systematic is represented as ±1 mag, not a calibrated universal error.",
+                            f"Measured completeness {trial['completeFraction']:.3f}; 68% Wilson interval {interval[0]:.3f}–{interval[1]:.3f}.",
+                            f"Empirical blank-position noise is {size['empiricalToFormalNoiseRatio']:.1f}× the formal template-fit uncertainty.",
+                            "This is a sensitivity limit, not a cross-layer flux difference or discovery significance.",
+                        ],
+                    }
+                )
     return {
         "id": f"{audit['objectId']}-registration-audit",
         "layerIds": audit["layerIds"],
@@ -200,15 +248,21 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
             "pointSourceCalibrationPass": reconciliation_filter.get("pointSourceCalibrationPass", False),
             "filterHeldOutRmsMag": reconciliation_filter.get("heldOutRmsMag"),
             "extendedSourceTransferPass": reconciliation_filter.get("extendedSourceTransferPass", False),
+            "injectionRecoveryStatus": recovery.get("status"),
+            "injectionNullTestPass": recovery.get("nullTestPass", False),
+            "injectionRecoveryGridPass": recovery.get("recoveryGridPass", False),
+            "injectionProfile": recovery.get("model", {}).get("profile"),
+            "injectionEffectiveRadiiArcsec": recovery.get("model", {}).get("effectiveRadiiArcsec"),
         },
         **({
             "products": {
                 "matchedPairSha256": matched_product.get("matchedPairSha256"),
                 "sourceRubinSha256": matched_product.get("sourceRubinSha256"),
                 "sourceComparisonSha256": matched_product.get("sourceComparisonSha256"),
+                "qaPackage": f"/data/comparisons/{audit['objectId']}.json",
             },
         } if matched_product else {}),
-        "measurements": [],
+        "measurements": measurements,
         "inferences": [],
         "assumptionAudits": [],
     }

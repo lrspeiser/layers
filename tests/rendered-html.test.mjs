@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import test from "node:test";
+
+const root = new URL("..", import.meta.url).pathname.replace(/^\/(?:[A-Za-z]:)/, (match) => match.slice(1));
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -98,4 +101,18 @@ test("comparison architecture keeps evidence, measurements, inference, and audit
   assert.match(workspace, /MIXED DATA TYPES/);
   assert.match(validator, /non-image layer forced into image view/);
   assert.match(validator, /classification disagrees with sigma/);
+});
+
+test("diffuse recovery limits are exposed as caveated QA measurements", async () => {
+  const catalog = JSON.parse(await readFile(join(root, "public", "data", "layers-catalog.json"), "utf8"));
+  const comparison = catalog.targets.find((target) => target.id === "ugc00191").comparisons[0];
+  assert.equal(comparison.qa.injectionRecoveryStatus, "pass");
+  assert.equal(comparison.qa.injectionNullTestPass, true);
+  assert.equal(comparison.measurements.length, 8);
+  for (const measurement of comparison.measurements) {
+    assert.equal(measurement.classification, "expected");
+    assert.equal(measurement.significanceSigma, 0);
+    assert.ok(measurement.provenance.length >= 2);
+    assert.ok(measurement.caveats.some((item) => item.includes("sensitivity limit")));
+  }
 });

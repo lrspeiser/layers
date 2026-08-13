@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers comparison QA package",
+  "generatedAt": "2026-08-13T01:04:20.777664+00:00",
+  "target": {
+    "id": "ugc00891",
+    "name": "UGC00891",
+    "identifiers": {
+      "SPARC": "UGC00891",
+      "SIMBAD": "Z 436-33"
+    },
+    "center": {
+      "raDeg": 20.328750000000003,
+      "decDeg": 12.41194,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 1.80204
+    }
+  },
+  "layers": [
+    {
+      "id": "rubin-dp2-deep-coadd",
+      "survey": "Vera C. Rubin Observatory",
+      "release": "DP2",
+      "instrument": "LSSTCam",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "i"
+      ],
+      "bandCoverage": {
+        "i": 0.8696679012345679
+      },
+      "datasetCount": 17,
+      "datasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-25a2-7ab1-9c6c-2dd9dac3a3ba",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-2c2b-73d4-a5c0-a12c8266c03f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-3367-7cc9-90f1-532f0b1008bb",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-47d4-733b-87bd-7ad440517393",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-5254-7354-a35a-e0d0e2cd2909",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-66a1-7293-88a8-f1ba5ff66b2f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7b1b-7527-a132-ffcdd9b246b4",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-91ad-77b9-907f-07a419a4631e",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-9f19-70d6-807b-d20320d39876",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-bdf9-7182-a81a-6cdfa1c63ddc",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d97a-7a71-88d1-cd5bc4d58100",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-0c6b-7ab2-82e0-2b7adb5de203",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-1d91-7cbd-af3b-0fc26f3f86b3",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-9707-7cec-af2b-e549e188ae2b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b282-71e5-a9e7-f2b6087b430a",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-c6d9-7ff6-bbe0-e38fb14a9a62",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d136-758d-b414-8b06bca9877e"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "Rubin Science Pipelines deep coadd",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "provenance": {
+        "service": "Rubin Science Platform SIA v2 + DataLink",
+        "datasetType": "lsst.deep_coadd",
+        "queryStatus": "OK"
+      }
+    },
+    {
+      "id": "panstarrs-dr1-stack",
+      "survey": "Pan-STARRS1",
+      "release": "DR1 3pi stacks",
+      "instrument": "PS1 GPC1",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "i"
+      ],
+      "bandCoverage": {
+        "i": 0.586607098765432
+      },
+      "datasetCount": 6,
+      "datasetIds": [
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "PS1 DR1 stack calibration, converted per skycell to AB nJy",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+      "provenance": {
+        "service": "MAST Pan-STARRS image-list service and full skycell archive",
+        "product": "unconvolved stack + stack.wt + stack.mask",
+        "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+      }
+    }
+  ],
+  "comparison": {
+    "id": "ugc00891-registration-audit",
+    "layerIds": [
+      "rubin-dp2-deep-coadd",
+      "panstarrs-dr1-stack"
+    ],
+    "status": "qa",
+    "registration": {
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "commonWcs": true,
+      "commonFootprint": true,
+      "psfMatched": false,
+      "skyMatched": false,
+      "unitsMatched": true,
+      "filterMatched": false,
+      "filterTransform": null,
+      "maxResidualArcsec": 0.402601430635649,
+      "qaThresholdArcsec": 0.3,
+      "limitations": [
+        "Sky planes have been measured but not yet applied to a released matched product.",
+        "Empirical PSFs have been measured but the sharper layer has not yet been convolved.",
+        "Rubin and Pan-STARRS1 DR1 nominal bandpasses are not identical; no color transformation has been applied."
+      ]
+    },
+    "qa": {
+      "band": "i",
+      "comparisonLayerLabel": "Pan-STARRS1 DR1",
+      "commonValidPixelFraction": 0.5172503086419753,
+      "matchedSources": 131,
+      "astrometricResidualP95Arcsec": 0.402601430635649,
+      "astrometryPass": false,
+      "rubinMedianFwhmArcsec": 2.330481761516664,
+      "comparisonMedianFwhmArcsec": 2.401274707543058,
+      "reconciliationStatus": "blocked",
+      "matchedCommonValidPixelFraction": null,
+      "postMatchAstrometricResidualP95Arcsec": null,
+      "postMatchFractionalFwhmDifference": null,
+      "filterMatchBlocking": true,
+      "pointSourceCalibrationPass": false,
+      "filterHeldOutRmsMag": null,
+      "extendedSourceTransferPass": false,
+      "injectionRecoveryStatus": null,
+      "injectionNullTestPass": false,
+      "injectionRecoveryGridPass": false,
+      "injectionProfile": null,
+      "injectionEffectiveRadiiArcsec": null
+    },
+    "measurements": [],
+    "inferences": [],
+    "assumptionAudits": []
+  },
+  "localReproductionArtifacts": [
+    {
+      "name": "registration-audit.json",
+      "bytes": 2340,
+      "sha256": "417b3f952b200417b84e42a50e475120a607c3658f3ec9e3bdcdfb728e2f2d97"
+    },
+    {
+      "name": "reconciliation.json",
+      "bytes": 379,
+      "sha256": "a58477d1eec4275e7cf87acdedbbe20651b4f4e83c539137fcdae4b933455288"
+    },
+    {
+      "name": "filter-response-audit.json",
+      "bytes": 154,
+      "sha256": "865b5963cd275de4a5d208e199c181cc448850c5f0bf602f1b50e14a4907b088"
+    },
+    {
+      "name": "diffuse-recovery.json",
+      "bytes": 169,
+      "sha256": "7613fc33d96e7bb76b348dfa1b5f3253f3cba611e9b36c35fe9cdb58ff5f3d4b"
+    }
+  ],
+  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."
+}

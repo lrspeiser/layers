@@ -132,6 +132,9 @@ function DifferencePanel({ comparison }: { comparison?: Comparison }) {
   if (comparison?.status === "qa" && comparison.qa && comparison.registration) {
     const residual = comparison.qa.astrometricResidualP95Arcsec;
     const threshold = comparison.registration.qaThresholdArcsec;
+    const representativeLimits = comparison.measurements.filter((measurement) =>
+      measurement.quantity === "central surface brightness recovery limit" && measurement.id.endsWith("re-24")
+    );
     return (
       <section className="difference-panel">
         <div className="panel-heading">
@@ -140,13 +143,19 @@ function DifferencePanel({ comparison }: { comparison?: Comparison }) {
         </div>
         <h3>{comparison.qa.comparisonLayerLabel} · {comparison.qa.band}-band</h3>
         <p>{comparison.registration.psfMatched && comparison.registration.skyMatched
-          ? "A matched FITS pair now shares the sky grid, physical units, PSF target, masks, and sky subtraction. Filter response and injection/recovery still block a scientific difference claim."
+          ? comparison.qa.injectionRecoveryStatus === "pass"
+            ? "The matched pair now has empirical diffuse-source recovery limits and null tests. Extended-source filter transfer still blocks a Rubin-minus-reference missing-light claim."
+            : "A matched FITS pair now shares the sky grid, physical units, PSF target, masks, and sky subtraction. Filter response and injection/recovery still block a scientific difference claim."
           : "This is data-readiness evidence, not a scientific difference claim. PSF, filter response, and sky matching are still unapplied."}</p>
         <div className="qa-readout">
           <span><small>P95 RESIDUAL</small><strong>{residual?.toFixed(3) ?? "—"}″</strong><em>limit {threshold?.toFixed(2) ?? "—"}″</em></span>
           <span><small>COMMON VALID AREA</small><strong>{comparison.qa.commonValidPixelFraction !== undefined ? `${(comparison.qa.commonValidPixelFraction * 100).toFixed(1)}%` : "—"}</strong><em>after masks</em></span>
           <span><small>MATCHED SOURCES</small><strong>{comparison.qa.matchedSources ?? "—"}</strong><em>QA sample</em></span>
         </div>
+        {representativeLimits.length > 0 && <div className="recovery-readout">
+          <div><small>INJECTION / RECOVERY</small><strong>PASS</strong><em>smooth exponentials · empirical nulls</em></div>
+          {representativeLimits.map((measurement) => <div key={measurement.id}><small>{measurement.id.startsWith("rubin") ? "RUBIN" : "REFERENCE"} · 24″ Re</small><strong>{measurement.value.toFixed(1)} mag/arcsec²</strong><em>90% recovered · discrete grid</em></div>)}
+        </div>}
       </section>
     );
   }

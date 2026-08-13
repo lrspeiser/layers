@@ -179,6 +179,11 @@ a { color: inherit; text-decoration: none; }
 .qa-readout small { color: #8d9694; font-family: var(--font-mono), monospace; font-size: 7px; }
 .qa-readout strong { font-family: var(--font-display), sans-serif; font-size: 21px; margin-top: 3px; }
 .qa-readout em { color: var(--muted); font-size: 8px; font-style: normal; }
+.recovery-readout { background: #d8dfdc; display: grid; gap: 1px; grid-template-columns: repeat(3,1fr); margin-top: 13px; }
+.recovery-readout div { background: #f4f6f2; display: flex; flex-direction: column; padding: 10px; }
+.recovery-readout small { color: #7c8885; font-family: var(--font-mono), monospace; font-size: 7px; }
+.recovery-readout strong { color: #294c3a; font-size: 13px; margin-top: 3px; }
+.recovery-readout em { color: #7a8582; font-size: 7px; font-style: normal; margin-top: 2px; }
 .measurement-grid { display: grid; gap: 8px; margin-top: 14px; }
 .measurement-grid article { border-top: 1px solid var(--line); padding-top: 10px; }
 .measurement-grid strong { display: block; font-size: 20px; }

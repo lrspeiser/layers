@@ -64,6 +64,19 @@ def main() -> None:
             unknown = set(comparison.get("layerIds", [])) - set(layer_ids)
             if unknown:
                 errors.append(f"{target_id}/{comparison.get('id')}: unknown layer ids {sorted(unknown)}")
+            for measurement in comparison.get("measurements", []):
+                missing = MEASUREMENT_FIELDS - measurement.keys()
+                if missing:
+                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: missing {sorted(missing)}")
+                sigma = measurement.get("significanceSigma")
+                classification = measurement.get("classification")
+                expected = "large" if sigma is not None and sigma >= 3 else "noteworthy" if sigma is not None and sigma >= 2 else "expected"
+                if classification != expected:
+                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: classification disagrees with sigma")
+                if not measurement.get("provenance"):
+                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: measurement has no provenance")
+                if not measurement.get("caveats"):
+                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: measurement has no caveats")
             if comparison.get("status") != "published":
                 continue
             published_count += 1
@@ -75,15 +88,6 @@ def main() -> None:
             residual = registration.get("maxResidualArcsec")
             if threshold is None or residual is None or residual > threshold:
                 errors.append(f"{target_id}/{comparison.get('id')}: astrometric residual is missing or failed")
-            for measurement in comparison.get("measurements", []):
-                missing = MEASUREMENT_FIELDS - measurement.keys()
-                if missing:
-                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: missing {sorted(missing)}")
-                sigma = measurement.get("significanceSigma")
-                classification = measurement.get("classification")
-                expected = "large" if sigma is not None and sigma >= 3 else "noteworthy" if sigma is not None and sigma >= 2 else "expected"
-                if classification != expected:
-                    errors.append(f"{target_id}/{comparison.get('id')}/{measurement.get('id')}: classification disagrees with sigma")
 
     summary = catalog.get("summary", {})
     if summary.get("targets") != len(targets):

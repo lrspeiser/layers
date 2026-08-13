@@ -127,11 +127,43 @@ def match_sources(rubin_sources: list[dict], comparison_sources: list[dict], pix
     array = np.asarray(pairs)
     median_offset = np.median(array[:, :2], axis=0)
     residual = np.hypot(array[:, 0] - median_offset[0], array[:, 1] - median_offset[1]) * pixel_scale
+    retained = np.ones(len(array), dtype=bool)
+    # The nearest-neighbour proposal may contain blends, moving sources, or
+    # centroid failures.  Iteratively reject only gross radial outliers using a
+    # robust, data-derived bound; keep the predeclared 0.30-arcsec publication
+    # threshold unchanged and report both proposed and retained counts.
+    for _ in range(5):
+        center = np.median(array[retained, :2], axis=0)
+        radial = np.hypot(array[:, 0] - center[0], array[:, 1] - center[1]) * pixel_scale
+        median_radial = float(np.median(radial[retained]))
+        radial_sigma = robust_sigma(radial[retained])
+        cutoff = max(0.35, median_radial + 4.0 * radial_sigma)
+        next_retained = radial <= cutoff
+        if next_retained.sum() < 10 or np.array_equal(next_retained, retained):
+            break
+        retained = next_retained
+    array = array[retained]
+    median_offset = np.median(array[:, :2], axis=0)
+    residual_vectors_pixels = array[:, :2] - median_offset
+    residual = np.hypot(residual_vectors_pixels[:, 0], residual_vectors_pixels[:, 1]) * pixel_scale
+    residual_median_arcsec = {
+        "x": float(np.median(residual_vectors_pixels[:, 0]) * pixel_scale),
+        "y": float(np.median(residual_vectors_pixels[:, 1]) * pixel_scale),
+    }
+    residual_mad_arcsec = {
+        "x": float(1.4826 * np.median(np.abs(residual_vectors_pixels[:, 0] - np.median(residual_vectors_pixels[:, 0]))) * pixel_scale),
+        "y": float(1.4826 * np.median(np.abs(residual_vectors_pixels[:, 1] - np.median(residual_vectors_pixels[:, 1]))) * pixel_scale),
+    }
     return {
         "matchedSources": len(pairs),
+        "retainedSources": int(len(array)),
+        "rejectedOutliers": int(len(pairs) - len(array)),
+        "outlierPolicy": "iterative radial median plus 4 robust sigma; minimum 0.35 arcsec cutoff",
         "medianOffsetArcsec": {"x": float(median_offset[0] * pixel_scale), "y": float(median_offset[1] * pixel_scale)},
         "residualRmsArcsec": float(np.sqrt(np.mean(residual ** 2))),
         "residualP95Arcsec": float(np.percentile(residual, 95)),
+        "residualMedianArcsec": residual_median_arcsec,
+        "residualMadArcsec": residual_mad_arcsec,
         "rubinMedianFwhmArcsec": float(np.median(array[:, 2])),
         "comparisonMedianFwhmArcsec": float(np.median(array[:, 3])),
     }
