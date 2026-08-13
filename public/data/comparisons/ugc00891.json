@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T04:07:56.663797+00:00",
+  "generatedAt": "2026-08-13T04:26:13.708531+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -83,19 +83,35 @@
       "availability": "available-local",
       "renderMode": "metadata",
       "bands": [
-        "i"
+        "i",
+        "r",
+        "z"
       ],
       "bandCoverage": {
-        "i": 0.586607098765432
+        "i": 0.586607098765432,
+        "r": 0.5901524691358024,
+        "z": 0.4671354938271605
       },
-      "datasetCount": 6,
+      "datasetCount": 18,
       "datasetIds": [
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.wt.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.mask.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.wt.fits",
-        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits"
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.mask.fits"
       ],
       "units": {
         "image": "nJy",
@@ -173,9 +189,9 @@
       ]
     },
     "products": {
-      "matchedPairSha256": "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+      "matchedPairSha256": "67bd82de7ca0c4a5408df22ee9d3bff621a90cfd2725164fc8e393fa6c83b32f",
       "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
-      "sourceComparisonSha256": "e0f845c019c0ea7a6a18b58004aa8d0f2e98152b69069e469f21993a9b04e098",
+      "sourceComparisonSha256": "4a3f352368a4bb0311f5ace84cdd51c14ab29144d69b132505fe01e0cfcc7c1c",
       "qaPackage": "/data/comparisons/ugc00891.json"
     },
     "measurements": [
@@ -194,8 +210,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
-          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+          "67bd82de7ca0c4a5408df22ee9d3bff621a90cfd2725164fc8e393fa6c83b32f",
+          "15ffc88e71dea46825e0945403c31c9189fb3a0fc05f6cadc4f1eac64a3af606"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -220,8 +236,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
-          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+          "67bd82de7ca0c4a5408df22ee9d3bff621a90cfd2725164fc8e393fa6c83b32f",
+          "15ffc88e71dea46825e0945403c31c9189fb3a0fc05f6cadc4f1eac64a3af606"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -246,8 +262,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
-          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+          "67bd82de7ca0c4a5408df22ee9d3bff621a90cfd2725164fc8e393fa6c83b32f",
+          "15ffc88e71dea46825e0945403c31c9189fb3a0fc05f6cadc4f1eac64a3af606"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -272,8 +288,8 @@
         "significanceSigma": 0.0,
         "classification": "expected",
         "provenance": [
-          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
-          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+          "67bd82de7ca0c4a5408df22ee9d3bff621a90cfd2725164fc8e393fa6c83b32f",
+          "15ffc88e71dea46825e0945403c31c9189fb3a0fc05f6cadc4f1eac64a3af606"
         ],
         "caveats": [
           "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -291,17 +307,17 @@
     {
       "name": "registration-audit.json",
       "bytes": 3469,
-      "sha256": "1656d076e5bb6c2dd40a5e9876c37a49b372812a0855ad8fbb5a30ff48722242"
+      "sha256": "3879b2992599e5f11ad2753d346faa24248bb251234397ff973419d0f18f2bb8"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 7243,
-      "sha256": "2bd4b01a5de148f36691c1bf46d1d6c5984ce97a1c214474aab9a0cb2915ac34"
+      "bytes": 7595,
+      "sha256": "427e057225a6a88a6eee1e1f852ea72832e2757ec5fd17de20e9255ba398c185"
     },
     {
       "name": "filter-response-audit.json",
-      "bytes": 154,
-      "sha256": "865b5963cd275de4a5d208e199c181cc448850c5f0bf602f1b50e14a4907b088"
+      "bytes": 2003,
+      "sha256": "8c2f5e976c7525e5b98127e227e4753e634f656b2248f6ef20a44dc3762764c2"
     },
     {
       "name": "extended-source-filter-audit.json",
@@ -311,7 +327,7 @@
     {
       "name": "diffuse-recovery.json",
       "bytes": 31069,
-      "sha256": "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+      "sha256": "15ffc88e71dea46825e0945403c31c9189fb3a0fc05f6cadc4f1eac64a3af606"
     }
   ],
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."

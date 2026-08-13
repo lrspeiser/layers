@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T04:07:56.641154+00:00",
+  "generatedAt": "2026-08-13T04:26:13.686777+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -171,19 +171,35 @@
       "availability": "available-local",
       "renderMode": "metadata",
       "bands": [
-        "i"
+        "i",
+        "r",
+        "z"
       ],
       "bandCoverage": {
-        "i": 0.586607098765432
+        "i": 0.586607098765432,
+        "r": 0.5901524691358024,
+        "z": 0.4671354938271605
       },
-      "datasetCount": 6,
+      "datasetCount": 18,
       "datasetIds": [
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.wt.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.i.unconv.mask.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.fits",
         "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.wt.fits",
-        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits"
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.i.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.r.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/005/rings.v3.skycell.1595.005.stk.z.unconv.mask.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.wt.fits",
+        "https://ps1images.stsci.edu/rings.v3.skycell/1595/015/rings.v3.skycell.1595.015.stk.z.unconv.mask.fits"
       ],
       "units": {
         "image": "nJy",
@@ -205,22 +221,22 @@
     "id": "ugc00891-filter-adapter-limit",
     "outcome": "filter-adapter-blocked",
     "stage": "filter-response",
-    "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass, but no validated Pan-STARRS i to Rubin i color-response adapter exists yet.",
+    "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. Pan-STARRS r/i/z context was acquired, but the common mask leaves too few fully supported high-S/N stars to validate the i-band color relation.",
     "metric": {
-      "label": "validated filter-response adapters",
-      "value": 0,
-      "unit": "adapter",
-      "passThreshold": 1,
+      "label": "qualified color-calibration stars",
+      "value": 1,
+      "unit": "stars",
+      "passThreshold": 50,
       "comparison": "must be greater than or equal to"
     },
     "claimStatus": "blocked",
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00891/filter-response-audit.json",
-        "sha256": "865b5963cd275de4a5d208e199c181cc448850c5f0bf602f1b50e14a4907b088"
+        "sha256": "8c2f5e976c7525e5b98127e227e4753e634f656b2248f6ef20a44dc3762764c2"
       }
     ],
-    "nextAction": "Implement and cross-validate a Pan-STARRS i to Rubin i stellar color relation, then test its transfer to resolved galaxy light before any missing-light inference."
+    "nextAction": "Acquire neighboring Pan-STARRS skycells or a wider independent layer to supply at least 50 fully supported stars, then cross-validate the color relation and test resolved galaxy transfer."
   },
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
 }

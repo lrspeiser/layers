@@ -121,12 +121,22 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
             "status": "blocked",
             "reason": "Image registration must pass before a filter-response audit.",
         }
-    if reconciliation["layerIds"][1] != "legacy-survey-dr10" or reconciliation["band"] != "z":
+    comparison_layer = reconciliation["layerIds"][1]
+    target_band = reconciliation["band"]
+    if comparison_layer == "legacy-survey-dr10" and target_band == "z":
+        predictor_band = "r"
+        reference_label = "Legacy"
+        reference_root = args.legacy_root
+    elif comparison_layer == "panstarrs-dr1-stack" and target_band == "i":
+        predictor_band = "r"
+        reference_label = "PanSTARRS"
+        reference_root = args.panstarrs_root
+    else:
         return {
             "schemaVersion": 1,
             "objectId": slug,
             "status": "blocked",
-            "reason": "The current adapter implements the Legacy r-z to Rubin z empirical relation only.",
+            "reason": "No validated empirical color adapter is implemented for this survey and target-band pair.",
         }
 
     matched_path = Path(reconciliation["products"]["matchedPair"])
@@ -138,8 +148,16 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         common = np.asarray(hdus["COMMON_MASK"].data, dtype=bool)
         pixel_scale = float(hdus["RUBIN"].header["PIXSCALE"])
 
-    legacy_r_path = args.legacy_root / slug / "legacy_r.fits"
-    legacy_r, legacy_r_variance, legacy_r_valid = read_comparison(legacy_r_path, "legacy-survey-dr10")
+    reference_prefix = "legacy" if comparison_layer == "legacy-survey-dr10" else "panstarrs"
+    legacy_r_path = reference_root / slug / f"{reference_prefix}_{predictor_band}.fits"
+    if not legacy_r_path.is_file():
+        return {
+            "schemaVersion": 1,
+            "objectId": slug,
+            "status": "blocked",
+            "reason": f"The {reference_label} {predictor_band}-band predictor product has not been acquired.",
+        }
+    legacy_r, legacy_r_variance, legacy_r_valid = read_comparison(legacy_r_path, comparison_layer)
     shift_record = reconciliation["registration"]["appliedComparisonShiftPixels"]
     legacy_r, legacy_r_variance, legacy_r_valid = shifted_comparison(
         legacy_r,
@@ -189,6 +207,62 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
             }
         )
 
+    if len(rows) < 10:
+        audit = {
+            "schemaVersion": 1,
+            "objectId": slug,
+            "createdAt": datetime.now(timezone.utc).isoformat(),
+            "status": "qa-failed",
+            "reason": "Insufficient common-footprint high-S/N stars for a cross-validated color relation.",
+            "layerIds": reconciliation["layerIds"],
+            "targetBand": target_band,
+            "predictorBands": [predictor_band, target_band],
+            "model": None,
+            "sample": {
+                "detectedPointSources": len(sources),
+                "qualifiedHighSnrSources": len(rows),
+                "retainedCalibrationStars": len(rows),
+                "signalToNoiseMinimum": MIN_SIGNAL_TO_NOISE,
+                "minimumRequiredForFitAttempt": 10,
+            },
+            "crossValidation": None,
+            "thresholds": {
+                "minimumCalibrationStars": MIN_CALIBRATION_STARS,
+                "minimumColorSpanMag": MIN_COLOR_SPAN_MAG,
+                "maximumCrossValidationRmsMag": MAX_CROSS_VALIDATION_RMS_MAG,
+            },
+            "pointSourceCalibrationPass": False,
+            "extendedSourceTransferPass": False,
+            "filterMatched": False,
+            "quantitativeDifferenceAllowed": False,
+            "supportingProducts": {
+                "matchedPairSha256": sha256(matched_path),
+                "predictorBandSource": str(legacy_r_path.resolve()),
+                "predictorBandSourceSha256": sha256(legacy_r_path),
+                "predictorBandSkyModelNjy": legacy_r_sky_record,
+                "referenceSurvey": reference_label,
+            },
+            "limitations": [
+                "The common mask leaves too few fully supported stellar apertures and sky annuli for fitting.",
+                "No color coefficient, uncertainty, or significance is estimated from this insufficient sample.",
+                "A failed calibration-support gate blocks resolved-light and astrophysical inference.",
+            ],
+        }
+        audit_path = output_dir / "filter-response-audit.json"
+        audit_path.write_text(json.dumps(audit, indent=2, allow_nan=False), encoding="utf-8")
+        reconciliation["filterResponse"] = {
+            "matched": False,
+            "pointSourceCalibrationPass": False,
+            "extendedSourceTransferPass": False,
+            "audit": str(audit_path.resolve()),
+            "auditSha256": sha256(audit_path),
+            "heldOutRmsMag": None,
+            "reason": audit["reason"],
+        }
+        reconciliation["quantitativeDifferenceAllowed"] = False
+        reconciliation_path.write_text(json.dumps(reconciliation, indent=2, allow_nan=False), encoding="utf-8")
+        return audit
+
     color = np.asarray([row["legacyRMinusZMag"] for row in rows])
     delta = np.asarray([row["rubinZMinusLegacyZMag"] for row in rows])
     coefficients, residuals, retained = robust_linear_fit(color, delta)
@@ -229,10 +303,10 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         "createdAt": datetime.now(timezone.utc).isoformat(),
         "status": "point-source-pass-extended-source-pending" if point_source_pass else "qa-failed",
         "layerIds": reconciliation["layerIds"],
-        "targetBand": "z",
-        "predictorBands": ["r", "z"],
+        "targetBand": target_band,
+        "predictorBands": [predictor_band, target_band],
         "model": {
-            "equation": "Rubin_z - Legacy_z = intercept + slope * (Legacy_r - Legacy_z)",
+            "equation": f"Rubin_{target_band} - {reference_label}_{target_band} = intercept + slope * ({reference_label}_{predictor_band} - {reference_label}_{target_band})",
             "interceptMag": float(coefficients[0]),
             "slope": float(coefficients[1]),
             "fitRobustScatterMag": fit_residual_sigma,
@@ -266,9 +340,10 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         "quantitativeDifferenceAllowed": False,
         "supportingProducts": {
             "matchedPairSha256": sha256(matched_path),
-            "legacyRSource": str(legacy_r_path.resolve()),
-            "legacyRSourceSha256": sha256(legacy_r_path),
-            "legacyRSkyModelNjy": legacy_r_sky_record,
+            "predictorBandSource": str(legacy_r_path.resolve()),
+            "predictorBandSourceSha256": sha256(legacy_r_path),
+            "predictorBandSkyModelNjy": legacy_r_sky_record,
+            "referenceSurvey": reference_label,
         },
         "limitations": [
             "The fitted relation is empirical and field-specific; it is validated on held-out stars only.",
@@ -300,6 +375,7 @@ def main() -> None:
     parser.add_argument("--coverage", type=Path, default=root / "pipeline" / "results" / "dp2-sparc-coverage.json")
     parser.add_argument("--comparisons", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--legacy-root", type=Path, default=root / "pipeline" / "output" / "legacy-survey")
+    parser.add_argument("--panstarrs-root", type=Path, default=root / "pipeline" / "output" / "panstarrs")
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}

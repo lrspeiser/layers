@@ -407,15 +407,18 @@ def pilot_audit(target: dict, mosaic: dict | None, comparison: dict | None, audi
         }
     if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "blocked":
         filter_path = audit_dir / target_id / "filter-response-audit.json"
+        filter_audit = load_json(filter_path) if filter_path.is_file() else {}
+        qualified_stars = filter_audit.get("sample", {}).get("qualifiedHighSnrSources", 0)
+        required_stars = filter_audit.get("thresholds", {}).get("minimumCalibrationStars", 50)
         return {
             "id": f"{target_id}-filter-adapter-limit",
             "outcome": "filter-adapter-blocked",
             "stage": "filter-response",
-            "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass, but no validated Pan-STARRS i to Rubin i color-response adapter exists yet.",
-            "metric": {"label": "validated filter-response adapters", "value": 0, "unit": "adapter", "passThreshold": 1, "comparison": "must be greater than or equal to"},
+            "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. Pan-STARRS r/i/z context was acquired, but the common mask leaves too few fully supported high-S/N stars to validate the i-band color relation.",
+            "metric": {"label": "qualified color-calibration stars", "value": qualified_stars, "unit": "stars", "passThreshold": required_stars, "comparison": "must be greater than or equal to"},
             "claimStatus": "blocked",
             "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/filter-response-audit.json", "sha256": sha256(filter_path)}],
-            "nextAction": "Implement and cross-validate a Pan-STARRS i to Rubin i stellar color relation, then test its transfer to resolved galaxy light before any missing-light inference.",
+            "nextAction": "Acquire neighboring Pan-STARRS skycells or a wider independent layer to supply at least 50 fully supported stars, then cross-validate the color relation and test resolved galaxy transfer.",
         }
     return None
 

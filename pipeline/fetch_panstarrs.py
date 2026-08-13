@@ -197,16 +197,27 @@ def main() -> None:
     parser.add_argument("--pixel-scale", type=float, default=0.4)
     parser.add_argument("--coverage-threshold", type=float, default=0.5)
     parser.add_argument("--only", action="append", default=[])
+    parser.add_argument(
+        "--bands",
+        help="Comma-separated Pan-STARRS bands to acquire for explicitly selected targets (for example r,i,z).",
+    )
     args = parser.parse_args()
 
     coverage = json.loads(args.coverage.read_text(encoding="utf-8"))
     rubin_manifest = json.loads(args.rubin_mosaics.read_text(encoding="utf-8"))
     legacy_manifest = json.loads(args.legacy.read_text(encoding="utf-8")) if args.legacy.is_file() else {"targets": []}
     selected = {value.lower() for value in args.only}
+    requested_bands = [band.strip() for band in args.bands.split(",")] if args.bands else None
+    if requested_bands and (not selected or any(band not in "grizy" for band in requested_bands)):
+        parser.error("--bands requires --only and supports only g,r,i,z,y")
     if selected:
         target_by_slug = {target["slug"]: target for target in coverage["targets"]}
         candidates = [
-            (target_by_slug[record["target"]["slug"]], [band for band, product in record.get("bands", {}).items() if product.get("science_coverage")])
+            (
+                target_by_slug[record["target"]["slug"]],
+                requested_bands
+                or [band for band, product in record.get("bands", {}).items() if product.get("science_coverage")],
+            )
             for record in rubin_manifest
             if record.get("science_coverage")
             and (record["target"]["slug"].lower() in selected or record["target"]["sparc_id"].lower() in selected)
@@ -216,10 +227,18 @@ def main() -> None:
     existing_targets = []
     existing_manifest_path = args.output / "manifest.json"
     if selected and existing_manifest_path.is_file():
+        previous_manifest = json.loads(existing_manifest_path.read_text(encoding="utf-8"))
         existing_targets = [
             record for record in json.loads(existing_manifest_path.read_text(encoding="utf-8")).get("targets", [])
             if record.get("target", {}).get("slug", "").lower() not in selected
         ]
+        previous_selected = {
+            record["target"]["slug"]: record
+            for record in previous_manifest.get("targets", [])
+            if record.get("target", {}).get("slug", "").lower() in selected
+        }
+    else:
+        previous_selected = {}
     manifest = {
         "schema_version": 1,
         "created_at": datetime.now(timezone.utc).isoformat(),
@@ -247,7 +266,8 @@ def main() -> None:
                 for row in point_rows:
                     rows_by_filename[row["filename"]] = row
         rows = list(rows_by_filename.values())
-        band_records = {}
+        previous_record = previous_selected.get(target["slug"], {})
+        band_records = dict(previous_record.get("bands", {}))
         for band in bands:
             cells = {}
             for row in rows:
@@ -369,7 +389,7 @@ def main() -> None:
         manifest["targets"].append(
             {
                 "target": target,
-                "query_urls": query_urls,
+                "query_urls": sorted(set(previous_record.get("query_urls", []) + query_urls)),
                 "pixel_scale_arcsec": args.pixel_scale,
                 "shape": list(shape),
                 "bands": band_records,

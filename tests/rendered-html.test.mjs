@@ -93,8 +93,8 @@ test("permanent target records expose honest pixel-level coverage states", async
 
   const calibrationBlocked = await render("/target/ugc00891");
   const calibrationHtml = await calibrationBlocked.text();
-  assert.match(calibrationHtml, /filter-response adapters/);
-  assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}1/);
+  assert.match(calibrationHtml, /qualified color-calibration stars/);
+  assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}50/);
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
