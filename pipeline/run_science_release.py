@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 STAGES = (
+    ("sparc-profiles", "build_sparc_profiles.py"),
     ("registration", "audit_layer_registration.py"),
     ("reconciliation", "reconcile_image_layers.py"),
     ("stellar-filter-audit", "audit_filter_response.py"),

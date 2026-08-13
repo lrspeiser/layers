@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "product": "Layers",
   "release": "SPARC multi-survey pilot",
-  "generatedAt": "2026-08-13T01:04:19.464636+00:00",
+  "generatedAt": "2026-08-13T01:55:20.869155+00:00",
   "targetSelection": {
     "name": "SPARC 2016 master sample",
     "count": 175,
@@ -65,6 +65,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "CamB"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/camb.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 23,
+            "maximumAcceptedRadiusArcsec": 132.49,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 1.79
           }
         },
         {
@@ -141,6 +150,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "D512-2"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/d512-2.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 19,
+            "maximumAcceptedRadiusArcsec": 63.9,
+            "rotationCurvePoints": 4,
+            "maximumRotationRadiusKpc": 3.83
           }
         },
         {
@@ -217,6 +235,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "D564-8"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/d564-8.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 23,
+            "maximumAcceptedRadiusArcsec": 24.42,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 3.07
           }
         },
         {
@@ -293,6 +320,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "D631-7"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/d631-7.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 20,
+            "maximumAcceptedRadiusArcsec": 76.68,
+            "rotationCurvePoints": 16,
+            "maximumRotationRadiusKpc": 7.19
           }
         },
         {
@@ -369,6 +405,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "DDO064"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ddo064.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 89.77,
+            "rotationCurvePoints": 14,
+            "maximumRotationRadiusKpc": 2.98
           }
         },
         {
@@ -445,6 +490,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "DDO154"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ddo154.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 50,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 5.92
           }
         },
         {
@@ -521,6 +575,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "DDO161"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ddo161.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 31,
+            "maximumRotationRadiusKpc": 13.37
           }
         },
         {
@@ -597,6 +660,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "DDO168"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ddo168.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 4.12
           }
         },
         {
@@ -673,6 +745,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "DDO170"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ddo170.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 41,
+            "maximumAcceptedRadiusArcsec": 112.21,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 12.33
           }
         },
         {
@@ -749,6 +830,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "ESO079-G014"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/eso079-g014.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 16.67
           }
         },
         {
@@ -825,6 +915,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "ESO116-G012"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/eso116-g012.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 43,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 9.86
           }
         },
         {
@@ -901,6 +1000,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "ESO444-G084"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/eso444-g084.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 19,
+            "maximumAcceptedRadiusArcsec": 63.9,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 4.44
           }
         },
         {
@@ -977,6 +1085,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "ESO563-G021"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/eso563-g021.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 159.03,
+            "rotationCurvePoints": 30,
+            "maximumRotationRadiusKpc": 42.41
           }
         },
         {
@@ -1053,6 +1170,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F561-1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f561-1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 44,
+            "maximumAcceptedRadiusArcsec": 38.07,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 9.66
           }
         },
         {
@@ -1129,6 +1255,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F563-1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f563-1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 46,
+            "maximumAcceptedRadiusArcsec": 47.59,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 20.1
           }
         },
         {
@@ -1205,6 +1340,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F563-V1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f563-v1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 49,
+            "maximumAcceptedRadiusArcsec": 61.31,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 7.87
           }
         },
         {
@@ -1281,6 +1425,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F563-V2"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f563-v2.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 17,
+            "maximumAcceptedRadiusArcsec": 44.37,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 10.47
           }
         },
         {
@@ -1357,6 +1510,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F565-V2"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f565-v2.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 16,
+            "maximumAcceptedRadiusArcsec": 36.98,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 8.8
           }
         },
         {
@@ -1433,6 +1595,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F567-2"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f567-2.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 15,
+            "maximumAcceptedRadiusArcsec": 30.81,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 9.59
           }
         },
         {
@@ -1509,6 +1680,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F568-1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f568-1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 43,
+            "maximumAcceptedRadiusArcsec": 35.75,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 13.23
           }
         },
         {
@@ -1585,6 +1765,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F568-3"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f568-3.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 49,
+            "maximumAcceptedRadiusArcsec": 63.34,
+            "rotationCurvePoints": 18,
+            "maximumRotationRadiusKpc": 17.98
           }
         },
         {
@@ -1661,6 +1850,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F568-V1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f568-v1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 43,
+            "maximumAcceptedRadiusArcsec": 34.61,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 17.63
           }
         },
         {
@@ -1737,6 +1935,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F571-8"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f571-8.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 46,
+            "maximumAcceptedRadiusArcsec": 46.07,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 15.55
           }
         },
         {
@@ -1813,6 +2020,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F571-V1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f571-v1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 40,
+            "maximumAcceptedRadiusArcsec": 26.0,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 13.59
           }
         },
         {
@@ -1889,6 +2105,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F574-1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f574-1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 45,
+            "maximumAcceptedRadiusArcsec": 41.88,
+            "rotationCurvePoints": 14,
+            "maximumRotationRadiusKpc": 12.6
           }
         },
         {
@@ -1965,6 +2190,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F574-2"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f574-2.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 42,
+            "maximumAcceptedRadiusArcsec": 34.61,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 10.83
           }
         },
         {
@@ -2041,6 +2275,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F579-V1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f579-v1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 46,
+            "maximumAcceptedRadiusArcsec": 46.07,
+            "rotationCurvePoints": 14,
+            "maximumRotationRadiusKpc": 15.16
           }
         },
         {
@@ -2117,6 +2360,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F583-1"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f583-1.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 18,
+            "maximumAcceptedRadiusArcsec": 53.25,
+            "rotationCurvePoints": 25,
+            "maximumRotationRadiusKpc": 16.26
           }
         },
         {
@@ -2193,6 +2445,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "F583-4"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/f583-4.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 24,
+            "maximumAcceptedRadiusArcsec": 26.86,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 7.29
           }
         },
         {
@@ -2269,6 +2530,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "IC2574"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ic2574.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 34,
+            "maximumRotationRadiusKpc": 10.23
           }
         },
         {
@@ -2345,6 +2615,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "IC4202"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ic4202.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 54,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 32,
+            "maximumRotationRadiusKpc": 25.9
           }
         },
         {
@@ -2421,6 +2700,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "KK98-251"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/kk98-251.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 17,
+            "maximumAcceptedRadiusArcsec": 76.68,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 3.13
           }
         },
         {
@@ -2497,6 +2785,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0024"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0024.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 64,
+            "maximumAcceptedRadiusArcsec": 264.59,
+            "rotationCurvePoints": 29,
+            "maximumRotationRadiusKpc": 11.27
           }
         },
         {
@@ -2573,6 +2870,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0055"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0055.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 28,
+            "maximumAcceptedRadiusArcsec": 989.07,
+            "rotationCurvePoints": 21,
+            "maximumRotationRadiusKpc": 13.5
           }
         },
         {
@@ -2649,6 +2955,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0100"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0100.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 21,
+            "maximumRotationRadiusKpc": 9.62
           }
         },
         {
@@ -2728,6 +3043,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0247"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0247.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 26,
+            "maximumAcceptedRadiusArcsec": 1097.04,
+            "rotationCurvePoints": 26,
+            "maximumRotationRadiusKpc": 14.54
           }
         },
         {
@@ -2804,6 +3128,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0289"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0289.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 28,
+            "maximumRotationRadiusKpc": 71.12
           }
         },
         {
@@ -2880,6 +3213,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0300"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0300.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 50,
+            "maximumAcceptedRadiusArcsec": 209.03,
+            "rotationCurvePoints": 25,
+            "maximumRotationRadiusKpc": 11.8
           }
         },
         {
@@ -2956,6 +3298,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0801"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0801.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 59.82
           }
         },
         {
@@ -3032,6 +3383,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC0891"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc0891.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 47,
+            "maximumAcceptedRadiusArcsec": 320.16,
+            "rotationCurvePoints": 18,
+            "maximumRotationRadiusKpc": 17.11
           }
         },
         {
@@ -3108,6 +3468,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC1003"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc1003.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 174.94,
+            "rotationCurvePoints": 36,
+            "maximumRotationRadiusKpc": 30.24
           }
         },
         {
@@ -3184,6 +3553,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC1090"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc1090.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 55,
+            "maximumAcceptedRadiusArcsec": 112.21,
+            "rotationCurvePoints": 24,
+            "maximumRotationRadiusKpc": 30.09
           }
         },
         {
@@ -3260,6 +3638,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC1705"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc1705.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 38,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 14,
+            "maximumRotationRadiusKpc": 6.0
           }
         },
         {
@@ -3336,6 +3723,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2366"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2366.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 41,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 26,
+            "maximumRotationRadiusKpc": 6.06
           }
         },
         {
@@ -3412,6 +3808,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2403"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2403.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 50,
+            "maximumAcceptedRadiusArcsec": 320.16,
+            "rotationCurvePoints": 73,
+            "maximumRotationRadiusKpc": 20.87
           }
         },
         {
@@ -3488,6 +3893,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2683"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2683.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 34.62
           }
         },
         {
@@ -3564,6 +3978,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2841"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2841.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 50,
+            "maximumRotationRadiusKpc": 63.64
           }
         },
         {
@@ -3640,6 +4063,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2903"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2903.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 68,
+            "maximumAcceptedRadiusArcsec": 387.39,
+            "rotationCurvePoints": 34,
+            "maximumRotationRadiusKpc": 24.96
           }
         },
         {
@@ -3716,6 +4148,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2915"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2915.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 30,
+            "maximumRotationRadiusKpc": 10.04
           }
         },
         {
@@ -3792,6 +4233,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2955"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2955.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 24,
+            "maximumRotationRadiusKpc": 35.43
           }
         },
         {
@@ -3868,6 +4318,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2976"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2976.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 27,
+            "maximumRotationRadiusKpc": 2.27
           }
         },
         {
@@ -3944,6 +4403,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC2998"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc2998.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 42.28
           }
         },
         {
@@ -4020,6 +4488,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3109"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3109.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 30,
+            "maximumAcceptedRadiusArcsec": 683.64,
+            "rotationCurvePoints": 25,
+            "maximumRotationRadiusKpc": 6.45
           }
         },
         {
@@ -4096,6 +4573,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3198"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3198.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 66,
+            "maximumAcceptedRadiusArcsec": 320.16,
+            "rotationCurvePoints": 43,
+            "maximumRotationRadiusKpc": 44.08
           }
         },
         {
@@ -4172,6 +4658,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3521"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3521.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 68,
+            "maximumAcceptedRadiusArcsec": 387.39,
+            "rotationCurvePoints": 41,
+            "maximumRotationRadiusKpc": 17.74
           }
         },
         {
@@ -4248,6 +4743,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3726"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3726.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 240.54,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 32.52
           }
         },
         {
@@ -4324,6 +4828,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3741"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3741.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 50,
+            "maximumAcceptedRadiusArcsec": 69.68,
+            "rotationCurvePoints": 21,
+            "maximumRotationRadiusKpc": 7.0
           }
         },
         {
@@ -4400,6 +4913,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3769"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3769.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 37.16
           }
         },
         {
@@ -4476,6 +4998,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3877"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3877.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 240.54,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 11.35
           }
         },
         {
@@ -4552,6 +5083,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3893"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3893.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 19.05
           }
         },
         {
@@ -4628,6 +5168,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3917"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3917.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 240.54,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 14.86
           }
         },
         {
@@ -4704,6 +5253,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3949"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3949.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 7.07
           }
         },
         {
@@ -4780,6 +5338,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3953"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3953.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 240.54,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 15.68
           }
         },
         {
@@ -4856,6 +5423,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3972"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3972.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 8.72
           }
         },
         {
@@ -4932,6 +5508,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC3992"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc3992.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 46.02
           }
         },
         {
@@ -5008,6 +5593,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4010"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4010.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 190.02,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 10.47
           }
         },
         {
@@ -5084,6 +5678,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4013"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4013.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 36,
+            "maximumRotationRadiusKpc": 31.01
           }
         },
         {
@@ -5160,6 +5763,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4051"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4051.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 12.19
           }
         },
         {
@@ -5236,6 +5848,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4068"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4068.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 2.33
           }
         },
         {
@@ -5312,6 +5933,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4085"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4085.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 6.2
           }
         },
         {
@@ -5388,6 +6018,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4088"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4088.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 21.48
           }
         },
         {
@@ -5464,6 +6103,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4100"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4100.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 24,
+            "maximumRotationRadiusKpc": 22.76
           }
         },
         {
@@ -5540,6 +6188,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4138"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4138.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 18.58
           }
         },
         {
@@ -5616,6 +6273,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4157"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4157.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 64,
+            "maximumAcceptedRadiusArcsec": 264.59,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 29.61
           }
         },
         {
@@ -5692,6 +6358,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4183"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4183.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 62,
+            "maximumAcceptedRadiusArcsec": 218.67,
+            "rotationCurvePoints": 23,
+            "maximumRotationRadiusKpc": 21.02
           }
         },
         {
@@ -5768,6 +6443,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4214"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4214.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 42,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 14,
+            "maximumRotationRadiusKpc": 5.63
           }
         },
         {
@@ -5844,6 +6528,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4217"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4217.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 264.59,
+            "rotationCurvePoints": 19,
+            "maximumRotationRadiusKpc": 16.72
           }
         },
         {
@@ -5920,6 +6613,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4389"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4389.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 44,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 5.32
           }
         },
         {
@@ -5996,6 +6698,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC4559"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc4559.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 32,
+            "maximumRotationRadiusKpc": 20.97
           }
         },
         {
@@ -6072,6 +6783,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5005"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5005.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 71,
+            "maximumAcceptedRadiusArcsec": 515.62,
+            "rotationCurvePoints": 18,
+            "maximumRotationRadiusKpc": 11.47
           }
         },
         {
@@ -6148,6 +6868,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5033"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5033.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 22,
+            "maximumRotationRadiusKpc": 44.59
           }
         },
         {
@@ -6224,6 +6953,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5055"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5055.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 69,
+            "maximumAcceptedRadiusArcsec": 468.74,
+            "rotationCurvePoints": 28,
+            "maximumRotationRadiusKpc": 54.59
           }
         },
         {
@@ -6300,6 +7038,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5371"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5371.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 19,
+            "maximumRotationRadiusKpc": 46.24
           }
         },
         {
@@ -6376,6 +7123,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5585"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5585.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 24,
+            "maximumRotationRadiusKpc": 10.96
           }
         },
         {
@@ -6452,6 +7208,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5907"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5907.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 68,
+            "maximumAcceptedRadiusArcsec": 387.39,
+            "rotationCurvePoints": 19,
+            "maximumRotationRadiusKpc": 50.33
           }
         },
         {
@@ -6528,6 +7293,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC5985"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc5985.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 33,
+            "maximumRotationRadiusKpc": 34.72
           }
         },
         {
@@ -6604,6 +7378,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6015"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6015.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 44,
+            "maximumRotationRadiusKpc": 29.23
           }
         },
         {
@@ -6680,6 +7463,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6195"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6195.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 131.43,
+            "rotationCurvePoints": 23,
+            "maximumRotationRadiusKpc": 36.43
           }
         },
         {
@@ -6756,6 +7548,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6503"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6503.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 66,
+            "maximumAcceptedRadiusArcsec": 320.16,
+            "rotationCurvePoints": 31,
+            "maximumRotationRadiusKpc": 23.5
           }
         },
         {
@@ -6832,6 +7633,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6674"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6674.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 38,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 72.41
           }
         },
         {
@@ -6908,6 +7718,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6789"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6789.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 4,
+            "maximumRotationRadiusKpc": 0.71
           }
         },
         {
@@ -6984,6 +7803,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC6946"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc6946.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 58,
+            "maximumRotationRadiusKpc": 20.4
           }
         },
         {
@@ -7060,6 +7888,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC7331"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc7331.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 66,
+            "maximumAcceptedRadiusArcsec": 320.16,
+            "rotationCurvePoints": 36,
+            "maximumRotationRadiusKpc": 36.31
           }
         },
         {
@@ -7136,6 +7973,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC7793"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc7793.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 352.17,
+            "rotationCurvePoints": 46,
+            "maximumRotationRadiusKpc": 7.87
           }
         },
         {
@@ -7212,6 +8058,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "NGC7814"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ngc7814.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 40,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 18,
+            "maximumRotationRadiusKpc": 19.53
           }
         },
         {
@@ -7288,6 +8143,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "PGC51017"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/pgc51017.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 39,
+            "maximumAcceptedRadiusArcsec": 24.42,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 3.63
           }
         },
         {
@@ -7364,6 +8228,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC00128"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc00128.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 22,
+            "maximumRotationRadiusKpc": 53.75
           }
         },
         {
@@ -7440,6 +8313,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC00191"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc00191.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 9.98
           }
         },
         {
@@ -7606,7 +8488,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
+            "matchedPairSha256": "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
             "sourceRubinSha256": "16a8688aed7ffe4b950a8a41a6dc4daae9b80b818856e16c7eab7a5101a96753",
             "sourceComparisonSha256": "b9a8a2de513cfb51547b8d9c0f3ea84cfaa4c7a5e1d9b0a7735b06a56b4eb26f",
             "qaPackage": "/data/comparisons/ugc00191.json"
@@ -7627,8 +8509,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7653,8 +8535,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7679,8 +8561,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7705,8 +8587,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7731,8 +8613,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7757,8 +8639,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7783,8 +8665,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7809,8 +8691,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a10f62256f79c5db31ab8c4442b1e90d9112ab6fe45a8cb867d3c4d2fbdbf522",
-                "ba9b5908c35298c1c2c9c859a63e4b9903f2128c7806697db3fe970ee38d3705"
+                "ae6a28a138133fab5524c7a28528124bb74bfe154eae332d581f08bf2d5494fb",
+                "6b6c566fac41fc83b550abe78aa3c4f1de01ec64be58aa379f570131ad7e3175"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -7871,6 +8753,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC00634"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc00634.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 48,
+            "maximumAcceptedRadiusArcsec": 57.58,
+            "rotationCurvePoints": 4,
+            "maximumRotationRadiusKpc": 18.01
           }
         },
         {
@@ -8042,7 +8933,7 @@
             ]
           },
           "products": {
-            "matchedPairSha256": "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
+            "matchedPairSha256": "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
             "sourceRubinSha256": "5319ac045d6530bc17b3dbe495e989f6c8af3f4f1b8ff03b513d4e934be28984",
             "sourceComparisonSha256": "81311ec1c4eab3c592b68d3d70140c03448a408dc3a25c42ef17bf96dc9daea5",
             "qaPackage": "/data/comparisons/ugc00634.json"
@@ -8063,8 +8954,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8089,8 +8980,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8115,8 +9006,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8141,8 +9032,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8167,8 +9058,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8193,8 +9084,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8219,8 +9110,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8245,8 +9136,8 @@
               "significanceSigma": 0.0,
               "classification": "expected",
               "provenance": [
-                "a6cf8c5cd9e5eac511dc9d45e622463757b082658ed7d6b210460085b2a5b676",
-                "70caef74e93e4c97ae35abae07498c4b4d492b4a5e6548eeb31de351c29ec00c"
+                "2e938ea079c46ac8f76d99b21a5d136cc15d1cf12b197e97ae04f92ab265902c",
+                "4dd1245a727489a8d400d17e92d049c2108976a35221ce23a71e0d0415b80a34"
               ],
               "caveats": [
                 "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
@@ -8307,6 +9198,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC00731"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc00731.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 33,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 10.91
           }
         },
         {
@@ -8383,6 +9283,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC00891"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc00891.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 54,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 7.39
           }
         },
         {
@@ -8629,6 +9538,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC01230"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc01230.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 74.19,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 36.54
           }
         },
         {
@@ -8705,6 +9623,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC01281"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc01281.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 62,
+            "maximumAcceptedRadiusArcsec": 264.59,
+            "rotationCurvePoints": 25,
+            "maximumRotationRadiusKpc": 4.99
           }
         },
         {
@@ -8781,6 +9708,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02023"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02023.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 3.78
           }
         },
         {
@@ -8857,6 +9793,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02259"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02259.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 8.14
           }
         },
         {
@@ -8933,6 +9878,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02455"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02455.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 62,
+            "maximumAcceptedRadiusArcsec": 218.67,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 4.03
           }
         },
         {
@@ -9009,6 +9963,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02487"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02487.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 43,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 80.38
           }
         },
         {
@@ -9085,6 +10048,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02885"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02885.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 19,
+            "maximumRotationRadiusKpc": 74.07
           }
         },
         {
@@ -9161,6 +10133,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02916"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02916.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 38,
+            "maximumAcceptedRadiusArcsec": 22.2,
+            "rotationCurvePoints": 43,
+            "maximumRotationRadiusKpc": 38.0
           }
         },
         {
@@ -9237,6 +10218,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC02953"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc02953.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 115,
+            "maximumRotationRadiusKpc": 62.39
           }
         },
         {
@@ -9313,6 +10303,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC03205"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc03205.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 48,
+            "maximumRotationRadiusKpc": 40.04
           }
         },
         {
@@ -9389,6 +10388,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC03546"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc03546.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 30,
+            "maximumRotationRadiusKpc": 29.23
           }
         },
         {
@@ -9465,6 +10473,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC03580"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc03580.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 56,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 47,
+            "maximumRotationRadiusKpc": 27.06
           }
         },
         {
@@ -9541,6 +10558,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC04278"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc04278.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 25,
+            "maximumRotationRadiusKpc": 6.69
           }
         },
         {
@@ -9617,6 +10643,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC04305"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc04305.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 24,
+            "maximumAcceptedRadiusArcsec": 228.95,
+            "rotationCurvePoints": 22,
+            "maximumRotationRadiusKpc": 5.52
           }
         },
         {
@@ -9693,6 +10728,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC04325"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc04325.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 56,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 5.59
           }
         },
         {
@@ -9769,6 +10813,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC04483"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc04483.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 41,
+            "maximumAcceptedRadiusArcsec": 29.55,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 1.21
           }
         },
         {
@@ -9845,6 +10898,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC04499"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc04499.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 56,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 8.18
           }
         },
         {
@@ -9921,6 +10983,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05005"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05005.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 28,
+            "maximumAcceptedRadiusArcsec": 43.26,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 28.61
           }
         },
         {
@@ -9997,6 +11068,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05253"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05253.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 67,
+            "maximumAcceptedRadiusArcsec": 387.39,
+            "rotationCurvePoints": 73,
+            "maximumRotationRadiusKpc": 53.29
           }
         },
         {
@@ -10073,6 +11153,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05414"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05414.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 4.11
           }
         },
         {
@@ -10149,6 +11238,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05716"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05716.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 18,
+            "maximumAcceptedRadiusArcsec": 53.25,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 12.37
           }
         },
         {
@@ -10225,6 +11323,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05721"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05721.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 23,
+            "maximumRotationRadiusKpc": 6.74
           }
         },
         {
@@ -10301,6 +11408,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05750"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05750.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 19,
+            "maximumAcceptedRadiusArcsec": 63.9,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 22.85
           }
         },
         {
@@ -10377,6 +11493,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05764"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05764.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 112.21,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 3.62
           }
         },
         {
@@ -10453,6 +11578,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05829"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05829.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 6.91
           }
         },
         {
@@ -10529,6 +11663,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05918"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05918.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 22,
+            "maximumAcceptedRadiusArcsec": 110.41,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 4.46
           }
         },
         {
@@ -10605,6 +11748,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05986"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05986.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 9.41
           }
         },
         {
@@ -10681,6 +11833,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC05999"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc05999.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 32,
+            "maximumAcceptedRadiusArcsec": 57.58,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 16.22
           }
         },
         {
@@ -10757,6 +11918,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06399"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06399.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 52,
+            "maximumAcceptedRadiusArcsec": 84.31,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 7.85
           }
         },
         {
@@ -10833,6 +12003,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06446"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06446.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 10.22
           }
         },
         {
@@ -10909,6 +12088,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06614"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06614.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 64.59
           }
         },
         {
@@ -10985,6 +12173,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06628"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06628.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 7.69
           }
         },
         {
@@ -11061,6 +12258,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06667"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06667.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 23,
+            "maximumAcceptedRadiusArcsec": 132.49,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 7.85
           }
         },
         {
@@ -11137,6 +12343,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06786"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06786.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 45,
+            "maximumRotationRadiusKpc": 34.05
           }
         },
         {
@@ -11213,6 +12428,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06787"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06787.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 71,
+            "maximumRotationRadiusKpc": 37.19
           }
         },
         {
@@ -11289,6 +12513,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06818"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06818.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 52,
+            "maximumAcceptedRadiusArcsec": 84.31,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 6.98
           }
         },
         {
@@ -11365,6 +12598,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06917"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06917.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 55,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 10.47
           }
         },
         {
@@ -11441,6 +12683,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06923"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06923.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 54,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 6,
+            "maximumRotationRadiusKpc": 5.16
           }
         },
         {
@@ -11517,6 +12768,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06930"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06930.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 16.61
           }
         },
         {
@@ -11593,6 +12853,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06973"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06973.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 55,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 7.85
           }
         },
         {
@@ -11669,6 +12938,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC06983"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc06983.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 15.68
           }
         },
         {
@@ -11745,6 +13023,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07089"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07089.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 56,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 9.16
           }
         },
         {
@@ -11821,6 +13108,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07125"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07125.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 149.36,
+            "rotationCurvePoints": 13,
+            "maximumRotationRadiusKpc": 18.68
           }
         },
         {
@@ -11897,6 +13193,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07151"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07151.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 63,
+            "maximumAcceptedRadiusArcsec": 240.54,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 5.5
           }
         },
         {
@@ -11973,6 +13278,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07232"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07232.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 55,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 4,
+            "maximumRotationRadiusKpc": 0.82
           }
         },
         {
@@ -12049,6 +13363,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07261"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07261.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 52,
+            "maximumAcceptedRadiusArcsec": 84.31,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 6.67
           }
         },
         {
@@ -12125,6 +13448,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07323"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07323.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 198.79,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 5.82
           }
         },
         {
@@ -12201,6 +13533,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07399"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07399.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 6.13
           }
         },
         {
@@ -12277,6 +13618,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07524"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07524.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 68,
+            "maximumAcceptedRadiusArcsec": 387.39,
+            "rotationCurvePoints": 31,
+            "maximumRotationRadiusKpc": 10.69
           }
         },
         {
@@ -12353,6 +13703,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07559"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07559.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 54,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 2.53
           }
         },
         {
@@ -12429,6 +13788,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07577"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07577.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 48,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 9,
+            "maximumRotationRadiusKpc": 1.69
           }
         },
         {
@@ -12505,6 +13873,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07603"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07603.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 4.11
           }
         },
         {
@@ -12581,6 +13958,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07608"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07608.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 4.78
           }
         },
         {
@@ -12657,6 +14043,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07690"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07690.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 4.13
           }
         },
         {
@@ -12733,6 +14128,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC07866"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc07866.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 41,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 2.32
           }
         },
         {
@@ -12809,6 +14213,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC08286"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc08286.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 65,
+            "maximumAcceptedRadiusArcsec": 291.05,
+            "rotationCurvePoints": 17,
+            "maximumRotationRadiusKpc": 8.04
           }
         },
         {
@@ -12885,6 +14298,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC08490"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc08490.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 60,
+            "maximumAcceptedRadiusArcsec": 180.72,
+            "rotationCurvePoints": 30,
+            "maximumRotationRadiusKpc": 10.15
           }
         },
         {
@@ -12961,6 +14383,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC08550"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc08550.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 52,
+            "maximumAcceptedRadiusArcsec": 84.31,
+            "rotationCurvePoints": 11,
+            "maximumRotationRadiusKpc": 5.36
           }
         },
         {
@@ -13037,6 +14468,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC08699"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc08699.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 41,
+            "maximumRotationRadiusKpc": 25.7
           }
         },
         {
@@ -13113,6 +14553,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC08837"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc08837.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 4.2
           }
         },
         {
@@ -13189,6 +14638,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC09037"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc09037.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 135.78,
+            "rotationCurvePoints": 22,
+            "maximumRotationRadiusKpc": 27.96
           }
         },
         {
@@ -13265,6 +14723,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC09133"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc09133.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 57,
+            "maximumAcceptedRadiusArcsec": 131.43,
+            "rotationCurvePoints": 68,
+            "maximumRotationRadiusKpc": 108.31
           }
         },
         {
@@ -13341,6 +14808,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC09992"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc09992.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 51,
+            "maximumAcceptedRadiusArcsec": 76.64,
+            "rotationCurvePoints": 5,
+            "maximumRotationRadiusKpc": 3.89
           }
         },
         {
@@ -13417,6 +14893,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC10310"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc10310.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 52,
+            "maximumAcceptedRadiusArcsec": 84.31,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 7.74
           }
         },
         {
@@ -13493,6 +14978,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC11455"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc11455.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 55,
+            "maximumAcceptedRadiusArcsec": 108.62,
+            "rotationCurvePoints": 36,
+            "maximumRotationRadiusKpc": 41.93
           }
         },
         {
@@ -13569,6 +15063,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC11557"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc11557.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 53,
+            "maximumAcceptedRadiusArcsec": 92.74,
+            "rotationCurvePoints": 12,
+            "maximumRotationRadiusKpc": 10.56
           }
         },
         {
@@ -13645,6 +15148,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC11820"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc11820.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 54,
+            "maximumAcceptedRadiusArcsec": 102.01,
+            "rotationCurvePoints": 10,
+            "maximumRotationRadiusKpc": 15.82
           }
         },
         {
@@ -13721,6 +15233,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC11914"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc11914.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 61,
+            "maximumAcceptedRadiusArcsec": 218.67,
+            "rotationCurvePoints": 65,
+            "maximumRotationRadiusKpc": 9.83
           }
         },
         {
@@ -13797,6 +15318,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC12506"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc12506.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 21,
+            "maximumAcceptedRadiusArcsec": 92.01,
+            "rotationCurvePoints": 31,
+            "maximumRotationRadiusKpc": 49.99
           }
         },
         {
@@ -13873,6 +15403,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC12632"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc12632.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 58,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 15,
+            "maximumRotationRadiusKpc": 10.66
           }
         },
         {
@@ -13949,6 +15488,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGC12732"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugc12732.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 56,
+            "maximumAcceptedRadiusArcsec": 123.43,
+            "rotationCurvePoints": 16,
+            "maximumRotationRadiusKpc": 15.4
           }
         },
         {
@@ -14025,6 +15573,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGCA281"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugca281.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 59,
+            "maximumAcceptedRadiusArcsec": 164.29,
+            "rotationCurvePoints": 7,
+            "maximumRotationRadiusKpc": 1.08
           }
         },
         {
@@ -14101,6 +15658,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGCA442"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugca442.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 25,
+            "maximumAcceptedRadiusArcsec": 228.95,
+            "rotationCurvePoints": 8,
+            "maximumRotationRadiusKpc": 6.33
           }
         },
         {
@@ -14177,6 +15743,15 @@
           "provenance": {
             "bibcode": "2016AJ....152..157L",
             "sampleId": "UGCA444"
+          },
+          "assets": {
+            "data": "/data/sparc-profiles/ugca444.json"
+          },
+          "profileSummary": {
+            "acceptedPhotometryPoints": 19,
+            "maximumAcceptedRadiusArcsec": 158.99,
+            "rotationCurvePoints": 36,
+            "maximumRotationRadiusKpc": 2.62
           }
         },
         {

@@ -32,6 +32,40 @@ export type Layer = {
     bands?: Record<string, string>;
     data?: string;
   };
+  profileSummary?: {
+    acceptedPhotometryPoints: number;
+    maximumAcceptedRadiusArcsec: number;
+    rotationCurvePoints: number;
+    maximumRotationRadiusKpc: number;
+  };
+};
+
+export type SparcProfilePoint = {
+  radiusArcsec: number;
+  surfaceBrightnessMagArcsec2: number;
+  accepted: boolean;
+  uncertaintyMag: number | null;
+};
+
+export type SparcRotationPoint = {
+  radiusKpc: number;
+  observedVelocityKmS: number;
+  velocityUncertaintyKmS: number;
+  gasVelocityKmS: number;
+  diskVelocityKmS: number;
+  bulgeVelocityKmS: number;
+  diskSurfaceBrightnessLsunPc2: number;
+  bulgeSurfaceBrightnessLsunPc2: number;
+};
+
+export type SparcProfile = {
+  targetId: string;
+  sparcId: string;
+  distanceMpc: number | null;
+  surfaceBrightness: SparcProfilePoint[];
+  rotationCurve: SparcRotationPoint[];
+  summary: NonNullable<Layer["profileSummary"]>;
+  provenance: Record<string, string>;
 };
 
 export type Registration = {

@@ -1,0 +1,2283 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers SPARC profile index",
+  "generatedAt": "2026-08-13T01:53:15.448607+00:00",
+  "targetCount": 175,
+  "targets": {
+    "camb": {
+      "targetId": "camb",
+      "sparcId": "CamB",
+      "distanceMpc": 3.36,
+      "summary": {
+        "acceptedPhotometryPoints": 23,
+        "maximumAcceptedRadiusArcsec": 132.49,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 1.79
+      },
+      "data": "/data/sparc-profiles/camb.json",
+      "sha256": "e503c52299f8a8a16c3c58a0100c183d718f69b6198646cbada07690309ea846"
+    },
+    "d512-2": {
+      "targetId": "d512-2",
+      "sparcId": "D512-2",
+      "distanceMpc": 15.2,
+      "summary": {
+        "acceptedPhotometryPoints": 19,
+        "maximumAcceptedRadiusArcsec": 63.9,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 3.83
+      },
+      "data": "/data/sparc-profiles/d512-2.json",
+      "sha256": "ac56685e5491d155fa0459addac6650e6f514088a5b16d087bab7acab3b54f3d"
+    },
+    "d564-8": {
+      "targetId": "d564-8",
+      "sparcId": "D564-8",
+      "distanceMpc": 8.79,
+      "summary": {
+        "acceptedPhotometryPoints": 23,
+        "maximumAcceptedRadiusArcsec": 24.42,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 3.07
+      },
+      "data": "/data/sparc-profiles/d564-8.json",
+      "sha256": "189d2179288fb88eed39a68390a220d703c70e99258a791afde1e247e139ed37"
+    },
+    "d631-7": {
+      "targetId": "d631-7",
+      "sparcId": "D631-7",
+      "distanceMpc": 7.72,
+      "summary": {
+        "acceptedPhotometryPoints": 20,
+        "maximumAcceptedRadiusArcsec": 76.68,
+        "rotationCurvePoints": 16,
+        "maximumRotationRadiusKpc": 7.19
+      },
+      "data": "/data/sparc-profiles/d631-7.json",
+      "sha256": "e8baf2892fddb7b9f48788556462d07822504a4e20db89d6554869ba14627cd2"
+    },
+    "ddo064": {
+      "targetId": "ddo064",
+      "sparcId": "DDO064",
+      "distanceMpc": 6.8,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 89.77,
+        "rotationCurvePoints": 14,
+        "maximumRotationRadiusKpc": 2.98
+      },
+      "data": "/data/sparc-profiles/ddo064.json",
+      "sha256": "6ef26df13b9054d1a2c47072ae2c40f806e4bf27d5a17cd741d227aef0726574"
+    },
+    "ddo154": {
+      "targetId": "ddo154",
+      "sparcId": "DDO154",
+      "distanceMpc": 4.04,
+      "summary": {
+        "acceptedPhotometryPoints": 50,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 5.92
+      },
+      "data": "/data/sparc-profiles/ddo154.json",
+      "sha256": "0c61727febcd9caf51ec2a4effa903036a1be141a3ac0c5724ad715ff009345d"
+    },
+    "ddo161": {
+      "targetId": "ddo161",
+      "sparcId": "DDO161",
+      "distanceMpc": 7.5,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 31,
+        "maximumRotationRadiusKpc": 13.37
+      },
+      "data": "/data/sparc-profiles/ddo161.json",
+      "sha256": "d2d70d5cfa59ae9c12e6b10e8a8aeec58469d4b331578e737ce148d3493d1f22"
+    },
+    "ddo168": {
+      "targetId": "ddo168",
+      "sparcId": "DDO168",
+      "distanceMpc": 4.25,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 4.12
+      },
+      "data": "/data/sparc-profiles/ddo168.json",
+      "sha256": "90aaeb405e2640d78bbd5559cf3880c5d5cfe7cad35a1efa00e96d3b1a71b659"
+    },
+    "ddo170": {
+      "targetId": "ddo170",
+      "sparcId": "DDO170",
+      "distanceMpc": 15.4,
+      "summary": {
+        "acceptedPhotometryPoints": 41,
+        "maximumAcceptedRadiusArcsec": 112.21,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 12.33
+      },
+      "data": "/data/sparc-profiles/ddo170.json",
+      "sha256": "77775a8c9dfb07f2639401990e8f60e564805eea102ec26bc2ac30f683399693"
+    },
+    "eso079-g014": {
+      "targetId": "eso079-g014",
+      "sparcId": "ESO079-G014",
+      "distanceMpc": 28.7,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 16.67
+      },
+      "data": "/data/sparc-profiles/eso079-g014.json",
+      "sha256": "d8c1d7e8095319aea99b41610cc601dbbd8c4dc9a923c2841b0cdfe783beeb44"
+    },
+    "eso116-g012": {
+      "targetId": "eso116-g012",
+      "sparcId": "ESO116-G012",
+      "distanceMpc": 13.0,
+      "summary": {
+        "acceptedPhotometryPoints": 43,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 9.86
+      },
+      "data": "/data/sparc-profiles/eso116-g012.json",
+      "sha256": "58af128f1a2e86d57e80fd63501247c7314f40fc7efb5a4f396cf4d0942e93d3"
+    },
+    "eso444-g084": {
+      "targetId": "eso444-g084",
+      "sparcId": "ESO444-G084",
+      "distanceMpc": 4.83,
+      "summary": {
+        "acceptedPhotometryPoints": 19,
+        "maximumAcceptedRadiusArcsec": 63.9,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 4.44
+      },
+      "data": "/data/sparc-profiles/eso444-g084.json",
+      "sha256": "ecbcd983e8c290f74aaf67a1ca56fb8e696880a9bca63295a4c0901eb46fee80"
+    },
+    "eso563-g021": {
+      "targetId": "eso563-g021",
+      "sparcId": "ESO563-G021",
+      "distanceMpc": 60.8,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 159.03,
+        "rotationCurvePoints": 30,
+        "maximumRotationRadiusKpc": 42.41
+      },
+      "data": "/data/sparc-profiles/eso563-g021.json",
+      "sha256": "edb90b948a9608621a6ac5405813cb4910a7929e71f8f2d3e2a5f662f85b26ba"
+    },
+    "f561-1": {
+      "targetId": "f561-1",
+      "sparcId": "F561-1",
+      "distanceMpc": 66.4,
+      "summary": {
+        "acceptedPhotometryPoints": 44,
+        "maximumAcceptedRadiusArcsec": 38.07,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 9.66
+      },
+      "data": "/data/sparc-profiles/f561-1.json",
+      "sha256": "4c53fec48c120dfc8f714fad5eec37505d5a9bf0cbd0f12ad057231a5a84f12c"
+    },
+    "f563-1": {
+      "targetId": "f563-1",
+      "sparcId": "F563-1",
+      "distanceMpc": 48.9,
+      "summary": {
+        "acceptedPhotometryPoints": 46,
+        "maximumAcceptedRadiusArcsec": 47.59,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 20.1
+      },
+      "data": "/data/sparc-profiles/f563-1.json",
+      "sha256": "2e658c0330b9a8efb0239115ee0cd145d438a7bd040dcffa0402fbf2759fa3ee"
+    },
+    "f563-v1": {
+      "targetId": "f563-v1",
+      "sparcId": "F563-V1",
+      "distanceMpc": 54.0,
+      "summary": {
+        "acceptedPhotometryPoints": 49,
+        "maximumAcceptedRadiusArcsec": 61.31,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 7.87
+      },
+      "data": "/data/sparc-profiles/f563-v1.json",
+      "sha256": "ff02c74a52a63d96887fd0496cbe61c9b465d6062420a4dc1a0b12317c03c4fe"
+    },
+    "f563-v2": {
+      "targetId": "f563-v2",
+      "sparcId": "F563-V2",
+      "distanceMpc": 59.7,
+      "summary": {
+        "acceptedPhotometryPoints": 17,
+        "maximumAcceptedRadiusArcsec": 44.37,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 10.47
+      },
+      "data": "/data/sparc-profiles/f563-v2.json",
+      "sha256": "90611e0c6cb299f7b00f401962e81b5a758eb2caa41d501ff113d1245c866f26"
+    },
+    "f565-v2": {
+      "targetId": "f565-v2",
+      "sparcId": "F565-V2",
+      "distanceMpc": 51.8,
+      "summary": {
+        "acceptedPhotometryPoints": 16,
+        "maximumAcceptedRadiusArcsec": 36.98,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 8.8
+      },
+      "data": "/data/sparc-profiles/f565-v2.json",
+      "sha256": "a5e7c194709e2665ac12878e6f8293a2f0ddee325b7085ec0e389896a34bf447"
+    },
+    "f567-2": {
+      "targetId": "f567-2",
+      "sparcId": "F567-2",
+      "distanceMpc": 79.0,
+      "summary": {
+        "acceptedPhotometryPoints": 15,
+        "maximumAcceptedRadiusArcsec": 30.81,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 9.59
+      },
+      "data": "/data/sparc-profiles/f567-2.json",
+      "sha256": "76ad613ba7a0dcaa3168c7320ae72ee6e161429cd2437385d2d770c5d0d9b72f"
+    },
+    "f568-1": {
+      "targetId": "f568-1",
+      "sparcId": "F568-1",
+      "distanceMpc": 90.7,
+      "summary": {
+        "acceptedPhotometryPoints": 43,
+        "maximumAcceptedRadiusArcsec": 35.75,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 13.23
+      },
+      "data": "/data/sparc-profiles/f568-1.json",
+      "sha256": "24330c3e9fc352fc1ec4f249fb7dc2e795c9eb2ea0355f747f4c66ca6485db4d"
+    },
+    "f568-3": {
+      "targetId": "f568-3",
+      "sparcId": "F568-3",
+      "distanceMpc": 82.4,
+      "summary": {
+        "acceptedPhotometryPoints": 49,
+        "maximumAcceptedRadiusArcsec": 63.34,
+        "rotationCurvePoints": 18,
+        "maximumRotationRadiusKpc": 17.98
+      },
+      "data": "/data/sparc-profiles/f568-3.json",
+      "sha256": "9702bb870ad624942c23d66261245bd522890e314c7ce356cfd20b3d3f009e71"
+    },
+    "f568-v1": {
+      "targetId": "f568-v1",
+      "sparcId": "F568-V1",
+      "distanceMpc": 80.6,
+      "summary": {
+        "acceptedPhotometryPoints": 43,
+        "maximumAcceptedRadiusArcsec": 34.61,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 17.63
+      },
+      "data": "/data/sparc-profiles/f568-v1.json",
+      "sha256": "761145dc9cdf757140747cf816376114da0d071278c04fb7d7c319a2f022af0f"
+    },
+    "f571-8": {
+      "targetId": "f571-8",
+      "sparcId": "F571-8",
+      "distanceMpc": 53.3,
+      "summary": {
+        "acceptedPhotometryPoints": 46,
+        "maximumAcceptedRadiusArcsec": 46.07,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 15.55
+      },
+      "data": "/data/sparc-profiles/f571-8.json",
+      "sha256": "76c9ba99dc06ff7e06a1fc5b9df37e351e707fef3f7c6ef32235f0004085fd3b"
+    },
+    "f571-v1": {
+      "targetId": "f571-v1",
+      "sparcId": "F571-V1",
+      "distanceMpc": 80.1,
+      "summary": {
+        "acceptedPhotometryPoints": 40,
+        "maximumAcceptedRadiusArcsec": 26.0,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 13.59
+      },
+      "data": "/data/sparc-profiles/f571-v1.json",
+      "sha256": "5afa5f0bb0d0db89a612b4d2bd4a7ea7350828e78219133220e49f0521ec2457"
+    },
+    "f574-1": {
+      "targetId": "f574-1",
+      "sparcId": "F574-1",
+      "distanceMpc": 96.8,
+      "summary": {
+        "acceptedPhotometryPoints": 45,
+        "maximumAcceptedRadiusArcsec": 41.88,
+        "rotationCurvePoints": 14,
+        "maximumRotationRadiusKpc": 12.6
+      },
+      "data": "/data/sparc-profiles/f574-1.json",
+      "sha256": "419408a992a80c2bc9d2d55528cfd76927f43e9cea94cb35273e8f3fc027618c"
+    },
+    "f574-2": {
+      "targetId": "f574-2",
+      "sparcId": "F574-2",
+      "distanceMpc": 89.1,
+      "summary": {
+        "acceptedPhotometryPoints": 42,
+        "maximumAcceptedRadiusArcsec": 34.61,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 10.83
+      },
+      "data": "/data/sparc-profiles/f574-2.json",
+      "sha256": "4cbdf53b5e6e1f3582832df1a8c8859bb5a09361730ffeb572aa709e26ac65f0"
+    },
+    "f579-v1": {
+      "targetId": "f579-v1",
+      "sparcId": "F579-V1",
+      "distanceMpc": 89.5,
+      "summary": {
+        "acceptedPhotometryPoints": 46,
+        "maximumAcceptedRadiusArcsec": 46.07,
+        "rotationCurvePoints": 14,
+        "maximumRotationRadiusKpc": 15.16
+      },
+      "data": "/data/sparc-profiles/f579-v1.json",
+      "sha256": "649bdf4852eddb697cb617da8f7d5d84cb0769598df306d4ddc42f11565585d6"
+    },
+    "f583-1": {
+      "targetId": "f583-1",
+      "sparcId": "F583-1",
+      "distanceMpc": 35.4,
+      "summary": {
+        "acceptedPhotometryPoints": 18,
+        "maximumAcceptedRadiusArcsec": 53.25,
+        "rotationCurvePoints": 25,
+        "maximumRotationRadiusKpc": 16.26
+      },
+      "data": "/data/sparc-profiles/f583-1.json",
+      "sha256": "12c1c77da0ea4f79895b6cfa1d3f7d71b4452d2f39e335d26abc4f4a0e75b0c7"
+    },
+    "f583-4": {
+      "targetId": "f583-4",
+      "sparcId": "F583-4",
+      "distanceMpc": 53.3,
+      "summary": {
+        "acceptedPhotometryPoints": 24,
+        "maximumAcceptedRadiusArcsec": 26.86,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 7.29
+      },
+      "data": "/data/sparc-profiles/f583-4.json",
+      "sha256": "bee0f592fb7da11dadbd799aabbf3b22774da4cd581c4849138fa44d3a2f8159"
+    },
+    "ic2574": {
+      "targetId": "ic2574",
+      "sparcId": "IC2574",
+      "distanceMpc": 3.91,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 34,
+        "maximumRotationRadiusKpc": 10.23
+      },
+      "data": "/data/sparc-profiles/ic2574.json",
+      "sha256": "82de4353a5312999f076ca825637235795750dbf9f5103427dec84b116318e13"
+    },
+    "ic4202": {
+      "targetId": "ic4202",
+      "sparcId": "IC4202",
+      "distanceMpc": 100.4,
+      "summary": {
+        "acceptedPhotometryPoints": 54,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 32,
+        "maximumRotationRadiusKpc": 25.9
+      },
+      "data": "/data/sparc-profiles/ic4202.json",
+      "sha256": "7f92c124b7dddbd9606e0f17e4c743cd26035fa1f3000dd29deb49184197cb88"
+    },
+    "kk98-251": {
+      "targetId": "kk98-251",
+      "sparcId": "KK98-251",
+      "distanceMpc": 6.8,
+      "summary": {
+        "acceptedPhotometryPoints": 17,
+        "maximumAcceptedRadiusArcsec": 76.68,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 3.13
+      },
+      "data": "/data/sparc-profiles/kk98-251.json",
+      "sha256": "1e22bb33c1145e335dfd4e6cf127126167df6541ef76ff19311a5b57bafb82a9"
+    },
+    "ngc0024": {
+      "targetId": "ngc0024",
+      "sparcId": "NGC0024",
+      "distanceMpc": 7.3,
+      "summary": {
+        "acceptedPhotometryPoints": 64,
+        "maximumAcceptedRadiusArcsec": 264.59,
+        "rotationCurvePoints": 29,
+        "maximumRotationRadiusKpc": 11.27
+      },
+      "data": "/data/sparc-profiles/ngc0024.json",
+      "sha256": "654715bb7752768fd110b89f1fae68e8eb00f05891be0869bec9d441ab2ffe89"
+    },
+    "ngc0055": {
+      "targetId": "ngc0055",
+      "sparcId": "NGC0055",
+      "distanceMpc": 2.11,
+      "summary": {
+        "acceptedPhotometryPoints": 28,
+        "maximumAcceptedRadiusArcsec": 989.07,
+        "rotationCurvePoints": 21,
+        "maximumRotationRadiusKpc": 13.5
+      },
+      "data": "/data/sparc-profiles/ngc0055.json",
+      "sha256": "a73fcb0978f5dec5920870108050974f61c96247f80df2842faebfdffbdbefbf"
+    },
+    "ngc0100": {
+      "targetId": "ngc0100",
+      "sparcId": "NGC0100",
+      "distanceMpc": 13.5,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 21,
+        "maximumRotationRadiusKpc": 9.62
+      },
+      "data": "/data/sparc-profiles/ngc0100.json",
+      "sha256": "d973177f97836011df5f3a091aa5cad57cce7ba34788a2a50199c4f0ff979d8c"
+    },
+    "ngc0247": {
+      "targetId": "ngc0247",
+      "sparcId": "NGC0247",
+      "distanceMpc": 3.7,
+      "summary": {
+        "acceptedPhotometryPoints": 26,
+        "maximumAcceptedRadiusArcsec": 1097.04,
+        "rotationCurvePoints": 26,
+        "maximumRotationRadiusKpc": 14.54
+      },
+      "data": "/data/sparc-profiles/ngc0247.json",
+      "sha256": "6e93d05b56cfda5dbab10123d7d428d29f3e806c9973073805b463949d10c798"
+    },
+    "ngc0289": {
+      "targetId": "ngc0289",
+      "sparcId": "NGC0289",
+      "distanceMpc": 20.8,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 28,
+        "maximumRotationRadiusKpc": 71.12
+      },
+      "data": "/data/sparc-profiles/ngc0289.json",
+      "sha256": "0cebdd42fa41cda0592aec9418a2681240ea110efe30f2bdaad9e0903a536b28"
+    },
+    "ngc0300": {
+      "targetId": "ngc0300",
+      "sparcId": "NGC0300",
+      "distanceMpc": 2.08,
+      "summary": {
+        "acceptedPhotometryPoints": 50,
+        "maximumAcceptedRadiusArcsec": 209.03,
+        "rotationCurvePoints": 25,
+        "maximumRotationRadiusKpc": 11.8
+      },
+      "data": "/data/sparc-profiles/ngc0300.json",
+      "sha256": "26868fd54e2f1c8cf2c1cc2202df464102286c25a92b2d57aa644d1b3d8bc7c0"
+    },
+    "ngc0801": {
+      "targetId": "ngc0801",
+      "sparcId": "NGC0801",
+      "distanceMpc": 80.7,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 59.82
+      },
+      "data": "/data/sparc-profiles/ngc0801.json",
+      "sha256": "7baaae92db44f525d891ae3eafdfcb491b399a671b5e29fafbc64ef7f1252e39"
+    },
+    "ngc0891": {
+      "targetId": "ngc0891",
+      "sparcId": "NGC0891",
+      "distanceMpc": 9.91,
+      "summary": {
+        "acceptedPhotometryPoints": 47,
+        "maximumAcceptedRadiusArcsec": 320.16,
+        "rotationCurvePoints": 18,
+        "maximumRotationRadiusKpc": 17.11
+      },
+      "data": "/data/sparc-profiles/ngc0891.json",
+      "sha256": "8b023801b7ae896e3638d48589b02f9d5c7a6738647337acceacdea17f5a744f"
+    },
+    "ngc1003": {
+      "targetId": "ngc1003",
+      "sparcId": "NGC1003",
+      "distanceMpc": 11.4,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 174.94,
+        "rotationCurvePoints": 36,
+        "maximumRotationRadiusKpc": 30.24
+      },
+      "data": "/data/sparc-profiles/ngc1003.json",
+      "sha256": "7af1cde9dc399d2bc2ed944220c7dd1d059fe38ab65a60b0033917b2b105d5a9"
+    },
+    "ngc1090": {
+      "targetId": "ngc1090",
+      "sparcId": "NGC1090",
+      "distanceMpc": 37.0,
+      "summary": {
+        "acceptedPhotometryPoints": 55,
+        "maximumAcceptedRadiusArcsec": 112.21,
+        "rotationCurvePoints": 24,
+        "maximumRotationRadiusKpc": 30.09
+      },
+      "data": "/data/sparc-profiles/ngc1090.json",
+      "sha256": "9d135abe952a67c0a11455eced818d437cd52c3d27ab4bd37b9bb651febf737b"
+    },
+    "ngc1705": {
+      "targetId": "ngc1705",
+      "sparcId": "NGC1705",
+      "distanceMpc": 5.73,
+      "summary": {
+        "acceptedPhotometryPoints": 38,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 14,
+        "maximumRotationRadiusKpc": 6.0
+      },
+      "data": "/data/sparc-profiles/ngc1705.json",
+      "sha256": "011c55f4763d7265252a06c4aa8703615ed9b7c088f6e2c7cca49253962c7a20"
+    },
+    "ngc2366": {
+      "targetId": "ngc2366",
+      "sparcId": "NGC2366",
+      "distanceMpc": 3.27,
+      "summary": {
+        "acceptedPhotometryPoints": 41,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 26,
+        "maximumRotationRadiusKpc": 6.06
+      },
+      "data": "/data/sparc-profiles/ngc2366.json",
+      "sha256": "d471041635249838c864334443d80553ce48cf151f3a342d80b770db304a6000"
+    },
+    "ngc2403": {
+      "targetId": "ngc2403",
+      "sparcId": "NGC2403",
+      "distanceMpc": 3.16,
+      "summary": {
+        "acceptedPhotometryPoints": 50,
+        "maximumAcceptedRadiusArcsec": 320.16,
+        "rotationCurvePoints": 73,
+        "maximumRotationRadiusKpc": 20.87
+      },
+      "data": "/data/sparc-profiles/ngc2403.json",
+      "sha256": "e82f47175849cef316c15e0cf6be50e70c57b3ce3602d46467fddcf862d3c9c8"
+    },
+    "ngc2683": {
+      "targetId": "ngc2683",
+      "sparcId": "NGC2683",
+      "distanceMpc": 9.81,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 34.62
+      },
+      "data": "/data/sparc-profiles/ngc2683.json",
+      "sha256": "11fe6ead2875038cf08a8a2c67cd48ad7832a72a1c6451fa688921d7fcc17f04"
+    },
+    "ngc2841": {
+      "targetId": "ngc2841",
+      "sparcId": "NGC2841",
+      "distanceMpc": 14.1,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 50,
+        "maximumRotationRadiusKpc": 63.64
+      },
+      "data": "/data/sparc-profiles/ngc2841.json",
+      "sha256": "fce460345d22e124fde3cb727bd079f466b014cc82fe561f8e4d7cc36e1af940"
+    },
+    "ngc2903": {
+      "targetId": "ngc2903",
+      "sparcId": "NGC2903",
+      "distanceMpc": 6.6,
+      "summary": {
+        "acceptedPhotometryPoints": 68,
+        "maximumAcceptedRadiusArcsec": 387.39,
+        "rotationCurvePoints": 34,
+        "maximumRotationRadiusKpc": 24.96
+      },
+      "data": "/data/sparc-profiles/ngc2903.json",
+      "sha256": "a8f26d0c7bbf1ca477205b81adb81a807878a21be5774b089a1e6dc66463fd76"
+    },
+    "ngc2915": {
+      "targetId": "ngc2915",
+      "sparcId": "NGC2915",
+      "distanceMpc": 4.06,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 30,
+        "maximumRotationRadiusKpc": 10.04
+      },
+      "data": "/data/sparc-profiles/ngc2915.json",
+      "sha256": "6f374e4db87f18ab22b40863304da975d1b50ca935b1e5c03ec98fe2c7ba1900"
+    },
+    "ngc2955": {
+      "targetId": "ngc2955",
+      "sparcId": "NGC2955",
+      "distanceMpc": 97.9,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 24,
+        "maximumRotationRadiusKpc": 35.43
+      },
+      "data": "/data/sparc-profiles/ngc2955.json",
+      "sha256": "c11b524806affaeb05694cfe781ff7b1f20442ef405c4bfbd4e401d19db89267"
+    },
+    "ngc2976": {
+      "targetId": "ngc2976",
+      "sparcId": "NGC2976",
+      "distanceMpc": 3.58,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 27,
+        "maximumRotationRadiusKpc": 2.27
+      },
+      "data": "/data/sparc-profiles/ngc2976.json",
+      "sha256": "5415281e838474a1457ead4aa16b58070f7bedff8af78dd427fe0073d772f9c9"
+    },
+    "ngc2998": {
+      "targetId": "ngc2998",
+      "sparcId": "NGC2998",
+      "distanceMpc": 68.1,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 42.28
+      },
+      "data": "/data/sparc-profiles/ngc2998.json",
+      "sha256": "cc7908e8e209a90e4dc4112421266abda1cb0f5c32ae96f8254448fb544696fc"
+    },
+    "ngc3109": {
+      "targetId": "ngc3109",
+      "sparcId": "NGC3109",
+      "distanceMpc": 1.33,
+      "summary": {
+        "acceptedPhotometryPoints": 30,
+        "maximumAcceptedRadiusArcsec": 683.64,
+        "rotationCurvePoints": 25,
+        "maximumRotationRadiusKpc": 6.45
+      },
+      "data": "/data/sparc-profiles/ngc3109.json",
+      "sha256": "37e31f3ebe6a19cf5bcc04af93792200a53cd52a3855ffd6fff843c3c02d8be7"
+    },
+    "ngc3198": {
+      "targetId": "ngc3198",
+      "sparcId": "NGC3198",
+      "distanceMpc": 13.8,
+      "summary": {
+        "acceptedPhotometryPoints": 66,
+        "maximumAcceptedRadiusArcsec": 320.16,
+        "rotationCurvePoints": 43,
+        "maximumRotationRadiusKpc": 44.08
+      },
+      "data": "/data/sparc-profiles/ngc3198.json",
+      "sha256": "5f10c1b9b6050e429537b1f46e3abda2a18fef3f985eca0d0663f6abb6af9f92"
+    },
+    "ngc3521": {
+      "targetId": "ngc3521",
+      "sparcId": "NGC3521",
+      "distanceMpc": 7.7,
+      "summary": {
+        "acceptedPhotometryPoints": 68,
+        "maximumAcceptedRadiusArcsec": 387.39,
+        "rotationCurvePoints": 41,
+        "maximumRotationRadiusKpc": 17.74
+      },
+      "data": "/data/sparc-profiles/ngc3521.json",
+      "sha256": "113f1e56e00c0566aea740c92028b9cfe45de7b8c8a9c9eb1f9058c38cee0e81"
+    },
+    "ngc3726": {
+      "targetId": "ngc3726",
+      "sparcId": "NGC3726",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 240.54,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 32.52
+      },
+      "data": "/data/sparc-profiles/ngc3726.json",
+      "sha256": "2f0fbd8ceae85edad2ce53d251d596ad8f016e5d2c257d5fdc6b9eef7376d7d3"
+    },
+    "ngc3741": {
+      "targetId": "ngc3741",
+      "sparcId": "NGC3741",
+      "distanceMpc": 3.21,
+      "summary": {
+        "acceptedPhotometryPoints": 50,
+        "maximumAcceptedRadiusArcsec": 69.68,
+        "rotationCurvePoints": 21,
+        "maximumRotationRadiusKpc": 7.0
+      },
+      "data": "/data/sparc-profiles/ngc3741.json",
+      "sha256": "73995df011280971ac7e07f5d57aa61202a3e113d9436f23470e8993ba0bf32c"
+    },
+    "ngc3769": {
+      "targetId": "ngc3769",
+      "sparcId": "NGC3769",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 37.16
+      },
+      "data": "/data/sparc-profiles/ngc3769.json",
+      "sha256": "be6ca84f36f595533a4c523f9485a60aa5db04929382e784621dfd98b62338e4"
+    },
+    "ngc3877": {
+      "targetId": "ngc3877",
+      "sparcId": "NGC3877",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 240.54,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 11.35
+      },
+      "data": "/data/sparc-profiles/ngc3877.json",
+      "sha256": "fcc9bd043190b9115d44f310e624d156da21bed25b0aa1eaf1c1cff85c9fcb19"
+    },
+    "ngc3893": {
+      "targetId": "ngc3893",
+      "sparcId": "NGC3893",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 19.05
+      },
+      "data": "/data/sparc-profiles/ngc3893.json",
+      "sha256": "4531cb653c18521c3a71b4b4950f65bd934a6b9a093ede7b361822e0f8931818"
+    },
+    "ngc3917": {
+      "targetId": "ngc3917",
+      "sparcId": "NGC3917",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 240.54,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 14.86
+      },
+      "data": "/data/sparc-profiles/ngc3917.json",
+      "sha256": "de7b70e4a3fb7ca6bd86c5464be4c76997d44ff6c112c62aa556e6e456cb20bd"
+    },
+    "ngc3949": {
+      "targetId": "ngc3949",
+      "sparcId": "NGC3949",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 7.07
+      },
+      "data": "/data/sparc-profiles/ngc3949.json",
+      "sha256": "5114d01d5050128082d45420e9bae53c39d631c9562e38287dc45ba091ce4dc7"
+    },
+    "ngc3953": {
+      "targetId": "ngc3953",
+      "sparcId": "NGC3953",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 240.54,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 15.68
+      },
+      "data": "/data/sparc-profiles/ngc3953.json",
+      "sha256": "f7196e2442acc9d0c8d0e1072db646c3a99bb506e9155d98d23e1bf968702e90"
+    },
+    "ngc3972": {
+      "targetId": "ngc3972",
+      "sparcId": "NGC3972",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 8.72
+      },
+      "data": "/data/sparc-profiles/ngc3972.json",
+      "sha256": "cac7480fab61ff618acc9062913711158b5f4570f4058a27cac5a522dd7dba6e"
+    },
+    "ngc3992": {
+      "targetId": "ngc3992",
+      "sparcId": "NGC3992",
+      "distanceMpc": 23.7,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 46.02
+      },
+      "data": "/data/sparc-profiles/ngc3992.json",
+      "sha256": "1c77cfed02fafebac3f26514bbef64fa572e9573201775ed5f74a35918e6c6d3"
+    },
+    "ngc4010": {
+      "targetId": "ngc4010",
+      "sparcId": "NGC4010",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 190.02,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 10.47
+      },
+      "data": "/data/sparc-profiles/ngc4010.json",
+      "sha256": "bc2ad4dadae47924aea26cf38c8238029e7e2a7d96fd81b2991a546a82aab803"
+    },
+    "ngc4013": {
+      "targetId": "ngc4013",
+      "sparcId": "NGC4013",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 36,
+        "maximumRotationRadiusKpc": 31.01
+      },
+      "data": "/data/sparc-profiles/ngc4013.json",
+      "sha256": "e00756e6037924f14adeec3793018f21a03faf523571d01cfb754f3b63fb10c1"
+    },
+    "ngc4051": {
+      "targetId": "ngc4051",
+      "sparcId": "NGC4051",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 12.19
+      },
+      "data": "/data/sparc-profiles/ngc4051.json",
+      "sha256": "a5e3b70c2d77397148b53016ad84be4152ddac2e8f930e826862fd49f87ec42e"
+    },
+    "ngc4068": {
+      "targetId": "ngc4068",
+      "sparcId": "NGC4068",
+      "distanceMpc": 4.37,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 2.33
+      },
+      "data": "/data/sparc-profiles/ngc4068.json",
+      "sha256": "c3d4cf8cec035e1292a32dfbdf6f5ac6d8aa677b84c16d56a0122b39ba0ffbac"
+    },
+    "ngc4085": {
+      "targetId": "ngc4085",
+      "sparcId": "NGC4085",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 6.2
+      },
+      "data": "/data/sparc-profiles/ngc4085.json",
+      "sha256": "d7f38255c88d3eeb739bc2ee83dc9114c7fb81910c0ede60633d3873bb77626c"
+    },
+    "ngc4088": {
+      "targetId": "ngc4088",
+      "sparcId": "NGC4088",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 21.48
+      },
+      "data": "/data/sparc-profiles/ngc4088.json",
+      "sha256": "5e4fb095d110285ec3c53a489a91129bdd59c6955e7e141a28c5897ba0f9b819"
+    },
+    "ngc4100": {
+      "targetId": "ngc4100",
+      "sparcId": "NGC4100",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 24,
+        "maximumRotationRadiusKpc": 22.76
+      },
+      "data": "/data/sparc-profiles/ngc4100.json",
+      "sha256": "b3506851e1bc9c8396069b2518c638974ebae142f70cd28ae3212d5128ec54fc"
+    },
+    "ngc4138": {
+      "targetId": "ngc4138",
+      "sparcId": "NGC4138",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 18.58
+      },
+      "data": "/data/sparc-profiles/ngc4138.json",
+      "sha256": "5f8f142dcca28d8da1a67c9a5b4a94f38c9c9c0e611696f5a11eed1e3bbba6b3"
+    },
+    "ngc4157": {
+      "targetId": "ngc4157",
+      "sparcId": "NGC4157",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 64,
+        "maximumAcceptedRadiusArcsec": 264.59,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 29.61
+      },
+      "data": "/data/sparc-profiles/ngc4157.json",
+      "sha256": "a2f27448ba737766c55382f97c65d644c965ea1495381a6e77fc88976af8c41c"
+    },
+    "ngc4183": {
+      "targetId": "ngc4183",
+      "sparcId": "NGC4183",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 62,
+        "maximumAcceptedRadiusArcsec": 218.67,
+        "rotationCurvePoints": 23,
+        "maximumRotationRadiusKpc": 21.02
+      },
+      "data": "/data/sparc-profiles/ngc4183.json",
+      "sha256": "0abc05e8ca653c6620a6e412e305f0f42835eaa32f78be50afca2955f41e7873"
+    },
+    "ngc4214": {
+      "targetId": "ngc4214",
+      "sparcId": "NGC4214",
+      "distanceMpc": 2.87,
+      "summary": {
+        "acceptedPhotometryPoints": 42,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 14,
+        "maximumRotationRadiusKpc": 5.63
+      },
+      "data": "/data/sparc-profiles/ngc4214.json",
+      "sha256": "0a38fa83d44d604f5ad01103233b8cf5637f6c643ccb6b23da07ff8cdc25fe60"
+    },
+    "ngc4217": {
+      "targetId": "ngc4217",
+      "sparcId": "NGC4217",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 264.59,
+        "rotationCurvePoints": 19,
+        "maximumRotationRadiusKpc": 16.72
+      },
+      "data": "/data/sparc-profiles/ngc4217.json",
+      "sha256": "d9f69b7e0a63c31bc47328605e0efdecd2af19e21271451060fb1b9706cdceb8"
+    },
+    "ngc4389": {
+      "targetId": "ngc4389",
+      "sparcId": "NGC4389",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 44,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 5.32
+      },
+      "data": "/data/sparc-profiles/ngc4389.json",
+      "sha256": "9864c4129325c65ebad5f375ce377294a520329b8fb40258f509bfabaae001a2"
+    },
+    "ngc4559": {
+      "targetId": "ngc4559",
+      "sparcId": "NGC4559",
+      "distanceMpc": 9.0,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 32,
+        "maximumRotationRadiusKpc": 20.97
+      },
+      "data": "/data/sparc-profiles/ngc4559.json",
+      "sha256": "be6349cc8ef458846586cc5fcfdc10a930e383b7e2453cd1a391c6b4991145d5"
+    },
+    "ngc5005": {
+      "targetId": "ngc5005",
+      "sparcId": "NGC5005",
+      "distanceMpc": 16.9,
+      "summary": {
+        "acceptedPhotometryPoints": 71,
+        "maximumAcceptedRadiusArcsec": 515.62,
+        "rotationCurvePoints": 18,
+        "maximumRotationRadiusKpc": 11.47
+      },
+      "data": "/data/sparc-profiles/ngc5005.json",
+      "sha256": "bf87b2f89ae6c4c983c36795d189b3f10189468b353e4b17ddb20f38ffafa7ed"
+    },
+    "ngc5033": {
+      "targetId": "ngc5033",
+      "sparcId": "NGC5033",
+      "distanceMpc": 15.7,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 22,
+        "maximumRotationRadiusKpc": 44.59
+      },
+      "data": "/data/sparc-profiles/ngc5033.json",
+      "sha256": "9e869c4dcc152c1691ec123c5ab641e419d14686fe87a236854f5b3839a6aa25"
+    },
+    "ngc5055": {
+      "targetId": "ngc5055",
+      "sparcId": "NGC5055",
+      "distanceMpc": 9.9,
+      "summary": {
+        "acceptedPhotometryPoints": 69,
+        "maximumAcceptedRadiusArcsec": 468.74,
+        "rotationCurvePoints": 28,
+        "maximumRotationRadiusKpc": 54.59
+      },
+      "data": "/data/sparc-profiles/ngc5055.json",
+      "sha256": "f7aa1c751f75980bae01b5e60f1c205f6650a5d3ab1eae25fbf551bd3bbaf08a"
+    },
+    "ngc5371": {
+      "targetId": "ngc5371",
+      "sparcId": "NGC5371",
+      "distanceMpc": 39.7,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 19,
+        "maximumRotationRadiusKpc": 46.24
+      },
+      "data": "/data/sparc-profiles/ngc5371.json",
+      "sha256": "8bcac265b43f10ca66dd876d458cd67d31bc17ddafb4eabba0699eeceb7804f5"
+    },
+    "ngc5585": {
+      "targetId": "ngc5585",
+      "sparcId": "NGC5585",
+      "distanceMpc": 7.06,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 24,
+        "maximumRotationRadiusKpc": 10.96
+      },
+      "data": "/data/sparc-profiles/ngc5585.json",
+      "sha256": "034e94bd0d0a2e02c9841b7633c8ac03df9e260fba211a99f1782f2b163eeebb"
+    },
+    "ngc5907": {
+      "targetId": "ngc5907",
+      "sparcId": "NGC5907",
+      "distanceMpc": 17.3,
+      "summary": {
+        "acceptedPhotometryPoints": 68,
+        "maximumAcceptedRadiusArcsec": 387.39,
+        "rotationCurvePoints": 19,
+        "maximumRotationRadiusKpc": 50.33
+      },
+      "data": "/data/sparc-profiles/ngc5907.json",
+      "sha256": "d79fe15529059678538ee3e67b0e83210e6815324dee1ac9fdbecd7f31432a4b"
+    },
+    "ngc5985": {
+      "targetId": "ngc5985",
+      "sparcId": "NGC5985",
+      "distanceMpc": 39.7,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 33,
+        "maximumRotationRadiusKpc": 34.72
+      },
+      "data": "/data/sparc-profiles/ngc5985.json",
+      "sha256": "2cc4e92a865409e492901b100166e9b41cdfce382ecf22a9dcc348e0c36e5aa2"
+    },
+    "ngc6015": {
+      "targetId": "ngc6015",
+      "sparcId": "NGC6015",
+      "distanceMpc": 17.0,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 44,
+        "maximumRotationRadiusKpc": 29.23
+      },
+      "data": "/data/sparc-profiles/ngc6015.json",
+      "sha256": "baad53daeded1786e58d9ae771a1c797bfa6b2d4e548fbced3e7691e87cb6368"
+    },
+    "ngc6195": {
+      "targetId": "ngc6195",
+      "sparcId": "NGC6195",
+      "distanceMpc": 127.8,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 131.43,
+        "rotationCurvePoints": 23,
+        "maximumRotationRadiusKpc": 36.43
+      },
+      "data": "/data/sparc-profiles/ngc6195.json",
+      "sha256": "1636249024aa64747feed9d8da4cb1c6ffe16af4ec4269f0f949fd7492470cb3"
+    },
+    "ngc6503": {
+      "targetId": "ngc6503",
+      "sparcId": "NGC6503",
+      "distanceMpc": 6.26,
+      "summary": {
+        "acceptedPhotometryPoints": 66,
+        "maximumAcceptedRadiusArcsec": 320.16,
+        "rotationCurvePoints": 31,
+        "maximumRotationRadiusKpc": 23.5
+      },
+      "data": "/data/sparc-profiles/ngc6503.json",
+      "sha256": "9afb56a73e578c8bd9be8206e87c380df70e5dbb4e9b3d5c84e7bbf987a89593"
+    },
+    "ngc6674": {
+      "targetId": "ngc6674",
+      "sparcId": "NGC6674",
+      "distanceMpc": 51.2,
+      "summary": {
+        "acceptedPhotometryPoints": 38,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 72.41
+      },
+      "data": "/data/sparc-profiles/ngc6674.json",
+      "sha256": "5d04ddc7576772fdf21036f08922c80e0bec881c7202eaf51e94fbb729c96f08"
+    },
+    "ngc6789": {
+      "targetId": "ngc6789",
+      "sparcId": "NGC6789",
+      "distanceMpc": 3.52,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 0.71
+      },
+      "data": "/data/sparc-profiles/ngc6789.json",
+      "sha256": "b41af7409f63ebbac5e9aa1b52339b516a13472fbaae16c750beac3ef41c96b8"
+    },
+    "ngc6946": {
+      "targetId": "ngc6946",
+      "sparcId": "NGC6946",
+      "distanceMpc": 5.52,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 58,
+        "maximumRotationRadiusKpc": 20.4
+      },
+      "data": "/data/sparc-profiles/ngc6946.json",
+      "sha256": "ccddd051318451a49ae63ad7ca093b99092aa9c5ffe46951f5af56bd1e260893"
+    },
+    "ngc7331": {
+      "targetId": "ngc7331",
+      "sparcId": "NGC7331",
+      "distanceMpc": 14.7,
+      "summary": {
+        "acceptedPhotometryPoints": 66,
+        "maximumAcceptedRadiusArcsec": 320.16,
+        "rotationCurvePoints": 36,
+        "maximumRotationRadiusKpc": 36.31
+      },
+      "data": "/data/sparc-profiles/ngc7331.json",
+      "sha256": "333220274845420a7a0b3ca73713df2a4602326488d9a8fc39d250ef0a91df01"
+    },
+    "ngc7793": {
+      "targetId": "ngc7793",
+      "sparcId": "NGC7793",
+      "distanceMpc": 3.61,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 352.17,
+        "rotationCurvePoints": 46,
+        "maximumRotationRadiusKpc": 7.87
+      },
+      "data": "/data/sparc-profiles/ngc7793.json",
+      "sha256": "b4da71cf15fecfc4e3fbc4e224146c24dc8562b859c5c5ed37171872b935b4ee"
+    },
+    "ngc7814": {
+      "targetId": "ngc7814",
+      "sparcId": "NGC7814",
+      "distanceMpc": 14.4,
+      "summary": {
+        "acceptedPhotometryPoints": 40,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 18,
+        "maximumRotationRadiusKpc": 19.53
+      },
+      "data": "/data/sparc-profiles/ngc7814.json",
+      "sha256": "2fb904b167c7b8b44613ebaf765aa2d4215ead69f743d7add04dc915779fa1a9"
+    },
+    "pgc51017": {
+      "targetId": "pgc51017",
+      "sparcId": "PGC51017",
+      "distanceMpc": 13.6,
+      "summary": {
+        "acceptedPhotometryPoints": 39,
+        "maximumAcceptedRadiusArcsec": 24.42,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 3.63
+      },
+      "data": "/data/sparc-profiles/pgc51017.json",
+      "sha256": "55031848c4a5eb6b73e8ed56b59d5414133f19a6c60cfd782cf628583e1cce45"
+    },
+    "ugc00128": {
+      "targetId": "ugc00128",
+      "sparcId": "UGC00128",
+      "distanceMpc": 64.5,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 22,
+        "maximumRotationRadiusKpc": 53.75
+      },
+      "data": "/data/sparc-profiles/ugc00128.json",
+      "sha256": "bd43153e3844bc9e48aced70fd615f116941d3707983c6dba2b75e23559acf84"
+    },
+    "ugc00191": {
+      "targetId": "ugc00191",
+      "sparcId": "UGC00191",
+      "distanceMpc": 17.1,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 9.98
+      },
+      "data": "/data/sparc-profiles/ugc00191.json",
+      "sha256": "39df182022641097c2716ed93eb926355ed76ccca0c5fda0733338fff8dcb2fd"
+    },
+    "ugc00634": {
+      "targetId": "ugc00634",
+      "sparcId": "UGC00634",
+      "distanceMpc": 30.9,
+      "summary": {
+        "acceptedPhotometryPoints": 48,
+        "maximumAcceptedRadiusArcsec": 57.58,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 18.01
+      },
+      "data": "/data/sparc-profiles/ugc00634.json",
+      "sha256": "575d7ac3040db64e5f125125ce9897e1d978559c6a9871ecd49bb8c8ee7edf9c"
+    },
+    "ugc00731": {
+      "targetId": "ugc00731",
+      "sparcId": "UGC00731",
+      "distanceMpc": 12.5,
+      "summary": {
+        "acceptedPhotometryPoints": 33,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 10.91
+      },
+      "data": "/data/sparc-profiles/ugc00731.json",
+      "sha256": "050e6ea079996e9cae80c1008b9188162434ade7b57baec0829d89a7eb152803"
+    },
+    "ugc00891": {
+      "targetId": "ugc00891",
+      "sparcId": "UGC00891",
+      "distanceMpc": 10.2,
+      "summary": {
+        "acceptedPhotometryPoints": 54,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 7.39
+      },
+      "data": "/data/sparc-profiles/ugc00891.json",
+      "sha256": "72c06422347c444f9100b38d476fe22026cbd7deb46d5557faeb987fdc4e0d2f"
+    },
+    "ugc01230": {
+      "targetId": "ugc01230",
+      "sparcId": "UGC01230",
+      "distanceMpc": 53.7,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 74.19,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 36.54
+      },
+      "data": "/data/sparc-profiles/ugc01230.json",
+      "sha256": "2223c94b3bd12b919540c0d57ee6cc8f4e16d16a75bf5204c446ab33ccb758c1"
+    },
+    "ugc01281": {
+      "targetId": "ugc01281",
+      "sparcId": "UGC01281",
+      "distanceMpc": 5.27,
+      "summary": {
+        "acceptedPhotometryPoints": 62,
+        "maximumAcceptedRadiusArcsec": 264.59,
+        "rotationCurvePoints": 25,
+        "maximumRotationRadiusKpc": 4.99
+      },
+      "data": "/data/sparc-profiles/ugc01281.json",
+      "sha256": "4391db755d08fde9e3f5da286f7eddccf59cef2d36d62d0efbb638665c812f13"
+    },
+    "ugc02023": {
+      "targetId": "ugc02023",
+      "sparcId": "UGC02023",
+      "distanceMpc": 10.4,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 3.78
+      },
+      "data": "/data/sparc-profiles/ugc02023.json",
+      "sha256": "5dc734cddd9ce29b3fda5bfbd3ff2ab71a613c4169bd25892dd60129462906d3"
+    },
+    "ugc02259": {
+      "targetId": "ugc02259",
+      "sparcId": "UGC02259",
+      "distanceMpc": 10.5,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 8.14
+      },
+      "data": "/data/sparc-profiles/ugc02259.json",
+      "sha256": "9febdc2c461d43110ac1c81245f356fb7cf4b291656a97c9ce243033eb79a95f"
+    },
+    "ugc02455": {
+      "targetId": "ugc02455",
+      "sparcId": "UGC02455",
+      "distanceMpc": 6.92,
+      "summary": {
+        "acceptedPhotometryPoints": 62,
+        "maximumAcceptedRadiusArcsec": 218.67,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 4.03
+      },
+      "data": "/data/sparc-profiles/ugc02455.json",
+      "sha256": "c9b60660dc7dab4a4f4925a94d7a772cf4f94884406afebfb2ee03dd02254bcf"
+    },
+    "ugc02487": {
+      "targetId": "ugc02487",
+      "sparcId": "UGC02487",
+      "distanceMpc": 69.1,
+      "summary": {
+        "acceptedPhotometryPoints": 43,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 80.38
+      },
+      "data": "/data/sparc-profiles/ugc02487.json",
+      "sha256": "04dc5b8fbb2b6904f381073f06f16d984d13a894735f1c5a1e2762a0f37acd8f"
+    },
+    "ugc02885": {
+      "targetId": "ugc02885",
+      "sparcId": "UGC02885",
+      "distanceMpc": 80.6,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 19,
+        "maximumRotationRadiusKpc": 74.07
+      },
+      "data": "/data/sparc-profiles/ugc02885.json",
+      "sha256": "07555df9456cd97b57e39dd010dd2ce97ae1fe322b022cb6151c170d28dff769"
+    },
+    "ugc02916": {
+      "targetId": "ugc02916",
+      "sparcId": "UGC02916",
+      "distanceMpc": 65.4,
+      "summary": {
+        "acceptedPhotometryPoints": 38,
+        "maximumAcceptedRadiusArcsec": 22.2,
+        "rotationCurvePoints": 43,
+        "maximumRotationRadiusKpc": 38.0
+      },
+      "data": "/data/sparc-profiles/ugc02916.json",
+      "sha256": "4fa709825f996be5e7af1722bb7a5ae45278aa9d772dc96d9676226f85160bf4"
+    },
+    "ugc02953": {
+      "targetId": "ugc02953",
+      "sparcId": "UGC02953",
+      "distanceMpc": 16.5,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 115,
+        "maximumRotationRadiusKpc": 62.39
+      },
+      "data": "/data/sparc-profiles/ugc02953.json",
+      "sha256": "c47c6dfb945c22718621d16686fb30119c2629e58377718dae88371e6acac344"
+    },
+    "ugc03205": {
+      "targetId": "ugc03205",
+      "sparcId": "UGC03205",
+      "distanceMpc": 50.0,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 48,
+        "maximumRotationRadiusKpc": 40.04
+      },
+      "data": "/data/sparc-profiles/ugc03205.json",
+      "sha256": "fd93088cb8aeb132627c3fc084e0761f8950293825e8df10b6835d68858277a7"
+    },
+    "ugc03546": {
+      "targetId": "ugc03546",
+      "sparcId": "UGC03546",
+      "distanceMpc": 28.7,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 30,
+        "maximumRotationRadiusKpc": 29.23
+      },
+      "data": "/data/sparc-profiles/ugc03546.json",
+      "sha256": "ea7592eae97b2ea6845870b2c9c209f1586cca179b7cbc283d45c962bec090e4"
+    },
+    "ugc03580": {
+      "targetId": "ugc03580",
+      "sparcId": "UGC03580",
+      "distanceMpc": 20.7,
+      "summary": {
+        "acceptedPhotometryPoints": 56,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 47,
+        "maximumRotationRadiusKpc": 27.06
+      },
+      "data": "/data/sparc-profiles/ugc03580.json",
+      "sha256": "092f8c2a3bb24b5bcac75b0c8be55960966cf26538466298574d757f12d0576a"
+    },
+    "ugc04278": {
+      "targetId": "ugc04278",
+      "sparcId": "UGC04278",
+      "distanceMpc": 9.51,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 25,
+        "maximumRotationRadiusKpc": 6.69
+      },
+      "data": "/data/sparc-profiles/ugc04278.json",
+      "sha256": "80e69805eee67e349b0983e732be5fe634127282d9d9ce2c7e60213b6b11fcd8"
+    },
+    "ugc04305": {
+      "targetId": "ugc04305",
+      "sparcId": "UGC04305",
+      "distanceMpc": 3.45,
+      "summary": {
+        "acceptedPhotometryPoints": 24,
+        "maximumAcceptedRadiusArcsec": 228.95,
+        "rotationCurvePoints": 22,
+        "maximumRotationRadiusKpc": 5.52
+      },
+      "data": "/data/sparc-profiles/ugc04305.json",
+      "sha256": "9b2892b8cb471630828a9aa18d364f1619221c4089f9b6ae6c77b8314aef85a9"
+    },
+    "ugc04325": {
+      "targetId": "ugc04325",
+      "sparcId": "UGC04325",
+      "distanceMpc": 9.6,
+      "summary": {
+        "acceptedPhotometryPoints": 56,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 5.59
+      },
+      "data": "/data/sparc-profiles/ugc04325.json",
+      "sha256": "ae74b6478e8aecf2839942496128704e9130832ad98a24d62838792eee80c523"
+    },
+    "ugc04483": {
+      "targetId": "ugc04483",
+      "sparcId": "UGC04483",
+      "distanceMpc": 3.34,
+      "summary": {
+        "acceptedPhotometryPoints": 41,
+        "maximumAcceptedRadiusArcsec": 29.55,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 1.21
+      },
+      "data": "/data/sparc-profiles/ugc04483.json",
+      "sha256": "f50ab11dd80d363e67d7ad49f836dc85da4c0488e047b61eb24b3792d66ab37c"
+    },
+    "ugc04499": {
+      "targetId": "ugc04499",
+      "sparcId": "UGC04499",
+      "distanceMpc": 12.5,
+      "summary": {
+        "acceptedPhotometryPoints": 56,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 8.18
+      },
+      "data": "/data/sparc-profiles/ugc04499.json",
+      "sha256": "e696e7965964e300768edadf4d750d2a94493729c9159158b4b77587407a0193"
+    },
+    "ugc05005": {
+      "targetId": "ugc05005",
+      "sparcId": "UGC05005",
+      "distanceMpc": 53.7,
+      "summary": {
+        "acceptedPhotometryPoints": 28,
+        "maximumAcceptedRadiusArcsec": 43.26,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 28.61
+      },
+      "data": "/data/sparc-profiles/ugc05005.json",
+      "sha256": "a540d8bb6cba6f8cf3c6d99e8ae085af3990a84909a0ac2c89e562d36a276f93"
+    },
+    "ugc05253": {
+      "targetId": "ugc05253",
+      "sparcId": "UGC05253",
+      "distanceMpc": 22.9,
+      "summary": {
+        "acceptedPhotometryPoints": 67,
+        "maximumAcceptedRadiusArcsec": 387.39,
+        "rotationCurvePoints": 73,
+        "maximumRotationRadiusKpc": 53.29
+      },
+      "data": "/data/sparc-profiles/ugc05253.json",
+      "sha256": "c080f601b0535e567cfc37807d94a9fb53f349414844da0da81a769b334ba8ee"
+    },
+    "ugc05414": {
+      "targetId": "ugc05414",
+      "sparcId": "UGC05414",
+      "distanceMpc": 9.4,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 4.11
+      },
+      "data": "/data/sparc-profiles/ugc05414.json",
+      "sha256": "2ea0578af9ee01372a0da5f5e9735e49594b68ebae5d347b83db0aab8686b7f0"
+    },
+    "ugc05716": {
+      "targetId": "ugc05716",
+      "sparcId": "UGC05716",
+      "distanceMpc": 21.3,
+      "summary": {
+        "acceptedPhotometryPoints": 18,
+        "maximumAcceptedRadiusArcsec": 53.25,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 12.37
+      },
+      "data": "/data/sparc-profiles/ugc05716.json",
+      "sha256": "66ac33b306e0708cd225ff2bba9b4d367963d075a095b421f6cfe6552e169abf"
+    },
+    "ugc05721": {
+      "targetId": "ugc05721",
+      "sparcId": "UGC05721",
+      "distanceMpc": 6.18,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 23,
+        "maximumRotationRadiusKpc": 6.74
+      },
+      "data": "/data/sparc-profiles/ugc05721.json",
+      "sha256": "12e332b0bc3ec2817a839aa3528bb6c4a14ecd3c0662235a51caaa2858583e27"
+    },
+    "ugc05750": {
+      "targetId": "ugc05750",
+      "sparcId": "UGC05750",
+      "distanceMpc": 58.7,
+      "summary": {
+        "acceptedPhotometryPoints": 19,
+        "maximumAcceptedRadiusArcsec": 63.9,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 22.85
+      },
+      "data": "/data/sparc-profiles/ugc05750.json",
+      "sha256": "5abd6331217936a7d1788a592710295c7c80a4ff53ca1926130af6263475fc5f"
+    },
+    "ugc05764": {
+      "targetId": "ugc05764",
+      "sparcId": "UGC05764",
+      "distanceMpc": 7.47,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 112.21,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 3.62
+      },
+      "data": "/data/sparc-profiles/ugc05764.json",
+      "sha256": "66f5a1c5a6166e134cb4201e824077cffe216adfc8b988a902e8ec049d14fa16"
+    },
+    "ugc05829": {
+      "targetId": "ugc05829",
+      "sparcId": "UGC05829",
+      "distanceMpc": 8.64,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 6.91
+      },
+      "data": "/data/sparc-profiles/ugc05829.json",
+      "sha256": "38c3e404189e1ad54679279708c09bd87d001256e6ac8149337a3f384bb05462"
+    },
+    "ugc05918": {
+      "targetId": "ugc05918",
+      "sparcId": "UGC05918",
+      "distanceMpc": 7.66,
+      "summary": {
+        "acceptedPhotometryPoints": 22,
+        "maximumAcceptedRadiusArcsec": 110.41,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 4.46
+      },
+      "data": "/data/sparc-profiles/ugc05918.json",
+      "sha256": "873063f81ad6226de695eabea6d23528ed95fa24de2eb716e727bd9f50b81447"
+    },
+    "ugc05986": {
+      "targetId": "ugc05986",
+      "sparcId": "UGC05986",
+      "distanceMpc": 8.63,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 9.41
+      },
+      "data": "/data/sparc-profiles/ugc05986.json",
+      "sha256": "7946f4cdc0ae803cbb96a67bb615af01ef3ebf8f9712890ee36896398d121830"
+    },
+    "ugc05999": {
+      "targetId": "ugc05999",
+      "sparcId": "UGC05999",
+      "distanceMpc": 47.7,
+      "summary": {
+        "acceptedPhotometryPoints": 32,
+        "maximumAcceptedRadiusArcsec": 57.58,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 16.22
+      },
+      "data": "/data/sparc-profiles/ugc05999.json",
+      "sha256": "517af6bf435c1b4bb8139d08e470b72bfc268142220b234c73088816e5aef3eb"
+    },
+    "ugc06399": {
+      "targetId": "ugc06399",
+      "sparcId": "UGC06399",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 52,
+        "maximumAcceptedRadiusArcsec": 84.31,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 7.85
+      },
+      "data": "/data/sparc-profiles/ugc06399.json",
+      "sha256": "0d7f63f287a845d60bc2a02b82b230997969c07bb4c1bf9d88bd116b1653c567"
+    },
+    "ugc06446": {
+      "targetId": "ugc06446",
+      "sparcId": "UGC06446",
+      "distanceMpc": 12.0,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 10.22
+      },
+      "data": "/data/sparc-profiles/ugc06446.json",
+      "sha256": "e8215a5878ec633ab43606ae9d50e41391eb1163dcb645823849a7c72ff8b1b1"
+    },
+    "ugc06614": {
+      "targetId": "ugc06614",
+      "sparcId": "UGC06614",
+      "distanceMpc": 88.7,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 64.59
+      },
+      "data": "/data/sparc-profiles/ugc06614.json",
+      "sha256": "25ec646dba3864fd28bc95ff9e15ceab093f3ebf05641301e4fc4cda32cf2058"
+    },
+    "ugc06628": {
+      "targetId": "ugc06628",
+      "sparcId": "UGC06628",
+      "distanceMpc": 15.1,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 7.69
+      },
+      "data": "/data/sparc-profiles/ugc06628.json",
+      "sha256": "bfe9aba4add110cd99661cc4c4f54bb94c3aacef9dd0c2bdad61f88c31ea655d"
+    },
+    "ugc06667": {
+      "targetId": "ugc06667",
+      "sparcId": "UGC06667",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 23,
+        "maximumAcceptedRadiusArcsec": 132.49,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 7.85
+      },
+      "data": "/data/sparc-profiles/ugc06667.json",
+      "sha256": "1c4dddbab9a54c5d7c2fb128d9291ca444987bc2ca6e2476ea8cdb5e14909555"
+    },
+    "ugc06786": {
+      "targetId": "ugc06786",
+      "sparcId": "UGC06786",
+      "distanceMpc": 29.3,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 45,
+        "maximumRotationRadiusKpc": 34.05
+      },
+      "data": "/data/sparc-profiles/ugc06786.json",
+      "sha256": "79093abb8846e5d9be08c4c1bb10e658c07ef819efd972c9c4ac0e1f26460ddf"
+    },
+    "ugc06787": {
+      "targetId": "ugc06787",
+      "sparcId": "UGC06787",
+      "distanceMpc": 21.3,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 71,
+        "maximumRotationRadiusKpc": 37.19
+      },
+      "data": "/data/sparc-profiles/ugc06787.json",
+      "sha256": "df55aa3297df9807ef7ecc4d1480b7b12e8530836e8f70204522776f1875fc88"
+    },
+    "ugc06818": {
+      "targetId": "ugc06818",
+      "sparcId": "UGC06818",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 52,
+        "maximumAcceptedRadiusArcsec": 84.31,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 6.98
+      },
+      "data": "/data/sparc-profiles/ugc06818.json",
+      "sha256": "56b45f02e8109dbaa9d2643ccb3040878aed744eba6b709fdad6ae91537524e1"
+    },
+    "ugc06917": {
+      "targetId": "ugc06917",
+      "sparcId": "UGC06917",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 55,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 10.47
+      },
+      "data": "/data/sparc-profiles/ugc06917.json",
+      "sha256": "6c5f706da388f33891af98b5601e29b3356c4118ad137576a782142fc069294c"
+    },
+    "ugc06923": {
+      "targetId": "ugc06923",
+      "sparcId": "UGC06923",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 54,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 6,
+        "maximumRotationRadiusKpc": 5.16
+      },
+      "data": "/data/sparc-profiles/ugc06923.json",
+      "sha256": "cfda5a32dd82c41ce627a6021dd1808b26962b59ab82ebbb4bb8b4dc8f73fea1"
+    },
+    "ugc06930": {
+      "targetId": "ugc06930",
+      "sparcId": "UGC06930",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 16.61
+      },
+      "data": "/data/sparc-profiles/ugc06930.json",
+      "sha256": "f6cffffe56f461af373c1ed038107c40376210a10c042c5114a59584fc06798d"
+    },
+    "ugc06973": {
+      "targetId": "ugc06973",
+      "sparcId": "UGC06973",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 55,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 7.85
+      },
+      "data": "/data/sparc-profiles/ugc06973.json",
+      "sha256": "d2adf3aac7267bdfc8e86a59f44ba2e57a11eda6400ea9aaca3ba9021ae7ca55"
+    },
+    "ugc06983": {
+      "targetId": "ugc06983",
+      "sparcId": "UGC06983",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 15.68
+      },
+      "data": "/data/sparc-profiles/ugc06983.json",
+      "sha256": "8262f59802e3368930ebe43539fb20cf5a30da4c9ec84ce711072fc423a1fc58"
+    },
+    "ugc07089": {
+      "targetId": "ugc07089",
+      "sparcId": "UGC07089",
+      "distanceMpc": 18.0,
+      "summary": {
+        "acceptedPhotometryPoints": 56,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 9.16
+      },
+      "data": "/data/sparc-profiles/ugc07089.json",
+      "sha256": "cdca3252ea2cc0440ae80909b79205f1ccccf4006e75c01693f1196c4dc765c5"
+    },
+    "ugc07125": {
+      "targetId": "ugc07125",
+      "sparcId": "UGC07125",
+      "distanceMpc": 19.8,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 149.36,
+        "rotationCurvePoints": 13,
+        "maximumRotationRadiusKpc": 18.68
+      },
+      "data": "/data/sparc-profiles/ugc07125.json",
+      "sha256": "d8b61a6ac48b92bec5e81c3adb32b41371dd483afa65837672e5cf81c580fd68"
+    },
+    "ugc07151": {
+      "targetId": "ugc07151",
+      "sparcId": "UGC07151",
+      "distanceMpc": 6.87,
+      "summary": {
+        "acceptedPhotometryPoints": 63,
+        "maximumAcceptedRadiusArcsec": 240.54,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 5.5
+      },
+      "data": "/data/sparc-profiles/ugc07151.json",
+      "sha256": "71ae8be79aa3455c47567f5c82440041b8ce3093624e523b996b8be7bd5c3363"
+    },
+    "ugc07232": {
+      "targetId": "ugc07232",
+      "sparcId": "UGC07232",
+      "distanceMpc": 2.83,
+      "summary": {
+        "acceptedPhotometryPoints": 55,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 0.82
+      },
+      "data": "/data/sparc-profiles/ugc07232.json",
+      "sha256": "f164c33497011cdce4e96cbae56bb12c9db4fef52f3528c5b90b443fc12c88fe"
+    },
+    "ugc07261": {
+      "targetId": "ugc07261",
+      "sparcId": "UGC07261",
+      "distanceMpc": 13.1,
+      "summary": {
+        "acceptedPhotometryPoints": 52,
+        "maximumAcceptedRadiusArcsec": 84.31,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 6.67
+      },
+      "data": "/data/sparc-profiles/ugc07261.json",
+      "sha256": "63d8a35784d48ff29328bcf6e98f2d002568ebc57edcf97a12cbcf962853933d"
+    },
+    "ugc07323": {
+      "targetId": "ugc07323",
+      "sparcId": "UGC07323",
+      "distanceMpc": 8.0,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 198.79,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 5.82
+      },
+      "data": "/data/sparc-profiles/ugc07323.json",
+      "sha256": "df4e1e890f3beb409241e0d4c69bab33043e3cb9ac7b7d9c38a729a1435225d9"
+    },
+    "ugc07399": {
+      "targetId": "ugc07399",
+      "sparcId": "UGC07399",
+      "distanceMpc": 8.43,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 6.13
+      },
+      "data": "/data/sparc-profiles/ugc07399.json",
+      "sha256": "10d188e2abe407def9fae43bb11cf703e08d5c7a33de00a09c7c10046db7d29b"
+    },
+    "ugc07524": {
+      "targetId": "ugc07524",
+      "sparcId": "UGC07524",
+      "distanceMpc": 4.74,
+      "summary": {
+        "acceptedPhotometryPoints": 68,
+        "maximumAcceptedRadiusArcsec": 387.39,
+        "rotationCurvePoints": 31,
+        "maximumRotationRadiusKpc": 10.69
+      },
+      "data": "/data/sparc-profiles/ugc07524.json",
+      "sha256": "e04317baebc891ee23b49afde78c454d5156399090e80e103470e383ce2f5c73"
+    },
+    "ugc07559": {
+      "targetId": "ugc07559",
+      "sparcId": "UGC07559",
+      "distanceMpc": 4.97,
+      "summary": {
+        "acceptedPhotometryPoints": 54,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 2.53
+      },
+      "data": "/data/sparc-profiles/ugc07559.json",
+      "sha256": "e4bdad89ef52f42f50366f56a540c9684abb7d58e4949914b1b14b1ab510f7f5"
+    },
+    "ugc07577": {
+      "targetId": "ugc07577",
+      "sparcId": "UGC07577",
+      "distanceMpc": 2.59,
+      "summary": {
+        "acceptedPhotometryPoints": 48,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 9,
+        "maximumRotationRadiusKpc": 1.69
+      },
+      "data": "/data/sparc-profiles/ugc07577.json",
+      "sha256": "b14a6f63e5e8d1bfb8bf6776475cfaa5c60341c1709c653a9f106e67cfb0429f"
+    },
+    "ugc07603": {
+      "targetId": "ugc07603",
+      "sparcId": "UGC07603",
+      "distanceMpc": 4.7,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 4.11
+      },
+      "data": "/data/sparc-profiles/ugc07603.json",
+      "sha256": "72a3dc5f5e16e351d774980650db9786abaa466d8ae4d4e655efc9763e652880"
+    },
+    "ugc07608": {
+      "targetId": "ugc07608",
+      "sparcId": "UGC07608",
+      "distanceMpc": 8.21,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 4.78
+      },
+      "data": "/data/sparc-profiles/ugc07608.json",
+      "sha256": "d0ab3a7ff99e27b2b2bf0d8cee723022e19a2c817bd86d9e04b3195cbddbca20"
+    },
+    "ugc07690": {
+      "targetId": "ugc07690",
+      "sparcId": "UGC07690",
+      "distanceMpc": 8.11,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 4.13
+      },
+      "data": "/data/sparc-profiles/ugc07690.json",
+      "sha256": "dbe882f8d7014726eede23d02db49357da214a2facd9d83b5be58b02dab76bdc"
+    },
+    "ugc07866": {
+      "targetId": "ugc07866",
+      "sparcId": "UGC07866",
+      "distanceMpc": 4.57,
+      "summary": {
+        "acceptedPhotometryPoints": 41,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 2.32
+      },
+      "data": "/data/sparc-profiles/ugc07866.json",
+      "sha256": "f4abc6854b5368393664d33c7e621fbba35fa4676b9dd44a072178f7e466e2c7"
+    },
+    "ugc08286": {
+      "targetId": "ugc08286",
+      "sparcId": "UGC08286",
+      "distanceMpc": 6.5,
+      "summary": {
+        "acceptedPhotometryPoints": 65,
+        "maximumAcceptedRadiusArcsec": 291.05,
+        "rotationCurvePoints": 17,
+        "maximumRotationRadiusKpc": 8.04
+      },
+      "data": "/data/sparc-profiles/ugc08286.json",
+      "sha256": "cc37ec5ee9565c15e56eba333c7e27703ca99edd6dead78de01de31836856852"
+    },
+    "ugc08490": {
+      "targetId": "ugc08490",
+      "sparcId": "UGC08490",
+      "distanceMpc": 4.65,
+      "summary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 30,
+        "maximumRotationRadiusKpc": 10.15
+      },
+      "data": "/data/sparc-profiles/ugc08490.json",
+      "sha256": "081679b6b98cdcb927773026675310ca57e1641de1eb99492babbd80c361a25e"
+    },
+    "ugc08550": {
+      "targetId": "ugc08550",
+      "sparcId": "UGC08550",
+      "distanceMpc": 6.7,
+      "summary": {
+        "acceptedPhotometryPoints": 52,
+        "maximumAcceptedRadiusArcsec": 84.31,
+        "rotationCurvePoints": 11,
+        "maximumRotationRadiusKpc": 5.36
+      },
+      "data": "/data/sparc-profiles/ugc08550.json",
+      "sha256": "ebe4a77cb7fb0a7fae5b69ec5fb01f170d328e1e65e997e5073834d018c6c206"
+    },
+    "ugc08699": {
+      "targetId": "ugc08699",
+      "sparcId": "UGC08699",
+      "distanceMpc": 39.3,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 41,
+        "maximumRotationRadiusKpc": 25.7
+      },
+      "data": "/data/sparc-profiles/ugc08699.json",
+      "sha256": "dbdcf3edabe83c8472eb016697435299192fff862bedec7f37e3a249b77f37d5"
+    },
+    "ugc08837": {
+      "targetId": "ugc08837",
+      "sparcId": "UGC08837",
+      "distanceMpc": 7.21,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 4.2
+      },
+      "data": "/data/sparc-profiles/ugc08837.json",
+      "sha256": "afdd71be764e60e08a8243b28e69ec8b21b838558556d5ab78d99e9a858020e1"
+    },
+    "ugc09037": {
+      "targetId": "ugc09037",
+      "sparcId": "UGC09037",
+      "distanceMpc": 83.6,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 135.78,
+        "rotationCurvePoints": 22,
+        "maximumRotationRadiusKpc": 27.96
+      },
+      "data": "/data/sparc-profiles/ugc09037.json",
+      "sha256": "b621beceea8d112cca437e9336e151080b6c53f5df4d3b6b79ecc31576d04eaa"
+    },
+    "ugc09133": {
+      "targetId": "ugc09133",
+      "sparcId": "UGC09133",
+      "distanceMpc": 57.1,
+      "summary": {
+        "acceptedPhotometryPoints": 57,
+        "maximumAcceptedRadiusArcsec": 131.43,
+        "rotationCurvePoints": 68,
+        "maximumRotationRadiusKpc": 108.31
+      },
+      "data": "/data/sparc-profiles/ugc09133.json",
+      "sha256": "2c1f7cd4affbb13c7da20340665e8cfc8291dc7bb8e58ac250640b53e5c47c08"
+    },
+    "ugc09992": {
+      "targetId": "ugc09992",
+      "sparcId": "UGC09992",
+      "distanceMpc": 10.7,
+      "summary": {
+        "acceptedPhotometryPoints": 51,
+        "maximumAcceptedRadiusArcsec": 76.64,
+        "rotationCurvePoints": 5,
+        "maximumRotationRadiusKpc": 3.89
+      },
+      "data": "/data/sparc-profiles/ugc09992.json",
+      "sha256": "a310a4eddf058cbae9e7974bd092efd1dfb1e6983708205336d52d0b8d8ad351"
+    },
+    "ugc10310": {
+      "targetId": "ugc10310",
+      "sparcId": "UGC10310",
+      "distanceMpc": 15.2,
+      "summary": {
+        "acceptedPhotometryPoints": 52,
+        "maximumAcceptedRadiusArcsec": 84.31,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 7.74
+      },
+      "data": "/data/sparc-profiles/ugc10310.json",
+      "sha256": "8126fc784168ca1fa080e99d1becd368fbb2683c70f960775353fddf26ff8212"
+    },
+    "ugc11455": {
+      "targetId": "ugc11455",
+      "sparcId": "UGC11455",
+      "distanceMpc": 78.6,
+      "summary": {
+        "acceptedPhotometryPoints": 55,
+        "maximumAcceptedRadiusArcsec": 108.62,
+        "rotationCurvePoints": 36,
+        "maximumRotationRadiusKpc": 41.93
+      },
+      "data": "/data/sparc-profiles/ugc11455.json",
+      "sha256": "cfa9343f7fd0fcf9c4a087499ed2959fd72261cac80bb322f555e8229fe43837"
+    },
+    "ugc11557": {
+      "targetId": "ugc11557",
+      "sparcId": "UGC11557",
+      "distanceMpc": 24.2,
+      "summary": {
+        "acceptedPhotometryPoints": 53,
+        "maximumAcceptedRadiusArcsec": 92.74,
+        "rotationCurvePoints": 12,
+        "maximumRotationRadiusKpc": 10.56
+      },
+      "data": "/data/sparc-profiles/ugc11557.json",
+      "sha256": "40f1b8b61ae160462fb846a958a4047cad420ad969f595425c0c9e1d7d2d8622"
+    },
+    "ugc11820": {
+      "targetId": "ugc11820",
+      "sparcId": "UGC11820",
+      "distanceMpc": 18.1,
+      "summary": {
+        "acceptedPhotometryPoints": 54,
+        "maximumAcceptedRadiusArcsec": 102.01,
+        "rotationCurvePoints": 10,
+        "maximumRotationRadiusKpc": 15.82
+      },
+      "data": "/data/sparc-profiles/ugc11820.json",
+      "sha256": "1edcf7eab3311037b24ffcfb15ac9b436812174188b4f15cb8625ecc4eb069d2"
+    },
+    "ugc11914": {
+      "targetId": "ugc11914",
+      "sparcId": "UGC11914",
+      "distanceMpc": 16.9,
+      "summary": {
+        "acceptedPhotometryPoints": 61,
+        "maximumAcceptedRadiusArcsec": 218.67,
+        "rotationCurvePoints": 65,
+        "maximumRotationRadiusKpc": 9.83
+      },
+      "data": "/data/sparc-profiles/ugc11914.json",
+      "sha256": "09a84f8286b72904f9e9bfb174fca218c399c7549831fd812bfffe61e4acc498"
+    },
+    "ugc12506": {
+      "targetId": "ugc12506",
+      "sparcId": "UGC12506",
+      "distanceMpc": 100.6,
+      "summary": {
+        "acceptedPhotometryPoints": 21,
+        "maximumAcceptedRadiusArcsec": 92.01,
+        "rotationCurvePoints": 31,
+        "maximumRotationRadiusKpc": 49.99
+      },
+      "data": "/data/sparc-profiles/ugc12506.json",
+      "sha256": "bb4fa275f9b605dbbcb45bac4e121493005dc502e0396fa10a5578bbf8aae331"
+    },
+    "ugc12632": {
+      "targetId": "ugc12632",
+      "sparcId": "UGC12632",
+      "distanceMpc": 9.77,
+      "summary": {
+        "acceptedPhotometryPoints": 58,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 15,
+        "maximumRotationRadiusKpc": 10.66
+      },
+      "data": "/data/sparc-profiles/ugc12632.json",
+      "sha256": "daa5871caea569a81b6f0052a6e4ff8b8cadfd55997a4c09971e3f28508c987b"
+    },
+    "ugc12732": {
+      "targetId": "ugc12732",
+      "sparcId": "UGC12732",
+      "distanceMpc": 13.2,
+      "summary": {
+        "acceptedPhotometryPoints": 56,
+        "maximumAcceptedRadiusArcsec": 123.43,
+        "rotationCurvePoints": 16,
+        "maximumRotationRadiusKpc": 15.4
+      },
+      "data": "/data/sparc-profiles/ugc12732.json",
+      "sha256": "39abc10d3ac886d1c0528fdd056e7e1995f71dc9ac91ecc813420c13009ee946"
+    },
+    "ugca281": {
+      "targetId": "ugca281",
+      "sparcId": "UGCA281",
+      "distanceMpc": 5.68,
+      "summary": {
+        "acceptedPhotometryPoints": 59,
+        "maximumAcceptedRadiusArcsec": 164.29,
+        "rotationCurvePoints": 7,
+        "maximumRotationRadiusKpc": 1.08
+      },
+      "data": "/data/sparc-profiles/ugca281.json",
+      "sha256": "16e0c4074a3a9d352fc14773772ddc06f8ead68a807ae73b68c30ffe8dd280a1"
+    },
+    "ugca442": {
+      "targetId": "ugca442",
+      "sparcId": "UGCA442",
+      "distanceMpc": 4.35,
+      "summary": {
+        "acceptedPhotometryPoints": 25,
+        "maximumAcceptedRadiusArcsec": 228.95,
+        "rotationCurvePoints": 8,
+        "maximumRotationRadiusKpc": 6.33
+      },
+      "data": "/data/sparc-profiles/ugca442.json",
+      "sha256": "35d38139888f99a79e9f65dfabb964077a99b48538f2128789275cb5799153dc"
+    },
+    "ugca444": {
+      "targetId": "ugca444",
+      "sparcId": "UGCA444",
+      "distanceMpc": 0.98,
+      "summary": {
+        "acceptedPhotometryPoints": 19,
+        "maximumAcceptedRadiusArcsec": 158.99,
+        "rotationCurvePoints": 36,
+        "maximumRotationRadiusKpc": 2.62
+      },
+      "data": "/data/sparc-profiles/ugca444.json",
+      "sha256": "055d59d29ea55f4c771e498c22ffaee41e8a3ea1ddb52bda9ef3b8042b612fb2"
+    }
+  }
+}

@@ -1,0 +1,666 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers SPARC profile record",
+  "target": {
+    "targetId": "ngc5033",
+    "sparcId": "NGC5033",
+    "distanceMpc": 15.7,
+    "surfaceBrightness": [
+      {
+        "radiusArcsec": 0.65,
+        "surfaceBrightnessMagArcsec2": 12.465,
+        "accepted": true,
+        "uncertaintyMag": 0.003
+      },
+      {
+        "radiusArcsec": 0.72,
+        "surfaceBrightnessMagArcsec2": 12.488,
+        "accepted": true,
+        "uncertaintyMag": 0.002
+      },
+      {
+        "radiusArcsec": 0.79,
+        "surfaceBrightnessMagArcsec2": 12.517,
+        "accepted": true,
+        "uncertaintyMag": 0.002
+      },
+      {
+        "radiusArcsec": 0.87,
+        "surfaceBrightnessMagArcsec2": 12.554,
+        "accepted": true,
+        "uncertaintyMag": 0.001
+      },
+      {
+        "radiusArcsec": 0.96,
+        "surfaceBrightnessMagArcsec2": 12.602,
+        "accepted": true,
+        "uncertaintyMag": 0.002
+      },
+      {
+        "radiusArcsec": 1.05,
+        "surfaceBrightnessMagArcsec2": 12.657,
+        "accepted": true,
+        "uncertaintyMag": 0.002
+      },
+      {
+        "radiusArcsec": 1.16,
+        "surfaceBrightnessMagArcsec2": 12.728,
+        "accepted": true,
+        "uncertaintyMag": 0.003
+      },
+      {
+        "radiusArcsec": 1.27,
+        "surfaceBrightnessMagArcsec2": 12.8,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 1.4,
+        "surfaceBrightnessMagArcsec2": 12.879,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 1.54,
+        "surfaceBrightnessMagArcsec2": 12.961,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 1.69,
+        "surfaceBrightnessMagArcsec2": 13.063,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 1.86,
+        "surfaceBrightnessMagArcsec2": 13.189,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 2.05,
+        "surfaceBrightnessMagArcsec2": 13.304,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 2.25,
+        "surfaceBrightnessMagArcsec2": 13.4,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 2.48,
+        "surfaceBrightnessMagArcsec2": 13.507,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 2.73,
+        "surfaceBrightnessMagArcsec2": 13.632,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 3.0,
+        "surfaceBrightnessMagArcsec2": 13.759,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 3.3,
+        "surfaceBrightnessMagArcsec2": 13.871,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 3.63,
+        "surfaceBrightnessMagArcsec2": 13.976,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 3.99,
+        "surfaceBrightnessMagArcsec2": 14.052,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 4.39,
+        "surfaceBrightnessMagArcsec2": 14.135,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 4.83,
+        "surfaceBrightnessMagArcsec2": 14.222,
+        "accepted": true,
+        "uncertaintyMag": 0.003
+      },
+      {
+        "radiusArcsec": 5.31,
+        "surfaceBrightnessMagArcsec2": 14.294,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 5.85,
+        "surfaceBrightnessMagArcsec2": 14.363,
+        "accepted": true,
+        "uncertaintyMag": 0.004
+      },
+      {
+        "radiusArcsec": 6.43,
+        "surfaceBrightnessMagArcsec2": 14.437,
+        "accepted": true,
+        "uncertaintyMag": 0.005
+      },
+      {
+        "radiusArcsec": 7.07,
+        "surfaceBrightnessMagArcsec2": 14.528,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 7.78,
+        "surfaceBrightnessMagArcsec2": 14.623,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 8.56,
+        "surfaceBrightnessMagArcsec2": 14.741,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 9.42,
+        "surfaceBrightnessMagArcsec2": 14.841,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 10.36,
+        "surfaceBrightnessMagArcsec2": 14.926,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 11.39,
+        "surfaceBrightnessMagArcsec2": 14.999,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 12.53,
+        "surfaceBrightnessMagArcsec2": 15.084,
+        "accepted": true,
+        "uncertaintyMag": 0.011
+      },
+      {
+        "radiusArcsec": 13.78,
+        "surfaceBrightnessMagArcsec2": 15.213,
+        "accepted": true,
+        "uncertaintyMag": 0.011
+      },
+      {
+        "radiusArcsec": 15.16,
+        "surfaceBrightnessMagArcsec2": 15.338,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 16.68,
+        "surfaceBrightnessMagArcsec2": 15.478,
+        "accepted": true,
+        "uncertaintyMag": 0.009
+      },
+      {
+        "radiusArcsec": 18.35,
+        "surfaceBrightnessMagArcsec2": 15.649,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 20.18,
+        "surfaceBrightnessMagArcsec2": 15.806,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 22.2,
+        "surfaceBrightnessMagArcsec2": 15.897,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 24.42,
+        "surfaceBrightnessMagArcsec2": 15.948,
+        "accepted": true,
+        "uncertaintyMag": 0.008
+      },
+      {
+        "radiusArcsec": 26.86,
+        "surfaceBrightnessMagArcsec2": 16.021,
+        "accepted": true,
+        "uncertaintyMag": 0.008
+      },
+      {
+        "radiusArcsec": 29.55,
+        "surfaceBrightnessMagArcsec2": 16.092,
+        "accepted": true,
+        "uncertaintyMag": 0.014
+      },
+      {
+        "radiusArcsec": 32.5,
+        "surfaceBrightnessMagArcsec2": 16.229,
+        "accepted": true,
+        "uncertaintyMag": 0.016
+      },
+      {
+        "radiusArcsec": 35.75,
+        "surfaceBrightnessMagArcsec2": 16.547,
+        "accepted": true,
+        "uncertaintyMag": 0.011
+      },
+      {
+        "radiusArcsec": 39.33,
+        "surfaceBrightnessMagArcsec2": 16.82,
+        "accepted": true,
+        "uncertaintyMag": 0.007
+      },
+      {
+        "radiusArcsec": 43.26,
+        "surfaceBrightnessMagArcsec2": 17.224,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 47.59,
+        "surfaceBrightnessMagArcsec2": 17.505,
+        "accepted": true,
+        "uncertaintyMag": 0.006
+      },
+      {
+        "radiusArcsec": 52.35,
+        "surfaceBrightnessMagArcsec2": 17.685,
+        "accepted": true,
+        "uncertaintyMag": 0.008
+      },
+      {
+        "radiusArcsec": 57.58,
+        "surfaceBrightnessMagArcsec2": 17.888,
+        "accepted": true,
+        "uncertaintyMag": 0.009
+      },
+      {
+        "radiusArcsec": 63.34,
+        "surfaceBrightnessMagArcsec2": 18.237,
+        "accepted": true,
+        "uncertaintyMag": 0.009
+      },
+      {
+        "radiusArcsec": 69.68,
+        "surfaceBrightnessMagArcsec2": 18.474,
+        "accepted": true,
+        "uncertaintyMag": 0.01
+      },
+      {
+        "radiusArcsec": 76.64,
+        "surfaceBrightnessMagArcsec2": 18.714,
+        "accepted": true,
+        "uncertaintyMag": 0.011
+      },
+      {
+        "radiusArcsec": 84.31,
+        "surfaceBrightnessMagArcsec2": 19.084,
+        "accepted": true,
+        "uncertaintyMag": 0.013
+      },
+      {
+        "radiusArcsec": 92.74,
+        "surfaceBrightnessMagArcsec2": 19.414,
+        "accepted": true,
+        "uncertaintyMag": 0.015
+      },
+      {
+        "radiusArcsec": 102.01,
+        "surfaceBrightnessMagArcsec2": 19.612,
+        "accepted": true,
+        "uncertaintyMag": 0.018
+      },
+      {
+        "radiusArcsec": 112.21,
+        "surfaceBrightnessMagArcsec2": 19.762,
+        "accepted": true,
+        "uncertaintyMag": 0.02
+      },
+      {
+        "radiusArcsec": 123.43,
+        "surfaceBrightnessMagArcsec2": 19.788,
+        "accepted": true,
+        "uncertaintyMag": 0.021
+      },
+      {
+        "radiusArcsec": 135.78,
+        "surfaceBrightnessMagArcsec2": 19.915,
+        "accepted": true,
+        "uncertaintyMag": 0.027
+      },
+      {
+        "radiusArcsec": 149.36,
+        "surfaceBrightnessMagArcsec2": 20.255,
+        "accepted": true,
+        "uncertaintyMag": 0.03
+      },
+      {
+        "radiusArcsec": 164.29,
+        "surfaceBrightnessMagArcsec2": 20.54,
+        "accepted": true,
+        "uncertaintyMag": 0.034
+      },
+      {
+        "radiusArcsec": 180.72,
+        "surfaceBrightnessMagArcsec2": 20.927,
+        "accepted": true,
+        "uncertaintyMag": 0.046
+      },
+      {
+        "radiusArcsec": 198.79,
+        "surfaceBrightnessMagArcsec2": 21.214,
+        "accepted": true,
+        "uncertaintyMag": 0.059
+      },
+      {
+        "radiusArcsec": 218.67,
+        "surfaceBrightnessMagArcsec2": 21.441,
+        "accepted": true,
+        "uncertaintyMag": 0.068
+      },
+      {
+        "radiusArcsec": 240.54,
+        "surfaceBrightnessMagArcsec2": 21.597,
+        "accepted": true,
+        "uncertaintyMag": 0.079
+      },
+      {
+        "radiusArcsec": 264.59,
+        "surfaceBrightnessMagArcsec2": 21.715,
+        "accepted": true,
+        "uncertaintyMag": 0.085
+      },
+      {
+        "radiusArcsec": 291.05,
+        "surfaceBrightnessMagArcsec2": 22.23,
+        "accepted": true,
+        "uncertaintyMag": 0.132
+      },
+      {
+        "radiusArcsec": 320.16,
+        "surfaceBrightnessMagArcsec2": 22.989,
+        "accepted": true,
+        "uncertaintyMag": 0.25
+      },
+      {
+        "radiusArcsec": 352.17,
+        "surfaceBrightnessMagArcsec2": 23.648,
+        "accepted": true,
+        "uncertaintyMag": 0.414
+      },
+      {
+        "radiusArcsec": 387.39,
+        "surfaceBrightnessMagArcsec2": 24.787,
+        "accepted": false,
+        "uncertaintyMag": 0.907
+      },
+      {
+        "radiusArcsec": 426.13,
+        "surfaceBrightnessMagArcsec2": 25.088,
+        "accepted": false,
+        "uncertaintyMag": 1.097
+      }
+    ],
+    "rotationCurve": [
+      {
+        "radiusKpc": 0.76,
+        "observedVelocityKmS": 206.0,
+        "velocityUncertaintyKmS": 16.0,
+        "gasVelocityKmS": 2.44,
+        "diskVelocityKmS": 95.41,
+        "bulgeVelocityKmS": 277.3,
+        "diskSurfaceBrightnessLsunPc2": 2166.2,
+        "bulgeSurfaceBrightnessLsunPc2": 3616.11
+      },
+      {
+        "radiusKpc": 2.28,
+        "observedVelocityKmS": 214.0,
+        "velocityUncertaintyKmS": 10.0,
+        "gasVelocityKmS": 5.15,
+        "diskVelocityKmS": 214.07,
+        "bulgeVelocityKmS": 218.08,
+        "diskSurfaceBrightnessLsunPc2": 1233.88,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 3.8,
+        "observedVelocityKmS": 222.0,
+        "velocityUncertaintyKmS": 8.0,
+        "gasVelocityKmS": 8.48,
+        "diskVelocityKmS": 237.47,
+        "bulgeVelocityKmS": 168.95,
+        "diskSurfaceBrightnessLsunPc2": 307.23,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 5.33,
+        "observedVelocityKmS": 224.0,
+        "velocityUncertaintyKmS": 8.0,
+        "gasVelocityKmS": 16.65,
+        "diskVelocityKmS": 222.81,
+        "bulgeVelocityKmS": 142.66,
+        "diskSurfaceBrightnessLsunPc2": 137.83,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 6.85,
+        "observedVelocityKmS": 225.0,
+        "velocityUncertaintyKmS": 8.0,
+        "gasVelocityKmS": 22.4,
+        "diskVelocityKmS": 206.17,
+        "bulgeVelocityKmS": 125.84,
+        "diskSurfaceBrightnessLsunPc2": 63.77,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 8.0,
+        "observedVelocityKmS": 222.0,
+        "velocityUncertaintyKmS": 6.0,
+        "gasVelocityKmS": 24.58,
+        "diskVelocityKmS": 191.74,
+        "bulgeVelocityKmS": 116.44,
+        "diskSurfaceBrightnessLsunPc2": 46.48,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 10.28,
+        "observedVelocityKmS": 220.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 28.49,
+        "diskVelocityKmS": 177.55,
+        "bulgeVelocityKmS": 102.72,
+        "diskSurfaceBrightnessLsunPc2": 37.35,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 12.56,
+        "observedVelocityKmS": 218.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 30.21,
+        "diskVelocityKmS": 168.02,
+        "bulgeVelocityKmS": 92.93,
+        "diskSurfaceBrightnessLsunPc2": 20.51,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 14.91,
+        "observedVelocityKmS": 219.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 36.41,
+        "diskVelocityKmS": 156.39,
+        "bulgeVelocityKmS": 85.29,
+        "diskSurfaceBrightnessLsunPc2": 11.48,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 17.15,
+        "observedVelocityKmS": 217.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 41.69,
+        "diskVelocityKmS": 147.04,
+        "bulgeVelocityKmS": 79.53,
+        "diskSurfaceBrightnessLsunPc2": 8.58,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 19.39,
+        "observedVelocityKmS": 218.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 45.72,
+        "diskVelocityKmS": 140.32,
+        "bulgeVelocityKmS": 74.79,
+        "diskSurfaceBrightnessLsunPc2": 7.31,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 21.64,
+        "observedVelocityKmS": 220.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 51.92,
+        "diskVelocityKmS": 136.88,
+        "bulgeVelocityKmS": 70.8,
+        "diskSurfaceBrightnessLsunPc2": 5.24,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 24.01,
+        "observedVelocityKmS": 222.0,
+        "velocityUncertaintyKmS": 2.0,
+        "gasVelocityKmS": 56.74,
+        "diskVelocityKmS": 130.88,
+        "bulgeVelocityKmS": 67.21,
+        "diskSurfaceBrightnessLsunPc2": 2.49,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 26.25,
+        "observedVelocityKmS": 218.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 58.35,
+        "diskVelocityKmS": 124.11,
+        "bulgeVelocityKmS": 64.28,
+        "diskSurfaceBrightnessLsunPc2": 1.28,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 28.5,
+        "observedVelocityKmS": 217.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 56.74,
+        "diskVelocityKmS": 118.34,
+        "bulgeVelocityKmS": 61.69,
+        "diskSurfaceBrightnessLsunPc2": 0.89,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 30.87,
+        "observedVelocityKmS": 207.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 53.3,
+        "diskVelocityKmS": 113.45,
+        "bulgeVelocityKmS": 59.28,
+        "diskSurfaceBrightnessLsunPc2": 0.64,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 33.12,
+        "observedVelocityKmS": 199.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 51.34,
+        "diskVelocityKmS": 109.2,
+        "bulgeVelocityKmS": 57.23,
+        "diskSurfaceBrightnessLsunPc2": 0.4,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 35.36,
+        "observedVelocityKmS": 191.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 48.7,
+        "diskVelocityKmS": 105.32,
+        "bulgeVelocityKmS": 55.39,
+        "diskSurfaceBrightnessLsunPc2": 0.26,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 37.73,
+        "observedVelocityKmS": 193.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 46.75,
+        "diskVelocityKmS": 101.61,
+        "bulgeVelocityKmS": 53.62,
+        "diskSurfaceBrightnessLsunPc2": 0.16,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 39.98,
+        "observedVelocityKmS": 192.0,
+        "velocityUncertaintyKmS": 3.0,
+        "gasVelocityKmS": 45.26,
+        "diskVelocityKmS": 98.44,
+        "bulgeVelocityKmS": 52.09,
+        "diskSurfaceBrightnessLsunPc2": 0.11,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 42.22,
+        "observedVelocityKmS": 194.0,
+        "velocityUncertaintyKmS": 4.0,
+        "gasVelocityKmS": 43.99,
+        "diskVelocityKmS": 95.58,
+        "bulgeVelocityKmS": 50.69,
+        "diskSurfaceBrightnessLsunPc2": 0.07,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      },
+      {
+        "radiusKpc": 44.59,
+        "observedVelocityKmS": 196.0,
+        "velocityUncertaintyKmS": 5.0,
+        "gasVelocityKmS": 42.84,
+        "diskVelocityKmS": 92.77,
+        "bulgeVelocityKmS": 49.32,
+        "diskSurfaceBrightnessLsunPc2": 0.0,
+        "bulgeSurfaceBrightnessLsunPc2": 0.0
+      }
+    ],
+    "summary": {
+      "acceptedPhotometryPoints": 67,
+      "maximumAcceptedRadiusArcsec": 352.17,
+      "rotationCurvePoints": 22,
+      "maximumRotationRadiusKpc": 44.59
+    },
+    "provenance": {
+      "citation": "Lelli, McGaugh & Schombert (2016), AJ 152, 157",
+      "bibcode": "2016AJ....152..157L",
+      "sourceBaseUrl": "https://astroweb.cwru.edu/SPARC/",
+      "surfaceBrightnessArchive": "sfb_LTG.zip",
+      "surfaceBrightnessArchiveSha256": "2ca5c5e16517d2096dde47247f2b78837e33fed2e323ea77b0412cf6de66eb27",
+      "surfaceBrightnessMember": "NGC5033.sfb",
+      "surfaceBrightnessMemberSha256": "bea60c702509a04d0500a909246df75c6811150376aea6c1a40b75f0a9b62ed5",
+      "rotationArchive": "Rotmod_LTG.zip",
+      "rotationArchiveSha256": "0a80cc90714828cc28b7dd57923576714d209f2490328c087c4a4ad607faf588",
+      "rotationMember": "NGC5033_rotmod.dat",
+      "rotationMemberSha256": "1f6d7236a304040f3c9941f7168a9cac431127f538d8ed92d77245db32556195"
+    }
+  }
+}

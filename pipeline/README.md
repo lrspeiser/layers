@@ -5,12 +5,18 @@ This EDP2 adapter now feeds the survey-neutral **Layers** product. Rubin is one 
 After mosaicking, rebuild the public metadata catalog and local query store:
 
 ```bash
+python pipeline/build_sparc_profiles.py
 python pipeline/build_layers_catalog.py
 python pipeline/validate_layers_catalog.py
 python pipeline/build_local_layer_store.py
 ```
 
 `pipeline/output/layers.sqlite` indexes all 175 targets, sky bounding boxes, layers, dataset identifiers, local FITS paths and hashes, per-band products, and future comparisons. The `target_sky_index` R-tree supports local coordinate intersection queries. Raw pixels remain local and ignored; the public catalog contains metadata only.
+
+`build_sparc_profiles.py` converts all 175 official SPARC surface-brightness and
+rotation-curve archive members into target-specific JSON records. Each record
+retains source archive and member checksums. The website plots these physical
+profiles as profilesâ€”never as substitute sky images.
 
 Query the store without opening or mutating it:
 

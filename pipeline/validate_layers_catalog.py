@@ -44,6 +44,7 @@ def main() -> None:
         errors.append("catalog: duplicate target ids")
 
     published_count = 0
+    plotted_profile_count = 0
     for target in targets:
         target_id = target.get("id", "<missing>")
         layers = target.get("layers", [])
@@ -56,6 +57,10 @@ def main() -> None:
                 errors.append(f"{target_id}/{layer.get('id')}: missing {sorted(missing)}")
             if layer.get("kind") != "image" and layer.get("renderMode") == "image":
                 errors.append(f"{target_id}/{layer.get('id')}: non-image layer forced into image view")
+            if layer.get("kind") == "profile" and layer.get("availability") == "available":
+                plotted_profile_count += 1
+                if layer.get("renderMode") != "plot" or not layer.get("assets", {}).get("data"):
+                    errors.append(f"{target_id}/{layer.get('id')}: available profile has no plot data")
             if layer.get("availability") == "published" and layer.get("kind") == "image":
                 if not layer.get("assets", {}).get("preview"):
                     errors.append(f"{target_id}/{layer.get('id')}: published image has no preview")
@@ -94,6 +99,8 @@ def main() -> None:
         errors.append("catalog: summary target count is wrong")
     if summary.get("publishedComparisons") != published_count:
         errors.append("catalog: summary published comparison count is wrong")
+    if plotted_profile_count != len(targets):
+        errors.append("catalog: every target must expose one available SPARC profile")
 
     if errors:
         raise SystemExit("\n".join(errors))

@@ -79,7 +79,7 @@ test("permanent target records expose honest pixel-level coverage states", async
   const usableHtml = await usable.text();
   assert.match(usableHtml, /UGC00191/);
   assert.match(usableHtml, /Local Rubin pixels verified/);
-  assert.match(usableHtml, /No publishable cross-layer comparison yet/);
+  assert.match(usableHtml, /QA comparison record available; no scientific difference published/);
 
   const footprintOnly = await render("/target/ngc0100");
   assert.equal(footprintOnly.status, 200);
@@ -117,5 +117,26 @@ test("diffuse recovery limits are exposed as caveated QA measurements", async ()
     assert.equal(measurement.significanceSigma, 0);
     assert.ok(measurement.provenance.length >= 2);
     assert.ok(measurement.caveats.some((item) => item.includes("sensitivity limit")));
+  }
+});
+
+test("all 175 SPARC layers expose real profile records rather than fake images", async () => {
+  const [catalog, profileIndex] = await Promise.all([
+    readFile(join(root, "public", "data", "layers-catalog.json"), "utf8").then(JSON.parse),
+    readFile(join(root, "public", "data", "sparc-profiles.json"), "utf8").then(JSON.parse),
+  ]);
+  assert.equal(profileIndex.targetCount, 175);
+  assert.equal(Object.keys(profileIndex.targets).length, 175);
+  for (const target of catalog.targets) {
+    const layer = target.layers.find((item) => item.id === "sparc-2016");
+    assert.equal(layer.kind, "profile");
+    assert.equal(layer.renderMode, "plot");
+    assert.equal(layer.assets.data, `/data/sparc-profiles/${target.id}.json`);
+    const record = JSON.parse(await readFile(join(root, "public", layer.assets.data), "utf8"));
+    assert.equal(record.target.targetId, target.id);
+    assert.ok(record.target.surfaceBrightness.length > 0);
+    assert.ok(record.target.rotationCurve.length > 0);
+    assert.match(record.target.provenance.surfaceBrightnessMemberSha256, /^[a-f0-9]{64}$/);
+    assert.match(record.target.provenance.rotationMemberSha256, /^[a-f0-9]{64}$/);
   }
 });

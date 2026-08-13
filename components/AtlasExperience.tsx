@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import type { Comparison, Layer, LayersCatalog, LayerTarget } from "@/lib/layers";
+import type { Comparison, Layer, LayersCatalog, LayerTarget, SparcProfile } from "@/lib/layers";
 import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 
 type CoverageFilter = "all" | "rubin" | "no-coverage";
@@ -19,6 +19,64 @@ type PrototypeScience = {
   candidateRegions: CandidateRegion[];
   differenceMethod: { thresholdEmpiricalSigma: number };
 };
+
+function linePath(points: Array<{ x: number; y: number }>) {
+  return points.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(" ");
+}
+
+function ProfileChart({ profile, kind }: { profile: SparcProfile; kind: "photometry" | "rotation" }) {
+  const width = 680;
+  const height = 280;
+  const padding = { left: 54, right: 18, top: 18, bottom: 42 };
+  if (kind === "photometry") {
+    const data = profile.surfaceBrightness;
+    const maxX = Math.max(...data.map((point) => point.radiusArcsec));
+    const minY = Math.floor(Math.min(...data.map((point) => point.surfaceBrightnessMagArcsec2)));
+    const maxY = Math.ceil(Math.max(...data.map((point) => point.surfaceBrightnessMagArcsec2)));
+    const points = data.map((point) => ({
+      x: padding.left + point.radiusArcsec / maxX * (width - padding.left - padding.right),
+      y: padding.top + (point.surfaceBrightnessMagArcsec2 - minY) / Math.max(maxY - minY, 1) * (height - padding.top - padding.bottom),
+      source: point,
+    }));
+    return <div className="profile-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`SPARC 3.6 micron surface brightness for ${profile.sparcId}`}>
+      <path className="chart-axis" d={`M${padding.left},${padding.top}V${height - padding.bottom}H${width - padding.right}`} />
+      <path className="profile-line photometry-line" d={linePath(points)} />
+      {points.map((point, index) => <circle key={index} className={point.source.accepted ? "accepted-point" : "rejected-point"} cx={point.x} cy={point.y} r={point.source.accepted ? 2.7 : 2.1}><title>{point.source.radiusArcsec.toFixed(1)} arcsec: {point.source.surfaceBrightnessMagArcsec2.toFixed(2)}{point.source.uncertaintyMag === null ? "" : ` ± ${point.source.uncertaintyMag.toFixed(2)}`} mag/arcsec²</title></circle>)}
+      <text className="chart-label" x={width / 2} y={height - 8}>Radius (arcsec)</text>
+      <text className="chart-label" transform={`translate(13 ${height / 2}) rotate(-90)`}>3.6 µm surface brightness (mag/arcsec²)</text>
+      <text className="chart-tick" x={padding.left} y={height - 24}>0</text><text className="chart-tick" x={width - padding.right} y={height - 24} textAnchor="end">{maxX.toFixed(0)}</text>
+      <text className="chart-tick" x={padding.left - 8} y={padding.top + 4} textAnchor="end">{minY}</text><text className="chart-tick" x={padding.left - 8} y={height - padding.bottom} textAnchor="end">{maxY}</text>
+    </svg><span className="chart-orientation">Brighter ↑</span></div>;
+  }
+  const data = profile.rotationCurve;
+  const maxX = Math.max(...data.map((point) => point.radiusKpc));
+  const maxY = Math.ceil(Math.max(...data.map((point) => point.observedVelocityKmS + point.velocityUncertaintyKmS)) / 10) * 10;
+  const toPoints = (accessor: (point: SparcProfile["rotationCurve"][number]) => number) => data.map((point) => ({
+    x: padding.left + point.radiusKpc / maxX * (width - padding.left - padding.right),
+    y: height - padding.bottom - accessor(point) / Math.max(maxY, 1) * (height - padding.top - padding.bottom),
+  }));
+  const observed = toPoints((point) => point.observedVelocityKmS);
+  return <div className="profile-chart"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`SPARC rotation curve for ${profile.sparcId}`}>
+    <path className="chart-axis" d={`M${padding.left},${padding.top}V${height - padding.bottom}H${width - padding.right}`} />
+    <path className="profile-line gas-line" d={linePath(toPoints((point) => Math.abs(point.gasVelocityKmS)))} />
+    <path className="profile-line disk-line" d={linePath(toPoints((point) => Math.abs(point.diskVelocityKmS)))} />
+    <path className="profile-line rotation-line" d={linePath(observed)} />
+    {observed.map((point, index) => <circle key={index} className="rotation-point" cx={point.x} cy={point.y} r="3"><title>{data[index].radiusKpc.toFixed(2)} kpc: {data[index].observedVelocityKmS.toFixed(1)} ± {data[index].velocityUncertaintyKmS.toFixed(1)} km/s</title></circle>)}
+    <text className="chart-label" x={width / 2} y={height - 8}>Radius (kpc)</text><text className="chart-label" transform={`translate(13 ${height / 2}) rotate(-90)`}>Circular speed (km/s)</text>
+    <text className="chart-tick" x={padding.left} y={height - 24}>0</text><text className="chart-tick" x={width - padding.right} y={height - 24} textAnchor="end">{maxX.toFixed(1)}</text><text className="chart-tick" x={padding.left - 8} y={padding.top + 4} textAnchor="end">{maxY}</text>
+  </svg><div className="chart-series"><span className="observed-key">Observed</span><span className="gas-key">Gas</span><span className="disk-key">Stellar disk</span></div></div>;
+}
+
+function SparcProfileViewport({ target, profile }: { target: LayerTarget; profile?: SparcProfile }) {
+  const [chart, setChart] = useState<"photometry" | "rotation">("photometry");
+  if (!profile) return <div className="layers-viewport blocked-viewport"><div className="viewport-message"><span className="eyebrow">PROFILE DATA UNAVAILABLE</span><h3>No SPARC record was loaded for {target.name}.</h3></div></div>;
+  return <div className="layers-viewport sparc-profile-viewport">
+    <div className="profile-view-heading"><div><span className="eyebrow">PUBLISHED NON-IMAGE LAYER</span><h3>{profile.sparcId} · SPARC 2016</h3><p>Radial photometry and dynamical measurements retain their physical axes; they are linked to the same target rather than converted into fake pixels.</p></div><div className="profile-view-tabs"><button className={chart === "photometry" ? "active" : ""} onClick={() => setChart("photometry")}>Surface brightness</button><button className={chart === "rotation" ? "active" : ""} onClick={() => setChart("rotation")}>Rotation curve</button></div></div>
+    <ProfileChart profile={profile} kind={chart} />
+    <div className="profile-facts"><span><small>DISTANCE</small><strong>{profile.distanceMpc?.toFixed(1) ?? "—"} Mpc</strong></span><span><small>ACCEPTED PHOTOMETRY</small><strong>{profile.summary.acceptedPhotometryPoints} points</strong></span><span><small>ACCEPTED EXTENT</small><strong>{profile.summary.maximumAcceptedRadiusArcsec.toFixed(1)}″</strong></span><span><small>ROTATION CURVE</small><strong>{profile.summary.rotationCurvePoints} points · {profile.summary.maximumRotationRadiusKpc.toFixed(1)} kpc</strong></span></div>
+    <div className="profile-provenance"><span>Source: Lelli, McGaugh & Schombert (2016), AJ 152, 157</span><a href="https://astroweb.cwru.edu/SPARC/" target="_blank" rel="noreferrer">Official SPARC archive ↗</a></div>
+  </div>;
+}
 
 function layerTone(layer: Layer) {
   if (layer.availability === "available" || layer.availability === "published") return "ready";
@@ -75,7 +133,7 @@ function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
   );
 }
 
-function LayerViewport({ target, left, right, view, science }: { target: LayerTarget; left: Layer; right: Layer; view: WorkbenchView; science: PrototypeScience }) {
+function LayerViewport({ target, left, right, view, science, profile }: { target: LayerTarget; left: Layer; right: Layer; view: WorkbenchView; science: PrototypeScience; profile?: SparcProfile }) {
   const [reveal, setReveal] = useState(50);
   const [selectedCandidate, setSelectedCandidate] = useState<CandidateRegion | null>(null);
   const [pixelsAvailable, setPixelsAvailable] = useState(true);
@@ -91,6 +149,10 @@ function LayerViewport({ target, left, right, view, science }: { target: LayerTa
     && registration.qaThresholdArcsec !== undefined
     && registration.maxResidualArcsec <= registration.qaThresholdArcsec,
   );
+
+  if (view === "profiles" && (left.kind === "profile" || right.kind === "profile")) {
+    return <SparcProfileViewport target={target} profile={profile} />;
+  }
 
   if ((swipeable && comparison) || authenticQaViewer) {
     const showSwipe = view === "evidence" || view === "swipe";
@@ -257,6 +319,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
   const [leftId, setLeftId] = useState(initialLayers[0]);
   const [rightId, setRightId] = useState(initialLayers[1]);
   const [workbenchView, setWorkbenchView] = useState<WorkbenchView>("swipe");
+  const [profiles, setProfiles] = useState<Record<string, SparcProfile>>({});
 
   const filtered = useMemo(() => catalog.targets.filter((target) => {
     const text = `${target.name} ${Object.values(target.identifiers).join(" ")}`.toLowerCase();
@@ -282,6 +345,30 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     && comparison?.layerIds.includes("legacy-survey-dr10");
   const swipeEnabled = Boolean(comparison && comparisonIsSwipeable(comparison, selected.layers)) || Boolean(authenticQaViewer);
   const profilesEnabled = left.kind === "profile" || right.kind === "profile";
+
+  const loadProfile = async () => {
+    if (profiles[selected.id]) return;
+    const profileLayer = selected.layers.find((layer) => layer.kind === "profile");
+    if (!profileLayer?.assets?.data) return;
+    const response = await fetch(profileLayer.assets.data);
+    if (!response.ok) return;
+    const payload = await response.json() as { target: SparcProfile };
+    setProfiles((current) => ({ ...current, [selected.id]: payload.target }));
+  };
+
+  const selectLayer = (side: "left" | "right", id: string) => {
+    if (side === "left") setLeftId(id); else setRightId(id);
+    const nextLayer = layerById(selected, id);
+    const otherLayer = side === "left" ? right : left;
+    const nextView = nextLayer.kind === "profile" || otherLayer.kind === "profile" ? "profiles" : "evidence";
+    setWorkbenchView(nextView);
+    if (nextView === "profiles") void loadProfile();
+  };
+
+  const showProfiles = async () => {
+    setWorkbenchView("profiles");
+    await loadProfile();
+  };
 
   return (
     <main id="top">
@@ -328,9 +415,9 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
           </div>
 
           <div className="layer-selectors">
-            <label><span>LAYER A</span><select value={left.id} onChange={(event) => setLeftId(event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
+            <label><span>LAYER A</span><select value={left.id} onChange={(event) => selectLayer("left", event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
             <span className="versus">COMPARE</span>
-            <label><span>LAYER B</span><select value={right.id} onChange={(event) => setRightId(event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
+            <label><span>LAYER B</span><select value={right.id} onChange={(event) => selectLayer("right", event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
           </div>
 
           <div className="layer-cards"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
@@ -339,10 +426,10 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
             <button className={workbenchView === "swipe" ? "active" : ""} disabled={!swipeEnabled} onClick={() => setWorkbenchView("swipe")}>Swipe</button>
             <button className={workbenchView === "coverage" ? "active" : ""} disabled={!authenticQaViewer} onClick={() => setWorkbenchView("coverage")}>Coverage diff</button>
             <button className={workbenchView === "candidates" ? "active" : ""} disabled={!authenticQaViewer} onClick={() => setWorkbenchView("candidates")}>Signal candidates</button>
-            <button className={workbenchView === "profiles" ? "active" : ""} disabled={!profilesEnabled} onClick={() => setWorkbenchView("profiles")}>Profiles</button>
+            <button className={workbenchView === "profiles" ? "active" : ""} disabled={!profilesEnabled} onClick={showProfiles}>Profiles</button>
             <span>{authenticQaViewer ? "Real UGC 00191 pixels · QA only" : "Views activate by data type + QA"}</span>
           </div>
-          <LayerViewport target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} />
+          <LayerViewport target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} profile={profiles[selected.id]} />
           <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
         </section>
       </section>

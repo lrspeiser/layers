@@ -70,7 +70,7 @@ def rubin_layer(target: dict, mosaic: dict | None, selected_dataset_ids: list[st
     }
 
 
-def sparc_layer(target: dict, bibcode: str) -> dict:
+def sparc_layer(target: dict, bibcode: str, profile: dict | None) -> dict:
     return {
         "id": "sparc-2016",
         "survey": "SPARC",
@@ -87,6 +87,8 @@ def sparc_layer(target: dict, bibcode: str) -> dict:
         "hasWcs": False,
         "note": "A radial photometry and rotation-curve layer; it must be plotted or overlaid, never treated as a sky image.",
         "provenance": {"bibcode": bibcode, "sampleId": target["sparc_id"]},
+        **({"assets": {"data": profile["data"]}} if profile else {}),
+        **({"profileSummary": profile["summary"]} if profile else {}),
     }
 
 
@@ -277,10 +279,12 @@ def main() -> None:
     parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
     parser.add_argument("--panstarrs", type=Path, default=root / "pipeline" / "output" / "panstarrs" / "manifest.json")
     parser.add_argument("--registration-audits", type=Path, default=root / "pipeline" / "output" / "comparisons")
+    parser.add_argument("--sparc-profiles", type=Path, default=root / "public" / "data" / "sparc-profiles.json")
     parser.add_argument("--output", type=Path, default=root / "public" / "data" / "layers-catalog.json")
     args = parser.parse_args()
 
     coverage = load_json(args.coverage)
+    sparc_profiles = load_json(args.sparc_profiles).get("targets", {}) if args.sparc_profiles.is_file() else {}
     mosaics = mosaic_state(args.mosaics)
     selected_ids: dict[str, list[str]] = {}
     if args.downloads.is_file():
@@ -295,7 +299,7 @@ def main() -> None:
     targets = []
     for source in coverage["targets"]:
         mosaic = mosaics.get(source["slug"])
-        layers = [sparc_layer(source, coverage["sparc_bibcode"]), rubin_layer(source, mosaic, selected_ids.get(source["slug"], []))]
+        layers = [sparc_layer(source, coverage["sparc_bibcode"], sparc_profiles.get(source["slug"])), rubin_layer(source, mosaic, selected_ids.get(source["slug"], []))]
         if source["slug"] in legacy_records:
             layers.append(legacy_survey_layer(legacy_records[source["slug"]]))
         if source["slug"] in panstarrs_records:
