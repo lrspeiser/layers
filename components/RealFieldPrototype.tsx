@@ -19,7 +19,7 @@ type CandidateRegion = {
   direction: "rubin-excess" | "comparison-excess";
 };
 
-type PrototypeScience = {
+export type PrototypeScience = {
   candidateRegions: CandidateRegion[];
   differenceMethod: {
     thresholdEmpiricalSigma: number;

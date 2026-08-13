@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import catalogData from "@/public/data/layers-catalog.json";
 import prototypeScience from "@/public/data/prototype-science.json";
-import { RealFieldPrototype } from "@/components/RealFieldPrototype";
+import { RealFieldPrototype, type PrototypeScience } from "@/components/RealFieldPrototype";
 import type { LayersCatalog } from "@/lib/layers";
 
 export const metadata: Metadata = {
@@ -18,5 +18,5 @@ export default function PrototypePage() {
   const common = comparison?.qa?.commonValidPixelFraction ?? 0.9598;
   const sources = comparison?.qa?.matchedSources ?? 233;
 
-  return <RealFieldPrototype qa={{ residualArcsec: residual, thresholdArcsec: threshold, commonValidPercent: common * 100, matchedSources: sources }} science={prototypeScience} />;
+  return <RealFieldPrototype qa={{ residualArcsec: residual, thresholdArcsec: threshold, commonValidPercent: common * 100, matchedSources: sources }} science={prototypeScience as PrototypeScience} />;
 }
