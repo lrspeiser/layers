@@ -32,6 +32,7 @@ AXIS_RATIO = 0.65
 RADII_ARCSEC = (3.0, 6.0, 12.0, 24.0)
 CENTRAL_SURFACE_BRIGHTNESS_MAG = (20.0, 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0, 30.0)
 TRIALS = 64
+MIN_TRIALS = 32
 DETECTION_SIGMA = 5.0
 RECOVERY_TOLERANCE = 0.25
 COMPLETENESS_TARGET = 0.90
@@ -98,8 +99,11 @@ def choose_positions(
         if any(math.hypot(x - other_x, y - other_y) < minimum_separation for other_x, other_y in positions):
             continue
         positions.append((x, y))
-    if len(positions) < trials:
-        raise RuntimeError(f"only {len(positions)} valid injection positions found for radius {radius}")
+    if len(positions) < MIN_TRIALS:
+        raise RuntimeError(
+            f"only {len(positions)} valid injection positions found for radius {radius}; "
+            f"minimum is {MIN_TRIALS}"
+        )
     return positions
 
 
@@ -153,7 +157,29 @@ def validate_layer(
     for size_index, effective_radius in enumerate(RADII_ARCSEC):
         template, enclosed_fraction = exponential_template(effective_radius, pixel_scale, psf_fwhm)
         radius = template.shape[0] // 2
-        positions = choose_positions(common, radius, central_exclusion_pixels, TRIALS, seed + size_index * 1009)
+        try:
+            positions = choose_positions(
+                common,
+                radius,
+                central_exclusion_pixels,
+                TRIALS,
+                seed + size_index * 1009,
+            )
+        except RuntimeError as error:
+            size_records.append(
+                {
+                    "effectiveRadiusArcsec": effective_radius,
+                    "axisRatio": AXIS_RATIO,
+                    "templateRadiusPixels": radius,
+                    "templateEnclosedFluxFraction": enclosed_fraction,
+                    "status": "insufficient-common-footprint",
+                    "reason": str(error),
+                    "validInjectionPositions": 0,
+                    "faintest90PercentCompleteMu0MagArcsec2": None,
+                    "trials": [],
+                }
+            )
+            continue
         blank = []
         formal = []
         for x, y in positions:
@@ -161,6 +187,7 @@ def validate_layer(
             blank.append(amplitude)
             formal.append(uncertainty)
         blank_values = np.asarray(blank)
+        trial_count = len(positions)
         null_median = float(np.median(blank_values))
         null_sigma = robust_sigma(blank_values)
         # Real blank-position amplitudes are strongly non-Gaussian because of
@@ -191,8 +218,8 @@ def validate_layer(
                     "injectedTotalFluxNjy": injected_flux,
                     "detectedFraction": float(detected.mean()),
                     "recoveredWithin25PercentFraction": float(accurate.mean()),
-                    "completeFraction": successes / TRIALS,
-                    "completeFractionWilson68": wilson_interval(successes, TRIALS),
+                    "completeFraction": successes / trial_count,
+                    "completeFractionWilson68": wilson_interval(successes, trial_count),
                     "medianFractionalBias": float(np.median(fractional_error)),
                     "robustFractionalScatter": robust_sigma(fractional_error),
                 }
@@ -205,6 +232,7 @@ def validate_layer(
         size_records.append(
             {
                 "effectiveRadiusArcsec": effective_radius,
+                "status": "measured",
                 "axisRatio": AXIS_RATIO,
                 "templateRadiusPixels": radius,
                 "templateEnclosedFluxFraction": enclosed_fraction,
@@ -214,7 +242,7 @@ def validate_layer(
                 "medianFormalUncertaintyNjy": float(np.median(formal)),
                 "empiricalToFormalNoiseRatio": float(null_sigma / np.median(formal)),
                 "detectionThresholdNjy": threshold,
-                "nullFalsePositiveFraction": false_positives / TRIALS,
+                "nullFalsePositiveFraction": false_positives / trial_count,
                 "faintest90PercentCompleteMu0MagArcsec2": max(passing) if passing else None,
                 "trials": trials,
             }
@@ -262,6 +290,7 @@ def validate_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict
         size["nullFalsePositiveFraction"] <= 0.05
         for layer in layers.values()
         for size in layer["sizes"]
+        if size.get("status") == "measured"
     )
     any_recovery = all(
         any(size["faintest90PercentCompleteMu0MagArcsec2"] is not None for size in layer["sizes"])
@@ -281,10 +310,11 @@ def validate_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict
             "centralSurfaceBrightnessGridAbMagArcsec2": list(CENTRAL_SURFACE_BRIGHTNESS_MAG),
             "axisRatio": AXIS_RATIO,
             "trialsPerGridPoint": TRIALS,
+            "minimumTrialsPerGridPoint": MIN_TRIALS,
             "detectionThresholdEmpiricalSigma": DETECTION_SIGMA,
             "recoveryToleranceFraction": RECOVERY_TOLERANCE,
             "completenessTarget": COMPLETENESS_TARGET,
-            "positionPolicy": "deterministic random common-mask positions outside 1.5 optical major axes",
+            "positionPolicy": "up to 64 deterministic random common-mask positions outside 1.5 optical major axes; a grid point is valid only with at least 32 positions",
             "backgroundModel": "local constant plus x/y plane fitted simultaneously with the source",
         },
         "layers": layers,
@@ -294,8 +324,9 @@ def validate_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict
         "limitations": [
             "Injected profiles are smooth exponentials and do not span streams, shells, cirrus, or irregular tidal debris.",
             "The validation uses the reconciled products and therefore measures detection/photometry performance after sky subtraction; it does not retest the upstream coadd sky model.",
-            "Empirical blank-position scatter includes correlated noise and confusion in this field, but 64 positions do not characterize rare artifacts.",
+            "Empirical blank-position scatter includes correlated noise and confusion in this field; 32-64 positions per size do not characterize rare artifacts.",
             "A recovery limit validates detectability, not cross-survey filter transfer or the astrophysical origin of a residual.",
+            "A source size is reported as insufficient-common-footprint when the overlap cannot hold at least 32 valid blank injections; no limit is extrapolated for that size.",
         ],
     }
     output_path = output_dir / "diffuse-recovery.json"

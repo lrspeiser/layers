@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers comparison QA package",
-  "generatedAt": "2026-08-13T03:06:48.629342+00:00",
+  "generatedAt": "2026-08-13T04:07:56.663797+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -127,12 +127,12 @@
       ],
       "commonWcs": true,
       "commonFootprint": true,
-      "psfMatched": false,
-      "skyMatched": false,
+      "psfMatched": true,
+      "skyMatched": true,
       "unitsMatched": true,
       "filterMatched": false,
       "filterTransform": null,
-      "maxResidualArcsec": 0.402601430635649,
+      "maxResidualArcsec": 0.10980877166902493,
       "qaThresholdArcsec": 0.3,
       "limitations": [
         "Sky planes have been measured but not yet applied to a released matched product.",
@@ -144,15 +144,15 @@
       "band": "i",
       "comparisonLayerLabel": "Pan-STARRS1 DR1",
       "commonValidPixelFraction": 0.5172503086419753,
-      "matchedSources": 131,
-      "astrometricResidualP95Arcsec": 0.402601430635649,
-      "astrometryPass": false,
-      "rubinMedianFwhmArcsec": 2.330481761516664,
-      "comparisonMedianFwhmArcsec": 2.401274707543058,
-      "reconciliationStatus": "blocked",
-      "matchedCommonValidPixelFraction": null,
-      "postMatchAstrometricResidualP95Arcsec": null,
-      "postMatchFractionalFwhmDifference": null,
+      "matchedSources": 25,
+      "astrometricResidualP95Arcsec": 0.10980877166902493,
+      "astrometryPass": true,
+      "rubinMedianFwhmArcsec": 1.5291533801502533,
+      "comparisonMedianFwhmArcsec": 1.5957191075824084,
+      "reconciliationStatus": "matched-not-photometrically-comparable",
+      "matchedCommonValidPixelFraction": 0.34210092592592595,
+      "postMatchAstrometricResidualP95Arcsec": 0.1365176752954764,
+      "postMatchFractionalFwhmDifference": 0.027150077979193606,
       "filterMatchBlocking": true,
       "pointSourceCalibrationPass": false,
       "filterHeldOutRmsMag": null,
@@ -161,26 +161,142 @@
       "extendedSourceResolvedCells": null,
       "extendedSourceMedianAbsoluteResidualMag": null,
       "extendedSourceRobustScatterMag": null,
-      "injectionRecoveryStatus": null,
-      "injectionNullTestPass": false,
-      "injectionRecoveryGridPass": false,
-      "injectionProfile": null,
-      "injectionEffectiveRadiiArcsec": null
+      "injectionRecoveryStatus": "pass",
+      "injectionNullTestPass": true,
+      "injectionRecoveryGridPass": true,
+      "injectionProfile": "elliptical exponential convolved with the matched Gaussian PSF",
+      "injectionEffectiveRadiiArcsec": [
+        3.0,
+        6.0,
+        12.0,
+        24.0
+      ]
     },
-    "measurements": [],
+    "products": {
+      "matchedPairSha256": "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+      "sourceRubinSha256": "c0725218c8e65649261aa5edb3453f3b790d8464ad9c77e56033ea5311333147",
+      "sourceComparisonSha256": "e0f845c019c0ea7a6a18b58004aa8d0f2e98152b69069e469f21993a9b04e098",
+      "qaPackage": "/data/comparisons/ugc00891.json"
+    },
+    "measurements": [
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 23.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          22.0,
+          24.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.922; 68% Wilson interval 0.881\u20130.949.",
+          "Empirical blank-position noise is 2.2\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "rubin-dp2-deep-coadd-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 22.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          21.0,
+          23.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.978; 68% Wilson interval 0.945\u20130.992.",
+          "Empirical blank-position noise is 4.5\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "panstarrs-dr1-stack-diffuse-limit-re-3",
+        "label": "90% diffuse recovery limit (3 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 24.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          23.0,
+          25.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.938; 68% Wilson interval 0.900\u20130.962.",
+          "Empirical blank-position noise is 483.3\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      },
+      {
+        "id": "panstarrs-dr1-stack-diffuse-limit-re-6",
+        "label": "90% diffuse recovery limit (6 arcsec Re)",
+        "quantity": "central surface brightness recovery limit",
+        "value": 24.0,
+        "unit": "AB mag arcsec^-2",
+        "statisticalUncertainty": 0.5,
+        "systematicUncertainty": 1.0,
+        "expectedRange": [
+          23.0,
+          25.0
+        ],
+        "significanceSigma": 0.0,
+        "classification": "expected",
+        "provenance": [
+          "bb4364e87c33320a71edc55650ca161637685c36a9eb5aa1708c8e9316ef024f",
+          "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
+        ],
+        "caveats": [
+          "Discrete 1-mag injection grid; statistical grid resolution is \u00b10.5 mag.",
+          "Smooth exponential profile with axis ratio 0.65; morphology systematic is represented as \u00b11 mag, not a calibrated universal error.",
+          "Measured completeness 0.913; 68% Wilson interval 0.862\u20130.946.",
+          "Empirical blank-position noise is 903.1\u00d7 the formal template-fit uncertainty.",
+          "This is a sensitivity limit, not a cross-layer flux difference or discovery significance."
+        ]
+      }
+    ],
     "inferences": [],
     "assumptionAudits": []
   },
   "localReproductionArtifacts": [
     {
       "name": "registration-audit.json",
-      "bytes": 2343,
-      "sha256": "1f493ec0792aab402fff6d801d91f3695e1796eaf138f6c30a9de16e7ce8cdf0"
+      "bytes": 3469,
+      "sha256": "1656d076e5bb6c2dd40a5e9876c37a49b372812a0855ad8fbb5a30ff48722242"
     },
     {
       "name": "reconciliation.json",
-      "bytes": 379,
-      "sha256": "a58477d1eec4275e7cf87acdedbbe20651b4f4e83c539137fcdae4b933455288"
+      "bytes": 7243,
+      "sha256": "2bd4b01a5de148f36691c1bf46d1d6c5984ce97a1c214474aab9a0cb2915ac34"
     },
     {
       "name": "filter-response-audit.json",
@@ -194,8 +310,8 @@
     },
     {
       "name": "diffuse-recovery.json",
-      "bytes": 169,
-      "sha256": "7613fc33d96e7bb76b348dfa1b5f3253f3cba611e9b36c35fe9cdb58ff5f3d4b"
+      "bytes": 31069,
+      "sha256": "4dda4c7a14a0aba11112c90051fe1421ef80e0069c1be39ba4478b0fc1773845"
     }
   ],
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels and matched FITS remain in the local reproducibility bundle until redistribution is authorized."

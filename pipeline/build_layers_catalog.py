@@ -283,10 +283,12 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
                         "independentCheck": {
                             "survey": "Pan-STARRS1 DR1",
                             "status": three_survey_audit["status"],
+                            "gate": "filter-calibration",
                             "registrationP95Arcsec": three_survey_audit.get("registrationsToRubin", {}).get("panstarrs", {}).get("residualP95Arcsec"),
                             "passThresholdArcsec": three_survey_audit.get("astrometryThresholdArcsec"),
-                            "qualifiedForArbitration": three_survey_audit.get("status") == "diagnostic",
-                            "note": "The independent layer cannot arbitrate the Rubin-Legacy resolved-light disagreement until its own registration passes.",
+                            "registrationPass": three_survey_audit.get("status") == "diagnostic",
+                            "qualifiedForArbitration": False,
+                            "note": "Gaia epoch-corrected registration passes, but the independent layer still uses only scalar stellar normalization; it cannot arbitrate resolved galaxy light until color-dependent filter transfer is validated.",
                             "provenance": [sha256(three_survey_path)],
                         }
                     } if three_survey_audit else {}),
@@ -402,6 +404,18 @@ def pilot_audit(target: dict, mosaic: dict | None, comparison: dict | None, audi
             "claimStatus": "blocked",
             "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/extended-source-filter-audit.json", "sha256": sha256(extended_path)}],
             "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference.",
+        }
+    if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "blocked":
+        filter_path = audit_dir / target_id / "filter-response-audit.json"
+        return {
+            "id": f"{target_id}-filter-adapter-limit",
+            "outcome": "filter-adapter-blocked",
+            "stage": "filter-response",
+            "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass, but no validated Pan-STARRS i to Rubin i color-response adapter exists yet.",
+            "metric": {"label": "validated filter-response adapters", "value": 0, "unit": "adapter", "passThreshold": 1, "comparison": "must be greater than or equal to"},
+            "claimStatus": "blocked",
+            "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/filter-response-audit.json", "sha256": sha256(filter_path)}],
+            "nextAction": "Implement and cross-validate a Pan-STARRS i to Rubin i stellar color relation, then test its transfer to resolved galaxy light before any missing-light inference.",
         }
     return None
 

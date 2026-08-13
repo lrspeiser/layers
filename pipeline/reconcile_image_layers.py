@@ -17,9 +17,11 @@ from pathlib import Path
 
 import numpy as np
 from astropy.io import fits
+from astropy.wcs import WCS
 from scipy.ndimage import binary_erosion, convolve1d, gaussian_filter, shift
 
 from audit_layer_registration import centroid_sources, fit_sky_plane, match_sources, robust_sigma
+from gaia_registration import gaia_epoch_registration, product_epochs
 
 
 NANOMAGGY_TO_NJY = 3630.780547701
@@ -208,6 +210,21 @@ def reconcile_one(root: Path, audit_path: Path, coverage: dict, args: argparse.N
     post_rubin_sources = centroid_sources(rubin, common, exclusion, pixel_scale)
     post_comparison_sources = centroid_sources(comparison, common, exclusion, pixel_scale)
     post_registration = match_sources(post_rubin_sources, post_comparison_sources, pixel_scale)
+    if comparison_layer == "panstarrs-dr1-stack":
+        corrected_post_registration = gaia_epoch_registration(
+            post_rubin_sources,
+            post_comparison_sources,
+            WCS(header),
+            pixel_scale,
+            root / "pipeline/cache/gaia-dr3" / f"{slug}.csv",
+            product_epochs(root, slug, band),
+            root,
+        )
+        if corrected_post_registration:
+            post_registration = {
+                **corrected_post_registration,
+                "uncorrectedSourceRegistration": post_registration,
+            }
     post_rubin_fwhm = post_registration.get("rubinMedianFwhmArcsec")
     post_comparison_fwhm = post_registration.get("comparisonMedianFwhmArcsec")
     psf_difference = None

@@ -131,6 +131,8 @@ export type AssumptionAudit = {
   independentCheck?: {
     survey: string;
     status: string;
+    gate: string;
+    registrationPass: boolean;
     registrationP95Arcsec: number | null;
     passThresholdArcsec: number | null;
     qualifiedForArbitration: boolean;

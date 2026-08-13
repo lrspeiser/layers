@@ -125,6 +125,8 @@ def main() -> None:
                 independent = audit.get("independentCheck")
                 if independent and (not independent.get("provenance") or independent.get("qualifiedForArbitration") and independent.get("registrationP95Arcsec", 1) > independent.get("passThresholdArcsec", 0)):
                     errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: independent check is inconsistent or lacks provenance")
+                if independent and independent.get("registrationPass") != (independent.get("registrationP95Arcsec", 1) <= independent.get("passThresholdArcsec", 0)):
+                    errors.append(f"{target_id}/{comparison.get('id')}/{audit.get('id')}: independent registration flag disagrees with threshold")
             if comparison.get("status") != "published":
                 continue
             published_count += 1

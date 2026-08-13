@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T03:06:48.507829+00:00",
+  "generatedAt": "2026-08-13T04:07:56.595531+00:00",
   "target": {
     "id": "ugc00634",
     "name": "UGC00634",
@@ -259,7 +259,7 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
-        "sha256": "8e60dfaeefd38636472f0d53c308b5b9ea2294ff63a4f6bfbd3e96b7e46d5902"
+        "sha256": "6124d96e64446049295716167cb472198fe4af05bcb9b546b581d0c6888508ad"
       }
     ],
     "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."

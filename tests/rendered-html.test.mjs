@@ -67,7 +67,7 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
-  assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, false);
+  assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, true);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").layers.some((layer) => layer.id === "panstarrs-dr1-stack"), true);
   for (const target of catalog.targets) {
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
@@ -91,10 +91,10 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(footprintHtml, /valid calibrated-pixel fraction/);
   assert.match(footprintHtml, /Download pilot audit \+ checksums/);
 
-  const registrationBlocked = await render("/target/ugc00891");
-  const registrationHtml = await registrationBlocked.text();
-  assert.match(registrationHtml, /0\.403[\s\S]{0,40}arcsec/);
-  assert.match(registrationHtml, /must be less than or equal to[\s\S]{0,40}0\.30/);
+  const calibrationBlocked = await render("/target/ugc00891");
+  const calibrationHtml = await calibrationBlocked.text();
+  assert.match(calibrationHtml, /filter-response adapters/);
+  assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}1/);
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
@@ -162,14 +162,16 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
     assert.equal(comparison.registration.filterMatched, false);
     assert.equal(comparison.status, "qa");
     assert.equal(comparison.assumptionAudits[0].independentCheck.qualifiedForArbitration, false);
-    assert.ok(comparison.assumptionAudits[0].independentCheck.registrationP95Arcsec > 0.3);
+    assert.equal(comparison.assumptionAudits[0].independentCheck.registrationPass, true);
+    assert.ok(comparison.assumptionAudits[0].independentCheck.registrationP95Arcsec <= 0.3);
     assert.match(comparison.assumptionAudits[0].independentCheck.provenance[0], /^[a-f0-9]{64}$/);
   }
   const pilotTargets = catalog.targets.filter((target) => target.pilotAudit);
   assert.deepEqual(pilotTargets.map((target) => target.id).sort(), ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]);
   assert.equal(catalog.targets.find((target) => target.id === "ngc0100").pilotAudit.evidence[0].sha256, "7e6824743209cf467572c47e2c90624310ac681643629d99af81dd104123643c");
   const registrationPilot = catalog.targets.find((target) => target.id === "ugc00891").pilotAudit;
-  assert.equal(registrationPilot.metric.value > registrationPilot.metric.passThreshold, true);
+  assert.equal(registrationPilot.outcome, "filter-adapter-blocked");
+  assert.equal(registrationPilot.metric.value < registrationPilot.metric.passThreshold, true);
   const audits = catalog.targets.flatMap((target) => target.comparisons.flatMap((comparison) => comparison.assumptionAudits));
   assert.deepEqual(audits.sort((a, b) => a.rank - b.rank).map((audit) => audit.id), [
     "ugc00191-stellar-to-resolved-filter-transfer",

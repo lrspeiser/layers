@@ -18,9 +18,9 @@ The first catalog contains the complete 175-object SPARC sample and an authentic
 - usable Rubin mosaics for UGC 00191, UGC 00634, and UGC 00891;
 - a footprint false positive for NGC 0100: the intersecting pixels are all masked `NO_DATA`;
 - 48 full-resolution Legacy Survey DR10 FITS tiles, mosaicked into three local image layers with science, inverse variance, masks, WCS, URLs, and SHA-256 provenance;
-- two full Pan-STARRS1 skycells for UGC 00891, including the complete science, variance, and bitmask products, calibrated to nJy and mosaicked locally;
-- registration audits that pass the declared 0.30 arcsec p95 threshold for the two Rubin/Legacy fields (0.220 and 0.203 arcsec) and correctly fail the Rubin/Pan-STARRS field (0.403 arcsec);
-- explicit, checksum-backed pilot outcomes for all four fields: NGC 0100 fails pixel coverage, UGC 00891 fails registration, and UGC 00191/UGC 00634 pass astrometry plus PSF/sky and diffuse-recovery checks but fail resolved-galaxy filter transfer;
+- full Pan-STARRS1 science, variance, and bitmask skycells for all three usable Rubin fields, calibrated to nJy and mosaicked locally;
+- registration audits that pass the declared 0.30 arcsec p95 threshold for the Rubin/Legacy fields (0.220 and 0.203 arcsec) and, after Gaia DR3 proper-motion propagation across the survey epoch baseline, all Rubin/Pan-STARRS checks (0.086, 0.149, and 0.110 arcsec);
+- explicit, checksum-backed pilot outcomes for all four fields: NGC 0100 fails pixel coverage, UGC 00891 passes astrometry/PSF/sky and diffuse recovery but lacks a validated Pan-STARRS i to Rubin i filter adapter, and UGC 00191/UGC 00634 fail resolved-galaxy filter transfer;
 - no published astrophysical cross-survey differences yet. The site ranks the two filter-transfer assumptions for follow-up while keeping outer-light, stellar-mass, baryonic-mass, lensing, and acceleration claims blocked.
 
 No image or statistic is fabricated, substituted, or reused. Image sliders activate only when two image layers pass the complete comparison gate. Profiles, catalogs, spectra, and maps retain their appropriate plot, table, or overlay representation.
@@ -35,7 +35,7 @@ No image or statistic is fabricated, substituted, or reused. Image sliders activ
 - `pipeline/query_local_layers.py` performs read-only target or coordinate queries against that local store and returns product paths, hashes, coverage, and QA records.
 - `pipeline/validate_layers_catalog.py` enforces the generic catalog and publication invariants.
 - `pipeline/query_dp2_sia.py` and `pipeline/download_dp2_matches.py` implement quota-aware Rubin discovery and calibrated local ingestion.
-- `pipeline/fetch_legacy_survey.py` and `pipeline/fetch_panstarrs.py` acquire reproducible full-resolution reference image layers and support planes.
+- `pipeline/fetch_legacy_survey.py` and `pipeline/fetch_panstarrs.py` acquire reproducible full-resolution reference image layers and support planes; `pipeline/fetch_gaia_astrometry.py` caches checksum-backed Gaia DR3 astrometry for epoch-aware registration.
 - `pipeline/audit_layer_registration.py` measures common coverage, WCS agreement, source residuals, empirical PSF widths, and sky models without marking unapplied operations as passed.
 - `pipeline/build_visual_prototype.py` makes local-only display stretches and a real reference-coverage mask for `/prototype`; calibrated FITS remain the analysis inputs and authenticated Rubin pixels never enter public deployment artifacts.
 

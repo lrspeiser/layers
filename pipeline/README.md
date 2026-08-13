@@ -90,6 +90,14 @@ Pass `--only TARGET` to deliberately add or refresh Pan-STARRS support for a Rub
 
 This adapter queries a 3 by 3 grid across the declared field, downloads every unique full DR1 skycell selected by the official image-list service, and retains the complete unconvolved stack, variance, and bitmask files. It converts the full-stack asinh encoding back to linear flux, applies the documented per-skycell AB calibration, and mosaics to nJy on the Rubin WCS. Overlapping skycells are not coadded because they reuse observations; the adapter selects the lower-variance unmasked sample instead.
 
+Cache Gaia DR3 stars with proper motions before registering Pan-STARRS to Rubin:
+
+```bash
+python pipeline/fetch_gaia_astrometry.py --only UGC00191 --only UGC00634 --only UGC00891
+```
+
+The acquisition retains the exact ADQL query, response CSV, endpoint, row count, license, and SHA-256 hash. Registration propagates Gaia positions from their 2016 reference epoch to the median Pan-STARRS stack epoch and median Rubin coadd-input epoch. The uncorrected star-centroid result is preserved alongside the epoch-corrected result; the 0.30 arcsec p95 threshold is unchanged.
+
 Audit registration readiness:
 
 ```bash
@@ -139,7 +147,7 @@ Measure the empirical diffuse-source limit on the real matched fields:
 python pipeline/validate_diffuse_recovery.py
 ```
 
-This injects deterministic, PSF-convolved exponential sources with 3, 6, 12, and 24 arcsec effective radii into blank common-mask positions. A local plane and source amplitude are fit simultaneously. Detection thresholds come from identical fits at blank positions, so confusion, resampling covariance, sky residuals, and artifacts contribute to the limit. The recorded 90% recovery boundary requires both detection and flux recovery within 25%; it validates these smooth profiles only and does not prove that streams, shells, cirrus, or filter-dependent galaxy structure are recoverable.
+This injects deterministic, PSF-convolved exponential sources with 3, 6, 12, and 24 arcsec effective radii into up to 64 blank common-mask positions, requiring at least 32 for a measured size. A local plane and source amplitude are fit simultaneously. Detection thresholds come from identical fits at blank positions, so confusion, resampling covariance, sky residuals, and artifacts contribute to the limit. The recorded 90% recovery boundary requires both detection and flux recovery within 25%; an unsupported large size is explicitly marked `insufficient-common-footprint` instead of extrapolated. It validates these smooth profiles only and does not prove that streams, shells, cirrus, or filter-dependent galaxy structure are recoverable.
 
 All acquired pixels, support planes, derived mosaics, manifests, and the SQLite store live under ignored `pipeline/output/`. Only metadata suitable for public release is copied into the catalog.
 

@@ -21,6 +21,8 @@ from astropy.wcs import WCS
 from scipy.ndimage import binary_erosion, gaussian_filter, maximum_filter
 from scipy.spatial import cKDTree
 
+from gaia_registration import gaia_epoch_registration, product_epochs
+
 NANOMAGGY_TO_NJY = 3630.780547701
 ASTROMETRY_THRESHOLD_ARCSEC = 0.30
 
@@ -270,6 +272,21 @@ def main() -> None:
         rubin_sources = centroid_sources(rubin_subtracted, valid, exclusion, pixel_scale)
         comparison_sources = centroid_sources(comparison_subtracted, valid, exclusion, pixel_scale)
         astrometry = match_sources(rubin_sources, comparison_sources, pixel_scale)
+        if candidate["layerId"] == "panstarrs-dr1-stack":
+            corrected_astrometry = gaia_epoch_registration(
+                rubin_sources,
+                comparison_sources,
+                rubin_wcs,
+                pixel_scale,
+                root / "pipeline/cache/gaia-dr3" / f"{slug}.csv",
+                product_epochs(root, slug, band),
+                root,
+            )
+            if corrected_astrometry:
+                astrometry = {
+                    **corrected_astrometry,
+                    "uncorrectedSourceRegistration": astrometry,
+                }
         wcs_residual = wcs_grid_residual(rubin_wcs, comparison_wcs, rubin_image.shape)
         measured_residual = astrometry.get("residualP95Arcsec")
         qa = {

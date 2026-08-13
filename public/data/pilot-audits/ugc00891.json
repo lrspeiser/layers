@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T03:06:48.615339+00:00",
+  "generatedAt": "2026-08-13T04:07:56.641154+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -202,25 +202,25 @@
     }
   ],
   "pilotAudit": {
-    "id": "ugc00891-registration-limit",
-    "outcome": "registration-blocked",
-    "stage": "registration",
-    "observation": "Rubin DP2 and Pan-STARRS1 have authentic local pixels, but their source-based astrometric residual exceeds the predeclared registration tolerance.",
+    "id": "ugc00891-filter-adapter-limit",
+    "outcome": "filter-adapter-blocked",
+    "stage": "filter-response",
+    "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass, but no validated Pan-STARRS i to Rubin i color-response adapter exists yet.",
     "metric": {
-      "label": "source-registration p95 residual",
-      "value": 0.402601430635649,
-      "unit": "arcsec",
-      "passThreshold": 0.3,
-      "comparison": "must be less than or equal to"
+      "label": "validated filter-response adapters",
+      "value": 0,
+      "unit": "adapter",
+      "passThreshold": 1,
+      "comparison": "must be greater than or equal to"
     },
     "claimStatus": "blocked",
     "evidence": [
       {
-        "path": "pipeline/output/comparisons/ugc00891/registration-audit.json",
-        "sha256": "1f493ec0792aab402fff6d801d91f3695e1796eaf138f6c30a9de16e7ce8cdf0"
+        "path": "pipeline/output/comparisons/ugc00891/filter-response-audit.json",
+        "sha256": "865b5963cd275de4a5d208e199c181cc448850c5f0bf602f1b50e14a4907b088"
       }
     ],
-    "nextAction": "Diagnose spatially varying astrometry or adopt an independently validated reference layer; do not force-warp the pixels into compliance."
+    "nextAction": "Implement and cross-validate a Pan-STARRS i to Rubin i stellar color relation, then test its transfer to resolved galaxy light before any missing-light inference."
   },
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
 }

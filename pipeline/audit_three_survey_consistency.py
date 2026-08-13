@@ -19,10 +19,12 @@ from pathlib import Path
 
 import numpy as np
 from astropy.io import fits
+from astropy.wcs import WCS
 
 from audit_filter_response import aperture_flux
 from audit_layer_registration import centroid_sources, fit_sky_plane, match_sources, robust_sigma
 from reconcile_image_layers import normalized_convolution, read_comparison, read_rubin, shifted_comparison
+from gaia_registration import gaia_epoch_registration, product_epochs
 
 CELL_PIXELS = 16
 MIN_CELL_VALID = 0.90
@@ -94,12 +96,29 @@ def audit(slug: str, coverage: dict, root: Path) -> dict:
     images = {"rubin": (rubin, rubin_var, rubin_valid)}
     fwhm = {}
     rubin_sources = centroid_sources(rubin, initial, exclusion, pixel_scale)
+    rubin_wcs = WCS(header)
+    epochs = product_epochs(root, slug, "z")
     for name, image, variance, valid in (("legacy", legacy, legacy_var, legacy_valid), ("panstarrs", ps, ps_var, ps_valid)):
         pair_valid = rubin_valid & valid
         sky, sky_record = fit_sky_plane(image, pair_valid, exclusion)
         image = image - sky
         reference_sources = centroid_sources(image, pair_valid, exclusion, pixel_scale)
         registration = match_sources(rubin_sources, reference_sources, pixel_scale)
+        if name == "panstarrs":
+            epoch_registration = gaia_epoch_registration(
+                rubin_sources,
+                reference_sources,
+                rubin_wcs,
+                pixel_scale,
+                root / "pipeline" / "cache" / "gaia-dr3" / f"{slug}.csv",
+                epochs,
+                root,
+            )
+            if epoch_registration:
+                registration = {
+                    **epoch_registration,
+                    "uncorrectedSourceRegistration": registration,
+                }
         registrations[name] = {**registration, "skyModelNjy": sky_record, "astrometryPass": bool(registration.get("residualP95Arcsec") is not None and registration["residualP95Arcsec"] <= ASTROMETRY_LIMIT_ARCSEC)}
         offset = registration.get("medianOffsetArcsec")
         if not offset:
@@ -154,6 +173,7 @@ def audit(slug: str, coverage: dict, root: Path) -> dict:
         "limitations": [
             "This diagnostic uses scalar field-star offsets, not full color-dependent synthetic photometry.",
             "Resolved cells are correlated by reprojection and PSF matching.",
+            "Pan-STARRS registration uses Gaia DR3 proper motions because ordinary star-centroid scatter includes the survey epoch baseline.",
             "A third-survey preference identifies calibration follow-up; it is not a missing-light or mass claim.",
         ],
     }
