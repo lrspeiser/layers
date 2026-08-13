@@ -93,7 +93,7 @@ test("permanent target records expose honest pixel-level coverage states", async
 
   const calibrationBlocked = await render("/target/ugc00891");
   const calibrationHtml = await calibrationBlocked.text();
-  assert.match(calibrationHtml, /qualified color-calibration stars/);
+  assert.match(calibrationHtml, /retained color-calibration stars/);
   assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}50/);
 });
 

@@ -408,17 +408,25 @@ def pilot_audit(target: dict, mosaic: dict | None, comparison: dict | None, audi
     if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "blocked":
         filter_path = audit_dir / target_id / "filter-response-audit.json"
         filter_audit = load_json(filter_path) if filter_path.is_file() else {}
-        qualified_stars = filter_audit.get("sample", {}).get("qualifiedHighSnrSources", 0)
+        retained_stars = filter_audit.get("sample", {}).get("retainedCalibrationStars", 0)
         required_stars = filter_audit.get("thresholds", {}).get("minimumCalibrationStars", 50)
+        held_out_rms = filter_audit.get("crossValidation", {}).get("rmsMag") if filter_audit.get("crossValidation") else None
+        color_span = filter_audit.get("sample", {}).get("colorSpanMag")
         return {
             "id": f"{target_id}-filter-adapter-limit",
             "outcome": "filter-adapter-blocked",
             "stage": "filter-response",
-            "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. Pan-STARRS r/i/z context was acquired, but the common mask leaves too few fully supported high-S/N stars to validate the i-band color relation.",
-            "metric": {"label": "qualified color-calibration stars", "value": qualified_stars, "unit": "stars", "passThreshold": required_stars, "comparison": "must be greater than or equal to"},
+            "observation": (
+                "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. "
+                f"The independent Pan-STARRS DR2 catalog relation spans {color_span:.2f} mag and reaches {held_out_rms:.3f} mag held-out RMS, "
+                "but robust outlier rejection leaves fewer stars than the predeclared publication minimum."
+                if held_out_rms is not None and color_span is not None
+                else "The field lacks enough retained stars to validate the Pan-STARRS-to-Rubin i-band color relation."
+            ),
+            "metric": {"label": "retained color-calibration stars", "value": retained_stars, "unit": "stars", "passThreshold": required_stars, "comparison": "must be greater than or equal to"},
             "claimStatus": "blocked",
             "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/filter-response-audit.json", "sha256": sha256(filter_path)}],
-            "nextAction": "Acquire neighboring Pan-STARRS skycells or a wider independent layer to supply at least 50 fully supported stars, then cross-validate the color relation and test resolved galaxy transfer.",
+            "nextAction": "Acquire a wider Rubin calibration field around UGC00891, rerun the unchanged 50-star gate, then test whether the stellar relation transfers to resolved galaxy light.",
         }
     return None
 

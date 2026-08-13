@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "product": "Layers pilot audit package",
-  "generatedAt": "2026-08-13T04:26:13.686777+00:00",
+  "generatedAt": "2026-08-13T04:46:23.762689+00:00",
   "target": {
     "id": "ugc00891",
     "name": "UGC00891",
@@ -221,10 +221,10 @@
     "id": "ugc00891-filter-adapter-limit",
     "outcome": "filter-adapter-blocked",
     "stage": "filter-response",
-    "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. Pan-STARRS r/i/z context was acquired, but the common mask leaves too few fully supported high-S/N stars to validate the i-band color relation.",
+    "observation": "Epoch-aware Gaia registration, PSF/sky reconciliation, and diffuse recovery pass. The independent Pan-STARRS DR2 catalog relation spans 1.23 mag and reaches 0.008 mag held-out RMS, but robust outlier rejection leaves fewer stars than the predeclared publication minimum.",
     "metric": {
-      "label": "qualified color-calibration stars",
-      "value": 1,
+      "label": "retained color-calibration stars",
+      "value": 33,
       "unit": "stars",
       "passThreshold": 50,
       "comparison": "must be greater than or equal to"
@@ -233,10 +233,10 @@
     "evidence": [
       {
         "path": "pipeline/output/comparisons/ugc00891/filter-response-audit.json",
-        "sha256": "8c2f5e976c7525e5b98127e227e4753e634f656b2248f6ef20a44dc3762764c2"
+        "sha256": "37d81fdaf8c1f6310cd10594e18e8f8d485640a49302b1de44a5447aa7622bfb"
       }
     ],
-    "nextAction": "Acquire neighboring Pan-STARRS skycells or a wider independent layer to supply at least 50 fully supported stars, then cross-validate the color relation and test resolved galaxy transfer."
+    "nextAction": "Acquire a wider Rubin calibration field around UGC00891, rerun the unchanged 50-star gate, then test whether the stellar relation transfers to resolved galaxy light."
   },
   "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
 }

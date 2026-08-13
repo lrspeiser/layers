@@ -100,6 +100,14 @@ python pipeline/fetch_gaia_astrometry.py --only UGC00191 --only UGC00634 --only 
 
 The acquisition retains the exact ADQL query, response CSV, endpoint, row count, license, and SHA-256 hash. Registration propagates Gaia positions from their 2016 reference epoch to the median Pan-STARRS stack epoch and median Rubin coadd-input epoch. The uncorrected star-centroid result is preserved alongside the epoch-corrected result; the 0.30 arcsec p95 threshold is unchanged.
 
+Cache independent Pan-STARRS DR2 mean-object photometry for catalog-backed color calibration:
+
+```bash
+python pipeline/fetch_panstarrs_catalog.py --only UGC00891
+```
+
+This acquisition uses the official MAST Catalogs API and retains the exact query URL, returned CSV, row count, selected columns, and SHA-256 hash. The deterministic audit uses calibrated `rMeanPSFMag` and `iMeanPSFMag` values while measuring Rubin aperture flux only on Rubin's validity mask; a Pan-STARRS image-mask artifact therefore cannot discard an otherwise valid Rubin calibration star.
+
 Audit registration readiness:
 
 ```bash
@@ -124,7 +132,7 @@ Constrain the field-specific stellar color term with held-out stars:
 python pipeline/audit_filter_response.py
 ```
 
-The audit fits `Rubin z - Legacy z` as a function of Legacy `r-z`, uses five spatial cross-validation folds, bootstraps the coefficients, and enforces predeclared sample, color-span, and held-out-scatter thresholds. A pass validates point-source calibration only. Extended-source color transfer and injection/recovery remain mandatory.
+The audit fits either `Rubin z - Legacy z` as a function of Legacy `r-z`, or `Rubin i - Pan-STARRS i` as a function of Pan-STARRS `r-i`. It uses five spatial cross-validation folds, bootstraps the coefficients, and enforces predeclared sample, color-span, and held-out-scatter thresholds. A pass validates point-source calibration only. Extended-source color transfer and injection/recovery remain mandatory.
 
 Test that stellar relation on resolved galaxy light before using it:
 

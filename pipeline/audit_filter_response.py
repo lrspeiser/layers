@@ -11,6 +11,7 @@ injection/recovery validation.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import math
@@ -19,9 +20,11 @@ from pathlib import Path
 
 import numpy as np
 from astropy.io import fits
+from astropy.wcs import WCS
+from scipy.spatial import cKDTree
 
 from audit_layer_registration import centroid_sources, fit_sky_plane, robust_sigma
-from reconcile_image_layers import read_comparison, shifted_comparison
+from reconcile_image_layers import read_comparison, read_rubin, shifted_comparison
 
 
 MIN_CALIBRATION_STARS = 50
@@ -31,6 +34,9 @@ APERTURE_RADIUS_PIXELS = 8
 SKY_INNER_RADIUS_PIXELS = 12
 SKY_OUTER_RADIUS_PIXELS = 18
 MIN_SIGNAL_TO_NOISE = 20.0
+MAX_CATALOG_MAG_ERROR = 0.05
+MAX_PSF_KRON_DIFFERENCE_MAG = 0.20
+CATALOG_MATCH_RADIUS_ARCSEC = 0.80
 
 
 def sha256(path: Path) -> str:
@@ -92,6 +98,106 @@ def spatial_fold(x: float, y: float) -> int:
     return (int(x // 240) + 3 * int(y // 240)) % 5
 
 
+def panstarrs_catalog_rows(
+    slug: str,
+    coverage: dict,
+    reconciliation: dict,
+    catalog_root: Path,
+) -> tuple[list[dict], list[dict], int, dict, dict]:
+    """Measure Rubin fluxes at independently calibrated PS1 stellar positions."""
+    catalog_path = catalog_root / f"{slug}.csv"
+    manifest_path = catalog_root / "manifest.json"
+    if not catalog_path.is_file() or not manifest_path.is_file():
+        raise FileNotFoundError(
+            "The checksum-backed Pan-STARRS DR2 mean-object catalog has not been acquired. "
+            f"Run fetch_panstarrs_catalog.py --only {slug}."
+        )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest_record = next((record for record in manifest["targets"] if record["objectId"] == slug), None)
+    if manifest_record is None or manifest_record.get("sha256") != sha256(catalog_path):
+        raise RuntimeError("The Pan-STARRS catalog cache does not match its acquisition manifest.")
+
+    rubin_path = Path(reconciliation["products"]["sourceRubin"])
+    rubin_i, rubin_variance, rubin_valid, rubin_header = read_rubin(rubin_path)
+    pixel_scale = float(rubin_header["PIXSCALE"])
+    exclusion = max(coverage[slug]["major_axis_arcmin"] * 60 / pixel_scale * 1.5, 60)
+    rubin_sky, rubin_sky_record = fit_sky_plane(rubin_i, rubin_valid, exclusion)
+    rubin_i -= rubin_sky
+    sources = centroid_sources(rubin_i, rubin_valid, exclusion, pixel_scale)
+    if not sources:
+        return [], [], 0, manifest_record, rubin_sky_record
+    positions = np.asarray([[source["x"], source["y"]] for source in sources])
+    tree = cKDTree(positions)
+    wcs = WCS(rubin_header).celestial
+    height, width = rubin_i.shape
+    catalog_matches: dict[int, tuple[float, dict, float, float, float, float]] = {}
+    with catalog_path.open("r", encoding="utf-8", newline="") as handle:
+        for record in csv.DictReader(handle):
+            try:
+                r_mag = float(record["rMeanPSFMag"])
+                i_mag = float(record["iMeanPSFMag"])
+                r_error = float(record["rMeanPSFMagErr"])
+                i_error = float(record["iMeanPSFMagErr"])
+                r_kron = float(record["rMeanKronMag"])
+                i_kron = float(record["iMeanKronMag"])
+                ra = float(record["raMean"])
+                dec = float(record["decMean"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            values = (r_mag, i_mag, r_error, i_error, r_kron, i_kron, ra, dec)
+            if not all(np.isfinite(values)) or min(r_mag, i_mag, r_error, i_error, r_kron, i_kron) <= -900:
+                continue
+            if int(record["nr"]) < 2 or int(record["ni"]) < 2:
+                continue
+            if max(r_error, i_error) > MAX_CATALOG_MAG_ERROR:
+                continue
+            if abs(r_mag - r_kron) > MAX_PSF_KRON_DIFFERENCE_MAG or abs(i_mag - i_kron) > MAX_PSF_KRON_DIFFERENCE_MAG:
+                continue
+            catalog_x, catalog_y = wcs.world_to_pixel_values(ra, dec)
+            catalog_x, catalog_y = float(catalog_x), float(catalog_y)
+            if not (0 <= catalog_x < width and 0 <= catalog_y < height):
+                continue
+            if math.hypot(catalog_x - (width - 1) / 2, catalog_y - (height - 1) / 2) <= exclusion:
+                continue
+            distance, index = tree.query(
+                [catalog_x, catalog_y], distance_upper_bound=CATALOG_MATCH_RADIUS_ARCSEC / pixel_scale
+            )
+            if not np.isfinite(distance):
+                continue
+            index = int(index)
+            previous = catalog_matches.get(index)
+            if previous is None or distance < previous[0]:
+                catalog_matches[index] = (float(distance), record, r_mag, i_mag, r_error, i_error)
+
+    rows = []
+    for index, (distance, record, r_mag, i_mag, r_error, i_error) in catalog_matches.items():
+        source = sources[index]
+        rubin_sample = aperture_flux(
+            rubin_i, rubin_variance, rubin_valid, source["x"], source["y"]
+        )
+        if rubin_sample is None or rubin_sample[0] <= 0 or rubin_sample[0] / rubin_sample[1] < MIN_SIGNAL_TO_NOISE:
+            continue
+        rubin_mag = 31.4 - 2.5 * math.log10(rubin_sample[0])
+        color = r_mag - i_mag
+        delta = rubin_mag - i_mag
+        rows.append(
+            {
+                "x": source["x"],
+                "y": source["y"],
+                "fold": spatial_fold(source["x"], source["y"]),
+                "referenceColorMag": color,
+                "rubinMinusReferenceMag": delta,
+                "colorUncertaintyMag": math.sqrt(r_error**2 + i_error**2),
+                "deltaUncertaintyMag": math.sqrt(
+                    (1.085736 * rubin_sample[1] / rubin_sample[0]) ** 2 + i_error**2
+                ),
+                "catalogObjectId": record["objID"],
+                "catalogToRubinCentroidArcsec": float(distance * pixel_scale),
+            }
+        )
+    return rows, sources, len(catalog_matches), manifest_record, rubin_sky_record
+
+
 def bootstrap_coefficients(color: np.ndarray, delta: np.ndarray, samples: int = 400) -> dict:
     generator = np.random.default_rng(20260812)
     coefficients = []
@@ -140,72 +246,91 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         }
 
     matched_path = Path(reconciliation["products"]["matchedPair"])
-    with fits.open(matched_path, memmap=False) as hdus:
-        rubin_z = np.asarray(hdus["RUBIN"].data, dtype=np.float64)
-        rubin_variance = np.asarray(hdus["RUBIN_VAR"].data, dtype=np.float64)
-        legacy_z = np.asarray(hdus["COMPARISON"].data, dtype=np.float64)
-        legacy_z_variance = np.asarray(hdus["COMPARISON_VAR"].data, dtype=np.float64)
-        common = np.asarray(hdus["COMMON_MASK"].data, dtype=bool)
-        pixel_scale = float(hdus["RUBIN"].header["PIXSCALE"])
+    catalog_support = None
+    detected_sources = []
+    catalog_candidates = None
+    if comparison_layer == "panstarrs-dr1-stack":
+        try:
+            rows, detected_sources, catalog_candidates, catalog_record, rubin_sky_record = panstarrs_catalog_rows(
+                slug, coverage, reconciliation, args.panstarrs_catalog_root
+            )
+        except (FileNotFoundError, RuntimeError) as error:
+            return {
+                "schemaVersion": 1,
+                "objectId": slug,
+                "status": "blocked",
+                "reason": str(error),
+            }
+        catalog_path = args.panstarrs_catalog_root / f"{slug}.csv"
+        catalog_support = {
+            "catalog": "Pan-STARRS DR2 MeanObjectView",
+            "catalogPath": str(catalog_path.resolve()),
+            "catalogSha256": sha256(catalog_path),
+            "catalogRows": catalog_record["rows"],
+            "queryUrl": catalog_record["queryUrl"],
+            "documentation": catalog_record["documentation"],
+            "rubinSource": reconciliation["products"]["sourceRubin"],
+            "rubinSourceSha256": reconciliation["products"]["sourceRubinSha256"],
+            "rubinSkyModelNjy": rubin_sky_record,
+            "positionMatchRadiusArcsec": CATALOG_MATCH_RADIUS_ARCSEC,
+            "maximumCatalogMagnitudeError": MAX_CATALOG_MAG_ERROR,
+            "maximumPsfMinusKronMagnitude": MAX_PSF_KRON_DIFFERENCE_MAG,
+        }
+    else:
+        with fits.open(matched_path, memmap=False) as hdus:
+            rubin_z = np.asarray(hdus["RUBIN"].data, dtype=np.float64)
+            rubin_variance = np.asarray(hdus["RUBIN_VAR"].data, dtype=np.float64)
+            legacy_z = np.asarray(hdus["COMPARISON"].data, dtype=np.float64)
+            legacy_z_variance = np.asarray(hdus["COMPARISON_VAR"].data, dtype=np.float64)
+            common = np.asarray(hdus["COMMON_MASK"].data, dtype=bool)
+            pixel_scale = float(hdus["RUBIN"].header["PIXSCALE"])
 
     reference_prefix = "legacy" if comparison_layer == "legacy-survey-dr10" else "panstarrs"
     legacy_r_path = reference_root / slug / f"{reference_prefix}_{predictor_band}.fits"
-    if not legacy_r_path.is_file():
+    if comparison_layer == "legacy-survey-dr10" and not legacy_r_path.is_file():
         return {
             "schemaVersion": 1,
             "objectId": slug,
             "status": "blocked",
             "reason": f"The {reference_label} {predictor_band}-band predictor product has not been acquired.",
         }
-    legacy_r, legacy_r_variance, legacy_r_valid = read_comparison(legacy_r_path, comparison_layer)
-    shift_record = reconciliation["registration"]["appliedComparisonShiftPixels"]
-    legacy_r, legacy_r_variance, legacy_r_valid = shifted_comparison(
-        legacy_r,
-        legacy_r_variance,
-        legacy_r_valid,
-        shift_record["x"],
-        shift_record["y"],
-    )
-    legacy_r_common = legacy_r_valid & common
-    exclusion = max(coverage[slug]["major_axis_arcmin"] * 60 / pixel_scale * 1.5, 60)
-    legacy_r_sky, legacy_r_sky_record = fit_sky_plane(legacy_r, legacy_r_common, exclusion)
-    legacy_r -= legacy_r_sky
-
-    sources = centroid_sources(rubin_z, common, exclusion, pixel_scale)
-    rows = []
-    for source in sources:
-        samples = [
-            aperture_flux(rubin_z, rubin_variance, common, source["x"], source["y"]),
-            aperture_flux(legacy_z, legacy_z_variance, common, source["x"], source["y"]),
-            aperture_flux(legacy_r, legacy_r_variance, legacy_r_common, source["x"], source["y"]),
-        ]
-        if any(sample is None for sample in samples):
-            continue
-        rubin_sample, legacy_z_sample, legacy_r_sample = samples
-        assert rubin_sample and legacy_z_sample and legacy_r_sample
-        if min(rubin_sample[0], legacy_z_sample[0], legacy_r_sample[0]) <= 0:
-            continue
-        if min(rubin_sample[0] / rubin_sample[1], legacy_z_sample[0] / legacy_z_sample[1], legacy_r_sample[0] / legacy_r_sample[1]) < MIN_SIGNAL_TO_NOISE:
-            continue
-        color = -2.5 * math.log10(legacy_r_sample[0] / legacy_z_sample[0])
-        delta = -2.5 * math.log10(rubin_sample[0] / legacy_z_sample[0])
-        color_uncertainty = 1.085736 * math.sqrt(
-            (legacy_r_sample[1] / legacy_r_sample[0]) ** 2 + (legacy_z_sample[1] / legacy_z_sample[0]) ** 2
+    if comparison_layer == "legacy-survey-dr10":
+        legacy_r, legacy_r_variance, legacy_r_valid = read_comparison(legacy_r_path, comparison_layer)
+        shift_record = reconciliation["registration"]["appliedComparisonShiftPixels"]
+        legacy_r, legacy_r_variance, legacy_r_valid = shifted_comparison(
+            legacy_r, legacy_r_variance, legacy_r_valid, shift_record["x"], shift_record["y"]
         )
-        delta_uncertainty = 1.085736 * math.sqrt(
-            (rubin_sample[1] / rubin_sample[0]) ** 2 + (legacy_z_sample[1] / legacy_z_sample[0]) ** 2
-        )
-        rows.append(
-            {
-                "x": source["x"],
-                "y": source["y"],
-                "fold": spatial_fold(source["x"], source["y"]),
-                "legacyRMinusZMag": color,
-                "rubinZMinusLegacyZMag": delta,
-                "colorUncertaintyMag": color_uncertainty,
-                "deltaUncertaintyMag": delta_uncertainty,
-            }
-        )
+        legacy_r_common = legacy_r_valid & common
+        exclusion = max(coverage[slug]["major_axis_arcmin"] * 60 / pixel_scale * 1.5, 60)
+        legacy_r_sky, legacy_r_sky_record = fit_sky_plane(legacy_r, legacy_r_common, exclusion)
+        legacy_r -= legacy_r_sky
+        detected_sources = centroid_sources(rubin_z, common, exclusion, pixel_scale)
+        rows = []
+        for source in detected_sources:
+            samples = [
+                aperture_flux(rubin_z, rubin_variance, common, source["x"], source["y"]),
+                aperture_flux(legacy_z, legacy_z_variance, common, source["x"], source["y"]),
+                aperture_flux(legacy_r, legacy_r_variance, legacy_r_common, source["x"], source["y"]),
+            ]
+            if any(sample is None for sample in samples):
+                continue
+            rubin_sample, legacy_z_sample, legacy_r_sample = samples
+            assert rubin_sample and legacy_z_sample and legacy_r_sample
+            if min(rubin_sample[0], legacy_z_sample[0], legacy_r_sample[0]) <= 0:
+                continue
+            if min(rubin_sample[0] / rubin_sample[1], legacy_z_sample[0] / legacy_z_sample[1], legacy_r_sample[0] / legacy_r_sample[1]) < MIN_SIGNAL_TO_NOISE:
+                continue
+            color = -2.5 * math.log10(legacy_r_sample[0] / legacy_z_sample[0])
+            delta = -2.5 * math.log10(rubin_sample[0] / legacy_z_sample[0])
+            rows.append(
+                {
+                    "x": source["x"], "y": source["y"], "fold": spatial_fold(source["x"], source["y"]),
+                    "referenceColorMag": color, "rubinMinusReferenceMag": delta,
+                    "colorUncertaintyMag": 1.085736 * math.sqrt((legacy_r_sample[1] / legacy_r_sample[0]) ** 2 + (legacy_z_sample[1] / legacy_z_sample[0]) ** 2),
+                    "deltaUncertaintyMag": 1.085736 * math.sqrt((rubin_sample[1] / rubin_sample[0]) ** 2 + (legacy_z_sample[1] / legacy_z_sample[0]) ** 2),
+                }
+            )
+    sources = detected_sources
 
     if len(rows) < 10:
         audit = {
@@ -220,6 +345,7 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
             "model": None,
             "sample": {
                 "detectedPointSources": len(sources),
+                "catalogPointSourceCandidates": catalog_candidates,
                 "qualifiedHighSnrSources": len(rows),
                 "retainedCalibrationStars": len(rows),
                 "signalToNoiseMinimum": MIN_SIGNAL_TO_NOISE,
@@ -237,9 +363,11 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
             "quantitativeDifferenceAllowed": False,
             "supportingProducts": {
                 "matchedPairSha256": sha256(matched_path),
-                "predictorBandSource": str(legacy_r_path.resolve()),
-                "predictorBandSourceSha256": sha256(legacy_r_path),
-                "predictorBandSkyModelNjy": legacy_r_sky_record,
+                **(catalog_support or {
+                    "predictorBandSource": str(legacy_r_path.resolve()),
+                    "predictorBandSourceSha256": sha256(legacy_r_path),
+                    "predictorBandSkyModelNjy": legacy_r_sky_record,
+                }),
                 "referenceSurvey": reference_label,
             },
             "limitations": [
@@ -263,8 +391,8 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         reconciliation_path.write_text(json.dumps(reconciliation, indent=2, allow_nan=False), encoding="utf-8")
         return audit
 
-    color = np.asarray([row["legacyRMinusZMag"] for row in rows])
-    delta = np.asarray([row["rubinZMinusLegacyZMag"] for row in rows])
+    color = np.asarray([row["referenceColorMag"] for row in rows])
+    delta = np.asarray([row["rubinMinusReferenceMag"] for row in rows])
     coefficients, residuals, retained = robust_linear_fit(color, delta)
     retained_indices = np.flatnonzero(retained)
     cross_validation_residuals = []
@@ -314,10 +442,12 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         },
         "sample": {
             "detectedPointSources": len(sources),
+            "catalogPointSourceCandidates": catalog_candidates,
             "qualifiedHighSnrSources": len(rows),
             "retainedCalibrationStars": int(retained.sum()),
             "rejectedOutliers": int((~retained).sum()),
             "signalToNoiseMinimum": MIN_SIGNAL_TO_NOISE,
+            "referenceColorP05P95Mag": [float(item) for item in np.percentile(color[retained], [5, 95])],
             "legacyRMinusZP05P95Mag": [float(item) for item in np.percentile(color[retained], [5, 95])],
             "colorSpanMag": color_span,
             "apertureRadiusPixels": APERTURE_RADIUS_PIXELS,
@@ -340,13 +470,16 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         "quantitativeDifferenceAllowed": False,
         "supportingProducts": {
             "matchedPairSha256": sha256(matched_path),
-            "predictorBandSource": str(legacy_r_path.resolve()),
-            "predictorBandSourceSha256": sha256(legacy_r_path),
-            "predictorBandSkyModelNjy": legacy_r_sky_record,
+            **(catalog_support or {
+                "predictorBandSource": str(legacy_r_path.resolve()),
+                "predictorBandSourceSha256": sha256(legacy_r_path),
+                "predictorBandSkyModelNjy": legacy_r_sky_record,
+            }),
             "referenceSurvey": reference_label,
         },
         "limitations": [
             "The fitted relation is empirical and field-specific; it is validated on held-out stars only.",
+            *(["Pan-STARRS catalog photometry is independently calibrated; this stellar test does not calibrate the DR1 stack-pixel zero points used by a future resolved-light transform."] if catalog_support else []),
             "Stellar colors do not establish the transformation for an extended galaxy with spatially varying stellar populations, dust, and emission lines.",
             "Aperture-level validation absorbs average PSF differences but does not create a PSF-matched r-band image.",
             "Extended-source synthetic photometry and injection/recovery remain mandatory before interpreting a diffuse-light difference.",
@@ -362,7 +495,11 @@ def audit_target(slug: str, coverage: dict, args: argparse.Namespace) -> dict:
         "audit": str(audit_path.resolve()),
         "auditSha256": audit["auditSha256"],
         "heldOutRmsMag": cv_rms,
-        "reason": "Held-out field stars constrain the color term, but extended-source transfer and recovery tests remain pending.",
+            "reason": (
+                "Held-out field stars pass the predeclared sample, color-span, and RMS gates; extended-source transfer remains pending."
+                if point_source_pass
+                else "The empirical relation is precise, but one or more predeclared stellar calibration gates remain unmet."
+            ),
     }
     reconciliation["quantitativeDifferenceAllowed"] = False
     reconciliation_path.write_text(json.dumps(reconciliation, indent=2), encoding="utf-8")
@@ -376,6 +513,7 @@ def main() -> None:
     parser.add_argument("--comparisons", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--legacy-root", type=Path, default=root / "pipeline" / "output" / "legacy-survey")
     parser.add_argument("--panstarrs-root", type=Path, default=root / "pipeline" / "output" / "panstarrs")
+    parser.add_argument("--panstarrs-catalog-root", type=Path, default=root / "pipeline" / "cache" / "panstarrs-dr2-mean")
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
     coverage = {item["slug"]: item for item in json.loads(args.coverage.read_text(encoding="utf-8"))["targets"]}

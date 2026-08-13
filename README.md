@@ -35,7 +35,7 @@ No image or statistic is fabricated, substituted, or reused. Image sliders activ
 - `pipeline/query_local_layers.py` performs read-only target or coordinate queries against that local store and returns product paths, hashes, coverage, and QA records.
 - `pipeline/validate_layers_catalog.py` enforces the generic catalog and publication invariants.
 - `pipeline/query_dp2_sia.py` and `pipeline/download_dp2_matches.py` implement quota-aware Rubin discovery and calibrated local ingestion.
-- `pipeline/fetch_legacy_survey.py` and `pipeline/fetch_panstarrs.py` acquire reproducible full-resolution reference image layers and support planes; `pipeline/fetch_gaia_astrometry.py` caches checksum-backed Gaia DR3 astrometry for epoch-aware registration.
+- `pipeline/fetch_legacy_survey.py` and `pipeline/fetch_panstarrs.py` acquire reproducible full-resolution reference image layers and support planes; `pipeline/fetch_gaia_astrometry.py` and `pipeline/fetch_panstarrs_catalog.py` cache checksum-backed astrometry and independent calibrated stellar photometry.
 - `pipeline/audit_layer_registration.py` measures common coverage, WCS agreement, source residuals, empirical PSF widths, and sky models without marking unapplied operations as passed.
 - `pipeline/build_visual_prototype.py` makes local-only display stretches and a real reference-coverage mask for `/prototype`; calibrated FITS remain the analysis inputs and authenticated Rubin pixels never enter public deployment artifacts.
 
