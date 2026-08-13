@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import catalogData from "@/public/data/layers-catalog.json";
 import type { LayerTarget } from "@/lib/layers";
 import { layerStatusLabel } from "@/lib/layers";
+import TargetComparisonViewer from "@/components/TargetComparisonViewer";
+import previewData from "@/public/data/comparison-previews.json";
 
 const targets = catalogData.targets as unknown as LayerTarget[];
 
@@ -23,6 +25,10 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
   if (!target) notFound();
   const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
   const pilot = target.pilotAudit;
+  const preview = previewData.comparisons.find((item) => item.objectId === target.id);
+  const comparison = preview
+    ? target.comparisons.find((item) => preview.layerIds.every((layerId) => item.layerIds.includes(layerId)))
+    : target.comparisons[0];
 
   return (
     <main className="target-record-page">
@@ -39,6 +45,7 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
 
       <section className="record-content">
         <div className="record-main">
+          {comparison && preview && <TargetComparisonViewer target={target} comparison={comparison} preview={preview} />}
           <div className="record-section-title"><span className="eyebrow">AVAILABLE LAYERS</span><h2>Evidence attached to this place in the sky.</h2></div>
           <div className="record-layer-list">
             {target.layers.map((layer, index) => (

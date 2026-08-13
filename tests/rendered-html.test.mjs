@@ -27,7 +27,7 @@ test("server-renders Layers as a survey-neutral science workspace", async () => 
   assert.match(html, /TRIAGE, NOT A VERDICT/);
   assert.match(html, /REGISTRATION QA/);
   assert.match(html, /0\.220/);
-  assert.match(html, /AUTHENTIC LOCAL DP2 \+ DR10/);
+  assert.match(html, /AUTHENTIC MATCHED PIXELS/);
   assert.match(html, /Coverage diff/);
   assert.match(html, /Signal candidates/);
   assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
@@ -82,6 +82,15 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(usableHtml, /UGC00191/);
   assert.match(usableHtml, /Local Rubin pixels verified/);
   assert.match(usableHtml, /QA comparison record available; no scientific difference published/);
+  assert.match(usableHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
+  assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
+  assert.match(usableHtml, /type="range"/);
+  assert.match(usableHtml, /SCIENCE CLAIM[\s\S]*NOT PUBLISHED/);
+
+  const secondLegacy = await render("/target/ugc00634");
+  const secondLegacyHtml = await secondLegacy.text();
+  assert.match(secondLegacyHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
+  assert.match(secondLegacyHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
 
   const footprintOnly = await render("/target/ngc0100");
   assert.equal(footprintOnly.status, 200);
@@ -93,9 +102,23 @@ test("permanent target records expose honest pixel-level coverage states", async
 
   const calibrationBlocked = await render("/target/ugc00891");
   const calibrationHtml = await calibrationBlocked.text();
+  assert.match(calibrationHtml, /FUNCTIONAL MATCHED-PIXEL EXAMPLE/);
+  assert.match(calibrationHtml, /Rubin DP2[\s\S]*Pan-STARRS/);
   assert.match(calibrationHtml, /qualified resolved galaxy cells/);
   assert.match(calibrationHtml, /Only 7\/20 required cells survive the common mask/);
   assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}20/);
+});
+
+test("every authentic matched pilot has a deterministic preview manifest", async () => {
+  const previews = JSON.parse(await readFile(join(root, "public", "data", "comparison-previews.json"), "utf8"));
+  assert.deepEqual(previews.comparisons.map((item) => item.objectId), ["ugc00191", "ugc00634", "ugc00891"]);
+  for (const preview of previews.comparisons) {
+    assert.match(preview.analysisProductSha256, /^[a-f0-9]{64}$/);
+    assert.ok(preview.commonValidPixelFraction > 0);
+    assert.match(preview.assets.rubin.path, new RegExp(`^/private-preview/${preview.objectId}/`));
+    assert.match(preview.assets.reference.path, new RegExp(`^/private-preview/${preview.objectId}/`));
+    assert.match(preview.notice, /Display stretch only/);
+  }
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {

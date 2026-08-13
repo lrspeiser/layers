@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "comparisons": [
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T05:31:30.239139+00:00",
+      "objectId": "ugc00191",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "band": "z",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.9384058641975309,
+      "analysisProductSha256": "276fa99c20b3fd3a9e909b8105e0330a2b872307f5ff144989462605667542db",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00191/rubin-matched.jpg",
+          "sha256": "fbf76fd55856adbb0a4c3ad980dcfe3026d24f1370042106b6602149b2b73348"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00191/reference-matched.jpg",
+          "sha256": "28a0b6d57f3f411d356f52e4de0602f9f35d2793c8ea8466c4d07c5c716a32f5"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00191/common-coverage.png",
+          "sha256": "3e5fa1d428fa14231a25fde656672127f1da16fd896ee27ca919fbae9e39d411"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+    },
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T05:31:41.145876+00:00",
+      "objectId": "ugc00634",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "band": "z",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.9600311728395061,
+      "analysisProductSha256": "68bee08054a38dcc4df35ae6f756f637360480ae1d33aa1a9ecb6d85b58cda5c",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00634/rubin-matched.jpg",
+          "sha256": "b9c3966b41439b0cfdf7e2817a9e46ad08df9f26ce4ce53306448fc5621f370a"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00634/reference-matched.jpg",
+          "sha256": "56c033df491565069f727aeb3991b6a16e95adc6646e0d3d25b8189543311c98"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00634/common-coverage.png",
+          "sha256": "777632600526cb9dfdbb8c93ca609ca4a151d11ffc79a4cc18c99156505269c8"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+    },
+    {
+      "schemaVersion": 1,
+      "createdAt": "2026-08-13T05:31:47.744009+00:00",
+      "objectId": "ugc00891",
+      "layerIds": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "band": "i",
+      "shape": [
+        1800,
+        1800
+      ],
+      "commonValidPixelFraction": 0.34210092592592595,
+      "analysisProductSha256": "e5767535ef8fc5c4b49d30fb70ca8c71d73582b9b97316b40df327b63e599fc8",
+      "assets": {
+        "rubin": {
+          "path": "/private-preview/ugc00891/rubin-matched.jpg",
+          "sha256": "e9b471feefb51ff12f5e2ab6f9831baf558cde61ba301220ff7f6ed3040bcdf3"
+        },
+        "reference": {
+          "path": "/private-preview/ugc00891/reference-matched.jpg",
+          "sha256": "106d05328c6c7494de8ef10690db8bcf00cd9e669bca3f6e75f8c88284a373da"
+        },
+        "commonCoverage": {
+          "path": "/private-preview/ugc00891/common-coverage.png",
+          "sha256": "0975a35bfa9e6da2d7ed010297873e573f0e4f2a6a5ef6bc85e62b1b20150868"
+        }
+      },
+      "notice": "Display stretch only; calibrated matched FITS is the analysis input. A preview does not authorize a scientific difference claim."
+    }
+  ]
+}
