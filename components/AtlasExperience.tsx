@@ -511,7 +511,6 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
             <label><span>LAYER B</span><select value={right.id} onChange={(event) => selectLayer("right", event.target.value)}>{selected.layers.map((layer) => <option value={layer.id} key={layer.id}>{layer.survey} · {layer.release}</option>)}</select></label>
           </div>
 
-          <div className="layer-cards"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
           <div className="view-tabs">
             <button className={workbenchView === "evidence" ? "active" : ""} onClick={() => setWorkbenchView("evidence")}>Evidence</button>
             <button className={workbenchView === "swipe" ? "active" : ""} disabled={!swipeEnabled} onClick={() => setWorkbenchView("swipe")}>Swipe</button>
@@ -521,6 +520,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
             <span>{authenticQaViewer ? `Real ${selected.name} matched pixels · QA only` : "Views activate by data type + QA"}</span>
           </div>
           <LayerViewport key={`${selected.id}-${left.id}-${right.id}`} target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} profile={profiles[selected.id]} />
+          <div className="layer-cards layer-cards-after-view"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
           <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
         </section>
       </section>
