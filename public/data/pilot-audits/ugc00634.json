@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers pilot audit package",
+  "generatedAt": "2026-08-13T02:49:40.275032+00:00",
+  "target": {
+    "id": "ugc00634",
+    "name": "UGC00634",
+    "identifiers": {
+      "SPARC": "UGC00634",
+      "SIMBAD": "Z 410-23"
+    },
+    "center": {
+      "raDeg": 15.354878,
+      "decDeg": 7.625991,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 0.993793
+    }
+  },
+  "layers": [
+    {
+      "id": "sparc-2016",
+      "survey": "SPARC",
+      "release": "2016 master sample",
+      "instrument": "Spitzer photometry + published rotation curves",
+      "kind": "profile",
+      "availability": "available",
+      "renderMode": "plot",
+      "bands": [
+        "3.6um"
+      ],
+      "units": {
+        "surfaceBrightness": "mag arcsec^-2",
+        "velocity": "km s^-1"
+      },
+      "calibration": "SPARC published tables",
+      "hasVariance": false,
+      "hasMask": false,
+      "hasWcs": false,
+      "note": "A radial photometry and rotation-curve layer; it must be plotted or overlaid, never treated as a sky image.",
+      "provenance": {
+        "bibcode": "2016AJ....152..157L",
+        "sampleId": "UGC00634"
+      },
+      "assets": {
+        "data": "/data/sparc-profiles/ugc00634.json"
+      },
+      "profileSummary": {
+        "acceptedPhotometryPoints": 48,
+        "maximumAcceptedRadiusArcsec": 57.58,
+        "rotationCurvePoints": 4,
+        "maximumRotationRadiusKpc": 18.01
+      }
+    },
+    {
+      "id": "rubin-dp2-deep-coadd",
+      "survey": "Vera C. Rubin Observatory",
+      "release": "DP2",
+      "instrument": "LSSTCam",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "i",
+        "r",
+        "z"
+      ],
+      "bandCoverage": {
+        "i": 0.8251570987654321,
+        "r": 0.9145799382716049,
+        "z": 0.9749308641975308
+      },
+      "datasetCount": 21,
+      "datasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8be-fe61-7bbe-b40e-13c29d82a972",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-0d84-7d55-bbfc-8469e22fd59a",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-523d-70a3-ab23-b55aba04066f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-8573-7cac-a963-6c11bac037e9",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-a8f9-7946-a2cc-a3ba09b412fe",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d55d-7db2-941c-c6f28b5641dc",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-1660-739f-b8e5-075200de987b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-32ae-78e1-b084-3710d4f85f73",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-5f42-78cf-8e26-a6d874a5c745",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-bcc7-7a32-80b4-60c7df0b9586",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-e2c9-7370-b88c-ed10f025a40d",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-e9cf-702c-a391-1c26b838f0ad",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-febb-775c-839e-5ebc3a247a8b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-102a-7447-b203-c918893d23ce",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-3681-7f0c-81be-69db19648710",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-6346-763b-9ec4-cb02766b7ea8",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7778-7c6e-9aea-b75d5ef2c306",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-a27a-7cf5-a608-defedec2fa64",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b6b5-729d-a474-e813dfa0e90f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-cb59-7f3d-8380-9e79bd829f44",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-ea51-7a8f-add0-babcf1b5b4d0"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "Rubin Science Pipelines deep coadd",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "provenance": {
+        "service": "Rubin Science Platform SIA v2 + DataLink",
+        "datasetType": "lsst.deep_coadd",
+        "queryStatus": "OK"
+      }
+    },
+    {
+      "id": "legacy-survey-dr10",
+      "survey": "DESI Legacy Imaging Surveys",
+      "release": "DR10",
+      "instrument": "DECam + BASS/MzLS",
+      "kind": "image",
+      "availability": "available-local",
+      "renderMode": "metadata",
+      "bands": [
+        "g",
+        "r",
+        "i",
+        "z"
+      ],
+      "bandCoverage": {
+        "g": 0.9999333333333333,
+        "r": 0.9999077160493827,
+        "i": 0.9971743827160494,
+        "z": 0.9999373456790124
+      },
+      "datasetCount": 16,
+      "datasetIds": [
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305339575&dec=7.5509845359&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3800966655&dec=7.5509903198&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296593345&dec=7.5509903198&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792220425&dec=7.5509845359&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305427967&dec=7.6009844511&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3800996119&dec=7.6009902738&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296563881&dec=7.6009902738&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792132033&dec=7.6009844511&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305516380&dec=7.6509844043&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3801025590&dec=7.6509902657&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296534410&dec=7.6509902657&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2792043620&dec=7.6509844043&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.4305604813&dec=7.7009843194&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3801055068&dec=7.7009902196&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.3296504932&dec=7.7009902196&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar=",
+        "https://www.legacysurvey.org/viewer/fits-cutout?ra=15.2791955187&dec=7.7009843194&size=512&layer=ls-dr10&pixscale=0.4&bands=griz&invvar="
+      ],
+      "units": {
+        "image": "nanomaggy",
+        "inverseVariance": "nanomaggy^-2"
+      },
+      "calibration": "Legacy Survey DR10 coadded calibrated flux",
+      "hasVariance": true,
+      "hasMask": true,
+      "hasWcs": true,
+      "note": "Calibrated tiled FITS mosaics exist in the local layer store; publication and cross-survey comparison remain QA-gated.",
+      "provenance": {
+        "service": "Legacy Survey FITS cutout service",
+        "layer": "ls-dr10",
+        "documentation": "https://www.legacysurvey.org/dr10/description/"
+      }
+    }
+  ],
+  "pilotAudit": {
+    "id": "ugc00634-filter-transfer-limit",
+    "outcome": "filter-transfer-blocked",
+    "stage": "filter-response",
+    "observation": "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the color transform fails on resolved galaxy light.",
+    "metric": {
+      "label": "resolved median absolute filter-transfer residual",
+      "value": 0.4739768569919122,
+      "unit": "mag",
+      "passThreshold": 0.08,
+      "comparison": "must be less than or equal to"
+    },
+    "claimStatus": "blocked",
+    "evidence": [
+      {
+        "path": "pipeline/output/comparisons/ugc00634/extended-source-filter-audit.json",
+        "sha256": "235a45f862a489b67d41003147552fc5cacffb78c171a04763f2c0486ff66937"
+      }
+    ],
+    "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
+  },
+  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
+}

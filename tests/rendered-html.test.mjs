@@ -64,6 +64,7 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   assert.equal(catalog.summary.panStarrsUsableLocal, 1);
   assert.equal(catalog.summary.localImageLayers, 7);
   assert.equal(catalog.summary.registrationAudits, 3);
+  assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 2);
   assert.equal(catalog.targets.find((target) => target.id === "ugc00191").comparisons[0].status, "qa");
   assert.equal(catalog.targets.find((target) => target.id === "ugc00891").comparisons[0].qa.astrometryPass, false);
@@ -87,6 +88,13 @@ test("permanent target records expose honest pixel-level coverage states", async
   const footprintHtml = await footprintOnly.text();
   assert.match(footprintHtml, /Footprint false positive/);
   assert.match(footprintHtml, /every intersecting Rubin pixel is masked NO_DATA/);
+  assert.match(footprintHtml, /valid calibrated-pixel fraction/);
+  assert.match(footprintHtml, /Download pilot audit \+ checksums/);
+
+  const registrationBlocked = await render("/target/ugc00891");
+  const registrationHtml = await registrationBlocked.text();
+  assert.match(registrationHtml, /0\.403[\s\S]{0,40}arcsec/);
+  assert.match(registrationHtml, /must be less than or equal to[\s\S]{0,40}0\.30/);
 });
 
 test("comparison architecture keeps evidence, measurements, inference, and audits separate", async () => {
@@ -154,6 +162,11 @@ test("resolved galaxy filter-transfer failures remain hard science gates", async
     assert.equal(comparison.registration.filterMatched, false);
     assert.equal(comparison.status, "qa");
   }
+  const pilotTargets = catalog.targets.filter((target) => target.pilotAudit);
+  assert.deepEqual(pilotTargets.map((target) => target.id).sort(), ["ngc0100", "ugc00191", "ugc00634", "ugc00891"]);
+  assert.equal(catalog.targets.find((target) => target.id === "ngc0100").pilotAudit.evidence[0].sha256, "7e6824743209cf467572c47e2c90624310ac681643629d99af81dd104123643c");
+  const registrationPilot = catalog.targets.find((target) => target.id === "ugc00891").pilotAudit;
+  assert.equal(registrationPilot.metric.value > registrationPilot.metric.passThreshold, true);
   const audits = catalog.targets.flatMap((target) => target.comparisons.flatMap((comparison) => comparison.assumptionAudits));
   assert.deepEqual(audits.sort((a, b) => a.rank - b.rank).map((audit) => audit.id), [
     "ugc00191-stellar-to-resolved-filter-transfer",

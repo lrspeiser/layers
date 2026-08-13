@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -26,6 +27,14 @@ ASSUMPTION_AUDIT_FIELDS = {
     "affectedInference", "confidence", "priorityScore", "evidenceMagnitude",
     "systematicAlternatives", "recommendedFollowUp", "provenance", "caveat",
 }
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def main() -> None:
@@ -51,6 +60,7 @@ def main() -> None:
     published_count = 0
     plotted_profile_count = 0
     assumption_audits = []
+    pilot_audits = []
     for target in targets:
         target_id = target.get("id", "<missing>")
         layers = target.get("layers", [])
@@ -70,6 +80,18 @@ def main() -> None:
             if layer.get("availability") == "published" and layer.get("kind") == "image":
                 if not layer.get("assets", {}).get("preview"):
                     errors.append(f"{target_id}/{layer.get('id')}: published image has no preview")
+        if target.get("pilotAudit"):
+            audit = target["pilotAudit"]
+            pilot_audits.append(audit)
+            if audit.get("claimStatus") != "blocked" or not audit.get("evidence"):
+                errors.append(f"{target_id}: pilot audit must be blocked and carry evidence")
+            for evidence in audit.get("evidence", []):
+                if not evidence.get("path") or len(evidence.get("sha256", "")) != 64:
+                    errors.append(f"{target_id}: pilot audit evidence is incomplete")
+                    continue
+                evidence_path = root / evidence["path"]
+                if not evidence_path.is_file() or sha256(evidence_path) != evidence["sha256"]:
+                    errors.append(f"{target_id}: pilot audit evidence file is missing or has a different checksum")
 
         for comparison in target.get("comparisons", []):
             unknown = set(comparison.get("layerIds", [])) - set(layer_ids)
@@ -122,6 +144,8 @@ def main() -> None:
     ranks = [audit.get("rank") for audit in sorted(assumption_audits, key=lambda item: item.get("priorityScore", 0), reverse=True)]
     if ranks != list(range(1, len(assumption_audits) + 1)):
         errors.append("catalog: assumption audits are not ranked by descending priority")
+    if summary.get("pilotAudits") != len(pilot_audits) or len(pilot_audits) != 4:
+        errors.append("catalog: all four Rubin pilot targets must have an explicit pilot audit")
     if plotted_profile_count != len(targets):
         errors.append("catalog: every target must expose one available SPARC profile")
 

@@ -285,6 +285,13 @@ footer > div { display: flex; font-size: 10px; gap: 22px; }
 .record-empty-comparison > strong { color: #9ba3a0; font-family: var(--font-display), sans-serif; font-size: 55px; text-align: center; }
 .record-empty-comparison h3 { font-family: var(--font-display), sans-serif; font-size: 18px; margin: 0 0 4px; }
 .record-empty-comparison p { color: var(--muted); font-size: 11px; line-height: 1.55; margin: 0; }
+.record-pilot-audit { background: #f0f2ee; border: 1px solid #c8cfcb; margin-top: 18px; padding: 20px; }
+.record-pilot-audit h3 { font-family: var(--font-display), sans-serif; font-size: 20px; line-height: 1.25; margin: 18px 0; }
+.record-pilot-metric { display: grid; gap: 1px; grid-template-columns: 1fr 1fr; }
+.record-pilot-metric span { background: #1a2022; color: white; display: flex; flex-direction: column; padding: 12px; }
+.record-pilot-metric small { color: #80908d; font-family: var(--font-mono), monospace; font-size: 7px; text-transform: uppercase; }
+.record-pilot-metric strong { color: var(--acid); font-family: var(--font-mono), monospace; font-size: 13px; margin-top: 4px; }
+.record-pilot-audit p { color: #65706d; font-size: 10px; line-height: 1.55; }.record-pilot-audit a { color: #6f30b7; font-size: 9px; font-weight: 700; }
 .record-aside { background: var(--night); color: #eaf0eb; padding: 44px 30px; }
 .record-aside .eyebrow { color: var(--cyan); }
 .record-aside h2 { font-family: var(--font-display), sans-serif; font-size: 27px; letter-spacing: -.04em; margin: 12px 0 8px; }

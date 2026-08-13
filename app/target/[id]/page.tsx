@@ -22,6 +22,7 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
   const target = targets.find((item) => item.id === id);
   if (!target) notFound();
   const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
+  const pilot = target.pilotAudit;
 
   return (
     <main className="target-record-page">
@@ -51,13 +52,20 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
 
           <div className="record-section-title"><span className="eyebrow">COMPARISONS</span><h2>Published only after reconciliation and QA.</h2></div>
           <div className="record-empty-comparison"><strong>{target.comparisons.length}</strong><div><h3>{target.comparisons.length ? "QA comparison record available; no scientific difference published." : "No cross-layer comparison record yet."}</h3><p>Images activate scientific difference claims only after common WCS, footprint, PSF, filter response, units, masks, background, uncertainty, and astrometric checks pass. SPARC profiles remain linked physical plots.</p></div></div>
+          {pilot && <section className="record-pilot-audit">
+            <div className="panel-heading"><span className="eyebrow">PILOT OUTCOME · {pilot.stage}</span><span className="claim-state qa-fail">CLAIMS BLOCKED</span></div>
+            <h3>{pilot.observation}</h3>
+            <div className="record-pilot-metric"><span><small>{pilot.metric.label}</small><strong>{pilot.metric.value.toFixed(3)} {pilot.metric.unit}</strong></span><span><small>declared requirement</small><strong>{pilot.metric.comparison} {pilot.metric.passThreshold.toFixed(2)}</strong></span></div>
+            <p><strong>Next action:</strong> {pilot.nextAction}</p>
+            <a href={`/data/pilot-audits/${target.id}.json`}>Download pilot audit + checksums ↗</a>
+          </section>}
         </div>
 
         <aside className="record-aside">
           <span className="eyebrow">CURRENT AUDIT</span>
           <h2>{rubin?.availability === "no-valid-pixels" ? "Footprint false positive" : rubin?.availability === "available-local" ? "Local Rubin pixels verified" : "Coverage state recorded"}</h2>
           <p>{rubin?.note}</p>
-          <dl><div><dt>Selection</dt><dd>{target.selection.sample}</dd></div><div><dt>Major axis</dt><dd>{target.selection.majorAxisArcmin?.toFixed(2) ?? "—"}′</dd></div><div><dt>Layers</dt><dd>{target.layers.length}</dd></div><div><dt>Claims</dt><dd>0</dd></div></dl>
+          <dl><div><dt>Selection</dt><dd>{target.selection.sample}</dd></div><div><dt>Major axis</dt><dd>{target.selection.majorAxisArcmin?.toFixed(2) ?? "—"}′</dd></div><div><dt>Layers</dt><dd>{target.layers.length}</dd></div><div><dt>Pilot gate</dt><dd>{pilot?.outcome ?? "not in pilot"}</dd></div><div><dt>Claims</dt><dd>0</dd></div></dl>
           <div className="record-principle"><strong>Observation ≠ inference</strong><p>This record separates acquired evidence, measured differences, model-dependent interpretation, and speculation.</p></div>
           <a href={`/api/targets/${target.id}`}>Download machine-readable record ↗</a>
         </aside>

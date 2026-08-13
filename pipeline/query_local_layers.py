@@ -78,6 +78,7 @@ def assemble(connection: sqlite3.Connection, target: sqlite3.Row, layer_filter: 
         "fieldWidthArcmin": target["field_width_arcmin"],
         "layers": layers,
         "comparisons": comparisons,
+        "pilotAudit": json.loads(target["pilot_audit_json"]) if target["pilot_audit_json"] else None,
     }
 
 

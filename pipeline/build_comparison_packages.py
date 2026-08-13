@@ -40,13 +40,37 @@ def main() -> None:
     parser.add_argument("--comparisons", type=Path, default=root / "pipeline" / "output" / "comparisons")
     parser.add_argument("--local-output", type=Path, default=root / "pipeline" / "output" / "packages")
     parser.add_argument("--public-output", type=Path, default=root / "public" / "data" / "comparisons")
+    parser.add_argument("--pilot-output", type=Path, default=root / "public" / "data" / "pilot-audits")
     args = parser.parse_args()
     catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
     args.public_output.mkdir(parents=True, exist_ok=True)
+    args.pilot_output.mkdir(parents=True, exist_ok=True)
     args.local_output.mkdir(parents=True, exist_ok=True)
     expected_public = set()
+    expected_pilot = set()
     package_count = 0
+    pilot_count = 0
     for target in catalog["targets"]:
+        if target.get("pilotAudit"):
+            pilot_record = {
+                "schemaVersion": 1,
+                "product": "Layers pilot audit package",
+                "generatedAt": datetime.now(timezone.utc).isoformat(),
+                "target": {
+                    "id": target["id"], "name": target["name"], "identifiers": target["identifiers"],
+                    "center": target["center"], "region": target["region"], "selection": target["selection"],
+                },
+                "layers": target["layers"],
+                "pilotAudit": target["pilotAudit"],
+                "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized.",
+            }
+            pilot_path = args.pilot_output / f"{target['id']}.json"
+            pilot_path.write_text(json.dumps(pilot_record, indent=2), encoding="utf-8")
+            expected_pilot.add(pilot_path.name)
+            local_dir = args.local_output / target["id"]
+            local_dir.mkdir(parents=True, exist_ok=True)
+            (local_dir / "pilot-audit-package.json").write_text(json.dumps(pilot_record, indent=2), encoding="utf-8")
+            pilot_count += 1
         if not target.get("comparisons"):
             continue
         for comparison in target["comparisons"]:
@@ -100,7 +124,10 @@ def main() -> None:
     for path in args.public_output.glob("*.json"):
         if path.name not in expected_public:
             path.unlink()
-    print(f"Built {package_count} public QA package(s) and full local reproducibility bundle(s)")
+    for path in args.pilot_output.glob("*.json"):
+        if path.name not in expected_pilot:
+            path.unlink()
+    print(f"Built {package_count} comparison QA package(s), {pilot_count} pilot audit package(s), and full local reproducibility bundles")
 
 
 if __name__ == "__main__":

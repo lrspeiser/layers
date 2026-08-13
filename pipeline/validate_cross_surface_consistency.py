@@ -29,6 +29,7 @@ def main() -> None:
     parser.add_argument("--packages", type=Path, default=root / "public" / "data" / "comparisons")
     parser.add_argument("--database", type=Path, default=root / "pipeline" / "output" / "layers.sqlite")
     parser.add_argument("--sparc-index", type=Path, default=root / "public" / "data" / "sparc-profiles.json")
+    parser.add_argument("--pilot-packages", type=Path, default=root / "public" / "data" / "pilot-audits")
     args = parser.parse_args()
     catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
     expected = {
@@ -49,6 +50,10 @@ def main() -> None:
                 "FROM layers JOIN targets ON targets.id = layers.target_id"
             )
         }
+        database_pilot_audits = {
+            key: json.loads(record) if record else None
+            for key, record in connection.execute("SELECT target_key, pilot_audit_json FROM targets")
+        }
     finally:
         connection.close()
     errors = []
@@ -64,6 +69,20 @@ def main() -> None:
     for key, layer in catalog_layers.items():
         if key in database_layers and canonical(database_layers[key]) != canonical(layer):
             errors.append(f"{key[0]}/{key[1]}: database layer differs from catalog/API source")
+    catalog_pilot_audits = {target["id"]: target.get("pilotAudit") for target in catalog["targets"]}
+    if set(database_pilot_audits) != set(catalog_pilot_audits):
+        errors.append("database pilot audit target keys differ from catalog")
+    for target_id, audit in catalog_pilot_audits.items():
+        if canonical(database_pilot_audits.get(target_id)) != canonical(audit):
+            errors.append(f"{target_id}: database pilot audit differs from catalog/API source")
+        package_path = args.pilot_packages / f"{target_id}.json"
+        if audit:
+            if not package_path.is_file():
+                errors.append(f"{target_id}: missing public pilot audit package")
+            elif canonical(json.loads(package_path.read_text(encoding='utf-8')).get('pilotAudit')) != canonical(audit):
+                errors.append(f"{target_id}: public pilot audit package differs from catalog")
+        elif package_path.is_file():
+            errors.append(f"{target_id}: unexpected public pilot audit package")
     for key, (slug, comparison) in expected.items():
         if key in database and canonical(database[key]) != canonical(comparison):
             errors.append(f"{key}: database record differs from catalog")
@@ -101,7 +120,7 @@ def main() -> None:
         raise SystemExit("\n".join(errors))
     print(
         f"Validated {len(expected)} comparison record(s), {len(catalog_layers)} layers, "
-        f"and {len(expected_profile_ids)} SPARC profiles across catalog/API source, packages, and SQLite"
+        f"{sum(value is not None for value in catalog_pilot_audits.values())} pilot audits, and {len(expected_profile_ids)} SPARC profiles across catalog/API source, packages, and SQLite"
     )
 
 

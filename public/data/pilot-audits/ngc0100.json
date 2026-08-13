@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers pilot audit package",
+  "generatedAt": "2026-08-13T02:49:40.227310+00:00",
+  "target": {
+    "id": "ngc0100",
+    "name": "NGC0100",
+    "identifiers": {
+      "SPARC": "NGC0100",
+      "SIMBAD": "NGC   100"
+    },
+    "center": {
+      "raDeg": 6.011820833333334,
+      "decDeg": 16.48638888888889,
+      "frame": "ICRS"
+    },
+    "region": {
+      "shape": "square",
+      "widthArcmin": 12.0
+    },
+    "selection": {
+      "sample": "SPARC 2016 master sample",
+      "bibcode": "2016AJ....152..157L",
+      "majorAxisArcmin": 5.16682
+    }
+  },
+  "layers": [
+    {
+      "id": "sparc-2016",
+      "survey": "SPARC",
+      "release": "2016 master sample",
+      "instrument": "Spitzer photometry + published rotation curves",
+      "kind": "profile",
+      "availability": "available",
+      "renderMode": "plot",
+      "bands": [
+        "3.6um"
+      ],
+      "units": {
+        "surfaceBrightness": "mag arcsec^-2",
+        "velocity": "km s^-1"
+      },
+      "calibration": "SPARC published tables",
+      "hasVariance": false,
+      "hasMask": false,
+      "hasWcs": false,
+      "note": "A radial photometry and rotation-curve layer; it must be plotted or overlaid, never treated as a sky image.",
+      "provenance": {
+        "bibcode": "2016AJ....152..157L",
+        "sampleId": "NGC0100"
+      },
+      "assets": {
+        "data": "/data/sparc-profiles/ngc0100.json"
+      },
+      "profileSummary": {
+        "acceptedPhotometryPoints": 60,
+        "maximumAcceptedRadiusArcsec": 180.72,
+        "rotationCurvePoints": 21,
+        "maximumRotationRadiusKpc": 9.62
+      }
+    },
+    {
+      "id": "rubin-dp2-deep-coadd",
+      "survey": "Vera C. Rubin Observatory",
+      "release": "DP2",
+      "instrument": "LSSTCam",
+      "kind": "image",
+      "availability": "no-valid-pixels",
+      "renderMode": "metadata",
+      "bands": [],
+      "datasetCount": 2,
+      "datasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-4f76-7c63-93ed-2e70535cb699",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-e323-7312-9d54-a82c2dbba32f"
+      ],
+      "units": {
+        "image": "nJy",
+        "variance": "nJy^2"
+      },
+      "calibration": "Rubin Science Pipelines deep coadd",
+      "hasVariance": false,
+      "hasMask": false,
+      "hasWcs": true,
+      "note": "SIA footprint intersects the requested field, but every intersecting Rubin pixel is masked NO_DATA.",
+      "provenance": {
+        "service": "Rubin Science Platform SIA v2 + DataLink",
+        "datasetType": "lsst.deep_coadd",
+        "queryStatus": "OK"
+      }
+    }
+  ],
+  "pilotAudit": {
+    "id": "ngc0100-pixel-coverage-audit",
+    "outcome": "no-valid-pixels",
+    "stage": "pixel-coverage",
+    "observation": "Two authenticated Rubin DP2 deep-coadd records intersect the requested field, but the calibrated mosaic contains zero valid science pixels; every intersecting pixel is masked NO_DATA.",
+    "metric": {
+      "label": "valid calibrated-pixel fraction",
+      "value": 0.0,
+      "unit": "fraction",
+      "passThreshold": 0.0,
+      "comparison": "must be greater than"
+    },
+    "claimStatus": "blocked",
+    "evidence": [
+      {
+        "path": "pipeline/output/dp2-sparc/ngc0100/rubin_z.fits",
+        "sha256": "7e6824743209cf467572c47e2c90624310ac681643629d99af81dd104123643c"
+      }
+    ],
+    "nextAction": "Re-query a future Rubin release or expanded coadd footprint; do not count this metadata footprint match as usable coverage."
+  },
+  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
+}

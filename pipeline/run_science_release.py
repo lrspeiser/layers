@@ -64,6 +64,7 @@ def main() -> None:
             raise SystemExit("\n".join(record["stderr"] or record["stdout"]))
     catalog = root / "public" / "data" / "layers-catalog.json"
     package_files = sorted((root / "public" / "data" / "comparisons").glob("*.json"))
+    pilot_files = sorted((root / "public" / "data" / "pilot-audits").glob("*.json"))
     manifest = {
         "schemaVersion": 1,
         "createdAt": datetime.now(timezone.utc).isoformat(),
@@ -74,6 +75,9 @@ def main() -> None:
             "catalog": {"path": "public/data/layers-catalog.json", "sha256": sha256(catalog)},
             "comparisonPackages": [
                 {"path": path.relative_to(root).as_posix(), "sha256": sha256(path)} for path in package_files
+            ],
+            "pilotAuditPackages": [
+                {"path": path.relative_to(root).as_posix(), "sha256": sha256(path)} for path in pilot_files
             ],
         },
     }

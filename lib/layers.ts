@@ -173,6 +173,17 @@ export type Comparison = {
   assumptionAudits: AssumptionAudit[];
 };
 
+export type PilotAudit = {
+  id: string;
+  outcome: "no-valid-pixels" | "registration-blocked" | "filter-transfer-blocked";
+  stage: "pixel-coverage" | "registration" | "filter-response";
+  observation: string;
+  metric: { label: string; value: number; unit: string; passThreshold: number; comparison: string };
+  claimStatus: "blocked";
+  evidence: Array<{ path: string; sha256: string }>;
+  nextAction: string;
+};
+
 export type LayerTarget = {
   id: string;
   name: string;
@@ -182,6 +193,7 @@ export type LayerTarget = {
   selection: { sample: string; bibcode?: string; majorAxisArcmin?: number };
   layers: Layer[];
   comparisons: Comparison[];
+  pilotAudit?: PilotAudit;
 };
 
 export type LayersCatalog = {
@@ -199,6 +211,7 @@ export type LayersCatalog = {
     panStarrsUsableLocal?: number;
     localImageLayers?: number;
     registrationAudits?: number;
+    pilotAudits?: number;
     assumptionsWorthRechecking?: number;
     publishedComparisons: number;
   };

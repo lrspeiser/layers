@@ -9,6 +9,7 @@ comparison QA explicitly allow an image product to be published.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,6 +17,14 @@ from pathlib import Path
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def mosaic_state(summary_path: Path) -> dict[str, dict]:
@@ -332,6 +341,58 @@ def registration_comparison(path: Path, layer_ids: set[str]) -> dict | None:
     }
 
 
+def pilot_audit(target: dict, mosaic: dict | None, comparison: dict | None, audit_dir: Path) -> dict | None:
+    if int(target.get("deep_coadd_rows", 0)) == 0:
+        return None
+    target_id = target["slug"]
+    if mosaic and not mosaic.get("science_coverage"):
+        products = [
+            {
+                "path": f"pipeline/output/dp2-sparc/{target_id}/{Path(product['mosaic']).name}",
+                "sha256": product["mosaic_sha256"],
+            }
+            for product in mosaic.get("bands", {}).values()
+            if product.get("mosaic") and product.get("mosaic_sha256")
+        ]
+        return {
+            "id": f"{target_id}-pixel-coverage-audit",
+            "outcome": "no-valid-pixels",
+            "stage": "pixel-coverage",
+            "observation": "Two authenticated Rubin DP2 deep-coadd records intersect the requested field, but the calibrated mosaic contains zero valid science pixels; every intersecting pixel is masked NO_DATA.",
+            "metric": {"label": "valid calibrated-pixel fraction", "value": 0.0, "unit": "fraction", "passThreshold": 0.0, "comparison": "must be greater than"},
+            "claimStatus": "blocked",
+            "evidence": products,
+            "nextAction": "Re-query a future Rubin release or expanded coadd footprint; do not count this metadata footprint match as usable coverage.",
+        }
+    if not comparison:
+        return None
+    registration_path = audit_dir / target_id / "registration-audit.json"
+    if comparison.get("qa", {}).get("astrometryPass") is False:
+        return {
+            "id": f"{target_id}-registration-limit",
+            "outcome": "registration-blocked",
+            "stage": "registration",
+            "observation": "Rubin DP2 and Pan-STARRS1 have authentic local pixels, but their source-based astrometric residual exceeds the predeclared registration tolerance.",
+            "metric": {"label": "source-registration p95 residual", "value": comparison["qa"]["astrometricResidualP95Arcsec"], "unit": "arcsec", "passThreshold": comparison["registration"]["qaThresholdArcsec"], "comparison": "must be less than or equal to"},
+            "claimStatus": "blocked",
+            "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/registration-audit.json", "sha256": sha256(registration_path)}],
+            "nextAction": "Diagnose spatially varying astrometry or adopt an independently validated reference layer; do not force-warp the pixels into compliance.",
+        }
+    if comparison.get("qa", {}).get("extendedSourceTransferStatus") == "qa-failed":
+        extended_path = audit_dir / target_id / "extended-source-filter-audit.json"
+        return {
+            "id": f"{target_id}-filter-transfer-limit",
+            "outcome": "filter-transfer-blocked",
+            "stage": "filter-response",
+            "observation": "Astrometry, PSF/sky reconciliation, point-source color calibration, and diffuse recovery pass, but the color transform fails on resolved galaxy light.",
+            "metric": {"label": "resolved median absolute filter-transfer residual", "value": comparison["qa"]["extendedSourceMedianAbsoluteResidualMag"], "unit": "mag", "passThreshold": 0.08, "comparison": "must be less than or equal to"},
+            "claimStatus": "blocked",
+            "evidence": [{"path": f"pipeline/output/comparisons/{target_id}/extended-source-filter-audit.json", "sha256": sha256(extended_path)}],
+            "nextAction": "Run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference.",
+        }
+    return None
+
+
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
@@ -370,8 +431,7 @@ def main() -> None:
             args.registration_audits / source["slug"] / "registration-audit.json",
             {layer["id"] for layer in layers},
         )
-        targets.append(
-            {
+        target_record = {
                 "id": source["slug"],
                 "name": source["sparc_id"],
                 "identifiers": {"SPARC": source["sparc_id"], "SIMBAD": source["main_id"]},
@@ -385,7 +445,10 @@ def main() -> None:
                 "layers": layers,
                 "comparisons": [comparison] if comparison else [],
             }
-        )
+        audit = pilot_audit(source, mosaic, comparison, args.registration_audits)
+        if audit:
+            target_record["pilotAudit"] = audit
+        targets.append(target_record)
 
     ranked_audits = sorted(
         (
@@ -411,6 +474,7 @@ def main() -> None:
     legacy_local = sum(any(layer["id"] == "legacy-survey-dr10" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     panstarrs_local = sum(any(layer["id"] == "panstarrs-dr1-stack" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     registration_audits = sum(len(target["comparisons"]) for target in targets)
+    pilot_audits = sum("pilotAudit" in target for target in targets)
     catalog = {
         "schemaVersion": 1,
         "product": "Layers",
@@ -430,6 +494,7 @@ def main() -> None:
             "panStarrsUsableLocal": panstarrs_local,
             "localImageLayers": usable + legacy_local + panstarrs_local,
             "registrationAudits": registration_audits,
+            "pilotAudits": pilot_audits,
             "assumptionsWorthRechecking": len(ranked_audits),
             "publishedComparisons": 0,
         },

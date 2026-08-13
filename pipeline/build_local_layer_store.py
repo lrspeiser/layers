@@ -20,7 +20,8 @@ CREATE TABLE targets (
   dec_deg REAL NOT NULL,
   field_width_arcmin REAL NOT NULL,
   sample TEXT NOT NULL,
-  selection_json TEXT NOT NULL
+  selection_json TEXT NOT NULL,
+  pilot_audit_json TEXT
 );
 CREATE VIRTUAL TABLE target_sky_index USING rtree(
   id, min_ra, max_ra, min_dec, max_dec
@@ -112,7 +113,7 @@ def main() -> None:
         connection.executescript(SCHEMA)
         for target_index, target in enumerate(catalog["targets"], start=1):
             connection.execute(
-                "INSERT INTO targets VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                "INSERT INTO targets VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (
                     target_index,
                     target["id"],
@@ -122,6 +123,7 @@ def main() -> None:
                     target["region"]["widthArcmin"],
                     target["selection"]["sample"],
                     json.dumps(target["selection"], separators=(",", ":")),
+                    json.dumps(target.get("pilotAudit"), separators=(",", ":")) if target.get("pilotAudit") else None,
                 ),
             )
             half_dec = target["region"]["widthArcmin"] / 120.0

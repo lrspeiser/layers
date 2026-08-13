@@ -19,8 +19,9 @@ The first catalog contains the complete 175-object SPARC sample and an authentic
 - a footprint false positive for NGC 0100: the intersecting pixels are all masked `NO_DATA`;
 - 48 full-resolution Legacy Survey DR10 FITS tiles, mosaicked into three local image layers with science, inverse variance, masks, WCS, URLs, and SHA-256 provenance;
 - two full Pan-STARRS1 skycells for UGC 00891, including the complete science, variance, and bitmask products, calibrated to nJy and mosaicked locally;
-- registration audits that pass the declared 0.30 arcsec p95 threshold for the two Rubin/Legacy fields (0.237 and 0.217 arcsec) and correctly fail the Rubin/Pan-STARRS field (0.408 arcsec);
-- no published cross-survey comparisons yet, because PSF, filter-response, sky reconciliation, difference uncertainty, and injection-recovery validation are still required.
+- registration audits that pass the declared 0.30 arcsec p95 threshold for the two Rubin/Legacy fields (0.220 and 0.203 arcsec) and correctly fail the Rubin/Pan-STARRS field (0.403 arcsec);
+- explicit, checksum-backed pilot outcomes for all four fields: NGC 0100 fails pixel coverage, UGC 00891 fails registration, and UGC 00191/UGC 00634 pass astrometry plus PSF/sky and diffuse-recovery checks but fail resolved-galaxy filter transfer;
+- no published astrophysical cross-survey differences yet. The site ranks the two filter-transfer assumptions for follow-up while keeping outer-light, stellar-mass, baryonic-mass, lensing, and acceleration claims blocked.
 
 No image or statistic is fabricated, substituted, or reused. Image sliders activate only when two image layers pass the complete comparison gate. Profiles, catalogs, spectra, and maps retain their appropriate plot, table, or overlay representation.
 
