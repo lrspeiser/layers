@@ -26,7 +26,10 @@ test("server-renders Layers as a survey-neutral science workspace", async () => 
   assert.match(html, /ASSUMPTIONS WORTH RECHECKING/);
   assert.match(html, /TRIAGE, NOT A VERDICT/);
   assert.match(html, /REGISTRATION QA/);
-  assert.match(html, /0\.237/);
+  assert.match(html, /0\.220/);
+  assert.match(html, /AUTHENTIC LOCAL DP2 \+ DR10/);
+  assert.match(html, /Coverage diff/);
+  assert.match(html, /Signal candidates/);
   assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
 });
 
@@ -37,7 +40,7 @@ test("real-field prototype exposes discoverable overlap and honest QA gates", as
   assert.match(html, /FULL RUBIN FIELD/i);
   assert.match(html, /ALIGNED COMPARISON/i);
   assert.match(html, /Rubin \+ Legacy \+ SPARC/);
-  assert.match(html, /0\.237/);
+  assert.match(html, /0\.220/);
   assert.match(html, /This does/);
   assert.match(html, /brightness differences are scientifically comparable/);
   assert.match(html, /PSF \+ sky intermediate/);
@@ -45,7 +48,7 @@ test("real-field prototype exposes discoverable overlap and honest QA gates", as
   assert.match(html, /Open an official source FITS/);
   assert.match(html, /WHAT IS BEHIND EACH PIXEL/);
   assert.match(html, /No single winner/);
-  assert.match(html, /Median pixel noise/);
+  assert.match(html, /Median formal pixel noise/);
 });
 
 test("catalog contains the complete SPARC sample and generic layer records", async () => {

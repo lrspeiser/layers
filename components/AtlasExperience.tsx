@@ -6,6 +6,19 @@ import type { Comparison, Layer, LayersCatalog, LayerTarget } from "@/lib/layers
 import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 
 type CoverageFilter = "all" | "rubin" | "no-coverage";
+type WorkbenchView = "evidence" | "swipe" | "coverage" | "candidates" | "profiles";
+type CandidateRegion = {
+  id: string;
+  xPercent: number;
+  yPercent: number;
+  pixelCount: number;
+  peakEmpiricalSigma: number;
+  direction: string;
+};
+type PrototypeScience = {
+  candidateRegions: CandidateRegion[];
+  differenceMethod: { thresholdEmpiricalSigma: number };
+};
 
 function layerTone(layer: Layer) {
   if (layer.availability === "available" || layer.availability === "published") return "ready";
@@ -62,10 +75,16 @@ function DataLayerCard({ layer, side }: { layer: Layer; side: "A" | "B" }) {
   );
 }
 
-function LayerViewport({ target, left, right }: { target: LayerTarget; left: Layer; right: Layer }) {
+function LayerViewport({ target, left, right, view, science }: { target: LayerTarget; left: Layer; right: Layer; view: WorkbenchView; science: PrototypeScience }) {
   const [reveal, setReveal] = useState(50);
+  const [selectedCandidate, setSelectedCandidate] = useState<CandidateRegion | null>(null);
+  const [pixelsAvailable, setPixelsAvailable] = useState(true);
   const comparison = matchingComparison(target, left.id, right.id);
   const swipeable = Boolean(comparison && comparisonIsSwipeable(comparison, target.layers));
+  const authenticQaViewer = target.id === "ugc00191"
+    && Boolean(comparison?.qa?.astrometryPass)
+    && comparison?.layerIds.includes("rubin-dp2-deep-coadd")
+    && comparison?.layerIds.includes("legacy-survey-dr10");
   const registration = comparison?.registration;
   const astrometryPass = Boolean(
     registration?.maxResidualArcsec !== undefined
@@ -73,14 +92,22 @@ function LayerViewport({ target, left, right }: { target: LayerTarget; left: Lay
     && registration.maxResidualArcsec <= registration.qaThresholdArcsec,
   );
 
-  if (swipeable && comparison) {
+  if ((swipeable && comparison) || authenticQaViewer) {
+    const showSwipe = view === "evidence" || view === "swipe";
+    const leftIsRubin = left.id === "rubin-dp2-deep-coadd";
+    const leftImage = authenticQaViewer ? (leftIsRubin ? "/private-preview/ugc00191/rubin-dp2-z.jpg" : "/private-preview/ugc00191/legacy-dr10-z.jpg") : left.assets?.preview;
+    const rightImage = authenticQaViewer ? (leftIsRubin ? "/private-preview/ugc00191/legacy-dr10-z.jpg" : "/private-preview/ugc00191/rubin-dp2-z.jpg") : right.assets?.preview;
     return (
-      <div className="layers-viewport image-viewport">
-        <img src={right.assets?.preview} alt={`${target.name}, ${right.survey}`} />
-        <div className="reveal-layer" style={{ clipPath: `inset(0 ${100 - reveal}% 0 0)` }}>
-          <img src={left.assets?.preview} alt={`${target.name}, ${left.survey}`} />
-        </div>
-        <span className="viewport-label label-left">{left.survey}</span>
+      <div className="layers-viewport image-viewport qa-image-viewport">
+        {pixelsAvailable ? <>
+          <img src={rightImage} alt={`${target.name}, ${right.survey}`} onError={() => setPixelsAvailable(false)} />
+          <div className="reveal-layer" style={showSwipe ? { clipPath: `inset(0 ${100 - reveal}% 0 0)` } : undefined}>
+            <img src={leftImage} alt={`${target.name}, ${left.survey}`} onError={() => setPixelsAvailable(false)} />
+          </div>
+          {view === "coverage" && <img className="main-analysis-overlay" src="/private-preview/ugc00191/coverage-difference.png" alt="Red Rubin-only and blue Legacy-only valid-pixel coverage" />}
+          {view === "candidates" && <><img className="main-analysis-overlay" src="/private-preview/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical QA candidates" />{science.candidateRegions.map((candidate, index) => <button className={`main-difference-pin direction-${candidate.direction}`} key={candidate.id} style={{ left: `${candidate.xPercent}%`, top: `${candidate.yPercent}%` }} onClick={() => setSelectedCandidate(candidate)} aria-label={`Inspect candidate ${index + 1}`}>{index + 1}</button>)}</>}
+        </> : <div className="qa-pixel-fallback"><span className="eyebrow">AUTHENTIC PIXELS REQUIRE DATA ACCESS</span><h3>The interactive controls are ready; this public host does not redistribute the protected DP2 cutout.</h3><p>Open the private Layers deployment or run the repository locally with the downloaded Rubin and Legacy assets.</p><Link href="/prototype">Open the documented real-pixel analysis</Link></div>}
+        {showSwipe && <><span className="viewport-label label-left">{left.survey}</span>
         <span className="viewport-label label-right">{right.survey}</span>
         <span className="reveal-rule" style={{ left: `${reveal}%` }}><i>↔</i></span>
         <input
@@ -90,7 +117,11 @@ function LayerViewport({ target, left, right }: { target: LayerTarget; left: Lay
           value={reveal}
           onChange={(event) => setReveal(Number(event.target.value))}
           aria-label={`Reveal ${left.survey} over ${right.survey}`}
-        />
+        /></>}
+        {view === "coverage" && <div className="main-overlay-legend"><strong>COVERAGE DIFFERENCE</strong><span className="legend-red">Rubin valid / Legacy missing</span><span className="legend-blue">Legacy valid / Rubin missing</span><small>Exact masks · not brightness</small></div>}
+        {view === "candidates" && <div className="main-overlay-legend"><strong>SIGNAL CANDIDATES</strong><span className="legend-red">Rubin excess</span><span className="legend-blue">Legacy excess</span><small>≥{science.differenceMethod.thresholdEmpiricalSigma}σ-like QA residual · not a discovery</small></div>}
+        {selectedCandidate && view === "candidates" && <div className="main-candidate-card"><button onClick={() => setSelectedCandidate(null)}>×</button><strong>{selectedCandidate.direction === "rubin-excess" ? "RUBIN-EXCESS" : "LEGACY-EXCESS"} CANDIDATE</strong><span>{Math.abs(selectedCandidate.peakEmpiricalSigma) > 99 ? ">99" : Math.abs(selectedCandidate.peakEmpiricalSigma).toFixed(1)}σ-like peak · {selectedCandidate.pixelCount} pixels</span><p>Inspect this region; variable sources, PSF residuals, filter response, masking, or diffuse light can cause it.</p></div>}
+        {authenticQaViewer && <span className="qa-viewer-status">AUTHENTIC LOCAL DP2 + DR10 · QA VIEW · SCIENCE CLAIM BLOCKED</span>}
       </div>
     );
   }
@@ -214,8 +245,10 @@ function AssumptionPanel({ target, comparison }: { target: LayerTarget; comparis
   );
 }
 
-export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
-  const firstUseful = catalog.targets.find((target) => target.layers.some((layer) => layer.availability === "available-local")) ?? catalog.targets[0];
+export function AtlasExperience({ catalog, prototypeScience }: { catalog: LayersCatalog; prototypeScience: PrototypeScience }) {
+  const firstUseful = catalog.targets.find((target) => target.id === "ugc00191")
+    ?? catalog.targets.find((target) => target.layers.some((layer) => layer.availability === "available-local"))
+    ?? catalog.targets[0];
   const [query, setQuery] = useState("");
   const [coverageFilter, setCoverageFilter] = useState<CoverageFilter>("rubin");
   const [selectedId, setSelectedId] = useState(firstUseful.id);
@@ -223,6 +256,7 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
   const initialLayers = defaultLayerIds(firstUseful);
   const [leftId, setLeftId] = useState(initialLayers[0]);
   const [rightId, setRightId] = useState(initialLayers[1]);
+  const [workbenchView, setWorkbenchView] = useState<WorkbenchView>("swipe");
 
   const filtered = useMemo(() => catalog.targets.filter((target) => {
     const text = `${target.name} ${Object.values(target.identifiers).join(" ")}`.toLowerCase();
@@ -238,10 +272,16 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
     setSelectedId(target.id);
     setLeftId(nextLeft);
     setRightId(nextRight);
+    setWorkbenchView(target.id === "ugc00191" ? "swipe" : "evidence");
   };
   const left = layerById(selected, leftId);
   const right = layerById(selected, rightId);
   const comparison = matchingComparison(selected, left.id, right.id);
+  const authenticQaViewer = selected.id === "ugc00191"
+    && comparison?.layerIds.includes("rubin-dp2-deep-coadd")
+    && comparison?.layerIds.includes("legacy-survey-dr10");
+  const swipeEnabled = Boolean(comparison && comparisonIsSwipeable(comparison, selected.layers)) || Boolean(authenticQaViewer);
+  const profilesEnabled = left.kind === "profile" || right.kind === "profile";
 
   return (
     <main id="top">
@@ -294,8 +334,15 @@ export function AtlasExperience({ catalog }: { catalog: LayersCatalog }) {
           </div>
 
           <div className="layer-cards"><DataLayerCard layer={left} side="A" /><DataLayerCard layer={right} side="B" /></div>
-          <div className="view-tabs"><button className="active">Evidence</button><button disabled={!comparisonIsSwipeable(comparison ?? { id: "", layerIds: [left.id, right.id], status: "blocked", measurements: [], inferences: [], assumptionAudits: [] }, selected.layers)}>Swipe</button><button disabled>Overlay</button><button>Profiles</button><span>Views activate by data type + QA</span></div>
-          <LayerViewport target={selected} left={left} right={right} />
+          <div className="view-tabs">
+            <button className={workbenchView === "evidence" ? "active" : ""} onClick={() => setWorkbenchView("evidence")}>Evidence</button>
+            <button className={workbenchView === "swipe" ? "active" : ""} disabled={!swipeEnabled} onClick={() => setWorkbenchView("swipe")}>Swipe</button>
+            <button className={workbenchView === "coverage" ? "active" : ""} disabled={!authenticQaViewer} onClick={() => setWorkbenchView("coverage")}>Coverage diff</button>
+            <button className={workbenchView === "candidates" ? "active" : ""} disabled={!authenticQaViewer} onClick={() => setWorkbenchView("candidates")}>Signal candidates</button>
+            <button className={workbenchView === "profiles" ? "active" : ""} disabled={!profilesEnabled} onClick={() => setWorkbenchView("profiles")}>Profiles</button>
+            <span>{authenticQaViewer ? "Real UGC 00191 pixels · QA only" : "Views activate by data type + QA"}</span>
+          </div>
+          <LayerViewport target={selected} left={left} right={right} view={workbenchView} science={prototypeScience} />
           <div className="analysis-grid"><DifferencePanel comparison={comparison} /><AssumptionPanel target={selected} comparison={comparison} /></div>
         </section>
       </section>
