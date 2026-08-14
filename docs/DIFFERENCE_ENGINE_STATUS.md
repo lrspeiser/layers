@@ -199,3 +199,63 @@ point-source ratio actually corroborates the applied chains (≥20 sources,
 scatter ≤ 0.06 dex, |log₁₀ scale| ≤ 0.10). Applying a conversion is not the same
 as demonstrating it is right. Well-measured fields sit near 0.036 dex; the 13
 fields that disagree run 0.08–0.22 dex and are held open rather than published.
+
+---
+
+## 7. Anomaly discovery (added same session)
+
+`pipeline/scan_region_anomalies.py`. The design principle is that an anomaly
+needs a **stated expectation**, not a big number in a difference image.
+
+- **Expectation**: after PSF, background, and flux-unit matching, the two planes
+  should agree within the noise.
+- **Uncertainty**: the empirical blank-position scatter from injection/recovery,
+  never the per-pixel variance planes. Those understate by ~7×, so a variance-based
+  significance would inflate every candidate by roughly that factor.
+- **Estimator identity**: candidates are measured with the same
+  `fit_template_amplitude` call, at the same scales, that produced the null — so
+  the calibrated threshold actually applies. This also forced the scan to mask
+  sources through the variance plane exactly as the null calibration does;
+  without that, 33 of 47 candidates in the first test field were spurious.
+
+**Result over 33 scannable regions**: 214 raw candidates → **13 survive**.
+
+Discriminants, in order of how much they removed:
+
+| discriminant | rationale | effect |
+|---|---|---|
+| bright-source proximity | Gaussian PSF matching leaves wing residuals | removes the top of the raw list |
+| **scale coherence** | real structure has a size, so it registers at more than one template scale | **41 of 54 removed** |
+| mask-edge proximity | normalised convolution leaves structure at boundaries | few |
+| field crowding | a field with far more survivors than its peers has a systematic | fired on nothing this run |
+
+The 13 survivors sit in 7 fields, all detected at ≥2 scales, split 6 rubin-excess
+/ 7 reference-excess — a balanced split, which is what noise and real structure
+both give and a systematic would not. The strongest scale-coherent case is
+tract 2397 at (65.85587, −48.35300), present at all three scales.
+
+**None of these are detections.** The bandpass transfer is not validated, so a
+colour difference alone can produce a residual of this size; 15 regions were not
+scannable at all. Each candidate carries its falsification tests: re-measure in
+the second Rubin band, re-measure against a third survey, inject a synthetic
+source of the same amplitude, and re-run after the extended-source transfer.
+
+### What this does not yet cover
+
+The scanner only searches the one comparison kind that exists: Rubin optical
+minus Legacy/PS1 optical. Measured against every exact Rubin×survey overlap in
+the index, that is **48 of 22,921 possible comparisons, or 0.21%**, and one of
+eleven registered families. The other ten families need different machinery,
+because they are not subtraction problems:
+
+| kind | example | comparison is |
+|---|---|---|
+| same band | Legacy, PS1, DES, HSC | pixel difference (built) |
+| different band | GALEX, unWISE, 2MASS | SED consistency |
+| different observable | HIPASS, VLASS, eROSITA | positional association |
+| mass vs light | ACT, Planck, DES-Y3, KiDS | the dark-matter question |
+| static vs variable | ZTF | did it change |
+| image vs catalog | Gaia, DESI, SDSS | cross-match, no alignment |
+
+DES DR2 and HSC PDR2 are the cheapest wins: both are directly comparable optical
+surveys with confirmed overlaps and **zero pixels fetched**.

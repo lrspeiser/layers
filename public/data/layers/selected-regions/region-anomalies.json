@@ -1,0 +1,1768 @@
+{
+  "schemaVersion": "layers-region-anomalies-summary-v1",
+  "generatedAt": "2026-08-14T17:38:40.775778+00:00",
+  "candidateSigmaThreshold": 4.0,
+  "counts": {
+    "regionsScanned": 33,
+    "regionsSkipped": 15,
+    "totalCandidates": 214,
+    "withoutBoringExplanation": 13
+  },
+  "policy": {
+    "theseAreNotDetections": true,
+    "bandpassStillUnreconciled": true,
+    "note": "Every candidate is a place to look. The bandpass transfer is not validated, so a colour difference alone can produce a residual of the reported size. No candidate may be published as a difference until it survives an independent survey or epoch."
+  },
+  "crowdedFieldsDemoted": [],
+  "skipped": [
+    {
+      "regionId": "dp2-tract-11411",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "reason": "no injection/recovery calibration"
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "reason": "no injection/recovery calibration"
+    },
+    {
+      "regionId": "dp2-tract-5281",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-5391",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-8026",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "reason": "flux transfer not corroborated"
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "reason": "flux transfer not corroborated"
+    }
+  ],
+  "topCandidates": [
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 347,
+        "y": 62
+      },
+      "sky": {
+        "raDeg": 25.46007530629572,
+        "decDeg": 21.429319646988297
+      },
+      "amplitudeNjy": -130974.66372780086,
+      "empiricalSigma": 82.74260054562123,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9974316285163458,
+      "nullSigmaNjy": 1582.9169359450607,
+      "edgeDistancePixels": 58.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 6.0,
+      "pixel": {
+        "x": 362,
+        "y": 62
+      },
+      "sky": {
+        "raDeg": 25.458284864759474,
+        "decDeg": 21.429319521401766
+      },
+      "amplitudeNjy": -36056.0911097844,
+      "empiricalSigma": 9.584179781848846,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9970088257108084,
+      "nullSigmaNjy": 3762.0424418654807,
+      "edgeDistancePixels": 58.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 392,
+        "y": 377
+      },
+      "sky": {
+        "raDeg": 150.23272768562762,
+        "decDeg": 2.2448549210608846
+      },
+      "amplitudeNjy": 3240.426135184162,
+      "empiricalSigma": 7.077775716374475,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9974608645445,
+      "nullSigmaNjy": 457.831141454146,
+      "edgeDistancePixels": 115.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 6.0,
+      "pixel": {
+        "x": 122,
+        "y": 332
+      },
+      "sky": {
+        "raDeg": 211.25453658358416,
+        "decDeg": -5.197901825390042
+      },
+      "amplitudeNjy": 16352.560033839625,
+      "empiricalSigma": 6.43478337654218,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9969699798777731,
+      "nullSigmaNjy": 2541.2759182309724,
+      "edgeDistancePixels": 12.727922061357855,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 152,
+        "y": 62
+      },
+      "sky": {
+        "raDeg": 217.6580160566038,
+        "decDeg": -18.13419262101078
+      },
+      "amplitudeNjy": -9818.46506777114,
+      "empiricalSigma": 5.858399633909163,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9974829271961937,
+      "nullSigmaNjy": 1675.9636899709972,
+      "edgeDistancePixels": 18.384776310850235,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 6.0,
+      "pixel": {
+        "x": 152,
+        "y": 62
+      },
+      "sky": {
+        "raDeg": 217.6580160566038,
+        "decDeg": -18.13419262101078
+      },
+      "amplitudeNjy": -15895.443186313389,
+      "empiricalSigma": 5.809824818044503,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9970273638252962,
+      "nullSigmaNjy": 2735.959118241288,
+      "edgeDistancePixels": 18.384776310850235,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 12.0,
+      "pixel": {
+        "x": 242,
+        "y": 182
+      },
+      "sky": {
+        "raDeg": 65.85587420234086,
+        "decDeg": -48.352997644532486
+      },
+      "amplitudeNjy": -22773.86841070198,
+      "empiricalSigma": 5.5569809330290125,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9970343126870793,
+      "nullSigmaNjy": 4098.2448356698505,
+      "edgeDistancePixels": 177.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 3,
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 257,
+        "y": 302
+      },
+      "sky": {
+        "raDeg": 211.23947464423733,
+        "decDeg": -5.201235333325261
+      },
+      "amplitudeNjy": 6232.16867686083,
+      "empiricalSigma": 5.222312419204739,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9973206543215869,
+      "nullSigmaNjy": 1193.373390290172,
+      "edgeDistancePixels": 109.77249200050075,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 287,
+        "y": 302
+      },
+      "sky": {
+        "raDeg": 211.23612752898842,
+        "decDeg": -5.201235323616198
+      },
+      "amplitudeNjy": 6180.616159513415,
+      "empiricalSigma": 5.179113435745858,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9973206543215869,
+      "nullSigmaNjy": 1193.373390290172,
+      "edgeDistancePixels": 80.06247560499239,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 242,
+        "y": 182
+      },
+      "sky": {
+        "raDeg": 65.85587420234086,
+        "decDeg": -48.352997644532486
+      },
+      "amplitudeNjy": -5131.046262361423,
+      "empiricalSigma": 4.707267767268029,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9974741283270478,
+      "nullSigmaNjy": 1090.026426378405,
+      "edgeDistancePixels": 177.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 3,
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 407,
+        "y": 62
+      },
+      "sky": {
+        "raDeg": 51.16526212090368,
+        "decDeg": -30.516160541465556
+      },
+      "amplitudeNjy": 3843.6627233653435,
+      "empiricalSigma": 4.659833946320336,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9973860858188232,
+      "nullSigmaNjy": 824.8497194627533,
+      "edgeDistancePixels": 46.09772228646444,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 6.0,
+      "pixel": {
+        "x": 242,
+        "y": 182
+      },
+      "sky": {
+        "raDeg": 65.85587420234086,
+        "decDeg": -48.352997644532486
+      },
+      "amplitudeNjy": -11118.296601818953,
+      "empiricalSigma": 4.231471156080202,
+      "direction": "reference-excess",
+      "templateEnclosedFluxFraction": 0.9970241591322743,
+      "nullSigmaNjy": 2627.5250832900206,
+      "edgeDistancePixels": 177.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 3,
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    },
+    {
+      "effectiveRadiusArcsec": 3.0,
+      "pixel": {
+        "x": 92,
+        "y": 257
+      },
+      "sky": {
+        "raDeg": 340.75888119604355,
+        "decDeg": -0.7435812959543001
+      },
+      "amplitudeNjy": 3550.41881022727,
+      "empiricalSigma": 4.046113966749019,
+      "direction": "rubin-excess",
+      "templateEnclosedFluxFraction": 0.9973811569482507,
+      "nullSigmaNjy": 877.4885827252091,
+      "edgeDistancePixels": 88.0,
+      "couldBeExplainedBy": [],
+      "scalesDetected": 2,
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "referenceSurveyId": "legacy-surveys-dr10"
+    }
+  ],
+  "regions": [
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "generatedAt": "2026-08-14T17:38:32.290489+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9646049219812263,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8267554932972815,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.06832179252306991,
+        "colourTermUncertainty": 0.015301942087827413,
+        "compactSourceResidualMag": 0.07444365306922636,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 14,
+        "reported": 14,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "generatedAt": "2026-08-14T17:38:32.575072+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9937991489161616,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.843059764118379,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.15355558284504042,
+        "colourTermUncertainty": 0.03627393549088335,
+        "compactSourceResidualMag": 0.14278027594118767,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 3,
+        "reported": 3,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "generatedAt": "2026-08-14T17:38:32.857074+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 1.060117948481837,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.7580229571359769,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.20312453901471922,
+        "colourTermUncertainty": 0.03091142366316784,
+        "compactSourceResidualMag": 0.06873230631519055,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 20,
+        "reported": 20,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "generatedAt": "2026-08-14T17:38:33.120337+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.8887867784393911,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8535124890338173,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.11522107353991341,
+        "colourTermUncertainty": 0.023859745798484114,
+        "compactSourceResidualMag": 0.11237557829085276,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 4,
+        "reported": 4,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "generatedAt": "2026-08-14T17:38:33.393666+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 1.1082291167894573,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.871653333763427,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.02552283505554945,
+        "colourTermUncertainty": 0.042940204708886515,
+        "compactSourceResidualMag": 0.12908942940778048,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 5,
+        "reported": 5,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "generatedAt": "2026-08-14T17:38:33.494184+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 1.0066187111232334,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8889549891102686,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": null,
+      "counts": {
+        "candidates": 10,
+        "reported": 10,
+        "truncated": false,
+        "withoutBoringExplanation": 2
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "generatedAt": "2026-08-14T17:38:33.799264+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9682199641962108,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8650075809065718,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.12605504372868098,
+        "colourTermUncertainty": 0.014608727418691531,
+        "compactSourceResidualMag": 0.050326634552704766,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 19,
+        "reported": 19,
+        "truncated": false,
+        "withoutBoringExplanation": 3
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "generatedAt": "2026-08-14T17:38:34.092081+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9654032566365406,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8925530596003184,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.12427723593450486,
+        "colourTermUncertainty": 0.017027812036217144,
+        "compactSourceResidualMag": 0.04068443027964846,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 4,
+        "reported": 4,
+        "truncated": false,
+        "withoutBoringExplanation": 1
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "generatedAt": "2026-08-14T17:38:34.214692+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9872691832229445,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8892105630108698,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.21750991540486464,
+        "colourTermUncertainty": 0.035646245172380374,
+        "compactSourceResidualMag": 0.0731638897904647,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 1,
+        "reported": 1,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "generatedAt": "2026-08-14T17:38:34.462319+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9679254073666544,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8922268305745494,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.17439231966501678,
+        "colourTermUncertainty": 0.025581294304954868,
+        "compactSourceResidualMag": 0.0636350191050247,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 0,
+        "reported": 0,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "generatedAt": "2026-08-14T17:38:34.769973+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9208773073700689,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8864704417629412,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.1160191818037206,
+        "colourTermUncertainty": 0.01828645385676831,
+        "compactSourceResidualMag": 0.0758573355100925,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 2,
+        "reported": 2,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "generatedAt": "2026-08-14T17:38:35.064224+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.950473792517455,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8642876009508792,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.1141029521052648,
+        "colourTermUncertainty": 0.01841750906029662,
+        "compactSourceResidualMag": 0.08588588775049684,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 9,
+        "reported": 9,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "generatedAt": "2026-08-14T17:38:35.319779+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9564385541422589,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8761594946976038,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.15152031789077156,
+        "colourTermUncertainty": 0.015879177791483835,
+        "compactSourceResidualMag": 0.05077420819422768,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 0,
+        "reported": 0,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "generatedAt": "2026-08-14T17:38:35.610456+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9430058032356633,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.876144578313253,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.23651434753286502,
+        "colourTermUncertainty": 0.01949201985708612,
+        "compactSourceResidualMag": 0.04473052550051743,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 2,
+        "reported": 2,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "generatedAt": "2026-08-14T17:38:35.907443+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9370297420833723,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8715536261329185,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.09551799024837514,
+        "colourTermUncertainty": 0.016559043188329722,
+        "compactSourceResidualMag": 0.06758520832485845,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 1,
+        "reported": 1,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "generatedAt": "2026-08-14T17:38:36.166966+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9110326781253626,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8694077502890546,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.09241745707519658,
+        "colourTermUncertainty": 0.020271695334390178,
+        "compactSourceResidualMag": 0.09242704891089551,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 8,
+        "reported": 8,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "generatedAt": "2026-08-14T17:38:36.423014+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 1.014137237885235,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8810009626412296,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.18837916720278589,
+        "colourTermUncertainty": 0.031598046625894716,
+        "compactSourceResidualMag": 0.07330014142134957,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 2,
+        "reported": 2,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "generatedAt": "2026-08-14T17:38:36.575049+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9619566209093732,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8732224902205483,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.21898245273469302,
+        "colourTermUncertainty": 0.03336796424044493,
+        "compactSourceResidualMag": 0.049598103774190265,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 5,
+        "reported": 5,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "generatedAt": "2026-08-14T17:38:36.854095+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9986698613380778,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8911784681829265,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.24536841341524288,
+        "colourTermUncertainty": 0.03604839201230675,
+        "compactSourceResidualMag": 0.08521192574290518,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 4,
+        "reported": 4,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "generatedAt": "2026-08-14T17:38:37.144248+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 1.0617941130572857,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8698082301238513,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": null,
+      "counts": {
+        "candidates": 6,
+        "reported": 6,
+        "truncated": false,
+        "withoutBoringExplanation": 2
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "generatedAt": "2026-08-14T17:38:37.447432+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9265976508581077,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8883509471585245,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.039434363458233646,
+        "colourTermUncertainty": 0.022938177214269394,
+        "compactSourceResidualMag": 0.09344260307490654,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 4,
+        "reported": 4,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "generatedAt": "2026-08-14T17:38:37.740637+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.954102703675112,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8454262545136318,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.12895332148415153,
+        "colourTermUncertainty": 0.017856182683907443,
+        "compactSourceResidualMag": 0.06142612171017138,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 15,
+        "reported": 15,
+        "truncated": false,
+        "withoutBoringExplanation": 3
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "generatedAt": "2026-08-14T17:38:38.036017+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9856103931575738,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8503755853277836,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": null,
+      "counts": {
+        "candidates": 0,
+        "reported": 0,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "generatedAt": "2026-08-14T17:38:38.290063+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9400129523865268,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8652752779693519,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": null,
+      "counts": {
+        "candidates": 3,
+        "reported": 3,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "generatedAt": "2026-08-14T17:38:38.589863+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9036429608051662,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8578163168528311,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.1438116342789915,
+        "colourTermUncertainty": 0.024943730885545374,
+        "compactSourceResidualMag": 0.06350662827272704,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 12,
+        "reported": 12,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "generatedAt": "2026-08-14T17:38:38.928002+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.8869151316974471,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8777172073539308,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.10051096447571745,
+        "colourTermUncertainty": 0.02386291034830009,
+        "compactSourceResidualMag": 0.10152275435237296,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 9,
+        "reported": 9,
+        "truncated": false,
+        "withoutBoringExplanation": 1
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "generatedAt": "2026-08-14T17:38:39.214019+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.940865927205796,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8664876063440986,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.08266496042332222,
+        "colourTermUncertainty": 0.024615597854571923,
+        "compactSourceResidualMag": 0.05724978975377933,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 0,
+        "reported": 0,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "generatedAt": "2026-08-14T17:38:39.487576+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9056455797048093,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8745580430021083,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.20982559573686832,
+        "colourTermUncertainty": 0.02480739274573209,
+        "compactSourceResidualMag": 0.0617609200222413,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 14,
+        "reported": 14,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "generatedAt": "2026-08-14T17:38:39.776191+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9025964520223559,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8837667723053131,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.1318055734749381,
+        "colourTermUncertainty": 0.01917885176560604,
+        "compactSourceResidualMag": 0.07481407733302463,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 2,
+        "reported": 2,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "generatedAt": "2026-08-14T17:38:39.894723+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.889570812097247,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8784910205347134,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.08995216094188727,
+        "colourTermUncertainty": 0.03178959566952779,
+        "compactSourceResidualMag": 0.0692610461928188,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 1,
+        "reported": 1,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "generatedAt": "2026-08-14T17:38:40.170519+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9264661087394069,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.887596138111602,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": 0.08325617048917844,
+        "colourTermUncertainty": 0.012422912719959994,
+        "compactSourceResidualMag": 0.04640167735147374,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 5,
+        "reported": 5,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "generatedAt": "2026-08-14T17:38:40.480213+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.9099839694008656,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8089755368101209,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.10530444403238508,
+        "colourTermUncertainty": 0.01195891506685418,
+        "compactSourceResidualMag": 0.058723473312581084,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 24,
+        "reported": 24,
+        "truncated": false,
+        "withoutBoringExplanation": 1
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    },
+    {
+      "schemaVersion": "layers-region-anomalies-v1",
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "generatedAt": "2026-08-14T17:38:40.774777+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "expectation": "After PSF, background, and flux-unit matching the two planes should agree within the empirically measured noise, so the matched-pair difference should be consistent with zero.",
+      "uncertaintyModel": {
+        "source": "injection/recovery blank-position scatter",
+        "perPixelVarianceUsed": false,
+        "note": "Per-pixel variance planes understate the true uncertainty by a median factor of about 7 on these products, so significance is computed against the measured blank-position scatter at each template scale instead."
+      },
+      "appliedCompactSourceScale": 0.8604511654915379,
+      "sourceMask": {
+        "applied": true,
+        "detectionSigma": 2.5,
+        "growthPixels": 3,
+        "skyFractionOfCommon": 0.8714044814325056,
+        "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+      },
+      "candidateSigmaThreshold": 4.0,
+      "bandpassContext": {
+        "colourTerm": -0.012391833931398926,
+        "colourTermUncertainty": 0.0295643013758161,
+        "compactSourceResidualMag": 0.08240539978114106,
+        "note": "Bandpass transfer is not reconciled. A source whose colour differs from the field average will show a residual of roughly this size for that reason alone."
+      },
+      "counts": {
+        "candidates": 6,
+        "reported": 6,
+        "truncated": false,
+        "withoutBoringExplanation": 0
+      },
+      "interpretation": "These are ranked places to look, not detections. A candidate with no listed explanation has survived the mask-edge and PSF-wing checks only; it has not survived the unreconciled bandpass, and it has not been confirmed in an independent survey or epoch.",
+      "falsificationTests": [
+        "Re-measure in the second Rubin band: a real structure persists, a filter artefact moves with colour.",
+        "Re-measure against a third survey: a real structure appears against DES or HSC as well as Legacy.",
+        "Inject a synthetic source of the same amplitude at the same position and confirm it is recovered.",
+        "Re-run after the extended-source bandpass transfer is validated."
+      ]
+    }
+  ]
+}
