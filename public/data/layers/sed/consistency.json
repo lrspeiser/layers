@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "layers-sed-consistency-v1",
+  "generatedAt": "2026-08-14T21:05:47.276910+00:00",
+  "comparisonKind": "spectral energy distribution consistency",
+  "gatedByBandpassTransfer": false,
+  "method": "2MASS PSC and AllWISE photometry are matched within 3 arcsec, a power law is fitted to the infrared points only, and that law is extrapolated to the Rubin effective frequency. The Rubin measurement is deliberately excluded from the fit so the prediction is independent.",
+  "counts": {
+    "regionsMeasured": 6,
+    "regionsSkipped": 0,
+    "sedSources": 67
+  },
+  "infraredSlope": {
+    "median": 1.1404596250670898,
+    "scatter": 0.31730431734985304
+  },
+  "status": "prediction-only",
+  "remainingWork": [
+    "Measure Rubin aperture flux at each matched source position and form the residual.",
+    "Rank departures against the observed scatter of the sample, not an asserted uncertainty.",
+    "A power law is a deliberately crude SED; real curvature between the near and mid infrared sets a floor on the residual that must be characterised before any departure is called an anomaly."
+  ],
+  "skipped": [],
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 103,
+        "matchedPairs": 12,
+        "sedUsable": 12
+      },
+      "infraredSlope": {
+        "median": 1.1040751438103686,
+        "scatter": 0.5322565577605346
+      }
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 8,
+        "allwiseRows": 84,
+        "matchedPairs": 8,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.2236582347618485,
+        "scatter": 0.2640421672673501
+      }
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 123,
+        "matchedPairs": 10,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.2427407180486432,
+        "scatter": 0.17991998510966398
+      }
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 92,
+        "matchedPairs": 9,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.3210733472279328,
+        "scatter": 0.17576690918063234
+      }
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 109,
+        "matchedPairs": 10,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.1836389335192492,
+        "scatter": 0.31164359570980293
+      }
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 19,
+        "allwiseRows": 121,
+        "matchedPairs": 18,
+        "sedUsable": 18
+      },
+      "infraredSlope": {
+        "median": 0.9551388128676632,
+        "scatter": 0.2949293032281105
+      }
+    }
+  ]
+}
