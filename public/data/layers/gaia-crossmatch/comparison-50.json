@@ -1,0 +1,1396 @@
+{
+  "schemaVersion": "layers-gaia-crossmatch-v1",
+  "generatedAt": "2026-08-14T20:57:01.730925+00:00",
+  "comparisonKind": "catalogue cross-match",
+  "gatedByBandpassTransfer": false,
+  "counts": {
+    "measured": 39,
+    "skipped": 11
+  },
+  "epochConsistency": {
+    "medianFittedJyear": 2025.5,
+    "scatterYears": 0.37065,
+    "note": "A real coadd epoch is a property of the release, so the field-to-field scatter is the test of whether the fit is measuring an epoch or absorbing an unrelated systematic."
+  },
+  "astrometry": {
+    "medianP95AtFittedEpochArcsec": 0.07640638780438559,
+    "medianP95WithoutPropagationArcsec": 0.24976939530804596,
+    "thresholdArcsec": 0.3,
+    "passAtFittedEpoch": 36,
+    "passWithoutPropagation": 23
+  },
+  "skipped": [
+    {
+      "regionId": "dp2-tract-10321",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "reason": "ValueError: only 6 Rubin sources detected"
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-5281",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "reason": "ValueError: no epoch produced enough matches"
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "reason": "ValueError: no epoch produced enough matches"
+    }
+  ],
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 28,
+        "rubinSources": 247,
+        "matched": 14,
+        "rubinWithoutGaia": 233,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2026.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.016585639608729504,
+          "p95Arcsec": 0.08298398360652151,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.058267524727193196,
+          "p95Arcsec": 0.1785383008338691,
+          "matched": 14
+        },
+        "improvementArcsec": 0.04168188511846369,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 21,
+        "rubinSources": 66,
+        "matched": 11,
+        "rubinWithoutGaia": 55,
+        "gaiaWithoutRubin": 10
+      },
+      "epochFit": {
+        "fittedJyear": 2025.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.013684042225909297,
+          "p95Arcsec": 0.026925642184642523,
+          "matched": 11
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.11060425052264751,
+          "p95Arcsec": 0.7382341808441024,
+          "matched": 11
+        },
+        "improvementArcsec": 0.09692020829673821,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 23,
+        "rubinSources": 248,
+        "matched": 11,
+        "rubinWithoutGaia": 237,
+        "gaiaWithoutRubin": 12
+      },
+      "epochFit": {
+        "fittedJyear": 2025.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.008730212701285137,
+          "p95Arcsec": 0.036695453097125186,
+          "matched": 11
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.1000810482631153,
+          "p95Arcsec": 0.34590233882886423,
+          "matched": 11
+        },
+        "improvementArcsec": 0.09135083556183016,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 25,
+        "rubinSources": 79,
+        "matched": 10,
+        "rubinWithoutGaia": 69,
+        "gaiaWithoutRubin": 15
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.014456043821833315,
+          "p95Arcsec": 0.07408198834774686,
+          "matched": 10
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.07473804581136799,
+          "p95Arcsec": 0.18407895253438938,
+          "matched": 10
+        },
+        "improvementArcsec": 0.06028200198953468,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 32,
+        "rubinSources": 31,
+        "matched": 14,
+        "rubinWithoutGaia": 17,
+        "gaiaWithoutRubin": 18
+      },
+      "epochFit": {
+        "fittedJyear": 2024.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.010890481988127138,
+          "p95Arcsec": 0.0642704798808024,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.03729307093360773,
+          "p95Arcsec": 0.4138798656392373,
+          "matched": 14
+        },
+        "improvementArcsec": 0.026402588945480594,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 40,
+        "rubinSources": 85,
+        "matched": 19,
+        "rubinWithoutGaia": 66,
+        "gaiaWithoutRubin": 21
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.023030868168055735,
+          "p95Arcsec": 0.03022209133738054,
+          "matched": 19
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.031980808026070444,
+          "p95Arcsec": 0.22445131467625493,
+          "matched": 19
+        },
+        "improvementArcsec": 0.008949939858014708,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "band": "i",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 26,
+        "rubinSources": 85,
+        "matched": 12,
+        "rubinWithoutGaia": 73,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.011642077939769655,
+          "p95Arcsec": 0.043341086499211104,
+          "matched": 12
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.06898735511297334,
+          "p95Arcsec": 0.3114736019580257,
+          "matched": 12
+        },
+        "improvementArcsec": 0.05734527717320369,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 38,
+        "rubinSources": 86,
+        "matched": 15,
+        "rubinWithoutGaia": 71,
+        "gaiaWithoutRubin": 23
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.01670201361409904,
+          "p95Arcsec": 0.05443333312047663,
+          "matched": 15
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.08062824422670499,
+          "p95Arcsec": 0.24976939530804596,
+          "matched": 15
+        },
+        "improvementArcsec": 0.06392623061260595,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 30,
+        "rubinSources": 52,
+        "matched": 10,
+        "rubinWithoutGaia": 42,
+        "gaiaWithoutRubin": 20
+      },
+      "epochFit": {
+        "fittedJyear": 2025.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.008103995242345717,
+          "p95Arcsec": 0.021378944098259554,
+          "matched": 10
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.06574782973554066,
+          "p95Arcsec": 0.2430126943484392,
+          "matched": 10
+        },
+        "improvementArcsec": 0.05764383449319495,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 22,
+        "rubinSources": 219,
+        "matched": 12,
+        "rubinWithoutGaia": 207,
+        "gaiaWithoutRubin": 10
+      },
+      "epochFit": {
+        "fittedJyear": 2024.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.011733529244484153,
+          "p95Arcsec": 0.028553130592669326,
+          "matched": 12
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.03689090344515519,
+          "p95Arcsec": 0.12247308871496779,
+          "matched": 12
+        },
+        "improvementArcsec": 0.02515737420067104,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 37,
+        "rubinSources": 248,
+        "matched": 16,
+        "rubinWithoutGaia": 232,
+        "gaiaWithoutRubin": 21
+      },
+      "epochFit": {
+        "fittedJyear": 2025.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.015144818000850156,
+          "p95Arcsec": 0.11928476077650248,
+          "matched": 16
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.08728602533431037,
+          "p95Arcsec": 0.5118183334616044,
+          "matched": 16
+        },
+        "improvementArcsec": 0.07214120733346022,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 30,
+        "rubinSources": 102,
+        "matched": 10,
+        "rubinWithoutGaia": 92,
+        "gaiaWithoutRubin": 20
+      },
+      "epochFit": {
+        "fittedJyear": 2025.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.020520153900884533,
+          "p95Arcsec": 0.10057383170621216,
+          "matched": 10
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.09227861455873179,
+          "p95Arcsec": 0.21236892140939118,
+          "matched": 10
+        },
+        "improvementArcsec": 0.07175846065784726,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 29,
+        "rubinSources": 233,
+        "matched": 14,
+        "rubinWithoutGaia": 219,
+        "gaiaWithoutRubin": 16
+      },
+      "epochFit": {
+        "fittedJyear": 2025.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.019271865169963227,
+          "p95Arcsec": 0.5746925894250163,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.1390903330427456,
+          "p95Arcsec": 0.9484955371547364,
+          "matched": 14
+        },
+        "improvementArcsec": 0.11981846787278237,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 37,
+        "rubinSources": 250,
+        "matched": 22,
+        "rubinWithoutGaia": 228,
+        "gaiaWithoutRubin": 15
+      },
+      "epochFit": {
+        "fittedJyear": 2026.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.01901913820466034,
+          "p95Arcsec": 0.0717183285804435,
+          "matched": 22
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.03170938265292579,
+          "p95Arcsec": 0.15576766823509286,
+          "matched": 22
+        },
+        "improvementArcsec": 0.012690244448265452,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 25,
+        "rubinSources": 196,
+        "matched": 14,
+        "rubinWithoutGaia": 182,
+        "gaiaWithoutRubin": 11
+      },
+      "epochFit": {
+        "fittedJyear": 2024.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.03464017890515895,
+          "p95Arcsec": 0.22807927208931655,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.0884911722094871,
+          "p95Arcsec": 0.38485856645149985,
+          "matched": 14
+        },
+        "improvementArcsec": 0.05385099330432815,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 29,
+        "rubinSources": 98,
+        "matched": 10,
+        "rubinWithoutGaia": 88,
+        "gaiaWithoutRubin": 19
+      },
+      "epochFit": {
+        "fittedJyear": 2026.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.02099310421963015,
+          "p95Arcsec": 0.06963809194163056,
+          "matched": 10
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.09979184051570623,
+          "p95Arcsec": 0.3375229726777381,
+          "matched": 10
+        },
+        "improvementArcsec": 0.07879873629607609,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5192",
+      "tract": 5192,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 777,
+        "rubinSources": 250,
+        "matched": 249,
+        "rubinWithoutGaia": 1,
+        "gaiaWithoutRubin": 529
+      },
+      "epochFit": {
+        "fittedJyear": 2025.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.012566400166262186,
+          "p95Arcsec": 0.13033236478541918,
+          "matched": 249
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.04222574071507124,
+          "p95Arcsec": 0.1719038305624231,
+          "matched": 249
+        },
+        "improvementArcsec": 0.029659340548809057,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 168,
+        "rubinSources": 236,
+        "matched": 86,
+        "rubinWithoutGaia": 150,
+        "gaiaWithoutRubin": 82
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.011017258251460353,
+          "p95Arcsec": 0.11759106286296174,
+          "matched": 86
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.07343595532993467,
+          "p95Arcsec": 0.2269502990375566,
+          "matched": 86
+        },
+        "improvementArcsec": 0.06241869707847432,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 36,
+        "rubinSources": 78,
+        "matched": 14,
+        "rubinWithoutGaia": 64,
+        "gaiaWithoutRubin": 22
+      },
+      "epochFit": {
+        "fittedJyear": 2026.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.010016649440079843,
+          "p95Arcsec": 0.09575042906800531,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.1048774494007188,
+          "p95Arcsec": 0.2688204915324868,
+          "matched": 14
+        },
+        "improvementArcsec": 0.09486079996063895,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 33,
+        "rubinSources": 98,
+        "matched": 17,
+        "rubinWithoutGaia": 81,
+        "gaiaWithoutRubin": 16
+      },
+      "epochFit": {
+        "fittedJyear": 2027.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.013143819485351463,
+          "p95Arcsec": 0.11467515761200203,
+          "matched": 17
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.08506965220652095,
+          "p95Arcsec": 0.2622904037143151,
+          "matched": 17
+        },
+        "improvementArcsec": 0.07192583272116948,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5391",
+      "tract": 5391,
+      "band": "g",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 214,
+        "rubinSources": 166,
+        "matched": 106,
+        "rubinWithoutGaia": 60,
+        "gaiaWithoutRubin": 108
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.016824366397793174,
+          "p95Arcsec": 0.13697507579778512,
+          "matched": 106
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.05972028417279918,
+          "p95Arcsec": 0.2114145055249091,
+          "matched": 106
+        },
+        "improvementArcsec": 0.04289591777500601,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "band": "i",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 45,
+        "rubinSources": 69,
+        "matched": 20,
+        "rubinWithoutGaia": 49,
+        "gaiaWithoutRubin": 25
+      },
+      "epochFit": {
+        "fittedJyear": 2026.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.019705445286291597,
+          "p95Arcsec": 0.08485023143419468,
+          "matched": 20
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.07318516039368722,
+          "p95Arcsec": 0.14329351445112867,
+          "matched": 20
+        },
+        "improvementArcsec": 0.053479715107395624,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 63,
+        "rubinSources": 125,
+        "matched": 39,
+        "rubinWithoutGaia": 86,
+        "gaiaWithoutRubin": 24
+      },
+      "epochFit": {
+        "fittedJyear": 2027.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.06427135018291609,
+          "p95Arcsec": 0.14937169515631712,
+          "matched": 39
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.12426493553835484,
+          "p95Arcsec": 0.3998720738063678,
+          "matched": 39
+        },
+        "improvementArcsec": 0.05999358535543875,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 194,
+        "rubinSources": 250,
+        "matched": 96,
+        "rubinWithoutGaia": 154,
+        "gaiaWithoutRubin": 98
+      },
+      "epochFit": {
+        "fittedJyear": 2024.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.012985241281786889,
+          "p95Arcsec": 0.12759700561564497,
+          "matched": 96
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.06790267947556317,
+          "p95Arcsec": 0.20912518046544493,
+          "matched": 96
+        },
+        "improvementArcsec": 0.05491743819377628,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 512,
+        "rubinSources": 245,
+        "matched": 238,
+        "rubinWithoutGaia": 7,
+        "gaiaWithoutRubin": 274
+      },
+      "epochFit": {
+        "fittedJyear": 2026.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.014668774756079632,
+          "p95Arcsec": 0.1286564653980529,
+          "matched": 238
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.06689677247066483,
+          "p95Arcsec": 0.18077214233448632,
+          "matched": 238
+        },
+        "improvementArcsec": 0.0522279977145852,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 110,
+        "rubinSources": 72,
+        "matched": 37,
+        "rubinWithoutGaia": 35,
+        "gaiaWithoutRubin": 73
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.010443138285485381,
+          "p95Arcsec": 0.058916089871851166,
+          "matched": 37
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.06307045909129817,
+          "p95Arcsec": 0.14949777484374419,
+          "matched": 37
+        },
+        "improvementArcsec": 0.05262732080581279,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8026",
+      "tract": 8026,
+      "band": "g",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 25,
+        "rubinSources": 94,
+        "matched": 13,
+        "rubinWithoutGaia": 81,
+        "gaiaWithoutRubin": 12
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.02147811103859664,
+          "p95Arcsec": 0.05816666331042179,
+          "matched": 13
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.11811310234620252,
+          "p95Arcsec": 0.2668826243243472,
+          "matched": 13
+        },
+        "improvementArcsec": 0.09663499130760589,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 25,
+        "rubinSources": 117,
+        "matched": 11,
+        "rubinWithoutGaia": 106,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2025.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.008762070476250352,
+          "p95Arcsec": 0.05765597282302504,
+          "matched": 11
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.12133522984343674,
+          "p95Arcsec": 0.18787319670728775,
+          "matched": 11
+        },
+        "improvementArcsec": 0.11257315936718638,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 46,
+        "rubinSources": 250,
+        "matched": 25,
+        "rubinWithoutGaia": 225,
+        "gaiaWithoutRubin": 21
+      },
+      "epochFit": {
+        "fittedJyear": 2025.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.006033396195921705,
+          "p95Arcsec": 0.03598671137387829,
+          "matched": 25
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.1086034442141498,
+          "p95Arcsec": 0.34434780991885383,
+          "matched": 25
+        },
+        "improvementArcsec": 0.1025700480182281,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "tract": 8708,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 167,
+        "rubinSources": 97,
+        "matched": 38,
+        "rubinWithoutGaia": 59,
+        "gaiaWithoutRubin": 129
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.013988144430135303,
+          "p95Arcsec": 0.06528149429640516,
+          "matched": 38
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.07224359788064755,
+          "p95Arcsec": 0.14502479708765278,
+          "matched": 38
+        },
+        "improvementArcsec": 0.058255453450512244,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 28,
+        "rubinSources": 225,
+        "matched": 12,
+        "rubinWithoutGaia": 213,
+        "gaiaWithoutRubin": 16
+      },
+      "epochFit": {
+        "fittedJyear": 2026.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.025903519136711517,
+          "p95Arcsec": 0.4334975863571693,
+          "matched": 12
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.10002560057295402,
+          "p95Arcsec": 0.46003077640534296,
+          "matched": 12
+        },
+        "improvementArcsec": 0.0741220814362425,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 37,
+        "rubinSources": 187,
+        "matched": 16,
+        "rubinWithoutGaia": 171,
+        "gaiaWithoutRubin": 21
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.011322861875839755,
+          "p95Arcsec": 0.05596840578665217,
+          "matched": 16
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.15040055560920973,
+          "p95Arcsec": 0.5711441563343091,
+          "matched": 16
+        },
+        "improvementArcsec": 0.13907769373336998,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 46,
+        "rubinSources": 141,
+        "matched": 25,
+        "rubinWithoutGaia": 116,
+        "gaiaWithoutRubin": 21
+      },
+      "epochFit": {
+        "fittedJyear": 2025.0,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.011762886053945883,
+          "p95Arcsec": 0.036396086769063335,
+          "matched": 25
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.09140149624304145,
+          "p95Arcsec": 0.2019440899752016,
+          "matched": 25
+        },
+        "improvementArcsec": 0.07963861018909557,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 31,
+        "rubinSources": 136,
+        "matched": 15,
+        "rubinWithoutGaia": 121,
+        "gaiaWithoutRubin": 16
+      },
+      "epochFit": {
+        "fittedJyear": 2025.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.010590075975809552,
+          "p95Arcsec": 0.18447470184462178,
+          "matched": 15
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.10359285126936674,
+          "p95Arcsec": 0.3565525753774513,
+          "matched": 15
+        },
+        "improvementArcsec": 0.09300277529355719,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 28,
+        "rubinSources": 66,
+        "matched": 14,
+        "rubinWithoutGaia": 52,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.018620280195421585,
+          "p95Arcsec": 0.07640638780438559,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.0705643815080922,
+          "p95Arcsec": 0.4781574445434988,
+          "matched": 14
+        },
+        "improvementArcsec": 0.05194410131267062,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 34,
+        "rubinSources": 108,
+        "matched": 14,
+        "rubinWithoutGaia": 94,
+        "gaiaWithoutRubin": 20
+      },
+      "epochFit": {
+        "fittedJyear": 2026.25,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.013833483094347487,
+          "p95Arcsec": 0.06036033200374477,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.09741347288419924,
+          "p95Arcsec": 0.16365948484396275,
+          "matched": 14
+        },
+        "improvementArcsec": 0.08357998978985176,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 26,
+        "rubinSources": 61,
+        "matched": 12,
+        "rubinWithoutGaia": 49,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2025.5,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.01541771656173933,
+          "p95Arcsec": 0.549456353202129,
+          "matched": 12
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.10222368563912558,
+          "p95Arcsec": 0.659596998661949,
+          "matched": 12
+        },
+        "improvementArcsec": 0.08680596907738625,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 28,
+        "rubinSources": 249,
+        "matched": 14,
+        "rubinWithoutGaia": 235,
+        "gaiaWithoutRubin": 14
+      },
+      "epochFit": {
+        "fittedJyear": 2025.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.010293174444986118,
+          "p95Arcsec": 0.14730246927981472,
+          "matched": 14
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.08524607284580216,
+          "p95Arcsec": 0.20091645620674295,
+          "matched": 14
+        },
+        "improvementArcsec": 0.07495289840081604,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "band": "r",
+      "pixelScaleArcsec": 0.2,
+      "counts": {
+        "gaiaSources": 31,
+        "rubinSources": 121,
+        "matched": 13,
+        "rubinWithoutGaia": 108,
+        "gaiaWithoutRubin": 18
+      },
+      "epochFit": {
+        "fittedJyear": 2025.75,
+        "searchRange": [
+          2023.0,
+          2027.0
+        ],
+        "searchStepYears": 0.25,
+        "atFittedEpoch": {
+          "medianArcsec": 0.00826076050606913,
+          "p95Arcsec": 0.24466448056730222,
+          "matched": 13
+        },
+        "withoutPropagation": {
+          "medianArcsec": 0.12627413381873628,
+          "p95Arcsec": 0.3315161646625384,
+          "matched": 13
+        },
+        "improvementArcsec": 0.11801337331266715,
+        "method": "Rubin DP2 deep coadds publish no usable observation epoch, so it is solved for as the single free parameter that minimises the Gaia-matched astrometric residual."
+      },
+      "interpretation": "Rubin sources without a Gaia counterpart are mostly galaxies, which Gaia does not catalogue; this count is not by itself a transient search. Gaia sources without a Rubin counterpart are masked, variable, or moved further than the match radius."
+    }
+  ]
+}

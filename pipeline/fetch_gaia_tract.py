@@ -28,7 +28,11 @@ ENDPOINTS = (
     "https://gea.esac.esa.int/tap-server/tap/sync",
     "https://gaia.ari.uni-heidelberg.de/tap/sync",
 )
-RADIUS_DEG = 2.0 / 60.0
+# A 4 arcmin square cutout has a 2.83 arcmin half-diagonal, so a 2 arcmin radius
+# misses its corners. Fields at high galactic latitude are star-poor enough that
+# the shortfall drops them below the minimum match count entirely.
+DEFAULT_RADIUS_ARCMIN = 3.0
+RADIUS_DEG = DEFAULT_RADIUS_ARCMIN / 60.0
 USER_AGENT = "Layers Gaia bounded tract catalogue/1.0 (+https://rubin-light-atlas.vercel.app/)"
 
 
@@ -156,10 +160,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--regions", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--radius-arcmin", type=float, default=DEFAULT_RADIUS_ARCMIN)
     args = parser.parse_args()
     regions = json.loads(args.regions.read_text(encoding="utf-8")).get("regions", [])
     if not regions:
         raise SystemExit("No regions supplied")
+    global RADIUS_DEG
+    RADIUS_DEG = args.radius_arcmin / 60.0
     session = requests.Session()
     session.headers["User-Agent"] = USER_AGENT
     records = [query_region(session, region, args.output) for region in regions]
