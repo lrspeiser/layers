@@ -1,0 +1,1752 @@
+{
+  "schemaVersion": "layers-hi-baryonic-tully-fisher-v1",
+  "generatedAt": "2026-08-14T21:00:41.167964+00:00",
+  "comparisonKind": "scaling-relation residual",
+  "gatedByBandpassTransfer": false,
+  "counts": {
+    "attempted": 40,
+    "opticalCounterpartMeasured": 40,
+    "withUsableInclination": 28,
+    "skipped": 0
+  },
+  "assumptions": {
+    "opticalSurvey": "Legacy Survey DR10 r band",
+    "requestPixelScaleArcsec": 0.7,
+    "legacyNativePixelScaleArcsec": 0.262,
+    "pixelAreaFactorApplied": true,
+    "stellarMassToLightR": 1.0,
+    "solarAbsoluteRMag": 4.65,
+    "heliumCorrection": 1.36,
+    "minimumInclinationDeg": 30.0,
+    "btfr": {
+      "normalisation": 47.0,
+      "slope": 4.0
+    }
+  },
+  "residual": {
+    "medianDex": 0.4194279132401153,
+    "observedScatterDex": 1.0060192826658214,
+    "assumedSystematicDex": 0.18601075237738274,
+    "assumedUnderstatesObservedBy": 5.40839316979261,
+    "absoluteNormalisationTested": false,
+    "noteworthy": 1,
+    "note": "The sample median is subtracted as a calibration, so this ranks relative departures only. A median offset of this size is a statement about the mass-to-light ratio, the aperture photometry, and the distance scale, not about the galaxies."
+  },
+  "caveats": [
+    "A single declared mass-to-light ratio is applied to every galaxy; no colour-dependent stellar population model is fitted, and that is the dominant systematic.",
+    "The optical counterpart is the brightest extended source inside the search radius. The HIPASS beam holds many galaxies, so fluxRatioToRunnerUp and candidateCount must be read before trusting any individual object.",
+    "Distances are Hubble-flow only, so peculiar velocities are unmodelled and nearby objects carry the largest distance error.",
+    "A residual is an observation about the baryon budget of these objects, not a measurement of dark matter and not a test of any specific gravity model."
+  ],
+  "skipped": [],
+  "objects": [
+    {
+      "id": "J0000-07",
+      "tract": 8019,
+      "position": {
+        "raDeg": 0.10749999999999998,
+        "decDeg": -7.832222222222222
+      },
+      "distanceMpc": 53.71142926897321,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1707942.5900014825,
+        "apparentMagAB": 15.818816828942463,
+        "absoluteMagAB": -17.83151671690165,
+        "luminosityLsun": 983120352.1074975,
+        "axisRatio": 0.9371347808743901,
+        "inclinationDeg": 20.86477495978214,
+        "offsetFromHiArcmin": 1.8478363252352104,
+        "candidateCount": 49,
+        "fluxRatioToRunnerUp": 2.266004446196467,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 983120352.1074975,
+        "gasMassMsun": 2495809219.4403634,
+        "baryonicMassMsun": 3478929571.547861,
+        "logBaryonicMassMsun": 9.541445636854018,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 58.099998474121094,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0002-03",
+      "tract": 8742,
+      "position": {
+        "raDeg": 0.5020833333333333,
+        "decDeg": -3.283611111111111
+      },
+      "distanceMpc": 85.23857421875,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 105618546.65722859,
+        "apparentMagAB": 11.340649532070422,
+        "absoluteMagAB": -23.312531351336787,
+        "luminosityLsun": 153113167346.33957,
+        "axisRatio": 0.11719766000308204,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 0.6569122900922018,
+        "candidateCount": 36,
+        "fluxRatioToRunnerUp": 22.06225918695771,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 153113167346.33957,
+        "gasMassMsun": 15830530642.254074,
+        "baryonicMassMsun": 168943697988.59363,
+        "logBaryonicMassMsun": 11.22774199617114,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 126.4000015258789,
+        "inclinationCorrectedKmS": 63.20000076293945,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.874966192036169,
+        "residualDex": 2.3527758041349713,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 1.933347890894856,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 1.921780152932788,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0002-07",
+      "tract": 8019,
+      "position": {
+        "raDeg": 0.5154166666666666,
+        "decDeg": -7.6322222222222225
+      },
+      "distanceMpc": 53.904286411830356,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1595440.752582206,
+        "apparentMagAB": 15.892798297234902,
+        "absoluteMagAB": -17.765318208753364,
+        "luminosityLsun": 924969225.2075945,
+        "axisRatio": 0.9575752017925288,
+        "inclinationDeg": 17.105139436904032,
+        "offsetFromHiArcmin": 1.4716294730995039,
+        "candidateCount": 44,
+        "fluxRatioToRunnerUp": 1.3821718336640292,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 924969225.2075945,
+        "gasMassMsun": 2048252469.3670313,
+        "baryonicMassMsun": 2973221694.574626,
+        "logBaryonicMassMsun": 9.473227293039722,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 44.70000076293945,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0004-01",
+      "tract": 8985,
+      "position": {
+        "raDeg": 1.1937499999999999,
+        "decDeg": -1.5972222222222223
+      },
+      "distanceMpc": 101.56856863839286,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 8883273.679053271,
+        "apparentMagAB": 14.028567394465071,
+        "absoluteMagAB": -21.005229266395474,
+        "luminosityLsun": 18284862824.81642,
+        "axisRatio": 0.5241351337980519,
+        "inclinationDeg": 60.3653950777429,
+        "offsetFromHiArcmin": 1.615975796609994,
+        "candidateCount": 49,
+        "fluxRatioToRunnerUp": 44.54759420189783,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 18284862824.81642,
+        "gasMassMsun": 31071390905.240585,
+        "baryonicMassMsun": 49356253730.05701,
+        "logBaryonicMassMsun": 10.693342188178576,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 221.39999389648438,
+        "inclinationCorrectedKmS": 127.35900795649107,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.092216528081082,
+        "residualDex": 0.6011256600974946,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.18169774685737927,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.18061060059992456,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0005-07",
+      "tract": 8260,
+      "position": {
+        "raDeg": 1.3012499999999998,
+        "decDeg": -7.061944444444444
+      },
+      "distanceMpc": 56.41857212611607,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 9577780.895535588,
+        "apparentMagAB": 13.946837755607483,
+        "absoluteMagAB": -19.81027269730388,
+        "luminosityLsun": 6082877617.764651,
+        "axisRatio": 0.7488785170591864,
+        "inclinationDeg": 42.5608474700261,
+        "offsetFromHiArcmin": 1.4505994873999153,
+        "candidateCount": 33,
+        "fluxRatioToRunnerUp": 4.533432829686646,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 6082877617.764651,
+        "gasMassMsun": 18358233135.06088,
+        "baryonicMassMsun": 24441110752.82553,
+        "logBaryonicMassMsun": 10.388120939003466,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 314.79998779296875,
+        "inclinationCorrectedKmS": 232.71188956616157,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 11.139372148127192,
+        "residualDex": -0.7512512091237262,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -1.1706791223638415,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -1.163674635799915,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0005-11",
+      "tract": 7541,
+      "position": {
+        "raDeg": 1.3149999999999997,
+        "decDeg": -11.493611111111111
+      },
+      "distanceMpc": 96.43999720982143,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 15001646.636111017,
+        "apparentMagAB": 13.459652671405845,
+        "absoluteMagAB": -21.46163327429672,
+        "luminosityLsun": 27838979405.324974,
+        "axisRatio": 0.9849485386254428,
+        "inclinationDeg": 10.160843459695254,
+        "offsetFromHiArcmin": 0.7998492435326133,
+        "candidateCount": 38,
+        "fluxRatioToRunnerUp": 2.82402978704181,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 27838979405.324974,
+        "gasMassMsun": 15496438622.447077,
+        "baryonicMassMsun": 43335418027.77205,
+        "logBaryonicMassMsun": 10.636842990268265,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 132.6999969482422,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0006-06",
+      "tract": 8260,
+      "position": {
+        "raDeg": 1.7479166666666666,
+        "decDeg": -6.948055555555555
+      },
+      "distanceMpc": 55.258572823660714,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 91752306.4920376,
+        "apparentMagAB": 11.493457523842679,
+        "absoluteMagAB": -22.2185407966482,
+        "luminosityLsun": 55900580604.91824,
+        "axisRatio": 0.09040836640797335,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 0.6358124277455075,
+        "candidateCount": 39,
+        "fluxRatioToRunnerUp": 1037.830523201102,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 55900580604.91824,
+        "gasMassMsun": 8414183773.777704,
+        "baryonicMassMsun": 64314764378.695946,
+        "logBaryonicMassMsun": 10.80831068291095,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 87.5999984741211,
+        "inclinationCorrectedKmS": 43.79999923706055,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.237994269692718,
+        "residualDex": 2.5703164132182312,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 2.150888499978116,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 2.138019158319251,
+        "classification": "noteworthy"
+      }
+    },
+    {
+      "id": "J0008-10",
+      "tract": 7541,
+      "position": {
+        "raDeg": 2.1249999999999996,
+        "decDeg": -10.9425
+      },
+      "distanceMpc": 129.79285714285714,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 9143849.356838562,
+        "apparentMagAB": 13.997177343679672,
+        "absoluteMagAB": -21.569076619843955,
+        "luminosityLsun": 30734818155.77869,
+        "axisRatio": 0.876542965622145,
+        "inclinationDeg": 29.422698940552,
+        "offsetFromHiArcmin": 1.1197099078961055,
+        "candidateCount": 31,
+        "fluxRatioToRunnerUp": 1.1049749910260858,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 30734818155.77869,
+        "gasMassMsun": 26449159059.837128,
+        "baryonicMassMsun": 57183977215.615814,
+        "logBaryonicMassMsun": 10.757274357785288,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 99.9000015258789,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0008-02",
+      "tract": 8985,
+      "position": {
+        "raDeg": 2.2104166666666663,
+        "decDeg": -2.3966666666666665
+      },
+      "distanceMpc": 52.74571358816964,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 4039357.8862814116,
+        "apparentMagAB": 14.884219166807632,
+        "absoluteMagAB": -18.726716694212243,
+        "luminosityLsun": 2242263656.0904727,
+        "axisRatio": 0.21539344432470836,
+        "inclinationDeg": 85.31868309657669,
+        "offsetFromHiArcmin": 1.121170116259775,
+        "candidateCount": 42,
+        "fluxRatioToRunnerUp": 1.0632130531838675,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 2242263656.0904727,
+        "gasMassMsun": 12658343523.896465,
+        "baryonicMassMsun": 14900607179.986938,
+        "logBaryonicMassMsun": 10.173203965697185,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 141.8000030517578,
+        "inclinationCorrectedKmS": 71.1373118658577,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.080487658158944,
+        "residualDex": 1.0927163075382413,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.673288394298126,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.6692599296049262,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0010-06",
+      "tract": 8261,
+      "position": {
+        "raDeg": 2.5520833333333326,
+        "decDeg": -6.351388888888889
+      },
+      "distanceMpc": 54.484284319196426,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 17946747.965769045,
+        "apparentMagAB": 13.265035590342693,
+        "absoluteMagAB": -20.41632066253524,
+        "luminosityLsun": 10629877630.319714,
+        "axisRatio": 0.5846226725005095,
+        "inclinationDeg": 55.897414043692116,
+        "offsetFromHiArcmin": 1.6108605610748479,
+        "candidateCount": 29,
+        "fluxRatioToRunnerUp": 3.5070787866276136,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 10629877630.319714,
+        "gasMassMsun": 5897234149.568662,
+        "baryonicMassMsun": 16527111779.888374,
+        "logBaryonicMassMsun": 10.218196964421267,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 189.60000610351562,
+        "inclinationCorrectedKmS": 114.48791366733647,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.907136422817901,
+        "residualDex": 0.31106054160336605,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.10836737163674925,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.1077189806437802,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0010-46",
+      "tract": 2532,
+      "position": {
+        "raDeg": 2.6449999999999996,
+        "decDeg": -46.465
+      },
+      "distanceMpc": 88.57285853794643,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 10008734.053567767,
+        "apparentMagAB": 13.899052126061273,
+        "absoluteMagAB": -20.837451179027134,
+        "luminosityLsun": 15666806215.11662,
+        "axisRatio": 0.38017107858612,
+        "inclinationDeg": 70.73256098864849,
+        "offsetFromHiArcmin": 1.849626775586771,
+        "candidateCount": 43,
+        "fluxRatioToRunnerUp": 3.993727344492502,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 15666806215.11662,
+        "gasMassMsun": 43738587653.08326,
+        "baryonicMassMsun": 59405393868.199875,
+        "logBaryonicMassMsun": 10.77382587967554,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 312.29998779296875,
+        "inclinationCorrectedKmS": 165.4151215865956,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.546398691895721,
+        "residualDex": 0.22742718777981885,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.19200072546029645,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.19085193372389372,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0012+00",
+      "tract": 9228,
+      "position": {
+        "raDeg": 3.1654166666666663,
+        "decDeg": 0.001388888888888889
+      },
+      "distanceMpc": 169.35285993303572,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 2087396.446957461,
+        "apparentMagAB": 15.600987650245873,
+        "absoluteMagAB": -20.542975025535686,
+        "luminosityLsun": 11945106060.887016,
+        "axisRatio": 0.9991451809458253,
+        "inclinationDeg": 2.4181053233803627,
+        "offsetFromHiArcmin": 1.4907300068622642,
+        "candidateCount": 45,
+        "fluxRatioToRunnerUp": 1.7873846787569296,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 11945106060.887016,
+        "gasMassMsun": 31244832011.899498,
+        "baryonicMassMsun": 43189938072.786514,
+        "logBaryonicMassMsun": 10.635382581341633,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 79.4000015258789,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0014-00",
+      "tract": 9228,
+      "position": {
+        "raDeg": 3.6537499999999996,
+        "decDeg": -0.745
+      },
+      "distanceMpc": 58.35428641183036,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 10155852.787263237,
+        "apparentMagAB": 13.883209007517987,
+        "absoluteMagAB": -19.94715480566855,
+        "luminosityLsun": 6900203868.273253,
+        "axisRatio": 0.3974319810658099,
+        "inclinationDeg": 69.48065063503932,
+        "offsetFromHiArcmin": 1.346124825672902,
+        "candidateCount": 39,
+        "fluxRatioToRunnerUp": 23.70520599444012,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 6900203868.273253,
+        "gasMassMsun": 18002949530.012585,
+        "baryonicMassMsun": 24903153398.28584,
+        "logBaryonicMassMsun": 10.396254343752902,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 297.79998779296875,
+        "inclinationCorrectedKmS": 158.9871112617564,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.477545531701029,
+        "residualDex": -0.08129118794812662,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.5007191011882419,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.4977231647701631,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0014-07",
+      "tract": 8261,
+      "position": {
+        "raDeg": 3.661666666666666,
+        "decDeg": -7.150555555555556
+      },
+      "distanceMpc": 82.49571707589286,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 5914262.640671592,
+        "apparentMagAB": 14.470248483062793,
+        "absoluteMagAB": -20.11190852643899,
+        "luminosityLsun": 8030885066.54322,
+        "axisRatio": 0.9745139923213088,
+        "inclinationDeg": 13.235409084025896,
+        "offsetFromHiArcmin": 1.165494692140792,
+        "candidateCount": 36,
+        "fluxRatioToRunnerUp": 2.045910632535016,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 8030885066.54322,
+        "gasMassMsun": 10030782670.163218,
+        "baryonicMassMsun": 18061667736.706436,
+        "logBaryonicMassMsun": 10.256757848713312,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 197.89999389648438,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0015-08",
+      "tract": 8021,
+      "position": {
+        "raDeg": 3.793333333333333,
+        "decDeg": -8.159444444444444
+      },
+      "distanceMpc": 91.12714146205357,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 171715.89477965038,
+        "apparentMagAB": 18.31297375691982,
+        "absoluteMagAB": -16.485264979297458,
+        "luminosityLsun": 284515539.6986239,
+        "axisRatio": 0.7521357204193673,
+        "inclinationDeg": 42.267856454236416,
+        "offsetFromHiArcmin": 1.9727316326880409,
+        "candidateCount": 63,
+        "fluxRatioToRunnerUp": 1.113588947577089,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 284515539.6986239,
+        "gasMassMsun": 11973529891.770454,
+        "baryonicMassMsun": 12258045431.469078,
+        "logBaryonicMassMsun": 10.088421226626123,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 174.8000030517578,
+        "inclinationCorrectedKmS": 129.94399452630157,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.12712270996391,
+        "residualDex": -0.038701483337787224,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.4581293965779025,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.45538828576319,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0019-03",
+      "tract": 8745,
+      "position": {
+        "raDeg": 4.776249999999999,
+        "decDeg": -3.5108333333333333
+      },
+      "distanceMpc": 83.86714564732142,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 85183335.71212807,
+        "apparentMagAB": 11.57411339325089,
+        "absoluteMagAB": -23.043845918729666,
+        "luminosityLsun": 119546913402.97867,
+        "axisRatio": 0.08096173430577569,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 0.6621931487132356,
+        "candidateCount": 39,
+        "fluxRatioToRunnerUp": 21.01756722491341,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 119546913402.97867,
+        "gasMassMsun": 17804304605.33423,
+        "baryonicMassMsun": 137351218008.3129,
+        "logBaryonicMassMsun": 11.137832515026648,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 177.39999389648438,
+        "inclinationCorrectedKmS": 88.69999694824219,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.463792277494344,
+        "residualDex": 1.6740402375323047,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 1.2546123242921894,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 1.247105642913353,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0021-50",
+      "tract": 2056,
+      "position": {
+        "raDeg": 5.282499999999999,
+        "decDeg": -50.52861111111111
+      },
+      "distanceMpc": 143.8414341517857,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1933659.9035872533,
+        "apparentMagAB": 15.684049770543936,
+        "absoluteMagAB": -20.10537025188507,
+        "luminosityLsun": 7982668615.029236,
+        "axisRatio": 0.5595528293869836,
+        "inclinationDeg": 57.76688429614087,
+        "offsetFromHiArcmin": 0.686364604448828,
+        "candidateCount": 32,
+        "fluxRatioToRunnerUp": 13.898891292852527,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 7982668615.029236,
+        "gasMassMsun": 23866277870.194733,
+        "baryonicMassMsun": 31848946485.22397,
+        "logBaryonicMassMsun": 10.50309507110713,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 105.4000015258789,
+        "inclinationCorrectedKmS": 62.301611500753154,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.85009497920053,
+        "residualDex": 1.6530000919065984,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 1.233572178666483,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 1.2261913861110851,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0021-48",
+      "tract": 2369,
+      "position": {
+        "raDeg": 5.406249999999999,
+        "decDeg": -48.654444444444444
+      },
+      "distanceMpc": 46.95999930245536,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1106057.7883968968,
+        "apparentMagAB": 16.290555454444522,
+        "absoluteMagAB": -17.068084954498183,
+        "luminosityLsun": 486669334.5046109,
+        "axisRatio": 0.23174295964753558,
+        "inclinationDeg": 83.13781965385449,
+        "offsetFromHiArcmin": 0.5876561773335425,
+        "candidateCount": 24,
+        "fluxRatioToRunnerUp": 1.308376863002113,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 486669334.5046109,
+        "gasMassMsun": 24306857778.261597,
+        "baryonicMassMsun": 24793527112.76621,
+        "logBaryonicMassMsun": 10.394338313643551,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 350.3999938964844,
+        "inclinationCorrectedKmS": 176.464110792642,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.658723426132049,
+        "residualDex": -0.2643851124884975,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.6838130257286128,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.6797215893482642,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0022-48",
+      "tract": 2369,
+      "position": {
+        "raDeg": 5.5058333333333325,
+        "decDeg": -48.61944444444445
+      },
+      "distanceMpc": 45.804286411830354,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 37286676.49589578,
+        "apparentMagAB": 12.471115813104749,
+        "absoluteMagAB": -20.83341479502582,
+        "luminosityLsun": 15608670689.809555,
+        "axisRatio": 0.12888728599722804,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 1.9309068335443982,
+        "candidateCount": 38,
+        "fluxRatioToRunnerUp": 13.616802555274973,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 15608670689.809555,
+        "gasMassMsun": 8335815805.070033,
+        "baryonicMassMsun": 23944486494.87959,
+        "logBaryonicMassMsun": 10.379205527750248,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 182.10000610351562,
+        "inclinationCorrectedKmS": 91.05000305175781,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.509217716685132,
+        "residualDex": 0.8699878110651156,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.4505598978250003,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.4478640773475779,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0022-01",
+      "tract": 9230,
+      "position": {
+        "raDeg": 5.597499999999999,
+        "decDeg": -1.3172222222222223
+      },
+      "distanceMpc": 69.61285574776785,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 8109528.203389544,
+        "apparentMagAB": 14.127511028659443,
+        "absoluteMagAB": -20.085936222895377,
+        "luminosityLsun": 7841054801.261507,
+        "axisRatio": 0.5728415283239425,
+        "inclinationDeg": 56.77949023183581,
+        "offsetFromHiArcmin": 0.8209159971321319,
+        "candidateCount": 32,
+        "fluxRatioToRunnerUp": 3.507161926590437,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 7841054801.261507,
+        "gasMassMsun": 15837741810.560642,
+        "baryonicMassMsun": 23678796611.82215,
+        "logBaryonicMassMsun": 10.374359627184106,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 85.80000305175781,
+        "inclinationCorrectedKmS": 51.28093421942324,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.511921571610952,
+        "residualDex": 1.8624380555731541,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 1.4430101423330388,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 1.4343762263773394,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0022-06",
+      "tract": 8263,
+      "position": {
+        "raDeg": 5.703333333333332,
+        "decDeg": -6.695833333333334
+      },
+      "distanceMpc": 21.304286411830358,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 3004053.0514605534,
+        "apparentMagAB": 15.205731004940732,
+        "absoluteMagAB": -16.43660395537961,
+        "luminosityLsun": 272045522.3425954,
+        "axisRatio": 0.38291468079739804,
+        "inclinationDeg": 70.53286412059276,
+        "offsetFromHiArcmin": 1.2667110336879128,
+        "candidateCount": 47,
+        "fluxRatioToRunnerUp": 1.615799744303221,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 272045522.3425954,
+        "gasMassMsun": 1323395303.6992192,
+        "baryonicMassMsun": 1595440826.0418146,
+        "logBaryonicMassMsun": 9.202880701102337,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 146.5,
+        "inclinationCorrectedKmS": 77.69139951585684,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.233589637152827,
+        "residualDex": -0.0307089360504893,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.4501368492906046,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.4474435600258078,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0022-45",
+      "tract": 2702,
+      "position": {
+        "raDeg": 5.733749999999999,
+        "decDeg": -45.282222222222224
+      },
+      "distanceMpc": 88.37714146205357,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 26384913.88060727,
+        "apparentMagAB": 12.84661079751427,
+        "absoluteMagAB": -21.885088953986337,
+        "luminosityLsun": 41118340783.68778,
+        "axisRatio": 0.8558957260016977,
+        "inclinationDeg": 31.857767242204304,
+        "offsetFromHiArcmin": 1.3974601837444687,
+        "candidateCount": 50,
+        "fluxRatioToRunnerUp": 15.787081874767807,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 41118340783.68778,
+        "gasMassMsun": 7758107186.745728,
+        "baryonicMassMsun": 48876447970.43351,
+        "logBaryonicMassMsun": 10.689099636618845,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 91.4000015258789,
+        "inclinationCorrectedKmS": 86.58379299862968,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.4218442865143,
+        "residualDex": 1.267255350104545,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.8478274368644296,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.842754658357836,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0023-46",
+      "tract": 2534,
+      "position": {
+        "raDeg": 5.8825,
+        "decDeg": -46.488055555555555
+      },
+      "distanceMpc": 4.61999991280692,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 12496789.891866721,
+        "apparentMagAB": 13.658003829737929,
+        "absoluteMagAB": -14.665206007060583,
+        "luminosityLsun": 53220923.080851726,
+        "axisRatio": 0.40318338834136097,
+        "inclinationDeg": 69.06552021188139,
+        "offsetFromHiArcmin": 1.1223157828972685,
+        "candidateCount": 54,
+        "fluxRatioToRunnerUp": 4.566861327344834,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 53220923.080851726,
+        "gasMassMsun": 26672440.00001031,
+        "baryonicMassMsun": 79893363.08086205,
+        "logBaryonicMassMsun": 7.902510703005132,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 82.9000015258789,
+        "inclinationCorrectedKmS": 44.37950876544268,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.260827820890718,
+        "residualDex": -0.3583171178855862,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.7777450311257015,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.7730915744127462,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0025-02",
+      "tract": 8988,
+      "position": {
+        "raDeg": 6.442499999999999,
+        "decDeg": -2.254722222222222
+      },
+      "distanceMpc": 78.77857142857142,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 13846568.706998859,
+        "apparentMagAB": 13.546644587480799,
+        "absoluteMagAB": -20.93539591773873,
+        "luminosityLsun": 17145824223.733505,
+        "axisRatio": 0.1181636407694035,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 1.8342230983359824,
+        "candidateCount": 54,
+        "fluxRatioToRunnerUp": 45.844826342727536,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 17145824223.733505,
+        "gasMassMsun": 18294401869.509083,
+        "baryonicMassMsun": 35440226093.242584,
+        "logBaryonicMassMsun": 10.54949648383393,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 407.20001220703125,
+        "inclinationCorrectedKmS": 203.60000610351562,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.907209004671676,
+        "residualDex": -0.35771252083774563,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.7771404340778609,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.7724905948308853,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0027-01a",
+      "tract": 9231,
+      "position": {
+        "raDeg": 6.9487499999999995,
+        "decDeg": -1.1608333333333332
+      },
+      "distanceMpc": 56.998570033482146,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1109905.9544096515,
+        "apparentMagAB": 16.286784546752152,
+        "absoluteMagAB": -17.492535254912234,
+        "luminosityLsun": 719472339.5921471,
+        "axisRatio": 0.9786044561723216,
+        "inclinationDeg": 12.121962479674101,
+        "offsetFromHiArcmin": 1.7931658943210478,
+        "candidateCount": 55,
+        "fluxRatioToRunnerUp": 1.3628881108325641,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 719472339.5921471,
+        "gasMassMsun": 6558170114.020926,
+        "baryonicMassMsun": 7277642453.613073,
+        "logBaryonicMassMsun": 9.861990715136281,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 228.6999969482422,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0027-01b",
+      "tract": 8989,
+      "position": {
+        "raDeg": 6.955416666666666,
+        "decDeg": -1.7977777777777777
+      },
+      "distanceMpc": 58.54714006696429,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 17136647.6690105,
+        "apparentMagAB": 13.315185330775765,
+        "absoluteMagAB": -20.522343095944056,
+        "luminosityLsun": 11720259791.747374,
+        "axisRatio": 0.449727189659714,
+        "inclinationDeg": 65.72513334707652,
+        "offsetFromHiArcmin": 1.0638119723556627,
+        "candidateCount": 32,
+        "fluxRatioToRunnerUp": 2.1282609264669734,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 11720259791.747374,
+        "gasMassMsun": 14278050624.921251,
+        "baryonicMassMsun": 25998310416.668625,
+        "logBaryonicMassMsun": 10.41494512487234,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 219.3000030517578,
+        "inclinationCorrectedKmS": 120.28517083177665,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.992946215245192,
+        "residualDex": 0.42199890962714726,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.002570996387031954,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.0025556134274276983,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0029-05",
+      "tract": 8505,
+      "position": {
+        "raDeg": 7.454999999999999,
+        "decDeg": -5.099444444444444
+      },
+      "distanceMpc": 55.06428571428572,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 4200251.879559628,
+        "apparentMagAB": 14.841811662919914,
+        "absoluteMagAB": -18.862538387044395,
+        "luminosityLsun": 2541062545.1953955,
+        "axisRatio": 0.5550572579133443,
+        "inclinationDeg": 58.099243777498344,
+        "offsetFromHiArcmin": 0.958685443705196,
+        "candidateCount": 49,
+        "fluxRatioToRunnerUp": 7.0385675839363335,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 2541062545.1953955,
+        "gasMassMsun": 7092136503.388525,
+        "baryonicMassMsun": 9633199048.58392,
+        "logBaryonicMassMsun": 9.983770534106212,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 193.39999389648438,
+        "inclinationCorrectedKmS": 113.90343494400942,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.898245142478114,
+        "residualDex": 0.08552539162809758,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.3339025216120177,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.3319046934440651,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0030-41",
+      "tract": 3234,
+      "position": {
+        "raDeg": 7.564166666666666,
+        "decDeg": -41.11388888888889
+      },
+      "distanceMpc": 127.79428013392857,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 5154717.593006026,
+        "apparentMagAB": 14.619487807599148,
+        "absoluteMagAB": -20.91306927208148,
+        "luminosityLsun": 16796844777.058647,
+        "axisRatio": 0.08665402802384202,
+        "inclinationDeg": 90.0,
+        "offsetFromHiArcmin": 0.9644220960502629,
+        "candidateCount": 53,
+        "fluxRatioToRunnerUp": 33.08466211481926,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 16796844777.058647,
+        "gasMassMsun": 26687457105.633713,
+        "baryonicMassMsun": 43484301882.69236,
+        "logBaryonicMassMsun": 10.638332502100038,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 237.60000610351562,
+        "inclinationCorrectedKmS": 118.80000305175781,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.971363665141384,
+        "residualDex": 0.6669688369586542,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.24754092371853886,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.246059820108604,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0030-48",
+      "tract": 2370,
+      "position": {
+        "raDeg": 7.588333333333333,
+        "decDeg": -48.63916666666667
+      },
+      "distanceMpc": 49.851429966517856,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 1594914.2166436072,
+        "apparentMagAB": 15.893156676877512,
+        "absoluteMagAB": -17.59523142499286,
+        "luminosityLsun": 790847179.3457625,
+        "axisRatio": 0.9900646204217308,
+        "inclinationDeg": 8.251159922299713,
+        "offsetFromHiArcmin": 0.7518827918866245,
+        "candidateCount": 47,
+        "fluxRatioToRunnerUp": 1.0242904562445858,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 790847179.3457625,
+        "gasMassMsun": 10351726462.676573,
+        "baryonicMassMsun": 11142573642.022335,
+        "logBaryonicMassMsun": 10.046985513049284,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 282.20001220703125,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0031-10",
+      "tract": 7545,
+      "position": {
+        "raDeg": 7.869583333333334,
+        "decDeg": -10.479722222222222
+      },
+      "distanceMpc": 52.5528564453125,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 385301.00763578434,
+        "apparentMagAB": 17.43549963805577,
+        "absoluteMagAB": -16.167481994662065,
+        "luminosityLsun": 212320925.1405885,
+        "axisRatio": 0.962808128436944,
+        "inclinationDeg": 16.007160952343405,
+        "offsetFromHiArcmin": 1.0504741880220982,
+        "candidateCount": 40,
+        "fluxRatioToRunnerUp": 1.4966909780417068,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 212320925.1405885,
+        "gasMassMsun": 28848579094.384445,
+        "baryonicMassMsun": 29060900019.525032,
+        "logBaryonicMassMsun": 10.463309060321967,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 286.3999938964844,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0031-11",
+      "tract": 7545,
+      "position": {
+        "raDeg": 7.893750000000001,
+        "decDeg": -11.828888888888889
+      },
+      "distanceMpc": 45.9971435546875,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 5078121.198509449,
+        "apparentMagAB": 14.635742345295977,
+        "absoluteMagAB": -18.677911967790667,
+        "luminosityLsun": 2143703846.0017145,
+        "axisRatio": 0.9740880063366671,
+        "inclinationDeg": 13.34612380185491,
+        "offsetFromHiArcmin": 0.8284401008691834,
+        "candidateCount": 60,
+        "fluxRatioToRunnerUp": 1.2544201129920796,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 2143703846.0017145,
+        "gasMassMsun": 3660746764.5805526,
+        "baryonicMassMsun": 5804450610.582267,
+        "logBaryonicMassMsun": 9.7637611201842,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 133.1999969482422,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0031-40",
+      "tract": 3234,
+      "position": {
+        "raDeg": 7.90125,
+        "decDeg": -40.31472222222222
+      },
+      "distanceMpc": 21.304286411830358,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 21056442.48309955,
+        "apparentMagAB": 13.09153750410913,
+        "absoluteMagAB": -18.550797456211214,
+        "luminosityLsun": 1906860763.0636125,
+        "axisRatio": 0.2869695248952435,
+        "inclinationDeg": 77.87539393192975,
+        "offsetFromHiArcmin": 1.7661040223153555,
+        "candidateCount": 49,
+        "fluxRatioToRunnerUp": 6.732927622399589,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 1906860763.0636125,
+        "gasMassMsun": 668969012.7050738,
+        "baryonicMassMsun": 2575829775.7686863,
+        "logBaryonicMassMsun": 9.410917159197462,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 78.0,
+        "inclinationCorrectedKmS": 39.88981718753466,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.07554604181866,
+        "residualDex": 1.335371117378802,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.9159432041386868,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.9104628707628301,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0031-05",
+      "tract": 8505,
+      "position": {
+        "raDeg": 7.929583333333334,
+        "decDeg": -5.171944444444445
+      },
+      "distanceMpc": 58.93428431919643,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 26333213.21192148,
+        "apparentMagAB": 12.84874036124857,
+        "absoluteMagAB": -21.003099708519766,
+        "luminosityLsun": 18249034129.638737,
+        "axisRatio": 0.549170992221479,
+        "inclinationDeg": 58.53321920098677,
+        "offsetFromHiArcmin": 1.3314853392558015,
+        "candidateCount": 58,
+        "fluxRatioToRunnerUp": 50.831724324749324,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 18249034129.638737,
+        "gasMassMsun": 14801368448.263596,
+        "baryonicMassMsun": 33050402577.902332,
+        "logBaryonicMassMsun": 10.519176753876021,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 85.80000305175781,
+        "inclinationCorrectedKmS": 50.296448485182076,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 8.47824713750397,
+        "residualDex": 2.0409296163720505,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 1.6215017031319352,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 1.6117998243882212,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0031-02",
+      "tract": 8989,
+      "position": {
+        "raDeg": 7.94,
+        "decDeg": -2.542222222222222
+      },
+      "distanceMpc": 87.59142717633928,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 2552573.7380933324,
+        "apparentMagAB": 15.382554258181187,
+        "absoluteMagAB": -19.32975375483953,
+        "luminosityLsun": 3907522630.604569,
+        "axisRatio": 0.5220016309344702,
+        "inclinationDeg": 60.5206159225198,
+        "offsetFromHiArcmin": 1.129814594621987,
+        "candidateCount": 70,
+        "fluxRatioToRunnerUp": 4.007619905077906,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 3907522630.604569,
+        "gasMassMsun": 22862323050.68966,
+        "baryonicMassMsun": 26769845681.294228,
+        "logBaryonicMassMsun": 10.427645867639844,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 252.5,
+        "inclinationCorrectedKmS": 145.02612297407862,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.317882805955934,
+        "residualDex": 0.10976306168391048,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.3096648515562048,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.3078120438562896,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0033-01",
+      "tract": 9232,
+      "position": {
+        "raDeg": 8.344999999999999,
+        "decDeg": -1.1169444444444445
+      },
+      "distanceMpc": 29.12142857142857,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 6057026.747554025,
+        "apparentMagAB": 14.444351271269266,
+        "absoluteMagAB": -17.87671210760033,
+        "luminosityLsun": 1024907905.5452014,
+        "axisRatio": 0.8023691241118748,
+        "inclinationDeg": 37.526993863528396,
+        "offsetFromHiArcmin": 1.8509583928785562,
+        "candidateCount": 55,
+        "fluxRatioToRunnerUp": 2.0490165239830467,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 1024907905.5452014,
+        "gasMassMsun": 4429218753.9183445,
+        "baryonicMassMsun": 5454126659.463546,
+        "logBaryonicMassMsun": 9.736725219206525,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 147.8000030517578,
+        "inclinationCorrectedKmS": 121.3195516545659,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.007821044631738,
+        "residualDex": -0.2710958254252134,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.6905237386653287,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.6863921502931134,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0034-09",
+      "tract": 7785,
+      "position": {
+        "raDeg": 8.532916666666667,
+        "decDeg": -9.6925
+      },
+      "distanceMpc": 50.62285853794643,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 50145799.804571755,
+        "apparentMagAB": 12.149413593701784,
+        "absoluteMagAB": -21.372319731132944,
+        "luminosityLsun": 25640582809.303883,
+        "axisRatio": 0.5601043327359027,
+        "inclinationDeg": 57.72605509514779,
+        "offsetFromHiArcmin": 1.5937603325161551,
+        "candidateCount": 41,
+        "fluxRatioToRunnerUp": 2.5103832172816847,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 25640582809.303883,
+        "gasMassMsun": 15683424599.881958,
+        "baryonicMassMsun": 41324007409.18584,
+        "logBaryonicMassMsun": 10.616202430739783,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 464.79998779296875,
+        "inclinationCorrectedKmS": 274.8653941410436,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 11.428578118442529,
+        "residualDex": -0.8123756877027457,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -1.231803600942861,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -1.2244333902614075,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0034-08",
+      "tract": 8025,
+      "position": {
+        "raDeg": 8.702916666666665,
+        "decDeg": -8.389166666666666
+      },
+      "distanceMpc": 22.827143205915178,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 177890878.6189205,
+        "apparentMagAB": 10.774615799646943,
+        "absoluteMagAB": -21.017642017213063,
+        "luminosityLsun": 18495105241.03185,
+        "axisRatio": 0.5013876361259042,
+        "inclinationDeg": 62.01424539204346,
+        "offsetFromHiArcmin": 0.7202925953942189,
+        "candidateCount": 15,
+        "fluxRatioToRunnerUp": 17.430276361709105,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 18495105241.03185,
+        "gasMassMsun": 11486977720.338911,
+        "baryonicMassMsun": 29982082961.370758,
+        "logBaryonicMassMsun": 10.476861801534445,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 220.8000030517578,
+        "inclinationCorrectedKmS": 125.01921185108357,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 10.060004884681362,
+        "residualDex": 0.41685691685308335,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": -0.002570996387031954,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": -0.0025556134274276983,
+        "classification": "expected"
+      }
+    },
+    {
+      "id": "J0035-44",
+      "tract": 2876,
+      "position": {
+        "raDeg": 8.851666666666667,
+        "decDeg": -44.075
+      },
+      "distanceMpc": 107.105712890625,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 8324182.926248085,
+        "apparentMagAB": 14.09914596153178,
+        "absoluteMagAB": -21.049917219457754,
+        "luminosityLsun": 19053154441.31751,
+        "axisRatio": 0.8920425157682375,
+        "inclinationDeg": 27.469157057514213,
+        "offsetFromHiArcmin": 1.112705436382092,
+        "candidateCount": 47,
+        "fluxRatioToRunnerUp": 5.439664193994009,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 19053154441.31751,
+        "gasMassMsun": 18010905823.357094,
+        "baryonicMassMsun": 37064060264.67461,
+        "logBaryonicMassMsun": 10.568952993341073,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 101.5999984741211,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0036+01",
+      "tract": 9718,
+      "position": {
+        "raDeg": 9.034999999999998,
+        "decDeg": 1.7133333333333334
+      },
+      "distanceMpc": 77.41142578125,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 6061902.615208037,
+        "apparentMagAB": 14.443477612191183,
+        "absoluteMagAB": -20.000547720133362,
+        "luminosityLsun": 7248015076.724615,
+        "axisRatio": 0.9481598362760019,
+        "inclinationDeg": 18.926016669577557,
+        "offsetFromHiArcmin": 1.1383523546028131,
+        "candidateCount": 38,
+        "fluxRatioToRunnerUp": 1.4532240260277534,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 7248015076.724615,
+        "gasMassMsun": 11712622756.653576,
+        "baryonicMassMsun": 18960637833.37819,
+        "logBaryonicMassMsun": 10.277852942857386,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 101.19999694824219,
+        "inclinationCorrectedKmS": null,
+        "usable": false,
+        "minimumInclinationDeg": 30.0
+      }
+    },
+    {
+      "id": "J0036-09",
+      "tract": 7785,
+      "position": {
+        "raDeg": 9.067083333333331,
+        "decDeg": -9.890833333333333
+      },
+      "distanceMpc": 71.16999860491072,
+      "optical": {
+        "band": "r",
+        "fluxNjy": 11918854.231998079,
+        "apparentMagAB": 13.709413729072493,
+        "absoluteMagAB": -20.552071057496477,
+        "luminosityLsun": 12045599600.738022,
+        "axisRatio": 0.7031320284838523,
+        "inclinationDeg": 46.52893250511316,
+        "offsetFromHiArcmin": 1.3695055577215525,
+        "candidateCount": 35,
+        "fluxRatioToRunnerUp": 5.638497598959669,
+        "pixelAreaFactorApplied": 7.138278655089995
+      },
+      "masses": {
+        "stellarMassMsun": 12045599600.738022,
+        "gasMassMsun": 9413174658.439133,
+        "baryonicMassMsun": 21458774259.177155,
+        "logBaryonicMassMsun": 10.33160491112113,
+        "massToLightR": 1.0
+      },
+      "rotation": {
+        "lineWidthW50KmS": 160.3000030517578,
+        "inclinationCorrectedKmS": 110.4417604956539,
+        "usable": true,
+        "minimumInclinationDeg": 30.0
+      },
+      "baryonicTullyFisher": {
+        "relation": "M_bar = 47 * V^4 (McGaugh 2012), held fixed and not fitted to this sample",
+        "logPredictedMsun": 9.84463114149075,
+        "residualDex": 0.48697376963037975,
+        "assumedSystematicDex": 0.18601075237738274,
+        "sampleCalibrationOffsetDex": 0.4194279132401153,
+        "relativeResidualDex": 0.06754585639026445,
+        "observedScatterDex": 1.0060192826658214,
+        "significanceSigma": 0.0671417114503776,
+        "classification": "expected"
+      }
+    }
+  ]
+}
