@@ -163,6 +163,8 @@ def main() -> None:
     matches: list[dict[str, Any]] = []
     skipped: list[dict[str, Any]] = []
     covered = 0
+    with_rows = 0
+    catalogued = 0
     for region in regions:
         region_id = region["regionId"]
         ra, dec = region["center"]
@@ -171,7 +173,13 @@ def main() -> None:
             skipped.append({"regionId": region_id, "reason": "eRASS1 query failed"})
             continue
         covered += 1
-        if not len(table) or "RA_ICRS" not in table.colnames:
+        if len(table) and "RA_ICRS" in table.colnames:
+            with_rows += 1
+            catalogued += len(table)
+        else:
+            # A region inside the eRASS1 sky with no catalogued source is a real
+            # result about that field, not a failure, and is counted separately
+            # from a region the survey never observed.
             continue
 
         with fits.open(ROOT / region["mosaic"]["path"], memmap=False) as hdus:
@@ -253,6 +261,8 @@ def main() -> None:
         },
         "counts": {
             "regionsQueried": covered,
+            "regionsWithAnyCataloguedSource": with_rows,
+            "cataloguedSourcesInCone": catalogued,
             "regionsSkipped": len(skipped),
             "xraySourcesInsideRubinPixels": len(matches),
             "withOpticalCounterpart": len(detections),
@@ -270,6 +280,10 @@ def main() -> None:
             "that can be checked rather than assumed.",
             "A counterpart here means flux above threshold at the position, not an identification. No "
             "redshift, colour, or morphology test has been applied.",
+            "Footprint overlap is not detection. 55 of the selected tracts sit inside the eRASS1 "
+            "sky, but only a handful hold a catalogued X-ray source within the search cone, so the "
+            "sample size here is set by where eROSITA actually detected something rather than by "
+            "where it looked.",
             "Chance coincidence is not yet quantified. With a 10 arcsec radius in a crowded field a "
             "random source can fall inside the error circle, so a per-field random-position rate must "
             "be measured before any association is called secure.",
@@ -282,6 +296,8 @@ def main() -> None:
     args.public_manifest.parent.mkdir(parents=True, exist_ok=True)
     args.public_manifest.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"queried {covered} regions, {len(skipped)} skipped")
+    print(f"regions with any catalogued eRASS1 source within the cone: {with_rows}")
+    print(f"  catalogued sources in those cones: {catalogued}")
     print(f"X-ray sources inside Rubin pixels: {len(matches)}")
     print(f"  with an optical counterpart:    {len(detections)}")
     print(f"  without, to a stated depth:     {len(blanks)}")
