@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T08:01:55.635568+00:00",
+  "purpose": "Release-matched machine-readable evidence audit for HSC PDR3 imaging and KiDS-1000 lensing",
+  "summary": {
+    "requestedProductCount": 2,
+    "resolvedExactContinuousFootprintCount": 0,
+    "resolvedExactCatalogueSupportCount": 1,
+    "unresolvedCount": 1,
+    "errorCount": 0
+  },
+  "products": [
+    {
+      "surveyId": "kids-1000-lensing",
+      "surveyName": "KiDS-1000",
+      "family": "weak-lensing",
+      "release": "KiDS DR4.1 SOM-gold weak-lensing catalogue (2020-12-07)",
+      "productType": "released-source-positional-support",
+      "status": "resolved-exact-catalogue-positional-support",
+      "scienceReady": false,
+      "displayReady": true,
+      "comparisonReady": false,
+      "bandOrObservable": "SOM-gold galaxy shear-source positions",
+      "unit": "presence of released catalogue sources per order-10 HEALPix cell",
+      "coverageSemantics": "Exact positional support of released catalogue rows at order 10; not a continuous observing footprint, pixel mask, or selection function.",
+      "source": {
+        "url": "https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS_DR4.1_ugriZYJHKs_SOM_gold_WL_cat.fits",
+        "releasePage": "https://kids.strw.leidenuniv.nl/DR4/KiDS-1000_shearcatalogue.php",
+        "bytes": 17712469440,
+        "sha256": "dcc2bf039190d0c53542f6f08ac6ce27e749dd31999cd4ab049edd4d41fbef32",
+        "rows": 21262011,
+        "fitsRowBytes": 833
+      },
+      "releasedGoldSupport": {
+        "href": "/data/coverage/mocs-gap-audit/kids-1000-gold-source-support.moc.fits",
+        "bytes": 164160,
+        "sha256": "917369e5a2e42bab6fc1740b19a6ca2bed42ed992438a3054cf18f946acf5057",
+        "order": 10,
+        "skyFraction": 0.022769053777058918,
+        "cellAreaSqDegAtOrder": 0.0032784908016061202,
+        "rubinOverlapTractCount": 13,
+        "rubinOverlapTractIds": [
+          4636,
+          4637,
+          4638,
+          4847,
+          4848,
+          4849,
+          5061,
+          5062,
+          5063,
+          8883,
+          8884,
+          9125,
+          9126
+        ]
+      },
+      "analysisSelectedSupport": {
+        "href": "/data/coverage/mocs-gap-audit/kids-1000-analysis-source-support.moc.fits",
+        "bytes": 250560,
+        "sha256": "e2a9e5b3430cdcddc65562f8e7bc7488801f2fff024b5538af2ee478402b54e0",
+        "order": 10,
+        "skyFraction": 0.022238810857137043,
+        "cellAreaSqDegAtOrder": 0.0032784908016061202,
+        "rubinOverlapTractCount": 13,
+        "rubinOverlapTractIds": [
+          4636,
+          4637,
+          4638,
+          4847,
+          4848,
+          4849,
+          5061,
+          5062,
+          5063,
+          8883,
+          8884,
+          9125,
+          9126
+        ]
+      },
+      "catalogueStatistics": {
+        "rows": 21262011,
+        "validCoordinateRows": 21262011,
+        "maskZeroRows": 19093473,
+        "positiveWeightRows": 21262011,
+        "positiveModelSnrRows": 21262010,
+        "analysisSelectedRows": 19093472,
+        "uniqueTheliTilesWithGoldSources": 988,
+        "reportedKiDS1000SurveyTiles": 1006,
+        "surveyMinusGoldSourceTileCount": 18,
+        "tileCountCaution": "The release page says the data set encompasses 1,006 survey tiles; the gold catalogue rows contain 988 distinct nonblank THELI_NAME values. This is further reason not to substitute the 1,006-tile imaging footprint for lensing-source support.",
+        "selection": "finite RAJ2000/DECJ2000 AND MASK = 0 AND weight > 0 AND model_SNratio > 0",
+        "releasedSupportOrder10CellCount": 286501,
+        "analysisSupportOrder10CellCount": 279829
+      },
+      "blockers": [
+        "No author-published continuous KiDS-1000 SOM-gold spatial analysis mask was found.",
+        "Source-position support must not be treated as valid science pixels between sources.",
+        "Cross-field subtraction against Rubin is not scientifically defined by this geometry product."
+      ],
+      "provenanceUrls": [
+        "https://kids.strw.leidenuniv.nl/DR4/KiDS-1000_shearcatalogue.php",
+        "https://kids.strw.leidenuniv.nl/DR4/data_files/KiDS_DR4.1_ugriZYJHKs_SOM_gold_WL_cat.fits"
+      ]
+    },
+    {
+      "surveyId": "hsc-ssp-pdr3",
+      "surveyName": "HSC-SSP",
+      "family": "optical-imaging",
+      "release": "PDR3 plus revised Deep/UltraDeep processing",
+      "productType": "released-image-pixel-coverage",
+      "status": "unresolved-authentication-required",
+      "scienceReady": false,
+      "displayReady": false,
+      "comparisonReady": false,
+      "bandOrObservable": "g,r,i,z,y and PDR3 narrow bands",
+      "unit": "released HEALPix order-11 coverage cells",
+      "coverageSemantics": "Would use distinct released mosaic_hpx11 rows, not the broader tract grid envelope.",
+      "authoritativeQuery": "WITH released AS (\n  SELECT DISTINCT 'wide' AS layer, m.skymap_id, m.filter01, h.hpx11_id\n  FROM pdr3_wide.mosaic AS m\n  JOIN pdr3_wide.mosaic_hpx11 AS h USING (skymap_id)\n  UNION\n  SELECT DISTINCT 'dud_rev' AS layer, m.skymap_id, m.filter01, h.hpx11_id\n  FROM pdr3_dud_rev.mosaic AS m\n  JOIN pdr3_dud_rev.mosaic_hpx11 AS h USING (skymap_id)\n)\nSELECT layer, skymap_id, filter01, hpx11_id\nFROM released ORDER BY layer, filter01, skymap_id, hpx11_id\n",
+      "accessProbe": {
+        "checkedAt": "2026-08-14T08:01:55.635524+00:00",
+        "endpoint": "https://hsc-release.mtk.nao.ac.jp/datasearch/api/catalog_jobs/preview",
+        "httpStatus": 401,
+        "result": "authentication-required",
+        "responseExcerpt": "{\"error\":\"invalid credentials\"}",
+        "credentialsPresent": false
+      },
+      "blockers": [
+        "The official SQL service requires a valid HSC account; no HSC credentials were available to this run.",
+        "The public tract/patch corner files span the skymap grid envelope and are rejected as a substitute for released image pixels.",
+        "Per-filter footprint plot images are not machine-readable coverage evidence."
+      ],
+      "provenanceUrls": [
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/available-data__pdr3/",
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/data-access__pdr3/",
+        "https://hsc-release.mtk.nao.ac.jp/rsrc/pdr3/stored_functions.html",
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/faq__pdr3/"
+      ]
+    }
+  ],
+  "rubinIntersection": {
+    "release": "Rubin DP2",
+    "tractCount": 2191,
+    "method": "MOC intersection with the union of exact dp2.CoaddPatches polygons per tract"
+  },
+  "guardrails": [
+    "Broader KiDS DR4 imaging coverage was not substituted for KiDS-1000 lensing support.",
+    "HSC skymap grid envelopes were not substituted for released PDR3 pixels.",
+    "No Rubin-minus-lensing or Rubin-minus-CMB pixel subtraction is represented."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T06:30:34.144809+00:00",
+  "product": "Layers tract family evidence routes",
+  "routes": [
+    {
+      "tract": 9813,
+      "href": "/tract/9813/evidence",
+      "centerDeg": [
+        150.247906,
+        2.231355
+      ],
+      "families": [
+        "spectroscopy",
+        "high-energy"
+      ],
+      "evidence": [
+        {
+          "id": "desi-edr-spectrum",
+          "family": "spectroscopy",
+          "status": "real-product",
+          "productType": "spectrum",
+          "jsonHref": "/data/layers/family-examples/spectroscopy.json",
+          "previewHref": "/layer-previews/family-examples/desi-edr-tract-9813-spectrum.png",
+          "downloads": [
+            {
+              "href": "/data/layers/family-examples/raw/desi-edr-tract-9813-spectrum.csv",
+              "productType": "CSV spectrum",
+              "bytes": 594487,
+              "sha256": "14b3d4cb52b8bf11e56e58afe569811109dbd5f6d42e516a1e5b92dfe3b7ebfc"
+            }
+          ]
+        },
+        {
+          "id": "erosita-erass1-catalog",
+          "family": "high-energy",
+          "status": "real-product",
+          "productType": "catalog",
+          "jsonHref": "/data/layers/family-examples/xray.json",
+          "downloads": [
+            {
+              "href": "/data/layers/family-examples/raw/erass1-tract-9813.csv",
+              "productType": "CSV catalog",
+              "bytes": 4837,
+              "sha256": "cf8321c4f8d143385c689961c9b59b32e1fdbd4a107a288217dbacf16fe48120"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "family": "lensing",
+          "status": "unresolved",
+          "jsonHref": "/data/layers/family-examples/lensing.json"
+        }
+      ]
+    },
+    {
+      "tract": 5061,
+      "href": "/tract/5061/evidence",
+      "centerDeg": [
+        49.769554,
+        -27.519591
+      ],
+      "families": [
+        "neutral-gas"
+      ],
+      "evidence": [
+        {
+          "id": "hipass-hicat-detection",
+          "family": "neutral-gas",
+          "status": "real-product",
+          "productType": "catalog",
+          "jsonHref": "/data/layers/family-examples/neutralGas.json",
+          "downloads": [
+            {
+              "href": "/data/layers/family-examples/raw/hipass-tract-5061.csv",
+              "productType": "CSV catalog",
+              "bytes": 179,
+              "sha256": "dec0933eb89142638e4e7c15eb0c1cac402edc621ef2c81992476503e2d31b5c"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    }
+  ],
+  "guardrail": "These routes demonstrate real overlapping products. They do not claim a calibrated Rubin-versus-reference difference."
+}

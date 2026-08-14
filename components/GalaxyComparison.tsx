@@ -23,7 +23,13 @@ function imageForBand(manifest: AtlasManifest, side: "rubin" | "legacy", band: B
   return manifest.images[side].bands?.[band] ?? manifest.images[side].rgb;
 }
 
-export function GalaxyComparison({ galaxy, record = false }: { galaxy: Galaxy; record?: boolean }) {
+type GalaxyComparisonProps = { galaxy: Galaxy; record?: boolean };
+
+export function GalaxyComparison(props: GalaxyComparisonProps) {
+  return <GalaxyComparisonContent key={props.galaxy.slug} {...props} />;
+}
+
+function GalaxyComparisonContent({ galaxy, record = false }: GalaxyComparisonProps) {
   const [band, setBand] = useState<Band>("RGB");
   const [reveal, setReveal] = useState(52);
   const [manifest, setManifest] = useState<AtlasManifest | null>(null);
@@ -31,10 +37,6 @@ export function GalaxyComparison({ galaxy, record = false }: { galaxy: Galaxy; r
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoadState("loading");
-    setManifest(null);
-    setBand("RGB");
-    setReveal(52);
 
     fetch(manifestUrl(galaxy.slug), { signal: controller.signal })
       .then(async (response) => {

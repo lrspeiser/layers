@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T06:24:47.043444+00:00",
+  "family": "lensing",
+  "productType": null,
+  "selectedRubinRegion": {
+    "id": "dp2-tract-9813",
+    "rank": 3,
+    "tract": 9813,
+    "center": [
+      150.247906,
+      2.231355
+    ],
+    "radiusArcmin": 71.44,
+    "confirmedSurveyIds": [
+      "2mass",
+      "erosita-erass1",
+      "gaia-dr3",
+      "galex-gr6-7",
+      "hipass",
+      "hst",
+      "jwst",
+      "legacy-surveys-dr10",
+      "panstarrs-dr2",
+      "planck-2018",
+      "unwise",
+      "vlass",
+      "ztf-dr"
+    ],
+    "surveyFamilies": [
+      "astrometry",
+      "cmb-large-scale-structure",
+      "high-energy",
+      "high-resolution",
+      "neutral-gas",
+      "optical-baseline",
+      "radio",
+      "time-domain",
+      "uv-ir"
+    ],
+    "pixelCachedSurveyIds": [],
+    "selectionReasons": [
+      "confirmed astrometry coverage",
+      "confirmed cmb-large-scale-structure coverage",
+      "confirmed high-energy coverage",
+      "confirmed high-resolution coverage",
+      "confirmed neutral-gas coverage",
+      "confirmed optical-baseline coverage",
+      "confirmed radio coverage",
+      "confirmed time-domain coverage",
+      "confirmed uv-ir coverage"
+    ]
+  },
+  "status": "unresolved",
+  "reason": "No bounded authoritative shear or convergence product for a selected Rubin DP2 region was validated in this run.",
+  "notSubstitutedWith": "The existing Abell 2744 model map has no Rubin DP2 coverage and therefore is not evidence for an overlapping layer.",
+  "nextAuthoritativeRoutes": [
+    "DES/KiDS/HSC public shear catalogs with documented masks and calibration",
+    "Planck/ACT/SPT lensing convergence maps with a verified bounded cutout procedure"
+  ]
+}

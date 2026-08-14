@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T06:24:47.037443+00:00",
+  "family": "neutral-gas",
+  "survey": "H I Parkes All Sky Survey Catalogue (HICAT)",
+  "release": "VIII/73 (Meyer et al. 2004)",
+  "productType": "catalog",
+  "selectedRubinRegion": {
+    "id": "dp2-tract-5061",
+    "rank": 6,
+    "tract": 5061,
+    "center": [
+      49.769554,
+      -27.519591
+    ],
+    "radiusArcmin": 71.75,
+    "confirmedSurveyIds": [
+      "2mass",
+      "des-dr2",
+      "erosita-erass1",
+      "euclid-q1",
+      "gaia-dr3",
+      "galex-gr6-7",
+      "hipass",
+      "hst",
+      "legacy-surveys-dr10",
+      "panstarrs-dr2",
+      "planck-2018",
+      "unwise",
+      "vlass",
+      "ztf-dr"
+    ],
+    "surveyFamilies": [
+      "astrometry",
+      "cmb-large-scale-structure",
+      "high-energy",
+      "high-resolution",
+      "neutral-gas",
+      "optical-baseline",
+      "radio",
+      "time-domain",
+      "uv-ir"
+    ],
+    "pixelCachedSurveyIds": [],
+    "selectionReasons": [
+      "confirmed astrometry coverage",
+      "confirmed cmb-large-scale-structure coverage",
+      "confirmed high-energy coverage",
+      "confirmed high-resolution coverage",
+      "confirmed neutral-gas coverage",
+      "confirmed optical-baseline coverage",
+      "confirmed radio coverage",
+      "confirmed time-domain coverage",
+      "confirmed uv-ir coverage"
+    ]
+  },
+  "query": {
+    "centerDeg": [
+      49.769554,
+      -27.519591
+    ],
+    "radiusDeg": 1.0,
+    "adql": "SELECT HIPASS, RAJ2000, DEJ2000, RVmom, W50max, Speak, Sint,\n       RMS, RMScube, Qual, SimbadName\nFROM \"VIII/73/hicat\"\nWHERE 1=CONTAINS(POINT('ICRS', RAJ2000, DEJ2000),\n                 CIRCLE('ICRS', 49.769554, -27.519591, 1.0))"
+  },
+  "recordCount": 1,
+  "spatialMetadata": {
+    "coordinateFrame": "ICRS",
+    "coordinateEpoch": "J2000",
+    "wcs": "not applicable to a source catalog"
+  },
+  "units": {
+    "RAJ2000": "deg",
+    "DEJ2000": "deg",
+    "RVmom": "km s-1",
+    "W50max": "km s-1",
+    "Speak": "Jy",
+    "Sint": "Jy km s-1",
+    "RMS": "Jy"
+  },
+  "records": [
+    {
+      "HIPASS": "J0318-27",
+      "RAJ2000": 49.55499999999999,
+      "DEJ2000": -27.603333333333328,
+      "RVmom": 1364.2,
+      "W50max": 240.6,
+      "Speak": 0.113,
+      "Sint": 21.5,
+      "RMS": 0.0065,
+      "RMScube": 0.0115,
+      "Qual": 1,
+      "SimbadName": "HIPASSJ0318-27",
+      "separationArcmin": 12.469442
+    }
+  ],
+  "provenance": {
+    "service": "https://tapvizier.cds.unistra.fr/TAPVizieR/tap/sync",
+    "catalog": "ivo://CDS.VizieR/VIII/73",
+    "catalogReadme": "https://cdsarc.cds.unistra.fr/ftp/cats/VIII/73/ReadMe",
+    "table": "VIII/73/hicat"
+  },
+  "artifacts": [
+    {
+      "path": "pipeline/results/family-examples/neutral-gas/hipass-tract-5061.vot",
+      "bytes": 2829,
+      "sha256": "efb209d02d47f069b3e4f2b0d6793748ad9f4a3dedce01758db6d6a03e9ad546",
+      "role": "unaltered TAP response",
+      "productType": "VOTable catalog"
+    },
+    {
+      "path": "pipeline/results/family-examples/neutral-gas/hipass-tract-5061.csv",
+      "bytes": 179,
+      "sha256": "dec0933eb89142638e4e7c15eb0c1cac402edc621ef2c81992476503e2d31b5c",
+      "role": "portable tabular copy",
+      "productType": "CSV catalog"
+    }
+  ],
+  "interpretation": {
+    "status": "real H I catalog detection",
+    "statement": "The row records a 21-cm line detection and integrated line flux; it is not a spatial H I moment map or spectral cube.",
+    "comparisonClaim": null,
+    "requiredBeforeDifferenceAnalysis": [
+      "retrieve the HIPASS spectrum or cube subset",
+      "match the 15.5 arcmin Parkes beam to the optical analysis",
+      "separate confused H I emitters and propagate baseline uncertainty"
+    ]
+  }
+}

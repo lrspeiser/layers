@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "layers-multisurvey-pilots-v1",
+  "validatedAt": "2026-08-14T06:07:31.160542+00:00",
+  "ok": true,
+  "fieldsChecked": 3,
+  "datasetsChecked": 15,
+  "artifactsChecksumChecked": 24,
+  "fitsWcsChecked": 3,
+  "commonGridFieldsChecked": 3,
+  "commonGridArtifactsChecked": 6,
+  "commonGridWcsMatchesChecked": 3,
+  "checks": [
+    "manifest schema and field count",
+    "dataset state vocabulary",
+    "retained source URLs",
+    "artifact existence",
+    "SHA-256 checksums",
+    "LoTSS FITS readability and celestial WCS",
+    "Rubin/LoTSS common-grid artifact checksums",
+    "aligned Rubin and native LoTSS WCS equality at three sampled pixels"
+  ],
+  "errors": []
+}

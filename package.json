@@ -10,12 +10,15 @@
     "build": "vinext build",
     "build:vercel": "node scripts/vercel-build.mjs",
     "start": "vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/family-evidence.test.mjs tests/conservative-subset-evidence.test.mjs tests/large-footprint-resolution.test.mjs tests/desi-dr1-resolution.test.mjs tests/hsc-public-products.test.mjs tests/goal-audit.test.mjs tests/tract-product-index.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
-    "data:catalog": ".venv\\Scripts\\python.exe pipeline\\build_layers_catalog.py"
+    "data:catalog": ".venv\\Scripts\\python.exe pipeline\\build_layers_catalog.py",
+    "cache:worker": "node scripts/process-rubin-cutout-queue.mjs"
   },
   "dependencies": {
+    "@hscmap/healpix": "^1.4.12",
+    "@vercel/blob": "^2.8.0",
     "drizzle-orm": "0.45.2",
     "next": "16.2.6",
     "react": "19.2.6",

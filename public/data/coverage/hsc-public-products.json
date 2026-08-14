@@ -1,0 +1,538 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T09:48:12.935067+00:00",
+  "hscImaging": {
+    "surveyId": "hsc-ssp-pdr2",
+    "release": "PDR2",
+    "coverageSemantics": "full-release-public-hips-image-support",
+    "mocId": "CDS/P/HSC/DR2/*/*",
+    "provenanceUrls": [
+      "https://hsc-release.mtk.nao.ac.jp/doc/index.php/sample-page/pdr2/",
+      "https://alasky.cds.unistra.fr/MocServer/query?ID=CDS%2FP%2FHSC%2FDR2%2F%2A&get=record&fmt=json"
+    ],
+    "note": "The active registry uses public release-matched PDR2 HiPS MOCs. PDR2 is never relabeled as PDR3."
+  },
+  "products": [
+    {
+      "surveyId": "hsc-lensing",
+      "status": "resolved-exact-lensing-peak-positional-support",
+      "productName": "HSC S16A shear-selected cluster peaks",
+      "release": "S16A / PDR2 public products",
+      "coverageSemantics": "release-matched-shear-selected-peak-catalog-positional-support",
+      "eligibleAsFullRegistryFootprint": false,
+      "confirmedRubinTractCount": 11,
+      "confirmedRubinTractIds": [
+        9451,
+        9453,
+        9454,
+        9695,
+        9696,
+        9697,
+        9698,
+        9937,
+        9938,
+        9939,
+        9940
+      ],
+      "sourceRecordCount": 65,
+      "selection": "65 mass-map peaks with signal-to-noise greater than 4.7, published from the HSC S16A Wide weak-lensing maps.",
+      "supportMoc": {
+        "publicPath": "/data/coverage/mocs-hsc-public/hsc-s16a-shear-peak-support.moc.fits",
+        "sha256": "acf7e45dcb488db6c49c365d8ce3792d48aa8cbb913a4834df0615c489037b79",
+        "bytes": 8640,
+        "order": 12,
+        "skyFraction": 3.2285849253336596e-07
+      },
+      "catalog": {
+        "publicPath": "/data/layers/hsc-lensing/s16a-shear-selected-peaks.csv",
+        "sha256": "1066e4cd1bf86f9296e4cbc24aef6e36e5148eaf5121e387261648848bf8890b",
+        "bytes": 1591,
+        "columns": [
+          "rank",
+          "signalToNoise",
+          "raDeg",
+          "decDeg"
+        ]
+      },
+      "provenanceUrls": [
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/s16a-shape-catalog-data-products-pdr2/",
+        "https://academic.oup.com/pasj/article/70/SP1/S27/4714784"
+      ],
+      "note": "This proves released HSC weak-lensing peak positions only. It is not a continuous shear catalog, mass-map mask, or HSC imaging footprint, and it cannot support pixel subtraction."
+    }
+  ],
+  "tractFields": [
+    "tract",
+    "peakRanks"
+  ],
+  "tracts": [
+    [
+      9451,
+      [
+        44,
+        50
+      ]
+    ],
+    [
+      9453,
+      [
+        21
+      ]
+    ],
+    [
+      9454,
+      [
+        59
+      ]
+    ],
+    [
+      9695,
+      [
+        56
+      ]
+    ],
+    [
+      9696,
+      [
+        3,
+        52
+      ]
+    ],
+    [
+      9697,
+      [
+        59
+      ]
+    ],
+    [
+      9698,
+      [
+        6,
+        65
+      ]
+    ],
+    [
+      9937,
+      [
+        56
+      ]
+    ],
+    [
+      9938,
+      [
+        56
+      ]
+    ],
+    [
+      9939,
+      [
+        61
+      ]
+    ],
+    [
+      9940,
+      [
+        6
+      ]
+    ]
+  ],
+  "peaks": [
+    {
+      "rank": 1,
+      "signalToNoise": 8.62,
+      "raDeg": 245.38,
+      "decDeg": 42.7656
+    },
+    {
+      "rank": 2,
+      "signalToNoise": 7.52,
+      "raDeg": 37.9254,
+      "decDeg": -4.8803
+    },
+    {
+      "rank": 3,
+      "signalToNoise": 7.47,
+      "raDeg": 336.046,
+      "decDeg": 0.336
+    },
+    {
+      "rank": 4,
+      "signalToNoise": 7.25,
+      "raDeg": 138.461,
+      "decDeg": -0.761
+    },
+    {
+      "rank": 5,
+      "signalToNoise": 7.02,
+      "raDeg": 179.052,
+      "decDeg": -0.3463
+    },
+    {
+      "rank": 6,
+      "signalToNoise": 6.41,
+      "raDeg": 338.912,
+      "decDeg": 1.4802
+    },
+    {
+      "rank": 7,
+      "signalToNoise": 6.4,
+      "raDeg": 133.661,
+      "decDeg": 0.6372
+    },
+    {
+      "rank": 8,
+      "signalToNoise": 6.39,
+      "raDeg": 139.043,
+      "decDeg": -0.3948
+    },
+    {
+      "rank": 9,
+      "signalToNoise": 6.36,
+      "raDeg": 37.3951,
+      "decDeg": -3.6099
+    },
+    {
+      "rank": 10,
+      "signalToNoise": 6.3,
+      "raDeg": 177.586,
+      "decDeg": -0.6043
+    },
+    {
+      "rank": 11,
+      "signalToNoise": 6.2,
+      "raDeg": 221.039,
+      "decDeg": 0.1773
+    },
+    {
+      "rank": 12,
+      "signalToNoise": 6.17,
+      "raDeg": 180.427,
+      "decDeg": -0.188
+    },
+    {
+      "rank": 13,
+      "signalToNoise": 5.99,
+      "raDeg": 30.421,
+      "decDeg": -5.0203
+    },
+    {
+      "rank": 14,
+      "signalToNoise": 5.99,
+      "raDeg": 216.776,
+      "decDeg": 0.7232
+    },
+    {
+      "rank": 15,
+      "signalToNoise": 5.95,
+      "raDeg": 139.706,
+      "decDeg": 2.2068
+    },
+    {
+      "rank": 16,
+      "signalToNoise": 5.77,
+      "raDeg": 33.3622,
+      "decDeg": -2.915
+    },
+    {
+      "rank": 17,
+      "signalToNoise": 5.74,
+      "raDeg": 178.061,
+      "decDeg": 0.5243
+    },
+    {
+      "rank": 18,
+      "signalToNoise": 5.71,
+      "raDeg": 133.12,
+      "decDeg": 0.4081
+    },
+    {
+      "rank": 19,
+      "signalToNoise": 5.64,
+      "raDeg": 177.112,
+      "decDeg": -0.6583
+    },
+    {
+      "rank": 20,
+      "signalToNoise": 5.55,
+      "raDeg": 138.505,
+      "decDeg": 1.6646
+    },
+    {
+      "rank": 21,
+      "signalToNoise": 5.45,
+      "raDeg": 336.23,
+      "decDeg": -0.3638
+    },
+    {
+      "rank": 22,
+      "signalToNoise": 5.43,
+      "raDeg": 130.371,
+      "decDeg": 0.4399
+    },
+    {
+      "rank": 23,
+      "signalToNoise": 5.42,
+      "raDeg": 213.89,
+      "decDeg": -0.0515
+    },
+    {
+      "rank": 24,
+      "signalToNoise": 5.39,
+      "raDeg": 245.057,
+      "decDeg": 42.5066
+    },
+    {
+      "rank": 25,
+      "signalToNoise": 5.37,
+      "raDeg": 219.213,
+      "decDeg": -0.7013
+    },
+    {
+      "rank": 26,
+      "signalToNoise": 5.37,
+      "raDeg": 213.778,
+      "decDeg": -0.4879
+    },
+    {
+      "rank": 27,
+      "signalToNoise": 5.35,
+      "raDeg": 134.118,
+      "decDeg": 2.1991
+    },
+    {
+      "rank": 28,
+      "signalToNoise": 5.33,
+      "raDeg": 38.1165,
+      "decDeg": -4.792
+    },
+    {
+      "rank": 29,
+      "signalToNoise": 5.33,
+      "raDeg": 30.381,
+      "decDeg": -5.5104
+    },
+    {
+      "rank": 30,
+      "signalToNoise": 5.32,
+      "raDeg": 140.683,
+      "decDeg": 2.1374
+    },
+    {
+      "rank": 31,
+      "signalToNoise": 5.31,
+      "raDeg": 219.43,
+      "decDeg": -0.3264
+    },
+    {
+      "rank": 32,
+      "signalToNoise": 5.27,
+      "raDeg": 178.102,
+      "decDeg": -0.5087
+    },
+    {
+      "rank": 33,
+      "signalToNoise": 5.22,
+      "raDeg": 215.066,
+      "decDeg": 0.968
+    },
+    {
+      "rank": 34,
+      "signalToNoise": 5.22,
+      "raDeg": 223.082,
+      "decDeg": 0.1644
+    },
+    {
+      "rank": 35,
+      "signalToNoise": 5.17,
+      "raDeg": 211.987,
+      "decDeg": -0.4783
+    },
+    {
+      "rank": 36,
+      "signalToNoise": 5.14,
+      "raDeg": 36.3804,
+      "decDeg": -4.254
+    },
+    {
+      "rank": 37,
+      "signalToNoise": 5.13,
+      "raDeg": 240.398,
+      "decDeg": 42.7484
+    },
+    {
+      "rank": 38,
+      "signalToNoise": 5.08,
+      "raDeg": 182.474,
+      "decDeg": -0.5622
+    },
+    {
+      "rank": 39,
+      "signalToNoise": 5.07,
+      "raDeg": 140.419,
+      "decDeg": -0.253
+    },
+    {
+      "rank": 40,
+      "signalToNoise": 5.06,
+      "raDeg": 216.868,
+      "decDeg": -0.2016
+    },
+    {
+      "rank": 41,
+      "signalToNoise": 5.05,
+      "raDeg": 212.921,
+      "decDeg": 0.4053
+    },
+    {
+      "rank": 42,
+      "signalToNoise": 5.04,
+      "raDeg": 223.094,
+      "decDeg": -0.9723
+    },
+    {
+      "rank": 43,
+      "signalToNoise": 5.03,
+      "raDeg": 37.6634,
+      "decDeg": -4.9982
+    },
+    {
+      "rank": 44,
+      "signalToNoise": 5.02,
+      "raDeg": 333.054,
+      "decDeg": -0.1345
+    },
+    {
+      "rank": 45,
+      "signalToNoise": 5.0,
+      "raDeg": 140.535,
+      "decDeg": -0.4895
+    },
+    {
+      "rank": 46,
+      "signalToNoise": 5.0,
+      "raDeg": 178.74,
+      "decDeg": -1.4377
+    },
+    {
+      "rank": 47,
+      "signalToNoise": 5.0,
+      "raDeg": 217.68,
+      "decDeg": 0.8108
+    },
+    {
+      "rank": 48,
+      "signalToNoise": 4.98,
+      "raDeg": 220.79,
+      "decDeg": 1.0509
+    },
+    {
+      "rank": 49,
+      "signalToNoise": 4.92,
+      "raDeg": 223.462,
+      "decDeg": -1.1209
+    },
+    {
+      "rank": 50,
+      "signalToNoise": 4.92,
+      "raDeg": 333.37,
+      "decDeg": -0.1554
+    },
+    {
+      "rank": 51,
+      "signalToNoise": 4.91,
+      "raDeg": 180.41,
+      "decDeg": -0.5046
+    },
+    {
+      "rank": 52,
+      "signalToNoise": 4.9,
+      "raDeg": 336.417,
+      "decDeg": 1.0777
+    },
+    {
+      "rank": 53,
+      "signalToNoise": 4.88,
+      "raDeg": 220.395,
+      "decDeg": -0.9047
+    },
+    {
+      "rank": 54,
+      "signalToNoise": 4.87,
+      "raDeg": 213.604,
+      "decDeg": -0.3631
+    },
+    {
+      "rank": 55,
+      "signalToNoise": 4.84,
+      "raDeg": 224.257,
+      "decDeg": -1.0034
+    },
+    {
+      "rank": 56,
+      "signalToNoise": 4.83,
+      "raDeg": 335.4,
+      "decDeg": 1.3859
+    },
+    {
+      "rank": 57,
+      "signalToNoise": 4.82,
+      "raDeg": 221.33,
+      "decDeg": 0.1107
+    },
+    {
+      "rank": 58,
+      "signalToNoise": 4.78,
+      "raDeg": 33.133,
+      "decDeg": -5.5513
+    },
+    {
+      "rank": 59,
+      "signalToNoise": 4.77,
+      "raDeg": 338.016,
+      "decDeg": 0.0277
+    },
+    {
+      "rank": 60,
+      "signalToNoise": 4.75,
+      "raDeg": 180.66,
+      "decDeg": -1.3542
+    },
+    {
+      "rank": 61,
+      "signalToNoise": 4.73,
+      "raDeg": 337.126,
+      "decDeg": 1.7066
+    },
+    {
+      "rank": 62,
+      "signalToNoise": 4.73,
+      "raDeg": 216.651,
+      "decDeg": 0.7982
+    },
+    {
+      "rank": 63,
+      "signalToNoise": 4.71,
+      "raDeg": 33.4748,
+      "decDeg": -2.8818
+    },
+    {
+      "rank": 64,
+      "signalToNoise": 4.71,
+      "raDeg": 220.586,
+      "decDeg": 0.3355
+    },
+    {
+      "rank": 65,
+      "signalToNoise": 4.7,
+      "raDeg": 339.763,
+      "decDeg": 0.6681
+    }
+  ],
+  "sourceEvidence": {
+    "articleUrl": "https://academic.oup.com/pasj/article/70/SP1/S27/4714784",
+    "retrievalUrl": "https://oup.silverchair-cdn.com/article-minimal/4714784",
+    "retrievedAt": "2026-08-14T09:48:12.935067+00:00",
+    "sha256": "ce9031b9f490580a2abdea074fda58f635d1af82f915571f81a78005844c401e",
+    "bytes": 465631
+  }
+}

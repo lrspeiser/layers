@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "layers-multisurvey-pilots-v1",
+  "generatedAt": "2026-08-14T06:07:29.462367+00:00",
+  "field": {
+    "id": "ugc00191",
+    "name": "UGC00191",
+    "raDeg": 5.02167,
+    "decDeg": 10.88
+  },
+  "search": {
+    "catalogRadiusDeg": 0.1,
+    "ztfLightCurveRadiusDeg": 0.003,
+    "lotssCutoutArcmin": 5.0
+  },
+  "datasets": [
+    {
+      "dataset": "gaia-dr3",
+      "release": "Gaia DR3",
+      "status": "available",
+      "coverage": true,
+      "recordCount": 88,
+      "sourcesWithProperMotion": 71,
+      "query": "SELECT source_id,ra,dec,parallax,parallax_error,pmra,pmdec,ref_epoch,phot_g_mean_mag,phot_bp_mean_mag,phot_rp_mean_mag,ruwe FROM gaiadr3.gaia_source WHERE 1=CONTAINS(POINT('ICRS',ra,dec),CIRCLE('ICRS',5.02167000,10.88000000,0.100000)) AND phot_g_mean_mag IS NOT NULL",
+      "endpointUsed": "cache (query provenance retained below)",
+      "artifact": {
+        "sourceUrl": "https://gea.esac.esa.int/tap-server/tap/sync",
+        "retrievedAt": "2026-08-14T05:59:27.142781+00:00",
+        "cacheHit": true,
+        "responseContentType": null,
+        "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/gaia-dr3.csv",
+        "bytes": 13907,
+        "sha256": "fb0c00470d134e207b50bae186cd79ccdad20efc201951f6925c82bf86fa2bfd"
+      },
+      "units": {
+        "ra": "deg",
+        "dec": "deg",
+        "parallax": "mas",
+        "pmra": "mas/yr",
+        "pmdec": "mas/yr",
+        "photometry": "mag"
+      },
+      "wcs": "ICRS catalogue coordinates; no raster WCS",
+      "readiness": "catalogue evidence; requires epoch propagation and cross-match QA",
+      "caveats": [
+        "Gaia is not an image layer.",
+        "A cone source is not automatically associated with the galaxy."
+      ],
+      "documentation": [
+        "https://www.cosmos.esa.int/web/gaia/dr3",
+        "https://gea.esac.esa.int/archive/"
+      ]
+    },
+    {
+      "dataset": "ztf-dr24",
+      "release": "ZTF public archive; DR24 requested",
+      "status": "available",
+      "coverage": true,
+      "referenceImageRecordCount": 13,
+      "recordCount": 2370,
+      "lightCurveMeasurementCount": 2370,
+      "lightCurveObjectCount": 73,
+      "filters": {
+        "zg": 885,
+        "zi": 218,
+        "zr": 1267
+      },
+      "mjdRange": [
+        58279.4703009,
+        60969.2803819
+      ],
+      "queries": {
+        "referenceMetadata": {
+          "POS": "5.02167000,10.88000000",
+          "SIZE": "0.200000",
+          "INTERSECT": "OVERLAPS",
+          "ct": "csv"
+        },
+        "lightCurves": {
+          "POS": "CIRCLE 5.02167000 10.88000000 0.003000",
+          "NOBS_MIN": "3",
+          "BAD_CATFLAGS_MASK": "32768",
+          "FORMAT": "csv"
+        }
+      },
+      "artifacts": {
+        "referenceMetadata": {
+          "sourceUrl": "https://irsa.ipac.caltech.edu/ibe/search/ztf/products/ref?POS=5.02167000%2C10.88000000&SIZE=0.200000&INTERSECT=OVERLAPS&ct=csv",
+          "retrievedAt": "2026-08-14T05:59:38.853402+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/ztf-reference-metadata.csv",
+          "bytes": 6406,
+          "sha256": "064ecb1ea0c90087a3e9cfac1feda81ecaf7f3b1613ff16d840abf78cbecf28f"
+        },
+        "lightCurves": {
+          "sourceUrl": "https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves?POS=CIRCLE+5.02167000+10.88000000+0.003000&NOBS_MIN=3&BAD_CATFLAGS_MASK=32768&FORMAT=csv",
+          "retrievedAt": "2026-08-14T05:59:52.411952+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/ztf-lightcurves.csv",
+          "bytes": 595295,
+          "sha256": "93e32b15e62a7efd4ed279324d9caf6a2dd7e8d231e7b39e0a77f3fc0f03533a"
+        }
+      },
+      "units": {
+        "mjd": "day",
+        "mag": "mag",
+        "magerr": "mag"
+      },
+      "wcs": "Reference-image metadata footprints are ICRS; this runner does not download ZTF pixels.",
+      "readiness": "time-series evidence when rows exist; apply full ZTF quality masks before inference",
+      "releaseProvenanceVerified": false,
+      "caveats": [
+        "The IRSA light-curve response does not stamp a data-release number; do not claim these rows are specifically DR24.",
+        "The bounded light-curve cone is 10.8 arcsec radius and is not a complete galaxy-wide variability census."
+      ],
+      "documentation": [
+        "https://irsa.ipac.caltech.edu/docs/program_interface/ztf_api.html",
+        "https://irsa.ipac.caltech.edu/docs/program_interface/ztf_lightcurve_api.html",
+        "https://irsa.ipac.caltech.edu/data/ZTF/docs/releases/dr24/ztf_release_notes_dr24.pdf"
+      ]
+    },
+    {
+      "dataset": "erosita-erass1",
+      "release": "eROSITA-DE eRASS1 DR1 Main v1.2",
+      "status": "none",
+      "coverage": false,
+      "recordCount": 0,
+      "upperLimitBand": "024 (0.2-2.3 keV)",
+      "upperLimit": {
+        "error": "Position not in DE sky"
+      },
+      "queries": {
+        "coneSearch": {
+          "CAT": "DR1_Main",
+          "RA": 5.02167,
+          "DEC": 10.88,
+          "SR": 0.1,
+          "VERB": 3
+        },
+        "upperLimit": {
+          "ra": 5.02167,
+          "dec": 10.88,
+          "band": "024",
+          "dr_survey": "DR1_eRASS1"
+        }
+      },
+      "artifacts": {
+        "coneSearch": {
+          "sourceUrl": "https://erosita.mpe.mpg.de/erodat/catalogue/SCS?CAT=DR1_Main&RA=5.02167&DEC=10.88&SR=0.1&VERB=3",
+          "retrievedAt": "2026-08-14T05:59:53.012210+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/erosita-erass1-main.vot",
+          "bytes": 33607,
+          "sha256": "bb1656326eb52e2799633c927c2268c0200a7b5abac142c65303538cc8e4ea53"
+        },
+        "upperLimit": {
+          "sourceUrl": "https://erosita.mpe.mpg.de/erodat/upperlimit/service?ra=5.02167&dec=10.88&band=024&dr_survey=DR1_eRASS1",
+          "retrievedAt": "2026-08-14T05:59:53.399712+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/erosita-erass1-upper-limit.json",
+          "bytes": 35,
+          "sha256": "e110bb82dabc58499080ae02ec361e980266b574c605e40c5b64147b77856ad2"
+        }
+      },
+      "units": {
+        "ra": "deg",
+        "dec": "deg",
+        "mjd": "d",
+        "ext": "arcsec",
+        "ml_cts_1": "count",
+        "ml_rate_1": "count.s**-1",
+        "ml_flux_1": "cm**-2.erg.s**-1",
+        "ml_exp_1": "s"
+      },
+      "wcs": "ICRS catalogue positions; upper-limit lookup at the exact field center",
+      "readiness": "catalogue/upper-limit evidence; not an X-ray raster layer",
+      "caveats": [
+        "The public eROSITA-DE footprint covers only its released sky hemisphere; de_sky=false means no DR1 constraint here.",
+        "No cone match is a non-detection, not proof of zero X-ray flux."
+      ],
+      "documentation": [
+        "https://erosita.mpe.mpg.de/erodat/apis/",
+        "https://erosita.mpe.mpg.de/dr1/AllSkySurveyData_dr1/Catalogues_dr1/"
+      ]
+    },
+    {
+      "dataset": "vlass",
+      "release": "CADC public VLASS holdings queried live",
+      "status": "available",
+      "coverage": true,
+      "recordCount": 10,
+      "calibrationLevels": {
+        "2": 8,
+        "3": 2
+      },
+      "query": "SELECT TOP 100 obs_collection,obs_id,obs_publisher_did,calib_level,access_url,access_format,s_fov,t_min,t_max FROM ivoa.ObsCore WHERE INTERSECTS(s_region,CIRCLE('ICRS',5.02167000,10.88000000,0.100000))=1 AND obs_collection='VLASS'",
+      "artifact": {
+        "sourceUrl": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+        "retrievedAt": "2026-08-14T05:59:59.039071+00:00",
+        "cacheHit": true,
+        "responseContentType": null,
+        "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/vlass-obscore.csv",
+        "bytes": 4084,
+        "sha256": "815c0b6ade61bdf94b3cf21ee9c2748866833d18526f7d563263febd32f51901"
+      },
+      "units": {
+        "s_fov": "deg",
+        "t_min": "MJD",
+        "t_max": "MJD"
+      },
+      "wcs": "ObsCore s_region intersection in ICRS; DataLink URLs retained in response",
+      "readiness": "coverage metadata only; resolve DataLink/SODA and validate a FITS cutout before pixel analysis",
+      "caveats": [
+        "Quick Look images are QA/transient-search products and are not suitable for general precision photometry.",
+        "This runner records CADC ObsCore/DataLink metadata but does not mislabel it as a downloaded image."
+      ],
+      "documentation": [
+        "https://science.nrao.edu/vlass/vlass-data",
+        "https://www4.cadc.hia.nrc.gc.ca/en/doc/tap/"
+      ]
+    },
+    {
+      "dataset": "lotss",
+      "release": "LoTSS DR3",
+      "status": "available",
+      "coverage": true,
+      "recordCount": 16,
+      "queries": {
+        "coneSearch": {
+          "RA": 5.02167,
+          "DEC": 10.88,
+          "SR": 0.1,
+          "VERB": 3,
+          "MAXREC": 5000
+        },
+        "cutout": {
+          "pos": "5.02167000 10.88000000",
+          "size": 5.0
+        }
+      },
+      "artifacts": {
+        "coneSearch": {
+          "sourceUrl": "https://vo.astron.nl/lotss_dr3/q/src_cone/scs.xml?RA=5.02167&DEC=10.88&SR=0.1&VERB=3&MAXREC=5000",
+          "retrievedAt": "2026-08-14T06:00:00.260609+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/lotss-dr3-sources.vot",
+          "bytes": 16193,
+          "sha256": "499a5366e7066a95523edd3210506051be03d7f8024ff118d8496c98a06e916b"
+        },
+        "fitsCutout": {
+          "sourceUrl": "https://lofar-surveys.org/dr3-cutout.fits?pos=5.02167000+10.88000000&size=5.0",
+          "retrievedAt": "2026-08-14T06:00:01.313595+00:00",
+          "cacheHit": true,
+          "responseContentType": null,
+          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/lotss-dr3-cutout.fits",
+          "bytes": 164160,
+          "sha256": "fe102681e66b75bd3fa30c301ed4d9fd0027ff1711a26aa396fab32ef93002ef"
+        }
+      },
+      "units": {
+        "distCol": "deg",
+        "RA": "deg",
+        "E_RA": "arcsec",
+        "DEC": "deg",
+        "E_DEC": "arcsec",
+        "Total_flux": "mJy",
+        "E_Total_flux": "mJy",
+        "Peak_flux": "mJy/beam",
+        "E_Peak_flux": "mJy/beam",
+        "Majax": "arcsec",
+        "E_Maj": "arcsec",
+        "Minax": "arcsec",
+        "E_Min": "arcsec",
+        "PA": "deg",
+        "E_PA": "deg",
+        "DC_Maj": "arcsec",
+        "E_DC_Maj": "arcsec",
+        "DC_Min": "arcsec",
+        "E_DC_Min": "arcsec",
+        "DC_PA": "deg",
+        "E_DC_PA": "deg",
+        "Isl_Total_flux": "mJy",
+        "E_Isl_Total_flux": "mJy",
+        "Isl_rms": "mJy/beam",
+        "Resolution": "arcsec",
+        "rasterBunit": "JY/BEAM"
+      },
+      "wcs": {
+        "present": true,
+        "shape": [
+          200,
+          200
+        ],
+        "ctype1": "RA---SIN",
+        "ctype2": "DEC--SIN"
+      },
+      "readiness": "archive-native FITS candidate; WCS checked, quantitative use still requires beam/noise/mask QA",
+      "caveats": [
+        "Catalogue associations require positional and morphology-aware cross-matching.",
+        "The cutout may be truncated at a mosaic edge; no claim of uniform coverage is made."
+      ],
+      "documentation": [
+        "https://lofar-surveys.org/dr3_release.html",
+        "https://lofar-surveys.org/cutout_api_details.html"
+      ],
+      "attempts": [],
+      "preview": "/layer-previews/multisurvey-pilots/ugc00191-lotss-dr3.png",
+      "previewReadiness": "display-only rendering derived from the retained archive FITS"
+    }
+  ],
+  "interpretation": "available means authentic returned coverage/data; none means a valid empty/no-coverage result; error means the request could not be established."
+}

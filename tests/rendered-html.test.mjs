@@ -16,8 +16,8 @@ async function render(pathname = "/") {
   );
 }
 
-test("server-renders Layers as a survey-neutral science workspace", async () => {
-  const response = await render();
+test("server-renders the calibrated comparison workspace", async () => {
+  const response = await render("/workspace");
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Layers/);
@@ -35,6 +35,242 @@ test("server-renders Layers as a survey-neutral science workspace", async () => 
   assert.match(html, /archive datasets/);
   assert.match(html, /5(?:<!-- -->)?\/(?:<!-- -->)?8/);
   assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
+});
+
+test("the primary product indexes every live Rubin tract and distinguishes coverage from pixels", async () => {
+  const response = await render();
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /TRACT-FIRST DATA INDEX/);
+  assert.match(html, /2,191/);
+  assert.match(html, /28/);
+  assert.match(html, /50/);
+  assert.match(html, /SELECTED ACQUISITION REGIONS/);
+  assert.match(html, /coverage-ranked; pixels are tracked separately/);
+  assert.match(html, /ACQUISITION PIPELINE STATUS/);
+  assert.match(html, /1,464/);
+  assert.match(html, /Comparison-ready/);
+  assert.match(html, /CROSS-FAMILY DEMONSTRATION STATUS/);
+  assert.match(html, /Real Rubin-versus-survey pixels by science family/);
+  assert.match(html, /Coverage is not a science comparison/);
+  assert.match(html, /Exact archive\/MOC overlap/);
+  assert.match(html, /Pixels cached/);
+  assert.match(html, /No Rubin overlap/);
+  assert.match(html, /Rubin tract/);
+  assert.match(html, /Dataset registry/);
+  assert.match(html, /1,101/);
+  assert.match(html, /ACT DR6/);
+  assert.match(html, /448/);
+  assert.match(html, /product subset/);
+  assert.match(html, /\/tract\/11162/);
+  assert.doesNotMatch(html, /preselected SPARC targets searched/);
+});
+
+test("coverage artifacts are complete, real-data derived, and internally consistent", async () => {
+  const [footprint, overlaps, selected, registry] = await Promise.all([
+    readFile(join(root, "public", "data", "coverage", "rubin-dp2-footprint.json"), "utf8").then(JSON.parse),
+    readFile(join(root, "public", "data", "coverage", "external-overlaps.json"), "utf8").then(JSON.parse),
+    readFile(join(root, "public", "data", "coverage", "selected-regions.json"), "utf8").then(JSON.parse),
+    readFile(join(root, "public", "data", "survey-registry.json"), "utf8").then(JSON.parse),
+  ]);
+  assert.equal(footprint.validation.completeAgainstLiveTable, true);
+  assert.equal(footprint.counts.tracts, 2191);
+  assert.equal(footprint.counts.patches, 197105);
+  assert.equal(footprint.tracts.length, footprint.counts.tracts);
+  assert.equal(new Set(footprint.tracts.map((row) => row[0])).size, footprint.counts.tracts);
+  assert.equal(overlaps.index.tractCount, footprint.counts.tracts);
+  assert.equal(overlaps.tracts.length, footprint.counts.tracts);
+  assert.equal(overlaps.counts.surveys, registry.surveys.length);
+  assert.equal(registry.surveys.length, 28);
+  assert.equal(selected.requestedCount, 50);
+  assert.equal(selected.selectedCount, 50);
+  assert.equal(selected.regions.length, 50);
+  assert.equal(new Set(selected.regions.map((region) => region.tract)).size, 50);
+  const confirmedByTract = new Map(overlaps.tracts.map((row) => [row[0], new Set(row[1])]));
+  for (const region of selected.regions) {
+    const confirmed = confirmedByTract.get(region.tract);
+    assert.ok(confirmed);
+    for (const surveyId of region.confirmedSurveyIds) assert.ok(confirmed.has(surveyId));
+  }
+});
+
+test("the acquisition manifest keeps planned, cached, validated, and comparison-ready states separate", async () => {
+  const manifest = JSON.parse(await readFile(join(root, "public", "data", "coverage", "cache-manifest.json"), "utf8"));
+  assert.equal(manifest.summary.plannedRegionCount, 50);
+  assert.equal(manifest.summary.plannedJobCount, 673);
+  assert.equal(manifest.summary.metadataResponseCount, 3);
+  assert.equal(manifest.summary.cachedScienceInputCandidateCount, 1);
+  assert.equal(manifest.summary.validatedScienceInputCount, 0);
+  assert.equal(manifest.summary.comparisonReadyCount, 0);
+  assert.equal(manifest.cachedScienceInputCandidates[0].scienceReady, false);
+  assert.equal(manifest.cachedScienceInputCandidates[0].comparisonReady, false);
+  assert.equal(manifest.cachedScienceInputCandidates[0].supportPlaneChecks.wcsPresent, true);
+  assert.equal(manifest.cachedScienceInputCandidates[0].supportPlaneChecks.unitsVerified, false);
+  assert.doesNotMatch(JSON.stringify(manifest), /RUBIN_RSP_TOKEN|Authorization|X-Amz-|https?:\/\/.*cutout/i);
+});
+
+test("live multi-survey pilots expose real field-specific evidence and display honest layer boundaries", async () => {
+  const response = await render("/pilots");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /LIVE MULTI-SURVEY PILOTS/);
+  assert.match(html, /UGC00191/);
+  assert.match(html, /UGC00634/);
+  assert.match(html, /UGC00891/);
+  assert.match(html, /Gaia DR3/);
+  assert.match(html, /ZTF time series/);
+  assert.match(html, /LoTSS DR3 radio/);
+  assert.match(html, /Astrometrically aligned, not photometrically comparable/);
+  assert.match(html, /Reveal UGC00191 LoTSS radio over Rubin optical/);
+
+  const summary = JSON.parse(await readFile(join(root, "public", "data", "layers", "multisurvey-pilots", "summary.json"), "utf8"));
+  const validation = JSON.parse(await readFile(join(root, "public", "data", "layers", "multisurvey-pilots", "validation.json"), "utf8"));
+  assert.equal(summary.fieldCount, 3);
+  assert.equal(summary.datasetCount, 15);
+  assert.deepEqual(summary.statusCounts, { available: 12, none: 3 });
+  assert.equal(validation.ok, true);
+  assert.equal(validation.artifactsChecksumChecked, 24);
+  assert.equal(validation.fitsWcsChecked, 3);
+  assert.equal(validation.commonGridFieldsChecked, 3);
+  assert.equal(validation.commonGridArtifactsChecked, 6);
+  assert.equal(validation.commonGridWcsMatchesChecked, 3);
+  for (const slug of ["ugc00191", "ugc00634", "ugc00891"]) {
+    const field = JSON.parse(await readFile(join(root, "public", "data", "layers", "multisurvey-pilots", `${slug}.json`), "utf8"));
+    assert.equal(field.datasets.length, 5);
+    assert.equal(field.datasets.find((item) => item.dataset === "erosita-erass1").status, "none");
+    assert.equal(field.datasets.find((item) => item.dataset === "lotss").wcs.present, true);
+    await access(join(root, "public", "layer-previews", "multisurvey-pilots", `${slug}-lotss-dr3-common-grid.png`));
+    await access(join(root, "public", "layer-previews", "multisurvey-pilots", `${slug}-rubin-i-on-lotss-dr3.png`));
+  }
+  const commonGrid = JSON.parse(await readFile(join(root, "public", "data", "layers", "multisurvey-pilots", "rubin-lotss-common-grid-summary.json"), "utf8"));
+  assert.equal(commonGrid.availableCount, 3);
+  assert.equal(commonGrid.scienceClaimAllowed, false);
+});
+
+test("an image-ready tract opens its matching real pilot field", async () => {
+  const response = await render("/pilots?field=ugc00634&tract=10689");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /aria-pressed="true">UGC00634/);
+  assert.match(html, /Reveal UGC00634 LoTSS radio over Rubin optical/);
+});
+
+test("tract workspaces distinguish aligned viewers, validated single images, and coverage only", async () => {
+  const aligned = await render("/tract/11162");
+  assert.equal(aligned.status, 200);
+  const alignedHtml = await aligned.text();
+  assert.match(alignedHtml, /Rubin tract 11162/);
+  assert.match(alignedHtml, /external layers live/);
+  assert.match(alignedHtml, /Legacy Survey/);
+  assert.match(alignedHtml, /LoTSS/);
+  assert.match(alignedHtml, /REAL COMMON-GRID PIXELS/);
+  assert.match(alignedHtml, /Available aligned layers for Rubin tract 11162/);
+  assert.match(alignedHtml, /Position overlay/);
+  assert.match(alignedHtml, /ACT DR6/);
+  assert.match(alignedHtml, /SDSS DR19/);
+  assert.match(alignedHtml, /EXACT RELEASE \/ PRODUCT INTERSECTIONS/);
+
+  const optical = await render("/tract/5063");
+  assert.equal(optical.status, 200);
+  const opticalHtml = await optical.text();
+  assert.match(opticalHtml, /external layers live/);
+  assert.match(opticalHtml, /Legacy Survey/);
+  assert.match(opticalHtml, /REAL COMMON-GRID PIXELS/);
+
+  const family = await render("/tract/9813");
+  assert.equal(family.status, 200);
+  const familyHtml = await family.text();
+  assert.match(familyHtml, /REAL NON-IMAGE EVIDENCE/);
+  assert.match(familyHtml, /\/tract\/9813\/evidence/);
+
+  const evidenceOnly = await render("/tract/2054");
+  assert.equal(evidenceOnly.status, 200);
+  const evidenceOnlyHtml = await evidenceOnly.text();
+  assert.match(evidenceOnlyHtml, /NO LOCAL IMAGE YET/);
+  assert.match(evidenceOnlyHtml, /Fetch real Rubin pixels/);
+  assert.match(evidenceOnlyHtml, /authenticated Rubin DP2 gri HiPS tile/i);
+  assert.doesNotMatch(evidenceOnlyHtml, /science-ready .* mosaic/i);
+});
+
+test("KiDS exact catalogue support is visible but never promoted to a full footprint", async () => {
+  const audit = JSON.parse(await readFile(join(root, "public", "data", "coverage", "hsc-kids-gap-audit.json"), "utf8"));
+  const kids = audit.products.find((product) => product.surveyId === "kids-1000-lensing");
+  assert.equal(kids.status, "resolved-exact-catalogue-positional-support");
+  assert.equal(kids.releasedGoldSupport.rubinOverlapTractCount, 13);
+  assert.match(kids.coverageSemantics, /not a continuous observing footprint/i);
+  const tract = await render("/tract/5061");
+  const html = await tract.text();
+  assert.match(html, /KiDS-1000 released lensing-source support/);
+  assert.match(html, /CONSERVATIVE DETECTION \/ PROGRAM SUBSETS/);
+});
+
+test("on-demand Rubin endpoint rejects IDs outside the exact DP2 tract index", async () => {
+  const response = await render("/api/tracts/999999/cutout");
+  assert.equal(response.status, 404);
+  assert.deepEqual(await response.json(), { error: "Unknown Rubin tract" });
+});
+
+test("cutout worker health endpoint fails closed when no server cache credential is present", async () => {
+  const response = await render("/api/cutout-worker");
+  assert.equal(response.status, 503);
+  assert.deepEqual(await response.json(), { status: "unavailable" });
+});
+
+test("normalized Legacy cutouts expose 48 validated inputs without leaking cache paths", async () => {
+  const manifestPath = join(root, "public", "data", "layers", "selected-regions", "legacy-dr10.json");
+  const manifestText = await readFile(manifestPath, "utf8");
+  const manifest = JSON.parse(manifestText);
+  assert.equal(manifest.counts.selectedRegions, 50);
+  assert.equal(manifest.counts.archiveInputs, 48);
+  assert.equal(manifest.counts.validatedScienceInputs, 48);
+  assert.equal(manifest.counts.comparisonReady, 0);
+  assert.doesNotMatch(manifestText, /pipeline\/results|credential|Authorization|X-Amz-/i);
+  const ready = manifest.regions.filter((region) => region.scienceReady);
+  assert.equal(new Set(ready.map((region) => region.tract)).size, 48);
+  for (const region of ready) {
+    assert.equal(region.comparisonReady, false);
+    assert.deepEqual(region.supportPlanes, { image: true, inverseVariance: true, validMask: true, coverage: true, celestialWcs: true });
+    assert.match(region.normalizedFits.sha256, /^[a-f0-9]{64}$/);
+    await access(join(root, "public", region.preview));
+  }
+});
+
+test("selected-region layers are switchable without a quantitative claim", async () => {
+  const response = await render("/tract/10079");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /external layers live/);
+  assert.match(html, /Legacy Survey/);
+  assert.match(html, /REAL COMMON-GRID PIXELS/);
+  assert.match(html, /Reveal Rubin DP2 · r over Legacy Survey/);
+  assert.match(html, /Before a quantitative difference/);
+
+  const manifestPath = join(root, "public", "data", "layers", "selected-regions", "rubin-reference-comparisons.json");
+  const manifestText = await readFile(manifestPath, "utf8");
+  const manifest = JSON.parse(manifestText);
+  assert.equal(manifest.counts.selectedRegions, 50);
+  assert.equal(manifest.counts.rubinScienceInputs, 50);
+  assert.equal(manifest.counts.referenceScienceInputs, 50);
+  assert.equal(manifest.counts.displayAligned, 50);
+  assert.equal(manifest.counts.displayAligned, manifest.regions.length);
+  assert.equal(manifest.counts.comparisonReady, 0);
+  assert.equal(manifest.policy.scienceClaimAllowed, false);
+  assert.doesNotMatch(manifestText, /pipeline\/results|Authorization|X-Amz-/i);
+  for (const region of manifest.regions) {
+    assert.equal(region.displayAlignmentAllowed, true);
+    assert.equal(region.scienceClaimAllowed, false);
+    assert.equal(region.comparisonReady, false);
+    assert.match(region.localFits.sha256, /^[a-f0-9]{64}$/);
+    for (const preview of Object.values(region.previews)) await access(join(root, "public", preview.path));
+  }
+
+  const panStarrsResponse = await render("/tract/5192");
+  assert.equal(panStarrsResponse.status, 200);
+  const panStarrsHtml = await panStarrsResponse.text();
+  assert.match(panStarrsHtml, /external layers live/);
+  assert.match(panStarrsHtml, /Pan-STARRS1/);
+  assert.match(panStarrsHtml, /Pan-STARRS1 i-band ready/);
+  assert.match(panStarrsHtml, /Pixels outside the common valid footprint are black in both views/);
 });
 
 test("real-field prototype exposes discoverable overlap and honest QA gates", async () => {

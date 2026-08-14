@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "layers-multisurvey-pilots-v1",
+  "generatedAt": "2026-08-14T06:07:29.858865+00:00",
+  "fieldCount": 3,
+  "datasetCount": 15,
+  "statusCounts": {
+    "available": 12,
+    "none": 3
+  },
+  "fields": [
+    {
+      "id": "ugc00191",
+      "name": "UGC00191",
+      "datasets": {
+        "gaia-dr3": "available",
+        "ztf-dr24": "available",
+        "erosita-erass1": "none",
+        "vlass": "available",
+        "lotss": "available"
+      }
+    },
+    {
+      "id": "ugc00634",
+      "name": "UGC00634",
+      "datasets": {
+        "gaia-dr3": "available",
+        "ztf-dr24": "available",
+        "erosita-erass1": "none",
+        "vlass": "available",
+        "lotss": "available"
+      }
+    },
+    {
+      "id": "ugc00891",
+      "name": "UGC00891",
+      "datasets": {
+        "gaia-dr3": "available",
+        "ztf-dr24": "available",
+        "erosita-erass1": "none",
+        "vlass": "available",
+        "lotss": "available"
+      }
+    }
+  ],
+  "provenancePolicy": "Raw responses are immutable checksum-addressed evidence; no display-only image is science-ready by implication."
+}

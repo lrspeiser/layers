@@ -1,0 +1,3800 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers",
+  "generatedAt": "2026-08-14T09:42:35Z",
+  "indexSurvey": {
+    "id": "rubin-dp2",
+    "name": "Vera C. Rubin Observatory Data Preview 2",
+    "release": "Early DP2 / full DP2 when available",
+    "role": "spatial-index",
+    "coverageUnit": "tract",
+    "provenanceUrls": [
+      "https://dp2.lsst.io/",
+      "https://dp2.lsst.io/products/images/deep_coadd.html"
+    ]
+  },
+  "policies": {
+    "discovery": "Materialize exact survey-to-Rubin-tract intersections from MOC, SIA, TAP, or observation polygons; never infer coverage from a target list.",
+    "storage": "Store geometry, provenance, and compact catalog subsets locally; fetch bounded science-ready cutouts or subcubes on demand.",
+    "comparison": "A difference claim requires common WCS, PSF or beam and bandpass treatment, masks, background matching, and propagated uncertainty.",
+    "colorSemantics": {
+      "rubinOnly": "red",
+      "referenceOnly": "blue",
+      "consistent": "white-or-purple",
+      "invalid": "amber-hatching"
+    }
+  },
+  "surveys": [
+    {
+      "id": "des-dr2",
+      "name": "Dark Energy Survey Data Release 2",
+      "shortName": "DES DR2",
+      "organization": "NOIRLab / DES",
+      "release": "DR2",
+      "family": "optical-baseline",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "g",
+        "r",
+        "i",
+        "z",
+        "Y",
+        "coadds",
+        "catalogs"
+      ],
+      "scienceRoles": [
+        "historical optical baseline",
+        "source completeness",
+        "morphology and diffuse-light comparison"
+      ],
+      "rubinAdds": [
+        "fainter six-band detections",
+        "new low-surface-brightness structure",
+        "longer temporal baseline"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 5000,
+        "geometrySource": "sia-query",
+        "footprintEndpoint": "https://datalab.noirlab.edu/sia/des_dr2",
+        "mocId": null,
+        "coverageEndpoint": "https://datalab.noirlab.edu/sia/des_dr2",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use the published DES footprint polygon and label per-tract status approximate.",
+        "notes": "Exact image records can be intersected by SIA."
+      },
+      "endpoints": [
+        {
+          "label": "NOIRLab SIA",
+          "protocol": "sia2",
+          "url": "https://datalab.noirlab.edu/sia/des_dr2",
+          "authentication": "none",
+          "purpose": "Image discovery"
+        },
+        {
+          "label": "NOIRLab TAP",
+          "protocol": "tap",
+          "url": "https://datalab.noirlab.edu/tap",
+          "authentication": "none",
+          "purpose": "Catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "difference",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "flux-residual",
+          "label": "Matched flux residual",
+          "rubinQuestion": "Where does calibrated Rubin surface brightness differ beyond combined uncertainty?",
+          "requiredControls": [
+            "photometric calibration",
+            "PSF matching",
+            "filter transform",
+            "sky matching",
+            "variance propagation"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://datalab.noirlab.edu/data/des.html",
+        "https://www.darkenergysurvey.org/the-des-project/data-access/"
+      ],
+      "caveats": [
+        "Filter transfer and varying coadd PSF are required controls.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "legacy-surveys-dr10",
+      "name": "DESI Legacy Imaging Surveys",
+      "shortName": "Legacy DR10",
+      "organization": "NOIRLab / DESI Legacy Surveys",
+      "release": "DR10",
+      "family": "optical-baseline",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "g",
+        "r",
+        "i",
+        "z",
+        "WISE forced photometry",
+        "model",
+        "residual",
+        "maskbits"
+      ],
+      "scienceRoles": [
+        "historical optical baseline",
+        "source completeness",
+        "morphology and diffuse-light comparison"
+      ],
+      "rubinAdds": [
+        "fainter six-band detections",
+        "new low-surface-brightness structure",
+        "longer temporal baseline"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 20000,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://www.legacysurvey.org/viewer/",
+        "mocId": "CDS/P/DESI-Legacy-Surveys/DR10/color",
+        "coverageEndpoint": "https://www.legacysurvey.org/viewer/",
+        "machineReadableStatus": "queryable",
+        "fallback": "Intersect published DR10 brick bounds.",
+        "notes": "HiPS/brick metadata supports exact tract intersection."
+      },
+      "endpoints": [
+        {
+          "label": "FITS cutout",
+          "protocol": "http",
+          "url": "https://www.legacysurvey.org/viewer/cutout.fits",
+          "authentication": "none",
+          "purpose": "Calibrated cutout"
+        },
+        {
+          "label": "DR10 files",
+          "protocol": "bulk-download",
+          "url": "https://portal.nersc.gov/cfs/cosmo/data/legacysurvey/dr10/",
+          "authentication": "none",
+          "purpose": "Bricks and Tractor catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "difference",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "flux-residual",
+          "label": "Matched flux residual",
+          "rubinQuestion": "Where does calibrated Rubin surface brightness differ beyond combined uncertainty?",
+          "requiredControls": [
+            "photometric calibration",
+            "PSF matching",
+            "filter transform",
+            "sky matching",
+            "variance propagation"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://www.legacysurvey.org/dr10/description/",
+        "https://www.legacysurvey.org/dr10/files/"
+      ],
+      "caveats": [
+        "DR10 combines multiple instruments with spatially varying response.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "panstarrs-dr2",
+      "name": "Pan-STARRS1 3pi Survey",
+      "shortName": "Pan-STARRS DR2",
+      "organization": "STScI / Pan-STARRS",
+      "release": "DR2",
+      "family": "optical-baseline",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "time-series"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "g",
+        "r",
+        "i",
+        "z",
+        "y",
+        "stack",
+        "warp",
+        "mean object",
+        "detections"
+      ],
+      "scienceRoles": [
+        "historical optical baseline",
+        "source completeness",
+        "morphology and diffuse-light comparison"
+      ],
+      "rubinAdds": [
+        "fainter six-band detections",
+        "new low-surface-brightness structure",
+        "longer temporal baseline"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 30000,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://ps1images.stsci.edu/cgi-bin/ps1filenames.py",
+        "mocId": "CDS/P/PanSTARRS/DR1/color-z-zg-g",
+        "coverageEndpoint": "https://ps1images.stsci.edu/cgi-bin/ps1filenames.py",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use declination > -30 degrees only as approximate coverage.",
+        "notes": "PS1 stack HiPS and filename service provide tract-level coverage."
+      },
+      "endpoints": [
+        {
+          "label": "Filename service",
+          "protocol": "http",
+          "url": "https://ps1images.stsci.edu/cgi-bin/ps1filenames.py",
+          "authentication": "none",
+          "purpose": "Discover images"
+        },
+        {
+          "label": "FITS cutout",
+          "protocol": "http",
+          "url": "https://ps1images.stsci.edu/cgi-bin/fitscut.cgi",
+          "authentication": "none",
+          "purpose": "Image cutouts"
+        },
+        {
+          "label": "MAST catalogs",
+          "protocol": "mast-api",
+          "url": "https://catalogs.mast.stsci.edu/api/v0.1/panstarrs",
+          "authentication": "none",
+          "purpose": "Catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "difference",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "flux-residual",
+          "label": "Matched flux residual",
+          "rubinQuestion": "Where does calibrated Rubin surface brightness differ beyond combined uncertainty?",
+          "requiredControls": [
+            "photometric calibration",
+            "PSF matching",
+            "filter transform",
+            "sky matching",
+            "variance propagation"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812201/Pan-STARRS1+data+archive+home+page",
+        "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+      ],
+      "caveats": [
+        "Stacks and warp time-series have different selection functions.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "hsc-ssp-pdr2",
+      "name": "Hyper Suprime-Cam Subaru Strategic Program",
+      "shortName": "HSC PDR2",
+      "organization": "NAOJ / HSC-SSP",
+      "release": "PDR2",
+      "family": "optical-baseline",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "g",
+        "r",
+        "i",
+        "z",
+        "y",
+        "narrow bands",
+        "photo-z",
+        "CAMIRA clusters"
+      ],
+      "scienceRoles": [
+        "historical optical baseline",
+        "source completeness",
+        "morphology and diffuse-light comparison"
+      ],
+      "rubinAdds": [
+        "fainter six-band detections",
+        "new low-surface-brightness structure",
+        "longer temporal baseline"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://alasky.cds.unistra.fr/HSC/DR2/CDS_P_HSC_DR2_wide_i",
+        "mocId": "CDS/P/HSC/DR2/*/*",
+        "coverageEndpoint": "https://alasky.cds.unistra.fr/HSC/DR2/CDS_P_HSC_DR2_wide_i",
+        "machineReadableStatus": "exact",
+        "fallback": "Query the release-matched PDR2 HiPS MOCs; never substitute the PDR3 tract grid or rectangular field bounds.",
+        "notes": "Public CDS HiPS MOCs describe the released PDR2 wide and deep image pixels by band."
+      },
+      "endpoints": [
+        {
+          "label": "CDS PDR2 HiPS",
+          "protocol": "hips",
+          "url": "https://alasky.cds.unistra.fr/HSC/DR2/CDS_P_HSC_DR2_wide_i",
+          "authentication": "none",
+          "purpose": "Public image tiles and exact MOC"
+        },
+        {
+          "label": "HSC data search",
+          "protocol": "archive-api",
+          "url": "https://hsc-release.mtk.nao.ac.jp/datasearch/",
+          "authentication": "account",
+          "purpose": "Catalog and native image products"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "difference",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "flux-residual",
+          "label": "Matched flux residual",
+          "rubinQuestion": "Where does calibrated Rubin surface brightness differ beyond combined uncertainty?",
+          "requiredControls": [
+            "photometric calibration",
+            "PSF matching",
+            "filter transform",
+            "sky matching",
+            "variance propagation"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/sample-page/pdr2/",
+        "https://alasky.cds.unistra.fr/MocServer/query?ID=CDS%2FP%2FHSC%2FDR2%2F%2A&get=record&fmt=json"
+      ],
+      "caveats": [
+        "The public HiPS is PDR2 imaging support; it is not PDR3 imaging and does not imply weak-lensing shape coverage.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "galex-gr6-7",
+      "name": "Galaxy Evolution Explorer",
+      "shortName": "GALEX GR6/7",
+      "organization": "NASA / MAST",
+      "release": "GR6/GR7",
+      "family": "uv-ir",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "ultraviolet"
+      ],
+      "bandsOrProducts": [
+        "FUV",
+        "NUV",
+        "intensity",
+        "exposure",
+        "background"
+      ],
+      "scienceRoles": [
+        "spectral-energy-distribution context",
+        "stellar mass, star formation, or dust",
+        "non-optical counterpart identification"
+      ],
+      "rubinAdds": [
+        "deep resolved optical counterparts",
+        "six-band colors",
+        "faint visible morphology"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 26000,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "mocId": "CDS/P/GALEXGR6/AIS/color",
+        "coverageEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "machineReadableStatus": "exact",
+        "fallback": "Query MAST; a GALEX all-sky nominal footprint is insufficient.",
+        "notes": "MAST observation polygons give exact visit coverage."
+      },
+      "endpoints": [
+        {
+          "label": "MAST API",
+          "protocol": "mast-api",
+          "url": "https://mast.stsci.edu/api/v0/invoke",
+          "authentication": "none",
+          "purpose": "Observation and product discovery"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "rgb",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://galex.stsci.edu/GR6/",
+        "https://archive.stsci.edu/missions-and-data/galex"
+      ],
+      "caveats": [
+        "FUV and NUV coverage and depth differ by visit.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "unwise",
+      "name": "unWISE Coadds and Catalog",
+      "shortName": "unWISE",
+      "organization": "unWISE / NASA IRSA",
+      "release": "unWISE and CatWISE2020",
+      "family": "uv-ir",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "time-series"
+      ],
+      "wavelengthDomains": [
+        "mid-infrared"
+      ],
+      "bandsOrProducts": [
+        "W1",
+        "W2",
+        "time-resolved coadds",
+        "CatWISE"
+      ],
+      "scienceRoles": [
+        "spectral-energy-distribution context",
+        "stellar mass, star formation, or dust",
+        "non-optical counterpart identification"
+      ],
+      "rubinAdds": [
+        "deep resolved optical counterparts",
+        "six-band colors",
+        "faint visible morphology"
+      ],
+      "coverage": {
+        "type": "all-sky",
+        "approximateAreaSqDeg": 41253,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://unwise.me/cutout_fits",
+        "mocId": "CDS/P/unWISE/color-W2-W1W2-W1",
+        "coverageEndpoint": "https://unwise.me/cutout_fits",
+        "machineReadableStatus": "exact",
+        "fallback": "Treat as all-sky, then verify cutout validity.",
+        "notes": "All-sky; tile geometry is machine-readable."
+      },
+      "endpoints": [
+        {
+          "label": "unWISE cutouts",
+          "protocol": "http",
+          "url": "https://unwise.me/cutout_fits",
+          "authentication": "none",
+          "purpose": "Coadd cutouts"
+        },
+        {
+          "label": "IRSA TAP",
+          "protocol": "tap",
+          "url": "https://irsa.ipac.caltech.edu/TAP",
+          "authentication": "none",
+          "purpose": "CatWISE query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "rgb",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://unwise.me/",
+        "https://catalog.unwise.me/"
+      ],
+      "caveats": [
+        "WISE resolution and confusion are much coarser than Rubin.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "2mass",
+      "name": "Two Micron All Sky Survey",
+      "shortName": "2MASS",
+      "organization": "IPAC / NASA IRSA",
+      "release": "All-Sky Release",
+      "family": "uv-ir",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "J",
+        "H",
+        "Ks",
+        "PSC",
+        "XSC"
+      ],
+      "scienceRoles": [
+        "spectral-energy-distribution context",
+        "stellar mass, star formation, or dust",
+        "non-optical counterpart identification"
+      ],
+      "rubinAdds": [
+        "deep resolved optical counterparts",
+        "six-band colors",
+        "faint visible morphology"
+      ],
+      "coverage": {
+        "type": "all-sky",
+        "approximateAreaSqDeg": 41253,
+        "geometrySource": "sia-query",
+        "footprintEndpoint": "https://irsa.ipac.caltech.edu/SIA",
+        "mocId": "CDS/P/2MASS/color",
+        "coverageEndpoint": "https://irsa.ipac.caltech.edu/SIA",
+        "machineReadableStatus": "exact",
+        "fallback": "Treat as all-sky, then verify returned atlas coverage.",
+        "notes": "All-sky atlas; SIA returns exact image records."
+      },
+      "endpoints": [
+        {
+          "label": "IRSA SIA",
+          "protocol": "sia2",
+          "url": "https://irsa.ipac.caltech.edu/SIA",
+          "authentication": "none",
+          "purpose": "Atlas image discovery"
+        },
+        {
+          "label": "IRSA TAP",
+          "protocol": "tap",
+          "url": "https://irsa.ipac.caltech.edu/TAP",
+          "authentication": "none",
+          "purpose": "Catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "rgb",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://irsa.ipac.caltech.edu/Missions/2mass.html",
+        "https://irsa.ipac.caltech.edu/applications/2MASS/IM/"
+      ],
+      "caveats": [
+        "2MASS is shallow and has very different extended-source processing.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "gaia-dr3",
+      "name": "Gaia",
+      "shortName": "Gaia DR3",
+      "organization": "ESA / Gaia DPAC",
+      "release": "DR3",
+      "family": "astrometry",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "time-series",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "non-photonic"
+      ],
+      "bandsOrProducts": [
+        "G",
+        "BP",
+        "RP",
+        "parallax",
+        "proper motion",
+        "BP/RP spectra",
+        "radial velocity"
+      ],
+      "scienceRoles": [
+        "foreground rejection",
+        "astrometric reference frame",
+        "motion and distance"
+      ],
+      "rubinAdds": [
+        "fainter six-band sources",
+        "longer astrometric time baseline",
+        "deeper crowded-field context"
+      ],
+      "coverage": {
+        "type": "all-sky",
+        "approximateAreaSqDeg": 41253,
+        "geometrySource": "catalog-derived",
+        "footprintEndpoint": "https://gea.esac.esa.int/tap-server/tap",
+        "mocId": null,
+        "coverageEndpoint": "https://gea.esac.esa.int/tap-server/tap",
+        "machineReadableStatus": "catalog-derived",
+        "fallback": "Treat catalog coverage as all-sky but preserve source-level scanning-law completeness.",
+        "notes": "All-sky source catalog; query and epoch-propagate sources by Rubin tract."
+      },
+      "endpoints": [
+        {
+          "label": "Gaia TAP",
+          "protocol": "tap",
+          "url": "https://gea.esac.esa.int/tap-server/tap",
+          "authentication": "none",
+          "purpose": "ADQL catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "metadata-local",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "tract source subset",
+          "covariance",
+          "quality flags"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": null
+      },
+      "uiRenderModes": [
+        "markers",
+        "vectors",
+        "light-curve",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "foreground-rejection",
+          "label": "Foreground rejection",
+          "rubinQuestion": "Can astrometry distinguish foreground stars from extragalactic sources or diffuse light?",
+          "requiredControls": [
+            "astrometric significance",
+            "epoch propagation",
+            "quality flags",
+            "crowding model"
+          ]
+        },
+        {
+          "id": "astrometric-motion",
+          "label": "Astrometric motion",
+          "rubinQuestion": "Does the Rubin epoch extend a significant proper-motion or parallax solution?",
+          "requiredControls": [
+            "reference-frame transform",
+            "epoch propagation",
+            "covariance propagation",
+            "blend rejection"
+          ]
+        },
+        {
+          "id": "temporal-change",
+          "label": "Temporal change",
+          "rubinQuestion": "Did the source vary, appear, disappear, or move between the reference and Rubin epochs?",
+          "requiredControls": [
+            "epoch metadata",
+            "forced photometry",
+            "bandpass model",
+            "non-detection limits",
+            "artifact rejection"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://www.cosmos.esa.int/web/gaia/dr3",
+        "https://gea.esac.esa.int/archive/"
+      ],
+      "caveats": [
+        "Full covariance and quality flags must be propagated to the Rubin epoch.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "ztf-dr",
+      "name": "Zwicky Transient Facility Public Data",
+      "shortName": "ZTF",
+      "organization": "Caltech / NASA IRSA",
+      "release": "Public data releases",
+      "family": "time-domain",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "time-series"
+      ],
+      "wavelengthDomains": [
+        "optical"
+      ],
+      "bandsOrProducts": [
+        "g",
+        "r",
+        "i",
+        "science",
+        "reference",
+        "difference",
+        "light curves"
+      ],
+      "scienceRoles": [
+        "historical variability",
+        "transient precovery",
+        "moving-object history"
+      ],
+      "rubinAdds": [
+        "deeper variability measurements",
+        "fainter hosts",
+        "new temporal baseline"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 30000,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://irsa.ipac.caltech.edu/ibe/search/ztf/products",
+        "mocId": null,
+        "coverageEndpoint": "https://irsa.ipac.caltech.edu/ibe/search/ztf/products",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use the public ZTF field grid and label per-epoch completeness unknown.",
+        "notes": "IRSA product records provide exposure-level coverage."
+      },
+      "endpoints": [
+        {
+          "label": "IRSA IBE",
+          "protocol": "irsa-api",
+          "url": "https://irsa.ipac.caltech.edu/ibe/search/ztf/products",
+          "authentication": "none",
+          "purpose": "Image product discovery"
+        },
+        {
+          "label": "IRSA TAP",
+          "protocol": "tap",
+          "url": "https://irsa.ipac.caltech.edu/TAP",
+          "authentication": "none",
+          "purpose": "Catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "swipe",
+        "difference",
+        "markers",
+        "light-curve",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "temporal-change",
+          "label": "Temporal change",
+          "rubinQuestion": "Did the source vary, appear, disappear, or move between the reference and Rubin epochs?",
+          "requiredControls": [
+            "epoch metadata",
+            "forced photometry",
+            "bandpass model",
+            "non-detection limits",
+            "artifact rejection"
+          ]
+        },
+        {
+          "id": "astrometric-motion",
+          "label": "Astrometric motion",
+          "rubinQuestion": "Does the Rubin epoch extend a significant proper-motion or parallax solution?",
+          "requiredControls": [
+            "reference-frame transform",
+            "epoch propagation",
+            "covariance propagation",
+            "blend rejection"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://irsa.ipac.caltech.edu/Missions/ztf.html",
+        "https://www.ztf.caltech.edu/"
+      ],
+      "caveats": [
+        "Per-epoch artifacts and varying limiting magnitude require quality cuts.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "desi-dr1",
+      "name": "Dark Energy Spectroscopic Instrument",
+      "shortName": "DESI DR1",
+      "organization": "DESI Collaboration / DOE",
+      "release": "DR1",
+      "family": "spectroscopy",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "optical"
+      ],
+      "bandsOrProducts": [
+        "spectra",
+        "redshifts",
+        "targeting",
+        "emission lines",
+        "value-added catalogs"
+      ],
+      "scienceRoles": [
+        "secure redshifts",
+        "physical association",
+        "stellar populations and emission-line diagnostics"
+      ],
+      "rubinAdds": [
+        "deeper imaging around spectroscopic targets",
+        "deblended counterparts",
+        "faint environment"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 14000,
+        "geometrySource": "catalog-derived",
+        "footprintEndpoint": "https://data.desi.lbl.gov/public/dr1/",
+        "mocId": null,
+        "coverageEndpoint": "https://data.desi.lbl.gov/public/dr1/",
+        "machineReadableStatus": "catalog-derived",
+        "fallback": "Use published footprint masks; never assume every imaged source has spectroscopy.",
+        "notes": "Build exact tract coverage from public tile geometry and target coordinates."
+      },
+      "endpoints": [
+        {
+          "label": "DESI public files",
+          "protocol": "bulk-download",
+          "url": "https://data.desi.lbl.gov/public/dr1/",
+          "authentication": "none",
+          "purpose": "Spectra and catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "matched spectrum",
+          "redshift and quality",
+          "target metadata"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": null
+      },
+      "uiRenderModes": [
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://data.desi.lbl.gov/doc/releases/",
+        "https://data.desi.lbl.gov/public/dr1/"
+      ],
+      "caveats": [
+        "Targets are a selected, incomplete subset of Rubin sources.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "sdss-dr19",
+      "name": "Sloan Digital Sky Survey",
+      "shortName": "SDSS DR19",
+      "organization": "SDSS Collaboration",
+      "release": "DR19",
+      "family": "spectroscopy",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "spectrum",
+        "cube"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "ugriz",
+        "optical spectra",
+        "APOGEE",
+        "MaNGA cubes",
+        "redshifts"
+      ],
+      "scienceRoles": [
+        "secure redshifts",
+        "physical association",
+        "stellar populations and emission-line diagnostics"
+      ],
+      "rubinAdds": [
+        "deeper imaging around spectroscopic targets",
+        "deblended counterparts",
+        "faint environment"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 14500,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://skyserver.sdss.org/dr19/",
+        "mocId": null,
+        "coverageEndpoint": "https://skyserver.sdss.org/dr19/",
+        "machineReadableStatus": "queryable",
+        "fallback": "Materialize SDSS field, plate, and IFU footprints separately.",
+        "notes": "Imaging and spectroscopy have distinct machine-readable product footprints."
+      },
+      "endpoints": [
+        {
+          "label": "SkyServer",
+          "protocol": "archive-api",
+          "url": "https://skyserver.sdss.org/dr19/en/tools/search/sql.aspx",
+          "authentication": "none",
+          "purpose": "Catalog query"
+        },
+        {
+          "label": "Science Archive",
+          "protocol": "http",
+          "url": "https://data.sdss.org/sas/dr19/",
+          "authentication": "none",
+          "purpose": "Images, spectra, and cubes"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://www.sdss.org/dr19/",
+        "https://skyserver.sdss.org/dr19/"
+      ],
+      "caveats": [
+        "Fiber aperture, program selection, and product footprints differ.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "erosita-erass1",
+      "name": "eROSITA All-Sky Survey",
+      "shortName": "eROSITA eRASS1",
+      "organization": "eROSITA-DE / MPE",
+      "release": "eRASS1",
+      "family": "high-energy",
+      "priority": 1,
+      "accessStatus": "mixed",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "x-ray"
+      ],
+      "bandsOrProducts": [
+        "0.2-0.6 keV",
+        "0.6-2.3 keV",
+        "2.3-5 keV",
+        "catalog",
+        "exposure",
+        "background"
+      ],
+      "scienceRoles": [
+        "AGN and compact objects",
+        "hot gas and clusters",
+        "X-ray counterpart identification"
+      ],
+      "rubinAdds": [
+        "fainter optical counterpart candidates",
+        "host morphology and colors",
+        "better association probabilities"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": 20626,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://erosita.mpe.mpg.de/dr1/erodat/catalogue/SCS/",
+        "mocId": null,
+        "coverageEndpoint": "https://erosita.mpe.mpg.de/dr1/erodat/catalogue/SCS/",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use the published eRASS1 western-hemisphere boundary and label other sky unavailable.",
+        "notes": "Public German-sky hemisphere; catalog service and HiPS support intersection."
+      },
+      "endpoints": [
+        {
+          "label": "eRASS1 cone search",
+          "protocol": "cone-search",
+          "url": "https://erosita.mpe.mpg.de/dr1/erodat/catalogue/SCS/",
+          "authentication": "none",
+          "purpose": "Source query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://erosita.mpe.mpg.de/dr1/",
+        "https://erosita.mpe.mpg.de/dr1/AllSkySurveyData_dr1/Catalogues_dr1/"
+      ],
+      "caveats": [
+        "Public access is sky-region dependent; counterpart matching is probabilistic.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "vlass",
+      "name": "Very Large Array Sky Survey",
+      "shortName": "VLASS",
+      "organization": "NRAO / CADC / CIRADA",
+      "release": "Epochs 1-3 products",
+      "family": "radio",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "2-4 GHz",
+        "Stokes I",
+        "spectral index",
+        "component catalog"
+      ],
+      "scienceRoles": [
+        "radio AGN and jets",
+        "radio star formation",
+        "optical host identification"
+      ],
+      "rubinAdds": [
+        "faint optical hosts",
+        "resolved environment",
+        "improved radio-component association"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 33885,
+        "geometrySource": "sia-query",
+        "footprintEndpoint": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+        "mocId": null,
+        "coverageEndpoint": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use declination > -40 degrees only as a nominal footprint.",
+        "notes": "CADC SIA records provide product footprints."
+      },
+      "endpoints": [
+        {
+          "label": "CADC SIA",
+          "protocol": "sia2",
+          "url": "https://ws.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus/sync",
+          "authentication": "none",
+          "purpose": "Image discovery"
+        },
+        {
+          "label": "CIRADA cutouts",
+          "protocol": "http",
+          "url": "https://cutouts.cirada.ca/",
+          "authentication": "none",
+          "purpose": "Radio cutouts"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "contours",
+        "markers",
+        "difference",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "temporal-change",
+          "label": "Temporal change",
+          "rubinQuestion": "Did the source vary, appear, disappear, or move between the reference and Rubin epochs?",
+          "requiredControls": [
+            "epoch metadata",
+            "forced photometry",
+            "bandpass model",
+            "non-detection limits",
+            "artifact rejection"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://science.nrao.edu/vlass/vlass-data",
+        "https://science.nrao.edu/vlass/vlass-data/basic-data-products"
+      ],
+      "caveats": [
+        "Quick Look products have known artifacts and dynamic-range limits.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "lotss-dr2",
+      "name": "LOFAR Two-metre Sky Survey",
+      "shortName": "LoTSS DR2",
+      "organization": "LOFAR Surveys KSP",
+      "release": "DR2",
+      "family": "radio",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "120-168 MHz",
+        "Stokes I",
+        "rms",
+        "source catalog",
+        "optical IDs"
+      ],
+      "scienceRoles": [
+        "radio AGN and jets",
+        "radio star formation",
+        "optical host identification"
+      ],
+      "rubinAdds": [
+        "faint optical hosts",
+        "resolved environment",
+        "improved radio-component association"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 5720,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://lofar-surveys.org/dr2_release.html",
+        "mocId": null,
+        "coverageEndpoint": "https://lofar-surveys.org/dr2_release.html",
+        "machineReadableStatus": "queryable",
+        "fallback": "Load published DR2 mosaic polygons; do not use a simple RA/Dec box.",
+        "notes": "Release mosaics and pointing metadata support tract intersection."
+      },
+      "endpoints": [
+        {
+          "label": "LoTSS cutouts",
+          "protocol": "http",
+          "url": "https://lofar-surveys.org/cutout/",
+          "authentication": "none",
+          "purpose": "Image cutouts"
+        },
+        {
+          "label": "DR2 release",
+          "protocol": "http",
+          "url": "https://lofar-surveys.org/dr2_release.html",
+          "authentication": "none",
+          "purpose": "Mosaics and catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "bounded science product",
+          "quality and variance metadata",
+          "provenance manifest"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 30
+      },
+      "uiRenderModes": [
+        "single-band",
+        "contours",
+        "markers",
+        "difference",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        },
+        {
+          "id": "temporal-change",
+          "label": "Temporal change",
+          "rubinQuestion": "Did the source vary, appear, disappear, or move between the reference and Rubin epochs?",
+          "requiredControls": [
+            "epoch metadata",
+            "forced photometry",
+            "bandpass model",
+            "non-detection limits",
+            "artifact rejection"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://lofar-surveys.org/dr2_release.html",
+        "https://lofar-surveys.org/"
+      ],
+      "caveats": [
+        "Extended radio components require grouping and local-noise controls.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "wallaby-pdr2",
+      "name": "ASKAP WALLABY",
+      "shortName": "WALLABY PDR2",
+      "organization": "CSIRO / WALLABY",
+      "release": "Pilot Data Release 2",
+      "family": "neutral-gas",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "cube",
+        "raster",
+        "catalog",
+        "vector"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "21-cm cube",
+        "moment 0/1/2",
+        "catalog",
+        "kinematic models"
+      ],
+      "scienceRoles": [
+        "neutral-gas mass",
+        "gas kinematics",
+        "gas-star offsets and environmental stripping"
+      ],
+      "rubinAdds": [
+        "faint stellar counterparts and outskirts",
+        "stellar morphology against H I",
+        "updated baryonic context"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "sia-query",
+        "footprintEndpoint": "https://casda.csiro.au/casda_vo_tools/sia2/query",
+        "mocId": null,
+        "coverageEndpoint": "https://casda.csiro.au/casda_vo_tools/sia2/query",
+        "machineReadableStatus": "queryable",
+        "fallback": "Only mark fields covered after a CASDA record is returned.",
+        "notes": "CASDA SIA supplies exact observation/product footprints."
+      },
+      "endpoints": [
+        {
+          "label": "CASDA SIA2",
+          "protocol": "sia2",
+          "url": "https://casda.csiro.au/casda_vo_tools/sia2/query",
+          "authentication": "none",
+          "purpose": "Cube discovery"
+        },
+        {
+          "label": "CASDA DataLink",
+          "protocol": "datalink",
+          "url": "https://casda.csiro.au/casda_vo_tools/datalink/links",
+          "authentication": "none",
+          "purpose": "Product resolution"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "cutout-on-demand",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "spatial-spectral subcube",
+          "moment maps",
+          "noise",
+          "kinematic model"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 60
+      },
+      "uiRenderModes": [
+        "contours",
+        "moment-map",
+        "channel-map",
+        "vectors",
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "gas-star-offset",
+          "label": "Gas-to-starlight offset",
+          "rubinQuestion": "Is gas displaced from, or unsupported by, Rubin-detected starlight?",
+          "requiredControls": [
+            "beam matching",
+            "velocity association",
+            "column-density sensitivity",
+            "inclination model"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://wallaby-survey.org/data/",
+        "https://research.csiro.au/casda/"
+      ],
+      "caveats": [
+        "Beam, velocity channels, and column-density sensitivity must accompany every map.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "hipass",
+      "name": "H I Parkes All Sky Survey",
+      "shortName": "HIPASS",
+      "organization": "CSIRO / ATNF",
+      "release": "HICAT / HIPASS",
+      "family": "neutral-gas",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "cube",
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "21-cm cube",
+        "spectrum",
+        "integrated flux",
+        "velocity width"
+      ],
+      "scienceRoles": [
+        "neutral-gas mass",
+        "gas kinematics",
+        "gas-star offsets and environmental stripping"
+      ],
+      "rubinAdds": [
+        "faint stellar counterparts and outskirts",
+        "stellar morphology against H I",
+        "updated baryonic context"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 29300,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Use the published southern footprint and mark cube availability unverified.",
+        "notes": "Southern sky to about +25 degrees; no stable per-product VO endpoint recorded."
+      },
+      "endpoints": [
+        {
+          "label": "ATNF HIPASS release",
+          "protocol": "http",
+          "url": "https://www.atnf.csiro.au/research/multibeam/release/",
+          "authentication": "none",
+          "purpose": "Catalogs and cubes"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "spectrum or subcube",
+          "catalog row",
+          "beam footprint"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 120
+      },
+      "uiRenderModes": [
+        "contours",
+        "moment-map",
+        "channel-map",
+        "vectors",
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "gas-star-offset",
+          "label": "Gas-to-starlight offset",
+          "rubinQuestion": "Is gas displaced from, or unsupported by, Rubin-detected starlight?",
+          "requiredControls": [
+            "beam matching",
+            "velocity association",
+            "column-density sensitivity",
+            "inclination model"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://www.atnf.csiro.au/research/multibeam/release/",
+        "https://www.atnf.csiro.au/people/Baerbel.Koribalski/HIPASS/"
+      ],
+      "caveats": [
+        "The roughly 15.5 arcmin beam creates counterpart ambiguity.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "alfalfa-alpha100",
+      "name": "Arecibo Legacy Fast ALFA Survey",
+      "shortName": "ALFALFA alpha.100",
+      "organization": "Cornell / ALFALFA",
+      "release": "alpha.100",
+      "family": "neutral-gas",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "21-cm spectrum",
+        "integrated flux",
+        "velocity width",
+        "reliability code"
+      ],
+      "scienceRoles": [
+        "neutral-gas mass",
+        "gas kinematics",
+        "gas-star offsets and environmental stripping"
+      ],
+      "rubinAdds": [
+        "faint stellar counterparts and outskirts",
+        "stellar morphology against H I",
+        "updated baryonic context"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": 7000,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Use published region polygons and mark source completeness catalog-derived.",
+        "notes": "Two northern high-latitude regions; materialize published footprint polygons."
+      },
+      "endpoints": [
+        {
+          "label": "ALFALFA public data",
+          "protocol": "http",
+          "url": "https://egg.astro.cornell.edu/alfalfa/data/",
+          "authentication": "none",
+          "purpose": "Catalogs and spectra"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "metadata-local",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "tract catalog subset",
+          "matched spectra",
+          "beam footprint"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": null
+      },
+      "uiRenderModes": [
+        "contours",
+        "moment-map",
+        "channel-map",
+        "vectors",
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "gas-star-offset",
+          "label": "Gas-to-starlight offset",
+          "rubinQuestion": "Is gas displaced from, or unsupported by, Rubin-detected starlight?",
+          "requiredControls": [
+            "beam matching",
+            "velocity association",
+            "column-density sensitivity",
+            "inclination model"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://egg.astro.cornell.edu/alfalfa/data/",
+        "https://egg.astro.cornell.edu/alfalfa/"
+      ],
+      "caveats": [
+        "H I flux selection and Arecibo beam confusion require explicit modeling.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "resolved-hi-archives",
+      "name": "Resolved Nearby-Galaxy H I Surveys",
+      "shortName": "THINGS + LITTLE THINGS",
+      "organization": "NRAO / survey teams",
+      "release": "Public releases",
+      "family": "neutral-gas",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "cube",
+        "raster",
+        "vector"
+      ],
+      "wavelengthDomains": [
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "21-cm cubes",
+        "moment maps",
+        "velocity fields"
+      ],
+      "scienceRoles": [
+        "neutral-gas mass",
+        "gas kinematics",
+        "gas-star offsets and environmental stripping"
+      ],
+      "rubinAdds": [
+        "faint stellar counterparts and outskirts",
+        "stellar morphology against H I",
+        "updated baryonic context"
+      ],
+      "coverage": {
+        "type": "object-targeted",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Seed named targets from official release tables, then compute footprints from downloaded FITS headers.",
+        "notes": "Small named-galaxy samples; derive polygons from FITS WCS."
+      },
+      "endpoints": [
+        {
+          "label": "THINGS data",
+          "protocol": "http",
+          "url": "https://www2.mpia-hd.mpg.de/THINGS/Data.html",
+          "authentication": "none",
+          "purpose": "Resolved H I products"
+        },
+        {
+          "label": "LITTLE THINGS",
+          "protocol": "http",
+          "url": "https://science.nrao.edu/science/surveys/littlethings",
+          "authentication": "none",
+          "purpose": "Survey products"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "subcube",
+          "moment maps",
+          "beam and noise",
+          "rotation products"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 60
+      },
+      "uiRenderModes": [
+        "contours",
+        "moment-map",
+        "channel-map",
+        "vectors",
+        "markers",
+        "spectrum",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "gas-star-offset",
+          "label": "Gas-to-starlight offset",
+          "rubinQuestion": "Is gas displaced from, or unsupported by, Rubin-detected starlight?",
+          "requiredControls": [
+            "beam matching",
+            "velocity association",
+            "column-density sensitivity",
+            "inclination model"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "redshift-consistency",
+          "label": "Redshift consistency",
+          "rubinQuestion": "Do spectra confirm that Rubin-resolved objects or structures are physically associated?",
+          "requiredControls": [
+            "secure-redshift flags",
+            "target identity",
+            "aperture effects",
+            "selection function"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://www2.mpia-hd.mpg.de/THINGS/Data.html",
+        "https://science.nrao.edu/science/surveys/littlethings"
+      ],
+      "caveats": [
+        "Processing, beams, and velocity resolution are heterogeneous.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "hst",
+      "name": "Hubble Space Telescope",
+      "shortName": "HST",
+      "organization": "NASA / ESA / STScI",
+      "release": "MAST public holdings",
+      "family": "high-resolution",
+      "priority": 1,
+      "accessStatus": "mixed",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "ultraviolet",
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "ACS",
+        "WFC3",
+        "WFPC2",
+        "COS",
+        "STIS",
+        "HSC"
+      ],
+      "scienceRoles": [
+        "high-resolution morphology",
+        "blend truth",
+        "resolved gas, dust, stars, or spectra"
+      ],
+      "rubinAdds": [
+        "wide-field faint context",
+        "uniform six-band surroundings",
+        "new temporal baseline"
+      ],
+      "coverage": {
+        "type": "pointed",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "mocId": null,
+        "coverageEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "machineReadableStatus": "exact",
+        "fallback": "Never infer HST coverage from target names; require a returned observation polygon.",
+        "notes": "MAST supplies exact observation polygons and data-rights metadata."
+      },
+      "endpoints": [
+        {
+          "label": "MAST API",
+          "protocol": "mast-api",
+          "url": "https://mast.stsci.edu/api/v0/invoke",
+          "authentication": "none",
+          "purpose": "Observation and product discovery"
+        },
+        {
+          "label": "Hubble Source Catalog",
+          "protocol": "tap",
+          "url": "https://catalogs.mast.stsci.edu/hsc",
+          "authentication": "none",
+          "purpose": "Merged source catalog"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "drizzled cutout",
+          "weight and data quality",
+          "catalog rows",
+          "spectrum"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 15
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "contours",
+        "markers",
+        "spectrum",
+        "channel-map",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://archive.stsci.edu/hst/",
+        "https://archive.stsci.edu/hst/hsc/"
+      ],
+      "caveats": [
+        "Public/proprietary status, filters, PSFs, and depths are product-specific.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "euclid-q1",
+      "name": "Euclid Quick Release 1",
+      "shortName": "Euclid Q1",
+      "organization": "ESA / Euclid Consortium",
+      "release": "Q1",
+      "family": "high-resolution",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "VIS",
+        "Y",
+        "J",
+        "H",
+        "morphology",
+        "photometry",
+        "spectra"
+      ],
+      "scienceRoles": [
+        "high-resolution morphology",
+        "blend truth",
+        "resolved gas, dust, stars, or spectra"
+      ],
+      "rubinAdds": [
+        "wide-field faint context",
+        "uniform six-band surroundings",
+        "new temporal baseline"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://eas.esac.esa.int/tap-server/tap",
+        "mocId": null,
+        "coverageEndpoint": "https://eas.esac.esa.int/tap-server/tap",
+        "machineReadableStatus": "queryable",
+        "fallback": "Use official Q1 field polygons and label products unavailable until TAP confirms.",
+        "notes": "Euclid archive TAP exposes Q1 product metadata and footprints."
+      },
+      "endpoints": [
+        {
+          "label": "Euclid TAP",
+          "protocol": "tap",
+          "url": "https://eas.esac.esa.int/tap-server/tap",
+          "authentication": "none",
+          "purpose": "Q1 metadata and catalog query"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "VIS and NISP cutouts",
+          "catalog rows",
+          "mask",
+          "public spectra"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 20
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "contours",
+        "markers",
+        "spectrum",
+        "channel-map",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://euclid.esac.esa.int/dr/q1/expsup/",
+        "https://www.cosmos.esa.int/web/euclid/euclid-q1-data-release"
+      ],
+      "caveats": [
+        "Q1 is a limited early footprint, not the final wide survey.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "jwst",
+      "name": "James Webb Space Telescope",
+      "shortName": "JWST",
+      "organization": "NASA / ESA / CSA / STScI",
+      "release": "MAST public holdings",
+      "family": "high-resolution",
+      "priority": 1,
+      "accessStatus": "mixed",
+      "layerPrimitives": [
+        "raster",
+        "spectrum",
+        "cube",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "near-infrared",
+        "mid-infrared"
+      ],
+      "bandsOrProducts": [
+        "NIRCam",
+        "NIRISS",
+        "NIRSpec",
+        "MIRI",
+        "IFU cubes"
+      ],
+      "scienceRoles": [
+        "high-resolution morphology",
+        "blend truth",
+        "resolved gas, dust, stars, or spectra"
+      ],
+      "rubinAdds": [
+        "wide-field faint context",
+        "uniform six-band surroundings",
+        "new temporal baseline"
+      ],
+      "coverage": {
+        "type": "pointed",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "mocId": null,
+        "coverageEndpoint": "https://mast.stsci.edu/api/v0/invoke",
+        "machineReadableStatus": "exact",
+        "fallback": "Require a returned MAST observation polygon and public data-rights state.",
+        "notes": "MAST supplies exact polygons and public-release dates."
+      },
+      "endpoints": [
+        {
+          "label": "MAST API",
+          "protocol": "mast-api",
+          "url": "https://mast.stsci.edu/api/v0/invoke",
+          "authentication": "none",
+          "purpose": "Observation and product discovery"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "calibrated cutout",
+          "quality and weight",
+          "spectrum",
+          "IFU subcube"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 10
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "contours",
+        "markers",
+        "spectrum",
+        "channel-map",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://archive.stsci.edu/missions-and-data/jwst",
+        "https://jwst-docs.stsci.edu/accessing-jwst-data"
+      ],
+      "caveats": [
+        "Public/proprietary state is exposure-specific and fields are small.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "alma",
+      "name": "Atacama Large Millimeter/submillimeter Array",
+      "shortName": "ALMA",
+      "organization": "ALMA Partnership",
+      "release": "Science Archive public holdings",
+      "family": "high-resolution",
+      "priority": 1,
+      "accessStatus": "mixed",
+      "layerPrimitives": [
+        "cube",
+        "raster",
+        "catalog",
+        "spectrum"
+      ],
+      "wavelengthDomains": [
+        "millimeter",
+        "radio"
+      ],
+      "bandsOrProducts": [
+        "continuum",
+        "spectral-line cubes",
+        "moment maps",
+        "measurement sets"
+      ],
+      "scienceRoles": [
+        "high-resolution morphology",
+        "blend truth",
+        "resolved gas, dust, stars, or spectra"
+      ],
+      "rubinAdds": [
+        "wide-field faint context",
+        "uniform six-band surroundings",
+        "new temporal baseline"
+      ],
+      "coverage": {
+        "type": "pointed",
+        "approximateAreaSqDeg": null,
+        "geometrySource": "observation-footprints",
+        "footprintEndpoint": "https://almascience.eso.org/tap",
+        "mocId": null,
+        "coverageEndpoint": "https://almascience.eso.org/tap",
+        "machineReadableStatus": "exact",
+        "fallback": "Require a TAP-returned public observation footprint.",
+        "notes": "ALMA TAP supplies exact footprints and data-rights metadata."
+      },
+      "endpoints": [
+        {
+          "label": "ALMA TAP",
+          "protocol": "tap",
+          "url": "https://almascience.eso.org/tap",
+          "authentication": "none",
+          "purpose": "Observation discovery"
+        },
+        {
+          "label": "ALMA archive",
+          "protocol": "archive-api",
+          "url": "https://almascience.eso.org/asax/",
+          "authentication": "none",
+          "purpose": "Public product access"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "pin-cache",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "continuum cutout",
+          "spectral subcube",
+          "beam and noise",
+          "moment maps"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 5
+      },
+      "uiRenderModes": [
+        "swipe",
+        "rgb",
+        "single-band",
+        "contours",
+        "markers",
+        "spectrum",
+        "channel-map",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "color-excess",
+          "label": "Spectral-energy-distribution excess",
+          "rubinQuestion": "Does Rubin expose an unexpected color, dust component, or stellar population?",
+          "requiredControls": [
+            "matched apertures",
+            "Galactic extinction",
+            "zeropoint system",
+            "epoch consistency",
+            "upper limits"
+          ]
+        },
+        {
+          "id": "rubin-only-detection",
+          "label": "Rubin-only signal",
+          "rubinQuestion": "Does Rubin recover a supported source or diffuse structure absent from the reference?",
+          "requiredControls": [
+            "common WCS",
+            "PSF or beam matching",
+            "depth model",
+            "mask propagation",
+            "background matching"
+          ]
+        },
+        {
+          "id": "reference-only-detection",
+          "label": "Reference-only signal",
+          "rubinQuestion": "Is a reference detection absent from Rubin after accounting for bandpass, epoch, depth, and masks?",
+          "requiredControls": [
+            "common WCS",
+            "bandpass model",
+            "depth model",
+            "epoch check",
+            "mask propagation"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://almascience.nrao.edu/alma-data/archive",
+        "https://almascience.eso.org/documents-and-tools"
+      ],
+      "caveats": [
+        "Interferometric products can resolve out diffuse flux; beam and setup vary.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "des-y3-lensing",
+      "name": "DES Year 3 Weak Lensing",
+      "shortName": "DES Y3 lensing",
+      "organization": "DES Collaboration",
+      "release": "Y3 cosmology products",
+      "family": "lensing",
+      "priority": 1,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "raster",
+        "vector"
+      ],
+      "wavelengthDomains": [
+        "non-photonic",
+        "optical"
+      ],
+      "bandsOrProducts": [
+        "shear catalog",
+        "source redshift",
+        "convergence",
+        "masks"
+      ],
+      "scienceRoles": [
+        "weak-lensing shear",
+        "mass maps",
+        "mass-light comparison"
+      ],
+      "rubinAdds": [
+        "deeper lens-source photometry",
+        "new faint foreground light",
+        "independent visible-mass structure"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 4143,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Rasterize the released lensing mask to a MOC before claiming tract overlap.",
+        "notes": "Use the official Y3 lensing mask, not the broader DES imaging footprint."
+      },
+      "endpoints": [
+        {
+          "label": "DES Y3 release",
+          "protocol": "http",
+          "url": "https://des.ncsa.illinois.edu/releases/y3a2",
+          "authentication": "none",
+          "purpose": "Lensing and cosmology products"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "shear subset",
+          "convergence tile",
+          "redshift distribution",
+          "mask"
+        ],
+        "revalidateDays": 30,
+        "maximumCutoutArcmin": 120
+      },
+      "uiRenderModes": [
+        "vectors",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://des.ncsa.illinois.edu/releases/y3a2",
+        "https://www.darkenergysurvey.org/des-year-3-cosmology-results-papers/"
+      ],
+      "caveats": [
+        "Shear calibration, tomography, and correlated map uncertainty are mandatory.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "kids-1000-lensing",
+      "name": "Kilo-Degree Survey Weak Lensing",
+      "shortName": "KiDS-1000",
+      "organization": "KiDS Collaboration / ESO",
+      "release": "KiDS-1000",
+      "family": "lensing",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "raster",
+        "vector"
+      ],
+      "wavelengthDomains": [
+        "non-photonic",
+        "optical",
+        "near-infrared"
+      ],
+      "bandsOrProducts": [
+        "shear",
+        "photo-z",
+        "convergence",
+        "ugri+VIKING"
+      ],
+      "scienceRoles": [
+        "weak-lensing shear",
+        "mass maps",
+        "mass-light comparison"
+      ],
+      "rubinAdds": [
+        "deeper lens-source photometry",
+        "new faint foreground light",
+        "independent visible-mass structure"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": 1006,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Rasterize release masks; do not use rectangular survey bounds.",
+        "notes": "Use released lensing masks for the north/south patches."
+      },
+      "endpoints": [
+        {
+          "label": "KiDS DR4",
+          "protocol": "http",
+          "url": "https://kids.strw.leidenuniv.nl/DR4/",
+          "authentication": "none",
+          "purpose": "Catalogs, images, and lensing products"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "shear subset",
+          "mass-map tile",
+          "redshift distribution",
+          "mask"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 120
+      },
+      "uiRenderModes": [
+        "vectors",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://kids.strw.leidenuniv.nl/DR4/",
+        "https://kids.strw.leidenuniv.nl/KiDS-1000.php"
+      ],
+      "caveats": [
+        "Lensing selection and correlated mass-map pixels must be preserved.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "hsc-lensing",
+      "name": "HSC Public Weak-Lensing Products",
+      "shortName": "HSC lensing",
+      "organization": "HSC Collaboration / NAOJ",
+      "release": "S16A and PDR2-associated releases",
+      "family": "lensing",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "catalog",
+        "raster",
+        "vector"
+      ],
+      "wavelengthDomains": [
+        "non-photonic",
+        "optical"
+      ],
+      "bandsOrProducts": [
+        "shape catalog",
+        "photo-z",
+        "calibration",
+        "masks"
+      ],
+      "scienceRoles": [
+        "weak-lensing shear",
+        "mass maps",
+        "mass-light comparison"
+      ],
+      "rubinAdds": [
+        "deeper lens-source photometry",
+        "new faint foreground light",
+        "independent visible-mass structure"
+      ],
+      "coverage": {
+        "type": "regional",
+        "approximateAreaSqDeg": 160,
+        "geometrySource": "catalog-derived",
+        "footprintEndpoint": "https://academic.oup.com/pasj/article/70/SP1/S27/4714784",
+        "mocId": null,
+        "coverageEndpoint": "https://academic.oup.com/pasj/article/70/SP1/S27/4714784",
+        "machineReadableStatus": "catalog-derived",
+        "fallback": "Use only the published shear-selected peak coordinates or an authenticated released mass-map mask; never substitute the optical imaging footprint.",
+        "notes": "The public S16A shear-selected peak catalog supplies exact released-product positions; continuous mass-map support remains a distinct product."
+      },
+      "endpoints": [
+        {
+          "label": "HSC S16A public products",
+          "protocol": "http",
+          "url": "https://hsc-release.mtk.nao.ac.jp/doc/index.php/s16a-shape-catalog-data-products-pdr2/",
+          "authentication": "none",
+          "purpose": "Released mass-map and cosmic-shear products"
+        },
+        {
+          "label": "Shear-selected peak catalog",
+          "protocol": "catalog",
+          "url": "https://academic.oup.com/pasj/article/70/SP1/S27/4714784",
+          "authentication": "none",
+          "purpose": "Published weak-lensing peak coordinates"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "shear-selected peak subset",
+          "shape subset",
+          "photo-z",
+          "mask",
+          "derived convergence"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 120
+      },
+      "uiRenderModes": [
+        "vectors",
+        "contours",
+        "markers",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "morphology-change",
+          "label": "Morphology or deblending change",
+          "rubinQuestion": "Does Rubin reveal faint structure or resolve a previously blended source?",
+          "requiredControls": [
+            "common segmentation",
+            "PSF model",
+            "surface-brightness completeness",
+            "artifact masks"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://hsc-release.mtk.nao.ac.jp/doc/index.php/s16a-shape-catalog-data-products-pdr2/",
+        "https://academic.oup.com/pasj/article/70/SP1/S27/4714784"
+      ],
+      "caveats": [
+        "The map uses exact positions of 65 released shear-selected peaks as conservative product support, not a continuous shear or convergence footprint.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "planck-2018",
+      "name": "Planck Legacy Release",
+      "shortName": "Planck 2018",
+      "organization": "ESA / Planck",
+      "release": "PR3 2018",
+      "family": "cmb-large-scale-structure",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "microwave",
+        "far-infrared"
+      ],
+      "bandsOrProducts": [
+        "30-857 GHz",
+        "CMB lensing",
+        "Compton-y",
+        "compact sources",
+        "dust"
+      ],
+      "scienceRoles": [
+        "CMB lensing or thermal SZ",
+        "large-scale mass",
+        "cluster and foreground context"
+      ],
+      "rubinAdds": [
+        "optical members and counterparts",
+        "photometric redshifts",
+        "visible structure below the microwave beam"
+      ],
+      "coverage": {
+        "type": "all-sky",
+        "approximateAreaSqDeg": 41253,
+        "geometrySource": "hips",
+        "footprintEndpoint": "https://pla.esac.esa.int/",
+        "mocId": "CDS/P/PLANCK/R3/HFI/color",
+        "coverageEndpoint": "https://pla.esac.esa.int/",
+        "machineReadableStatus": "exact",
+        "fallback": "Treat as all-sky but require the product mask before analysis.",
+        "notes": "All-sky HEALPix products with product-specific masks."
+      },
+      "endpoints": [
+        {
+          "label": "Planck Legacy Archive",
+          "protocol": "http",
+          "url": "https://pla.esac.esa.int/",
+          "authentication": "none",
+          "purpose": "Maps, masks, and catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "HEALPix tile",
+          "mask",
+          "catalog subset"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 300
+      },
+      "uiRenderModes": [
+        "contours",
+        "markers",
+        "single-band",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "foreground-rejection",
+          "label": "Foreground rejection",
+          "rubinQuestion": "Can astrometry distinguish foreground stars from extragalactic sources or diffuse light?",
+          "requiredControls": [
+            "astrometric significance",
+            "epoch propagation",
+            "quality flags",
+            "crowding model"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://pla.esac.esa.int/",
+        "https://www.cosmos.esa.int/web/planck/publications"
+      ],
+      "caveats": [
+        "Planck beams are far broader than Rubin and foregrounds are correlated.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "act-dr6",
+      "name": "Atacama Cosmology Telescope",
+      "shortName": "ACT DR6",
+      "organization": "ACT Collaboration / NASA LAMBDA",
+      "release": "DR6 products",
+      "family": "cmb-large-scale-structure",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "microwave"
+      ],
+      "bandsOrProducts": [
+        "90 GHz",
+        "150 GHz",
+        "220 GHz",
+        "CMB lensing",
+        "Compton-y",
+        "clusters"
+      ],
+      "scienceRoles": [
+        "CMB lensing or thermal SZ",
+        "large-scale mass",
+        "cluster and foreground context"
+      ],
+      "rubinAdds": [
+        "optical members and counterparts",
+        "photometric redshifts",
+        "visible structure below the microwave beam"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 18000,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Rasterize official release masks before showing tract overlap.",
+        "notes": "Product-specific ACT regions and masks must be materialized."
+      },
+      "endpoints": [
+        {
+          "label": "LAMBDA ACT archive",
+          "protocol": "bulk-download",
+          "url": "https://lambda.gsfc.nasa.gov/product/act/",
+          "authentication": "none",
+          "purpose": "Maps, beams, masks, catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "map tile",
+          "beam and mask",
+          "catalog subset"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 300
+      },
+      "uiRenderModes": [
+        "contours",
+        "markers",
+        "single-band",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "foreground-rejection",
+          "label": "Foreground rejection",
+          "rubinQuestion": "Can astrometry distinguish foreground stars from extragalactic sources or diffuse light?",
+          "requiredControls": [
+            "astrometric significance",
+            "epoch propagation",
+            "quality flags",
+            "crowding model"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://lambda.gsfc.nasa.gov/product/act/",
+        "https://act.princeton.edu/"
+      ],
+      "caveats": [
+        "Beam and correlated atmospheric noise preclude optical-scale subtraction.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    },
+    {
+      "id": "spt-3g",
+      "name": "South Pole Telescope",
+      "shortName": "SPT",
+      "organization": "SPT Collaboration",
+      "release": "Public survey products",
+      "family": "cmb-large-scale-structure",
+      "priority": 2,
+      "accessStatus": "public",
+      "layerPrimitives": [
+        "raster",
+        "catalog"
+      ],
+      "wavelengthDomains": [
+        "microwave"
+      ],
+      "bandsOrProducts": [
+        "95 GHz",
+        "150 GHz",
+        "220 GHz",
+        "SZ clusters",
+        "CMB lensing"
+      ],
+      "scienceRoles": [
+        "CMB lensing or thermal SZ",
+        "large-scale mass",
+        "cluster and foreground context"
+      ],
+      "rubinAdds": [
+        "optical members and counterparts",
+        "photometric redshifts",
+        "visible structure below the microwave beam"
+      ],
+      "coverage": {
+        "type": "wide-area",
+        "approximateAreaSqDeg": 2500,
+        "geometrySource": "static-footprint",
+        "footprintEndpoint": null,
+        "mocId": null,
+        "coverageEndpoint": null,
+        "machineReadableStatus": "fallback-static",
+        "fallback": "Materialize official product masks; do not assume all SPT releases share coverage.",
+        "notes": "Core SPT-SZ and release-dependent SPT-3G masks."
+      },
+      "endpoints": [
+        {
+          "label": "SPT public data",
+          "protocol": "http",
+          "url": "https://pole.uchicago.edu/public/data/",
+          "authentication": "none",
+          "purpose": "Maps and catalogs"
+        }
+      ],
+      "cachePolicy": {
+        "strategy": "derived-products-only",
+        "downloadWholeArchive": false,
+        "cacheProducts": [
+          "map tile",
+          "beam and mask",
+          "cluster subset"
+        ],
+        "revalidateDays": 180,
+        "maximumCutoutArcmin": 300
+      },
+      "uiRenderModes": [
+        "contours",
+        "markers",
+        "single-band",
+        "coverage"
+      ],
+      "differenceSemantics": [
+        {
+          "id": "mass-light-offset",
+          "label": "Mass-to-light offset",
+          "rubinQuestion": "Does Rubin change visible-light structure relative to lensing, SZ, or CMB-inferred mass?",
+          "requiredControls": [
+            "redshift selection",
+            "calibration",
+            "PSF systematics",
+            "mass-model uncertainty",
+            "foreground subtraction"
+          ]
+        },
+        {
+          "id": "counterpart-association",
+          "label": "Counterpart association",
+          "rubinQuestion": "Does deeper Rubin imaging identify or revise the optical counterpart of a non-optical source?",
+          "requiredControls": [
+            "positional uncertainty",
+            "chance-alignment probability",
+            "source morphology",
+            "multi-band priors"
+          ]
+        },
+        {
+          "id": "foreground-rejection",
+          "label": "Foreground rejection",
+          "rubinQuestion": "Can astrometry distinguish foreground stars from extragalactic sources or diffuse light?",
+          "requiredControls": [
+            "astrometric significance",
+            "epoch propagation",
+            "quality flags",
+            "crowding model"
+          ]
+        }
+      ],
+      "provenanceUrls": [
+        "https://pole.uchicago.edu/public/data/",
+        "https://pole.uchicago.edu/"
+      ],
+      "caveats": [
+        "Footprint and access vary across releases; SZ mass is model-dependent.",
+        "Coverage is not a comparability claim; product masks, depth, resolution, and selection must be evaluated per region."
+      ]
+    }
+  ]
+}

@@ -474,7 +474,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     <main id="top">
       <header className="layers-header">
         <Link className="layers-brand" href="#top"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
-        <nav><Link href="/prototype">Real-pixel prototype</Link><a href="#workspace">Workspace</a><a href="#assumptions">Assumptions</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
+        <nav><Link href="/">Full footprint</Link><Link href="/prototype">Real-pixel prototype</Link><a href="#workspace">Workspace</a><a href="#assumptions">Assumptions</a><a href="#method">Method</a><a href="/api/catalog">API</a></nav>
         <span className="release-chip">MULTI-SURVEY · PILOT</span>
       </header>
 

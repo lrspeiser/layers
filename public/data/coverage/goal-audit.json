@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T09:48:13.224128+00:00",
+  "objectiveAchieved": true,
+  "gates": {
+    "entireRubinFootprintIndexed": true,
+    "allNamedDatasetsRegistered": true,
+    "allCoverageResolvedExactly": true,
+    "allResolvedOverlapsVisibleOnMap": true,
+    "selectedRegionCountAtLeast50": true,
+    "rubinPixelRegionsAtLeast50": true,
+    "displayPixelRegionsAtLeast50": true,
+    "everyRequiredPixelFamilyDemonstrated": true,
+    "scienceClaimsRemainGated": true
+  },
+  "counts": {
+    "rubinTracts": 2191,
+    "registeredDatasets": 28,
+    "selectedRegions": 50,
+    "rubinScienceReadyRegions": 50,
+    "displayReadySelectedRegions": 50,
+    "displayProducts": 513,
+    "comparisonReadyProducts": 0
+  },
+  "pixelFamilyRegionCounts": {
+    "optical": 50,
+    "uv-ir": 50,
+    "radio": 6,
+    "x-ray": 5,
+    "gas": 50,
+    "time-domain": 46,
+    "lensing": 45
+  },
+  "coverageBySurvey": {
+    "des-dr2": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 356,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "legacy-surveys-dr10": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 1635,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "panstarrs-dr2": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 1976,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "hsc-ssp-pdr2": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 228,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "galex-gr6-7": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2032,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "unwise": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2191,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "2mass": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2191,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "gaia-dr3": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2191,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "ztf-dr": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 1736,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "desi-dr1": {
+      "status": "resolved-full-release-product-envelope",
+      "semantics": "Exact union of released nested NSIDE=64 HEALPix product cells that DESI records as having good DR1 data; not continuous target sampling or a spectroscopic selection function.",
+      "tractCount": 878,
+      "mapVisible": true,
+      "source": "desi-dr1-resolution"
+    },
+    "sdss-dr19": {
+      "status": "resolved-full",
+      "semantics": "full-release-product",
+      "tractCount": 1427,
+      "mapVisible": true,
+      "source": "large-footprint-resolution"
+    },
+    "erosita-erass1": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 614,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "vlass": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2067,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "lotss-dr2": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 44,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "wallaby-pdr2": {
+      "status": "resolved-full",
+      "semantics": "full-release-product",
+      "tractCount": 0,
+      "mapVisible": true,
+      "source": "conservative-subset-evidence"
+    },
+    "hipass": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2191,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "alfalfa-alpha100": {
+      "status": "resolved-conservative-subset",
+      "semantics": "release-matched-detection-catalog-subset",
+      "tractCount": 448,
+      "mapVisible": true,
+      "source": "conservative-subset-evidence"
+    },
+    "resolved-hi-archives": {
+      "status": "resolved-conservative-subset",
+      "semantics": "release-matched-target-catalog-subset",
+      "tractCount": 8,
+      "mapVisible": true,
+      "source": "conservative-subset-evidence"
+    },
+    "hst": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 1212,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "euclid-q1": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 41,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "jwst": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 25,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "alma": {
+      "status": "resolved-conservative-subset",
+      "semantics": "release-matched-named-program-subset",
+      "tractCount": 7,
+      "mapVisible": true,
+      "source": "conservative-subset-evidence"
+    },
+    "des-y3-lensing": {
+      "status": "resolved-full",
+      "semantics": "full-release-product",
+      "tractCount": 353,
+      "mapVisible": true,
+      "source": "large-footprint-resolution"
+    },
+    "kids-1000-lensing": {
+      "status": "resolved-exact-catalogue-positional-support",
+      "semantics": "Exact positional support of released catalogue rows at order 10; not a continuous observing footprint, pixel mask, or selection function.",
+      "tractCount": 13,
+      "mapVisible": true,
+      "source": "hsc-kids-gap-audit"
+    },
+    "hsc-lensing": {
+      "status": "resolved-exact-lensing-peak-positional-support",
+      "semantics": "release-matched-shear-selected-peak-catalog-positional-support",
+      "tractCount": 11,
+      "mapVisible": true,
+      "source": "hsc-public-products"
+    },
+    "planck-2018": {
+      "status": "resolved-full",
+      "semantics": "full-release-footprint",
+      "tractCount": 2191,
+      "mapVisible": true,
+      "source": "external-overlaps"
+    },
+    "act-dr6": {
+      "status": "resolved-full",
+      "semantics": "full-release-product",
+      "tractCount": 1101,
+      "mapVisible": true,
+      "source": "large-footprint-resolution"
+    },
+    "spt-3g": {
+      "status": "resolved-named-product-subset",
+      "semantics": "named-product-subset",
+      "tractCount": 27,
+      "mapVisible": true,
+      "source": "large-footprint-resolution"
+    }
+  },
+  "unresolvedCoverageSurveyIds": [],
+  "resolvedButNotMapVisibleSurveyIds": [],
+  "optionalProductManifests": [
+    {
+      "path": "public/data/layers/uv-ir-time/manifest.json",
+      "present": true
+    },
+    {
+      "path": "public/data/layers/radio-xray-hi/manifest.json",
+      "present": true
+    },
+    {
+      "path": "public/data/layers/lensing-cmb/manifest.json",
+      "present": true
+    }
+  ],
+  "nextActions": [],
+  "interpretation": "Display-ready means real pixels share a tract and, where an overlay exists, a celestial display grid. It does not imply PSF-, bandpass-, noise-, or selection-matched quantitative comparability."
+}

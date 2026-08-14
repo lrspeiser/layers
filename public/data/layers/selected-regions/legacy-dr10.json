@@ -1,0 +1,2214 @@
+{
+  "schemaVersion": "layers-legacy-normalized-v1",
+  "generatedAt": "2026-08-14T06:40:19.350861+00:00",
+  "survey": "DESI Legacy Imaging Surveys",
+  "release": "DR10",
+  "preferredBand": "r",
+  "documentation": [
+    "https://www.legacysurvey.org/dr10/description/",
+    "https://www.legacysurvey.org/viewer/urls",
+    "https://www.legacysurvey.org/svtips/"
+  ],
+  "method": "Select the preferred i-band plane, falling back deterministically to r, z, then g only when that field has no positive i-band weight; derive validity from finite image and positive finite inverse variance; preserve celestial WCS.",
+  "counts": {
+    "selectedRegions": 50,
+    "archiveInputs": 48,
+    "validatedScienceInputs": 48,
+    "comparisonReady": 0,
+    "notAcquiredOrFailed": 2
+  },
+  "sciencePolicy": {
+    "archivePixelsUnchanged": true,
+    "validMaskDerivedFromInverseVariance": true,
+    "scienceInputReady": true,
+    "comparisonReady": false,
+    "displayStretchQuantitative": false
+  },
+  "sourceEvidenceSha256": "bfd32665367e638153f2553b788892ac5cef8203b6c30c2205a4b7ce67fabbf2",
+  "regions": [
+    {
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "center": [
+        53.087526,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "fcfd7ba69fce0465444b412a3a08d0a04a7920036472e33649030339309397f3",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "972162858c7d62f6642a137f603736bb6d91452f20c0ce1b60ebaad03da95ae5",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5063-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "center": [
+        211.239642,
+        -5.206402
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99999619,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "0b6b60654b970f90902c22c69fc7c386b9c8295ea4b77209211a40c21fef8dc2",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "912f0baa6ca75561290b3735f36a742d352a9a9a1608ebecdc2909e6f9da66ab",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8642-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "center": [
+        150.247906,
+        2.231355
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "9fea609bfa3eeaa0f93728858aa7950f5230f5175894165c1909e9ce55537630",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "fae22cb166c18848bef2d918e621cc26e1edbeb05712e5c05d8c0f34d445efea",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9813-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "center": [
+        185.950385,
+        5.206457
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99997711,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "36bf19a9a2411236c13a3f646bf8f403349723ca2ec5abaa636230fbf21d09c0",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "4c7c54350a2f10f9523b01e0034037ca08b21bcff9c9a0f869ed2cc82b6e0a33",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-10321-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5391",
+      "tract": 5391,
+      "center": [
+        235.103239,
+        -26.032113
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.89823532,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "420b0668e233fe310bf4664e613c5ca28081343f17017a7398fb4445dd765f0a",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "664de16dca0fb4c71ca0ece8f0470167079e7a9e704763bdccb2c1ab75cbec0b",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5391-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "center": [
+        49.769554,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "6b9dfbca332149db2b8ae539520046b00323ac24211b3e6606ced9e1bfe1aa35",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "54ad475e9036e09196e185324237857bca39b247a9d324b4e52869b85d5720f2",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5061-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "center": [
+        4.5188,
+        11.156658
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99983597,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "0d73958a4f646ed2ed07b85647e70926ff9a38a3e8446068562d770ed1fc2c04",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "def6febdef9ec27344d0c024ddb337476c9f687decae2a389da6b47edbfbbcd2",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-11162-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "center": [
+        19.746807,
+        12.644207
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "4cded1d056a4fb4141ef5157b20bf75fdfbfaadc9d9cba7c0072f86373af30f3",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "0c13048055e592658ae1c1131bb56fc1d91891f3015767d5850e580aff88f966",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-11411-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "center": [
+        14.999972,
+        8.181558
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "df75a66002c1dff0a7c4176610f4f9380a0ca227ae718737206f5d5905d9a30f",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "1b75e729b9d26e29cdcbd9da433712460a189400eba2818b73e6baa2df2689a4",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-10689-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "center": [
+        331.735509,
+        -2.231299
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99959183,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "7057173597a389637e7407c63457dc3ecad085d47dd59002a20d516b7855bf48",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "25c541c22d6757155de9b132a2b8c40c61eed80a46d2b0941132282bcffc5f33",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9207-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5281",
+      "tract": 5281,
+      "center": [
+        54.246544,
+        -26.032053
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "e10708fa453a31fb9b19a230bb7ddbe5e654d519816efa2b85b7596232535969",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "e30b797bfc5a5d6ef2f3a5aa39fc0595626b7c35db11711d067c6e103630c90b",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5281-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "tract": 5280,
+      "center": [
+        52.602709,
+        -26.032053
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99997711,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "918b77f9bfed96a0742b37bb6a9be2e16f8726c25aac7f70e33f85ce76b38704",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "ac7d105772f6b4a20158056b0ab3f256fe6a42ef53a2547adb6e3ce314b283b4",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5280-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "center": [
+        51.42854,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "879a2d5bc36688baf41a0d8fa67d7183aa738e0ec11aa0959fe29828a1f98c6e",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "b757ba1e38e7876ca01efdb135cfbff14326786896da6c5f33700a3343aa4db7",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5062-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "center": [
+        54.746512,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99995804,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "63cf252ce94dbdd897b1eb3793e9b26e0b993d532ea4d31ab574ddeff398b00a",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "872bca027deb6bb62bf8e8a4e70f82ff83ad301fdc9534daffa0c29c2ac9771a",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5064-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "center": [
+        65.853617,
+        -48.344831
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99928665,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "a83296d01997495119cabaadb3bd2cecd1b351b618a1c5e1af33cdf8a471c3f7",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "2b441486c7a21038a5b478c68595494730b5f557f3240937c95b1b49ad7f04eb",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-2397-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5192",
+      "tract": 5192,
+      "center": [
+        267.096743,
+        -27.519591
+      ],
+      "status": "not-acquired",
+      "scienceReady": false,
+      "comparisonReady": false,
+      "reason": "No successful bounded Legacy DR10 FITS acquisition is present in the evidence plan."
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "center": [
+        5.837801,
+        -40.90733
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "764f50dbc68db90fe7e4809a59fee2c1d6f554a883ed7d5c77a628ce13b45270",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "ba19ae2d3dae1097a92c5ad5041102f0372089afc8640a1574ec32b27e2dbe67",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-3233-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "center": [
+        303.594439,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "g",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99913788,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "212fabbd801bd3029890f15eec6cc1d7e13668196edb5db3a634cd3fe19e342c",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 0
+      },
+      "normalizedFits": {
+        "sha256": "41ea781ab58426507c7423c0ec704b945d4f79eec259cdc0104126e340d73b19",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5214-legacy-dr10-g.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "center": [
+        8.888861,
+        0.743803
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99998856,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "440199935b793e5e14cc30aee672418caa1da9fa027d5be46628ec7ee7ab14bd",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "6ed505849604e41a060aaa61cbc53aa38a88c3738144d49f8dcf12ab22c6fe8f",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9475-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "center": [
+        239.999972,
+        -9.669053
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "g",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99736023,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "000aebf271962901b8180202dfa90294d1baad85f91ba85ef929ac910617427b",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 0
+      },
+      "normalizedFits": {
+        "sha256": "bd5fb24921f084a2324fc010984d1c437e96d1d23e1791c19ecb22553a8405b6",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-7939-legacy-dr10-g.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "center": [
+        349.629602,
+        0.743803
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.9997139,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "d095fb01de8f3fff781531a03b2e178ad8cb8e041bc6592f3991b05dc333dd42",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "61fb5ab53126e98c4d7dd34cd82ac483c990c79708107db3acf8d47005c9c559",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9705-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "center": [
+        217.645915,
+        -18.112693
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "8e5b295eac62ef058d2c277d5455caf523079bb51f1bc1e6579ae85638b85e61",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "f43904eb6394c1d7c0b4cde2c8473996113b69b967b14cc5a8a1e0ae55cb0697",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-6509-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "center": [
+        188.984509,
+        8.181567
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99980545,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "f65e51ecdcb4d22982f0844ba1f6914811ab1863f2f994b0a01c47752b252654",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "002945a0152daf366dd6f20c5e9dc05155fe150ce6432063cc7e57bf422b113d",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-10805-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "center": [
+        28.14812,
+        -0.743748
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99970245,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "f35a073c575da81d898ec1ad00ab51449e7a1129ad485bc3753a7000c38b0339",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "2a986c927fd3ba94e81b60ed237600e57a3cebd502145d0061be28fa468a33cb",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9245-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "center": [
+        250.909062,
+        -18.594341
+      ],
+      "status": "not-acquired",
+      "scienceReady": false,
+      "comparisonReady": false,
+      "reason": "No successful bounded Legacy DR10 FITS acquisition is present in the evidence plan."
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "center": [
+        209.752038,
+        -3.718851
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "88ca46a82f4fddad6497b4e67a88af522dc840941650d9cdb63b99d1f41e076a",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "0f85fcb170ed24e5242ce82275d953cc748758a63983679ce52fbdeed2898dd3",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8883-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "center": [
+        51.184802,
+        -30.494662
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "f29f492938b308a78dcca8e6f68290446a81f1634baffccb52999daa66c0b554",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "e48ee12b8e5f8ebae1045a8a653da884857e0de4fbff427694997c8071cc06a8",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4636-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "center": [
+        54.597124,
+        -30.494662
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99986649,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "6f671b0b5c1ac0688292a3ff7fddfde0f5cdc41890b09d220181320e0f5e382f",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "a5e6f6a71820d1de02be42429cfb94c4a55056ff41186917085ea4d373719c06",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4638-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "center": [
+        50.958873,
+        -26.032053
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "dc8faa769898ad263a4af65cf7fb4b825dccce793352ac7e3b8db426b53373c3",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "818f73e8629de9961a8937f6b4452dd346680544c425e5ce3e5bcb66eef16e5d",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5279-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "center": [
+        55.89038,
+        -26.032053
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "2ae519a31cac375514952b1ad667893be039a1a00990f99f98345edb8182f799",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "bdd1dd9db8ba9d1c694bf32a39b810cc744d5986f0d144b3d2d47c698f39dd9b",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5282-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "center": [
+        56.405499,
+        -27.519591
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "c055e65795ed2c5e4aa0d310033dbb661a1c262705b5dd5fb2c77818ba6fa0ff",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "ea5a445091d8384b830346b4dfe3329baf808bbab4a8787c66fb7d9feac663f0",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5065-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "center": [
+        211.174733,
+        -3.783668
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99980164,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "060e5175802db148623bcb51d3dee50d072df9a26c5c0bb90613eb6b102f6a66",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "493bbcabca8440fd6d5dc3e2e71fbcdf16dd3ba2773eaf810bb33723cd6c2447",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8884-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "tract": 8708,
+      "center": [
+        309.42416,
+        -5.778943
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "ec864a3eda5a675940663b7ed773115f0e16816826d75dc21b30af840d1de131",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "fa4ac64d9fe49a35f76d8bb4ed65fcd3ac8a16b946d588c9456c326507d7f036",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8708-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99998474,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "5d5b4f9207a755591dfcde995887ea495a9b222ed35ed077c3232f1e3fe877ac",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "a14cc5f0924e3bc88009dcfb94146e8e990337eb3130187d78771bfdfc3e14fb",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-10079-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "center": [
+        329.187037,
+        -24.4611
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "g",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.5512886,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "7643d38be5eb288b1c1f4ebcabb76f7c00883b6683afe3322973aa8494082445",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 0
+      },
+      "normalizedFits": {
+        "sha256": "2d33f93fc8a639c4361a36fb10af75b125191f2dd28a84d6b81e10e26886f589",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-5670-legacy-dr10-g.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "center": [
+        55.513987,
+        -29.007128
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "02a281daff0c157b7cce3dad515cacda6bd5ade8fb73512662adf0473511f030",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "be71f260e11c9b2823409da6e379ccc2a1f71f59fa0ee8c1d29adff02a00d82b",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4850-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "center": [
+        52.149501,
+        -29.007128
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "69a2ca099a3063fa1a4a968fae01b695a8f127b23546b6255231f53d62397b4d",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "061f74805eaf1c28c17c01718591441ff176da05e690a9b25be6e298adb4c32d",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4848-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "center": [
+        53.831744,
+        -29.007128
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "f4c256f0d5f0e8b81be1ab5615f467457874fd959c638fe0d798242df6ff7ea6",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "4e17e1b2ac47a8c8f7b39770287b07919de11f7d7e560d52c3214737e799f6b6",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4849-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "center": [
+        359.999972,
+        -6.693952
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99999619,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "c94b31498a2475a2b0abd78de6d99d190cb3077b6897b502c4c629bbd1184cfd",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "334d06567cdf879b469f26ab5e089773a3488ff04fdad5e399c23283a5a2a614",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8259-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "center": [
+        52.890963,
+        -30.494662
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99986649,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "43614e3cfaf431b933cbcf301f68d1b31dcc2d115095212b61ffaf6e03bbdf6c",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "0e7453121d8e240c58e8635980d4a12f8774844de048d756ca4f49f85453f4f6",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-4637-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "center": [
+        8.925592,
+        2.231355
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99960709,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "5a39dd9219e93fd73ef84ea554982207ca8672981ceb7a850c56587cb4cf4ddb",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "3a25104cf429c95262fbfa2b0e58aec14bedf9fb7513755081b12cd2b15d9b88",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9718-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "center": [
+        10.370343,
+        0.743803
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99998474,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "813669a00be9efe3cf342e61ab7ff9adc6300b7426695b96a3443327e54dbf7c",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "8203447ec5c64ccff16e8de235563099c6cc6b33bae7e5a8f22cc6282d8018aa",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9476-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "center": [
+        25.470997,
+        21.45082
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "896497d487d4be09142f25d8edd61f4d8e9f7a86229ab4a8790093224b3b4544",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "051491344a0a61fa54daf8a445398aadfe9af26af831b2db9520f88cdbe06271",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-12814-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "tract": 8272,
+      "center": [
+        19.753233,
+        -6.619414
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "79646f6748543f467108701a5c3a7e89dc5d9d6f728edeae8a8d7fbafc2a45fc",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "a597bdfa39a46ec7680dea91dbd2fdb3a41012baed6fe8e26e8f60ff7afb0c0c",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8272-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "center": [
+        241.558412,
+        -18.594341
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "z",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99904633,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "64a6e1cd0a51ae93c8ab8c80acb76246803e85791d5d39f84f08136cb5e30420",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 3
+      },
+      "normalizedFits": {
+        "sha256": "ee427c90224df55fa1cd0cf6b3ce0a1fb78f4ea87e9f1f9927ec93100d6805ad",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-6524-legacy-dr10-z.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "center": [
+        340.740713,
+        -0.743748
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.9997139,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "4c6392bbff06fb7b1552b1fb3359b111dd4518a6fc196f4da0ebacf1678f326e",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "71dc1b4de872c60a7aa637375f3992a45e40201a3fa2c4243d32c494afa55b04",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9456-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "center": [
+        358.512369,
+        2.231355
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "b9105739a2af0834ecaa6492fb7b403d072fb1153746e74776ec8d65d7a178e7",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "1fcb2dbec19e6b2afc10a266ed9c289baf7cd72a7e4b74a8cab9d5c335c62a86",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9953-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8026",
+      "tract": 8026,
+      "center": [
+        10.499972,
+        -8.181503
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "a316ab2c1182563de7e69452dd25df606c85155bca82567e43bda6d74afcc7ea",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "235445f2b8b95aa62f879ede414fbd2797cdc876ecdce0ca6ca0f18621a358a5",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-8026-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "center": [
+        10.646076,
+        16.620749
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 1.0,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "54e32cb5409a2915aa481ca4bbc586f268b59be42298be41daa0716c523a801d",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "1cd9ac811db303a28ce255107b25f15d5f8594cb9c394630ccb51e966a072c62",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-12112-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "center": [
+        20.826418,
+        2.231355
+      ],
+      "status": "validated-science-input",
+      "preferredBand": "r",
+      "band": "r",
+      "unit": "nanomaggy/pixel",
+      "validPixelFraction": 0.99998474,
+      "shape": [
+        512,
+        512
+      ],
+      "source": {
+        "sha256": "39945998d5727ab726b16eaaeb32f134064c27e0f3c0af7066a96b99f7bfbbfc",
+        "bytes": 8398080,
+        "archiveBandCube": "girz",
+        "selectedBandIndex": 2
+      },
+      "normalizedFits": {
+        "sha256": "a1d6ea6d537866cbcb648921131b7f5f0c9f8b0f39e3bf60de2123123de2fe9e",
+        "bytes": 2646720
+      },
+      "preview": "/layer-previews/selected-regions/dp2-tract-9726-legacy-dr10-r.png",
+      "supportPlanes": {
+        "image": true,
+        "inverseVariance": true,
+        "validMask": true,
+        "coverage": true,
+        "celestialWcs": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "Rubin pixels",
+        "common WCS grid",
+        "PSF match",
+        "filter transfer",
+        "sky/background QA",
+        "resampling covariance"
+      ]
+    }
+  ]
+}

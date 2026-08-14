@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
     "dist/**",
     ".sites-stage*/**",
     ".vercel/**",
+    ".venv/**",
     "pipeline/output/**",
     "next-env.d.ts",
   ]),

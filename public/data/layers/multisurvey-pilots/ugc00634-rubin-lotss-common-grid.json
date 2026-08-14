@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "layers-multisurvey-pilots-v1",
+  "generatedAt": "2026-08-14T06:07:30.031793+00:00",
+  "field": {
+    "id": "ugc00634",
+    "name": "UGC00634",
+    "raDeg": 15.354878,
+    "decDeg": 7.625991
+  },
+  "status": "available",
+  "operation": "Rubin DP2 i-band IMAGE bilinearly reprojected onto native LoTSS DR3 celestial grid",
+  "readiness": "display-aligned; not photometrically comparable",
+  "outputShape": [
+    200,
+    200
+  ],
+  "commonCoveragePixelCount": 26638,
+  "commonCoverageFraction": 0.66595,
+  "supportFractions": {
+    "rubinFiniteOnOutputGrid": 0.66595,
+    "lotssFiniteOnOutputGrid": 1.0
+  },
+  "pixelScales": {
+    "rubinArcsec": [
+      0.399999999999996,
+      0.399999999999996
+    ],
+    "lotssArcsec": [
+      1.499999999999976,
+      1.500000000000012
+    ]
+  },
+  "inputs": {
+    "rubin": {
+      "path": "pipeline/output/dp2-sparc/ugc00634/rubin_i.fits",
+      "sha256": "a7caf619d90aa548d37182cabe184a387ce49c8f945371db642387934cfd5cc6",
+      "hdu": "IMAGE",
+      "band": "i",
+      "unit": "nJy",
+      "wcs": "RA---TAN / DEC--TAN",
+      "shape": [
+        1800,
+        1800
+      ],
+      "release": "DP2",
+      "datasetType": "deep_coadd",
+      "publisherDatasetIds": [
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8be-fe61-7bbe-b40e-13c29d82a972",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-0d84-7d55-bbfc-8469e22fd59a",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-523d-70a3-ab23-b55aba04066f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-8573-7cac-a963-6c11bac037e9",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-a8f9-7946-a2cc-a3ba09b412fe",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-d55d-7db2-941c-c6f28b5641dc",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-1660-739f-b8e5-075200de987b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-32ae-78e1-b084-3710d4f85f73",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-5f42-78cf-8e26-a6d874a5c745",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-bcc7-7a32-80b4-60c7df0b9586",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-e2c9-7370-b88c-ed10f025a40d",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-e9cf-702c-a391-1c26b838f0ad",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-febb-775c-839e-5ebc3a247a8b",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8c0-102a-7447-b203-c918893d23ce",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-3681-7f0c-81be-69db19648710",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-6346-763b-9ec4-cb02766b7ea8",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-7778-7c6e-9aea-b75d5ef2c306",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-a27a-7cf5-a608-defedec2fa64",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-b6b5-729d-a474-e813dfa0e90f",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-cb59-7f3d-8380-9e79bd829f44",
+        "ivo://org.rubinobs/usdac/lsst-dp2?repo=dp2&id=019ed8bf-ea51-7a8f-add0-babcf1b5b4d0"
+      ],
+      "provenancePath": "pipeline/output/dp2-sparc/ugc00634/edp2_provenance.json"
+    },
+    "lotss": {
+      "path": "pipeline/results/multisurvey-pilots/cache/ugc00634/lotss-dr3-cutout.fits",
+      "sha256": "1af7db3e67dde39eb174b2d9e2946afb05931bf8ae6a5daec8dc0b613aa789bf",
+      "unit": "JY/BEAM",
+      "wcs": "RA---SIN / DEC--SIN",
+      "shape": [
+        200,
+        200
+      ],
+      "release": "LoTSS DR3",
+      "sourceUrl": "https://lofar-surveys.org/dr3-cutout.fits?pos=15.35487800+7.62599100&size=5.0"
+    }
+  },
+  "outputs": {
+    "rubinAlignedFits": {
+      "path": "pipeline/results/multisurvey-pilots/common-grid/ugc00634/rubin-i-on-lotss-dr3.fits",
+      "sha256": "5fbfea7b30cb4054ffe7c480ce42433e2154473b6eb80a1ca30ffcfd08d19365",
+      "bytes": 164160
+    },
+    "coverageMaskFits": {
+      "path": "pipeline/results/multisurvey-pilots/common-grid/ugc00634/common-coverage-mask.fits",
+      "sha256": "b7368ddcff5103bc8c0c2f57d4c9e275e840efc32beab32791e38b66a65582e6",
+      "bytes": 43200
+    }
+  },
+  "previews": {
+    "rubinAligned": "/layer-previews/multisurvey-pilots/ugc00634-rubin-i-on-lotss-dr3.png",
+    "lotssNativeCommonGrid": "/layer-previews/multisurvey-pilots/ugc00634-lotss-dr3-common-grid.png",
+    "commonCoverage": "/layer-previews/multisurvey-pilots/ugc00634-rubin-lotss-common-coverage.png",
+    "positionOverlay": "/layer-previews/multisurvey-pilots/ugc00634-rubin-lotss-position-overlay.png"
+  },
+  "previewSemantics": {
+    "rubinAligned": "independently stretched Rubin i-band display pixels",
+    "lotssNativeCommonGrid": "independently stretched LoTSS 144 MHz display pixels restricted to common finite coverage",
+    "commonCoverage": "white only where both retained rasters have finite pixel support",
+    "positionOverlay": "orange/cyan positional overlay with independent nonlinear stretches; not a difference map"
+  },
+  "prohibitedClaims": [
+    "No photometric difference, flux ratio, or missing-light claim is supported across nJy optical pixels and Jy/beam radio pixels.",
+    "No PSF, beam, bandpass, pixel-area, or noise matching has been performed.",
+    "Bilinear reprojection is not flux conserving and the aligned Rubin FITS must not be used for photometry."
+  ]
+}

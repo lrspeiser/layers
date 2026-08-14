@@ -1,0 +1,398 @@
+{
+  "schemaVersion": "layers-panstarrs-gap-fill-public-v1",
+  "generatedAt": "2026-08-14T06:49:11.671689+00:00",
+  "provider": "MAST Pan-STARRS",
+  "documentation": [
+    "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service",
+    "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812339/PS1+Stack+images",
+    "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812333/PS1+Image+data+products"
+  ],
+  "regions": [
+    {
+      "regionId": "dp2-tract-5192",
+      "tract": 5192,
+      "center": {
+        "raDeg": 267.096743,
+        "decDeg": -27.519591
+      },
+      "surveyId": "panstarrs-dr2",
+      "release": "DR1 stack product served by the current PS1 archive",
+      "catalogReleaseContext": "DR2",
+      "band": "i",
+      "cutout": {
+        "sizePixels": 960,
+        "nativePixelScaleArcsec": 0.25,
+        "nominalSizeArcmin": 4.0,
+        "resampled": false
+      },
+      "products": [
+        {
+          "role": "science",
+          "archiveProductType": "stack",
+          "sourceSkycell": "0775.016",
+          "sourceProductId": "rings.v3.skycell.0775.016.stk.i.unconv.fits",
+          "bytes": 3706560,
+          "sha256": "7a5779f4354dd8a6cfdb212389c25113cbfaa8943dc3028c1fca7b7bf96b4a9e",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "PS1 linearized stack data unit",
+            "physicalFluxDensityUnit": null,
+            "magnitudeCalibration": {
+              "zeroPointMag": 25.0,
+              "exposureTimeSeconds": 900.0,
+              "formula": "MAG = -2.5*log10(sum(data-units)) + 25 + 2.5*log10(EXPTIME)"
+            },
+            "note": "The MAST FITS-cutout service has already reversed the full-stack asinh encoding. The header omits BUNIT, so these are calibrated PS1 linear stack data units, not Jy or electrons."
+          },
+          "finiteFraction": 1.0
+        },
+        {
+          "role": "weight",
+          "archiveProductType": "stack.wt",
+          "sourceSkycell": "0775.016",
+          "sourceProductId": "rings.v3.skycell.0775.016.stk.i.unconv.wt.fits",
+          "bytes": 3709440,
+          "sha256": "d18a193873452a7116e132273d6837fb93dcb12193bcd2b9022cc106c76fc0bb",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "variance of PS1 linearized stack data units",
+            "physicalFluxDensityUnit": null,
+            "note": "MAST defines stack.wt as propagated variance. Resampling of input warps introduces covariance, so independent-pixel uncertainty is an approximation."
+          },
+          "finiteFraction": 1.0
+        },
+        {
+          "role": "mask",
+          "archiveProductType": "stack.mask",
+          "sourceSkycell": "0775.016",
+          "sourceProductId": "rings.v3.skycell.0775.016.stk.i.unconv.mask.fits",
+          "bytes": 3709440,
+          "sha256": "49b31d05e5a1dc172c4935bd501cc110c30a4ba96f1aa403d8b5e1979bb1b5c7",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "dimensionless PS1 bitmask",
+            "physicalFluxDensityUnit": null,
+            "maskBits": [
+              {
+                "name": "DETECTOR",
+                "value": 1
+              },
+              {
+                "name": "FLAT",
+                "value": 2
+              },
+              {
+                "name": "DARK",
+                "value": 4
+              },
+              {
+                "name": "BLANK",
+                "value": 8
+              },
+              {
+                "name": "CTE",
+                "value": 16
+              },
+              {
+                "name": "SAT",
+                "value": 32
+              },
+              {
+                "name": "LOW",
+                "value": 64
+              },
+              {
+                "name": "SUSPECT",
+                "value": 128
+              },
+              {
+                "name": "BURNTOOL",
+                "value": 128
+              },
+              {
+                "name": "CR",
+                "value": 256
+              },
+              {
+                "name": "SPIKE",
+                "value": 512
+              },
+              {
+                "name": "GHOST",
+                "value": 1024
+              },
+              {
+                "name": "STREAK",
+                "value": 2048
+              },
+              {
+                "name": "STARCORE",
+                "value": 4096
+              },
+              {
+                "name": "CONV.BAD",
+                "value": 8192
+              },
+              {
+                "name": "CONV.POOR",
+                "value": 16384
+              },
+              {
+                "name": "MASK.VALUE",
+                "value": 8575
+              },
+              {
+                "name": "MARK.VALUE",
+                "value": 32768
+              }
+            ],
+            "observedCutoutEncoding": "Finite pixels are non-zero integer flag codes; all other returned pixels are NaN. Preserve finite/non-zero semantics downstream."
+          },
+          "finiteFraction": 0.0019108072916666668
+        }
+      ],
+      "previews": [
+        {
+          "role": "science",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-5192/ps1-dr2-i-science.png"
+        },
+        {
+          "role": "weight",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-5192/ps1-dr2-i-weight.png"
+        },
+        {
+          "role": "mask",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-5192/ps1-dr2-i-mask.png"
+        },
+        {
+          "role": "science-mask-overlay",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-5192/ps1-dr2-i-science-mask-overlay.png"
+        }
+      ],
+      "sourcePixelsValidated": true,
+      "comparisonReady": false,
+      "comparisonReadinessReason": "Authentic PS1 stack and support pixels are validated, but no Rubin/PS1 common-grid reprojection, PSF matching, photometric normalization, or alignment QA has been performed."
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "center": {
+        "raDeg": 250.909062,
+        "decDeg": -18.594341
+      },
+      "surveyId": "panstarrs-dr2",
+      "release": "DR1 stack product served by the current PS1 archive",
+      "catalogReleaseContext": "DR2",
+      "band": "i",
+      "cutout": {
+        "sizePixels": 960,
+        "nativePixelScaleArcsec": 0.25,
+        "nominalSizeArcmin": 4.0,
+        "resampled": false
+      },
+      "products": [
+        {
+          "role": "science",
+          "archiveProductType": "stack",
+          "sourceSkycell": "0940.035",
+          "sourceProductId": "rings.v3.skycell.0940.035.stk.i.unconv.fits",
+          "bytes": 3706560,
+          "sha256": "0038125b288bee8dd2f3bb0bf99696e8f17b2c2c7408d5a6ea1f0808b89e73c7",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "PS1 linearized stack data unit",
+            "physicalFluxDensityUnit": null,
+            "magnitudeCalibration": {
+              "zeroPointMag": 25.0,
+              "exposureTimeSeconds": 1080.0,
+              "formula": "MAG = -2.5*log10(sum(data-units)) + 25 + 2.5*log10(EXPTIME)"
+            },
+            "note": "The MAST FITS-cutout service has already reversed the full-stack asinh encoding. The header omits BUNIT, so these are calibrated PS1 linear stack data units, not Jy or electrons."
+          },
+          "finiteFraction": 0.9994390190972222
+        },
+        {
+          "role": "weight",
+          "archiveProductType": "stack.wt",
+          "sourceSkycell": "0940.035",
+          "sourceProductId": "rings.v3.skycell.0940.035.stk.i.unconv.wt.fits",
+          "bytes": 3709440,
+          "sha256": "5d36257b32214b165e00dd28847720915a6333008f04733b552361690bacf92e",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "variance of PS1 linearized stack data units",
+            "physicalFluxDensityUnit": null,
+            "note": "MAST defines stack.wt as propagated variance. Resampling of input warps introduces covariance, so independent-pixel uncertainty is an approximation."
+          },
+          "finiteFraction": 0.9994390190972222
+        },
+        {
+          "role": "mask",
+          "archiveProductType": "stack.mask",
+          "sourceSkycell": "0940.035",
+          "sourceProductId": "rings.v3.skycell.0940.035.stk.i.unconv.mask.fits",
+          "bytes": 3709440,
+          "sha256": "782496bd8ffe788823aaff41ee9ce6798d0dc7d314b1c38929d6b07fe53e7719",
+          "shape": [
+            960,
+            960
+          ],
+          "wcsPresent": true,
+          "bunit": null,
+          "unitsValidation": {
+            "interpretationVerified": true,
+            "bunitHeaderPresent": false,
+            "pixelUnit": "dimensionless PS1 bitmask",
+            "physicalFluxDensityUnit": null,
+            "maskBits": [
+              {
+                "name": "DETECTOR",
+                "value": 1
+              },
+              {
+                "name": "FLAT",
+                "value": 2
+              },
+              {
+                "name": "DARK",
+                "value": 4
+              },
+              {
+                "name": "BLANK",
+                "value": 8
+              },
+              {
+                "name": "CTE",
+                "value": 16
+              },
+              {
+                "name": "SAT",
+                "value": 32
+              },
+              {
+                "name": "LOW",
+                "value": 64
+              },
+              {
+                "name": "SUSPECT",
+                "value": 128
+              },
+              {
+                "name": "CR",
+                "value": 256
+              },
+              {
+                "name": "SPIKE",
+                "value": 512
+              },
+              {
+                "name": "GHOST",
+                "value": 1024
+              },
+              {
+                "name": "STREAK",
+                "value": 2048
+              },
+              {
+                "name": "STARCORE",
+                "value": 4096
+              },
+              {
+                "name": "CONV.BAD",
+                "value": 8192
+              },
+              {
+                "name": "CONV.POOR",
+                "value": 16384
+              },
+              {
+                "name": "BURNTOOL",
+                "value": 128
+              },
+              {
+                "name": "MASK.VALUE",
+                "value": 8575
+              },
+              {
+                "name": "MARK.VALUE",
+                "value": 32768
+              }
+            ],
+            "observedCutoutEncoding": "Finite pixels are non-zero integer flag codes; all other returned pixels are NaN. Preserve finite/non-zero semantics downstream."
+          },
+          "finiteFraction": 0.006271701388888889
+        }
+      ],
+      "previews": [
+        {
+          "role": "science",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-6530/ps1-dr2-i-science.png"
+        },
+        {
+          "role": "weight",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-6530/ps1-dr2-i-weight.png"
+        },
+        {
+          "role": "mask",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-6530/ps1-dr2-i-mask.png"
+        },
+        {
+          "role": "science-mask-overlay",
+          "path": "/images/layers/panstarrs-gap-fill/dp2-tract-6530/ps1-dr2-i-science-mask-overlay.png"
+        }
+      ],
+      "sourcePixelsValidated": true,
+      "comparisonReady": false,
+      "comparisonReadinessReason": "Authentic PS1 stack and support pixels are validated, but no Rubin/PS1 common-grid reprojection, PSF matching, photometric normalization, or alignment QA has been performed."
+    }
+  ],
+  "readiness": {
+    "sourcePixelsValidatedCount": 2,
+    "comparisonReadyCount": 0,
+    "alignmentQa": "not-run"
+  },
+  "limitations": [
+    "FITS-cutout output is archive-authentic but is a bounded extraction, not the full skycell file.",
+    "The science cutout is linearized by the MAST service; full-stack asinh-scaling keywords therefore do not apply to the returned pixel array.",
+    "The weight plane is the PS1 propagated stack variance product; reprojection will introduce additional pixel covariance.",
+    "The FITS headers omit BUNIT. Science pixels use the documented PS1 linear-stack photometric convention and must not be labeled Jy.",
+    "PS1 stack images are DR1 image products even when accessed through the current archive alongside DR2 catalogs and warps.",
+    "MAST documents small stack zero-point systematics and warns that non-PSF i-band magnitudes can have substantially larger errors; quantitative photometry needs its own QA.",
+    "No Rubin/PS1 comparison result may be reported until common-grid, mask, PSF, and photometric QA passes."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "layers-multisurvey-pilots-v1",
+  "generatedAt": "2026-08-14T06:07:30.122560+00:00",
+  "comparison": "Rubin DP2 i-band / LoTSS DR3 144 MHz common-grid display alignment",
+  "availableCount": 3,
+  "blockedCount": 0,
+  "fields": [
+    {
+      "fieldId": "ugc00191",
+      "status": "available",
+      "commonCoverageFraction": 0.97305,
+      "manifest": "/data/layers/multisurvey-pilots/ugc00191-rubin-lotss-common-grid.json",
+      "previews": {
+        "rubinAligned": "/layer-previews/multisurvey-pilots/ugc00191-rubin-i-on-lotss-dr3.png",
+        "lotssNativeCommonGrid": "/layer-previews/multisurvey-pilots/ugc00191-lotss-dr3-common-grid.png",
+        "commonCoverage": "/layer-previews/multisurvey-pilots/ugc00191-rubin-lotss-common-coverage.png",
+        "positionOverlay": "/layer-previews/multisurvey-pilots/ugc00191-rubin-lotss-position-overlay.png"
+      }
+    },
+    {
+      "fieldId": "ugc00634",
+      "status": "available",
+      "commonCoverageFraction": 0.66595,
+      "manifest": "/data/layers/multisurvey-pilots/ugc00634-rubin-lotss-common-grid.json",
+      "previews": {
+        "rubinAligned": "/layer-previews/multisurvey-pilots/ugc00634-rubin-i-on-lotss-dr3.png",
+        "lotssNativeCommonGrid": "/layer-previews/multisurvey-pilots/ugc00634-lotss-dr3-common-grid.png",
+        "commonCoverage": "/layer-previews/multisurvey-pilots/ugc00634-rubin-lotss-common-coverage.png",
+        "positionOverlay": "/layer-previews/multisurvey-pilots/ugc00634-rubin-lotss-position-overlay.png"
+      }
+    },
+    {
+      "fieldId": "ugc00891",
+      "status": "available",
+      "commonCoverageFraction": 0.996575,
+      "manifest": "/data/layers/multisurvey-pilots/ugc00891-rubin-lotss-common-grid.json",
+      "previews": {
+        "rubinAligned": "/layer-previews/multisurvey-pilots/ugc00891-rubin-i-on-lotss-dr3.png",
+        "lotssNativeCommonGrid": "/layer-previews/multisurvey-pilots/ugc00891-lotss-dr3-common-grid.png",
+        "commonCoverage": "/layer-previews/multisurvey-pilots/ugc00891-rubin-lotss-common-coverage.png",
+        "positionOverlay": "/layer-previews/multisurvey-pilots/ugc00891-rubin-lotss-position-overlay.png"
+      }
+    }
+  ],
+  "scienceClaimAllowed": false,
+  "reason": "Astrometric co-display is valid; cross-wavelength pixel subtraction or photometric ranking is not."
+}

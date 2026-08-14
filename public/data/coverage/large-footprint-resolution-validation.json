@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T06:59:21.505405+00:00",
+  "passed": true,
+  "checkCount": 8,
+  "checks": [
+    {
+      "name": "four release-matched products resolved",
+      "passed": true,
+      "evidence": [
+        "act-dr6",
+        "des-y3-lensing",
+        "sdss-dr19",
+        "spt-3g"
+      ]
+    },
+    {
+      "name": "products without exact public masks remain unresolved",
+      "passed": true,
+      "evidence": [
+        "hsc-lensing",
+        "hsc-ssp-pdr3",
+        "kids-1000-lensing"
+      ]
+    },
+    {
+      "name": "all overlap IDs belong to Rubin DP2",
+      "passed": true,
+      "evidence": {
+        "act-dr6": 1101,
+        "des-y3-lensing": 353,
+        "spt-3g": 27,
+        "sdss-dr19": 1427
+      }
+    },
+    {
+      "name": "all resolved MOCs are nonempty and checksummed",
+      "passed": true,
+      "evidence": {
+        "act-dr6": "3ab498a0d0dae23cc10ce76f9beead5b0f2c1a08ccc1bbff2a69f5af7c3dc8be",
+        "des-y3-lensing": "76c2ddec7b655c62c86d9fcc457c12ec04c8f232f34f176e04f4d50d2ea08170",
+        "spt-3g": "74e0f5d7ddb66a6305562afe6a0ffdc30b9146939bed35c259484d6c6b1a7c4d",
+        "sdss-dr19": "a29fb9f5ba9ae379b2d23876a71de154233e647dc3b9e8c393b56e61150c2131"
+      }
+    },
+    {
+      "name": "publisher checksums match downloaded release files",
+      "passed": true,
+      "evidence": "SDSS publisher SHA-1 and Zenodo MD5 verified"
+    },
+    {
+      "name": "HSC imaging grid and HSC lensing are not promoted as product footprints",
+      "passed": true,
+      "evidence": "PDR3 tract grid is an envelope; PDR3 weak-lensing shapes are withheld"
+    },
+    {
+      "name": "SPT result is scoped to a named product",
+      "passed": true,
+      "evidence": "SPT-3G EDFS 2025 masks only"
+    },
+    {
+      "name": "public artifact contains no secrets or absolute cache paths",
+      "passed": true,
+      "evidence": "redaction regex passed"
+    }
+  ]
+}

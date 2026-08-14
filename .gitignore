@@ -29,6 +29,7 @@ yarn-error.log*
 .pnpm-debug.log*
 .codex-dev.*.log
 .dev-*.log
+.vinext-*.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -51,3 +52,12 @@ __pycache__/
 .venv/
 /pipeline/output/
 /pipeline/cache/
+# pipeline/results holds retrieved and derived science data (tens of GB of FITS,
+# caches, and run logs). It is reproducible from the fetch scripts and manifests;
+# published artifacts are copied into public/data instead. See docs/DATA_STORAGE.md.
+/pipeline/results/*
+!/pipeline/results/dp2-sparc-coverage.json
+!/pipeline/results/public-legacy-overlap.json
+/public/private-preview/
+/public/data/coverage/rubin-pixels-50-pilot.json
+/public/data/coverage/rubin-pixels-50-pilot/

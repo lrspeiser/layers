@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T06:24:47.046445+00:00",
+  "status": "partial-success",
+  "realProducts": [
+    "spectroscopy",
+    "xray",
+    "neutralGas"
+  ],
+  "unresolved": [
+    "lensing"
+  ],
+  "records": {
+    "spectroscopy": "spectroscopy.json",
+    "xray": "xray.json",
+    "neutralGas": "neutralGas.json",
+    "lensing": "lensing.json"
+  },
+  "guardrail": "Presence and overlap are demonstrated; no cross-survey physical difference is claimed."
+}

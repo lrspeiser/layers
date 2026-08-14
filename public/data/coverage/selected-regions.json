@@ -1,0 +1,2389 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T09:44:46.866706+00:00",
+  "requestedCount": 50,
+  "selectedCount": 50,
+  "selectionMethod": "Acquisition-locked refresh of the 50 automatically selected tracts with validated Rubin pixels; survey memberships are recomputed from current confirmed overlaps.",
+  "availableFamilies": [
+    "astrometry",
+    "cmb-large-scale-structure",
+    "high-energy",
+    "high-resolution",
+    "neutral-gas",
+    "optical-baseline",
+    "radio",
+    "time-domain",
+    "uv-ir"
+  ],
+  "unrepresentedAvailableFamilies": [],
+  "familyCounts": {
+    "astrometry": 50,
+    "cmb-large-scale-structure": 50,
+    "high-energy": 30,
+    "high-resolution": 49,
+    "neutral-gas": 50,
+    "optical-baseline": 50,
+    "radio": 49,
+    "time-domain": 42,
+    "uv-ir": 50
+  },
+  "surveyCounts": {
+    "2mass": 50,
+    "des-dr2": 29,
+    "erosita-erass1": 30,
+    "euclid-q1": 14,
+    "gaia-dr3": 50,
+    "galex-gr6-7": 50,
+    "hipass": 50,
+    "hsc-ssp-pdr2": 12,
+    "hst": 48,
+    "jwst": 12,
+    "legacy-surveys-dr10": 49,
+    "lotss-dr2": 2,
+    "panstarrs-dr2": 48,
+    "planck-2018": 50,
+    "unwise": 50,
+    "vlass": 49,
+    "ztf-dr": 42
+  },
+  "regions": [
+    {
+      "id": "dp2-tract-10079",
+      "rank": 1,
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "radiusArcmin": 64.76,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-10321",
+      "rank": 2,
+      "tract": 10321,
+      "center": [
+        185.950385,
+        5.206457
+      ],
+      "radiusArcmin": 71.47,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-10689",
+      "rank": 3,
+      "tract": 10689,
+      "center": [
+        14.999972,
+        8.181558
+      ],
+      "radiusArcmin": 71.51,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [
+        "legacy-surveys-dr10",
+        "panstarrs-dr2"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
+    },
+    {
+      "id": "dp2-tract-10805",
+      "rank": 4,
+      "tract": 10805,
+      "center": [
+        188.984509,
+        8.181567
+      ],
+      "radiusArcmin": 71.5,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-11162",
+      "rank": 5,
+      "tract": 11162,
+      "center": [
+        4.5188,
+        11.156658
+      ],
+      "radiusArcmin": 71.54,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [
+        "legacy-surveys-dr10",
+        "panstarrs-dr2"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
+    },
+    {
+      "id": "dp2-tract-11411",
+      "rank": 6,
+      "tract": 11411,
+      "center": [
+        19.746807,
+        12.644207
+      ],
+      "radiusArcmin": 71.56,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [
+        "legacy-surveys-dr10",
+        "panstarrs-dr2"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
+    },
+    {
+      "id": "dp2-tract-12112",
+      "rank": 7,
+      "tract": 12112,
+      "center": [
+        10.646076,
+        16.620749
+      ],
+      "radiusArcmin": 59.08,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "lotss-dr2",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-12814",
+      "rank": 8,
+      "tract": 12814,
+      "center": [
+        25.470997,
+        21.45082
+      ],
+      "radiusArcmin": 71.56,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "lotss-dr2",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-2397",
+      "rank": 9,
+      "tract": 2397,
+      "center": [
+        65.853617,
+        -48.344831
+      ],
+      "radiusArcmin": 72.15,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "planck-2018",
+        "unwise"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-3233",
+      "rank": 10,
+      "tract": 3233,
+      "center": [
+        5.837801,
+        -40.90733
+      ],
+      "radiusArcmin": 71.98,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4636",
+      "rank": 11,
+      "tract": 4636,
+      "center": [
+        51.184802,
+        -30.494662
+      ],
+      "radiusArcmin": 71.8,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4637",
+      "rank": 12,
+      "tract": 4637,
+      "center": [
+        52.890963,
+        -30.494662
+      ],
+      "radiusArcmin": 71.8,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4638",
+      "rank": 13,
+      "tract": 4638,
+      "center": [
+        54.597124,
+        -30.494662
+      ],
+      "radiusArcmin": 71.8,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4848",
+      "rank": 14,
+      "tract": 4848,
+      "center": [
+        52.149501,
+        -29.007128
+      ],
+      "radiusArcmin": 71.78,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4849",
+      "rank": 15,
+      "tract": 4849,
+      "center": [
+        53.831744,
+        -29.007128
+      ],
+      "radiusArcmin": 71.78,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4850",
+      "rank": 16,
+      "tract": 4850,
+      "center": [
+        55.513987,
+        -29.007128
+      ],
+      "radiusArcmin": 71.78,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5061",
+      "rank": 17,
+      "tract": 5061,
+      "center": [
+        49.769554,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5062",
+      "rank": 18,
+      "tract": 5062,
+      "center": [
+        51.42854,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5063",
+      "rank": 19,
+      "tract": 5063,
+      "center": [
+        53.087526,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5064",
+      "rank": 20,
+      "tract": 5064,
+      "center": [
+        54.746512,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5065",
+      "rank": 21,
+      "tract": 5065,
+      "center": [
+        56.405499,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5192",
+      "rank": 22,
+      "tract": 5192,
+      "center": [
+        267.096743,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5214",
+      "rank": 23,
+      "tract": 5214,
+      "center": [
+        303.594439,
+        -27.519591
+      ],
+      "radiusArcmin": 71.75,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5279",
+      "rank": 24,
+      "tract": 5279,
+      "center": [
+        50.958873,
+        -26.032053
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5280",
+      "rank": 25,
+      "tract": 5280,
+      "center": [
+        52.602709,
+        -26.032053
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5281",
+      "rank": 26,
+      "tract": 5281,
+      "center": [
+        54.246544,
+        -26.032053
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5282",
+      "rank": 27,
+      "tract": 5282,
+      "center": [
+        55.89038,
+        -26.032053
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5391",
+      "rank": 28,
+      "tract": 5391,
+      "center": [
+        235.103239,
+        -26.032113
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5670",
+      "rank": 29,
+      "tract": 5670,
+      "center": [
+        329.187037,
+        -24.4611
+      ],
+      "radiusArcmin": 71.73,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-6509",
+      "rank": 30,
+      "tract": 6509,
+      "center": [
+        217.645915,
+        -18.112693
+      ],
+      "radiusArcmin": 36.14,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-6524",
+      "rank": 31,
+      "tract": 6524,
+      "center": [
+        241.558412,
+        -18.594341
+      ],
+      "radiusArcmin": 71.63,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-6530",
+      "rank": 32,
+      "tract": 6530,
+      "center": [
+        250.909062,
+        -18.594341
+      ],
+      "radiusArcmin": 71.63,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-7939",
+      "rank": 33,
+      "tract": 7939,
+      "center": [
+        239.999972,
+        -9.669053
+      ],
+      "radiusArcmin": 71.52,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8026",
+      "rank": 34,
+      "tract": 8026,
+      "center": [
+        10.499972,
+        -8.181503
+      ],
+      "radiusArcmin": 71.51,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8259",
+      "rank": 35,
+      "tract": 8259,
+      "center": [
+        359.999972,
+        -6.693952
+      ],
+      "radiusArcmin": 71.49,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8272",
+      "rank": 36,
+      "tract": 8272,
+      "center": [
+        19.753233,
+        -6.619414
+      ],
+      "radiusArcmin": 64.77,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8642",
+      "rank": 37,
+      "tract": 8642,
+      "center": [
+        211.239642,
+        -5.206402
+      ],
+      "radiusArcmin": 71.47,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8708",
+      "rank": 38,
+      "tract": 8708,
+      "center": [
+        309.42416,
+        -5.778943
+      ],
+      "radiusArcmin": 54.52,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8883",
+      "rank": 39,
+      "tract": 8883,
+      "center": [
+        209.752038,
+        -3.718851
+      ],
+      "radiusArcmin": 71.45,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8884",
+      "rank": 40,
+      "tract": 8884,
+      "center": [
+        211.174733,
+        -3.783668
+      ],
+      "radiusArcmin": 71.45,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9207",
+      "rank": 41,
+      "tract": 9207,
+      "center": [
+        331.735509,
+        -2.231299
+      ],
+      "radiusArcmin": 71.44,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9245",
+      "rank": 42,
+      "tract": 9245,
+      "center": [
+        28.14812,
+        -0.743748
+      ],
+      "radiusArcmin": 71.42,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9456",
+      "rank": 43,
+      "tract": 9456,
+      "center": [
+        340.740713,
+        -0.743748
+      ],
+      "radiusArcmin": 71.42,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9475",
+      "rank": 44,
+      "tract": 9475,
+      "center": [
+        8.888861,
+        0.743803
+      ],
+      "radiusArcmin": 71.42,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9476",
+      "rank": 45,
+      "tract": 9476,
+      "center": [
+        10.370343,
+        0.743803
+      ],
+      "radiusArcmin": 71.42,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9705",
+      "rank": 46,
+      "tract": 9705,
+      "center": [
+        349.629602,
+        0.743803
+      ],
+      "radiusArcmin": 71.42,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9718",
+      "rank": 47,
+      "tract": 9718,
+      "center": [
+        8.925592,
+        2.231355
+      ],
+      "radiusArcmin": 71.44,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9726",
+      "rank": 48,
+      "tract": 9726,
+      "center": [
+        20.826418,
+        2.231355
+      ],
+      "radiusArcmin": 71.44,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9813",
+      "rank": 49,
+      "tract": 9813,
+      "center": [
+        150.247906,
+        2.231355
+      ],
+      "radiusArcmin": 71.44,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-energy",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9953",
+      "rank": 50,
+      "tract": 9953,
+      "center": [
+        358.512369,
+        2.231355
+      ],
+      "radiusArcmin": 71.44,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hsc-ssp-pdr2",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "surveyFamilies": [
+        "astrometry",
+        "cmb-large-scale-structure",
+        "high-resolution",
+        "neutral-gas",
+        "optical-baseline",
+        "radio",
+        "time-domain",
+        "uv-ir"
+      ],
+      "pixelCachedSurveyIds": [],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    }
+  ],
+  "caveat": "Selection is a coverage-discovery queue, not a claim that any region contains a scientific anomaly."
+}

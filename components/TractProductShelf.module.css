@@ -1,0 +1,6 @@
+.shelf { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .8rem; }
+.shelf article { min-width: 0; overflow: hidden; padding: .7rem; border: 1px solid rgba(255,255,255,.1); border-radius: .65rem; background: rgba(0,0,0,.18); }
+.shelf img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: .45rem; background: #050706; }
+.shelf span { display: block; margin-top: .65rem; color: #f2b15f; font: 600 .62rem/1.2 var(--font-mono, monospace); letter-spacing: .1em; text-transform: uppercase; }
+.shelf h3 { margin: .3rem 0; font-size: .95rem; }
+.shelf p, .shelf small { margin: 0; color: #9ba8a4; font-size: .72rem; line-height: 1.45; }

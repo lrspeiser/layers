@@ -1,0 +1,3672 @@
+{
+  "schemaVersion": "layers-selected-region-comparisons-v1",
+  "generatedAt": "2026-08-14T07:03:13.970612+00:00",
+  "method": "Rubin r-band bilinear reprojection to each validated Legacy or Pan-STARRS native grid for display; masks use nearest-neighbor reprojection.",
+  "counts": {
+    "selectedRegions": 50,
+    "rubinScienceInputs": 50,
+    "referenceScienceInputs": 50,
+    "displayAligned": 50,
+    "sameNamedBand": 37,
+    "comparisonReady": 0,
+    "failed": 0
+  },
+  "policy": {
+    "displayAlignmentAllowed": true,
+    "scienceClaimAllowed": false,
+    "comparisonReady": false
+  },
+  "failures": [],
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99671555,
+      "supportFractions": {
+        "rubin": 0.99671555,
+        "reference": 0.99998474
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "d15eecb9b007749a9ce1a6fedddb0bd6f2af436d4fbb06fd6f29ec26290e8c25",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "a14cc5f0924e3bc88009dcfb94146e8e990337eb3130187d78771bfdfc3e14fb",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "10df36d9373a0af79f47bcd5fb874b1f052d6773a16e69898f422144c21bf475",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10079/rubin-r.png",
+          "sha256": "8314d740a5f6e5c0b90c77f570444c101c4e1d37b598b1aface71b0f197afe48",
+          "bytes": 182472
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10079/reference-r.png",
+          "sha256": "fdd7cae942f7253fe2f483338d73de26903da2be403677c45a35ce2eeb003ca5",
+          "bytes": 224422
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10079/coverage.png",
+          "sha256": "c491a9dbdf0e3ee784adc7d42f45a8e70471ce432d07d28d000f12c682c5389b",
+          "bytes": 1737
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10079/position-overlay.png",
+          "sha256": "2a24c3ed1c4938365be79e858dd82f0b5a22cc4daadaec192d1973148bf1b731",
+          "bytes": 629835
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "center": [
+        185.950385,
+        5.206457
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99584961,
+      "supportFractions": {
+        "rubin": 0.99584961,
+        "reference": 0.99997711
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "b3c056ad15707232dcf2b21d9488ced666487e0c343e60a17e1cf234ee1abd13",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "4c7c54350a2f10f9523b01e0034037ca08b21bcff9c9a0f869ed2cc82b6e0a33",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "35dac875d7c9fee666ca1632f8add8bb7d1fd9cf9a0522ecb461995d10d985b1",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10321/rubin-r.png",
+          "sha256": "935e6f618c248eed5bdc32cb16e04ae3d92b8f935ed902c0605d46d053bf30aa",
+          "bytes": 184016
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10321/reference-r.png",
+          "sha256": "62d929d90ec76f5611829006dd836fc8f0fc4f4c0d12696a9aed54a69e7c77bb",
+          "bytes": 249122
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10321/coverage.png",
+          "sha256": "038458372d60b530ed6675927e882e9fda95b25b510fcb1be725737fc1b090ad",
+          "bytes": 1718
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10321/position-overlay.png",
+          "sha256": "1d720bf26190c96577a5b6af3eef302eaaa2dd42b0f7eb764f9a46702ca1fb61",
+          "bytes": 695101
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "center": [
+        14.999972,
+        8.181558
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.9967041,
+      "supportFractions": {
+        "rubin": 0.9967041,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "921b09c8e077e1ca0a5757d09e2d8f0280e70111856d0ff7a0dba6a59cce5d54",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "1b75e729b9d26e29cdcbd9da433712460a189400eba2818b73e6baa2df2689a4",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "a69d4b6bfb6945c2a38f46c86bc053d818b8b50bc5abbc750ebfcbb863c12a99",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10689/rubin-r.png",
+          "sha256": "6d929abb04b6e89f5d0159a12a129fe218ac8c529851b17887263e1d784de22e",
+          "bytes": 233671
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10689/reference-r.png",
+          "sha256": "6cfe1a33f665393fdff544d665aee5187414ad76243d44ffb23736b84e4460f5",
+          "bytes": 240339
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10689/coverage.png",
+          "sha256": "630f3109af6905b7e646e54f0153bac7eb479283642f6df910ca96a6beadc1f2",
+          "bytes": 1660
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10689/position-overlay.png",
+          "sha256": "b94becc79bc87f3aa8eca00038e8897671f02d071bb723e59f954005e4d433f6",
+          "bytes": 690798
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "center": [
+        188.984509,
+        8.181567
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99727249,
+      "supportFractions": {
+        "rubin": 0.9973259,
+        "reference": 0.99980545
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "0bf45f30efb758b75f24b88ddb66bab546926293e44801d99f8a3a0def6a4940",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "002945a0152daf366dd6f20c5e9dc05155fe150ce6432063cc7e57bf422b113d",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "b2f3506831651a4c907e13845223b1aa9208fccae7a2ea6aff6929c7c88c2c97",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10805/rubin-r.png",
+          "sha256": "e3054c870bc55546fb66a6e5a09b442042bc98459f9b3c63f83107a27618fafc",
+          "bytes": 179867
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10805/reference-r.png",
+          "sha256": "34dce16cd52c4063cf955168750a86b15d2cc716fe477bafa31de74b950b8546",
+          "bytes": 250132
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10805/coverage.png",
+          "sha256": "c2a3343e09c06063195db5f5b927e2ef1338ee2473670e58aedf26f8167654b4",
+          "bytes": 1764
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-10805/position-overlay.png",
+          "sha256": "fcfddde6de92999e6e0e095b67908f748848c67a9bb5a2a678fdd5ac10402fac",
+          "bytes": 696334
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "center": [
+        4.5188,
+        11.156658
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99661255,
+      "supportFractions": {
+        "rubin": 0.99661255,
+        "reference": 0.99983597
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "10297cc0ba48e09fdb585d8755525cdb3a43d2163456249467fbc08a54b9fbd1",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "def6febdef9ec27344d0c024ddb337476c9f687decae2a389da6b47edbfbbcd2",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "aa5618722e1e8d2cb175844cf1a75cb23cedac1e5935a3320fbb10af2109c91f",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11162/rubin-r.png",
+          "sha256": "3a7710338cd9955b3cec4c6f982f8da8c1934d81182de2b9b0df41eb9e700784",
+          "bytes": 242549
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11162/reference-r.png",
+          "sha256": "2421df1248de8286c8124ffb9a33158db10214affed873fac531b1bbdb86af32",
+          "bytes": 247416
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11162/coverage.png",
+          "sha256": "e3d7e9c74f57b35f37febfdf29a3acbb8f950eabb1e0e30c9529c0c47005fed5",
+          "bytes": 1722
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11162/position-overlay.png",
+          "sha256": "c5f40fca41e30e6c69b0af9ddaf767358392af1a0eb842f2ebf1136c41287480",
+          "bytes": 723303
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "center": [
+        19.746807,
+        12.644207
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.57853699,
+      "supportFractions": {
+        "rubin": 0.57853699,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "5be66a52284893f3097d72a14cf9ba44949eaec2591b3f588288d67d55580fff",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "0c13048055e592658ae1c1131bb56fc1d91891f3015767d5850e580aff88f966",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "db0b3b9151d03ceb713a958defb072a0daf0f625758d1cef2b22750f4d2bc128",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11411/rubin-r.png",
+          "sha256": "5278f62124079a5b6038fa69c41eb1519123c64e8778bd11c76208875a215e96",
+          "bytes": 119607
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11411/reference-r.png",
+          "sha256": "e3adc08abacfa6cba53b5ee18790d7e1cf44b6791ca49ebf76db7c4453ba8cc9",
+          "bytes": 121706
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11411/coverage.png",
+          "sha256": "cbac411d4bdabf37b56f092d469c1402481b9391e8a809b21b28c054890fcbe7",
+          "bytes": 1595
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-11411/position-overlay.png",
+          "sha256": "8c3cfcd403614835d3e66968d07fe7b28a78a36d2019e5fd63fab930505c66ec",
+          "bytes": 352770
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "center": [
+        10.646076,
+        16.620749
+      ],
+      "status": "display-aligned",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.09029007,
+      "supportFractions": {
+        "rubin": 0.09029007,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "4d3c52404df706fe252e0bfb72b9a15f81140f5181784704d778f4fb9d62ca88",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "1cd9ac811db303a28ce255107b25f15d5f8594cb9c394630ccb51e966a072c62",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "40af6c16b3799606c4b94a6d0d20a29c3b98c3ea0d0c56ffb8492c5401e47b44",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12112/rubin-r.png",
+          "sha256": "73e48e3b4fd4842b3f65aaa674cb08c87259c950aeecb0b167d33fa256574ae4",
+          "bytes": 17361
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12112/reference-r.png",
+          "sha256": "b2cf7881e2c296a18dd9f0b934a47ed203d3de1e007b4ebd25bcb6c0668107e3",
+          "bytes": 19936
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12112/coverage.png",
+          "sha256": "e3a00e5bad239cf277eed790037b57f7ac16cfcea33851e2310c16ab56d4601d",
+          "bytes": 1534
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12112/position-overlay.png",
+          "sha256": "0eefb24c71f4086693eb9f10d1c68308bb092ad4e74fdeb89ce7eaf386accfcf",
+          "bytes": 54351
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "center": [
+        25.470997,
+        21.45082
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.42607117,
+      "supportFractions": {
+        "rubin": 0.42607117,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "76f6b63192fa7ff650ccebe0dcea1ea69a3612cddfa62c84ebe0e020795f3906",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "051491344a0a61fa54daf8a445398aadfe9af26af831b2db9520f88cdbe06271",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "03325b5254bc0888c34b116ab62bfafd6969520f0d48f664b97b73d48d142031",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12814/rubin-r.png",
+          "sha256": "e09edcd446a28dfc9986f8da9b40685f9c76464603802776f5c85c4acfbb25be",
+          "bytes": 102197
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12814/reference-r.png",
+          "sha256": "341d7c7871166956869d8fa5eab966cd082d6c36ecd3f42bc46a7faba41814da",
+          "bytes": 99947
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12814/coverage.png",
+          "sha256": "afb8b06c87ec4293410c8c42d035a64866aabdac177198bacfe82cb7885c440e",
+          "bytes": 1935
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-12814/position-overlay.png",
+          "sha256": "8a27ae403f30299b20616fbf7703d801c4d294dad3f80246ee299cd74fa2070c",
+          "bytes": 291520
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "center": [
+        65.853617,
+        -48.344831
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99405289,
+      "supportFractions": {
+        "rubin": 0.99405289,
+        "reference": 0.99928665
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "e0f507a252f7a67cb6fe7c0331ad12e38260a7a9a6eecf04e787d4f44da57e74",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "2b441486c7a21038a5b478c68595494730b5f557f3240937c95b1b49ad7f04eb",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "d854f8e48f47e7fb2bfc881dbcd0910ced82ee9bec996a098ebd4345ea9ef498",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-2397/rubin-r.png",
+          "sha256": "3c3dc9c89ac576becffcab888eba35c484f25ac8c1ca0d7944dc5601e7009325",
+          "bytes": 204230
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-2397/reference-r.png",
+          "sha256": "8a883bcb7216a3defdc55bce7ab38a3cdff48e9d1779a9558301a665bf9a0893",
+          "bytes": 190002
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-2397/coverage.png",
+          "sha256": "0fbca440bede79435d0a654df27212ff64a94b9f6f9981a369e5e4606605f265",
+          "bytes": 1965
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-2397/position-overlay.png",
+          "sha256": "786de4a193ff4541fb1c169817bba53f70603e237f71e81021e9159a6697ed0f",
+          "bytes": 569245
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "center": [
+        5.837801,
+        -40.90733
+      ],
+      "status": "display-aligned",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99489594,
+      "supportFractions": {
+        "rubin": 0.99489594,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "34d20583e67194a78ec46bca95b4354b4e1d8ed753d8a1876eb780951e24df98",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "ba19ae2d3dae1097a92c5ad5041102f0372089afc8640a1574ec32b27e2dbe67",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "25df02bacb639ba0cbdbd33e46c916f6e99381524a77a27c8063751a7aea0e5c",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-3233/rubin-r.png",
+          "sha256": "2c067f6b258ec34c21e0368c871095fd9d28384939870ad19a6545b96bfa5065",
+          "bytes": 229069
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-3233/reference-r.png",
+          "sha256": "f882a8bc72da8fe8e80fad07f16befe79261cfa438b0e9dbcbbb7dcc6d2a4669",
+          "bytes": 229388
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-3233/coverage.png",
+          "sha256": "eb6adf2dff52f4ab54ebcb136be3b2044d9e10760366efddb6510d770a8d50ff",
+          "bytes": 1885
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-3233/position-overlay.png",
+          "sha256": "afdf69984749bd2ed7503b554938a28ac28e9b19f5fb11828ff4445d131f4cdd",
+          "bytes": 669429
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "center": [
+        51.184802,
+        -30.494662
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99952698,
+      "supportFractions": {
+        "rubin": 0.99952698,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "2851aac83f837b34b2a49f7ca35d1203646c39c07ef144b35e66c5b0dd263673",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "e48ee12b8e5f8ebae1045a8a653da884857e0de4fbff427694997c8071cc06a8",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "40574fe7372d0b26579f0d914f41e22ade114aeefd625c13717b83cca65c2532",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4636/rubin-r.png",
+          "sha256": "fdfa8461285115979db48e2edefa64708aace27ede4f6047587631953cc5615d",
+          "bytes": 239363
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4636/reference-r.png",
+          "sha256": "b8bbc3da27d2c4d0ee17fbb6425982a8bf1147d9c91a0f804ed1f746f7b80870",
+          "bytes": 230817
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4636/coverage.png",
+          "sha256": "0c0a34f4b0badba3a631d365226bde0ebe79e220a4ebfe4ee872cb5c6d6eccd3",
+          "bytes": 1696
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4636/position-overlay.png",
+          "sha256": "f85237d4ab8b2c95c98a7eca6b7e06aff8d6cb2030bc671d09c35e63fb5cf15e",
+          "bytes": 683502
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "center": [
+        52.890963,
+        -30.494662
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.63605499,
+      "supportFractions": {
+        "rubin": 0.63605499,
+        "reference": 0.99986649
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "26d14a055b057b4b7182782310e2e15c7aef47fe0ac582d80c84b35160b4f7b5",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "0e7453121d8e240c58e8635980d4a12f8774844de048d756ca4f49f85453f4f6",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "173c9b154772820d9025b700710097552c186746748a5585819ff962ee7400ac",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4637/rubin-r.png",
+          "sha256": "b79421c82d178c8bc666d561d9c92b6f19a46de5d6446718cefec603da28877d",
+          "bytes": 157741
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4637/reference-r.png",
+          "sha256": "418b50e07b695a26b54f30c8b591e8efb93413f3664a20c7b4a46e39bd850bde",
+          "bytes": 150508
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4637/coverage.png",
+          "sha256": "e2e23b5cb07b72d795877956073b6d1b3e1d9d617d3f04fa66b3244b03830d45",
+          "bytes": 2344
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4637/position-overlay.png",
+          "sha256": "6b9ca61227996ad0ed368e81618e560ebce2b50ce276a080aed8632c9e62432d",
+          "bytes": 445226
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "center": [
+        54.597124,
+        -30.494662
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.9746666,
+      "supportFractions": {
+        "rubin": 0.9746666,
+        "reference": 0.99986649
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "253ff3c31fbc123758e70addad147144f0ec6f43edd6be60dd34d9b01d7b2fda",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "a5e6f6a71820d1de02be42429cfb94c4a55056ff41186917085ea4d373719c06",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "d8ff5fa0c0c313a1a3f960df45063fd239fe0bdc7bd1860a99f6abf95cee6e35",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4638/rubin-r.png",
+          "sha256": "9acca65ff119f5be9b8ac21284798413814b7a386fb121fb31139381e2f55a0b",
+          "bytes": 238776
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4638/reference-r.png",
+          "sha256": "ae093f42c6057256fe0282d760483061dde35f74898905836a41f67986842845",
+          "bytes": 235077
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4638/coverage.png",
+          "sha256": "5748a3072571be819f0891712ce63ac1aabec6e7b05af3f6ac14d90415058ee0",
+          "bytes": 2323
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4638/position-overlay.png",
+          "sha256": "bcfe6bc8cc784d5a16668d5edf7ca7151bb90f8e5b0a1b912251599ce20ca1b2",
+          "bytes": 691639
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "center": [
+        52.149501,
+        -29.007128
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 1.0,
+      "supportFractions": {
+        "rubin": 1.0,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "1f460bd29c968093a05cc2c89ffa878ea21fe0c284051ab208a4b386d81b7987",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "061f74805eaf1c28c17c01718591441ff176da05e690a9b25be6e298adb4c32d",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "ae6701781329faf65332d6549cf335b44a59ea81aba14859834fd58c0f953181",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4848/rubin-r.png",
+          "sha256": "237739fb234a30b1eb6d5742def159260a5c7a147e4e0c718e6b1d4ab357d308",
+          "bytes": 216899
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4848/reference-r.png",
+          "sha256": "8ca8101cedb64f46a37d6fb00dad3f446813c0776a259aedc8d9e137c09e935b",
+          "bytes": 222650
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4848/coverage.png",
+          "sha256": "1e116b9d795a60772fd9f40aa469f1192a0c8a949001315d134bd5118d7b44ed",
+          "bytes": 1493
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4848/position-overlay.png",
+          "sha256": "af1c7bc8949fffc62a784e20869c461f44328090fc061caa4412b34ce1f4a804",
+          "bytes": 646074
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "center": [
+        53.831744,
+        -29.007128
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99612045,
+      "supportFractions": {
+        "rubin": 0.99612045,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "7ec216d521fd61c265ff985a6bd857c6d1eaf3756450158da401bba8e48077ff",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "4e17e1b2ac47a8c8f7b39770287b07919de11f7d7e560d52c3214737e799f6b6",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "886d6199a4df1918d2b135cc5f7a28ae39bd5950e7e708b8e565116c59a05dfd",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4849/rubin-r.png",
+          "sha256": "cf0c8b6fae6f1d100a71ebc610521e1554c8ae04235d1cd7e9739bf00327b7ba",
+          "bytes": 202201
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4849/reference-r.png",
+          "sha256": "915afb72ba12ed739cf77bbf970c6bc21909cb56cd760365dae2b6713d98ea49",
+          "bytes": 204592
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4849/coverage.png",
+          "sha256": "97ac1db0455e49d56479bafdda6e188dd2bda995a40274385b1ab3ffe5d30338",
+          "bytes": 1761
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4849/position-overlay.png",
+          "sha256": "44821451c2b17103e37ef5c21f3052e86a2c6954ceb29debd979f6087889cfeb",
+          "bytes": 594663
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "center": [
+        55.513987,
+        -29.007128
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.93245316,
+      "supportFractions": {
+        "rubin": 0.93245316,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "35616c0b3a1a477beade870838ad5f7b731b52e4e52565feb63d5ab50f2dc15a",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "be71f260e11c9b2823409da6e379ccc2a1f71f59fa0ee8c1d29adff02a00d82b",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "c3d7184c9de7f1f8801fec8ce85c9a1982ffbdc9a5a38955d54fdb1816e6dc9c",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4850/rubin-r.png",
+          "sha256": "adb92fea308ea2a5a87fee409ff31bcca089a75913b0722f510ae79b51e1e49a",
+          "bytes": 230044
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4850/reference-r.png",
+          "sha256": "e717c01ceb963211496a195649121c48d1e89e769fd4528c1d71754992cd0bca",
+          "bytes": 223614
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4850/coverage.png",
+          "sha256": "b356d6488614d86bd7ee392fd0c4c1b9fe9b38a0ab8dd7234974dd01293090ba",
+          "bytes": 1676
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-4850/position-overlay.png",
+          "sha256": "487f31ad50ebc1bd178baf88cd6b5d8485a3d03a96e77ac83db905b8aa5f3a42",
+          "bytes": 661426
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "center": [
+        49.769554,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99889755,
+      "supportFractions": {
+        "rubin": 0.99889755,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "8aa8705bf94275672233b607df3fbf8d504dd6ecec6e8426a261fc915fb3ea7d",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "54ad475e9036e09196e185324237857bca39b247a9d324b4e52869b85d5720f2",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "345d383bbfe4de88b4321ad74ba2dd913fe0a4dc01e72dee57e440468f6840ae",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5061/rubin-r.png",
+          "sha256": "45cfa2021692bae56c5ca6dccce40fd7a39e190a2d885a7420422e0c115be746",
+          "bytes": 238135
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5061/reference-r.png",
+          "sha256": "e2308334cec8d9a935fdac625906a5db854caf60f9c147877bda18f115a67a16",
+          "bytes": 236711
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5061/coverage.png",
+          "sha256": "c465a452794505f4b78f125fce25aa90410e23639a4f2a714970a8889b295f8f",
+          "bytes": 1878
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5061/position-overlay.png",
+          "sha256": "a28de1fa015fa2c61dd14432c3dfa14e605918a4e14570bdd5a55906915a9cf7",
+          "bytes": 693330
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "center": [
+        51.42854,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 1.0,
+      "supportFractions": {
+        "rubin": 1.0,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "30d0fd81f87e99bda549436e3d026232b4b7fbb31f0f4943847a01e9b47d5c14",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "b757ba1e38e7876ca01efdb135cfbff14326786896da6c5f33700a3343aa4db7",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "3fa5ed1bb7fdc5c45e05373db134e2ea2dc265c0e17437b93f9ed9a638a9e967",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5062/rubin-r.png",
+          "sha256": "826c32dcff92359e46898046f6c447911faec5e9a797776e28fccb0059da79e6",
+          "bytes": 220346
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5062/reference-r.png",
+          "sha256": "d0c471cef75360473d7cfb5d4893910dbdcac52bb61971985655c01d3230bf99",
+          "bytes": 234635
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5062/coverage.png",
+          "sha256": "1e116b9d795a60772fd9f40aa469f1192a0c8a949001315d134bd5118d7b44ed",
+          "bytes": 1493
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5062/position-overlay.png",
+          "sha256": "f53dfa8a518a16f2f88601bbaa3d6509b2ef38ca40e8d701b268a3098559f3b2",
+          "bytes": 673748
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "center": [
+        53.087526,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 1.0,
+      "supportFractions": {
+        "rubin": 1.0,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "719400a5c19372a073cdfcdc4658fce21ef2799cddcb641a086c994581a673f7",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "972162858c7d62f6642a137f603736bb6d91452f20c0ce1b60ebaad03da95ae5",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "861ee6bc2ed296d46c2d1c7c29e08510fe9b06fde9c6201daffee870398cf7b2",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5063/rubin-r.png",
+          "sha256": "18321a247715ceaa67222393183015f156df714b593de649724f5e4cba445f28",
+          "bytes": 173519
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5063/reference-r.png",
+          "sha256": "86c7da7417bc2f75785d8873108d9db8b5c90756361bf53a1f143c0e8a238596",
+          "bytes": 169525
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5063/coverage.png",
+          "sha256": "1e116b9d795a60772fd9f40aa469f1192a0c8a949001315d134bd5118d7b44ed",
+          "bytes": 1493
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5063/position-overlay.png",
+          "sha256": "a49f37969c0c2f251ab2d6b6d4bd6d2cbbd88eab059e00c0af24b3f9acbf6fec",
+          "bytes": 495857
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "center": [
+        54.746512,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.98990631,
+      "supportFractions": {
+        "rubin": 0.98990631,
+        "reference": 0.99995804
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "f6203981968d381829388c99eefbb26ccbaded76e094887d7504e784f9f75e07",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "872bca027deb6bb62bf8e8a4e70f82ff83ad301fdc9534daffa0c29c2ac9771a",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "3f285a61989311fd78dc8f94d2cb4e92290e77b561bedfe6dc9494b50cf2ff9b",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5064/rubin-r.png",
+          "sha256": "d34d7fdbfbb5f23fce1a9e9736bfc7b42cad9320a35f76e5ba043f18cf2e8818",
+          "bytes": 187524
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5064/reference-r.png",
+          "sha256": "2b4350dcfcac64ae5cbb96e15d786621e281fd83a5d5d1da161a651810cd4166",
+          "bytes": 208696
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5064/coverage.png",
+          "sha256": "7feb26c052c5960da930fa95911ba8d656aa271bd5ec5da3fb82ca1149ac1b0c",
+          "bytes": 2140
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5064/position-overlay.png",
+          "sha256": "23160ef20e4807099a89c83f7219ec697cb8866819154cce3f110a14517d3cf5",
+          "bytes": 592400
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "center": [
+        56.405499,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.86857224,
+      "supportFractions": {
+        "rubin": 0.86857224,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "3f79708449ec6c8851bb76cff237b322a2897a934553833d00c9d771d541ec20",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "ea5a445091d8384b830346b4dfe3329baf808bbab4a8787c66fb7d9feac663f0",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "e2f350105a5aa9c9e8747278ac29249f3f730869303004dc8cbcc02c41613925",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5065/rubin-r.png",
+          "sha256": "fc0bcf92edaf33f1dad5e400ffb376a7ab05a8cb5ccd7c60e3f97a09464ec854",
+          "bytes": 205194
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5065/reference-r.png",
+          "sha256": "5cf872e8f91482bcffaeb726ca32e41dfb60aec9c2a14b0563fe0421d010b79f",
+          "bytes": 200108
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5065/coverage.png",
+          "sha256": "25c0322958b2d956fa942d5615599b9f4b272727139d6d68eeb35eaeffb6924d",
+          "bytes": 1566
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5065/position-overlay.png",
+          "sha256": "b6a63212ed02645e8ccf2f9a67522e68ea26fbce0ad3dc0886d4c9c740eee511",
+          "bytes": 590246
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5192",
+      "tract": 5192,
+      "center": [
+        267.096743,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "i",
+      "referenceSurveyId": "panstarrs-dr2",
+      "referenceSurvey": "Pan-STARRS1",
+      "referenceRelease": "DR1 stack product served by the current PS1 archive",
+      "sameNamedBand": false,
+      "outputShape": [
+        960,
+        960
+      ],
+      "commonCoverageFraction": 0.90667426,
+      "supportFractions": {
+        "rubin": 0.90794922,
+        "reference": 0.99808919
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "efeaab3b07d2824329cbc8fe57cf7e2b961840031cb77adfcee6225a126e61d7",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "17a6e2ef53c94647af015046a50922e94f11c4a657c7e895ac7ee060754c53fe",
+          "unit": "PS1 linear stack unit",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "2614764c76056815e8f66c36ccbcafc9ebbce183f1af8d9e678b2b46d946492e",
+        "bytes": 15684480
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5192/rubin-r.png",
+          "sha256": "bde6e162def5f7c7d44c112ad3e2bf815b822eebc53651c9e6a6f84ac9dbbfea",
+          "bytes": 406644
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5192/reference-i.png",
+          "sha256": "347062b5c3f9852d9dcdeda65e32c7549cb0a1d1da884879a75e330573a3d7dd",
+          "bytes": 497948
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5192/coverage.png",
+          "sha256": "2cb9f51f3b67549b45accf5ea67b4ab25874fa08025ffe303c8d1381ee3f3b18",
+          "bytes": 14816
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5192/position-overlay.png",
+          "sha256": "398794c3a22888a5ed937b29ba494d9c20d5a4fddf0382a5b02c1e3501ff63fc",
+          "bytes": 1325103
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "center": [
+        303.594439,
+        -27.519591
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.97939301,
+      "supportFractions": {
+        "rubin": 0.97942352,
+        "reference": 0.99913788
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "e64deb72567354d42a2a6f0a00f0f41dea067936f458f6b5bf1c0210eeb79fff",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "41ea781ab58426507c7423c0ec704b945d4f79eec259cdc0104126e340d73b19",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "05dbf466fdb2d58dfc77d32725754482724ed7daef1b1de46e4b2b356f86c343",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5214/rubin-r.png",
+          "sha256": "1b7b219942dfbccd6e1f7c55b87ac3190d145bea365314185e92f286b6957549",
+          "bytes": 174943
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5214/reference-g.png",
+          "sha256": "483dffff16520baf5b765a2154d2f3c8126ec8f45bed858ebf985d4eb8d21e76",
+          "bytes": 201459
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5214/coverage.png",
+          "sha256": "8817b18368916c770481ca6900e10abfe1b13c731c4be200b4ec5ac87b2092b6",
+          "bytes": 2779
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5214/position-overlay.png",
+          "sha256": "fa0fca5ebe6785710be9ad818ef855d9f5f0c699f4d42b27b9e028f546f1fb90",
+          "bytes": 565072
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "center": [
+        50.958873,
+        -26.032053
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.72326279,
+      "supportFractions": {
+        "rubin": 0.72326279,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "a12b551fdf0cec86df96408fc4046a16422e73bd3100c605cea82a52ec319081",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "818f73e8629de9961a8937f6b4452dd346680544c425e5ce3e5bcb66eef16e5d",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "92a832935696511833469fe3dfbd82d783dd6473beb1ecde27fd3de513ec475c",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5279/rubin-r.png",
+          "sha256": "798f789983c2e136ec7c0d4943abdfa9fd4f13d427ef53ebbb40a48d6459e64c",
+          "bytes": 159880
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5279/reference-r.png",
+          "sha256": "d80e7666ebbc3abb3bf35022b8bd85519961c8df55fb5ae25bdde82eca55bd46",
+          "bytes": 145926
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5279/coverage.png",
+          "sha256": "10b2cf5b9b92e532ef66fd598fcd00d1141a9b5a45f2c17bbd37a32c98bfb7f7",
+          "bytes": 1631
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5279/position-overlay.png",
+          "sha256": "f27ec912721bff45a66bb2e80574af69acbaf023a14965ad116edec81ad85aa2",
+          "bytes": 441907
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "tract": 5280,
+      "center": [
+        52.602709,
+        -26.032053
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99162292,
+      "supportFractions": {
+        "rubin": 0.99162292,
+        "reference": 0.99997711
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "e0601c58a58a2119953f2d19b8b37576bf9565b30590f41b7c2e567e8bfd87de",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "ac7d105772f6b4a20158056b0ab3f256fe6a42ef53a2547adb6e3ce314b283b4",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "b291388e18545f102a3e6ba01f8eb22ae1412878f87e1e8fb15936d981c6f672",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5280/rubin-r.png",
+          "sha256": "f277ac841713cbc0ae20317f974fbce04cdee09aa5d6601e5bb3ee127675eb21",
+          "bytes": 226836
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5280/reference-r.png",
+          "sha256": "e9630669be28cfcd8cf65b5d930383ce6b45d9c4c1aee27e57ef7fe2c2835e26",
+          "bytes": 212317
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5280/coverage.png",
+          "sha256": "21da3b533359396b36434018e33763e15cff18efe65037f391a8cd14a6f56800",
+          "bytes": 2264
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5280/position-overlay.png",
+          "sha256": "f84dfcc532c743f55e2756104623054d5a126b317eb23be416f79b033b9a9358",
+          "bytes": 637768
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5281",
+      "tract": 5281,
+      "center": [
+        54.246544,
+        -26.032053
+      ],
+      "status": "display-aligned",
+      "rubinBand": "z",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.67162704,
+      "supportFractions": {
+        "rubin": 0.67162704,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "e22a8691dcec5127d118262e6e04c34e9b941c07ec23929e4316ba36e2fc8651",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "e30b797bfc5a5d6ef2f3a5aa39fc0595626b7c35db11711d067c6e103630c90b",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "dfce43036c10a6f8521c89ecff039e8acf3d9f4fb56c40d9928f6c9c92ea01d3",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5281/rubin-r.png",
+          "sha256": "8bdd6522a4243e757803df986e7cd3aa8e62993f827f0c0bd8048c68e3da1e85",
+          "bytes": 166258
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5281/reference-r.png",
+          "sha256": "e9215f7f67ef5c9aa7c14129e5973cacd367e43ef4fe1d0dbc647822a0b27b46",
+          "bytes": 156389
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5281/coverage.png",
+          "sha256": "d841d7627fc7e0e64e91019ece9bcf357905f4790fd8006560e5f98cd86e41f9",
+          "bytes": 1971
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5281/position-overlay.png",
+          "sha256": "9d03d91f2ce5717babe4746676fe13be96875b133968db507458ce4fbad23f91",
+          "bytes": 465717
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "center": [
+        55.89038,
+        -26.032053
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.91609573,
+      "supportFractions": {
+        "rubin": 0.91609573,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "6a993c48c6af3ecae207b3cddb7e94f7c7dd60de4454cbffa5a37812f4e5c19d",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "bdd1dd9db8ba9d1c694bf32a39b810cc744d5986f0d144b3d2d47c698f39dd9b",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "43d57799df9ace7011b262415eeb67d88af97e152510645aaf17e38e50adc8fe",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5282/rubin-r.png",
+          "sha256": "9513cfded1a206b4c173e3f1528f3e82199f36132221c4e7df080dcb192811b5",
+          "bytes": 219702
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5282/reference-r.png",
+          "sha256": "828ada8d3c54f79afd24941bb9cf330a96653c13c8715a4b6a8bf74e34ee3640",
+          "bytes": 212340
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5282/coverage.png",
+          "sha256": "6444d1dccba3133066c12cd69af344d7e3ab65994cea26cb5e09e01784ace8fb",
+          "bytes": 1557
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5282/position-overlay.png",
+          "sha256": "c3ec98a4f0d88887a60319cd1c3fee0f31b8809c0e1ad2016fd55e0d666c0d8a",
+          "bytes": 627484
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5391",
+      "tract": 5391,
+      "center": [
+        235.103239,
+        -26.032113
+      ],
+      "status": "display-aligned",
+      "rubinBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.89191437,
+      "supportFractions": {
+        "rubin": 0.98940277,
+        "reference": 0.89823532
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "7b103201b0ddfa514b0b76368dbc2bdf8c7f42c246025ab89714762df4cf35ca",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "664de16dca0fb4c71ca0ece8f0470167079e7a9e704763bdccb2c1ab75cbec0b",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "ba704734c0e639aa191eb54fcd787517f66ee77e406731373f73393b0f63f2e0",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5391/rubin-r.png",
+          "sha256": "5c217e530143778bd7770d3b9944d4425975185ee6285d777d3a6744f152075a",
+          "bytes": 139504
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5391/reference-r.png",
+          "sha256": "3d97cbc9200b7963c17ea24f71c92d590a7269daf292fd1b5853b3bc7620b0dc",
+          "bytes": 178050
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5391/coverage.png",
+          "sha256": "404a86fe1a527457747c79cd46a310a7de88b0008782ee0add12b35004238f54",
+          "bytes": 2815
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5391/position-overlay.png",
+          "sha256": "f877a065218be69d4f4136adf775be7ecb0aa6d6269111dff36783243456d5cd",
+          "bytes": 492976
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "center": [
+        329.187037,
+        -24.4611
+      ],
+      "status": "display-aligned",
+      "rubinBand": "i",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.54314041,
+      "supportFractions": {
+        "rubin": 0.99152756,
+        "reference": 0.5512886
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "8f1e9b143c5bc890b3192693b4ee758ab87816ed3551fbe5077f1956f9a96c08",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "2d33f93fc8a639c4361a36fb10af75b125191f2dd28a84d6b81e10e26886f589",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "12f9c18db8a68ae8c33cc30759cd80511c719d24c4727e3cbb83131ca1057faf",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5670/rubin-r.png",
+          "sha256": "acde1d37ce7f4820433dd42dd9994fa3e30527c3410928801fd7853a0b166774",
+          "bytes": 138495
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5670/reference-g.png",
+          "sha256": "f4812775b6ce9df8a44517f6a336a8158144f90cbbcd94882e1756406275210f",
+          "bytes": 140092
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5670/coverage.png",
+          "sha256": "7792d64090a69e1a3c2ab97c3f03397ad7fca3ffccbb7b174c5cc0fc7ca1f9ef",
+          "bytes": 2465
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-5670/position-overlay.png",
+          "sha256": "8d83930302c46203bc42995ad5fbcbc2776683f4027d0b2cc5fbc21f938c1083",
+          "bytes": 410134
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "center": [
+        217.645915,
+        -18.112693
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99225616,
+      "supportFractions": {
+        "rubin": 0.99225616,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "2bb8c29743b0d352394727ff2e11fbaaf97f42975e9a09a16a11a49331151324",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "f43904eb6394c1d7c0b4cde2c8473996113b69b967b14cc5a8a1e0ae55cb0697",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "7a4aa1c41f1673a922c4baf2b2749a83987afdc30f10365f1db667dc4919f0c1",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6509/rubin-r.png",
+          "sha256": "838da1b91fbf105951ad9e907c3850d54a1ad50de6a3833f236bce1ffbeda6c9",
+          "bytes": 220831
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6509/reference-r.png",
+          "sha256": "b558d21d1b454a08c20465ec54fb9a07d83057411f5ea9ff0c5a1aea2d524ec9",
+          "bytes": 216669
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6509/coverage.png",
+          "sha256": "38676c3dc6a9f1aa55663430a0bb221322ef93b1e5a26dbd8a4499383cca9bbc",
+          "bytes": 1793
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6509/position-overlay.png",
+          "sha256": "8017797169dfa47c27b65cf3b164d8ad47b3088a86bf16cfa59d27a0fba47033",
+          "bytes": 637971
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "center": [
+        241.558412,
+        -18.594341
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "z",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99677658,
+      "supportFractions": {
+        "rubin": 0.99708176,
+        "reference": 0.99904633
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "207c86f5ab373655943741a9d598b43b139bc1f3b712f62e06a0ba1e82863def",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "ee427c90224df55fa1cd0cf6b3ce0a1fb78f4ea87e9f1f9927ec93100d6805ad",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "e1d2e1b4c57374e35346981f8e74354d37f1522dbfcba4b5926848e49fe6b8ee",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6524/rubin-r.png",
+          "sha256": "ed09a31d343945caca21a34a5374ed182a2d2cf2ba86dc5af85afc44961512b3",
+          "bytes": 168765
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6524/reference-z.png",
+          "sha256": "94306db19854ccef2c773cf1648526a990f34488421e8a79d0b3a2c1a0348b3e",
+          "bytes": 185826
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6524/coverage.png",
+          "sha256": "314770785d845caa8f7ab04874485f56b3a465ba57e79b9f16f9c283882674e2",
+          "bytes": 1981
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6524/position-overlay.png",
+          "sha256": "2aab36aad1a7adafeb8892ad824d1c5939565113d0ff74af2fd6f232e0e2303c",
+          "bytes": 527567
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "center": [
+        250.909062,
+        -18.594341
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "i",
+      "referenceSurveyId": "panstarrs-dr2",
+      "referenceSurvey": "Pan-STARRS1",
+      "referenceRelease": "DR1 stack product served by the current PS1 archive",
+      "sameNamedBand": false,
+      "outputShape": [
+        960,
+        960
+      ],
+      "commonCoverageFraction": 0.95712999,
+      "supportFractions": {
+        "rubin": 0.95736437,
+        "reference": 0.9937283
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "89164a1046b1a5705d643269dcea0b214b055f656b21dcf69955fe14ce08761e",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "a46c922714b7f59b0599ef5b94d593f5eac37e66f88c793f1af5fa3cd3b5b021",
+          "unit": "PS1 linear stack unit",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "54d9dd007651e4b6138c137390925b1d7831549cc9f632796488733cf5b58177",
+        "bytes": 15684480
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6530/rubin-r.png",
+          "sha256": "ea5a7d8123a19959c392671e270b2b70b0a1f8b33c615147dc1194548d10b3d8",
+          "bytes": 510170
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6530/reference-i.png",
+          "sha256": "450d7e07941b21a5274632a73fcbb5137e087d7e1992b1311e293a4d00fc92d1",
+          "bytes": 687705
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6530/coverage.png",
+          "sha256": "c40c3a7f99faa64b49991efb359aa1c671c53f45750fdbc16ff5f387de949f6e",
+          "bytes": 9633
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-6530/position-overlay.png",
+          "sha256": "4b8691aa53297e9faa56d8cc7e471e4d9e6302041ae3af4ecc1c5a3e8e2559e1",
+          "bytes": 1885986
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "center": [
+        239.999972,
+        -9.669053
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.74451065,
+      "supportFractions": {
+        "rubin": 0.74451065,
+        "reference": 0.99736023
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "f9ec4ad8686d31e629b7355c72ed272e773fcd69ee27fd20cb16b3d6520807e3",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "bd5fb24921f084a2324fc010984d1c437e96d1d23e1791c19ecb22553a8405b6",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "c927f839c3b9fa57f81bbb5ed7b966fcdf0460e0f466788424d99cf3f367215f",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-7939/rubin-r.png",
+          "sha256": "11b9cdfadac7dfa1f15da550b218a9b4f11b4f934d5468ce11a754de75308f66",
+          "bytes": 166621
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-7939/reference-g.png",
+          "sha256": "6b466eb914ad3441fa9c748f2d4dcb65b8df331e32515c3f5f62de84e63c02da",
+          "bytes": 162975
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-7939/coverage.png",
+          "sha256": "780950b20173e68e53bef430a219fae162b097e3b08652ad90398a64800881d0",
+          "bytes": 2463
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-7939/position-overlay.png",
+          "sha256": "48bc6a7e81c508f1d18211d721372639f0d0e22e645beea3604900b3995e6fab",
+          "bytes": 479752
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8026",
+      "tract": 8026,
+      "center": [
+        10.499972,
+        -8.181503
+      ],
+      "status": "display-aligned",
+      "rubinBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.98622894,
+      "supportFractions": {
+        "rubin": 0.98622894,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "0d3be50b6d2a03f590fd22eda0fbef59e9eedc639015a8937e840dfcba208ad2",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "235445f2b8b95aa62f879ede414fbd2797cdc876ecdce0ca6ca0f18621a358a5",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "77bb31cd4bb0e06cb72233ca16e0aeaff67f08e2d24c3d1340ac935fd9b5bbb2",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8026/rubin-r.png",
+          "sha256": "d9e7400acc7cdcd6771807816922dca2d59e8a63acaec417edabd92b2a68fd1d",
+          "bytes": 227544
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8026/reference-r.png",
+          "sha256": "ed81ab37f50da9b5bf4d9b067d35a79d6f70391df5a0eb8e617775402d48dac7",
+          "bytes": 241359
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8026/coverage.png",
+          "sha256": "c06d4525471c8fecb9ba7b26fc3537e382cb2eb72a2cb04c9a38a61087bad03b",
+          "bytes": 1533
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8026/position-overlay.png",
+          "sha256": "1128afed39867def4515a880a9879ee61870ec4745c6e3af29c622cedb351138",
+          "bytes": 697393
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "center": [
+        359.999972,
+        -6.693952
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99795151,
+      "supportFractions": {
+        "rubin": 0.99795151,
+        "reference": 0.99999619
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "4036a815daa39e92e9e93dce37fb0a92126f97052e5881c1304bbe66f38cede8",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "334d06567cdf879b469f26ab5e089773a3488ff04fdad5e399c23283a5a2a614",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "5c918dee49f8a200c0240eff10739f4a3b8f3dbae846ee1163dd6a1b65f6005d",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8259/rubin-r.png",
+          "sha256": "9cd9cdb29400804786c700a5812ed0f3542502573f200db9ab982684a456e132",
+          "bytes": 231625
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8259/reference-r.png",
+          "sha256": "d3ae3e07f8351437ee688202898c074f71abcd50b1fa64dc50b8b474e927da53",
+          "bytes": 242288
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8259/coverage.png",
+          "sha256": "23ee1dc85dd0dbef3f5fdee06fdf984da1431f00e57129ecc85dbbb3913330c5",
+          "bytes": 1631
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8259/position-overlay.png",
+          "sha256": "35804d6c3acab2241685b975900ea3d491ed612cbb859850921da4715f814f82",
+          "bytes": 701102
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "tract": 8272,
+      "center": [
+        19.753233,
+        -6.619414
+      ],
+      "status": "display-aligned",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.67855072,
+      "supportFractions": {
+        "rubin": 0.67855072,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "a4ec346e0134c493294cb05c2ec47d611befa9bc50239bef6d5edad2d739d3a9",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "a597bdfa39a46ec7680dea91dbd2fdb3a41012baed6fe8e26e8f60ff7afb0c0c",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "51fef820e46401d212857fc1e489f3c8cc476f6675c57ec3ed4d3bea93adb2d7",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8272/rubin-r.png",
+          "sha256": "978c91997caf4c964dca927611ce400e198d3dda64938b13daa6b439d5293da9",
+          "bytes": 171790
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8272/reference-r.png",
+          "sha256": "06ca52218b0f8448833444d52bf57acf66907a0cce28759994d7e07ca2d82775",
+          "bytes": 173234
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8272/coverage.png",
+          "sha256": "284e11396bbd57c8304a8cf702da429721b75ff1ab0fc8a97e82f8ad6c767d33",
+          "bytes": 1682
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8272/position-overlay.png",
+          "sha256": "21ff07c84b610d5544871c7fc1a44f75d19b08d8192cf416425a706c8f33e407",
+          "bytes": 507350
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "center": [
+        211.239642,
+        -5.206402
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99871063,
+      "supportFractions": {
+        "rubin": 0.99871063,
+        "reference": 0.99999619
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "35ed48ee1848c62d706cbdd312f866f4487abaec4df6f42ea2d7e67dde7c568e",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "912f0baa6ca75561290b3735f36a742d352a9a9a1608ebecdc2909e6f9da66ab",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "6e17c25f817dae6b288ce411229428275f350f50cef81614b860b8c5385fd100",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8642/rubin-r.png",
+          "sha256": "b868d05f7eae9a4e51bc1446d06093e4a08d95d6104466079591c1d0ccc62021",
+          "bytes": 133864
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8642/reference-r.png",
+          "sha256": "63f6302eec3e66ddb1f6a130fba8073e52216b95629c114b2a53456383ca4b0f",
+          "bytes": 215699
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8642/coverage.png",
+          "sha256": "97af98fa272cf7072bfa628a1efe51441cc7d8df3487162060e35ccfbeaeb1aa",
+          "bytes": 1664
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8642/position-overlay.png",
+          "sha256": "e8d496db198474c3b94a486e972b83f886ed552fd273d51d749db89165af074c",
+          "bytes": 585551
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "tract": 8708,
+      "center": [
+        309.42416,
+        -5.778943
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.51422119,
+      "supportFractions": {
+        "rubin": 0.51422119,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "271b44f2e367c4244f494d8dcee72ecc1971ee67bb379d6039815a30b2d65157",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "fa4ac64d9fe49a35f76d8bb4ed65fcd3ac8a16b946d588c9456c326507d7f036",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "79c57efd7a97a6d267e9058f28aa5fe6427d2fa6ffc499602773e6448e0cae30",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8708/rubin-r.png",
+          "sha256": "5f543b3aff0e1e3d56c4fe792277a46cced6b864691005a77b9bc127d4eed740",
+          "bytes": 99551
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8708/reference-r.png",
+          "sha256": "48c89da10db393f6fa8f2fe54baecf043135e6485dc434209e55b37224c1e8b5",
+          "bytes": 86125
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8708/coverage.png",
+          "sha256": "90fe6da0841eea1a8479ae069e579759e0076e25a15c5c2e00409bfff05d302d",
+          "bytes": 2233
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8708/position-overlay.png",
+          "sha256": "6fe4e42f4abafcebbdfada02a081e8fbe3f66b119f2b3bb79a7bdb869b1e71bd",
+          "bytes": 265439
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "center": [
+        209.752038,
+        -3.718851
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 1.0,
+      "supportFractions": {
+        "rubin": 1.0,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "c1bb416f2a7b576d3eac0d1bceac0c79a3e9520d9f642c8559b1c113f99d7ad7",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "0f85fcb170ed24e5242ce82275d953cc748758a63983679ce52fbdeed2898dd3",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "b94aa2caca206951907e0443a7b81ee37611cd0c4e5c757c2b5aee8770e6f5c0",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8883/rubin-r.png",
+          "sha256": "2cd811131a7888610f63a35ee86667798b80692a34fc984c900add8d84955024",
+          "bytes": 204061
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8883/reference-r.png",
+          "sha256": "3c7f9fe72f47bb7aebe067a8f74e0046ff302f85bc99655263090a69fa9b6203",
+          "bytes": 247142
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8883/coverage.png",
+          "sha256": "1e116b9d795a60772fd9f40aa469f1192a0c8a949001315d134bd5118d7b44ed",
+          "bytes": 1493
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8883/position-overlay.png",
+          "sha256": "61bc3ea2033e3fcd435d806ab48b44bb238f8231a8aa31d62783aa7baaef1d94",
+          "bytes": 697950
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "center": [
+        211.174733,
+        -3.783668
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.98683548,
+      "supportFractions": {
+        "rubin": 0.98683548,
+        "reference": 0.99980164
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "4e1ad223774db07929b1ada78658c711a10a3e812f7213449bba8d28c9dbb9d0",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "493bbcabca8440fd6d5dc3e2e71fbcdf16dd3ba2773eaf810bb33723cd6c2447",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "7ab257c8251da0cef359dfed588b0caefae40dba52715c34d65f7156f6d1557b",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8884/rubin-r.png",
+          "sha256": "5f67439b5e5481f4f58b72f38b96215baffb7106895822fddbad4807c228c17e",
+          "bytes": 197008
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8884/reference-r.png",
+          "sha256": "41734a2e77ac0c4d13a826a6a0ea15b754625b34886683caf28a405e86677655",
+          "bytes": 242024
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8884/coverage.png",
+          "sha256": "aa268003d2ea5905c9af8814fcc7db6851483e4b1b9aa7d0602e1a8e131ca98d",
+          "bytes": 1815
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-8884/position-overlay.png",
+          "sha256": "d2850ddb08f49cb3e002a2175fdd2fff78f97f13fcae5d3f4285a8229624d04d",
+          "bytes": 680372
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "center": [
+        331.735509,
+        -2.231299
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99272919,
+      "supportFractions": {
+        "rubin": 0.99272919,
+        "reference": 0.99959183
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "c1688baebd839d6ddd855cdff2e6ddb5bfe1b7b9ec3da086b676279e405b99e1",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "25c541c22d6757155de9b132a2b8c40c61eed80a46d2b0941132282bcffc5f33",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "e823691a8ef7669435cdea077d16ee3b56b38bd662af730b76609e258263c5b2",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9207/rubin-r.png",
+          "sha256": "e40a5b1db6204811e09a72b1d8fc08196e9bb174194ffb55b914b323957fe2ba",
+          "bytes": 197036
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9207/reference-r.png",
+          "sha256": "69978d7d98af99dbb4129a1e14ffddf79684bd13871ee94cf4d8d2904c0fbe2a",
+          "bytes": 224037
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9207/coverage.png",
+          "sha256": "ca40f9e463309031202a3110c58e245308d20f08e5c9289d15d0b0aeb1c6d70e",
+          "bytes": 2076
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9207/position-overlay.png",
+          "sha256": "ff3e576b43e89554ef46a7ce0a1fc96efc0facb1fe586f52c31b9f51eaf5101c",
+          "bytes": 635071
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "center": [
+        28.14812,
+        -0.743748
+      ],
+      "status": "display-aligned",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": false,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.55102158,
+      "supportFractions": {
+        "rubin": 0.55102158,
+        "reference": 0.99970245
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "6b665040c9b4131d78f6ea419a4e18c2aab0fec0b6abf307d4357767bbe9c47b",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "2a986c927fd3ba94e81b60ed237600e57a3cebd502145d0061be28fa468a33cb",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "dfabb4d63a0324b845031d46b1e0d3a49b258ced8007c53eff2d6e9e3fd93875",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9245/rubin-r.png",
+          "sha256": "f7e381152943bc2915093d7d78216beeafa3e58d671da1a4773011f88c239299",
+          "bytes": 139137
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9245/reference-r.png",
+          "sha256": "4e836edcab849510235b4abd121a89c9aa326295edd1d0cd567b6995d27c98db",
+          "bytes": 135474
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9245/coverage.png",
+          "sha256": "b6968257521da1508b42199c31f8a0b7b9bd4e5680b7cd4eb5472a2404bade47",
+          "bytes": 2387
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9245/position-overlay.png",
+          "sha256": "bf4d8afabee8000c25798d366cdb74c2bf60b52a8aa072e9369f9e48700bd0d4",
+          "bytes": 397511
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "center": [
+        340.740713,
+        -0.743748
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.9955864,
+      "supportFractions": {
+        "rubin": 0.9955864,
+        "reference": 0.9997139
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "9f65f5207f439f0ffc94966e2c4dd0186314dce85f6ca0195924feb00b3bc72c",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "71dc1b4de872c60a7aa637375f3992a45e40201a3fa2c4243d32c494afa55b04",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "679cfb6b489b34f1ad1b33852a50e20a026bb15b21789f29a61c57bc80e60045",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9456/rubin-r.png",
+          "sha256": "47a04ab54b7a07232185ebc911d8ad31b732258809297cd0ecac23bd3facd7b0",
+          "bytes": 222652
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9456/reference-r.png",
+          "sha256": "b72648b2ce5ad5096a6ca9f88a41328ff41902e14a50c7106dc80b1a0cdbb729",
+          "bytes": 236664
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9456/coverage.png",
+          "sha256": "ba8998438648aeb96bf3e40b888c31705a7d8b789d99ea64f36b69ea1936d784",
+          "bytes": 1782
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9456/position-overlay.png",
+          "sha256": "9c3575cbbbc54a750fd9f980153340d8feca4ab6b2cff216d096754cd490ad46",
+          "bytes": 680600
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "center": [
+        8.888861,
+        0.743803
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.94234467,
+      "supportFractions": {
+        "rubin": 0.94234467,
+        "reference": 0.99998856
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "d74b1ab24887ccb33d02ae6b6093c09375eca8b155f3098af4d1baa92d211abf",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "6ed505849604e41a060aaa61cbc53aa38a88c3738144d49f8dcf12ab22c6fe8f",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "80b08d9ea95c671a51d999458c52925c765bc166127419e5f63fe70dafb7a97b",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9475/rubin-r.png",
+          "sha256": "a6eb43a70c26bcc12d362a5c4e40f9ccae7246b163daea4460372a62cabedcca",
+          "bytes": 229967
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9475/reference-r.png",
+          "sha256": "c810f0a6915fd0b2d51c6ad252e155d5de5a855f42c64d71a44c2f022d523c22",
+          "bytes": 214816
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9475/coverage.png",
+          "sha256": "222f36c6741b0bed7290d07ebac1deaee1761f4f0af66447caefd1fe8558d2c3",
+          "bytes": 1929
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9475/position-overlay.png",
+          "sha256": "4efe802cbf42cb190d4979c890c5854de2f993e3f051031a156680c0c231afa7",
+          "bytes": 641809
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "center": [
+        10.370343,
+        0.743803
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.98754883,
+      "supportFractions": {
+        "rubin": 0.98754883,
+        "reference": 0.99998474
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "20e6b355c3cbbc4970da8f7a2b0dba6fd12742fbc2cef9ea0cedad737051ded4",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "8203447ec5c64ccff16e8de235563099c6cc6b33bae7e5a8f22cc6282d8018aa",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "5c68e665b457f6a852c01a8d7bf094d59893d552725930b94242b2db9c5cc29b",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9476/rubin-r.png",
+          "sha256": "ade37667be20360a998ab8151a38ec3425ae30fb62a5cdc6bebdae4bf62c1237",
+          "bytes": 226683
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9476/reference-r.png",
+          "sha256": "2e7e596dcb6fbd9d7be61e0f058b1890e9747206c7129d2415bbdbdfee6414c7",
+          "bytes": 190092
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9476/coverage.png",
+          "sha256": "81ae776c7db1958caa7ba94922188ad26c36819966b4197f51c8e8ab5b76aaf8",
+          "bytes": 2022
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9476/position-overlay.png",
+          "sha256": "52ca3cdf3e564197764b4f9e12736dde96956300b2a2d4f1473facf307eb6aa1",
+          "bytes": 608058
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "center": [
+        349.629602,
+        0.743803
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99268723,
+      "supportFractions": {
+        "rubin": 0.99268723,
+        "reference": 0.9997139
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "a258586b842ef02580fb597b638265560ccfb1bffb95d2cb11fcd8f4e0aed6fe",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "61fb5ab53126e98c4d7dd34cd82ac483c990c79708107db3acf8d47005c9c559",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "04fccd256e352b6d8ddec594699466c8af4c585621b7a5a005b6f01da320b7f1",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9705/rubin-r.png",
+          "sha256": "419e72227f507f1280741d9ff64dd000e76c882090efead339e1c0e7ce11b74b",
+          "bytes": 234659
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9705/reference-r.png",
+          "sha256": "426141dec27e208096b0647a31012580211f8687e90eca69e0aa00184e711920",
+          "bytes": 242429
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9705/coverage.png",
+          "sha256": "c0fb6a74ac05386dd84045c7fd1916c90663c0a71d89e4ed3533cdc24b75492d",
+          "bytes": 1920
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9705/position-overlay.png",
+          "sha256": "e8c1383cc54ee74dae1b465b124c0eb65c51ebba55a920d10b163083ef490f7e",
+          "bytes": 703501
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "center": [
+        8.925592,
+        2.231355
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.70595932,
+      "supportFractions": {
+        "rubin": 0.70595932,
+        "reference": 0.99960709
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "e263bce459f69dc589b0a2e861807ae3d6d7d92be4f66f20e3b11ad60cb381db",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "3a25104cf429c95262fbfa2b0e58aec14bedf9fb7513755081b12cd2b15d9b88",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "84dba6da6841ca947f93ab570dba131de05868b5b60a62df1c9a08dc4edfc559",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9718/rubin-r.png",
+          "sha256": "05d3f0a2b847c14df2ecc62e55a66cb25d5e18524ecf216dbe96c9d75341e3ff",
+          "bytes": 169198
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9718/reference-r.png",
+          "sha256": "eaf0522bd0ba94de7046d51305aac86ff163ad4481271bb3cd3df8cb6de2d37a",
+          "bytes": 163942
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9718/coverage.png",
+          "sha256": "0523ba7d5a2012ba9446c63bb2ef5f7ad988f9d9dbfbe9279231108ace774a54",
+          "bytes": 2075
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9718/position-overlay.png",
+          "sha256": "498b5f882109da3e0f1ebfa84cd103bebc289496b2f015d172c3d5a78a9569af",
+          "bytes": 482277
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "center": [
+        20.826418,
+        2.231355
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99127579,
+      "supportFractions": {
+        "rubin": 0.99127579,
+        "reference": 0.99998474
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "68c96e2efbbf7668bbd3d40cac3ddae52bb4a671decb7a26fa3b33d0ff15929e",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "a1d6ea6d537866cbcb648921131b7f5f0c9f8b0f39e3bf60de2123123de2fe9e",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "d67a966ac050464497f7465ca2f34a5ad62caf9f8e7764fe25f8cb88c93824db",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9726/rubin-r.png",
+          "sha256": "f5c85a7d350d4111883a9d6f28dcaf213daaee5128be31a9b60ad0f9d666fda5",
+          "bytes": 231673
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9726/reference-r.png",
+          "sha256": "5cfcd1f12afc292656eb243722a77315f17474e7b2c629ebbd84ea0e318cb707",
+          "bytes": 220398
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9726/coverage.png",
+          "sha256": "eb7df5432844a0e55afd93799b046b6eff2506a72fd7b082fdb4ab05d5835463",
+          "bytes": 1807
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9726/position-overlay.png",
+          "sha256": "cd7e06e2f5691b6ff0007c2087f0d97b6c7107b0ba1696596c402b09e5853592",
+          "bytes": 656026
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "center": [
+        150.247906,
+        2.231355
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99905777,
+      "supportFractions": {
+        "rubin": 0.99905777,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "34717fc612e4ee944c6c2c2512c9f4219d15190a6aa1f89d309e366475e3cf4d",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "fae22cb166c18848bef2d918e621cc26e1edbeb05712e5c05d8c0f34d445efea",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "e309fb3c373a30ae7b51dd1f33a6fea7934ccedcf0c334e532b3157ab7294a00",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9813/rubin-r.png",
+          "sha256": "82ba4817ce3710fb9f7ea1fc51b87bc98e234cd961de74b5f2840dd713faf97b",
+          "bytes": 155955
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9813/reference-r.png",
+          "sha256": "a346538759eab52912c8bd2570c58c272d4df235fd33988149068a989d3d8a9c",
+          "bytes": 195341
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9813/coverage.png",
+          "sha256": "818659d3210acb16d51e234a9c37019e71b837b2ce3f6a4ef68501ca2c80209b",
+          "bytes": 1623
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9813/position-overlay.png",
+          "sha256": "ef10e2e855134a70ca6e654cc4104270d787061fa29898bfc5ba01e52a49d6d7",
+          "bytes": 543033
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "center": [
+        358.512369,
+        2.231355
+      ],
+      "status": "display-aligned",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "referenceSurvey": "Legacy Survey",
+      "referenceRelease": "DR10",
+      "sameNamedBand": true,
+      "outputShape": [
+        512,
+        512
+      ],
+      "commonCoverageFraction": 0.99647522,
+      "supportFractions": {
+        "rubin": 0.99647522,
+        "reference": 1.0
+      },
+      "inputs": {
+        "rubin": {
+          "sha256": "03629f870ba2bb767abeaa4475fc91592e62f530ac5eaee845a1250669e79908",
+          "unit": "nJy",
+          "scienceReady": true
+        },
+        "reference": {
+          "sha256": "1fcb2dbec19e6b2afc10a266ed9c289baf7cd72a7e4b74a8cab9d5c335c62a86",
+          "unit": "nanomaggy/pixel",
+          "scienceReady": true
+        }
+      },
+      "localFits": {
+        "sha256": "74a34a9bb5668be1d3edf18d602bb5fc85fcb999115d9f82ee1e6b48c6f7bb03",
+        "bytes": 4487040
+      },
+      "previews": {
+        "rubin": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9953/rubin-r.png",
+          "sha256": "b44a7dca37adf0a62022aa83ec82a4c09493a0ba4e87af32a9e77520c7052d69",
+          "bytes": 221920
+        },
+        "reference": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9953/reference-r.png",
+          "sha256": "01c2704a2e5932377df6c3a9b07a703f23950350a026d903f2b556a048db2993",
+          "bytes": 249374
+        },
+        "coverage": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9953/coverage.png",
+          "sha256": "6a3754f47863d869556c954f35ce52486452f18e20734d817fff600af2584197",
+          "bytes": 1610
+        },
+        "positionOverlay": {
+          "path": "/layer-previews/selected-regions/comparisons/dp2-tract-9953/position-overlay.png",
+          "sha256": "12cb357b5760b2a12df20653caefca4eedee01a8abc4c2d3d4a0eecd85c1f295",
+          "bytes": 714664
+        }
+      },
+      "displayAlignmentAllowed": true,
+      "scienceClaimAllowed": false,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "bandpass transfer",
+        "background matching",
+        "flux-unit transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    }
+  ]
+}

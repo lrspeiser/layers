@@ -1,0 +1,15 @@
+.stack { display: grid; gap: 1rem; }
+.tabs { display: flex; gap: .65rem; overflow-x: auto; padding: .15rem .15rem .5rem; scrollbar-width: thin; }
+.tabs button { min-width: 10.5rem; display: grid; gap: .2rem; text-align: left; padding: .8rem .9rem; color: var(--ink, #eef2ed); background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.13); border-radius: .65rem; cursor: pointer; }
+.tabs button[aria-selected="true"] { border-color: #f2b15f; background: rgba(242,177,95,.11); box-shadow: inset 0 0 0 1px rgba(242,177,95,.15); }
+.tabs span, .summary span { color: #9ba8a4; font: 600 .64rem/1.2 var(--font-mono, monospace); letter-spacing: .12em; text-transform: uppercase; }
+.tabs strong { font-size: .92rem; }
+.tabs small, .summary small { color: #9ba8a4; }
+.summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid rgba(255,255,255,.1); border-radius: .65rem; overflow: hidden; }
+.summary div { display: grid; gap: .25rem; padding: .75rem .9rem; background: rgba(0,0,0,.18); }
+.summary div + div { border-left: 1px solid rgba(255,255,255,.1); }
+.summary strong { font-size: .9rem; }
+.guardrail { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; color: #b9c2be; font-size: .82rem; line-height: 1.55; }
+.guardrail p { margin: 0; padding: .8rem .9rem; border-left: 2px solid rgba(242,177,95,.6); background: rgba(242,177,95,.05); }
+.guardrail strong { color: #f0f3ef; }
+@media (max-width: 720px) { .summary { grid-template-columns: 1fr; } .summary div + div { border-left: 0; border-top: 1px solid rgba(255,255,255,.1); } .guardrail { grid-template-columns: 1fr; } }
