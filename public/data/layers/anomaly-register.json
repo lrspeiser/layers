@@ -1,15 +1,14 @@
 {
   "schemaVersion": "layers-anomaly-register-v1",
-  "generatedAt": "2026-08-14T23:33:36.796681+00:00",
+  "generatedAt": "2026-08-14T23:43:17.721429+00:00",
   "regionSet": "200",
   "operatorsIncluded": [
+    "pixel-residual",
     "xray-counterpart",
     "variability",
     "sed-departure"
   ],
-  "operatorsMissing": [
-    "pixel-residual"
-  ],
+  "operatorsMissing": [],
   "counts": {
     "candidates": 18,
     "byOperator": {

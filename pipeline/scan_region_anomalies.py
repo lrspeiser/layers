@@ -392,6 +392,40 @@ def main() -> None:
         item["counts"]["withoutBoringExplanation"] = 0
         item["counts"]["demotedAsCrowdedField"] = True
 
+    # Sign balance. A residual population made of noise or of real structure has
+    # no preferred direction: Rubin should be brighter about as often as the
+    # reference is. A strong imbalance means something is pushing every residual
+    # one way, which is a property of the matching rather than of the sky.
+    #
+    # The compact-source flux scale is measured on point sources and applied to
+    # everything, so if it does not carry over to extended flux the whole
+    # population shifts. That is the extended-source transfer problem surfacing
+    # as an asymmetry.
+    survivors = [
+        candidate
+        for item in records
+        for candidate in item["candidates"]
+        if not candidate["couldBeExplainedBy"]
+    ]
+    positive = sum(1 for candidate in survivors if candidate["direction"] == "rubin-excess")
+    total_signed = len(survivors)
+    imbalance = (
+        abs(positive - total_signed / 2) / math.sqrt(total_signed / 4) if total_signed >= 20 else 0.0
+    )
+    sign_dominated = imbalance > 3.0
+    if sign_dominated:
+        print(
+            f"POPULATION SYSTEMATIC: {max(positive, total_signed - positive)} of {total_signed} "
+            f"survivors point the same way ({imbalance:.1f} sigma). All demoted.",
+            flush=True,
+        )
+        for candidate in survivors:
+            candidate["couldBeExplainedBy"].append(
+                "population sign imbalance of %.1f sigma (%d of %d in one direction), which indicates "
+                "a matching systematic rather than a set of independent residuals"
+                % (imbalance, max(positive, total_signed - positive), total_signed)
+            )
+
     ranked = sorted(
         (
             {**candidate, "regionId": item["regionId"], "tract": item["tract"],
@@ -423,6 +457,17 @@ def main() -> None:
             ),
         },
         "crowdedFieldsDemoted": sorted(crowded),
+        "signBalance": {
+            "rubinExcess": positive,
+            "referenceExcess": total_signed - positive,
+            "imbalanceSigma": imbalance,
+            "populationSystematicDetected": sign_dominated,
+            "note": (
+                "Noise and real structure both give a balanced split. An imbalance means the matching "
+                "is pushing every residual one way, most likely because the compact-source flux scale "
+                "does not carry over to extended flux."
+            ),
+        },
         "skipped": skipped,
         "topCandidates": ranked[:100],
         "regions": [{k: v for k, v in item.items() if k != "candidates"} for item in records],
