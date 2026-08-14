@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "layers-xray-counterparts-v1",
+  "generatedAt": "2026-08-14T22:51:56.498868+00:00",
+  "comparisonKind": "counterpart association",
+  "gatedByBandpassTransfer": false,
+  "catalog": "J/A+A/682/A34/erass1-m",
+  "positionSource": "eRASS1 catalogued detection positions. The cached eROSITA records in this project carry the position an upper limit was requested at, which is the tract centre, and matching against that would manufacture an association for anything near a tract centre.",
+  "method": {
+    "matchRadiusArcsec": 10.0,
+    "apertureArcsec": 2.0,
+    "detectionSigma": 5.0,
+    "noise": "Scatter of the identical aperture sum at random blank positions in the same image, not the per-pixel variance planes, which understate the true uncertainty here."
+  },
+  "counts": {
+    "regionsQueried": 25,
+    "regionsSkipped": 0,
+    "xraySourcesInsideRubinPixels": 6,
+    "withOpticalCounterpart": 4,
+    "withoutOpticalCounterpart": 2
+  },
+  "limitingMagnitude": {
+    "median": 23.604308928679394,
+    "note": "5 sigma in a 2 arcsec aperture, AB, from the measured blank-aperture scatter."
+  },
+  "caveats": [
+    "An X-ray source with no optical counterpart is interesting and is also what a spurious X-ray detection looks like; the eRASS1 detection likelihood is carried on every row so that can be checked rather than assumed.",
+    "A counterpart here means flux above threshold at the position, not an identification. No redshift, colour, or morphology test has been applied.",
+    "Chance coincidence is not yet quantified. With a 10 arcsec radius in a crowded field a random source can fall inside the error circle, so a per-field random-position rate must be measured before any association is called secure."
+  ],
+  "skipped": [],
+  "sources": [
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "xrayName": "1eRASS J122355.3+051259",
+      "position": {
+        "raDeg": 185.98081519244,
+        "decDeg": 5.21661080724
+      },
+      "rubinBand": "r",
+      "apertureFluxNjy": 1231.323748147115,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 141.79181991270605,
+      "detectionThresholdNjy": 708.9590995635302,
+      "significance": 8.684025276670953,
+      "opticalCounterpart": true,
+      "limitingMagAB": 24.273447047254418,
+      "xrayDetectionLikelihood": null
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "xrayName": "1eRASS J123601.6+081208",
+      "position": {
+        "raDeg": 189.00688324459,
+        "decDeg": 8.2024284532
+      },
+      "rubinBand": "r",
+      "apertureFluxNjy": 458.3342769034207,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 157.74911290488112,
+      "detectionThresholdNjy": 788.7455645244056,
+      "significance": 2.9054634188642643,
+      "opticalCounterpart": false,
+      "limitingMagAB": 24.157657674941298,
+      "xrayDetectionLikelihood": null
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "xrayName": "1eRASS J042322.0-482159",
+      "position": {
+        "raDeg": 65.84194594655,
+        "decDeg": -48.36649925812
+      },
+      "rubinBand": "r",
+      "apertureFluxNjy": 3510.9895206838846,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 374.3548793960889,
+      "detectionThresholdNjy": 1871.7743969804446,
+      "significance": 9.37877322808729,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.219366243763258,
+      "xrayDetectionLikelihood": null
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "xrayName": "1eRASS J002311.7-405542",
+      "position": {
+        "raDeg": 5.79900270556,
+        "decDeg": -40.92855076707
+      },
+      "rubinBand": "i",
+      "apertureFluxNjy": 3245.729751343839,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 403.92806370815197,
+      "detectionThresholdNjy": 2019.6403185407598,
+      "significance": 8.035415320112442,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.136814919924994,
+      "xrayDetectionLikelihood": null
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "xrayName": "1eRASS J034208.9-285914",
+      "position": {
+        "raDeg": 55.53717394758,
+        "decDeg": -28.98725567383
+      },
+      "rubinBand": "r",
+      "apertureFluxNjy": 11633.630374878645,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 403.8386568585757,
+      "detectionThresholdNjy": 2019.1932842928784,
+      "significance": 28.80761952155745,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.137055267172446,
+      "xrayDetectionLikelihood": null
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "xrayName": "1eRASS J033219.2-272935",
+      "position": {
+        "raDeg": 53.08004705061,
+        "decDeg": -27.49322381431
+      },
+      "rubinBand": "r",
+      "apertureFluxNjy": 28.544270714977756,
+      "apertureRadiusArcsec": 2.0,
+      "empiricalNoiseNjy": 184.21684931069345,
+      "detectionThresholdNjy": 921.0842465534672,
+      "significance": 0.1549492938446473,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.989251613595535,
+      "xrayDetectionLikelihood": null
+    }
+  ]
+}
