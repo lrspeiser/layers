@@ -79,7 +79,7 @@ export default function CoveragePage() {
     <main id="top">
       <header className="layers-header">
         <Link className="layers-brand" href="/"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
-        <nav><Link href="/pilots">Live multi-survey pilots</Link><Link href="/prototype">Aligned optical prototype</Link><Link href="/workspace">SPARC workspace</Link><a href="#dataset-registry-title">Dataset registry</a><a href="/api/coverage">Coverage API</a></nav>
+        <nav><Link href="/differences">Cross-survey differences</Link><Link href="/pilots">Live multi-survey pilots</Link><Link href="/prototype">Aligned optical prototype</Link><Link href="/workspace">SPARC workspace</Link><a href="#dataset-registry-title">Dataset registry</a><a href="/api/coverage">Coverage API</a></nav>
         <span className="release-chip">DP2 · TRACT INDEX</span>
       </header>
       <CoverageExplorer coverage={coverage} surveys={surveys} objectiveAudit={goalAuditData} />
