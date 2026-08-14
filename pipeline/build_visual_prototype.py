@@ -2,7 +2,9 @@
 """Build local-only display assets for the real-pixel Layers prototype.
 
 The output is deliberately ignored by Git and deployment uploads: Rubin DP2
-access is authenticated and its redistribution terms still need confirmation.
+access is authenticated. The web app publishes derived display images, masks,
+QA metadata, provenance, and checksums while retaining full calibrated FITS in
+analysis storage rather than serving them as bulk downloads.
 The PNG/JPEG products are display stretches, never analysis inputs.
 """
 
@@ -222,7 +224,7 @@ def main() -> None:
     parser.add_argument("--rubin-root", type=Path, default=root / "pipeline" / "output" / "dp2-sparc")
     parser.add_argument("--legacy-root", type=Path, default=root / "pipeline" / "output" / "legacy-survey")
     parser.add_argument("--comparison-root", type=Path, default=root / "pipeline" / "output" / "comparisons")
-    parser.add_argument("--output", type=Path, default=root / "public" / "private-preview")
+    parser.add_argument("--output", type=Path, default=root / "public" / "rubin-data")
     parser.add_argument("--public-data", type=Path, default=root / "public" / "data" / "prototype-science.json")
     args = parser.parse_args()
 

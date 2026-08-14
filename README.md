@@ -38,7 +38,7 @@ No image or statistic is fabricated, substituted, or reused. Image sliders activ
 - `pipeline/query_dp2_sia.py` and `pipeline/download_dp2_matches.py` implement quota-aware Rubin discovery and calibrated local ingestion.
 - `pipeline/fetch_legacy_survey.py` and `pipeline/fetch_panstarrs.py` acquire reproducible full-resolution reference image layers and support planes; `pipeline/fetch_gaia_astrometry.py` and `pipeline/fetch_panstarrs_catalog.py` cache checksum-backed astrometry and independent calibrated stellar photometry.
 - `pipeline/audit_layer_registration.py` measures common coverage, WCS agreement, source residuals, empirical PSF widths, and sky models without marking unapplied operations as passed.
-- `pipeline/build_visual_prototype.py` makes local-only display stretches and a real reference-coverage mask for `/prototype`; calibrated FITS remain the analysis inputs and authenticated Rubin pixels never enter public deployment artifacts.
+- `pipeline/build_visual_prototype.py` makes public display stretches and a real reference-coverage mask for `/prototype`; calibrated FITS remain the analysis inputs, while display images, masks, QA metadata, provenance, and checksums are published by the web app.
 
 See `pipeline/README.md` for the Rubin/SPARC ingest and scientific publication workflow.
 
@@ -58,6 +58,6 @@ python pipeline/build_visual_prototype.py
 
 `npm run build` produces the existing Sites-compatible build. `npm run build:vercel` produces the preferred Vercel Next.js build. Restricted Rubin pixels and credentials remain ignored local artifacts and are never included in a public deployment.
 
-Open `/prototype` while the development server is running to review the full-field marker, zoom/pan behavior, and the aligned Rubin/Legacy reveal. The route intentionally shows a private-data notice on public deployments where authenticated Rubin pixels are absent.
+Open `/prototype` to review the public real-data field, zoom/pan behavior, aligned Rubin/Legacy reveal, coverage masks, signal candidates, and the inventory of retrieved versus displayed Rubin products.
 
 This is an independent prototype and is not affiliated with Rubin Observatory or SPARC.

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-13T17:14:32.981827+00:00",
+  "objectId": "ugc00191",
+  "comparisonKey": "ugc00191--panstarrs-dr1-stack",
+  "layerIds": [
+    "rubin-dp2-deep-coadd",
+    "panstarrs-dr1-stack"
+  ],
+  "band": "i",
+  "shape": [
+    1800,
+    1800
+  ],
+  "commonValidPixelFraction": 0.30978055555555556,
+  "coverageFractions": {
+    "rubinOnly": 0.6271509259259259,
+    "referenceOnly": 0.02834567901234568,
+    "neither": 0.03472283950617284
+  },
+  "analysisProductSha256": "32d22f11ee490a125120716770a4e15f20902672c68619f17a4bb08c5293727a",
+  "assets": {
+    "rubin": {
+      "path": "/rubin-data/ugc00191--panstarrs-dr1-stack/rubin-matched.jpg",
+      "sha256": "91d091631e52712e8f27dc250e5d339fc1382b5fa9fc47f70aa30e1c12cc7ea0"
+    },
+    "reference": {
+      "path": "/rubin-data/ugc00191--panstarrs-dr1-stack/reference-matched.jpg",
+      "sha256": "2a9b5683c6b3946b0ff12a93b4b40e1bebfaf92e87f04e7f7be127d52a27f998"
+    },
+    "commonCoverage": {
+      "path": "/rubin-data/ugc00191--panstarrs-dr1-stack/common-coverage.png",
+      "sha256": "2eabfbeab705d08551e4bc55c9c85c8fda921efd93ae3dec57e9a5d80b0d7bd9"
+    }
+  },
+  "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim."
+}

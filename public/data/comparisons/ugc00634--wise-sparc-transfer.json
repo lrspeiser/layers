@@ -352,7 +352,7 @@
       "sha256": "516011ebfcd53d9a57927d2b0b19b6789b5cd614bd1ea506d01f4227d2b1cf5c"
     }
   ],
-  "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized.",
+  "pixelPolicy": "Catalog/profile packages contain published values and provenance. Where Rubin fields are ingested, derived display images and QA are public; full calibrated FITS planes remain in analysis storage and are not served as bulk web downloads.",
   "scienceAudit": {
     "schemaVersion": 1,
     "product": "Layers WISE-to-SPARC extended-source transfer audit",

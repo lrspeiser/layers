@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-13T00:09:45.306283+00:00",
+  "target": "ugc00191",
+  "fieldArcmin": 12.0,
+  "pixelScaleArcsec": 0.4,
+  "shape": [
+    1800,
+    1800
+  ],
+  "rubinValidFraction": 0.8678256172839506,
+  "legacyValidFraction": 0.9901472222222222,
+  "commonValidFraction": 0.8608932098765432,
+  "assets": {
+    "rubin": "rubin-dp2.jpg",
+    "legacy": "legacy-dr10.jpg",
+    "rubinZ": "rubin-dp2-z.jpg",
+    "legacyZ": "legacy-dr10-z.jpg",
+    "coverage": "legacy-coverage.png",
+    "rubinMask": "rubin-mask.png",
+    "legacyMask": "legacy-mask.png",
+    "rubinZMask": "rubin-z-mask.png",
+    "legacyZMask": "legacy-z-mask.png",
+    "coverageDifference": "coverage-difference.png",
+    "candidateDifference": "candidate-difference.png"
+  },
+  "candidateRegions": [
+    {
+      "id": "candidate-19",
+      "xPercent": 60.75597554196776,
+      "yPercent": 10.394663702056699,
+      "pixelCount": 769,
+      "peakEmpiricalSigma": 877.4412144824089,
+      "direction": "rubin-excess"
+    },
+    {
+      "id": "candidate-154",
+      "xPercent": 79.98888271261812,
+      "yPercent": 63.25736520289049,
+      "pixelCount": 472,
+      "peakEmpiricalSigma": -271.9259085050401,
+      "direction": "comparison-excess"
+    },
+    {
+      "id": "candidate-50",
+      "xPercent": 17.231795441912173,
+      "yPercent": 25.73652028904947,
+      "pixelCount": 464,
+      "peakEmpiricalSigma": 235.2338518235573,
+      "direction": "rubin-excess"
+    },
+    {
+      "id": "candidate-15",
+      "xPercent": 14.952751528627015,
+      "yPercent": 7.003891050583658,
+      "pixelCount": 492,
+      "peakEmpiricalSigma": 210.30084241503246,
+      "direction": "rubin-excess"
+    },
+    {
+      "id": "candidate-20",
+      "xPercent": 10.95052807115064,
+      "yPercent": 10.450250138966092,
+      "pixelCount": 469,
+      "peakEmpiricalSigma": 199.22990599957433,
+      "direction": "rubin-excess"
+    },
+    {
+      "id": "candidate-122",
+      "xPercent": 77.65425236242358,
+      "yPercent": 53.7520844913841,
+      "pixelCount": 437,
+      "peakEmpiricalSigma": 173.42399155969167,
+      "direction": "rubin-excess"
+    },
+    {
+      "id": "candidate-265",
+      "xPercent": 70.87270705947749,
+      "yPercent": 86.99277376320178,
+      "pixelCount": 615,
+      "peakEmpiricalSigma": -169.56657737710796,
+      "direction": "comparison-excess"
+    },
+    {
+      "id": "candidate-214",
+      "xPercent": 68.98276820455808,
+      "yPercent": 75.31962201222902,
+      "pixelCount": 351,
+      "peakEmpiricalSigma": -124.41962797848028,
+      "direction": "comparison-excess"
+    }
+  ],
+  "differenceMethod": {
+    "thresholdEmpiricalSigma": 4.0,
+    "outerFieldRobustScatterNjy": 12.58396652342045,
+    "stellarZeropointOffsetMag": -0.0333324156532837,
+    "comparisonFluxScale": 1.0311764030273762,
+    "interpretation": "candidate QA residuals only; extended-source filter transfer and injection/recovery pending"
+  },
+  "notice": "Display stretches only. Original calibrated FITS products remain the analysis inputs."
+}

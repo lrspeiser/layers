@@ -72,7 +72,7 @@ def main() -> None:
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser()
     parser.add_argument("--comparisons", type=Path, default=root / "pipeline/output/comparisons")
-    parser.add_argument("--output", type=Path, default=root / "public/private-preview")
+    parser.add_argument("--output", type=Path, default=root / "public/rubin-data")
     parser.add_argument("--index", type=Path, default=root / "public/data/comparison-previews.json")
     parser.add_argument("--only", action="append", default=[])
     args = parser.parse_args()
@@ -125,9 +125,9 @@ def main() -> None:
             },
             "analysisProductSha256": sha256(pair_path),
             "assets": {
-                "rubin": {"path": f"/private-preview/{comparison_key}/{rubin_path.name}", "sha256": sha256(rubin_path)},
-                "reference": {"path": f"/private-preview/{comparison_key}/{reference_path.name}", "sha256": sha256(reference_path)},
-                "commonCoverage": {"path": f"/private-preview/{comparison_key}/{coverage_path.name}", "sha256": sha256(coverage_path)},
+                "rubin": {"path": f"/rubin-data/{comparison_key}/{rubin_path.name}", "sha256": sha256(rubin_path)},
+                "reference": {"path": f"/rubin-data/{comparison_key}/{reference_path.name}", "sha256": sha256(reference_path)},
+                "commonCoverage": {"path": f"/rubin-data/{comparison_key}/{coverage_path.name}", "sha256": sha256(coverage_path)},
             },
             "notice": "Display stretch only; calibrated matched FITS is the analysis input. Red hatching marks invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels; these are masks, not sky features. Coverage colors show Rubin-only (red), reference-only (blue), and neither usable (amber); uncolored pixels form the shared analysis mask. A preview does not authorize a scientific difference claim.",
         }

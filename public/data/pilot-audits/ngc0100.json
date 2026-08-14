@@ -152,5 +152,5 @@
     ],
     "nextAction": "Re-query a future Rubin release or expanded coadd footprint; do not count this metadata footprint match as usable coverage."
   },
-  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
+  "pixelPolicy": "Derived Rubin display images, masks, comparison metadata, and checksums are public. Full calibrated FITS image, variance, and mask planes remain in analysis storage and are not served as bulk web downloads."
 }

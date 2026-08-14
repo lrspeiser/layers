@@ -72,7 +72,7 @@ def main() -> None:
                 },
                 "layers": target["layers"],
                 "pilotAudit": target["pilotAudit"],
-                "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized.",
+                "pixelPolicy": "Derived Rubin display images, masks, comparison metadata, and checksums are public. Full calibrated FITS image, variance, and mask planes remain in analysis storage and are not served as bulk web downloads.",
             }
             pilot_path.write_text(json.dumps(pilot_record, indent=2), encoding="utf-8")
             expected_pilot.add(pilot_path.name)
@@ -114,7 +114,7 @@ def main() -> None:
                 "layers": [layer for layer in target["layers"] if layer["id"] in comparison["layerIds"]],
                 "comparison": comparison,
                 "localReproductionArtifacts": artifact_records,
-                "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized.",
+                "pixelPolicy": "Catalog/profile packages contain published values and provenance. Where Rubin fields are ingested, derived display images and QA are public; full calibrated FITS planes remain in analysis storage and are not served as bulk web downloads.",
             }
             reproduction_audit = comparison.get("products", {}).get("reproductionAudit")
             if reproduction_audit:

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import test from "node:test";
 
@@ -30,6 +30,10 @@ test("server-renders Layers as a survey-neutral science workspace", async () => 
   assert.match(html, /AUTHENTIC MATCHED PIXELS/);
   assert.match(html, /Coverage diff/);
   assert.match(html, /Signal candidates/);
+  assert.match(html, /Rubin data inventory/);
+  assert.match(html, /925,460/);
+  assert.match(html, /archive datasets/);
+  assert.match(html, /5(?:<!-- -->)?\/(?:<!-- -->)?8/);
   assert.doesNotMatch(html, /rubin-virgo\.jpg/i);
 });
 
@@ -49,6 +53,11 @@ test("real-field prototype exposes discoverable overlap and honest QA gates", as
   assert.match(html, /WHAT IS BEHIND EACH PIXEL/);
   assert.match(html, /No single winner/);
   assert.match(html, /Median formal pixel noise/);
+  assert.match(html, /RUBIN DP2 · PUBLIC REAL DATA/);
+  assert.match(html, /56/);
+  assert.match(html, /VISIBLE NOW/);
+  assert.match(html, /unique field-band mosaics in public viewers/);
+  assert.doesNotMatch(html, /PRIVATE DATA PREVIEW|protected DP2 cutout|redistribution policy/i);
 });
 
 test("catalog contains the complete SPARC sample and generic layer records", async () => {
@@ -168,8 +177,11 @@ test("every authentic matched pilot has a deterministic preview manifest", async
   for (const preview of previews.comparisons) {
     assert.match(preview.analysisProductSha256, /^[a-f0-9]{64}$/);
     assert.ok(preview.commonValidPixelFraction > 0);
-    assert.match(preview.assets.rubin.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
-    assert.match(preview.assets.reference.path, new RegExp(`^/private-preview/${preview.comparisonKey}/`));
+    assert.match(preview.assets.rubin.path, new RegExp(`^/rubin-data/${preview.comparisonKey}/`));
+    assert.match(preview.assets.reference.path, new RegExp(`^/rubin-data/${preview.comparisonKey}/`));
+    for (const asset of Object.values(preview.assets)) {
+      await access(join(root, "public", ...asset.path.slice(1).split("/")));
+    }
     assert.match(preview.notice, /Display stretch only/);
     assert.match(preview.notice, /invalid Rubin pixels and blue hatching marks invalid comparison-survey pixels/);
     assert.match(preview.notice, /Rubin-only \(red\), reference-only \(blue\), and neither usable \(amber\)/);

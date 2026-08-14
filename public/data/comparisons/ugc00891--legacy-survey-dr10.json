@@ -67,7 +67,7 @@
       "hasVariance": true,
       "hasMask": true,
       "hasWcs": true,
-      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "note": "Calibrated image, variance, and mask mosaics are retained; public display images, masks, coverage, metadata, and checksums are available in Layers.",
       "provenance": {
         "service": "Rubin Science Platform SIA v2 + DataLink",
         "datasetType": "lsst.deep_coadd",
@@ -435,5 +435,5 @@
       "sha256": "317e26f34fe2a94e6c349440cef97b05fc02a04a1419c68d83418f22f1aa538f"
     }
   ],
-  "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized."
+  "pixelPolicy": "Catalog/profile packages contain published values and provenance. Where Rubin fields are ingested, derived display images and QA are public; full calibrated FITS planes remain in analysis storage and are not served as bulk web downloads."
 }

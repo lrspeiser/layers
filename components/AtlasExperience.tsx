@@ -6,6 +6,7 @@ import type { Comparison, Layer, LayersCatalog, LayerTarget, SparcProfile } from
 import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 import comparisonPreviewData from "@/public/data/comparison-previews.json";
 import { SignalCandidateList, type SignalCandidate } from "@/components/SignalCandidateList";
+import { RubinDataInventory } from "@/components/RubinDataInventory";
 
 type CoverageFilter = "all" | "rubin" | "wise-mass" | "no-coverage";
 type WorkbenchView = "evidence" | "swipe" | "coverage" | "candidates" | "profiles";
@@ -225,8 +226,8 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
             <img src={leftImage} alt={`${target.name}, ${left.survey}`} onError={() => setPixelsAvailable(false)} />
           </div>
           {view === "coverage" && preview && <img className="main-analysis-overlay" src={preview.assets.commonCoverage.path} alt="Red marks Rubin-only coverage, blue reference-only coverage, and amber neither usable" />}
-          {view === "candidates" && hasCandidateOverlay && <><img className="main-analysis-overlay" src="/private-preview/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical QA candidates" />{science.candidateRegions.map((candidate, index) => <button className={`main-difference-pin direction-${candidate.direction}`} key={candidate.id} style={{ left: `${candidate.xPercent}%`, top: `${candidate.yPercent}%` }} onClick={() => setSelectedCandidate(candidate)} aria-label={`Inspect candidate ${index + 1}`}>{index + 1}</button>)}</>}
-        </> : <div className="qa-pixel-fallback"><span className="eyebrow">AUTHENTIC PIXELS REQUIRE DATA ACCESS</span><h3>The interactive controls are ready; this public host does not redistribute the protected DP2 cutout.</h3><p>Open the private Layers deployment or run the repository locally with the downloaded Rubin and Legacy assets.</p><Link href="/prototype">Open the documented real-pixel analysis</Link></div>}
+          {view === "candidates" && hasCandidateOverlay && <><img className="main-analysis-overlay" src="/rubin-data/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical QA candidates" />{science.candidateRegions.map((candidate, index) => <button className={`main-difference-pin direction-${candidate.direction}`} key={candidate.id} style={{ left: `${candidate.xPercent}%`, top: `${candidate.yPercent}%` }} onClick={() => setSelectedCandidate(candidate)} aria-label={`Inspect candidate ${index + 1}`}>{index + 1}</button>)}</>}
+        </> : <div className="qa-pixel-fallback"><span className="eyebrow">PUBLIC RUBIN PREVIEW UNAVAILABLE</span><h3>The display image failed to load on this host.</h3><p>The inventory, comparison metadata, masks, provenance, and checksums remain public. Full calibrated FITS planes are retained in analysis storage.</p><Link href="/prototype">Open the documented real-pixel analysis</Link></div>}
         {showSwipe && <><span className="viewport-label label-left">{left.survey}</span>
         <span className="viewport-label label-right">{right.survey}</span>
         <span className="swipe-mask-legend"><i className="rubin-mask-swatch" /> Rubin masked <i className="reference-mask-swatch" /> {referenceLayer.survey} masked</span>
@@ -480,6 +481,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
           <span><strong>{rubinBandMosaics}</strong><small>usable Rubin band mosaics</small></span>
         </div>
       </section>
+      <RubinDataInventory />
 
       <section className="layers-workspace" id="workspace">
         <aside className="target-browser">

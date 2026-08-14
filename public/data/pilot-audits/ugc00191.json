@@ -106,7 +106,7 @@
       "hasVariance": true,
       "hasMask": true,
       "hasWcs": true,
-      "note": "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public.",
+      "note": "Calibrated image, variance, and mask mosaics are retained; public display images, masks, coverage, metadata, and checksums are available in Layers.",
       "provenance": {
         "service": "Rubin Science Platform SIA v2 + DataLink",
         "datasetType": "lsst.deep_coadd",
@@ -291,5 +291,5 @@
     ],
     "nextAction": "Add a less fragmented independent image layer or model the Pan-STARRS masks and spatial covariance, then run full synthetic photometry and resolved multi-band SED checks before any missing-light or mass inference."
   },
-  "pixelPolicy": "Metadata and checksums are public. Authenticated Rubin pixels remain in the local layer store until redistribution is authorized."
+  "pixelPolicy": "Derived Rubin display images, masks, comparison metadata, and checksums are public. Full calibrated FITS image, variance, and mask planes remain in analysis storage and are not served as bulk web downloads."
 }

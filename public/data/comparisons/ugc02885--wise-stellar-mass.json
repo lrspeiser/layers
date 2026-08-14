@@ -220,5 +220,5 @@
     ]
   },
   "localReproductionArtifacts": [],
-  "pixelPolicy": "Catalog/profile packages contain published values and provenance only; authenticated Rubin pixels and matched FITS remain in local image-comparison bundles until redistribution is authorized."
+  "pixelPolicy": "Catalog/profile packages contain published values and provenance. Where Rubin fields are ingested, derived display images and QA are public; full calibrated FITS planes remain in analysis storage and are not served as bulk web downloads."
 }

@@ -6,7 +6,7 @@ import type { LayersCatalog } from "@/lib/layers";
 
 export const metadata: Metadata = {
   title: "Real-pixel field prototype",
-  description: "A private real-data prototype comparing Rubin DP2 and Legacy Survey DR10 for UGC 00191.",
+  description: "A public real-data prototype comparing Rubin DP2 and Legacy Survey DR10 for UGC 00191.",
 };
 
 export default function PrototypePage() {

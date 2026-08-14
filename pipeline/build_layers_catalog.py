@@ -43,7 +43,7 @@ def rubin_layer(target: dict, mosaic: dict | None, selected_dataset_ids: list[st
         note = "SIA footprint match exists; calibrated pixel coverage has not been validated."
     elif mosaic.get("science_coverage"):
         availability = "available-local"
-        note = "Calibrated image, variance, and mask mosaics exist in the local layer store; pixels are not public."
+        note = "Calibrated image, variance, and mask mosaics are retained; public display images, masks, coverage, metadata, and checksums are available in Layers."
     else:
         availability = "no-valid-pixels"
         note = mosaic.get("coverage_note") or "Footprint metadata matched, but no usable science pixels intersect the field."

@@ -8,7 +8,7 @@ directly from object storage.  It does not consume SODA cutout quota.
 
 The final products retain calibrated image (nJy), variance (nJy^2), integer
 mask, WCS, dataset identifiers, source hashes, and a web preview.  They remain
-private pipeline artifacts until the separate registration QA gate passes.
+analysis pipeline artifacts until the separate registration QA gate passes.
 """
 
 from __future__ import annotations

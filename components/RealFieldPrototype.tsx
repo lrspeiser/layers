@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent } from "react";
 import { SignalCandidateList, type SignalCandidate } from "@/components/SignalCandidateList";
+import { RubinDataInventory } from "@/components/RubinDataInventory";
 
 type PrototypeQa = {
   residualArcsec: number;
@@ -98,11 +99,11 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
       <header className="prototype-header">
         <Link className="layers-brand" href="/"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong></Link>
         <div className="prototype-target-title"><span>REAL-PIXEL FIELD 01</span><strong>UGC 00191</strong><small>RA 5.02167° · Dec +10.88000°</small></div>
-        <div className="prototype-header-actions"><span className="private-chip">PRIVATE DATA PREVIEW</span><Link href="/">Atlas →</Link></div>
+        <div className="prototype-header-actions"><span className="public-data-chip">RUBIN DP2 · PUBLIC REAL DATA</span><Link href="/">Atlas →</Link></div>
       </header>
 
       <section className="prototype-facts" aria-label="Field facts">
-        <span><small>BASE</small><strong>Rubin DP2</strong><em>authenticated FITS</em></span>
+        <span><small>BASE</small><strong>Rubin DP2</strong><em>calibrated FITS source</em></span>
         <span><small>OVERLAP</small><strong>Legacy DR10</strong><em>public FITS</em></span>
         <span><small>FIELD</small><strong>12′ × 12′</strong><em>0.4″ / pixel</em></span>
         <span><small>COMMON PIXELS</small><strong>{qa.commonValidPercent.toFixed(1)}%</strong><em>z-band QA mask</em></span>
@@ -114,7 +115,7 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
         <article><span>DETAILS</span><h3>Field 1 of 3 usable Rubin matches</h3><p>UGC 00191 is one separate 12&prime; field with four Rubin bands. This viewer compares the aligned z-band pixels.</p></article>
         <article className="brief-issue"><span>ISSUES</span><h3>Brightness QA failed</h3><p>The layers align, but the extended-source filter transfer does not. All {science.candidateRegions.length} residual regions are leads, not discoveries.</p></article>
       </section>
-      <p className="prototype-scope-note"><strong>Current ingestion, not a Rubin archive limit:</strong> we searched 175 preselected SPARC positions, received four Rubin footprint responses, and verified usable pixels in three separate fields. Early DP2 contains 925,460 deep-coadd datasets; we have not yet run a general search across that full collection.</p>
+      <RubinDataInventory defaultOpen />
 
       <section className="prototype-workspace">
         <div className="real-field-card">
@@ -148,27 +149,27 @@ export function RealFieldPrototype({ qa, science }: { qa: PrototypeQa; science: 
             aria-label="Zoomable Rubin field with Legacy Survey overlap"
           >
             {!pixelsAvailable && (
-              <div className="private-pixels-missing">
-                <span>AUTHENTICATED PIXELS NOT ON THIS DEPLOYMENT</span>
-                <h2>The real-data viewer runs in the private project preview.</h2>
-                <p>The interface is public; Rubin DP2 pixels remain local until their redistribution policy is confirmed.</p>
+              <div className="data-load-error">
+                <span>RUBIN DISPLAY IMAGE COULD NOT LOAD</span>
+                <h2>The public real-data preview is temporarily unavailable.</h2>
+                <p>The field inventory, calibrated-data description, provenance, and checksums remain available on this page.</p>
               </div>
             )}
             <div className="field-transform" style={transformStyle}>
               {mode === "compare" && <>
-                <img className="field-image" src="/private-preview/ugc00191/legacy-dr10-z.jpg" alt="UGC 00191 in Legacy Survey DR10 z band" onError={() => setPixelsAvailable(false)} draggable={false} />
-                {analysisLayer === "swipe" && showMasks && <img className="quality-mask" src="/private-preview/ugc00191/legacy-z-mask.png" alt="Legacy Survey masked or missing pixels" draggable={false} />}
+                <img className="field-image" src="/rubin-data/ugc00191/legacy-dr10-z.jpg" alt="UGC 00191 in Legacy Survey DR10 z band" onError={() => setPixelsAvailable(false)} draggable={false} />
+                {analysisLayer === "swipe" && showMasks && <img className="quality-mask" src="/rubin-data/ugc00191/legacy-z-mask.png" alt="Legacy Survey masked or missing pixels" draggable={false} />}
               </>}
               <div className={mode === "compare" ? "rubin-reveal" : "rubin-full"} style={mode === "compare" && analysisLayer === "swipe" ? { clipPath: `inset(0 ${100 - reveal}% 0 0)` } : undefined}>
-                <img className="field-image" src={mode === "compare" ? "/private-preview/ugc00191/rubin-dp2-z.jpg" : "/private-preview/ugc00191/rubin-dp2.jpg"} alt={mode === "compare" ? "UGC 00191 in Rubin DP2 z band" : "UGC 00191 in Rubin DP2"} onError={() => setPixelsAvailable(false)} draggable={false} />
-                {(mode !== "compare" || analysisLayer === "swipe") && showMasks && <img className="quality-mask" src={mode === "compare" ? "/private-preview/ugc00191/rubin-z-mask.png" : "/private-preview/ugc00191/rubin-mask.png"} alt="Rubin masked or missing pixels" draggable={false} />}
+                <img className="field-image" src={mode === "compare" ? "/rubin-data/ugc00191/rubin-dp2-z.jpg" : "/rubin-data/ugc00191/rubin-dp2.jpg"} alt={mode === "compare" ? "UGC 00191 in Rubin DP2 z band" : "UGC 00191 in Rubin DP2"} onError={() => setPixelsAvailable(false)} draggable={false} />
+                {(mode !== "compare" || analysisLayer === "swipe") && showMasks && <img className="quality-mask" src={mode === "compare" ? "/rubin-data/ugc00191/rubin-z-mask.png" : "/rubin-data/ugc00191/rubin-mask.png"} alt="Rubin masked or missing pixels" draggable={false} />}
               </div>
-              {mode === "compare" && analysisLayer === "coverage" && <img className="science-difference-overlay" src="/private-preview/ugc00191/coverage-difference.png" alt="Red Rubin-only and blue Legacy-only valid-pixel coverage" draggable={false} />}
+              {mode === "compare" && analysisLayer === "coverage" && <img className="science-difference-overlay" src="/rubin-data/ugc00191/coverage-difference.png" alt="Red Rubin-only and blue Legacy-only valid-pixel coverage" draggable={false} />}
               {mode === "compare" && analysisLayer === "candidates" && <>
-                <img className="science-difference-overlay" src="/private-preview/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical residual candidates" draggable={false} />
+                <img className="science-difference-overlay" src="/rubin-data/ugc00191/candidate-difference.png" alt="Red Rubin-excess and blue Legacy-excess empirical residual candidates" draggable={false} />
                 {science.candidateRegions.map((candidate, index) => <button className={`difference-pin direction-${candidate.direction}`} key={candidate.id} style={{ left: `${candidate.xPercent}%`, top: `${candidate.yPercent}%` }} onClick={() => setSelectedCandidate(candidate)} aria-label={`Inspect candidate ${index + 1}`}>{index + 1}</button>)}
               </>}
-              {showCoverage && mode === "overview" && <img className="coverage-footprint" src="/private-preview/ugc00191/legacy-coverage.png" alt="Legacy Survey valid-pixel footprint" draggable={false} />}
+              {showCoverage && mode === "overview" && <img className="coverage-footprint" src="/rubin-data/ugc00191/legacy-coverage.png" alt="Legacy Survey valid-pixel footprint" draggable={false} />}
               {mode === "overview" && <span className="science-region" aria-hidden="true"><i>SPARC 1.27′ region</i></span>}
               <button className="overlap-pin" onClick={focusTarget} aria-label="Zoom to UGC 00191 overlap">
                 <span className="pin-pulse" /><span className="pin-core" /><strong>UGC 00191</strong><small>Rubin + Legacy + SPARC</small>

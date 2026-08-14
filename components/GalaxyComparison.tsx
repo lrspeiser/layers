@@ -109,8 +109,8 @@ export function GalaxyComparison({ galaxy, record = false }: { galaxy: Galaxy; r
         <h4>{galaxy.legacyPreview ? "Real legacy pixels are ready." : "No substitute image shown."}</h4>
         <p>
           {galaxy.legacyPreview
-            ? "This is the target’s real public Spitzer/IRAC 3.6 μm cutout. The slider stays locked until authenticated Rubin EDP2 pixels are registered to it."
-            : "The SPARC profile is loaded, but no Spitzer SEIP image covers this target. A different named legacy survey and authenticated Rubin EDP2 pixels are required."}
+            ? "This is the target’s real public Spitzer/IRAC 3.6 μm cutout. The slider stays locked because this target is outside the three Rubin fields currently ingested into Layers."
+            : "The SPARC profile is loaded, but no Spitzer SEIP image covers this target. A different named legacy survey and a usable Rubin field are required."}
         </p>
         <div className="target-coordinates">
           <span><small>RA</small>{galaxy.raDeg.toFixed(6)}°</span>
