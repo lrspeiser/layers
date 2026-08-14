@@ -285,3 +285,51 @@ positions, never against the upper-limit query position.
 `J/A+A/682/A34/erass1-m`, carrying `RA_ICRS` and `DE_ICRS` per detection. A cone
 search around each Rubin position gives the real source list, in the same
 pattern already used for HICAT. `IX/70/erass1` does not resolve.
+
+---
+
+## 9. The chain at 190 regions, and what the flux scale does at scale
+
+Running the full chain over the 200-tract set (193 with Rubin pixels):
+
+| | 48-region set | 190-region set |
+|---|---|---|
+| reconciled | 48 | 190 |
+| PSF matched | 47 (98%) | 189 (99%) |
+| background matched | 38 (79%) | 163 (86%) |
+| astrometry passed | 30 (63%) | 110 (58%) |
+| flux corroborated | 35 (73%) | 148 (78%) |
+| **down to 3 blockers** | 25 | **122** |
+
+The gates behave the same at four times the scale, which is the first thing worth
+knowing about a pipeline that had only ever been run on 48 fields.
+
+### The flux scale is not one number across the sky
+
+The empirical Rubin/Legacy compact-source ratio came out differently on the two
+samples:
+
+- the original 48 regions: **0.9505** (0.055 mag)
+- the 142 new regions: **0.9116** (0.100 mag)
+
+The same 48 regions returned bit-identical 0.9505 in both runs, so the pipeline
+is deterministic and this is real variation between fields, not drift.
+
+It correlates with **matched source count at −0.357**, and with essentially
+nothing else — Galactic latitude −0.10, Legacy seeing +0.03, Rubin seeing −0.03,
+seeing ratio −0.04. That is a crowding signature rather than a throughput one:
+the ratio is measured in a fixed 1.5 arcsec aperture, and in denser fields that
+aperture collects more neighbour flux. Legacy's PSF is broader than Rubin's
+(2.33 vs 1.97 arcsec on tract 10079), so blending inflates the Legacy side more
+and pushes the ratio down.
+
+**This is the same conclusion the colour term reached by another route.** The
+bandpass fit gave a reduced χ² of 443 against a single constant; the scalar flux
+ratio now shows a 0.040 dex robust spread driven by field density. Two
+independent measurements agree that the Rubin-to-Legacy photometric relationship
+is not one constant across the sky, and at least part of that is the aperture,
+not the surveys.
+
+The fix for both is the same and is not a tuning parameter: PSF-matched aperture
+photometry, or model fitting, instead of a fixed circular aperture on images with
+different PSFs.
