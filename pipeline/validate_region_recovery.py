@@ -31,9 +31,11 @@ from typing import Any
 
 import numpy as np
 from astropy.io import fits
+from scipy.ndimage import binary_dilation, gaussian_filter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from audit_layer_registration import robust_sigma
 from validate_diffuse_recovery import validate_layer
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,9 +43,52 @@ DEFAULT_INPUT = ROOT / "pipeline/results/reconciled-regions/manifest.json"
 DEFAULT_OUTPUT = ROOT / "pipeline/results/region-recovery"
 DEFAULT_PUBLIC = ROOT / "public/data/layers/selected-regions/region-diffuse-recovery.json"
 
-# Blank-field positions are drawn from the whole common footprint. A tract field
-# has no single central object to exclude, unlike the SPARC pilots.
+# A tract field has no single central object to exclude, unlike the SPARC pilots,
+# so there is no meaningful central exclusion radius.
 CENTRAL_EXCLUSION_PIXELS = 0.0
+
+# The method assumes blank positions are blank. A 4 arcmin tract cutout is full
+# of real sources, and drawing "null" positions on top of them makes the measured
+# null distribution a measurement of the galaxy population rather than of the
+# noise. Detected sources are therefore masked out of the injection footprint.
+SOURCE_DETECTION_SIGMA = 2.5
+SOURCE_MASK_GROWTH_PIXELS = 3
+
+
+def mask_sources_in_variance(
+    image: np.ndarray, variance: np.ndarray, common: np.ndarray
+) -> tuple[np.ndarray, dict[str, Any]]:
+    """Drop detected sources from every template fit without fragmenting placement.
+
+    ``choose_positions`` requires 95% of a template box to lie inside the mask it
+    is given, so removing scattered source pixels from that mask makes placement
+    impossible in a crowded tract field. ``fit_template_amplitude`` independently
+    discards pixels whose variance is not finite and positive, so marking source
+    pixels there excludes them from the fit while leaving the placement footprint
+    contiguous.
+    """
+    filled = np.where(common & np.isfinite(image), image, 0.0)
+    detection = gaussian_filter(filled, 1.5) - gaussian_filter(filled, 12.0)
+    sigma = robust_sigma(detection[common])
+    if not np.isfinite(sigma) or sigma <= 0:
+        return variance, {"applied": False, "reason": "no finite detection scatter"}
+    sources = binary_dilation(
+        np.abs(detection) > SOURCE_DETECTION_SIGMA * sigma,
+        iterations=SOURCE_MASK_GROWTH_PIXELS,
+    )
+    masked = variance.copy()
+    masked[sources & common] = np.nan
+    usable = common & ~sources
+    return masked, {
+        "applied": True,
+        "detectionSigma": SOURCE_DETECTION_SIGMA,
+        "growthPixels": SOURCE_MASK_GROWTH_PIXELS,
+        "skyFractionOfCommon": float(usable.sum() / max(int(common.sum()), 1)),
+        "note": (
+            "Detected sources are excluded from every template fit via the variance plane, so blank "
+            "positions measure sky rather than the galaxy population."
+        ),
+    }
 
 
 def utc_now() -> str:
@@ -87,16 +132,20 @@ def validate_region(record: dict[str, Any], output: Path, seed: int) -> dict[str
         ("rubin", rubin, rubin_variance),
         ("reference", reference, reference_variance),
     ):
+        sky_variance, mask_record = mask_sources_in_variance(image, variance, common)
         result = validate_layer(
             image,
-            variance,
+            sky_variance,
             common,
             pixel_scale,
             psf_fwhm,
             CENTRAL_EXCLUSION_PIXELS,
             seed,
         )
-        layers[name] = {"summary": layer_summary(result), "sizes": result["sizes"]}
+        layers[name] = {
+            "summary": {**layer_summary(result), "sourceMask": mask_record},
+            "sizes": result["sizes"],
+        }
 
     payload = {
         "schemaVersion": "layers-region-diffuse-recovery-v1",

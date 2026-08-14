@@ -271,7 +271,12 @@ def reconcile_region(
         raise ValueError("no Rubin native pixel scale recorded for this region")
     rubin_area_factor = pixel_area_factor(pixel_scale, rubin_native_scale)
     rubin = rubin * rubin_area_factor
-    rubin_variance = rubin_variance * rubin_area_factor**2
+    # A pixel-area factor is a rebinning, not a multiplicative recalibration.
+    # Summing A independent native pixels scales the value by A and the variance
+    # by A, not by A^2. Resampling correlates neighbours so this is only the
+    # independent-pixel approximation; validate_region_recovery.py measures how
+    # far it is wrong via the empirical-to-formal noise ratio.
+    rubin_variance = rubin_variance * rubin_area_factor
     rubin_chain = {
         "unit": "nJy",
         "pixelAreaFactor": rubin_area_factor,
@@ -289,7 +294,9 @@ def reconcile_region(
     if chain["scale"] is None:
         raise ValueError(f"no documented flux chain for {record['referenceSurveyId']}")
     reference = reference * chain["scale"]
-    reference_variance = reference_variance * chain["scale"] ** 2
+    # The unit conversion is a true recalibration and scales variance by its
+    # square; the pixel-area factor is a rebinning and scales it linearly.
+    reference_variance = reference_variance * chain["unitScale"] ** 2 * chain["pixelAreaFactor"]
 
     # --- background matching ------------------------------------------------
     working = rubin_valid & reference_valid & common
@@ -571,6 +578,21 @@ def main() -> None:
             f"blockers={len(result['comparisonBlockers'])}",
             flush=True,
         )
+
+    # A partial run must not discard regions it was never asked to touch, or a
+    # single-region debug pass silently truncates the manifest the downstream
+    # stages read.
+    if only:
+        existing_path = args.products / "manifest.json"
+        if existing_path.is_file():
+            previous = json.loads(existing_path.read_text(encoding="utf-8"))
+            refreshed = {item["regionId"] for item in records}
+            carried = [item for item in previous.get("regions", []) if item["regionId"] not in refreshed]
+            records = sorted(records + carried, key=lambda item: item["regionId"])
+            failures = failures + [
+                item for item in previous.get("failures", [])
+                if item["regionId"] not in refreshed and item["regionId"] not in only
+            ]
 
     matched = [item for item in records if item["status"] == "matched"]
     summary = {
