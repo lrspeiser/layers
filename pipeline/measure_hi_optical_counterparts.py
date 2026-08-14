@@ -87,6 +87,27 @@ BTFR_INTRINSIC_SCATTER_DEX = 0.11
 # blows up, so the deprojected velocity is not usable.
 MIN_INCLINATION_DEG = 30.0
 
+# Discriminants. The first full run ranked 35 objects as noteworthy and every one
+# at the top was a measurement failure with the same signature: an axis ratio
+# below any physical disk, which pins the inclination at 90 degrees and so
+# minimises the predicted mass, together with tens of candidate segments in the
+# field, which inflates the measured flux by sweeping up neighbours. Both push
+# the residual positive, which is also the sign of the sample median.
+#
+# Thresholds are set from the measured distributions of this sample, not from
+# priors. A first attempt guessed them and kept 1 object out of 283.
+#
+# Real disks do not go below about 0.15 in axis ratio; anything flatter is a
+# blend, a diffraction spike, or a segmentation failure. (Keeps 252 of 283.)
+MIN_PHYSICAL_AXIS_RATIO = 0.15
+# An unambiguous counterpart should dominate its field. The median ratio is 3.66,
+# so this keeps the better half. (Keeps 155 of 283.)
+MIN_FLUX_RATIO_TO_RUNNER_UP = 3.0
+# Candidate count is deliberately NOT a discriminant. The median field has 39
+# segments above 3 sigma in a 6 arcmin Legacy cutout, which measures how crowded
+# the sky is, not whether this counterpart is ambiguous. Using it as a cut
+# removed 280 of 283 objects while telling us nothing about any of them.
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
@@ -278,6 +299,18 @@ def main() -> None:
                 "minimumInclinationDeg": MIN_INCLINATION_DEG,
             },
         }
+        # Reasons this object's measurement cannot be trusted, recorded per object
+        # rather than applied as a silent cut, so the sample stays auditable.
+        flags = []
+        if counterpart["axisRatio"] < MIN_PHYSICAL_AXIS_RATIO:
+            flags.append("axis ratio below any physical disk; segmentation likely blended or spurious")
+        if angle is not None and angle >= 89.9:
+            flags.append("inclination pinned at the 90 degree clamp, so the velocity correction is a limit")
+        ratio = counterpart.get("fluxRatioToRunnerUp")
+        if ratio is not None and ratio < MIN_FLUX_RATIO_TO_RUNNER_UP:
+            flags.append("counterpart does not dominate its field; another source is comparably bright")
+        record["measurementFlags"] = flags
+
         if usable and baryonic_mass > 0:
             predicted = BTFR_NORMALISATION * rotation**BTFR_SLOPE
             residual = math.log10(baryonic_mass) - math.log10(predicted)
@@ -294,7 +327,22 @@ def main() -> None:
             print(f"  {index}/{len(detections)} processed, {len(records)} measured", flush=True)
 
     usable_records = [item for item in records if "baryonicTullyFisher" in item]
-    residuals = np.array([item["baryonicTullyFisher"]["residualDex"] for item in usable_records])
+    clean_records = [item for item in usable_records if not item["measurementFlags"]]
+    # Calibrate and rank on the clean subset only. Including flagged objects would
+    # let segmentation failures set both the offset and the scatter that every
+    # other object is judged against.
+    # Falling back to the flagged sample must be visible. A silent fallback would
+    # let segmentation failures set the calibration while the output still claimed
+    # to rank a clean subset.
+    ranking_fell_back = len(clean_records) < 20
+    if ranking_fell_back:
+        print(
+            f"WARNING: only {len(clean_records)} objects passed the measurement discriminants; "
+            "ranking against the full flagged sample instead, which is not trustworthy",
+            flush=True,
+        )
+    ranking_records = usable_records if ranking_fell_back else clean_records
+    residuals = np.array([item["baryonicTullyFisher"]["residualDex"] for item in ranking_records])
 
     # The uncertainty has to be measured, not asserted. Declaring a systematic
     # budget and ranking against it is how a sample-wide offset turns into a page
@@ -308,6 +356,26 @@ def main() -> None:
     # observed scatter of this sample rather than a number chosen in advance.
     offset = float(np.median(residuals)) if residuals.size else 0.0
     observed_scatter = float(robust_sigma(residuals)) if residuals.size > 3 else float("nan")
+
+    # A residual that correlates with the relation's own x-axis is not measuring
+    # a departure in mass; it is measuring a problem in velocity. M_bar = 47*V^4,
+    # so residual = log M_bar - 4*log V, and if the sample's velocities are
+    # systematically wrong at one end the residual inherits that trend wholesale.
+    # W50 is known to underestimate rotation in low-mass gas-rich dwarfs, whose
+    # H I never reaches the flat part of the rotation curve.
+    #
+    # While this correlation is strong, no individual object can be called
+    # noteworthy: it would just be a member of the low-velocity tail.
+    velocities = np.array(
+        [item["rotation"]["inclinationCorrectedKmS"] for item in ranking_records], dtype=float
+    )
+    finite = np.isfinite(residuals) & np.isfinite(velocities) & (velocities > 0)
+    velocity_correlation = (
+        float(np.corrcoef(residuals[finite], np.log10(velocities[finite]))[0, 1])
+        if finite.sum() > 5
+        else float("nan")
+    )
+    systematics_dominated = bool(np.isfinite(velocity_correlation) and abs(velocity_correlation) > 0.3)
     assumed = math.sqrt(STELLAR_MASS_TO_LIGHT_SYSTEMATIC_DEX**2 + BTFR_INTRINSIC_SCATTER_DEX**2)
     for item in usable_records:
         entry = item["baryonicTullyFisher"]
@@ -315,14 +383,20 @@ def main() -> None:
         entry["sampleCalibrationOffsetDex"] = offset
         entry["relativeResidualDex"] = relative
         entry["observedScatterDex"] = observed_scatter
-        if np.isfinite(observed_scatter) and observed_scatter > 0:
+        if not np.isfinite(observed_scatter) or observed_scatter <= 0:
+            entry["significanceSigma"] = None
+            entry["classification"] = "uncalibrated"
+        elif item["measurementFlags"]:
+            entry["significanceSigma"] = relative / observed_scatter
+            entry["classification"] = "flagged"
+        elif systematics_dominated:
+            entry["significanceSigma"] = relative / observed_scatter
+            entry["classification"] = "systematics-dominated"
+        else:
             entry["significanceSigma"] = relative / observed_scatter
             entry["classification"] = (
                 "noteworthy" if abs(relative) > 2 * observed_scatter else "expected"
             )
-        else:
-            entry["significanceSigma"] = None
-            entry["classification"] = "uncalibrated"
     summary = {
         "schemaVersion": "layers-hi-baryonic-tully-fisher-v1",
         "generatedAt": utc_now(),
@@ -351,6 +425,18 @@ def main() -> None:
             "assumedSystematicDex": assumed,
             "assumedUnderstatesObservedBy": (observed_scatter / assumed) if np.isfinite(observed_scatter) else None,
             "absoluteNormalisationTested": False,
+            "rankedOnCleanSubset": len(ranking_records),
+            "rankingFellBackToFlaggedSample": ranking_fell_back,
+            "residualVersusLogVelocityCorrelation": velocity_correlation,
+            "systematicsDominated": systematics_dominated,
+            "systematicsNote": (
+                "The residual correlates with log V at "
+                f"{velocity_correlation:+.3f}. M_bar = 47*V^4 means residual = log M_bar - 4*log V, so a "
+                "trend against V is a velocity systematic rather than a departure in baryonic mass. W50 "
+                "underestimates rotation in low-mass gas-rich dwarfs whose H I never reaches the flat "
+                "rotation curve. No object is classified noteworthy while this holds."
+            ),
+            "flaggedExcludedFromRanking": len(usable_records) - len(clean_records),
             "noteworthy": sum(
                 1 for item in usable_records if item["baryonicTullyFisher"].get("classification") == "noteworthy"
             ),
@@ -382,6 +468,10 @@ def main() -> None:
     if residuals.size:
         print(f"BTFR residual: median {offset:+.3f} dex (absorbed as calibration), observed scatter {observed_scatter:.3f} dex")
         print(f"assumed systematic {assumed:.3f} dex understates the observed scatter by {observed_scatter / assumed:.1f}x")
+        print(f"ranked on {len(ranking_records)} clean objects; {len(usable_records) - len(clean_records)} flagged and excluded")
+        print(f"residual vs log V correlation: {velocity_correlation:+.3f}")
+        if systematics_dominated:
+            print("SYSTEMATICS-DOMINATED: residual tracks velocity, so no object is called noteworthy")
         print(f"noteworthy relative departures (>2 observed sigma): {summary['residual']['noteworthy']}")
 
 
