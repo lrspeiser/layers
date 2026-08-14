@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DifferenceIndex, type AnomalyRow, type GateRow, type OperatorCard } from "@/components/DifferenceIndex";
-import reconciliation from "@/public/data/layers/selected-regions/rubin-reference-reconciliation.json";
-import recovery from "@/public/data/layers/selected-regions/region-diffuse-recovery.json";
-import bandpass from "@/public/data/layers/selected-regions/bandpass-transfer.json";
-import anomalies from "@/public/data/layers/selected-regions/region-anomalies.json";
-import gaia from "@/public/data/layers/gaia-crossmatch/comparison-50.json";
-import gas from "@/public/data/layers/hi-gas/comparison.json";
+import summary from "@/public/data/layers/site-summary.json";
+
+// The page never imports an analysis manifest. The 190-region reconciliation is
+// 1.4 MB on its own, and a 525 KB module already broke every tract page earlier
+// by pushing a route's worker chunk past what the runtime would load.
+// build_site_summary.py reduces them all to the fields drawn here.
 
 export const metadata: Metadata = {
   title: "Cross-survey differences",
@@ -19,70 +19,79 @@ function fixed(value: unknown, digits: number, fallback = "—") {
 }
 
 export default function DifferencesPage() {
-  // Gates cleared come from the reconciliation stage. Injection/recovery and the
-  // covariance measurement are region-level results from a separate stage, so
-  // they are folded in here rather than being invisible.
-  const recoveredRegions = new Set((recovery.regions ?? []).map((item: { regionId: string }) => item.regionId));
-  const gates: GateRow[] = (reconciliation.regions ?? []).map((region: { regionId: string; clearedBlockers?: string[] }) => {
-    const cleared = [...(region.clearedBlockers ?? [])];
-    if (recoveredRegions.has(region.regionId)) {
-      cleared.push("injection/recovery QA", "resampling covariance");
-    }
-    return { regionId: region.regionId, cleared };
-  });
+  const gates: GateRow[] = (summary.gates ?? []).map((row: { regionId: string; cleared: string[] }) => ({
+    regionId: row.regionId,
+    cleared: row.cleared ?? [],
+  }));
 
-  const bandpassWithin = bandpass.counts?.withinTolerance ?? 0;
-  const bandpassMeasured = bandpass.counts?.measured ?? 0;
-  const universality = Object.values(bandpass.universality ?? {}) as Array<{
+  const universality = Object.values(summary.bandpass?.universality ?? {}) as Array<{
     consistentWithOneConstant?: boolean;
-    reducedChiSquare?: number;
   }>;
   const anyConsistent = universality.some((item) => item.consistentWithOneConstant);
+  const bandpassMeasured = summary.bandpass?.measured ?? 0;
 
   const operators: OperatorCard[] = [
     {
       id: "optical",
       label: "Optical difference",
       kind: "same band",
-      headline: `${reconciliation.counts?.reconciled ?? 0} regions`,
-      detail: `Rubin against Legacy or Pan-STARRS on a common grid. ${reconciliation.counts?.psfMatched ?? 0} PSF-matched, ${reconciliation.counts?.skyMatched ?? 0} background-matched, ${reconciliation.counts?.astrometryPassed ?? 0} inside the 0.30″ astrometry threshold.`,
+      headline: `${summary.reconciliation?.reconciled ?? 0} regions`,
+      detail: `Rubin against Legacy or Pan-STARRS on a common grid. ${summary.reconciliation?.psfMatched ?? 0} PSF-matched, ${summary.reconciliation?.skyMatched ?? 0} background-matched, ${summary.reconciliation?.astrometryPassed ?? 0} inside the 0.30″ astrometry threshold.`,
       state: "measured",
     },
     {
       id: "bandpass",
       label: "Bandpass transfer",
       kind: "filter transfer",
-      headline: anyConsistent ? "consistent" : "ruled out",
-      detail: `A Rubin colour term is significant in most fields and ${bandpassWithin} of ${bandpassMeasured} land inside the 0.08 mag tolerance, but the fitted term is not the same constant from field to field, so a single linear transfer does not describe it.`,
-      state: "partial",
+      headline: bandpassMeasured ? (anyConsistent ? "consistent" : "ruled out") : "pending",
+      detail: bandpassMeasured
+        ? `A Rubin colour term is significant in most fields and ${summary.bandpass?.withinTolerance ?? 0} of ${bandpassMeasured} land inside the 0.08 mag tolerance, but the fitted term is not the same constant from field to field, so a single linear transfer does not describe it.`
+        : "Waiting on the second Rubin band for the larger region set. A colour term cannot be fitted without a Rubin colour.",
+      state: bandpassMeasured ? "partial" : "none",
     },
     {
       id: "limits",
       label: "Detection limits",
       kind: "injection recovery",
-      headline: `${recovery.counts?.measured ?? 0} regions`,
-      detail: `Limiting surface brightness measured by injecting and recovering real sources. The empirical noise exceeds the propagated per-pixel uncertainty by a median factor of ${fixed(recovery.resamplingCovariance?.medianRubinEmpiricalToFormalNoiseRatio, 1)}.`,
+      headline: `${summary.recovery?.measured ?? 0} regions`,
+      detail: `Limiting surface brightness measured by injecting and recovering real sources. The empirical noise exceeds the propagated per-pixel uncertainty by a median factor of ${fixed(summary.recovery?.medianEmpiricalToFormalNoiseRatio, 1)}.`,
       state: "measured",
     },
     {
       id: "gaia",
       label: "Gaia cross-match",
       kind: "catalogue match",
-      headline: `${fixed(gaia.astrometry?.medianP95AtFittedEpochArcsec, 3)}″`,
-      detail: `Rubin publishes no usable coadd epoch, so it is fitted from Gaia proper motions: ${fixed(gaia.epochConsistency?.medianFittedJyear, 2)} with ${fixed(gaia.epochConsistency?.scatterYears, 2)} yr scatter across ${gaia.counts?.measured ?? 0} fields. Applying it takes astrometry from ${fixed(gaia.astrometry?.medianP95WithoutPropagationArcsec, 3)}″ to this.`,
+      headline: `${fixed(summary.gaia?.astrometry?.medianP95AtFittedEpochArcsec, 3)}″`,
+      detail: `Rubin publishes no usable coadd epoch, so it is fitted from Gaia proper motions: ${fixed(summary.gaia?.epoch?.medianFittedJyear, 2)} with ${fixed(summary.gaia?.epoch?.scatterYears, 2)} yr scatter across ${summary.gaia?.measured ?? 0} fields. Applying it takes astrometry from ${fixed(summary.gaia?.astrometry?.medianP95WithoutPropagationArcsec, 3)}″ to this.`,
       state: "measured",
     },
     {
       id: "gas",
       label: "Neutral gas",
       kind: "scaling relation",
-      headline: `${gas.counts?.usable ?? 0} detections`,
-      detail: `H I mass and line width against optical light across ${gas.counts?.distinctTracts ?? 0} tracts. Not gated by the bandpass transfer, because this is a scaling-relation residual rather than a photometric difference.`,
+      headline: `${summary.gas?.usable ?? 0} detections`,
+      detail: `H I mass and line width against optical light. ${summary.gas?.tullyFisher?.withUsableInclination ?? 0} have a usable inclination, and the residual tracks rotation velocity rather than mass, so no object is called a departure.`,
       state: "partial",
+    },
+    {
+      id: "sed",
+      label: "SED consistency",
+      kind: "different band",
+      headline: `${summary.sed?.sedSources ?? 0} sources`,
+      detail: `2MASS and AllWISE photometry predict the Rubin flux; departures are ranked against the observed scatter of ${fixed(summary.sed?.colourRelation?.residualScatterDex, 3)} dex about the fitted infrared-colour relation.`,
+      state: "partial",
+    },
+    {
+      id: "xray",
+      label: "X-ray counterparts",
+      kind: "association",
+      headline: `${summary.xray?.xraySourcesInsideRubinPixels ?? 0} sources`,
+      detail: `eRASS1 detections inside Rubin pixels: ${summary.xray?.withOpticalCounterpart ?? 0} with an optical counterpart, ${summary.xray?.withoutOpticalCounterpart ?? 0} without, to a stated depth. Only ${summary.xray?.regionsWithAnyCataloguedSource ?? 0} of ${summary.xray?.regionsQueried ?? 0} regions hold a catalogued X-ray source at all.`,
+      state: "measured",
     },
   ];
 
-  const rows: AnomalyRow[] = (anomalies.topCandidates ?? []) as AnomalyRow[];
+  const rows: AnomalyRow[] = (summary.topAnomalies ?? []) as unknown as AnomalyRow[];
 
   return (
     <main id="top">
@@ -107,10 +116,10 @@ export default function DifferencesPage() {
         gates={gates}
         anomalies={rows}
         anomalyContext={{
-          scanned: anomalies.counts?.regionsScanned ?? 0,
-          skipped: anomalies.counts?.regionsSkipped ?? 0,
-          raw: anomalies.counts?.totalCandidates ?? 0,
-          surviving: anomalies.counts?.withoutBoringExplanation ?? 0,
+          scanned: summary.anomalies?.regionsScanned ?? 0,
+          skipped: summary.anomalies?.regionsSkipped ?? 0,
+          raw: summary.anomalies?.totalCandidates ?? 0,
+          surviving: summary.anomalies?.withoutBoringExplanation ?? 0,
         }}
       />
     </main>
