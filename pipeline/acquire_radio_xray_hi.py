@@ -605,7 +605,11 @@ def fetch_hipass(
         path = cache / "hipass" / f"{slug}.vot"
         payload, meta = request_cached(
             session, path, "GET", VIZIER_VOTABLE, refresh=refresh,
-            params={"-source": catalog, "-out.all": "", "-out.max": "unlimited"},
+            # VizieR ignores -out.all with an empty value and silently returns its
+            # default column subset. That dropped W50max/W20max, the H I line
+            # widths, so the cached "full catalogue" carried 12 of 36 columns and
+            # no rotation-velocity proxy at all. -out.all=1 returns every column.
+            params={"-source": catalog, "-out.all": "1", "-out.max": "unlimited"},
             expected=("xml", "votable"),
         )
         table = Table.read(io.BytesIO(payload), format="votable")
