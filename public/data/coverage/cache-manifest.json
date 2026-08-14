@@ -1,37 +1,38 @@
 {
   "schemaVersion": "layers-public-cache-manifest-v1",
-  "generatedAt": "2026-08-14T22:33:32.113883+00:00",
+  "generatedAt": "2026-08-14T06:01:17.604398+00:00",
   "sourceRegions": "/data/coverage/selected-regions.json",
   "sourceEvidencePlans": [
     "live-smoke",
     "legacy-smoke"
   ],
   "summary": {
-    "plannedRegionCount": 200,
-    "plannedJobCount": 199,
+    "plannedRegionCount": 50,
+    "plannedJobCount": 673,
     "metadataResponseCount": 3,
     "cachedScienceInputCandidateCount": 1,
     "validatedScienceInputCount": 0,
     "comparisonReadyCount": 0
   },
-  "honestStatus": "200 regions have acquisition plans. 3 metadata responses are cached. 1 archive-native science-input candidate is cached. 0 inputs have passed support-plane validation and 0 are comparison-ready.",
-  "regionCount": 200,
+  "honestStatus": "50 regions have acquisition plans. 3 metadata responses are cached. 1 archive-native science-input candidate is cached. 0 inputs have passed support-plane validation and 0 are comparison-ready.",
+  "regionCount": 50,
   "regions": [
     {
-      "id": "dp2-tract-10079",
-      "tract": 10079,
+      "id": "dp2-tract-5063",
+      "tract": 5063,
       "center": [
-        185.89726,
-        3.994139
+        53.087526,
+        -27.519591
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
+        "des-dr2",
         "erosita-erass1",
+        "euclid-q1",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "jwst",
         "legacy-surveys-dr10",
@@ -41,7 +42,87 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8642",
+      "tract": 8642,
+      "center": [
+        211.239642,
+        -5.206402
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9813",
+      "tract": 9813,
+      "center": [
+        150.247906,
+        2.231355
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-10321",
@@ -50,55 +131,7 @@
         185.950385,
         5.206457
       ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "jwst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10689",
-      "tract": 10689,
-      "center": [
-        14.999972,
-        8.181558
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10805",
-      "tract": 10805,
-      "center": [
-        188.984509,
-        8.181567
-      ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "erosita-erass1",
@@ -114,7 +147,87 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5391",
+      "tract": 5391,
+      "center": [
+        235.103239,
+        -26.032113
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5061",
+      "tract": 5061,
+      "center": [
+        49.769554,
+        -27.519591
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-11162",
@@ -123,7 +236,7 @@
         4.5188,
         11.156658
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "gaia-dr3",
@@ -137,7 +250,17 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
     },
     {
       "id": "dp2-tract-11411",
@@ -146,7 +269,7 @@
         19.746807,
         12.644207
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "gaia-dr3",
@@ -160,55 +283,225 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
     },
     {
-      "id": "dp2-tract-12112",
-      "tract": 12112,
+      "id": "dp2-tract-10689",
+      "tract": 10689,
       "center": [
-        10.646076,
-        16.620749
+        14.999972,
+        8.181558
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hst",
         "legacy-surveys-dr10",
-        "lotss-dr2",
         "panstarrs-dr2",
         "planck-2018",
         "unwise",
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage",
+        "existing locally verified comparison pixels"
+      ]
     },
     {
-      "id": "dp2-tract-12814",
-      "tract": 12814,
+      "id": "dp2-tract-9207",
+      "tract": 9207,
       "center": [
-        25.470997,
-        21.45082
+        331.735509,
+        -2.231299
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
+        "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
         "hst",
         "legacy-surveys-dr10",
-        "lotss-dr2",
         "panstarrs-dr2",
         "planck-2018",
         "unwise",
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5281",
+      "tract": 5281,
+      "center": [
+        54.246544,
+        -26.032053
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5280",
+      "tract": 5280,
+      "center": [
+        52.602709,
+        -26.032053
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5062",
+      "tract": 5062,
+      "center": [
+        51.42854,
+        -27.519591
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5064",
+      "tract": 5064,
+      "center": [
+        54.746512,
+        -27.519591
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-2397",
@@ -217,7 +510,7 @@
         65.853617,
         -48.344831
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
@@ -232,310 +525,15 @@
         "planck-2018",
         "unwise"
       ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-3233",
-      "tract": 3233,
-      "center": [
-        5.837801,
-        -40.90733
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4636",
-      "tract": 4636,
-      "center": [
-        51.184802,
-        -30.494662
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4637",
-      "tract": 4637,
-      "center": [
-        52.890963,
-        -30.494662
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4638",
-      "tract": 4638,
-      "center": [
-        54.597124,
-        -30.494662
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4848",
-      "tract": 4848,
-      "center": [
-        52.149501,
-        -29.007128
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4849",
-      "tract": 4849,
-      "center": [
-        53.831744,
-        -29.007128
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-4850",
-      "tract": 4850,
-      "center": [
-        55.513987,
-        -29.007128
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5061",
-      "tract": 5061,
-      "center": [
-        49.769554,
-        -27.519591
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5062",
-      "tract": 5062,
-      "center": [
-        51.42854,
-        -27.519591
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5063",
-      "tract": 5063,
-      "center": [
-        53.087526,
-        -27.519591
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "jwst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5064",
-      "tract": 5064,
-      "center": [
-        54.746512,
-        -27.519591
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5065",
-      "tract": 5065,
-      "center": [
-        56.405499,
-        -27.519591
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-5192",
@@ -544,7 +542,7 @@
         267.096743,
         -27.519591
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "erosita-erass1",
@@ -558,7 +556,49 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-3233",
+      "tract": 3233,
+      "center": [
+        5.837801,
+        -40.90733
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-5214",
@@ -567,7 +607,7 @@
         303.594439,
         -27.519591
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "gaia-dr3",
@@ -581,497 +621,16 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5279",
-      "tract": 5279,
-      "center": [
-        50.958873,
-        -26.032053
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5280",
-      "tract": 5280,
-      "center": [
-        52.602709,
-        -26.032053
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5281",
-      "tract": 5281,
-      "center": [
-        54.246544,
-        -26.032053
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "euclid-q1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5282",
-      "tract": 5282,
-      "center": [
-        55.89038,
-        -26.032053
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5391",
-      "tract": 5391,
-      "center": [
-        235.103239,
-        -26.032113
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-5670",
-      "tract": 5670,
-      "center": [
-        329.187037,
-        -24.4611
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-6509",
-      "tract": 6509,
-      "center": [
-        217.645915,
-        -18.112693
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-6524",
-      "tract": 6524,
-      "center": [
-        241.558412,
-        -18.594341
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-6530",
-      "tract": 6530,
-      "center": [
-        250.909062,
-        -18.594341
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-7939",
-      "tract": 7939,
-      "center": [
-        239.999972,
-        -9.669053
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8026",
-      "tract": 8026,
-      "center": [
-        10.499972,
-        -8.181503
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8259",
-      "tract": 8259,
-      "center": [
-        359.999972,
-        -6.693952
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8272",
-      "tract": 8272,
-      "center": [
-        19.753233,
-        -6.619414
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8642",
-      "tract": 8642,
-      "center": [
-        211.239642,
-        -5.206402
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "jwst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8708",
-      "tract": 8708,
-      "center": [
-        309.42416,
-        -5.778943
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8883",
-      "tract": 8883,
-      "center": [
-        209.752038,
-        -3.718851
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "jwst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8884",
-      "tract": 8884,
-      "center": [
-        211.174733,
-        -3.783668
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hst",
-        "jwst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9207",
-      "tract": 9207,
-      "center": [
-        331.735509,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9245",
-      "tract": 9245,
-      "center": [
-        28.14812,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9456",
-      "tract": 9456,
-      "center": [
-        340.740713,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-9475",
@@ -1080,14 +639,13 @@
         8.888861,
         0.743803
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "jwst",
         "legacy-surveys-dr10",
@@ -1097,25 +655,32 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-9476",
-      "tract": 9476,
+      "id": "dp2-tract-7939",
+      "tract": 7939,
       "center": [
-        10.370343,
-        0.743803
+        239.999972,
+        -9.669053
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
-        "des-dr2",
+        "erosita-erass1",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
-        "jwst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
         "planck-2018",
@@ -1123,7 +688,17 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-9705",
@@ -1132,14 +707,13 @@
         349.629602,
         0.743803
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
@@ -1148,7 +722,663 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-6509",
+      "tract": 6509,
+      "center": [
+        217.645915,
+        -18.112693
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-10805",
+      "tract": 10805,
+      "center": [
+        188.984509,
+        8.181567
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9245",
+      "tract": 9245,
+      "center": [
+        28.14812,
+        -0.743748
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-6530",
+      "tract": 6530,
+      "center": [
+        250.909062,
+        -18.594341
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8883",
+      "tract": 8883,
+      "center": [
+        209.752038,
+        -3.718851
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4636",
+      "tract": 4636,
+      "center": [
+        51.184802,
+        -30.494662
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4638",
+      "tract": 4638,
+      "center": [
+        54.597124,
+        -30.494662
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5279",
+      "tract": 5279,
+      "center": [
+        50.958873,
+        -26.032053
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5282",
+      "tract": 5282,
+      "center": [
+        55.89038,
+        -26.032053
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5065",
+      "tract": 5065,
+      "center": [
+        56.405499,
+        -27.519591
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8884",
+      "tract": 8884,
+      "center": [
+        211.174733,
+        -3.783668
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8708",
+      "tract": 8708,
+      "center": [
+        309.42416,
+        -5.778943
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-10079",
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "erosita-erass1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-5670",
+      "tract": 5670,
+      "center": [
+        329.187037,
+        -24.4611
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4850",
+      "tract": 4850,
+      "center": [
+        55.513987,
+        -29.007128
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4848",
+      "tract": 4848,
+      "center": [
+        52.149501,
+        -29.007128
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4849",
+      "tract": 4849,
+      "center": [
+        53.831744,
+        -29.007128
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8259",
+      "tract": 8259,
+      "center": [
+        359.999972,
+        -6.693952
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-4637",
+      "tract": 4637,
+      "center": [
+        52.890963,
+        -30.494662
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "erosita-erass1",
+        "euclid-q1",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-9718",
@@ -1157,14 +1387,13 @@
         8.925592,
         2.231355
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "jwst",
         "legacy-surveys-dr10",
@@ -1174,23 +1403,98 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-9726",
-      "tract": 9726,
+      "id": "dp2-tract-9476",
+      "tract": 9476,
       "center": [
-        20.826418,
-        2.231355
+        10.370343,
+        0.743803
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
+        "hst",
+        "jwst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-12814",
+      "tract": 12814,
+      "center": [
+        25.470997,
+        21.45082
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "lotss-dr2",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-8272",
+      "tract": 8272,
+      "center": [
+        19.753233,
+        -6.619414
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
         "hst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
@@ -1199,25 +1503,32 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-9813",
-      "tract": 9813,
+      "id": "dp2-tract-6524",
+      "tract": 6524,
       "center": [
-        150.247906,
-        2.231355
+        241.558412,
+        -18.594341
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "erosita-erass1",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
-        "jwst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
         "planck-2018",
@@ -1225,7 +1536,50 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-energy coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
+    },
+    {
+      "id": "dp2-tract-9456",
+      "tract": 9456,
+      "center": [
+        340.740713,
+        -0.743748
+      ],
+      "sizeArcmin": 30.0,
+      "confirmedSurveyIds": [
+        "2mass",
+        "des-dr2",
+        "gaia-dr3",
+        "galex-gr6-7",
+        "hipass",
+        "hst",
+        "legacy-surveys-dr10",
+        "panstarrs-dr2",
+        "planck-2018",
+        "unwise",
+        "vlass",
+        "ztf-dr"
+      ],
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
       "id": "dp2-tract-9953",
@@ -1234,14 +1588,13 @@
         358.512369,
         2.231355
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
@@ -1250,23 +1603,31 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-8984",
-      "tract": 8984,
+      "id": "dp2-tract-8026",
+      "tract": 8026,
       "center": [
-        359.999972,
-        -2.231299
+        10.499972,
+        -8.181503
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
@@ -1275,2448 +1636,64 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-8985",
-      "tract": 8985,
+      "id": "dp2-tract-12112",
+      "tract": 12112,
       "center": [
-        1.487576,
-        -2.231299
+        10.646076,
+        16.620749
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
-        "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "legacy-surveys-dr10",
+        "lotss-dr2",
         "panstarrs-dr2",
         "planck-2018",
         "unwise",
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     },
     {
-      "id": "dp2-tract-8986",
-      "tract": 8986,
-      "center": [
-        2.975179,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8994",
-      "tract": 8994,
-      "center": [
-        14.876005,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8995",
-      "tract": 8995,
-      "center": [
-        16.363609,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8996",
-      "tract": 8996,
-      "center": [
-        17.851212,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8997",
-      "tract": 8997,
-      "center": [
-        19.338815,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8998",
-      "tract": 8998,
+      "id": "dp2-tract-9726",
+      "tract": 9726,
       "center": [
         20.826418,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-8999",
-      "tract": 8999,
-      "center": [
-        22.314022,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9125",
-      "tract": 9125,
-      "center": [
-        209.776835,
-        -2.751534
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9126",
-      "tract": 9126,
-      "center": [
-        210.803993,
-        -2.777545
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9209",
-      "tract": 9209,
-      "center": [
-        334.710716,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9210",
-      "tract": 9210,
-      "center": [
-        336.198319,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9212",
-      "tract": 9212,
-      "center": [
-        339.173526,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9214",
-      "tract": 9214,
-      "center": [
-        342.148733,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9217",
-      "tract": 9217,
-      "center": [
-        346.611542,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9218",
-      "tract": 9218,
-      "center": [
-        348.099146,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9219",
-      "tract": 9219,
-      "center": [
-        349.586749,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9220",
-      "tract": 9220,
-      "center": [
-        351.074352,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9221",
-      "tract": 9221,
-      "center": [
-        352.561956,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9222",
-      "tract": 9222,
-      "center": [
-        354.049559,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9223",
-      "tract": 9223,
-      "center": [
-        355.537162,
-        -2.231299
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9226",
-      "tract": 9226,
-      "center": [
-        359.999972,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9227",
-      "tract": 9227,
-      "center": [
-        1.481454,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9228",
-      "tract": 9228,
-      "center": [
-        2.962935,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9229",
-      "tract": 9229,
-      "center": [
-        4.444417,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9230",
-      "tract": 9230,
-      "center": [
-        5.925898,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9231",
-      "tract": 9231,
-      "center": [
-        7.40738,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9232",
-      "tract": 9232,
-      "center": [
-        8.888861,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9233",
-      "tract": 9233,
-      "center": [
-        10.370343,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9236",
-      "tract": 9236,
-      "center": [
-        14.814787,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9237",
-      "tract": 9237,
-      "center": [
-        16.296269,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9238",
-      "tract": 9238,
-      "center": [
-        17.77775,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9239",
-      "tract": 9239,
-      "center": [
-        19.259231,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9240",
-      "tract": 9240,
-      "center": [
-        20.740713,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9241",
-      "tract": 9241,
-      "center": [
-        22.222194,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9242",
-      "tract": 9242,
-      "center": [
-        23.703676,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9327",
-      "tract": 9327,
-      "center": [
-        150.133962,
-        -0.274479
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9328",
-      "tract": 9328,
-      "center": [
-        151.111083,
-        -0.396072
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9448",
-      "tract": 9448,
-      "center": [
-        328.912055,
-        -0.761788
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9449",
-      "tract": 9449,
-      "center": [
-        330.370343,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9450",
-      "tract": 9450,
-      "center": [
-        331.851824,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9451",
-      "tract": 9451,
-      "center": [
-        333.333306,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9452",
-      "tract": 9452,
-      "center": [
-        334.814787,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9453",
-      "tract": 9453,
-      "center": [
-        336.296269,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9454",
-      "tract": 9454,
-      "center": [
-        337.77775,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9455",
-      "tract": 9455,
-      "center": [
-        339.259231,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9457",
-      "tract": 9457,
-      "center": [
-        342.222194,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9458",
-      "tract": 9458,
-      "center": [
-        343.703676,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9459",
-      "tract": 9459,
-      "center": [
-        345.185157,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9460",
-      "tract": 9460,
-      "center": [
-        346.666639,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9461",
-      "tract": 9461,
-      "center": [
-        348.14812,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9462",
-      "tract": 9462,
-      "center": [
-        349.629602,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9463",
-      "tract": 9463,
-      "center": [
-        351.111083,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9464",
-      "tract": 9464,
-      "center": [
-        352.592565,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9465",
-      "tract": 9465,
-      "center": [
-        354.074046,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9466",
-      "tract": 9466,
-      "center": [
-        355.555528,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9467",
-      "tract": 9467,
-      "center": [
-        357.037009,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9468",
-      "tract": 9468,
-      "center": [
-        358.518491,
-        -0.743748
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9469",
-      "tract": 9469,
-      "center": [
-        359.999972,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9470",
-      "tract": 9470,
-      "center": [
-        1.481454,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9471",
-      "tract": 9471,
-      "center": [
-        2.962935,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9472",
-      "tract": 9472,
-      "center": [
-        4.444417,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9473",
-      "tract": 9473,
-      "center": [
-        5.925898,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9474",
-      "tract": 9474,
-      "center": [
-        7.40738,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9479",
-      "tract": 9479,
-      "center": [
-        14.814787,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9480",
-      "tract": 9480,
-      "center": [
-        16.296269,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9481",
-      "tract": 9481,
-      "center": [
-        17.77775,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9482",
-      "tract": 9482,
-      "center": [
-        19.259231,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9483",
-      "tract": 9483,
-      "center": [
-        20.740713,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9484",
-      "tract": 9484,
-      "center": [
-        22.222194,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9485",
-      "tract": 9485,
-      "center": [
-        23.703676,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9488",
-      "tract": 9488,
-      "center": [
-        28.140545,
-        0.749695
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9489",
-      "tract": 9489,
-      "center": [
-        29.629602,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9569",
-      "tract": 9569,
-      "center": [
-        148.176627,
-        0.93677
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9570",
-      "tract": 9570,
-      "center": [
-        149.650433,
-        0.77505
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9571",
-      "tract": 9571,
-      "center": [
-        151.111083,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9572",
-      "tract": 9572,
-      "center": [
-        152.499656,
-        0.798398
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9691",
-      "tract": 9691,
-      "center": [
-        329.131112,
-        0.365922
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9692",
-      "tract": 9692,
-      "center": [
-        330.39639,
-        0.714294
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9693",
-      "tract": 9693,
-      "center": [
-        331.851824,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9694",
-      "tract": 9694,
-      "center": [
-        333.333306,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9695",
-      "tract": 9695,
-      "center": [
-        334.814787,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9696",
-      "tract": 9696,
-      "center": [
-        336.296269,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9697",
-      "tract": 9697,
-      "center": [
-        337.77775,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9698",
-      "tract": 9698,
-      "center": [
-        339.259231,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9699",
-      "tract": 9699,
-      "center": [
-        340.740713,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9700",
-      "tract": 9700,
-      "center": [
-        342.222194,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9701",
-      "tract": 9701,
-      "center": [
-        343.703676,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9702",
-      "tract": 9702,
-      "center": [
-        345.185157,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9703",
-      "tract": 9703,
-      "center": [
-        346.666639,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9704",
-      "tract": 9704,
-      "center": [
-        348.14812,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9706",
-      "tract": 9706,
-      "center": [
-        351.111083,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9707",
-      "tract": 9707,
-      "center": [
-        352.592565,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9708",
-      "tract": 9708,
-      "center": [
-        354.074046,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9709",
-      "tract": 9709,
-      "center": [
-        355.555528,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9710",
-      "tract": 9710,
-      "center": [
-        357.037009,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9711",
-      "tract": 9711,
-      "center": [
-        358.518491,
-        0.743803
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9712",
-      "tract": 9712,
-      "center": [
-        359.999972,
         2.231355
       ],
-      "sizeArcmin": 4.0,
+      "sizeArcmin": 30.0,
       "confirmedSurveyIds": [
         "2mass",
         "des-dr2",
         "gaia-dr3",
         "galex-gr6-7",
         "hipass",
-        "hsc-ssp-pdr2",
         "hst",
         "legacy-surveys-dr10",
         "panstarrs-dr2",
@@ -3725,1295 +1702,47 @@
         "vlass",
         "ztf-dr"
       ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9713",
-      "tract": 9713,
-      "center": [
-        1.487576,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9714",
-      "tract": 9714,
-      "center": [
-        2.975179,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9715",
-      "tract": 9715,
-      "center": [
-        4.462782,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9716",
-      "tract": 9716,
-      "center": [
-        5.950385,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9717",
-      "tract": 9717,
-      "center": [
-        7.437989,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9719",
-      "tract": 9719,
-      "center": [
-        10.413195,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9722",
-      "tract": 9722,
-      "center": [
-        14.876005,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9723",
-      "tract": 9723,
-      "center": [
-        16.363609,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9724",
-      "tract": 9724,
-      "center": [
-        17.851212,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9725",
-      "tract": 9725,
-      "center": [
-        19.338815,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9727",
-      "tract": 9727,
-      "center": [
-        22.314022,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9728",
-      "tract": 9728,
-      "center": [
-        23.801625,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9731",
-      "tract": 9731,
-      "center": [
-        28.264435,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9732",
-      "tract": 9732,
-      "center": [
-        29.752038,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9811",
-      "tract": 9811,
-      "center": [
-        147.272699,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9812",
-      "tract": 9812,
-      "center": [
-        148.760303,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9814",
-      "tract": 9814,
-      "center": [
-        151.735509,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9934",
-      "tract": 9934,
-      "center": [
-        330.686945,
-        1.636948
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9935",
-      "tract": 9935,
-      "center": [
-        331.764514,
-        1.785738
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9936",
-      "tract": 9936,
-      "center": [
-        333.19352,
-        1.69643
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9937",
-      "tract": 9937,
-      "center": [
-        334.848297,
-        2.098253
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9939",
-      "tract": 9939,
-      "center": [
-        337.685923,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9940",
-      "tract": 9940,
-      "center": [
-        339.173526,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9943",
-      "tract": 9943,
-      "center": [
-        343.636336,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9944",
-      "tract": 9944,
-      "center": [
-        345.123939,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9945",
-      "tract": 9945,
-      "center": [
-        346.611542,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9947",
-      "tract": 9947,
-      "center": [
-        349.586749,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9948",
-      "tract": 9948,
-      "center": [
-        351.074352,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9950",
-      "tract": 9950,
-      "center": [
-        354.049559,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9951",
-      "tract": 9951,
-      "center": [
-        355.537162,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9952",
-      "tract": 9952,
-      "center": [
-        357.024766,
-        2.231355
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9954",
-      "tract": 9954,
-      "center": [
-        359.999972,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9955",
-      "tract": 9955,
-      "center": [
-        1.487575,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9956",
-      "tract": 9956,
-      "center": [
-        2.975179,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9957",
-      "tract": 9957,
-      "center": [
-        4.462782,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9958",
-      "tract": 9958,
-      "center": [
-        5.950385,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9959",
-      "tract": 9959,
-      "center": [
-        7.437989,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9960",
-      "tract": 9960,
-      "center": [
-        8.925592,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9964",
-      "tract": 9964,
-      "center": [
-        14.876005,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9965",
-      "tract": 9965,
-      "center": [
-        16.363609,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9966",
-      "tract": 9966,
-      "center": [
-        17.851212,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9967",
-      "tract": 9967,
-      "center": [
-        19.338815,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9968",
-      "tract": 9968,
-      "center": [
-        20.826418,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9969",
-      "tract": 9969,
-      "center": [
-        22.314022,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9973",
-      "tract": 9973,
-      "center": [
-        28.264435,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-9974",
-      "tract": 9974,
-      "center": [
-        29.752038,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10053",
-      "tract": 10053,
-      "center": [
-        147.272699,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10054",
-      "tract": 10054,
-      "center": [
-        148.760303,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10055",
-      "tract": 10055,
-      "center": [
-        150.247906,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10056",
-      "tract": 10056,
-      "center": [
-        151.735509,
-        3.718906
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "erosita-erass1",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
-    },
-    {
-      "id": "dp2-tract-10215",
-      "tract": 10215,
-      "center": [
-        28.264435,
-        5.206457
-      ],
-      "sizeArcmin": 4.0,
-      "confirmedSurveyIds": [
-        "2mass",
-        "des-dr2",
-        "gaia-dr3",
-        "galex-gr6-7",
-        "hipass",
-        "hsc-ssp-pdr2",
-        "hst",
-        "legacy-surveys-dr10",
-        "panstarrs-dr2",
-        "planck-2018",
-        "unwise",
-        "vlass",
-        "ztf-dr"
-      ],
-      "selectionReasons": []
+      "selectionReasons": [
+        "confirmed astrometry coverage",
+        "confirmed cmb-large-scale-structure coverage",
+        "confirmed high-resolution coverage",
+        "confirmed neutral-gas coverage",
+        "confirmed optical-baseline coverage",
+        "confirmed radio coverage",
+        "confirmed time-domain coverage",
+        "confirmed uv-ir coverage"
+      ]
     }
   ],
   "plannedJobs": {
-    "total": 199,
+    "total": 673,
     "byStatus": {
-      "error": 1,
-      "fetched": 198
+      "planned": 275,
+      "planned-adapter-required": 398
     },
     "byPhase": {
-      "acquire": 199
+      "acquire": 49,
+      "discover": 226,
+      "discover-manual": 398
     },
     "bySurvey": {
-      "legacy-surveys-dr10": 199
+      "2mass": 50,
+      "des-dr2": 29,
+      "erosita-erass1": 30,
+      "euclid-q1": 14,
+      "gaia-dr3": 50,
+      "galex-gr6-7": 50,
+      "hipass": 50,
+      "hst": 48,
+      "jwst": 12,
+      "legacy-surveys-dr10": 49,
+      "lotss-dr2": 2,
+      "panstarrs-dr2": 48,
+      "planck-2018": 50,
+      "rubin-dp2": 50,
+      "unwise": 50,
+      "vlass": 49,
+      "ztf-dr": 42
     }
   },
   "metadataResponses": [
