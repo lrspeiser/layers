@@ -280,3 +280,8 @@ but the anomaly's position.
 positions are not in this record. Any real counterpart-association operator (G6)
 must pull the eRASS1 source list itself and match against catalogued source
 positions, never against the upper-limit query position.
+
+**Where to get them:** the eRASS1 main catalogue is on VizieR as
+`J/A+A/682/A34/erass1-m`, carrying `RA_ICRS` and `DE_ICRS` per detection. A cone
+search around each Rubin position gives the real source list, in the same
+pattern already used for HICAT. `IX/70/erass1` does not resolve.

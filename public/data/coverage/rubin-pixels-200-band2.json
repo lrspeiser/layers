@@ -1,16 +1,16 @@
 {
   "schemaVersion": "layers-rubin-pixels-public-v1",
-  "generatedAt": "2026-08-14T22:34:30.084744+00:00",
+  "generatedAt": "2026-08-14T22:35:25.734688+00:00",
   "summary": {
-    "regionCount": 24,
-    "completeRegionCount": 21,
-    "scienceReadyRegionCount": 21,
+    "regionCount": 26,
+    "completeRegionCount": 23,
+    "scienceReadyRegionCount": 23,
     "comparisonReadyRegionCount": 0,
-    "sourceCutoutCount": 88,
-    "sourceBytes": 564471360,
-    "mosaicBytes": 414996480
+    "sourceCutoutCount": 96,
+    "sourceBytes": 619329600,
+    "mosaicBytes": 449579520
   },
-  "honestStatus": "21 of 24 selected regions have cached Rubin DP2 MaskedImage mosaics; 21 pass local IMAGE/VARIANCE/MASK/WCS/unit gates and none are comparison-ready before cross-survey QA.",
+  "honestStatus": "23 of 26 selected regions have cached Rubin DP2 MaskedImage mosaics; 23 pass local IMAGE/VARIANCE/MASK/WCS/unit gates and none are comparison-ready before cross-survey QA.",
   "policy": {
     "sodaRequestsPerMinute": 28,
     "accountVoCutoutsPerMinute": 35,
@@ -1275,6 +1275,112 @@
         "maskInteger": true,
         "checksumVerified": true,
         "validPixelFraction": 1.0,
+        "scienceReady": true,
+        "comparisonReady": false,
+        "comparisonBlockers": [
+          "PSF matching",
+          "bandpass transfer",
+          "background matching",
+          "common-mask and covariance QA"
+        ]
+      },
+      "error": null
+    },
+    {
+      "regionId": "dp2-tract-5192",
+      "tract": 5192,
+      "center": [
+        267.096743,
+        -27.519591
+      ],
+      "band": "g",
+      "status": "complete",
+      "sourceCutoutCount": 4,
+      "sourceBytes": 27077760,
+      "sourceSha256": [
+        "49919928dc6777252d5966ab1486b75351e82a59f231b58a0120540e18187330",
+        "e00933f6377f23f7725c0f0481a6b14b0d18950ad490175503fc7d6136f9bda4",
+        "98c1a66546617a4bea727dff9d24a8db0606d1b4014eeaaf23f01050e01d7a7e",
+        "5a6425ecf678fbe4a4f94d1ebde22886dc0e092fc4b547ff12c5e54dea3495b9"
+      ],
+      "mosaicBytes": 17291520,
+      "mosaicSha256": "aee68133cb7a605a632f41173564fa4a46da263f8d0cb151aa551c0f7400c458",
+      "previewPath": "/data/coverage/rubin-pixels-200-band2/dp2-tract-5192-g.png",
+      "previewSha256": "aad1c9fa4c55e0f359706d17e1f81690409dcbec188060447e552b181dc1e270",
+      "validation": {
+        "valid": true,
+        "hasUsablePixels": true,
+        "hduCount": 4,
+        "shape": [
+          1200,
+          1200
+        ],
+        "planeShapesAgree": true,
+        "wcsPresent": true,
+        "units": {
+          "image": "nJy",
+          "variance": "nJy2",
+          "mask": "bitmask"
+        },
+        "imagePresent": true,
+        "variancePresent": true,
+        "maskPresent": true,
+        "maskInteger": true,
+        "checksumVerified": true,
+        "validPixelFraction": 0.9203166666666667,
+        "scienceReady": true,
+        "comparisonReady": false,
+        "comparisonBlockers": [
+          "PSF matching",
+          "bandpass transfer",
+          "background matching",
+          "common-mask and covariance QA"
+        ]
+      },
+      "error": null
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "center": [
+        303.594439,
+        -27.519591
+      ],
+      "band": "g",
+      "status": "complete",
+      "sourceCutoutCount": 4,
+      "sourceBytes": 27780480,
+      "sourceSha256": [
+        "d0d227fd319b38413ce17ee18dfd5cff4120120084be467fa665dc4d156acccd",
+        "00c181e30ae4a1816dd5a7b858d53310407babfdd529e357975f4fc2dc947fb4",
+        "1ff67c966d1101befdedf6382a5ee55c2e37ec0834e0456bd43f2813e2bab329",
+        "3653e61320f9cd9ce54ffa65efd7f93f90517bc9d945c850a238190e966f90d7"
+      ],
+      "mosaicBytes": 17291520,
+      "mosaicSha256": "50aabc62079c256aadd3246f84120c33e252380a20e8a808f9b5dd502c974189",
+      "previewPath": "/data/coverage/rubin-pixels-200-band2/dp2-tract-5214-g.png",
+      "previewSha256": "00bd065967b9d043eb1d384a25329de27f746da595c1a5e3ebd93f5c05d92860",
+      "validation": {
+        "valid": true,
+        "hasUsablePixels": true,
+        "hduCount": 4,
+        "shape": [
+          1200,
+          1200
+        ],
+        "planeShapesAgree": true,
+        "wcsPresent": true,
+        "units": {
+          "image": "nJy",
+          "variance": "nJy2",
+          "mask": "bitmask"
+        },
+        "imagePresent": true,
+        "variancePresent": true,
+        "maskPresent": true,
+        "maskInteger": true,
+        "checksumVerified": true,
+        "validPixelFraction": 0.9851027777777778,
         "scienceReady": true,
         "comparisonReady": false,
         "comparisonBlockers": [
