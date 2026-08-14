@@ -132,6 +132,13 @@ def legacy_survey_layer(record: dict) -> dict:
 def panstarrs_layer(record: dict) -> dict:
     usable_bands = [name for name, product in record.get("bands", {}).items() if product.get("science_coverage")]
     originals = [item for product in record.get("bands", {}).values() for item in product.get("originals", [])]
+    target_id = record["target"]["slug"]
+    public_bands = {
+        name: product.get("public_preview") or f"/layer-previews/panstarrs/{target_id}-{name}.jpg"
+        for name, product in record.get("bands", {}).items()
+        if product.get("science_coverage")
+    }
+    preview_band = next((name for name in ("i", "z", "r", "g", "y") if name in public_bands), None)
     return {
         "id": "panstarrs-dr1-stack",
         "survey": "Pan-STARRS1",
@@ -139,7 +146,7 @@ def panstarrs_layer(record: dict) -> dict:
         "instrument": "PS1 GPC1",
         "kind": "image",
         "availability": "available-local" if usable_bands else "no-valid-pixels",
-        "renderMode": "metadata",
+        "renderMode": "image" if preview_band else "metadata",
         "bands": usable_bands,
         "bandCoverage": {name: product["valid_pixel_fraction"] for name, product in record.get("bands", {}).items() if product.get("science_coverage")},
         "datasetCount": len(originals),
@@ -150,11 +157,13 @@ def panstarrs_layer(record: dict) -> dict:
         "hasMask": bool(usable_bands),
         "hasWcs": True,
         "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+        "scienceRole": "Independent optical morphology and surface-brightness evidence from a different camera and reduction.",
         "provenance": {
             "service": "MAST Pan-STARRS image-list service and full skycell archive",
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service",
         },
+        **({"assets": {"preview": public_bands[preview_band], "bands": public_bands}} if preview_band else {}),
     }
 
 
@@ -169,6 +178,23 @@ def external_image_records(paths: list[Path]) -> dict[str, list[dict]]:
         for item in manifest.get("targets", []):
             records.setdefault(item["targetId"], []).append(item["layer"])
     return records
+
+
+def external_layer_records(paths: list[Path]) -> tuple[dict[str, list[dict]], list[dict]]:
+    """Load survey-neutral linked layers and any non-SPARC comparison fields."""
+    records: dict[str, list[dict]] = {}
+    standalone_targets: list[dict] = []
+    for path in paths:
+        if not path.is_file():
+            continue
+        manifest = load_json(path)
+        if manifest.get("schemaVersion") != 1 or manifest.get("adapterContract") != "layers-external-layer-v1":
+            raise RuntimeError(f"Unsupported external layer manifest: {path}")
+        for item in manifest.get("targets", []):
+            records.setdefault(item["targetId"], []).extend(item.get("layers", []))
+            if item.get("target"):
+                standalone_targets.append({**item["target"], "layers": item.get("layers", []), "comparisons": item.get("comparisons", [])})
+    return records, standalone_targets
 
 
 def external_catalog_records(paths: list[Path]) -> dict[str, dict[str, list[dict]]]:
@@ -529,7 +555,20 @@ def main() -> None:
         "--external-image-manifest",
         action="append",
         type=Path,
-        default=[root / "pipeline" / "output" / "wise-allwise" / "manifest.json"],
+        default=[
+            root / "pipeline" / "output" / "wise-allwise" / "manifest.json",
+            root / "pipeline" / "output" / "galex" / "manifest.json",
+        ],
+    )
+    parser.add_argument(
+        "--external-layer-manifest",
+        action="append",
+        type=Path,
+        default=[
+            root / "pipeline" / "output" / "hi-crossmatches" / "manifest.json",
+            root / "pipeline" / "output" / "spectra-crossmatches" / "manifest.json",
+            root / "pipeline" / "output" / "lensing-fields" / "manifest.json",
+        ],
     )
     parser.add_argument(
         "--external-catalog-manifest",
@@ -562,6 +601,7 @@ def main() -> None:
     if args.panstarrs.is_file():
         panstarrs_records = {item["target"]["slug"]: item for item in load_json(args.panstarrs).get("targets", [])}
     external_records = external_image_records(args.external_image_manifest)
+    external_layers, standalone_targets = external_layer_records(args.external_layer_manifest)
     external_catalogs = external_catalog_records(args.external_catalog_manifest)
     external_comparisons = external_comparison_records(args.external_comparison_manifest)
     targets = []
@@ -573,6 +613,7 @@ def main() -> None:
         if source["slug"] in panstarrs_records:
             layers.append(panstarrs_layer(panstarrs_records[source["slug"]]))
         layers.extend(external_records.get(source["slug"], []))
+        layers.extend(external_layers.get(source["slug"], []))
         layers.extend(external_catalogs.get(source["slug"], {}).get("layers", []))
         comparison_paths = sorted(args.registration_audits.glob("*/registration-audit.json"))
         comparisons = [
@@ -604,6 +645,12 @@ def main() -> None:
             target_record["pilotAudit"] = audit
         targets.append(target_record)
 
+    existing_target_ids = {target["id"] for target in targets}
+    for target in standalone_targets:
+        if target["id"] not in existing_target_ids:
+            targets.append(target)
+            existing_target_ids.add(target["id"])
+
     ranked_audits = sorted(
         (
             audit
@@ -629,6 +676,7 @@ def main() -> None:
     legacy_local = sum(any(layer["id"] == "legacy-survey-dr10" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     panstarrs_local = sum(any(layer["id"] == "panstarrs-dr1-stack" and layer["availability"] == "available-local" for layer in target["layers"]) for target in targets)
     external_images = sum(len(items) for items in external_records.values())
+    external_linked_layers = sum(len(items) for items in external_layers.values())
     external_catalog_layers = sum(len(item["layers"]) for item in external_catalogs.values())
     allwise_published = sum(
         1 for items in external_records.values() for layer in items if layer.get("id") == "wise-allwise-atlas"
@@ -644,12 +692,14 @@ def main() -> None:
             if args.output.is_file() else datetime.now(timezone.utc).isoformat()
         ),
         "targetSelection": {
-            "name": "SPARC 2016 master sample",
+            "name": "SPARC 2016 master sample + appropriate comparison fields",
             "count": len(targets),
-            "complete": len(targets) == coverage["targets_total"],
+            "complete": sum(target["selection"]["sample"] == "SPARC 2016 master sample" for target in targets) == coverage["targets_total"],
         },
         "summary": {
             "targets": len(targets),
+            "sparcTargets": coverage["targets_total"],
+            "comparisonFields": len(targets) - coverage["targets_total"],
             "rubinSiaMatches": coverage["targets_with_deep_coadds"],
             "rubinUsableLocal": usable,
             "rubinFootprintFalsePositives": footprint_only,
@@ -657,6 +707,7 @@ def main() -> None:
             "panStarrsUsableLocal": panstarrs_local,
             "externalImageLayers": external_images,
             "externalCatalogLayers": external_catalog_layers,
+            "externalLinkedLayers": external_linked_layers,
             "allWisePublished": allwise_published,
             "localImageLayers": usable + legacy_local + panstarrs_local + external_images,
             "registrationAudits": registration_audits,

@@ -64,17 +64,20 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
   const catalog = JSON.parse(await readFile(new URL("../public/data/layers-catalog.json", import.meta.url), "utf8"));
   assert.equal(catalog.product, "Layers");
   assert.equal(catalog.targetSelection.complete, true);
-  assert.equal(catalog.targets.length, 175);
-  assert.equal(new Set(catalog.targets.map((target) => target.id)).size, 175);
+  assert.equal(catalog.targets.length, 176);
+  assert.equal(new Set(catalog.targets.map((target) => target.id)).size, 176);
+  assert.equal(catalog.summary.sparcTargets, 175);
+  assert.equal(catalog.summary.comparisonFields, 1);
   assert.equal(catalog.summary.rubinSiaMatches, 4);
   assert.equal(catalog.summary.rubinUsableLocal, 3);
   assert.equal(catalog.summary.rubinFootprintFalsePositives, 1);
   assert.equal(catalog.summary.legacySurveyUsableLocal, 3);
   assert.equal(catalog.summary.panStarrsUsableLocal, 3);
-  assert.equal(catalog.summary.externalImageLayers, 4);
+  assert.equal(catalog.summary.externalImageLayers, 7);
   assert.equal(catalog.summary.externalCatalogLayers, 111);
+  assert.equal(catalog.summary.externalLinkedLayers, 15);
   assert.equal(catalog.summary.allWisePublished, 4);
-  assert.equal(catalog.summary.localImageLayers, 13);
+  assert.equal(catalog.summary.localImageLayers, 16);
   assert.equal(catalog.summary.registrationAudits, 121);
   assert.equal(catalog.summary.pilotAudits, 4);
   assert.equal(catalog.summary.assumptionsWorthRechecking, 4);
@@ -98,7 +101,7 @@ test("catalog contains the complete SPARC sample and generic layer records", asy
     assert.match(provenance.standardProduct.sha256, /^[a-f0-9]{64}$/);
     for (const source of Object.values(provenance.sources)) assert.match(source.sha256, /^[a-f0-9]{64}$/);
   }
-  for (const target of catalog.targets) {
+  for (const target of catalog.targets.filter((item) => item.selection.sample === "SPARC 2016 master sample")) {
     assert.ok(target.layers.some((layer) => layer.id === "sparc-2016" && layer.kind === "profile"));
     assert.ok(target.layers.some((layer) => layer.id === "rubin-dp2-deep-coadd" && layer.kind === "image"));
   }
@@ -137,6 +140,9 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(usableHtml, /Rubin DP2[\s\S]*Legacy Survey DR10/);
   assert.match(usableHtml, /Rubin DP2[\s\S]*Pan-STARRS1/);
   assert.match(usableHtml, /WISE[\s\S]*AllWISE Atlas/);
+  assert.match(usableHtml, /Pan-STARRS1 evidence for this sky field/);
+  assert.match(usableHtml, /ALFALFA detects/);
+  assert.match(usableHtml, /DESI target spectrum linked/);
   assert.match(usableHtml, /type="range"/);
   assert.match(usableHtml, /SCIENCE CLAIM[\s\S]*NOT PUBLISHED/);
 
@@ -162,6 +168,57 @@ test("permanent target records expose honest pixel-level coverage states", async
   assert.match(calibrationHtml, /qualified resolved galaxy cells/);
   assert.match(calibrationHtml, /Only 7\/20 required cells survive the common mask/);
   assert.match(calibrationHtml, /must be greater than or equal to[\s\S]{0,40}20/);
+
+  const ultraviolet = await render("/target/ugc00634");
+  const ultravioletHtml = await ultraviolet.text();
+  assert.match(ultravioletHtml, /GALEX evidence for this sky field/);
+  assert.match(ultravioletHtml, /FUV · NUV/);
+
+  const lensing = await render("/target/abell2744");
+  assert.equal(lensing.status, 200);
+  const lensingHtml = await lensing.text();
+  assert.match(lensingHtml, /Abell 2744/);
+  assert.match(lensingHtml, /Hubble Frontier Fields evidence for this sky field/);
+  assert.match(lensingHtml, /Projected mass from strong \+ weak lensing/);
+  assert.match(lensingHtml, /abell2744-kappa\.jpg/);
+});
+
+test("new public layers preserve coverage, provenance, and scientific role", async () => {
+  const catalog = JSON.parse(await readFile(join(root, "public", "data", "layers-catalog.json"), "utf8"));
+  const rubinFields = ["ngc0100", "ugc00191", "ugc00634", "ugc00891"].map((id) => catalog.targets.find((target) => target.id === id));
+
+  for (const target of rubinFields) {
+    const hi = target.layers.find((layer) => layer.id === "hi-survey-crossmatch");
+    assert.equal(hi.linkedEvidence.status, "detection");
+    assert.match(hi.linkedEvidence.headline, /ALFALFA detects/);
+    assert.ok(hi.linkedEvidence.facts.some((fact) => fact.label === "H I MASS"));
+    await access(join(root, "public", ...hi.assets.data.slice(1).split("/")));
+    assert.equal(target.layers.filter((layer) => layer.id.startsWith("desi-") || layer.id.startsWith("sdss-")).length, 2);
+  }
+
+  const panStarrsFields = rubinFields.filter((target) => target.id !== "ngc0100");
+  for (const target of panStarrsFields) {
+    const panstarrs = target.layers.find((layer) => layer.id === "panstarrs-dr1-stack");
+    assert.equal(panstarrs.renderMode, "image");
+    assert.match(panstarrs.assets.preview, new RegExp(`^/layer-previews/panstarrs/${target.id}-`));
+    await access(join(root, "public", ...panstarrs.assets.preview.slice(1).split("/")));
+  }
+
+  const galexLayers = rubinFields.flatMap((target) => target.layers.filter((layer) => layer.id === "galex-gr6-7"));
+  assert.equal(galexLayers.length, 3);
+  for (const galex of galexLayers) {
+    assert.deepEqual(galex.bands, ["FUV", "NUV"]);
+    assert.equal(galex.hasWcs, true);
+    assert.equal(galex.hasMask, true);
+    await access(join(root, "public", ...galex.assets.preview.slice(1).split("/")));
+  }
+
+  const lensing = catalog.targets.find((target) => target.id === "abell2744");
+  assert.equal(lensing.selection.sample, "Lensing demonstration fields");
+  const kappa = lensing.layers.find((layer) => layer.id === "hff-merten-v1-kappa");
+  assert.equal(kappa.kind, "map");
+  assert.equal(kappa.linkedEvidence.status, "model-map");
+  assert.match(kappa.datasetIds[0], /merten_v1_kappa\.fits$/);
 });
 
 test("every authentic matched pilot has a deterministic preview manifest", async () => {
@@ -238,7 +295,7 @@ test("all 175 SPARC layers expose real profile records rather than fake images",
   ]);
   assert.equal(profileIndex.targetCount, 175);
   assert.equal(Object.keys(profileIndex.targets).length, 175);
-  for (const target of catalog.targets) {
+  for (const target of catalog.targets.filter((item) => item.selection.sample === "SPARC 2016 master sample")) {
     const layer = target.layers.find((item) => item.id === "sparc-2016");
     assert.equal(layer.kind, "profile");
     assert.equal(layer.renderMode, "plot");

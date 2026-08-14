@@ -4,21 +4,24 @@
   "release": "SPARC multi-survey pilot",
   "generatedAt": "2026-08-13T17:07:08.173513+00:00",
   "targetSelection": {
-    "name": "SPARC 2016 master sample",
-    "count": 175,
+    "name": "SPARC 2016 master sample + appropriate comparison fields",
+    "count": 176,
     "complete": true
   },
   "summary": {
-    "targets": 175,
+    "targets": 176,
+    "sparcTargets": 175,
+    "comparisonFields": 1,
     "rubinSiaMatches": 4,
     "rubinUsableLocal": 3,
     "rubinFootprintFalsePositives": 1,
     "legacySurveyUsableLocal": 3,
     "panStarrsUsableLocal": 3,
-    "externalImageLayers": 4,
+    "externalImageLayers": 7,
     "externalCatalogLayers": 111,
+    "externalLinkedLayers": 15,
     "allWisePublished": 4,
-    "localImageLayers": 13,
+    "localImageLayers": 16,
     "registrationAudits": 121,
     "pilotAudits": 4,
     "assumptionsWorthRechecking": 4,
@@ -4382,6 +4385,266 @@
           "assets": {
             "preview": "/layer-previews/wise-allwise/ngc0100-w1.jpg",
             "data": "/data/layers/wise-allwise/ngc0100.json"
+          }
+        },
+        {
+          "id": "galex-gr6-7",
+          "survey": "GALEX",
+          "release": "GR6/GR7",
+          "instrument": "GALEX FUV/NUV imagers",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "FUV",
+            "NUV"
+          ],
+          "bandCoverage": {
+            "FUV": 0.9608897569444445,
+            "NUV": 0.9627039930555555
+          },
+          "datasetCount": 6,
+          "datasetIds": [
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-rrhr.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-rrhr.fits.gz"
+          ],
+          "units": {
+            "image": "nJy",
+            "exposure": "seconds",
+            "response": "relative response"
+          },
+          "calibration": "GALEX GR6/GR7 count-rate maps converted with mission AB zero points",
+          "hasVariance": false,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public ultraviolet pixels. The color preview maps FUV to blue and NUV to magenta; it is not a Rubin difference image.",
+          "scienceRole": "Recent star formation and UV-bright structures that can distinguish young populations from old stellar mass.",
+          "provenance": {
+            "service": "MAST CAOM",
+            "collection": "GALEX",
+            "documentation": "https://galex.stsci.edu/gr6/"
+          },
+          "assets": {
+            "preview": "/layer-previews/galex/ngc0100-uv.jpg",
+            "bands": {
+              "FUV": "/layer-previews/galex/ngc0100-fuv.jpg",
+              "NUV": "/layer-previews/galex/ngc0100-nuv.jpg"
+            },
+            "data": "/data/layers/galex/ngc0100.json"
+          }
+        },
+        {
+          "id": "hi-survey-crossmatch",
+          "survey": "ALFALFA + HIPASS + WALLABY",
+          "release": "public H I cross-match",
+          "instrument": "21-cm neutral-hydrogen surveys",
+          "kind": "catalog",
+          "availability": "published",
+          "renderMode": "table",
+          "bands": [
+            "H I 21 cm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "ALFALFA AGC 231"
+          ],
+          "units": {
+            "lineFlux": "Jy km/s",
+            "velocity": "km/s",
+            "mass": "log10 solar masses"
+          },
+          "calibration": "Published survey catalog quantities; no cross-survey recalibration applied",
+          "hasVariance": true,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Every Rubin pilot field was queried against three public H I catalogs. Only actual detections are presented as gas measurements.",
+          "scienceRole": "Neutral-gas mass and velocity width for baryonic-mass and dynamical checks.",
+          "provenance": {
+            "service": "CDS VizieR TAP",
+            "catalogs": "J/ApJ/861/49/table2, J/AJ/128/16/table2, J/MNRAS/510/1716/tablea1"
+          },
+          "assets": {
+            "data": "/data/layers/hi-crossmatches/ngc0100.json"
+          },
+          "linkedEvidence": {
+            "status": "detection",
+            "headline": "ALFALFA detects AGC 231 at this Rubin field",
+            "summary": "A real 21-cm catalog measurement supplies neutral-gas mass and velocity width. It is linked evidence, not a resolved H I map.",
+            "facts": [
+              {
+                "label": "H I MASS",
+                "value": "10^9.55",
+                "unit": "solar masses"
+              },
+              {
+                "label": "21-CM FLUX",
+                "value": "44.34",
+                "unit": "Jy km/s"
+              },
+              {
+                "label": "W50",
+                "value": "206",
+                "unit": "km/s"
+              },
+              {
+                "label": "VELOCITY",
+                "value": "842",
+                "unit": "km/s"
+              },
+              {
+                "label": "OFFSET",
+                "value": "0.44",
+                "unit": "arcmin"
+              }
+            ],
+            "links": [
+              {
+                "label": "ALFALFA catalog",
+                "href": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/ApJ/861/49"
+              },
+              {
+                "label": "WALLABY public data",
+                "href": "https://wallaby-survey.org/data/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "desi-dr1-spectrum",
+          "survey": "DESI",
+          "release": "DR1",
+          "instrument": "DESI 5000-fiber spectrograph",
+          "kind": "spectrum",
+          "availability": "published",
+          "renderMode": "plot",
+          "bands": [
+            "360-982 nm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "39628178452381764"
+          ],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published DESI pipeline classification and redshift",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "A target-associated spectrum is linked only when a galaxy-classified fiber lies within the declared optical association radius.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "DESI public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ngc0100.json"
+          },
+          "linkedEvidence": {
+            "status": "target-spectrum",
+            "headline": "DESI target spectrum linked",
+            "summary": "32 primary DESI spectra were found within the 6-arcminute Rubin field. The nearest galaxy-classified spectrum falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "REDSHIFT",
+                "value": "0.833262",
+                "unit": "z"
+              },
+              {
+                "label": "CLASS",
+                "value": "GALAXY",
+                "unit": "Redrock"
+              },
+              {
+                "label": "OFFSET",
+                "value": "66.0",
+                "unit": "arcsec"
+              },
+              {
+                "label": "EXPOSURE",
+                "value": "1103",
+                "unit": "seconds"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open official spectrum",
+                "href": "https://www.legacysurvey.org/viewer/desi-spectrum/dr1/targetid39628178452381764"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sdss-dr17-spectrum",
+          "survey": "SDSS",
+          "release": "DR17",
+          "instrument": "SDSS optical spectrographs",
+          "kind": "spectrum",
+          "availability": "published",
+          "renderMode": "plot",
+          "bands": [
+            "optical spectrum"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "6963926873371072512"
+          ],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published SDSS pipeline classification and redshift",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "A target-associated spectrum is linked only when a galaxy-classified fiber lies within the declared optical association radius.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "SDSS public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ngc0100.json"
+          },
+          "linkedEvidence": {
+            "status": "target-spectrum",
+            "headline": "SDSS target spectrum linked",
+            "summary": "5 primary SDSS spectra were found within the 6-arcminute Rubin field. The nearest galaxy-classified spectrum falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "REDSHIFT",
+                "value": "0.003011",
+                "unit": "z"
+              },
+              {
+                "label": "CLASS",
+                "value": "GALAXY",
+                "unit": "pipeline"
+              },
+              {
+                "label": "OFFSET",
+                "value": "17.7",
+                "unit": "arcsec"
+              },
+              {
+                "label": "PLATE-MJD-FIBER",
+                "value": "6185-56217-858",
+                "unit": "SDSS"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open official spectrum",
+                "href": "https://skyserver.sdss.org/dr17/VisualTools/explore/summary?sid=6963926873371072512"
+              }
+            ]
           }
         }
       ],
@@ -15634,7 +15897,7 @@
           "instrument": "PS1 GPC1",
           "kind": "image",
           "availability": "available-local",
-          "renderMode": "metadata",
+          "renderMode": "image",
           "bands": [
             "g",
             "i",
@@ -15683,10 +15946,20 @@
           "hasMask": true,
           "hasWcs": true,
           "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "scienceRole": "Independent optical morphology and surface-brightness evidence from a different camera and reduction.",
           "provenance": {
             "service": "MAST Pan-STARRS image-list service and full skycell archive",
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          },
+          "assets": {
+            "preview": "/layer-previews/panstarrs/ugc00191-i.jpg",
+            "bands": {
+              "g": "/layer-previews/panstarrs/ugc00191-g.jpg",
+              "i": "/layer-previews/panstarrs/ugc00191-i.jpg",
+              "r": "/layer-previews/panstarrs/ugc00191-r.jpg",
+              "z": "/layer-previews/panstarrs/ugc00191-z.jpg"
+            }
           }
         },
         {
@@ -15729,6 +16002,204 @@
           "assets": {
             "preview": "/layer-previews/wise-allwise/ugc00191-w1.jpg",
             "data": "/data/layers/wise-allwise/ugc00191.json"
+          }
+        },
+        {
+          "id": "hi-survey-crossmatch",
+          "survey": "ALFALFA + HIPASS + WALLABY",
+          "release": "public H I cross-match",
+          "instrument": "21-cm neutral-hydrogen surveys",
+          "kind": "catalog",
+          "availability": "published",
+          "renderMode": "table",
+          "bands": [
+            "H I 21 cm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "ALFALFA AGC 191"
+          ],
+          "units": {
+            "lineFlux": "Jy km/s",
+            "velocity": "km/s",
+            "mass": "log10 solar masses"
+          },
+          "calibration": "Published survey catalog quantities; no cross-survey recalibration applied",
+          "hasVariance": true,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Every Rubin pilot field was queried against three public H I catalogs. Only actual detections are presented as gas measurements.",
+          "scienceRole": "Neutral-gas mass and velocity width for baryonic-mass and dynamical checks.",
+          "provenance": {
+            "service": "CDS VizieR TAP",
+            "catalogs": "J/ApJ/861/49/table2, J/AJ/128/16/table2, J/MNRAS/510/1716/tablea1"
+          },
+          "assets": {
+            "data": "/data/layers/hi-crossmatches/ugc00191.json"
+          },
+          "linkedEvidence": {
+            "status": "detection",
+            "headline": "ALFALFA detects AGC 191 at this Rubin field",
+            "summary": "A real 21-cm catalog measurement supplies neutral-gas mass and velocity width. It is linked evidence, not a resolved H I map.",
+            "facts": [
+              {
+                "label": "H I MASS",
+                "value": "10^9.02",
+                "unit": "solar masses"
+              },
+              {
+                "label": "21-CM FLUX",
+                "value": "17.33",
+                "unit": "Jy km/s"
+              },
+              {
+                "label": "W50",
+                "value": "129",
+                "unit": "km/s"
+              },
+              {
+                "label": "VELOCITY",
+                "value": "1144",
+                "unit": "km/s"
+              },
+              {
+                "label": "OFFSET",
+                "value": "0.20",
+                "unit": "arcmin"
+              }
+            ],
+            "links": [
+              {
+                "label": "ALFALFA catalog",
+                "href": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/ApJ/861/49"
+              },
+              {
+                "label": "WALLABY public data",
+                "href": "https://wallaby-survey.org/data/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "desi-dr1-spectrum",
+          "survey": "DESI",
+          "release": "DR1",
+          "instrument": "DESI 5000-fiber spectrograph",
+          "kind": "spectrum",
+          "availability": "published",
+          "renderMode": "plot",
+          "bands": [
+            "360-982 nm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "39628049192324341"
+          ],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published DESI pipeline classification and redshift",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "A target-associated spectrum is linked only when a galaxy-classified fiber lies within the declared optical association radius.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "DESI public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00191.json"
+          },
+          "linkedEvidence": {
+            "status": "target-spectrum",
+            "headline": "DESI target spectrum linked",
+            "summary": "57 primary DESI spectra were found within the 6-arcminute Rubin field. The nearest galaxy-classified spectrum falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "REDSHIFT",
+                "value": "0.003826",
+                "unit": "z"
+              },
+              {
+                "label": "CLASS",
+                "value": "GALAXY",
+                "unit": "Redrock"
+              },
+              {
+                "label": "OFFSET",
+                "value": "19.6",
+                "unit": "arcsec"
+              },
+              {
+                "label": "EXPOSURE",
+                "value": "623",
+                "unit": "seconds"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open official spectrum",
+                "href": "https://www.legacysurvey.org/viewer/desi-spectrum/dr1/targetid39628049192324341"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sdss-dr17-spectrum",
+          "survey": "SDSS",
+          "release": "DR17",
+          "instrument": "SDSS optical spectrographs",
+          "kind": "spectrum",
+          "availability": "metadata-match",
+          "renderMode": "metadata",
+          "bands": [
+            "optical spectrum"
+          ],
+          "datasetCount": 0,
+          "datasetIds": [],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published SDSS pipeline classification and redshift",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Spectra exist in the field, but none is safely associated with the target galaxy; nearby background spectra are not substituted.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "SDSS public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00191.json"
+          },
+          "linkedEvidence": {
+            "status": "field-only",
+            "headline": "No secure SDSS target spectrum",
+            "summary": "9 primary SDSS spectra were found within the 6-arcminute Rubin field. None of the galaxy spectra falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "FIELD SPECTRA",
+                "value": "9",
+                "unit": "within 6 arcmin"
+              },
+              {
+                "label": "TARGET MATCH",
+                "value": "NONE",
+                "unit": "within 57 arcsec"
+              }
+            ],
+            "links": [
+              {
+                "label": "Search official archive",
+                "href": "https://skyserver.sdss.org/dr17/VisualTools/navi?ra=5.02167000&dec=10.88000000"
+              }
+            ]
           }
         }
       ],
@@ -16717,7 +17188,7 @@
           "instrument": "PS1 GPC1",
           "kind": "image",
           "availability": "available-local",
-          "renderMode": "metadata",
+          "renderMode": "image",
           "bands": [
             "i",
             "r",
@@ -16776,10 +17247,19 @@
           "hasMask": true,
           "hasWcs": true,
           "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "scienceRole": "Independent optical morphology and surface-brightness evidence from a different camera and reduction.",
           "provenance": {
             "service": "MAST Pan-STARRS image-list service and full skycell archive",
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          },
+          "assets": {
+            "preview": "/layer-previews/panstarrs/ugc00634-i.jpg",
+            "bands": {
+              "i": "/layer-previews/panstarrs/ugc00634-i.jpg",
+              "r": "/layer-previews/panstarrs/ugc00634-r.jpg",
+              "z": "/layer-previews/panstarrs/ugc00634-z.jpg"
+            }
           }
         },
         {
@@ -16822,6 +17302,266 @@
           "assets": {
             "preview": "/layer-previews/wise-allwise/ugc00634-w1.jpg",
             "data": "/data/layers/wise-allwise/ugc00634.json"
+          }
+        },
+        {
+          "id": "galex-gr6-7",
+          "survey": "GALEX",
+          "release": "GR6/GR7",
+          "instrument": "GALEX FUV/NUV imagers",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "FUV",
+            "NUV"
+          ],
+          "bandCoverage": {
+            "FUV": 1.0,
+            "NUV": 1.0
+          },
+          "datasetCount": 6,
+          "datasetIds": [
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-fd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-fd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-fd-rrhr.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-nd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-nd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/02-vsn/50264-AIS_264/d/01-main/0001-img/07-try/AIS_264_sg50-nd-rrhr.fits.gz"
+          ],
+          "units": {
+            "image": "nJy",
+            "exposure": "seconds",
+            "response": "relative response"
+          },
+          "calibration": "GALEX GR6/GR7 count-rate maps converted with mission AB zero points",
+          "hasVariance": false,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public ultraviolet pixels. The color preview maps FUV to blue and NUV to magenta; it is not a Rubin difference image.",
+          "scienceRole": "Recent star formation and UV-bright structures that can distinguish young populations from old stellar mass.",
+          "provenance": {
+            "service": "MAST CAOM",
+            "collection": "GALEX",
+            "documentation": "https://galex.stsci.edu/gr6/"
+          },
+          "assets": {
+            "preview": "/layer-previews/galex/ugc00634-uv.jpg",
+            "bands": {
+              "FUV": "/layer-previews/galex/ugc00634-fuv.jpg",
+              "NUV": "/layer-previews/galex/ugc00634-nuv.jpg"
+            },
+            "data": "/data/layers/galex/ugc00634.json"
+          }
+        },
+        {
+          "id": "hi-survey-crossmatch",
+          "survey": "ALFALFA + HIPASS + WALLABY",
+          "release": "public H I cross-match",
+          "instrument": "21-cm neutral-hydrogen surveys",
+          "kind": "catalog",
+          "availability": "published",
+          "renderMode": "table",
+          "bands": [
+            "H I 21 cm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "ALFALFA AGC 634"
+          ],
+          "units": {
+            "lineFlux": "Jy km/s",
+            "velocity": "km/s",
+            "mass": "log10 solar masses"
+          },
+          "calibration": "Published survey catalog quantities; no cross-survey recalibration applied",
+          "hasVariance": true,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Every Rubin pilot field was queried against three public H I catalogs. Only actual detections are presented as gas measurements.",
+          "scienceRole": "Neutral-gas mass and velocity width for baryonic-mass and dynamical checks.",
+          "provenance": {
+            "service": "CDS VizieR TAP",
+            "catalogs": "J/ApJ/861/49/table2, J/AJ/128/16/table2, J/MNRAS/510/1716/tablea1"
+          },
+          "assets": {
+            "data": "/data/layers/hi-crossmatches/ugc00634.json"
+          },
+          "linkedEvidence": {
+            "status": "detection",
+            "headline": "ALFALFA detects AGC 634 at this Rubin field",
+            "summary": "A real 21-cm catalog measurement supplies neutral-gas mass and velocity width. It is linked evidence, not a resolved H I map.",
+            "facts": [
+              {
+                "label": "H I MASS",
+                "value": "10^9.38",
+                "unit": "solar masses"
+              },
+              {
+                "label": "21-CM FLUX",
+                "value": "14.56",
+                "unit": "Jy km/s"
+              },
+              {
+                "label": "W50",
+                "value": "138",
+                "unit": "km/s"
+              },
+              {
+                "label": "VELOCITY",
+                "value": "2212",
+                "unit": "km/s"
+              },
+              {
+                "label": "OFFSET",
+                "value": "0.24",
+                "unit": "arcmin"
+              }
+            ],
+            "links": [
+              {
+                "label": "ALFALFA catalog",
+                "href": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/ApJ/861/49"
+              },
+              {
+                "label": "WALLABY public data",
+                "href": "https://wallaby-survey.org/data/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "desi-dr1-spectrum",
+          "survey": "DESI",
+          "release": "DR1",
+          "instrument": "DESI 5000-fiber spectrograph",
+          "kind": "spectrum",
+          "availability": "published",
+          "renderMode": "plot",
+          "bands": [
+            "360-982 nm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "39627971803221700"
+          ],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published DESI pipeline classification and redshift",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "A target-associated spectrum is linked only when a galaxy-classified fiber lies within the declared optical association radius.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "DESI public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00634.json"
+          },
+          "linkedEvidence": {
+            "status": "target-spectrum",
+            "headline": "DESI target spectrum linked",
+            "summary": "92 primary DESI spectra were found within the 6-arcminute Rubin field. The nearest galaxy-classified spectrum falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "REDSHIFT",
+                "value": "0.007232",
+                "unit": "z"
+              },
+              {
+                "label": "CLASS",
+                "value": "GALAXY",
+                "unit": "Redrock"
+              },
+              {
+                "label": "OFFSET",
+                "value": "35.4",
+                "unit": "arcsec"
+              },
+              {
+                "label": "EXPOSURE",
+                "value": "450",
+                "unit": "seconds"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open official spectrum",
+                "href": "https://www.legacysurvey.org/viewer/desi-spectrum/dr1/targetid39627971803221700"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sdss-dr17-spectrum",
+          "survey": "SDSS",
+          "release": "DR17",
+          "instrument": "SDSS optical spectrographs",
+          "kind": "spectrum",
+          "availability": "published",
+          "renderMode": "plot",
+          "bands": [
+            "optical spectrum"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "12456074902347470848"
+          ],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published SDSS pipeline classification and redshift",
+          "hasVariance": true,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "A target-associated spectrum is linked only when a galaxy-classified fiber lies within the declared optical association radius.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "SDSS public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00634.json"
+          },
+          "linkedEvidence": {
+            "status": "target-spectrum",
+            "headline": "SDSS target spectrum linked",
+            "summary": "14 primary SDSS spectra were found within the 6-arcminute Rubin field. The nearest galaxy-classified spectrum falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "REDSHIFT",
+                "value": "0.007551",
+                "unit": "z"
+              },
+              {
+                "label": "CLASS",
+                "value": "GALAXY",
+                "unit": "pipeline"
+              },
+              {
+                "label": "OFFSET",
+                "value": "19.0",
+                "unit": "arcsec"
+              },
+              {
+                "label": "PLATE-MJD-FIBER",
+                "value": "11063-58426-888",
+                "unit": "SDSS"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open official spectrum",
+                "href": "https://skyserver.sdss.org/dr17/VisualTools/explore/summary?sid=12456074902347470848"
+              }
+            ]
           }
         }
       ],
@@ -17845,7 +18585,7 @@
           "instrument": "PS1 GPC1",
           "kind": "image",
           "availability": "available-local",
-          "renderMode": "metadata",
+          "renderMode": "image",
           "bands": [
             "i",
             "r",
@@ -17886,10 +18626,19 @@
           "hasMask": true,
           "hasWcs": true,
           "note": "Full science, variance, and mask skycells plus a calibrated local mosaic exist; comparison remains registration and QA gated.",
+          "scienceRole": "Independent optical morphology and surface-brightness evidence from a different camera and reduction.",
           "provenance": {
             "service": "MAST Pan-STARRS image-list service and full skycell archive",
             "product": "unconvolved stack + stack.wt + stack.mask",
             "documentation": "https://outerspace.stsci.edu/spaces/PANSTARRS/pages/298812251/PS1+Image+Cutout+Service"
+          },
+          "assets": {
+            "preview": "/layer-previews/panstarrs/ugc00891-i.jpg",
+            "bands": {
+              "i": "/layer-previews/panstarrs/ugc00891-i.jpg",
+              "r": "/layer-previews/panstarrs/ugc00891-r.jpg",
+              "z": "/layer-previews/panstarrs/ugc00891-z.jpg"
+            }
           }
         },
         {
@@ -17932,6 +18681,242 @@
           "assets": {
             "preview": "/layer-previews/wise-allwise/ugc00891-w1.jpg",
             "data": "/data/layers/wise-allwise/ugc00891.json"
+          }
+        },
+        {
+          "id": "galex-gr6-7",
+          "survey": "GALEX",
+          "release": "GR6/GR7",
+          "instrument": "GALEX FUV/NUV imagers",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "FUV",
+            "NUV"
+          ],
+          "bandCoverage": {
+            "FUV": 1.0,
+            "NUV": 1.0
+          },
+          "datasetCount": 6,
+          "datasetIds": [
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-fd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-fd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-fd-rrhr.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-nd-int.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-nd-exp.fits.gz",
+            "mast:GALEX/url/data/GR6/pipe/01-vsn/21285-GI1_047006_UGC00891/d/01-main/0001-img/07-try/GI1_047006_UGC00891-nd-rrhr.fits.gz"
+          ],
+          "units": {
+            "image": "nJy",
+            "exposure": "seconds",
+            "response": "relative response"
+          },
+          "calibration": "GALEX GR6/GR7 count-rate maps converted with mission AB zero points",
+          "hasVariance": false,
+          "hasMask": true,
+          "hasWcs": true,
+          "note": "Authentic public ultraviolet pixels. The color preview maps FUV to blue and NUV to magenta; it is not a Rubin difference image.",
+          "scienceRole": "Recent star formation and UV-bright structures that can distinguish young populations from old stellar mass.",
+          "provenance": {
+            "service": "MAST CAOM",
+            "collection": "GALEX",
+            "documentation": "https://galex.stsci.edu/gr6/"
+          },
+          "assets": {
+            "preview": "/layer-previews/galex/ugc00891-uv.jpg",
+            "bands": {
+              "FUV": "/layer-previews/galex/ugc00891-fuv.jpg",
+              "NUV": "/layer-previews/galex/ugc00891-nuv.jpg"
+            },
+            "data": "/data/layers/galex/ugc00891.json"
+          }
+        },
+        {
+          "id": "hi-survey-crossmatch",
+          "survey": "ALFALFA + HIPASS + WALLABY",
+          "release": "public H I cross-match",
+          "instrument": "21-cm neutral-hydrogen surveys",
+          "kind": "catalog",
+          "availability": "published",
+          "renderMode": "table",
+          "bands": [
+            "H I 21 cm"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "ALFALFA AGC 891"
+          ],
+          "units": {
+            "lineFlux": "Jy km/s",
+            "velocity": "km/s",
+            "mass": "log10 solar masses"
+          },
+          "calibration": "Published survey catalog quantities; no cross-survey recalibration applied",
+          "hasVariance": true,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Every Rubin pilot field was queried against three public H I catalogs. Only actual detections are presented as gas measurements.",
+          "scienceRole": "Neutral-gas mass and velocity width for baryonic-mass and dynamical checks.",
+          "provenance": {
+            "service": "CDS VizieR TAP",
+            "catalogs": "J/ApJ/861/49/table2, J/AJ/128/16/table2, J/MNRAS/510/1716/tablea1"
+          },
+          "assets": {
+            "data": "/data/layers/hi-crossmatches/ugc00891.json"
+          },
+          "linkedEvidence": {
+            "status": "detection",
+            "headline": "ALFALFA detects AGC 891 at this Rubin field",
+            "summary": "A real 21-cm catalog measurement supplies neutral-gas mass and velocity width. It is linked evidence, not a resolved H I map.",
+            "facts": [
+              {
+                "label": "H I MASS",
+                "value": "10^8.51",
+                "unit": "solar masses"
+              },
+              {
+                "label": "21-CM FLUX",
+                "value": "16.89",
+                "unit": "Jy km/s"
+              },
+              {
+                "label": "W50",
+                "value": "109",
+                "unit": "km/s"
+              },
+              {
+                "label": "VELOCITY",
+                "value": "645",
+                "unit": "km/s"
+              },
+              {
+                "label": "OFFSET",
+                "value": "0.15",
+                "unit": "arcmin"
+              }
+            ],
+            "links": [
+              {
+                "label": "ALFALFA catalog",
+                "href": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/ApJ/861/49"
+              },
+              {
+                "label": "WALLABY public data",
+                "href": "https://wallaby-survey.org/data/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "desi-dr1-spectrum",
+          "survey": "DESI",
+          "release": "DR1",
+          "instrument": "DESI 5000-fiber spectrograph",
+          "kind": "spectrum",
+          "availability": "metadata-match",
+          "renderMode": "metadata",
+          "bands": [
+            "360-982 nm"
+          ],
+          "datasetCount": 0,
+          "datasetIds": [],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published DESI pipeline classification and redshift",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Spectra exist in the field, but none is safely associated with the target galaxy; nearby background spectra are not substituted.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "DESI public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00891.json"
+          },
+          "linkedEvidence": {
+            "status": "field-only",
+            "headline": "No secure DESI target spectrum",
+            "summary": "14 primary DESI spectra were found within the 6-arcminute Rubin field. None of the galaxy spectra falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "FIELD SPECTRA",
+                "value": "14",
+                "unit": "within 6 arcmin"
+              },
+              {
+                "label": "TARGET MATCH",
+                "value": "NONE",
+                "unit": "within 81 arcsec"
+              }
+            ],
+            "links": [
+              {
+                "label": "Search official archive",
+                "href": "https://data.desi.lbl.gov/doc/releases/dr1/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sdss-dr17-spectrum",
+          "survey": "SDSS",
+          "release": "DR17",
+          "instrument": "SDSS optical spectrographs",
+          "kind": "spectrum",
+          "availability": "metadata-match",
+          "renderMode": "metadata",
+          "bands": [
+            "optical spectrum"
+          ],
+          "datasetCount": 0,
+          "datasetIds": [],
+          "units": {
+            "wavelength": "Angstrom",
+            "flux": "survey-calibrated spectral flux",
+            "redshift": "dimensionless"
+          },
+          "calibration": "Published SDSS pipeline classification and redshift",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "Spectra exist in the field, but none is safely associated with the target galaxy; nearby background spectra are not substituted.",
+          "scienceRole": "Redshift, distance consistency, emission-line activity, stellar population, and environmental context.",
+          "provenance": {
+            "service": "NOIRLab Astro Data Lab TAP",
+            "table": "SDSS public spectroscopic catalog"
+          },
+          "assets": {
+            "data": "/data/layers/spectra-crossmatches/ugc00891.json"
+          },
+          "linkedEvidence": {
+            "status": "field-only",
+            "headline": "No secure SDSS target spectrum",
+            "summary": "15 primary SDSS spectra were found within the 6-arcminute Rubin field. None of the galaxy spectra falls inside the target association radius.",
+            "facts": [
+              {
+                "label": "FIELD SPECTRA",
+                "value": "15",
+                "unit": "within 6 arcmin"
+              },
+              {
+                "label": "TARGET MATCH",
+                "value": "NONE",
+                "unit": "within 81 arcsec"
+              }
+            ],
+            "links": [
+              {
+                "label": "Search official archive",
+                "href": "https://skyserver.sdss.org/dr17/VisualTools/navi?ra=20.32875000&dec=12.41194000"
+              }
+            ]
           }
         }
       ],
@@ -31290,6 +32275,161 @@
           "provenance": {
             "service": "Rubin Science Platform SIA v2 + DataLink",
             "datasetType": "lsst.deep_coadd",
+            "queryStatus": "OK"
+          }
+        }
+      ],
+      "comparisons": []
+    },
+    {
+      "id": "abell2744",
+      "name": "Abell 2744",
+      "identifiers": {
+        "COMMON": "Pandora's Cluster",
+        "SIMBAD": "ACO 2744"
+      },
+      "center": {
+        "raDeg": 3.588333,
+        "decDeg": -30.39725,
+        "frame": "ICRS"
+      },
+      "region": {
+        "shape": "square",
+        "widthArcmin": 6.0
+      },
+      "selection": {
+        "sample": "Lensing demonstration fields",
+        "redshift": 0.308
+      },
+      "layers": [
+        {
+          "id": "hst-frontier-fields",
+          "survey": "Hubble Frontier Fields",
+          "release": "Abell 2744 public mosaics",
+          "instrument": "HST ACS",
+          "kind": "image",
+          "availability": "published",
+          "renderMode": "image",
+          "bands": [
+            "F435W",
+            "F606W",
+            "F814W"
+          ],
+          "datasetCount": 3,
+          "datasetIds": [
+            "https://archive.stsci.edu/pub/hla/hlsp/frontier/hst/acs-30mas/abell2744/hlsp_frontier_hst_acs-30mas_abell2744_f814w_v1.0-epoch2_f606w_v1.0-epoch2_f435w_v1.0-epoch2_512.jpg"
+          ],
+          "units": {
+            "preview": "display RGB"
+          },
+          "calibration": "MAST Hubble Frontier Fields high-level science mosaic",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": false,
+          "note": "Authentic public HST color preview of the cluster field; the linked archive retains the calibrated mosaics.",
+          "scienceRole": "Observed cluster light and strong-lensing arcs.",
+          "provenance": {
+            "service": "MAST",
+            "collection": "Hubble Frontier Fields"
+          },
+          "assets": {
+            "preview": "/layer-previews/lensing/abell2744-hst.jpg",
+            "data": "/data/layers/lensing/abell2744.json"
+          }
+        },
+        {
+          "id": "hff-merten-v1-kappa",
+          "survey": "Hubble Frontier Fields lens models",
+          "release": "Merten v1",
+          "instrument": "SaWLens reconstruction",
+          "kind": "map",
+          "availability": "published",
+          "renderMode": "overlay",
+          "bands": [
+            "kappa"
+          ],
+          "datasetCount": 1,
+          "datasetIds": [
+            "https://archive.stsci.edu/pub/hlsp/frontier/abell2744/models/merten/v1/hlsp_frontier_model_abell2744_merten_v1_kappa.fits"
+          ],
+          "units": {
+            "convergence": "dimensionless kappa"
+          },
+          "calibration": "Merten non-parametric strong+weak-lensing model",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": true,
+          "note": "A real public projected-mass model. Display color encodes kappa; it is not telescope color or detected optical light.",
+          "scienceRole": "Compare inferred total projected mass with observed luminous structure in a scientifically appropriate cluster field.",
+          "provenance": {
+            "service": "MAST",
+            "collection": "Frontier Fields lens models",
+            "documentation": "https://archive.stsci.edu/prepds/frontier/lensmodels/"
+          },
+          "assets": {
+            "preview": "/layer-previews/lensing/abell2744-kappa.jpg",
+            "data": "/data/layers/lensing/abell2744.json"
+          },
+          "linkedEvidence": {
+            "status": "model-map",
+            "headline": "Projected mass from strong + weak lensing",
+            "summary": "This kappa map is model-dependent total-mass evidence. It belongs beside the HST light image, but it is not eligible for a raw pixel difference.",
+            "facts": [
+              {
+                "label": "QUANTITY",
+                "value": "KAPPA",
+                "unit": "dimensionless convergence"
+              },
+              {
+                "label": "METHOD",
+                "value": "SaWLens",
+                "unit": "strong + weak lensing"
+              },
+              {
+                "label": "CLUSTER Z",
+                "value": "0.308",
+                "unit": "redshift"
+              },
+              {
+                "label": "RUBIN DP2",
+                "value": "0",
+                "unit": "deep-coadd records"
+              }
+            ],
+            "links": [
+              {
+                "label": "Open MAST lens models",
+                "href": "https://archive.stsci.edu/prepds/frontier/lensmodels/"
+              },
+              {
+                "label": "Download source kappa FITS",
+                "href": "https://archive.stsci.edu/pub/hlsp/frontier/abell2744/models/merten/v1/hlsp_frontier_model_abell2744_merten_v1_kappa.fits"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rubin-dp2-deep-coadd",
+          "survey": "Vera C. Rubin Observatory",
+          "release": "Early DP2",
+          "instrument": "LSSTCam",
+          "kind": "image",
+          "availability": "not-covered",
+          "renderMode": "metadata",
+          "bands": [],
+          "datasetCount": 0,
+          "datasetIds": [],
+          "units": {
+            "image": "nJy"
+          },
+          "calibration": "Rubin Science Pipelines deep coadd",
+          "hasVariance": false,
+          "hasMask": false,
+          "hasWcs": false,
+          "note": "An authenticated DP2 SIA query returned zero deep-coadd datasets within 0.12 degrees of Abell 2744.",
+          "scienceRole": "Future Rubin coverage check; no current Rubin pixel claim.",
+          "provenance": {
+            "service": "Rubin Science Platform SIA v2",
             "queryStatus": "OK"
           }
         }

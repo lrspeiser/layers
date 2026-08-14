@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers gravitational-lensing map record",
+  "createdAt": "2026-08-14T04:58:29.162231+00:00",
+  "targetId": "abell2744",
+  "target": {
+    "name": "Abell 2744",
+    "raDeg": 3.588333,
+    "decDeg": -30.39725,
+    "redshift": 0.308
+  },
+  "rubinDp2Audit": {
+    "queryRadiusDeg": 0.12,
+    "deepCoaddRows": 0,
+    "status": "not-covered"
+  },
+  "map": {
+    "quantity": "dimensionless convergence kappa",
+    "model": "Merten v1 SaWLens",
+    "method": "non-parametric strong + weak lensing",
+    "source": "https://archive.stsci.edu/pub/hlsp/frontier/abell2744/models/merten/v1/hlsp_frontier_model_abell2744_merten_v1_kappa.fits",
+    "sha256": "553468ceb4c7dc104a856db16a5f67d16a269dd0fb309c0cc3bd4dff253fe44a",
+    "shape": [
+      180,
+      180
+    ],
+    "validPixelFraction": 1.0,
+    "displayRange": [
+      -0.0878781696408987,
+      0.3232935494184477
+    ],
+    "bunit": null,
+    "hasWcs": true
+  },
+  "hst": {
+    "source": "https://archive.stsci.edu/pub/hla/hlsp/frontier/hst/acs-30mas/abell2744/hlsp_frontier_hst_acs-30mas_abell2744_f814w_v1.0-epoch2_f606w_v1.0-epoch2_f435w_v1.0-epoch2_512.jpg",
+    "sha256": "17c0ccfc811fb5a722136d906c64f348e1c22b22d1f3bd714de06216de8d6e5b",
+    "bands": [
+      "F435W",
+      "F606W",
+      "F814W"
+    ]
+  },
+  "interpretation": {
+    "status": "model-map",
+    "statement": "Kappa is an inferred projected mass map constrained by lensing observations; it is not observed surface brightness and cannot be subtracted from an optical image.",
+    "caveats": [
+      "The map depends on the Merten v1 lens model, assumed cosmology, source redshifts, and reconstruction regularization.",
+      "Rubin Early DP2 returned no deep-coadd records at this field, so no Rubin comparison is claimed."
+    ]
+  }
+}

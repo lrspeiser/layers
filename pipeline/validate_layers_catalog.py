@@ -164,8 +164,9 @@ def main() -> None:
         errors.append("catalog: assumption audits are not ranked by descending priority")
     if summary.get("pilotAudits") != len(pilot_audits) or len(pilot_audits) != 4:
         errors.append("catalog: all four Rubin pilot targets must have an explicit pilot audit")
-    if plotted_profile_count != len(targets):
-        errors.append("catalog: every target must expose one available SPARC profile")
+    sparc_target_count = sum(target.get("selection", {}).get("sample") == "SPARC 2016 master sample" for target in targets)
+    if plotted_profile_count != sparc_target_count or summary.get("sparcTargets") != sparc_target_count:
+        errors.append("catalog: every SPARC target must expose one available SPARC profile")
 
     if errors:
         raise SystemExit("\n".join(errors))

@@ -167,6 +167,26 @@ a { color: inherit; text-decoration: none; }
 .view-tabs span { color: #89928f; font-size: 9px; margin-left: auto; }
 
 .layers-viewport { background: var(--night); min-height: 420px; overflow: hidden; position: relative; }
+.evidence-pair-viewport { color: #eaf2ee; padding: 22px; }
+.evidence-pair-heading { align-items: end; display: flex; gap: 24px; justify-content: space-between; margin-bottom: 14px; }
+.evidence-pair-heading .eyebrow { color: var(--cyan); }
+.evidence-pair-heading p { color: #8fa19d; font-size: 9px; line-height: 1.5; margin: 0; max-width: 480px; text-align: right; }
+.evidence-pair-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.layer-evidence-card { background: #111a1c; border: 1px solid #304043; color: #eaf2ee; min-width: 0; overflow: hidden; }
+.layer-evidence-image { aspect-ratio: 16 / 10; background: #020507; overflow: hidden; position: relative; }
+.layer-evidence-image img { height: 100%; object-fit: contain; width: 100%; }
+.layer-evidence-image > span { background: rgba(5, 10, 12, .86); bottom: 8px; color: #dce9e5; font: 700 7px/1 var(--font-mono), monospace; left: 8px; letter-spacing: .05em; padding: 6px 7px; position: absolute; text-transform: uppercase; }
+.layer-evidence-body { padding: 15px; }
+.layer-evidence-body .eyebrow { color: var(--cyan); }
+.layer-evidence-body h3 { font-family: var(--font-display), sans-serif; font-size: 18px; letter-spacing: -.025em; margin: 8px 0 5px; }
+.layer-evidence-body > p { color: #aab9b6; font-size: 9px; line-height: 1.55; margin: 0; }
+.layer-evidence-facts { background: #283638; display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); margin-top: 13px; }
+.layer-evidence-facts span { background: #182326; display: flex; flex-direction: column; min-width: 0; padding: 9px; }
+.layer-evidence-facts small { color: #748886; font: 700 7px/1 var(--font-mono), monospace; }
+.layer-evidence-facts strong { color: #fff; font: 800 12px/1 var(--font-mono), monospace; margin: 5px 0 3px; }
+.layer-evidence-facts em { color: #8fa19d; font-size: 7px; font-style: normal; }
+.layer-evidence-links { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 13px; }
+.layer-evidence-links a { border-bottom: 1px solid #59706c; color: var(--acid); font-size: 8px; font-weight: 700; padding-bottom: 2px; }
 .layer-cards-after-view { margin-top: 10px; }
 .technical-disclosure { margin-top: 12px; border: 1px solid #cbd2cf; background: #eef0eb; }
 .technical-disclosure > summary { cursor: pointer; padding: 13px 15px; color: #4f5a57; font: 800 9px/1 var(--font-mono), monospace; letter-spacing: .07em; text-transform: uppercase; }
@@ -402,6 +422,9 @@ footer > div { display: flex; font-size: 10px; gap: 22px; }
 .record-layer-state { align-items: end; display: flex; flex-direction: column; gap: 5px; text-align: right; }
 .record-layer-state strong { background: #e1e7f6; color: #34519b; font-size: 8px; padding: 6px 8px; text-transform: uppercase; }
 .record-layer-state span { color: #7a8582; font-family: var(--font-mono), monospace; font-size: 8px; }
+.record-science-role { color: #465653 !important; margin-bottom: 7px; }
+.record-layer-list > article > .layer-evidence-card { grid-column: 2 / -1; }
+.record-layer-list > article > .layer-evidence-card .layer-evidence-image { aspect-ratio: 3 / 1; }
 .record-empty-comparison { align-items: center; background: #e8eae5; border: 1px solid #d0d6d3; display: grid; gap: 25px; grid-template-columns: 75px 1fr; padding: 24px; }
 .record-empty-comparison > strong { color: #9ba3a0; font-family: var(--font-display), sans-serif; font-size: 55px; text-align: center; }
 .record-empty-comparison h3 { font-family: var(--font-display), sans-serif; font-size: 18px; margin: 0 0 4px; }
@@ -687,6 +710,9 @@ footer > div { display: flex; font-size: 10px; gap: 22px; }
   .layer-selectors { grid-template-columns: 1fr; }
   .versus { display: none; }
   .layer-cards, .analysis-grid { grid-template-columns: 1fr; }
+  .evidence-pair-grid { grid-template-columns: 1fr; }
+  .evidence-pair-heading { align-items: start; flex-direction: column; gap: 8px; }
+  .evidence-pair-heading p { text-align: left; }
   .page-brief, .candidate-card-grid, .candidate-breakout-heading { grid-template-columns: 1fr; }
   .page-brief article { border-right: 0; border-bottom: 1px solid #d8dedb; }
   .page-brief article:last-child { border-bottom: 0; }
@@ -718,6 +744,7 @@ footer > div { display: flex; font-size: 10px; gap: 22px; }
   .record-comparison-facts { grid-template-columns: 1fr 1fr; }
   .record-comparison-facts span:nth-child(-n+2) { border-bottom: 1px solid #314043; }
   .record-layer-list article { grid-template-columns: 36px 1fr; }
+  .record-layer-list > article > .layer-evidence-card { grid-column: 1 / -1; }
   .record-layer-state { align-items: start; grid-column: 2; text-align: left; }
   .record-aside { padding: 36px 20px; }
 }

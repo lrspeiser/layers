@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers H I survey cross-match",
+  "createdAt": "2026-08-14T04:54:35.734176+00:00",
+  "targetId": "ugc00191",
+  "center": {
+    "raDeg": 5.021669999999999,
+    "decDeg": 10.88,
+    "frame": "ICRS"
+  },
+  "searches": [
+    {
+      "survey": "ALFALFA",
+      "release": "alpha.100",
+      "catalog": "J/ApJ/861/49/table2",
+      "searchRadiusArcmin": 6.0,
+      "matchCount": 1,
+      "documentation": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/ApJ/861/49",
+      "matches": [
+        {
+          "sep_deg": 0.0033138554342939455,
+          "recno": 664,
+          "AGC": 191,
+          "Name": "434-001",
+          "RAJ2000": 5.019166666666666,
+          "DEJ2000": 10.882222222222222,
+          "RAO": 5.021249999999999,
+          "DEO": 10.879166666666665,
+          "Vhel": 1144,
+          "W50": 129,
+          "e_W50": 2,
+          "W20": 143,
+          "HIflux": 17.33,
+          "e_HIflux": 0.09,
+          "SNR": 129.2,
+          "rms": 2.63,
+          "Dist": 16.1,
+          "e_Dist": 4.4,
+          "logMHI": 9.02,
+          "e_logMHI": 0.24,
+          "HI": 1
+        }
+      ]
+    },
+    {
+      "survey": "HIPASS",
+      "release": "Bright Galaxy Catalog",
+      "catalog": "J/AJ/128/16/table2",
+      "searchRadiusArcmin": 6.0,
+      "matchCount": 0,
+      "documentation": "https://cdsarc.cds.unistra.fr/viz-bin/cat/J/AJ/128/16",
+      "matches": []
+    },
+    {
+      "survey": "WALLABY",
+      "release": "public catalog search",
+      "catalog": "J/MNRAS/510/1716/tablea1",
+      "searchRadiusArcmin": 6.0,
+      "matchCount": 0,
+      "documentation": "https://wallaby-survey.org/data/",
+      "matches": []
+    }
+  ],
+  "interpretation": {
+    "status": "linked-evidence",
+    "statement": "A real 21-cm catalog measurement supplies neutral-gas mass and velocity width. It is linked evidence, not a resolved H I map.",
+    "caveats": [
+      "Catalog proximity alone does not establish source identity; the sub-arcminute ALFALFA counterpart should be checked against velocity and morphology.",
+      "A catalog non-match is not a gas-mass upper limit unless survey footprint, sensitivity, and line-width completeness are modeled."
+    ]
+  }
+}

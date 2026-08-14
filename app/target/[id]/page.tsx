@@ -6,6 +6,7 @@ import type { LayerTarget } from "@/lib/layers";
 import { layerStatusLabel } from "@/lib/layers";
 import TargetComparisonViewer from "@/components/TargetComparisonViewer";
 import previewData from "@/public/data/comparison-previews.json";
+import { LayerEvidence } from "@/components/LayerEvidence";
 
 const targets = catalogData.targets as unknown as LayerTarget[];
 
@@ -60,8 +61,9 @@ export default async function TargetPage({ params }: { params: Promise<{ id: str
             {target.layers.map((layer, index) => (
               <article key={layer.id}>
                 <span className="record-layer-index">{String(index + 1).padStart(2, "0")}</span>
-                <div><span className="eyebrow">{layer.kind} · {layer.renderMode}</span><h3>{layer.survey}</h3><p>{layer.release} · {layer.instrument}</p><small>{layer.note}</small></div>
+                <div><span className="eyebrow">{layer.kind} · {layer.renderMode}</span><h3>{layer.survey}</h3><p>{layer.release} · {layer.instrument}</p>{layer.scienceRole && <small className="record-science-role"><strong>Scientific role:</strong> {layer.scienceRole}</small>}<small>{layer.note}</small></div>
                 <div className="record-layer-state"><strong>{layerStatusLabel(layer)}</strong><span>{layer.bands.join(" · ") || "No image bands"}</span><span>{layer.datasetCount ?? "—"} datasets</span></div>
+                <LayerEvidence layer={layer} />
               </article>
             ))}
           </div>

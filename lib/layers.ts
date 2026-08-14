@@ -26,11 +26,19 @@ export type Layer = {
   hasMask: boolean;
   hasWcs: boolean;
   note: string;
+  scienceRole?: string;
   provenance: Record<string, string>;
   assets?: {
     preview?: string;
     bands?: Record<string, string>;
     data?: string;
+  };
+  linkedEvidence?: {
+    status: string;
+    headline: string;
+    summary: string;
+    facts: Array<{ label: string; value: string; unit?: string }>;
+    links: Array<{ label: string; href: string }>;
   };
   profileSummary?: {
     acceptedPhotometryPoints: number;
@@ -253,7 +261,7 @@ export type LayerTarget = {
   identifiers: Record<string, string>;
   center: { raDeg: number; decDeg: number; frame: "ICRS" };
   region: { shape: "square" | "circle" | "polygon"; widthArcmin: number };
-  selection: { sample: string; bibcode?: string; majorAxisArcmin?: number };
+  selection: { sample: string; bibcode?: string; majorAxisArcmin?: number; redshift?: number };
   layers: Layer[];
   comparisons: Comparison[];
   pilotAudit?: PilotAudit;
@@ -267,6 +275,8 @@ export type LayersCatalog = {
   targetSelection: { name: string; count: number; complete: boolean };
   summary: {
     targets: number;
+    sparcTargets?: number;
+    comparisonFields?: number;
     rubinSiaMatches: number;
     rubinUsableLocal: number;
     rubinFootprintFalsePositives: number;
@@ -274,6 +284,7 @@ export type LayersCatalog = {
     panStarrsUsableLocal?: number;
     externalImageLayers?: number;
     externalCatalogLayers?: number;
+    externalLinkedLayers?: number;
     allWisePublished?: number;
     localImageLayers?: number;
     registrationAudits?: number;

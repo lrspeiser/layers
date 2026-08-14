@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "product": "Layers external image-layer record",
+  "targetId": "ngc0100",
+  "survey": "GALEX",
+  "release": "GR6/GR7",
+  "center": {
+    "raDeg": 6.011820833333334,
+    "decDeg": 16.48638888888889,
+    "frame": "ICRS"
+  },
+  "region": {
+    "widthArcmin": 12.0
+  },
+  "bands": {
+    "FUV": {
+      "validPixelFraction": 0.9608897569444445,
+      "nJyPerCountPerSecond": 107646.52136298327,
+      "standardProductSha256": "8fe01b4f0e3a286c1c605812113620e2d3a707dfd8f1036c360b77b96f94f44a",
+      "previewSha256": "de777dc1f3572f72f9ecd6587766e99dd69ad916841b7b10c9af00869d638030"
+    },
+    "NUV": {
+      "validPixelFraction": 0.9627039930555555,
+      "nJyPerCountPerSecond": 33728.73086588692,
+      "standardProductSha256": "b38afcbeb3d8132b5e600bcd78de288d6b3045b8c78500b0b28ba442dce774e5",
+      "previewSha256": "b325f14e615131c6b7e63c14a5c5d7bcde085eb31b0d78af971c1b851bcac7d2"
+    }
+  },
+  "sources": {
+    "FUV": {
+      "obsid": "30308",
+      "obsId": "6380978493420732416",
+      "targetName": "AIS_286_1_7",
+      "exposureSeconds": 217,
+      "products": {
+        "science": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-int.fits.gz",
+          "filename": "AIS_286_sg07-fd-int.fits.gz",
+          "sha256": "b158f6f5033a61af02f6d8ea9460204570a841e44a06ab7210d5bce3171fdad2"
+        },
+        "exposure": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-exp.fits.gz",
+          "filename": "AIS_286_sg07-fd-exp.fits.gz",
+          "sha256": "b718d8851f14ec882729c1bc475ae0a4849cc69e5f3dc5db154cc2e34661c656"
+        },
+        "response": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-fd-rrhr.fits.gz",
+          "filename": "AIS_286_sg07-fd-rrhr.fits.gz",
+          "sha256": "a4cd5441a17d3e2dfd057ac521aa93f89cb06858987eaa41438ba23f35a1ada0"
+        }
+      }
+    },
+    "NUV": {
+      "obsid": "30308",
+      "obsId": "6380978493420732416",
+      "targetName": "AIS_286_1_7",
+      "exposureSeconds": 217,
+      "products": {
+        "science": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-int.fits.gz",
+          "filename": "AIS_286_sg07-nd-int.fits.gz",
+          "sha256": "ed5d3d83e8bed195e817ba94fe666528fe11a55611f748319dc0e919f20695ba"
+        },
+        "exposure": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-exp.fits.gz",
+          "filename": "AIS_286_sg07-nd-exp.fits.gz",
+          "sha256": "e7cf8433d7b67169a9a279f08e569b11c4b150aa48d37162cf5ba99965ac2349"
+        },
+        "response": {
+          "uri": "mast:GALEX/url/data/GR6/pipe/02-vsn/50286-AIS_286/d/01-main/0001-img/07-try/AIS_286_sg07-nd-rrhr.fits.gz",
+          "filename": "AIS_286_sg07-nd-rrhr.fits.gz",
+          "sha256": "5e6cd63233762412189e6c6431e78580391df8a37ae94c86fd7e318d473b837f"
+        }
+      }
+    }
+  },
+  "display": {
+    "preview": "/layer-previews/galex/ngc0100-uv.jpg",
+    "stretch": "per-band asinh; color encodes wavelength only"
+  },
+  "scienceGate": {
+    "status": "evidence-only",
+    "reason": "GALEX and Rubin filters, PSFs, units, and epochs have not been reconciled for pixel subtraction."
+  }
+}

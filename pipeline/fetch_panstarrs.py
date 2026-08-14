@@ -200,6 +200,7 @@ def main() -> None:
     parser.add_argument("--rubin-mosaics", type=Path, default=root / "pipeline" / "output" / "dp2-sparc" / "mosaic-summary.json")
     parser.add_argument("--legacy", type=Path, default=root / "pipeline" / "output" / "legacy-survey" / "manifest.json")
     parser.add_argument("--output", type=Path, default=root / "pipeline" / "output" / "panstarrs")
+    parser.add_argument("--public-previews", type=Path, default=root / "public" / "layer-previews" / "panstarrs")
     parser.add_argument("--pixel-scale", type=float, default=0.4)
     parser.add_argument("--coverage-threshold", type=float, default=0.5)
     parser.add_argument("--only", action="append", default=[])
@@ -387,10 +388,15 @@ def main() -> None:
             target_dir.mkdir(parents=True, exist_ok=True)
             write_product(product_path, image_njy, variance_njy2, output_mask, target_wcs, target, band)
             preview_path = target_dir / f"panstarrs_{band}.png"
+            public_preview_path = args.public_previews / f"{target['slug']}-{band}.jpg"
             if valid.any():
-                Image.fromarray(grayscale(image_njy, valid), mode="L").save(preview_path, optimize=True)
+                preview_image = Image.fromarray(grayscale(image_njy, valid), mode="L")
+                preview_image.save(preview_path, optimize=True)
+                args.public_previews.mkdir(parents=True, exist_ok=True)
+                preview_image.resize((900, 900), Image.Resampling.LANCZOS).save(public_preview_path, quality=92, optimize=True)
             else:
                 preview_path.unlink(missing_ok=True)
+                public_preview_path.unlink(missing_ok=True)
             band_records[band] = {
                 "science_coverage": bool(valid.any()),
                 "valid_pixel_fraction": float(valid.mean()),
@@ -398,6 +404,8 @@ def main() -> None:
                 "product_sha256": sha256(product_path),
                 "preview": preview_path.as_posix() if valid.any() else None,
                 "preview_sha256": sha256(preview_path) if valid.any() else None,
+                "public_preview": f"/layer-previews/panstarrs/{public_preview_path.name}" if valid.any() else None,
+                "public_preview_sha256": sha256(public_preview_path) if valid.any() else None,
                 "calibrations": calibrations,
                 "originals": originals,
                 "variance_note": "PS1 stack.wt is documented as variance; nearest-neighbour reprojection does not model resampling covariance.",

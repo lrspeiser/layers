@@ -7,8 +7,9 @@ import { comparisonIsSwipeable, layerStatusLabel } from "@/lib/layers";
 import comparisonPreviewData from "@/public/data/comparison-previews.json";
 import { SignalCandidateList, type SignalCandidate } from "@/components/SignalCandidateList";
 import { RubinDataInventory } from "@/components/RubinDataInventory";
+import { LayerEvidencePair } from "@/components/LayerEvidence";
 
-type CoverageFilter = "all" | "rubin" | "wise-mass" | "no-coverage";
+type CoverageFilter = "all" | "rubin" | "wise-mass" | "lensing" | "no-coverage";
 type WorkbenchView = "evidence" | "swipe" | "coverage" | "candidates" | "profiles";
 export type PrototypeScience = {
   candidateRegions: SignalCandidate[];
@@ -248,6 +249,10 @@ function LayerViewport({ target, left, right, view, science, profile }: { target
     );
   }
 
+  if (left.assets?.preview || right.assets?.preview || left.linkedEvidence || right.linkedEvidence) {
+    return <LayerEvidencePair left={left} right={right} />;
+  }
+
   const noValidPixels = [left, right].find((layer) => layer.availability === "no-valid-pixels");
   const bothImages = left.kind === "image" && right.kind === "image";
   return (
@@ -403,6 +408,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
     const rubin = target.layers.find((layer) => layer.id === "rubin-dp2-deep-coadd");
     if (coverageFilter === "rubin") return rubin?.availability !== "not-covered";
     if (coverageFilter === "wise-mass") return target.layers.some((layer) => layer.id === "wise-w1-stellar-mass-2025");
+    if (coverageFilter === "lensing") return target.layers.some((layer) => layer.kind === "map" && (layer.id.includes("kappa") || layer.scienceRole?.toLowerCase().includes("lensing")));
     if (coverageFilter === "no-coverage") return rubin?.availability === "not-covered";
     return true;
   }), [catalog.targets, coverageFilter, query]);
@@ -475,7 +481,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
       <section className="release-bar">
         <div><span className="eyebrow">CURRENT RELEASE</span><h1>See the same sky through every credible layer.</h1><p>Align observations, measure what changed, and find assumptions worth rechecking—without confusing a difference with a discovery.</p></div>
         <div className="release-stats">
-          <span><strong>{catalog.summary.targets}</strong><small>preselected SPARC targets searched</small></span>
+          <span><strong>{catalog.summary.sparcTargets ?? catalog.summary.targets}</strong><small>preselected SPARC targets searched</small></span>
           <span><strong>{catalog.summary.rubinSiaMatches}</strong><small>Rubin footprint responses</small></span>
           <span><strong>{catalog.summary.rubinUsableLocal}</strong><small>separate usable Rubin fields</small></span>
           <span><strong>{rubinBandMosaics}</strong><small>usable Rubin band mosaics</small></span>
@@ -488,7 +494,7 @@ export function AtlasExperience({ catalog, prototypeScience }: { catalog: Layers
           <div className="browser-title"><span className="eyebrow">TARGETS</span><strong>{catalog.targetSelection.name}</strong></div>
           <label className="target-search"><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Name or identifier" aria-label="Search targets" /></label>
           <div className="filter-tabs" role="group" aria-label="Coverage filter">
-            {(["rubin", "wise-mass", "all", "no-coverage"] as CoverageFilter[]).map((item) => <button key={item} className={coverageFilter === item ? "active" : ""} onClick={() => setCoverageFilter(item)}>{item === "rubin" ? "Rubin matches" : item === "wise-mass" ? "WISE masses" : item === "all" ? "All 175" : "No coverage"}</button>)}
+            {(["rubin", "wise-mass", "lensing", "all", "no-coverage"] as CoverageFilter[]).map((item) => <button key={item} className={coverageFilter === item ? "active" : ""} onClick={() => setCoverageFilter(item)}>{item === "rubin" ? "Rubin matches" : item === "wise-mass" ? "WISE masses" : item === "lensing" ? "Lensing" : item === "all" ? `All ${catalog.summary.targets}` : "No coverage"}</button>)}
           </div>
           <div className="target-count">{filtered.length} targets</div>
           <div className="target-list">
