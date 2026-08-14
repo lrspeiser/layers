@@ -225,6 +225,48 @@ def measure_region(
     return payload
 
 
+def universality_test(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Test whether one colour term explains every field.
+
+    A bandpass colour term is a property of the two filter systems, so it must be
+    the same constant in every field. If the field-to-field spread far exceeds the
+    stated per-field uncertainties, the fits are being driven by something
+    field-dependent and the transfer is not established, however significant any
+    individual fit looks.
+    """
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for item in records:
+        key = f"{item['rubinColourBand']}-{item['rubinBand']}-vs-{item['referenceSurveyId']}"
+        grouped.setdefault(key, []).append(item)
+
+    results = {}
+    for key, rows in grouped.items():
+        if len(rows) < 3:
+            continue
+        terms = np.array([row["fit"]["colourTerm"] for row in rows])
+        errors = np.array([row["fit"]["colourTermUncertainty"] for row in rows])
+        errors = np.where(errors > 0, errors, np.nan)
+        weights = 1.0 / errors**2
+        if not np.isfinite(weights).any():
+            continue
+        mean = float(np.nansum(weights * terms) / np.nansum(weights))
+        uncertainty = float(math.sqrt(1.0 / np.nansum(weights)))
+        chi2 = float(np.nansum(weights * (terms - mean) ** 2))
+        dof = max(1, len(rows) - 1)
+        reduced = chi2 / dof
+        results[key] = {
+            "fields": len(rows),
+            "weightedMeanColourTerm": mean,
+            "weightedMeanUncertainty": uncertainty,
+            "reducedChiSquare": reduced,
+            "fieldSpread": float(np.std(terms)),
+            "medianStatedUncertainty": float(np.nanmedian(errors)),
+            "spreadToUncertaintyRatio": float(np.std(terms) / np.nanmedian(errors)),
+            "consistentWithOneConstant": bool(reduced <= 2.0),
+        }
+    return results
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--reconciled", type=Path, default=DEFAULT_RECONCILED)
@@ -290,6 +332,7 @@ def main() -> None:
             "medianResidualBeforeMag": float(np.median(before)) if before else None,
             "medianResidualAfterMag": float(np.median(after)) if after else None,
         },
+        "universality": universality_test(records),
         "policy": {
             "compactSourceOnly": True,
             "clearsBandpassBlocker": False,
@@ -315,6 +358,14 @@ def main() -> None:
         print(
             f"median colour term {np.median(terms):+.4f}  "
             f"residual {np.median(before):.4f} -> {np.median(after):.4f} mag",
+            flush=True,
+        )
+    for key, item in summary["universality"].items():
+        verdict = "consistent" if item["consistentWithOneConstant"] else "INCONSISTENT"
+        print(
+            f"  {key}: {item['fields']} fields, term {item['weightedMeanColourTerm']:+.4f}"
+            f" +/- {item['weightedMeanUncertainty']:.4f}, reduced chi2 {item['reducedChiSquare']:.1f}"
+            f" -> {verdict} with a single constant",
             flush=True,
         )
 

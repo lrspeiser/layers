@@ -1,0 +1,1719 @@
+{
+  "schemaVersion": "layers-bandpass-transfer-summary-v1",
+  "generatedAt": "2026-08-14T17:13:53.596291+00:00",
+  "toleranceMag": 0.08,
+  "counts": {
+    "measured": 37,
+    "withinTolerance": 22,
+    "skipped": 11
+  },
+  "aggregate": {
+    "medianColourTerm": -0.039434363458233646,
+    "colourTermScatter": 0.16919611986287972,
+    "medianResidualBeforeMag": 0.09044745645880582,
+    "medianResidualAfterMag": 0.07330014142134957
+  },
+  "universality": {
+    "g-r-vs-legacy-surveys-dr10": {
+      "fields": 22,
+      "weightedMeanColourTerm": 0.034193062661007266,
+      "weightedMeanUncertainty": 0.004055706534958469,
+      "reducedChiSquare": 443.56520357595826,
+      "fieldSpread": 0.3415186314376223,
+      "medianStatedUncertainty": 0.021604936274329786,
+      "spreadToUncertaintyRatio": 15.807435259293152,
+      "consistentWithOneConstant": false
+    },
+    "i-r-vs-legacy-surveys-dr10": {
+      "fields": 12,
+      "weightedMeanColourTerm": 0.1837565664645383,
+      "weightedMeanUncertainty": 0.007353121031962596,
+      "reducedChiSquare": 8.577307832596519,
+      "fieldSpread": 0.28038817456313436,
+      "medianStatedUncertainty": 0.03125473514453128,
+      "spreadToUncertaintyRatio": 8.971062249177132,
+      "consistentWithOneConstant": false
+    }
+  },
+  "policy": {
+    "compactSourceOnly": true,
+    "clearsBandpassBlocker": false,
+    "note": "A compact-source transfer never clears the bandpass blocker on its own. The pilots already passed point-source colour calibration and still failed the resolved-galaxy transfer by 5 to 13 times the tolerance. This stage measures whether a Rubin colour term exists and how much residual it removes; the extended-source test is separate."
+  },
+  "skipped": [
+    {
+      "regionId": "dp2-tract-12112",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-5281",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-5391",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-8026",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "reason": "no validated second Rubin band"
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "reason": "no validated second Rubin band"
+    }
+  ],
+  "regions": [
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "generatedAt": "2026-08-14T17:13:48.045887+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 134,
+        "usable": 134,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.36885267896271534,
+          1.561803754008282
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.1183423585105425,
+        "zeroPointUncertaintyMag": 0.011381486140244293,
+        "colourTerm": -0.06832179252306991,
+        "colourTermUncertainty": 0.015301942087827413,
+        "usedSources": 134,
+        "rejectedSources": 0,
+        "residualScatterMag": 0.07444365306922636,
+        "residualRmsMag": 0.07644083787079292
+      },
+      "residual": {
+        "beforeTransferMag": 0.0676848542039549,
+        "afterTransferMag": 0.07444365306922636,
+        "improvementMag": -0.006758798865271462,
+        "beforeTransferRmsMag": 0.08443914762834127,
+        "afterTransferRmsMag": 0.07644083787079292,
+        "rmsImprovementMag": 0.007998309757548352,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": false
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "generatedAt": "2026-08-14T17:13:48.188416+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 133,
+        "usable": 133,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.39864925010687635,
+          1.211928515093884
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.22459273063235477,
+        "zeroPointUncertaintyMag": 0.017605849236972088,
+        "colourTerm": -0.15355558284504042,
+        "colourTermUncertainty": 0.03627393549088335,
+        "usedSources": 130,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.14278027594118767,
+        "residualRmsMag": 0.1535197572045725
+      },
+      "residual": {
+        "beforeTransferMag": 0.14994016045962838,
+        "afterTransferMag": 0.14278027594118767,
+        "improvementMag": 0.007159884518440712,
+        "beforeTransferRmsMag": 0.16458459605339076,
+        "afterTransferRmsMag": 0.1535197572045725,
+        "rmsImprovementMag": 0.01106483884881826,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "generatedAt": "2026-08-14T17:13:48.323451+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 39,
+        "usable": 39,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.467805928672695,
+          -0.16917095429290055
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.25085891073309696,
+        "zeroPointUncertaintyMag": 0.02526040025705456,
+        "colourTerm": 0.20312453901471922,
+        "colourTermUncertainty": 0.03091142366316784,
+        "usedSources": 37,
+        "rejectedSources": 2,
+        "residualScatterMag": 0.06873230631519055,
+        "residualRmsMag": 0.07151151181727487
+      },
+      "residual": {
+        "beforeTransferMag": 0.11002774955362722,
+        "afterTransferMag": 0.06873230631519055,
+        "improvementMag": 0.041295443238436674,
+        "beforeTransferRmsMag": 0.10708927450805358,
+        "afterTransferRmsMag": 0.07151151181727487,
+        "rmsImprovementMag": 0.03557776269077871,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "generatedAt": "2026-08-14T17:13:48.463711+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 119,
+        "usable": 119,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.3765423390867563,
+          1.5091814456537989
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.3450712335712541,
+        "zeroPointUncertaintyMag": 0.015910379589634985,
+        "colourTerm": -0.11522107353991341,
+        "colourTermUncertainty": 0.023859745798484114,
+        "usedSources": 114,
+        "rejectedSources": 5,
+        "residualScatterMag": 0.11237557829085276,
+        "residualRmsMag": 0.12221064184913037
+      },
+      "residual": {
+        "beforeTransferMag": 0.13681452560466026,
+        "afterTransferMag": 0.11237557829085276,
+        "improvementMag": 0.024438947313807496,
+        "beforeTransferRmsMag": 0.13442593571095632,
+        "afterTransferRmsMag": 0.12221064184913037,
+        "rmsImprovementMag": 0.012215293861825946,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "generatedAt": "2026-08-14T17:13:48.603744+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 68,
+        "usable": 68,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.13669773269449767,
+          1.8841712653612506
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.030669249933173683,
+        "zeroPointUncertaintyMag": 0.038492872281908466,
+        "colourTerm": -0.02552283505554945,
+        "colourTermUncertainty": 0.042940204708886515,
+        "usedSources": 65,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.12908942940778048,
+        "residualRmsMag": 0.14672412040049618
+      },
+      "residual": {
+        "beforeTransferMag": 0.14296611198517867,
+        "afterTransferMag": 0.12908942940778048,
+        "improvementMag": 0.013876682577398186,
+        "beforeTransferRmsMag": 0.1471387562779016,
+        "afterTransferRmsMag": 0.14672412040049618,
+        "rmsImprovementMag": 0.0004146358774054226,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": false,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "generatedAt": "2026-08-14T17:13:48.736271+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 15,
+        "usable": 15,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.5689408662632822,
+          3.1332656351036716
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.7829057307360523,
+        "zeroPointUncertaintyMag": 0.1439310470931337,
+        "colourTerm": 1.1987532441828856,
+        "colourTermUncertainty": 0.1277299002107945,
+        "usedSources": 14,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.3732483727518001,
+        "residualRmsMag": 0.4612017031361534
+      },
+      "residual": {
+        "beforeTransferMag": 0.16433156864628762,
+        "afterTransferMag": 0.3732483727518001,
+        "improvementMag": -0.2089168041055125,
+        "beforeTransferRmsMag": 1.366385147153334,
+        "afterTransferRmsMag": 0.4612017031361534,
+        "rmsImprovementMag": 0.9051834440171805,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": false
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "generatedAt": "2026-08-14T17:13:48.879800+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 61,
+        "usable": 61,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.02312530133206377,
+          2.0036214719926315
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.14624462589813267,
+        "zeroPointUncertaintyMag": 0.014173582690782494,
+        "colourTerm": -0.12605504372868098,
+        "colourTermUncertainty": 0.014608727418691531,
+        "usedSources": 55,
+        "rejectedSources": 6,
+        "residualScatterMag": 0.050326634552704766,
+        "residualRmsMag": 0.047205806674256695
+      },
+      "residual": {
+        "beforeTransferMag": 0.06372567609393631,
+        "afterTransferMag": 0.050326634552704766,
+        "improvementMag": 0.013399041541231546,
+        "beforeTransferRmsMag": 0.07321575756286071,
+        "afterTransferRmsMag": 0.047205806674256695,
+        "rmsImprovementMag": 0.026009950888604014,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "generatedAt": "2026-08-14T17:13:49.014832+00:00",
+      "rubinBand": "i",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_i = a + b * (m_rubin_g - m_rubin_i)",
+      "sources": {
+        "detected": 38,
+        "usable": 38,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.19754920674100107,
+          3.28508518429343
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.12097766759644629,
+        "zeroPointUncertaintyMag": 0.049800573327860975,
+        "colourTerm": 0.2598085748878355,
+        "colourTermUncertainty": 0.03548730242418302,
+        "usedSources": 36,
+        "rejectedSources": 2,
+        "residualScatterMag": 0.13065835125766304,
+        "residualRmsMag": 0.14310909071173739
+      },
+      "residual": {
+        "beforeTransferMag": 0.20554835424092943,
+        "afterTransferMag": 0.13065835125766304,
+        "improvementMag": 0.0748900029832664,
+        "beforeTransferRmsMag": 0.23670856507305807,
+        "afterTransferRmsMag": 0.14310909071173739,
+        "rmsImprovementMag": 0.09359947436132068,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "generatedAt": "2026-08-14T17:13:49.157357+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 45,
+        "usable": 45,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.9940455606496963,
+          0.20091138463789152
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.07263179099003568,
+        "zeroPointUncertaintyMag": 0.011943063646202555,
+        "colourTerm": 0.12427723593450486,
+        "colourTermUncertainty": 0.017027812036217144,
+        "usedSources": 42,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.04068443027964846,
+        "residualRmsMag": 0.043076923687785866
+      },
+      "residual": {
+        "beforeTransferMag": 0.05584514239879366,
+        "afterTransferMag": 0.04068443027964846,
+        "improvementMag": 0.0151607121191452,
+        "beforeTransferRmsMag": 0.06600480155860794,
+        "afterTransferRmsMag": 0.043076923687785866,
+        "rmsImprovementMag": 0.022927877870822073,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "generatedAt": "2026-08-14T17:13:49.294887+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 41,
+        "usable": 41,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.564869255905383,
+          0.37026253462132086
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.17663543173558865,
+        "zeroPointUncertaintyMag": 0.022545697149803392,
+        "colourTerm": 0.21750991540486464,
+        "colourTermUncertainty": 0.035646245172380374,
+        "usedSources": 40,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.0731638897904647,
+        "residualRmsMag": 0.07770765811273002
+      },
+      "residual": {
+        "beforeTransferMag": 0.09340043373522189,
+        "afterTransferMag": 0.0731638897904647,
+        "improvementMag": 0.020236543944757185,
+        "beforeTransferRmsMag": 0.11105975647584082,
+        "afterTransferRmsMag": 0.07770765811273002,
+        "rmsImprovementMag": 0.0333520983631108,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "generatedAt": "2026-08-14T17:13:49.435920+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 79,
+        "usable": 79,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.4178989982627774,
+          0.07398025312628247
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.14579967852856918,
+        "zeroPointUncertaintyMag": 0.016342896950463082,
+        "colourTerm": 0.17439231966501678,
+        "colourTermUncertainty": 0.025581294304954868,
+        "usedSources": 78,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.0636350191050247,
+        "residualRmsMag": 0.06975009072266801
+      },
+      "residual": {
+        "beforeTransferMag": 0.08629926759441675,
+        "afterTransferMag": 0.0636350191050247,
+        "improvementMag": 0.022664248489392053,
+        "beforeTransferRmsMag": 0.08859103384697663,
+        "afterTransferRmsMag": 0.06975009072266801,
+        "rmsImprovementMag": 0.018840943124308618,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "generatedAt": "2026-08-14T17:13:49.586448+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 146,
+        "usable": 146,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.13393731399933007,
+          1.7861119098488785
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.005638454370974952,
+        "zeroPointUncertaintyMag": 0.01370158785428197,
+        "colourTerm": -0.1160191818037206,
+        "colourTermUncertainty": 0.01828645385676831,
+        "usedSources": 139,
+        "rejectedSources": 7,
+        "residualScatterMag": 0.0758573355100925,
+        "residualRmsMag": 0.08457940079717678
+      },
+      "residual": {
+        "beforeTransferMag": 0.10576958438910312,
+        "afterTransferMag": 0.0758573355100925,
+        "improvementMag": 0.02991224887901063,
+        "beforeTransferRmsMag": 0.09621038864653442,
+        "afterTransferRmsMag": 0.08457940079717678,
+        "rmsImprovementMag": 0.011630987849357635,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "generatedAt": "2026-08-14T17:13:49.732486+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 131,
+        "usable": 131,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.1430747722110632,
+          1.5977130781750783
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.004723336523499812,
+        "zeroPointUncertaintyMag": 0.015107362892161478,
+        "colourTerm": -0.1141029521052648,
+        "colourTermUncertainty": 0.01841750906029662,
+        "usedSources": 125,
+        "rejectedSources": 6,
+        "residualScatterMag": 0.08588588775049684,
+        "residualRmsMag": 0.08285782061771266
+      },
+      "residual": {
+        "beforeTransferMag": 0.09877328326341113,
+        "afterTransferMag": 0.08588588775049684,
+        "improvementMag": 0.01288739551291429,
+        "beforeTransferRmsMag": 0.09490945771115952,
+        "afterTransferRmsMag": 0.08285782061771266,
+        "rmsImprovementMag": 0.012051637093446865,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "generatedAt": "2026-08-14T17:13:49.871307+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 83,
+        "usable": 83,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.6032633262718727,
+          0.08364978076770924
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.1335168864089082,
+        "zeroPointUncertaintyMag": 0.010671685613692047,
+        "colourTerm": 0.15152031789077156,
+        "colourTermUncertainty": 0.015879177791483835,
+        "usedSources": 74,
+        "rejectedSources": 9,
+        "residualScatterMag": 0.05077420819422768,
+        "residualRmsMag": 0.05091686478437971
+      },
+      "residual": {
+        "beforeTransferMag": 0.07195614549167356,
+        "afterTransferMag": 0.05077420819422768,
+        "improvementMag": 0.021181937297445885,
+        "beforeTransferRmsMag": 0.07718101069758787,
+        "afterTransferRmsMag": 0.05091686478437971,
+        "rmsImprovementMag": 0.026264145913208158,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "generatedAt": "2026-08-14T17:13:50.041540+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 96,
+        "usable": 96,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -2.063963792556271,
+          0.03814943190962363
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.09872173174781354,
+        "zeroPointUncertaintyMag": 0.012018969350743905,
+        "colourTerm": 0.23651434753286502,
+        "colourTermUncertainty": 0.01949201985708612,
+        "usedSources": 89,
+        "rejectedSources": 7,
+        "residualScatterMag": 0.04473052550051743,
+        "residualRmsMag": 0.05467367463507026
+      },
+      "residual": {
+        "beforeTransferMag": 0.08374739071205689,
+        "afterTransferMag": 0.04473052550051743,
+        "improvementMag": 0.03901686521153946,
+        "beforeTransferRmsMag": 0.08992086125846037,
+        "afterTransferRmsMag": 0.05467367463507026,
+        "rmsImprovementMag": 0.03524718662339011,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "generatedAt": "2026-08-14T17:13:50.211481+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 123,
+        "usable": 123,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.14485408078474193,
+          1.5978495538384276
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.07398623348159326,
+        "zeroPointUncertaintyMag": 0.012023862102867431,
+        "colourTerm": -0.09551799024837514,
+        "colourTermUncertainty": 0.016559043188329722,
+        "usedSources": 120,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.06758520832485845,
+        "residualRmsMag": 0.07325071116342109
+      },
+      "residual": {
+        "beforeTransferMag": 0.0802492717144415,
+        "afterTransferMag": 0.06758520832485845,
+        "improvementMag": 0.01266406338958305,
+        "beforeTransferRmsMag": 0.08343982441437767,
+        "afterTransferRmsMag": 0.07325071116342109,
+        "rmsImprovementMag": 0.010189113250956575,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "generatedAt": "2026-08-14T17:13:50.382144+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 154,
+        "usable": 154,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.08459357344724901,
+          2.268002489831463
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.01041456758959963,
+        "zeroPointUncertaintyMag": 0.010527967806040314,
+        "colourTerm": -0.08015451065431968,
+        "colourTermUncertainty": 0.012699711271594733,
+        "usedSources": 144,
+        "rejectedSources": 10,
+        "residualScatterMag": 0.049864130253700886,
+        "residualRmsMag": 0.05835763007036714
+      },
+      "residual": {
+        "beforeTransferMag": 0.05849046637113461,
+        "afterTransferMag": 0.049864130253700886,
+        "improvementMag": 0.00862633611743372,
+        "beforeTransferRmsMag": 0.06680171001355673,
+        "afterTransferRmsMag": 0.05835763007036714,
+        "rmsImprovementMag": 0.008444079943189582,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "generatedAt": "2026-08-14T17:13:50.552573+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 102,
+        "usable": 102,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.4629116548539517,
+          1.5588636688856006
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.06571753280820491,
+        "zeroPointUncertaintyMag": 0.014725735859690852,
+        "colourTerm": -0.09241745707519658,
+        "colourTermUncertainty": 0.020271695334390178,
+        "usedSources": 100,
+        "rejectedSources": 2,
+        "residualScatterMag": 0.09242704891089551,
+        "residualRmsMag": 0.08537694837525937
+      },
+      "residual": {
+        "beforeTransferMag": 0.08593400489450266,
+        "afterTransferMag": 0.09242704891089551,
+        "improvementMag": -0.006493044016392849,
+        "beforeTransferRmsMag": 0.09421890154379549,
+        "afterTransferRmsMag": 0.08537694837525937,
+        "rmsImprovementMag": 0.008841953168536115,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": false
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "generatedAt": "2026-08-14T17:13:50.712710+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 66,
+        "usable": 66,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.6137362890886962,
+          0.12382275135503758
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.16205690370127573,
+        "zeroPointUncertaintyMag": 0.01867973530783151,
+        "colourTerm": 0.18837916720278589,
+        "colourTermUncertainty": 0.031598046625894716,
+        "usedSources": 63,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.07330014142134957,
+        "residualRmsMag": 0.08709063034491737
+      },
+      "residual": {
+        "beforeTransferMag": 0.09044745645880582,
+        "afterTransferMag": 0.07330014142134957,
+        "improvementMag": 0.017147315037456257,
+        "beforeTransferRmsMag": 0.1096446421576538,
+        "afterTransferRmsMag": 0.08709063034491737,
+        "rmsImprovementMag": 0.02255401181273642,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "generatedAt": "2026-08-14T17:13:50.877240+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 108,
+        "usable": 108,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.1298322467572517,
+          1.3859333685787256
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.11576309054365748,
+        "zeroPointUncertaintyMag": 0.010053975425971915,
+        "colourTerm": 1.01328189934941,
+        "colourTermUncertainty": 0.01133953085944429,
+        "usedSources": 97,
+        "rejectedSources": 11,
+        "residualScatterMag": 0.032742700763584695,
+        "residualRmsMag": 0.035811878875493086
+      },
+      "residual": {
+        "beforeTransferMag": 0.4218337541345238,
+        "afterTransferMag": 0.032742700763584695,
+        "improvementMag": 0.3890910533709391,
+        "beforeTransferRmsMag": 0.3320084636519678,
+        "afterTransferRmsMag": 0.035811878875493086,
+        "rmsImprovementMag": 0.2961965847764747,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "generatedAt": "2026-08-14T17:13:51.034828+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 34,
+        "usable": 34,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.220156838179932,
+          -0.14750730415313051
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.15125408775254257,
+        "zeroPointUncertaintyMag": 0.020138535873650675,
+        "colourTerm": 0.21898245273469302,
+        "colourTermUncertainty": 0.03336796424044493,
+        "usedSources": 31,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.049598103774190265,
+        "residualRmsMag": 0.05387537967887216
+      },
+      "residual": {
+        "beforeTransferMag": 0.08764663709609101,
+        "afterTransferMag": 0.049598103774190265,
+        "improvementMag": 0.038048533321900745,
+        "beforeTransferRmsMag": 0.08541345621978481,
+        "afterTransferRmsMag": 0.05387537967887216,
+        "rmsImprovementMag": 0.03153807654091265,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "generatedAt": "2026-08-14T17:13:51.197359+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 36,
+        "usable": 36,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.220853062943224,
+          0.6102421600197648
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.1719537847673627,
+        "zeroPointUncertaintyMag": 0.022158273109431945,
+        "colourTerm": 0.24536841341524288,
+        "colourTermUncertainty": 0.03604839201230675,
+        "usedSources": 36,
+        "rejectedSources": 0,
+        "residualScatterMag": 0.08521192574290518,
+        "residualRmsMag": 0.07838554638006322
+      },
+      "residual": {
+        "beforeTransferMag": 0.12221049791527298,
+        "afterTransferMag": 0.08521192574290518,
+        "improvementMag": 0.03699857217236781,
+        "beforeTransferRmsMag": 0.12055304044384625,
+        "afterTransferRmsMag": 0.07838554638006322,
+        "rmsImprovementMag": 0.042167494063783034,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "generatedAt": "2026-08-14T17:13:51.368021+00:00",
+      "rubinBand": "i",
+      "rubinColourBand": "y",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_i = a + b * (m_rubin_y - m_rubin_i)",
+      "sources": {
+        "detected": 19,
+        "usable": 19,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.2572007552709066,
+          0.7163073761623626
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 1.1101504864411882,
+        "zeroPointUncertaintyMag": 0.18486043230771457,
+        "colourTerm": -0.7215656520807245,
+        "colourTermUncertainty": 0.27188925069015746,
+        "usedSources": 19,
+        "rejectedSources": 0,
+        "residualScatterMag": 0.5052515178718756,
+        "residualRmsMag": 0.48764045748063833
+      },
+      "residual": {
+        "beforeTransferMag": 0.57256230033649,
+        "afterTransferMag": 0.5052515178718756,
+        "improvementMag": 0.06731078246461442,
+        "beforeTransferRmsMag": 0.5838114475280178,
+        "afterTransferRmsMag": 0.48764045748063833,
+        "rmsImprovementMag": 0.0961709900473795,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "generatedAt": "2026-08-14T17:13:51.556060+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "z",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 133,
+        "usable": 133,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.03591354790393583,
+          1.8660083829324212
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.23997436161792574,
+        "zeroPointUncertaintyMag": 0.03820309620453643,
+        "colourTerm": -1.092858500959939,
+        "colourTermUncertainty": 0.03891473766692947,
+        "usedSources": 111,
+        "rejectedSources": 22,
+        "residualScatterMag": 0.12327536170732839,
+        "residualRmsMag": 0.1354320827719782
+      },
+      "residual": {
+        "beforeTransferMag": 0.3167136098073042,
+        "afterTransferMag": 0.12327536170732839,
+        "improvementMag": 0.19343824809997578,
+        "beforeTransferRmsMag": 0.38387158272876293,
+        "afterTransferRmsMag": 0.1354320827719782,
+        "rmsImprovementMag": 0.24843949995678472,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "generatedAt": "2026-08-14T17:13:51.696589+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 16,
+        "usable": 16,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.1788028740592989,
+          2.4668962837893145
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.5068825335312614,
+        "zeroPointUncertaintyMag": 0.08275969834177949,
+        "colourTerm": 0.4847261499167426,
+        "colourTermUncertainty": 0.06625655309778272,
+        "usedSources": 16,
+        "rejectedSources": 0,
+        "residualScatterMag": 0.11219583637766098,
+        "residualRmsMag": 0.13829237024584384
+      },
+      "residual": {
+        "beforeTransferMag": 0.41326443207144353,
+        "afterTransferMag": 0.11219583637766098,
+        "improvementMag": 0.3010685956937825,
+        "beforeTransferRmsMag": 0.3098327822949268,
+        "afterTransferRmsMag": 0.13829237024584384,
+        "rmsImprovementMag": 0.17154041204908294,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "generatedAt": "2026-08-14T17:13:51.864890+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 91,
+        "usable": 91,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.17864502494528472,
+          1.7132736043091672
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.07378455837392946,
+        "zeroPointUncertaintyMag": 0.01712729783625602,
+        "colourTerm": -0.039434363458233646,
+        "colourTermUncertainty": 0.022938177214269394,
+        "usedSources": 88,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.09344260307490654,
+        "residualRmsMag": 0.09216983202332792
+      },
+      "residual": {
+        "beforeTransferMag": 0.10082281877757883,
+        "afterTransferMag": 0.09344260307490654,
+        "improvementMag": 0.007380215702672291,
+        "beforeTransferRmsMag": 0.09396495877868917,
+        "afterTransferRmsMag": 0.09216983202332792,
+        "rmsImprovementMag": 0.0017951267553612538,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": false,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "generatedAt": "2026-08-14T17:13:52.027927+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 102,
+        "usable": 102,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.3557104669574914,
+          1.5117269471170345
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.2503897299704546,
+        "zeroPointUncertaintyMag": 0.010808512460103878,
+        "colourTerm": -0.12895332148415153,
+        "colourTermUncertainty": 0.017856182683907443,
+        "usedSources": 93,
+        "rejectedSources": 9,
+        "residualScatterMag": 0.06142612171017138,
+        "residualRmsMag": 0.07176108189309319
+      },
+      "residual": {
+        "beforeTransferMag": 0.08512710638990621,
+        "afterTransferMag": 0.06142612171017138,
+        "improvementMag": 0.023700984679734832,
+        "beforeTransferRmsMag": 0.09001722109723413,
+        "afterTransferRmsMag": 0.07176108189309319,
+        "rmsImprovementMag": 0.018256139204140945,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-8708",
+      "tract": 8708,
+      "generatedAt": "2026-08-14T17:13:52.172451+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 40,
+        "usable": 40,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.9286998853029433,
+          -0.09688724414212546
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.3283192131154574,
+        "zeroPointUncertaintyMag": 0.03233809205504357,
+        "colourTerm": 0.1473058337203848,
+        "colourTermUncertainty": 0.03698308884547375,
+        "usedSources": 39,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.08045448643557457,
+        "residualRmsMag": 0.09020133167386636
+      },
+      "residual": {
+        "beforeTransferMag": 0.11841193813783624,
+        "afterTransferMag": 0.08045448643557457,
+        "improvementMag": 0.03795745170226167,
+        "beforeTransferRmsMag": 0.10802972442392617,
+        "afterTransferRmsMag": 0.09020133167386636,
+        "rmsImprovementMag": 0.017828392750059804,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "generatedAt": "2026-08-14T17:13:52.335487+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 81,
+        "usable": 81,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.310827419182051,
+          2.0083404482469653
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.0042515012719652545,
+        "zeroPointUncertaintyMag": 0.02586611953247025,
+        "colourTerm": -0.1438116342789915,
+        "colourTermUncertainty": 0.024943730885545374,
+        "usedSources": 75,
+        "rejectedSources": 6,
+        "residualScatterMag": 0.06350662827272704,
+        "residualRmsMag": 0.07322136384714088
+      },
+      "residual": {
+        "beforeTransferMag": 0.0880860176875803,
+        "afterTransferMag": 0.06350662827272704,
+        "improvementMag": 0.024579389414853256,
+        "beforeTransferRmsMag": 0.08844063350083929,
+        "afterTransferRmsMag": 0.07322136384714088,
+        "rmsImprovementMag": 0.015219269653698408,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "generatedAt": "2026-08-14T17:13:52.484013+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 91,
+        "usable": 91,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.007838025790970444,
+          1.6807857164946396
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.05967799184645587,
+        "zeroPointUncertaintyMag": 0.021724007448968928,
+        "colourTerm": -0.10051096447571745,
+        "colourTermUncertainty": 0.02386291034830009,
+        "usedSources": 88,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.10152275435237296,
+        "residualRmsMag": 0.09482124280613109
+      },
+      "residual": {
+        "beforeTransferMag": 0.1083557326987767,
+        "afterTransferMag": 0.10152275435237296,
+        "improvementMag": 0.0068329783464037425,
+        "beforeTransferRmsMag": 0.10463209678345872,
+        "afterTransferRmsMag": 0.09482124280613109,
+        "rmsImprovementMag": 0.00981085397732763,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "generatedAt": "2026-08-14T17:13:52.633103+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 48,
+        "usable": 48,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.05183495927865785,
+          1.9273442950023516
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.14072367023874716,
+        "zeroPointUncertaintyMag": 0.023730757726555304,
+        "colourTerm": -0.08266496042332222,
+        "colourTermUncertainty": 0.024615597854571923,
+        "usedSources": 45,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.05724978975377933,
+        "residualRmsMag": 0.06702251591593757
+      },
+      "residual": {
+        "beforeTransferMag": 0.07948079627156743,
+        "afterTransferMag": 0.05724978975377933,
+        "improvementMag": 0.022231006517788095,
+        "beforeTransferRmsMag": 0.07569646857698283,
+        "afterTransferRmsMag": 0.06702251591593757,
+        "rmsImprovementMag": 0.008673952661045259,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "generatedAt": "2026-08-14T17:13:52.790631+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_i - m_rubin_r)",
+      "sources": {
+        "detected": 59,
+        "usable": 59,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -1.8415678407632683,
+          -0.15328376676680883
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.1972117006978998,
+        "zeroPointUncertaintyMag": 0.018569491690487033,
+        "colourTerm": 0.20982559573686832,
+        "colourTermUncertainty": 0.02480739274573209,
+        "usedSources": 58,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.0617609200222413,
+        "residualRmsMag": 0.0649982604702354
+      },
+      "residual": {
+        "beforeTransferMag": 0.07376688467502,
+        "afterTransferMag": 0.0617609200222413,
+        "improvementMag": 0.0120059646527787,
+        "beforeTransferRmsMag": 0.09822137108758061,
+        "afterTransferRmsMag": 0.0649982604702354,
+        "rmsImprovementMag": 0.03322311061734522,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "generatedAt": "2026-08-14T17:13:52.957670+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 81,
+        "usable": 81,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.02588376070481643,
+          1.6448247298774932
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.025793190733610492,
+        "zeroPointUncertaintyMag": 0.016437619243952314,
+        "colourTerm": -0.1318055734749381,
+        "colourTermUncertainty": 0.01917885176560604,
+        "usedSources": 77,
+        "rejectedSources": 4,
+        "residualScatterMag": 0.07481407733302463,
+        "residualRmsMag": 0.07275320628039374
+      },
+      "residual": {
+        "beforeTransferMag": 0.10040520410094134,
+        "afterTransferMag": 0.07481407733302463,
+        "improvementMag": 0.025591126767916708,
+        "beforeTransferRmsMag": 0.0931059739871875,
+        "afterTransferRmsMag": 0.07275320628039374,
+        "rmsImprovementMag": 0.020352767706793756,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "generatedAt": "2026-08-14T17:13:53.107709+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 27,
+        "usable": 26,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          0.11360347136663898,
+          1.5155531178075905
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.0032224697273015033,
+        "zeroPointUncertaintyMag": 0.027625913817093364,
+        "colourTerm": -0.08995216094188727,
+        "colourTermUncertainty": 0.03178959566952779,
+        "usedSources": 25,
+        "rejectedSources": 1,
+        "residualScatterMag": 0.0692610461928188,
+        "residualRmsMag": 0.05928999925965617
+      },
+      "residual": {
+        "beforeTransferMag": 0.08269998769672773,
+        "afterTransferMag": 0.0692610461928188,
+        "improvementMag": 0.013438941503908938,
+        "beforeTransferRmsMag": 0.06892213128469435,
+        "afterTransferRmsMag": 0.05928999925965617,
+        "rmsImprovementMag": 0.009632132025038181,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "generatedAt": "2026-08-14T17:13:53.269238+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "z",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_z - m_rubin_r)",
+      "sources": {
+        "detected": 53,
+        "usable": 53,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -2.4529676764339676,
+          -0.24431009111107715
+        ]
+      },
+      "fit": {
+        "zeroPointMag": 0.062404316602153766,
+        "zeroPointUncertaintyMag": 0.013274589429929476,
+        "colourTerm": 0.08325617048917844,
+        "colourTermUncertainty": 0.012422912719959994,
+        "usedSources": 50,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.04640167735147374,
+        "residualRmsMag": 0.0470938743104816
+      },
+      "residual": {
+        "beforeTransferMag": 0.07066259900429432,
+        "afterTransferMag": 0.04640167735147374,
+        "improvementMag": 0.02426092165282058,
+        "beforeTransferRmsMag": 0.06563009909947164,
+        "afterTransferRmsMag": 0.0470938743104816,
+        "rmsImprovementMag": 0.018536224788990037,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "generatedAt": "2026-08-14T17:13:53.432108+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 154,
+        "usable": 154,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.14099173963678288,
+          1.5826454881293492
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.1136814946789909,
+        "zeroPointUncertaintyMag": 0.009185729924732473,
+        "colourTerm": -0.10530444403238508,
+        "colourTermUncertainty": 0.01195891506685418,
+        "usedSources": 151,
+        "rejectedSources": 3,
+        "residualScatterMag": 0.058723473312581084,
+        "residualRmsMag": 0.062392533392684794
+      },
+      "residual": {
+        "beforeTransferMag": 0.07304733766413557,
+        "afterTransferMag": 0.058723473312581084,
+        "improvementMag": 0.014323864351554486,
+        "beforeTransferRmsMag": 0.07694517177063984,
+        "afterTransferRmsMag": 0.062392533392684794,
+        "rmsImprovementMag": 0.014552638377955042,
+        "toleranceMag": 0.08,
+        "withinTolerance": true,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": true,
+      "compactSourceTransferDemonstrated": true,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    },
+    {
+      "schemaVersion": "layers-bandpass-transfer-v1",
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "generatedAt": "2026-08-14T17:13:53.594288+00:00",
+      "rubinBand": "r",
+      "rubinColourBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "model": "m_ref - m_rubin_r = a + b * (m_rubin_g - m_rubin_r)",
+      "sources": {
+        "detected": 78,
+        "usable": 78,
+        "apertureRadiusArcsec": 1.5,
+        "colourRange": [
+          -0.17165841693356187,
+          1.3969973488163583
+        ]
+      },
+      "fit": {
+        "zeroPointMag": -0.2863352298542904,
+        "zeroPointUncertaintyMag": 0.01851557062230263,
+        "colourTerm": -0.012391833931398926,
+        "colourTermUncertainty": 0.0295643013758161,
+        "usedSources": 67,
+        "rejectedSources": 11,
+        "residualScatterMag": 0.08240539978114106,
+        "residualRmsMag": 0.09114963191059933
+      },
+      "residual": {
+        "beforeTransferMag": 0.08773392321322111,
+        "afterTransferMag": 0.08240539978114106,
+        "improvementMag": 0.005328523432080054,
+        "beforeTransferRmsMag": 0.09130580850023871,
+        "afterTransferRmsMag": 0.09114963191059933,
+        "rmsImprovementMag": 0.00015617658963938685,
+        "toleranceMag": 0.08,
+        "withinTolerance": false,
+        "colourTermReducesScatter": true
+      },
+      "colourTermSignificant": false,
+      "compactSourceTransferDemonstrated": false,
+      "interpretation": "This is a compact-source result. Point sources are unresolved and share the PSF, so a colour term fitted here does not establish that the same transfer holds across a resolved galaxy, where the stellar population, dust, and surface brightness all vary with radius. The extended-source transfer remains the open blocker."
+    }
+  ]
+}

@@ -1,0 +1,2386 @@
+{
+  "schemaVersion": "layers-region-diffuse-recovery-summary-v1",
+  "generatedAt": "2026-08-14T17:14:41.229261+00:00",
+  "counts": {
+    "measured": 45,
+    "failed": 3
+  },
+  "resamplingCovariance": {
+    "measured": true,
+    "medianRubinEmpiricalToFormalNoiseRatio": 6.975999419286092,
+    "note": "Ratio of the measured blank-position scatter to the propagated per-pixel uncertainty. Values above 1 quantify how far the independent-pixel variance planes understate the true uncertainty after reprojection and PSF matching."
+  },
+  "failures": [
+    {
+      "regionId": "dp2-tract-5063",
+      "error": "LinAlgError: Singular matrix"
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "error": "LinAlgError: Singular matrix"
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "error": "LinAlgError: Singular matrix"
+    }
+  ],
+  "regions": [
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "generatedAt": "2026-08-14T17:11:05.923635+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.4484971502535378,
+      "commonPixelFraction": 0.93678284,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 23.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 20.703810584109675,
+          "maxNullFalsePositiveFraction": 0.016666666666666666,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6605028260550877,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 23.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.121623345608488,
+          "maxNullFalsePositiveFraction": 0.016666666666666666,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7113229521280928,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "generatedAt": "2026-08-14T17:11:11.934023+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.636396084477942,
+      "commonPixelFraction": 0.92277908,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 37.838911628297886,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6718574954216807,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.477318278235334,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7984795432842361,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "generatedAt": "2026-08-14T17:11:18.263945+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.565135351659714,
+      "commonPixelFraction": 0.95046997,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.55450501553458,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7154438914753573,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 25.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.556115362699439,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7479571359768823,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "generatedAt": "2026-08-14T17:11:24.626889+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.691706907370239,
+      "commonPixelFraction": 0.92182922,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 49.92384073787023,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6809337394269446,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.9181619955290308,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7917211527320279,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "generatedAt": "2026-08-14T17:11:30.944011+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.589195659298795,
+      "commonPixelFraction": 0.94607544,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 13.086174062342941,
+          "maxNullFalsePositiveFraction": 0.016666666666666666,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.79679687752008,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 12.132861103652937,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7951517692977645,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "generatedAt": "2026-08-14T17:11:33.583313+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.390313710632947,
+      "commonPixelFraction": 0.53131866,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.7198113709655205,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.798035639924757,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 23.0
+          },
+          "deepestMu0MagArcsec2": 23.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.039950796645279,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7887092373745351,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "generatedAt": "2026-08-14T17:11:35.976954+00:00",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.0273065987473067,
+      "commonPixelFraction": 0.07761765,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 0,
+          "skippedSizes": 4,
+          "limitingMu0ByEffectiveRadiusArcsec": {},
+          "deepestMu0MagArcsec2": null,
+          "medianEmpiricalToFormalNoiseRatio": null,
+          "maxNullFalsePositiveFraction": null,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7591291099424977,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 0,
+          "skippedSizes": 4,
+          "limitingMu0ByEffectiveRadiusArcsec": {},
+          "deepestMu0MagArcsec2": null,
+          "medianEmpiricalToFormalNoiseRatio": null,
+          "maxNullFalsePositiveFraction": null,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7664520568142724,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "generatedAt": "2026-08-14T17:11:38.627143+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.3895626918269333,
+      "commonPixelFraction": 0.37832642,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.43371644393674,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7913305638460918,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.789517225346487,
+          "maxNullFalsePositiveFraction": 0.017543859649122806,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7447870452528838,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "generatedAt": "2026-08-14T17:11:44.664758+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.3032803817965486,
+      "commonPixelFraction": 0.94852829,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 23.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.041904286511444,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7480524912427459,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 11.328725726928152,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6888691378679354,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "generatedAt": "2026-08-14T17:11:50.836629+00:00",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.53631808195823,
+      "commonPixelFraction": 0.94083786,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 22.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.2070446783889315,
+          "maxNullFalsePositiveFraction": 0.016666666666666666,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7805015508747745,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 23.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.740878469807395,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7406167007926693,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "generatedAt": "2026-08-14T17:11:57.228771+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.478491215374696,
+      "commonPixelFraction": 0.95386124,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.587755357229593,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8082415846494088,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.892202890070791,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7444940791604845,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "generatedAt": "2026-08-14T17:11:59.110509+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.625594993134655,
+      "commonPixelFraction": 0.57449722,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.8919037966081795,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7945232767378703,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 23.0
+          },
+          "deepestMu0MagArcsec2": 23.0,
+          "medianEmpiricalToFormalNoiseRatio": 10.119413875543437,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7177375980239175,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "generatedAt": "2026-08-14T17:12:04.397077+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5953061688471744,
+      "commonPixelFraction": 0.91883469,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.494112845994541,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.807694702885825,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.034301882756107,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7198536951927827,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "generatedAt": "2026-08-14T17:12:10.757154+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.4544964848442095,
+      "commonPixelFraction": 0.96515274,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.014619802525446,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7051409238406539,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.675263061939232,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6875328545624859,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "generatedAt": "2026-08-14T17:12:16.370629+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.461006472157541,
+      "commonPixelFraction": 0.95319366,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 10.802283904551683,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6858496682327894,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 22.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.843134458743262,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6775134667872608,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "generatedAt": "2026-08-14T17:12:21.998050+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5130786329738037,
+      "commonPixelFraction": 0.88417816,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 25.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 6.547034417464499,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.801636882933101,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.06288038359136,
+          "maxNullFalsePositiveFraction": 0.02,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7211086279348699,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "generatedAt": "2026-08-14T17:12:28.344996+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5814721585370433,
+      "commonPixelFraction": 0.94985962,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.766959720357338,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7659718875502008,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.183842692302713,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7099959839357429,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "generatedAt": "2026-08-14T17:12:33.939037+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.591829863498803,
+      "commonPixelFraction": 0.96131897,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 12.671845902439154,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7089252551546801,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 6.156716046299077,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7174806749099221,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "generatedAt": "2026-08-14T17:12:38.977457+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.483952353235585,
+      "commonPixelFraction": 0.9468956,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.908023509122025,
+          "maxNullFalsePositiveFraction": 0.018867924528301886,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6962287942696688,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 6.052787616370734,
+          "maxNullFalsePositiveFraction": 0.018867924528301886,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6911124271320547,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "generatedAt": "2026-08-14T17:12:43.786315+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.572137632198581,
+      "commonPixelFraction": 0.82821274,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.344527425231889,
+          "maxNullFalsePositiveFraction": 0.025,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7935848483034024,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.18848401476064,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7305479685506492,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "generatedAt": "2026-08-14T17:12:48.874493+00:00",
+      "rubinBand": "r",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.255646780187638,
+      "commonPixelFraction": 0.91392899,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 22.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 13.231636594451443,
+          "maxNullFalsePositiveFraction": 0.0196078431372549,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6481941389342226,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.72628151604758,
+          "maxNullFalsePositiveFraction": 0.0196078431372549,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6673191947608533,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "generatedAt": "2026-08-14T17:12:50.808239+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.4640818305281433,
+      "commonPixelFraction": 0.68165207,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.234059525038119,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7591148966651929,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.450687723828302,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6936891057747732,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5281",
+      "tract": 5281,
+      "generatedAt": "2026-08-14T17:12:55.694715+00:00",
+      "rubinBand": "z",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.6386813625496286,
+      "commonPixelFraction": 0.61758423,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.341183584111134,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8269259277560903,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 10.961922437773483,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.721061669219746,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "generatedAt": "2026-08-14T17:13:01.108927+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.436889411977725,
+      "commonPixelFraction": 0.87619019,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.061622090701801,
+          "maxNullFalsePositiveFraction": 0.02127659574468085,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7836021037233116,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.046985994163578,
+          "maxNullFalsePositiveFraction": 0.02127659574468085,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7125535509038348,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5391",
+      "tract": 5391,
+      "generatedAt": "2026-08-14T17:13:05.066347+00:00",
+      "rubinBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 1.855272088848165,
+      "commonPixelFraction": 0.85827255,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 11.808170309697154,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6875119449222413,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 23.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.082955211396959,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6935121849318417,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "generatedAt": "2026-08-14T17:13:07.807764+00:00",
+      "rubinBand": "i",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.925298661816211,
+      "commonPixelFraction": 0.45237732,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.621247160263146,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.86343474887847,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.6346834089428306,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8634937767733666,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "generatedAt": "2026-08-14T17:13:13.818029+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.285125441529971,
+      "commonPixelFraction": 0.95481873,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.498393825748771,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7670834998002397,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.8704363905857635,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7163324011186576,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "generatedAt": "2026-08-14T17:13:18.943767+00:00",
+      "rubinBand": "r",
+      "referenceBand": "z",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 1.838941484401633,
+      "commonPixelFraction": 0.95010757,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 6.937379036046739,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6557645594523518,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 23.0,
+            "12.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 10.505269146526803,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6358581093288901,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "generatedAt": "2026-08-14T17:13:20.815245+00:00",
+      "rubinBand": "r",
+      "referenceBand": "g",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.1970778433340614,
+      "commonPixelFraction": 0.68119812,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 23.0
+          },
+          "deepestMu0MagArcsec2": 23.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.013880507961268,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7529399905920301,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.665070777702844,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7460968124902,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8026",
+      "tract": 8026,
+      "generatedAt": "2026-08-14T17:13:27.188433+00:00",
+      "rubinBand": "g",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.70894100208291,
+      "commonPixelFraction": 0.94723511,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.556428401192047,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7861802893134444,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.762820831061228,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7951568993846452,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "generatedAt": "2026-08-14T17:13:33.277738+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.6183625077707364,
+      "commonPixelFraction": 0.95653534,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.429140380865898,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7531405782652044,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.899432667423519,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7486699900299103,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8272",
+      "tract": 8272,
+      "generatedAt": "2026-08-14T17:13:35.231957+00:00",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.8493385939779503,
+      "commonPixelFraction": 0.62851334,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.449194149721527,
+          "maxNullFalsePositiveFraction": 0.0,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8591353536334448,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 25.0,
+            "6.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.854692224002235,
+          "maxNullFalsePositiveFraction": 0.0,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7915586819696409,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "generatedAt": "2026-08-14T17:13:40.804374+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.6027619641556297,
+      "commonPixelFraction": 0.93283463,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 36.60895706114741,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6472435664132626,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.4327844730646815,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7428814453436494,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "generatedAt": "2026-08-14T17:13:47.637816+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.585766556347527,
+      "commonPixelFraction": 0.93847656,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 23.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 19.491832695236823,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.695796208376691,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.9099771934324115,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7894486537460979,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "generatedAt": "2026-08-14T17:13:51.903898+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5774755895331642,
+      "commonPixelFraction": 0.90711975,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 16.74754277777095,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7117445205133812,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 3.9450701222785356,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7808121246782956,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "generatedAt": "2026-08-14T17:13:57.701166+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.3100034429999865,
+      "commonPixelFraction": 0.95727158,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 10.169874969183441,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7144889476893159,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 20.0,
+            "6.0": 23.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.379531467311178,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7282928792594334,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "generatedAt": "2026-08-14T17:14:00.318286+00:00",
+      "rubinBand": "i",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.538112864524282,
+      "commonPixelFraction": 0.49184036,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0
+          },
+          "deepestMu0MagArcsec2": 24.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.802759566645928,
+          "maxNullFalsePositiveFraction": 0.0,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8248082337337997,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 6.66116564632831,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7356301334801796,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "generatedAt": "2026-08-14T17:14:06.180065+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.4880266600390635,
+      "commonPixelFraction": 0.95798874,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.13125653779347,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7553985768383832,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.359528982847289,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7388454631248234,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "generatedAt": "2026-08-14T17:14:11.320295+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5246659722592715,
+      "commonPixelFraction": 0.88198471,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.429049751983486,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7984533340253539,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 12.226779377846034,
+          "maxNullFalsePositiveFraction": 0.020833333333333332,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6895033454869446,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "generatedAt": "2026-08-14T17:14:16.945778+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5219182050120463,
+      "commonPixelFraction": 0.93003082,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 21.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.724053816512326,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7764456403146816,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 19.830479400256035,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6634564113501941,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "generatedAt": "2026-08-14T17:14:22.712372+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5179787858249973,
+      "commonPixelFraction": 0.95212173,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 25.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 7.767377650236902,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7715560933199248,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": null,
+            "6.0": 25.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.286217424970438,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7496804798211488,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "generatedAt": "2026-08-14T17:14:24.595386+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.5144311727354363,
+      "commonPixelFraction": 0.63978577,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 22.0
+          },
+          "deepestMu0MagArcsec2": 23.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.179846325815645,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8053852941877937,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 2,
+          "skippedSizes": 2,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 22.0,
+            "6.0": 22.0
+          },
+          "deepestMu0MagArcsec2": 22.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.622663459530617,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7317131341076581,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "generatedAt": "2026-08-14T17:14:29.987587+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.449066893595138,
+      "commonPixelFraction": 0.9324646,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 5.521395105249243,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.8043937162493864,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.955750122830514,
+          "maxNullFalsePositiveFraction": 0.018867924528301886,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7112829324169531,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "generatedAt": "2026-08-14T17:14:35.373956+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.3304552220838235,
+      "commonPixelFraction": 0.95916367,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 25.154960370058625,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6453652774629234,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 8.777515672456598,
+          "maxNullFalsePositiveFraction": 0.01639344262295082,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.6525797509535116,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    },
+    {
+      "schemaVersion": "layers-region-diffuse-recovery-v1",
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "generatedAt": "2026-08-14T17:14:41.226260+00:00",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "pixelScaleArcsec": 0.4,
+      "matchedPsfFwhmArcsec": 2.549293376075977,
+      "commonPixelFraction": 0.94332504,
+      "interpretation": "Limits are measured on these matched pixels only. They state what a smooth exponential source of the given size would need to be to be recovered 90% of the time, not that any detected structure is real or that the two surveys are photometrically comparable.",
+      "layers": {
+        "rubin": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 23.0,
+            "6.0": 25.0,
+            "12.0": 26.0
+          },
+          "deepestMu0MagArcsec2": 26.0,
+          "medianEmpiricalToFormalNoiseRatio": 9.86834749094207,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.737159656593351,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        },
+        "reference": {
+          "measuredSizes": 3,
+          "skippedSizes": 1,
+          "limitingMu0ByEffectiveRadiusArcsec": {
+            "3.0": 24.0,
+            "6.0": 24.0,
+            "12.0": 25.0
+          },
+          "deepestMu0MagArcsec2": 25.0,
+          "medianEmpiricalToFormalNoiseRatio": 4.695151306004016,
+          "maxNullFalsePositiveFraction": 0.015625,
+          "sourceMask": {
+            "applied": true,
+            "detectionSigma": 2.5,
+            "growthPixels": 3,
+            "skyFractionOfCommon": 0.7949548500325533,
+            "note": "Detected sources are excluded from every template fit via the variance plane, so blank positions measure sky rather than the galaxy population."
+          }
+        }
+      }
+    }
+  ]
+}
