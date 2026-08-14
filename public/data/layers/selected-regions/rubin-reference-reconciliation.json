@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "layers-selected-region-reconciliation-v1",
+  "generatedAt": "2026-08-14T17:04:28.901656+00:00",
+  "method": "Documented flux-unit transfer into nJy, robust sigma-clipped plane subtraction per side, empirical stellar-FWHM measurement, and Gaussian convolution to a common target FWHM, followed by a post-match registration audit against the declared 0.30 arcsec threshold.",
+  "counts": {
+    "attempted": 1,
+    "reconciled": 1,
+    "matched": 0,
+    "qaFailed": 1,
+    "failed": 0,
+    "psfMatched": 1,
+    "skyMatched": 0,
+    "astrometryPassed": 1,
+    "comparisonReady": 0
+  },
+  "policy": {
+    "scienceClaimAllowed": false,
+    "comparisonReady": false,
+    "retainedBlockers": [
+      "bandpass transfer",
+      "resampling covariance",
+      "injection/recovery QA"
+    ],
+    "note": "Clearing PSF, background, and unit blockers does not license a quantitative claim. Bandpass transfer and injection/recovery QA still gate every difference."
+  },
+  "failures": [],
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "status": "qa-failed",
+      "rubinBand": "r",
+      "referenceBand": "r",
+      "referenceSurveyId": "legacy-surveys-dr10",
+      "sameNamedBand": true,
+      "pixelScaleArcsec": 0.4,
+      "commonPixelFraction": 0.93678284,
+      "units": {
+        "matched": true,
+        "unit": "nJy",
+        "rubinChain": {
+          "unit": "nJy",
+          "pixelAreaFactor": 3.99999999999992,
+          "valuePixelScaleArcsec": 0.2,
+          "gridPixelScaleArcsec": 0.399999999999996,
+          "verified": true,
+          "reference": "Rubin SODA MaskedImage cutouts are calibrated in nJy per mosaic pixel. reproject_interp in build_selected_region_comparisons.py preserves surface brightness, so flux per grid pixel requires this area factor."
+        },
+        "documentedChain": {
+          "surveyId": "legacy-surveys-dr10",
+          "nativeUnit": "nanomaggy/pixel",
+          "scale": 8462.86474611253,
+          "unitScale": 3630.780547701,
+          "pixelAreaFactor": 2.330866499621188,
+          "valuePixelScaleArcsec": 0.262,
+          "gridPixelScaleArcsec": 0.399999999999996,
+          "verified": true,
+          "formula": "nJy per grid pixel = nanomaggy * 3630.780547701 * (grid/0.262)^2",
+          "reference": "AB zero point 3631 Jy; Legacy images are calibrated in nanomaggies. The viewer cutout service preserves 0.262 arcsec coadd values when a coarser pixscale is requested, so the pixel-area factor is required. Same convention as fetch_legacy_survey.py."
+        },
+        "empiricalPointSourceScale": {
+          "matchedSources": 108,
+          "scale": 0.9646049219812263,
+          "scatterDex": 0.02859149541115942,
+          "apertureRadiusArcsec": 1.5,
+          "note": "Median Rubin/reference aperture-flux ratio on matched compact sources after 3-sigma clipping in log space.",
+          "corroboratesDocumentedChains": true,
+          "gate": "at least 20 matched sources, scatter <= 0.06 dex, and |log10(scale)| <= 0.1",
+          "magnitudeOffset": 0.03913
+        },
+        "note": "Both documented chains are applied to the pixels. The empirical scale is an independent compact-source check on the same field and is reported, not applied. A value near 1.0 corroborates both chains; a large departure indicates an unresolved calibration error, not a discovery."
+      },
+      "sky": {
+        "matched": false,
+        "rubinSubtractedPlaneNjy": {
+          "constant": 2.148212775927707,
+          "xSlopeAcrossImage": 0.028898595217959233,
+          "ySlopeAcrossImage": 1.3728741597914524,
+          "samplePixels": 245557,
+          "residualMedian": -0.4992511339529315,
+          "residualSigma": 9.646005936862315
+        },
+        "referenceSubtractedPlaneNjy": {
+          "constant": 3.6576082404966512,
+          "xSlopeAcrossImage": 0.5586394444737466,
+          "ySlopeAcrossImage": 4.328516288049142,
+          "samplePixels": 252717,
+          "residualMedian": -0.8774861389029187,
+          "residualSigma": 28.851296064226325
+        },
+        "postMatchRubinPlaneNjy": {
+          "constant": -1.109948416803368,
+          "xSlopeAcrossImage": 0.07903465556163858,
+          "ySlopeAcrossImage": -1.4845472669778723,
+          "samplePixels": 208301,
+          "residualMedian": -0.38181925701775943,
+          "residualSigma": 2.514706029618366
+        },
+        "postMatchReferencePlaneNjy": {
+          "constant": -1.728195985860727,
+          "xSlopeAcrossImage": -0.25680973484835934,
+          "ySlopeAcrossImage": -1.8271279406586765,
+          "samplePixels": 230290,
+          "residualMedian": -0.5689522793356758,
+          "residualSigma": 9.508607615672059
+        },
+        "differenceMedianNjy": 1.9350415468215942,
+        "differenceRobustSigmaNjy": 9.182966232299805,
+        "backgroundMedianNjy": 1.9893887042999268,
+        "backgroundRobustSigmaNjy": 8.907072067260742,
+        "backgroundPixels": 239360,
+        "medianToleranceNjy": 0.8907072067260743,
+        "gate": "sigma-clipped background pedestal must be within 10% of the clipped pixel noise",
+        "note": "differenceMedianNjy includes astrophysical flux and therefore carries any real cross-survey throughput difference; it is reported as bandpass evidence, not as a background failure."
+      },
+      "psf": {
+        "matched": true,
+        "model": "circular Gaussian approximation to empirical stellar FWHM",
+        "preMatchRubinFwhmArcsec": 1.970437232001869,
+        "preMatchReferenceFwhmArcsec": 2.331902047860512,
+        "targetFwhmArcsec": 2.4484971502535378,
+        "rubinKernelSigmaPixels": 1.5430579180502728,
+        "referenceKernelSigmaPixels": 0.7926008270610283,
+        "rubinKernelRadiusPixels": 7,
+        "referenceKernelRadiusPixels": 4,
+        "postMatchFractionalFwhmDifference": 0.02167624127978133,
+        "toleranceFraction": 0.1
+      },
+      "registration": {
+        "pass": true,
+        "thresholdArcsec": 0.3,
+        "appliedReferenceShiftPixels": {
+          "xPixels": 0.0679611484238194,
+          "yPixels": 0.04247051338688834,
+          "applied": true
+        },
+        "preMatch": {
+          "matchedSources": 114,
+          "retainedSources": 113,
+          "rejectedOutliers": 1,
+          "outlierPolicy": "iterative radial median plus 4 robust sigma; minimum 0.35 arcsec cutoff",
+          "medianOffsetArcsec": {
+            "x": 0.02718445936952749,
+            "y": 0.01698820535475517
+          },
+          "residualRmsArcsec": 0.10336643219931803,
+          "residualP95Arcsec": 0.20443997367223374,
+          "residualMedianArcsec": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "residualMadArcsec": {
+            "x": 0.058122662446032945,
+            "y": 0.058927585461325864
+          },
+          "rubinMedianFwhmArcsec": 1.970437232001869,
+          "comparisonMedianFwhmArcsec": 2.331902047860512
+        },
+        "postMatch": {
+          "matchedSources": 111,
+          "retainedSources": 110,
+          "rejectedOutliers": 1,
+          "outlierPolicy": "iterative radial median plus 4 robust sigma; minimum 0.35 arcsec cutoff",
+          "medianOffsetArcsec": {
+            "x": 0.00039486108129267055,
+            "y": -0.0010967868397017246
+          },
+          "residualRmsArcsec": 0.10704685382602919,
+          "residualP95Arcsec": 0.22602979103603907,
+          "residualMedianArcsec": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "residualMadArcsec": {
+            "x": 0.053154185332104566,
+            "y": 0.04322113787757221
+          },
+          "rubinMedianFwhmArcsec": 2.091415897748545,
+          "comparisonMedianFwhmArcsec": 2.046081862132577
+        }
+      },
+      "comparisonReady": false,
+      "clearedBlockers": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "comparisonBlockers": [
+        "bandpass transfer",
+        "background matching",
+        "resampling covariance",
+        "injection/recovery QA"
+      ],
+      "limitations": [
+        "The Gaussian PSF model does not capture spatially varying PSF wings, which dominate low-surface-brightness wings.",
+        "Convolution and the upstream reprojection introduce pixel covariance that the variance planes do not represent.",
+        "Survey bandpasses are not reconciled, so DIFFERENCE is a QA plane and must not be read as missing light."
+      ],
+      "products": {
+        "sha256": "874cb23efa59ea35a586d1061331a6153952e0a54daee1a64f71b3811384fddf",
+        "bytes": 5541120
+      }
+    }
+  ]
+}
