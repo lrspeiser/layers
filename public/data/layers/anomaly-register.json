@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "layers-anomaly-register-v1",
+  "generatedAt": "2026-08-14T23:33:36.796681+00:00",
+  "regionSet": "200",
+  "operatorsIncluded": [
+    "xray-counterpart",
+    "variability",
+    "sed-departure"
+  ],
+  "operatorsMissing": [
+    "pixel-residual"
+  ],
+  "counts": {
+    "candidates": 18,
+    "byOperator": {
+      "xray-counterpart": 2,
+      "variability": 9,
+      "sed-departure": 7
+    },
+    "flaggedByMoreThanOneOperator": 0
+  },
+  "policy": {
+    "significancesAreNotComparableAcrossOperators": true,
+    "note": "Each significance is a departure from its own operator's null, and those nulls are different quantities. Rows are sorted within an operator, never pooled into one global ranking, because a global ranking would imply a comparison that has not been made.",
+    "noneAreDetections": true,
+    "whatWouldUpgradeOne": "Independent confirmation: the same position flagged by an operator that measures something else. That is computed here from positions and is the only upgrade path the register offers."
+  },
+  "coincidenceRadiusArcsec": 30.0,
+  "multiOperator": [],
+  "byOperator": {
+    "xray-counterpart": [
+      {
+        "operator": "xray-counterpart",
+        "what": "eRASS1 X-ray source with no optical counterpart",
+        "regionId": "dp2-tract-10805",
+        "tract": 10805,
+        "position": {
+          "raDeg": 189.00688324459,
+          "decDeg": 8.2024284532
+        },
+        "significance": null,
+        "scoredAgainst": "blank-aperture scatter in the same Rubin image",
+        "detail": "no optical flux above 869 nJy, limiting 24.052989797417894 AB; X-ray likelihood None",
+        "falsifiedBy": [
+          "check the eRASS1 detection likelihood; a spurious X-ray detection looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "xray-counterpart",
+        "what": "eRASS1 X-ray source with no optical counterpart",
+        "regionId": "dp2-tract-5063",
+        "tract": 5063,
+        "position": {
+          "raDeg": 53.08004705061,
+          "decDeg": -27.49322381431
+        },
+        "significance": null,
+        "scoredAgainst": "blank-aperture scatter in the same Rubin image",
+        "detail": "no optical flux above 1127 nJy, limiting 23.77056315521621 AB; X-ray likelihood None",
+        "falsifiedBy": [
+          "check the eRASS1 detection likelihood; a spurious X-ray detection looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      }
+    ],
+    "variability": [
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10056",
+        "tract": 10056,
+        "position": {
+          "raDeg": 151.7506805,
+          "decDeg": 3.7169488
+        },
+        "significance": 29.109110437415392,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "21 ZTF epochs, relative change +5.21 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10054",
+        "tract": 10054,
+        "position": {
+          "raDeg": 148.7752515,
+          "decDeg": 3.7120171
+        },
+        "significance": 7.058078120509475,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "21 ZTF epochs, relative change +0.90 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10054",
+        "tract": 10054,
+        "position": {
+          "raDeg": 148.7535378,
+          "decDeg": 3.7291742
+        },
+        "significance": 5.111776134235159,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "27 ZTF epochs, relative change +0.65 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10053",
+        "tract": 10053,
+        "position": {
+          "raDeg": 147.2792119,
+          "decDeg": 3.7276988
+        },
+        "significance": 4.905935791329264,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "21 ZTF epochs, relative change +0.68 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10215",
+        "tract": 10215,
+        "position": {
+          "raDeg": 28.2491946,
+          "decDeg": 5.1884311499999995
+        },
+        "significance": 4.891031452311501,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "40 ZTF epochs, relative change +0.65 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10054",
+        "tract": 10054,
+        "position": {
+          "raDeg": 148.7513503,
+          "decDeg": 3.6950702
+        },
+        "significance": 4.857669215946693,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "25 ZTF epochs, relative change +0.62 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10056",
+        "tract": 10056,
+        "position": {
+          "raDeg": 151.7094035,
+          "decDeg": 3.7125946499999998
+        },
+        "significance": 4.515614046203885,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "22 ZTF epochs, relative change +0.81 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10321",
+        "tract": 10321,
+        "position": {
+          "raDeg": 185.9448932,
+          "decDeg": 5.1949501
+        },
+        "significance": 4.2805729668354635,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "21 ZTF epochs, relative change +0.79 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "variability",
+        "what": "changed between the ZTF baseline and the Rubin epoch",
+        "regionId": "dp2-tract-10053",
+        "tract": 10053,
+        "position": {
+          "raDeg": 147.2716406,
+          "decDeg": 3.71506105
+        },
+        "significance": 4.134983708166683,
+        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
+        "detail": "26 ZTF epochs, relative change +0.58 mag",
+        "falsifiedBy": [
+          "a single Rubin epoch cannot separate a real change from a bad measurement",
+          "re-measure in another Rubin epoch or band"
+        ],
+        "confirmedBy": []
+      }
+    ],
+    "sed-departure": [
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 54.631489,
+          "decDeg": -30.528379
+        },
+        "significance": 7.779833093255376,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -3.61 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 235.100306,
+          "decDeg": -26.06583
+        },
+        "significance": 5.374612232948655,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -2.49 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 303.556422,
+          "decDeg": -27.489998
+        },
+        "significance": 5.015974337053106,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -2.33 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 5.801487,
+          "decDeg": -40.928715
+        },
+        "significance": 4.417956103106655,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual +2.05 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 209.718789,
+          "decDeg": -3.702071
+        },
+        "significance": 4.160882237894416,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -1.93 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 14.978291,
+          "decDeg": 8.205615
+        },
+        "significance": 3.853383572080921,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -1.79 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 25.458911,
+          "decDeg": 21.427866
+        },
+        "significance": 3.8420283845316923,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -1.78 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      }
+    ]
+  }
+}
