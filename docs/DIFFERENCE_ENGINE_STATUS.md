@@ -259,3 +259,24 @@ because they are not subtraction problems:
 
 DES DR2 and HSC PDR2 are the cheapest wins: both are directly comparable optical
 surveys with confirmed overlaps and **zero pixels fetched**.
+
+---
+
+## 8. A cross-match trap worth recording
+
+The strongest surviving anomaly candidate — tract 2397, present at all three
+template scales — sits 29.9 arcsec from the position in that region's eROSITA
+record, which also reports `sourceCount: 2`. That looks like an optical residual
+with an X-ray counterpart.
+
+It is not. The `upperLimit` block's `ra`/`dec` is the **query position**, and for
+tract 2397 it is exactly the region centre, 0.0 arcsec away. The 29.9 arcsec was
+simply the candidate's own offset from the tract centre. Cross-matching against
+that field would manufacture an apparent X-ray association for every anomaly
+that happens to lie near a tract centre, with a separation that encodes nothing
+but the anomaly's position.
+
+`sourceCount` does say two eROSITA sources exist in the region, but their
+positions are not in this record. Any real counterpart-association operator (G6)
+must pull the eRASS1 source list itself and match against catalogued source
+positions, never against the upper-limit query position.
