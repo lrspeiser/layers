@@ -36,7 +36,21 @@ if not PYTHON.exists():
     PYTHON = Path(sys.executable)
 
 
+def absolute(value: str) -> str:
+    """Make a repo-relative path argument absolute.
+
+    Several stages call ``Path.relative_to(ROOT)`` on their own arguments to
+    record provenance. Handed a relative path that raises, and the failure
+    surfaces one region at a time rather than at startup, so every path the
+    runner passes is resolved here instead.
+    """
+    if value.startswith("-") or "/" not in value:
+        return value
+    return str((ROOT / value).resolve())
+
+
 def stage(name: str, script: str, arguments: list[str], log: Path) -> tuple[bool, str]:
+    arguments = [absolute(item) for item in arguments]
     log.parent.mkdir(parents=True, exist_ok=True)
     started = time.time()
     with log.open("w", encoding="utf-8") as handle:
