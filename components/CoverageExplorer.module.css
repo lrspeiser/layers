@@ -334,3 +334,11 @@
 @media (prefers-reduced-motion: reduce) {
   .tractPin { transition: none; }
 }
+
+.tractPreview { margin:.9rem 0; }
+.tractPreview > img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; background:#050606; border:1px solid var(--line); border-radius:10px; }
+.tractThumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:.4rem; margin-top:.4rem; }
+.tractThumbs figure { margin:0; }
+.tractThumbs img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; background:#050606; border:1px solid var(--line); border-radius:6px; }
+.tractThumbs figcaption { display:grid; margin-top:.2rem; color:var(--muted); font-size:.58rem; line-height:1.25; }
+.tractThumbs figcaption small { color:#6f736d; font-size:.54rem; }

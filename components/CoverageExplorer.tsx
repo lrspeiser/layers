@@ -65,6 +65,8 @@ export interface RubinTractCoverage {
   label?: string;
   /** Optional app route for a tract workspace; keeps this prop boundary serializable. */
   href?: string;
+  previewImage?: string;
+  layerThumbnails?: { surveyName: string; band: string; image: string }[];
   /** Distinguishes an aligned viewer, a validated single-survey image, and evidence only. */
   viewerStatus?: "aligned-viewer" | "image-only" | "evidence-only";
 }
@@ -367,6 +369,23 @@ export function CoverageExplorer({
                 <span><strong>{activeTract.pixelCachedSurveyIds?.length ?? 0}</strong> pixel layers cached</span>
                 <span><strong>{activeTract.selectedRegionCount ?? 0}</strong> acquisition candidates</span>
               </div>
+              {activeTract.previewImage && (
+                <div className={styles.tractPreview}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={activeTract.previewImage} alt={`Rubin pixels in ${activeTract.label ?? activeTract.id}`} />
+                  {(activeTract.layerThumbnails ?? []).length > 0 && (
+                    <div className={styles.tractThumbs}>
+                      {(activeTract.layerThumbnails ?? []).slice(0, 6).map((thumb) => (
+                        <figure key={`${thumb.surveyName}-${thumb.band}`}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={thumb.image} alt={`${thumb.surveyName} ${thumb.band} at this position`} />
+                          <figcaption>{thumb.surveyName}<small>{thumb.band}</small></figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
               {activeTract.href && <a className={styles.tractLink} href={activeTract.href}>{activeTract.viewerStatus === "aligned-viewer" ? "Open aligned image & overlay viewer" : activeTract.viewerStatus === "image-only" ? "Open validated image workspace" : "Open tract evidence workspace"} →</a>}
               <h4>Overlapping datasets</h4>
               <div className={styles.overlapList}>

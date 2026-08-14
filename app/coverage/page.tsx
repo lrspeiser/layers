@@ -53,6 +53,35 @@ export default function CoveragePage() {
       [...new Set(scienceProducts.filter((product) => product.tract === tract).map((product) => product.surveyId))],
     ]),
   );
+  // Clicking a tract should show its pixels, not just describe them. The base
+  // preview is the Rubin image from the optical comparison; the thumbnails are
+  // every other measured layer at the same position.
+  type PlacedProduct = { tract: number; surveyId: string; surveyName?: string; bandOrObservable?: string; referenceBand?: string; referenceImage?: string; skyPlacement?: unknown };
+  const geometryLayers = (productIndexData.products as unknown as PlacedProduct[])
+    .filter((product) => product.skyPlacement && product.referenceImage)
+    .map((product) => ({
+      tract: product.tract,
+      surveyId: product.surveyId,
+      surveyName: product.surveyName ?? product.surveyId,
+      band: String(product.bandOrObservable ?? product.referenceBand ?? ""),
+      image: product.referenceImage as string,
+    }));
+  const previewByTract: Record<number, string> = {};
+  const layerThumbnailsByTract: Record<number, { surveyName: string; band: string; image: string }[]> = {};
+  for (const product of productIndexData.products) {
+    if (product.viewerReady && product.rubinImage && previewByTract[product.tract] === undefined) {
+      previewByTract[product.tract] = product.rubinImage;
+    }
+  }
+  for (const layer of geometryLayers) {
+    if (layer.surveyId === "legacy-surveys-dr10") continue;
+    (layerThumbnailsByTract[layer.tract] ??= []).push({
+      surveyName: layer.surveyName,
+      band: String(layer.band),
+      image: layer.image,
+    });
+  }
+
   const { coverage, surveys } = buildCoverageExplorerData(
     footprintData as unknown as RubinFootprintFile,
     overlapData as unknown as ExternalOverlapFile,
@@ -63,6 +92,8 @@ export default function CoveragePage() {
       imageReadyTractIds: [...new Set(scienceProducts.map((product) => product.tract))],
       alignedViewerTractIds: [...new Set(viewerProducts.map((product) => product.tract))],
       pixelReadySurveyIdsByTract,
+      previewByTract,
+      layerThumbnailsByTract,
       scienceInputCandidateCount: productIndexData.summary.scienceReadyCount + rubinPixelsData.summary.scienceReadyRegionCount,
       validatedScienceInputCount: productIndexData.summary.scienceReadyCount + rubinPixelsData.summary.scienceReadyRegionCount,
       resolvedProductFootprints: [

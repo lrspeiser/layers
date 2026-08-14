@@ -134,6 +134,8 @@ export function buildCoverageExplorerData(
     imageReadyTractIds?: number[];
     alignedViewerTractIds?: number[];
     pixelReadySurveyIdsByTract?: Record<number, string[]>;
+    previewByTract?: Record<number, string>;
+    layerThumbnailsByTract?: Record<number, { surveyName: string; band: string; image: string }[]>;
     scienceInputCandidateCount?: number;
     validatedScienceInputCount?: number;
     resolvedProductFootprints?: ResolvedProductFootprint[];
@@ -203,6 +205,8 @@ export function buildCoverageExplorerData(
         selectedRegionCount: selectedCounts.get(tract) ?? 0,
         label: `Rubin tract ${tract}`,
         href: `/tract/${tract}`,
+        previewImage: workspaceIndex?.previewByTract?.[tract],
+        layerThumbnails: workspaceIndex?.layerThumbnailsByTract?.[tract] ?? [],
         viewerStatus: alignedViewer ? "aligned-viewer" as const : imageReady ? "image-only" as const : "evidence-only" as const,
       };
     }),

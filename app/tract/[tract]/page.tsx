@@ -161,7 +161,7 @@ export default async function TractPage({ params }: PageProps) {
 
       {liveLayerProducts.length ? (
         <section className={styles.viewerSection}>
-          <div className={styles.sectionHeading}><div><span>REAL COMMON-GRID PIXELS</span><h2>Rubin plus every cached layer at this position</h2></div>{pilot && <Link href={`/pilots?field=${pilot.fieldId}&tract=${tract}`}>Open full pilot evidence →</Link>}</div>
+          <div className={styles.sectionHeading}><div><span>REAL COMMON-GRID PIXELS</span><h2>Rubin plus every cached layer at this position</h2></div><Link href={`/overlay/${tract}`}>Overlay every measured layer →</Link>{pilot && <Link href={`/pilots?field=${pilot.fieldId}&tract=${tract}`}>Open full pilot evidence →</Link>}</div>
           <TractLayerStack tract={tract} products={liveLayerProducts} />
           {onDemandLayerProducts.length > 0 && <OnDemandRubinCutout tract={tract} initialJob={existingOnDemandJob} workerStatus={rubinWorkerStatus} />}
         </section>
