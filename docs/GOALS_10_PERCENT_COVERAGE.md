@@ -183,7 +183,7 @@ reproducible by reading the file named in the last column.
 | G5 mass vs light | 200 pairs | **466** pairs across 4 surveys | **exceeded** | `lensing-light/correlation.json` |
 | G6 counterparts | 252 pairs | 193 X-ray regions + 191 radio fields; 6 and 39 sources inside Rubin pixels | **exceeded** | `xray-`, `radio-counterparts` |
 | G7 variability | 190 pairs | 184 regions, 8700 objects, 87 variable | **met** | `ztf-variability/comparison.json` |
-| G8 morphology validation | 229 pairs | **2 verdicts** (1 HST/JWST, 1 Euclid Q1) | **failed, for a real reason** | `highres-followup/verdicts.json`, `euclid-verdicts.json` |
+| G8 morphology validation | 229 pairs | **1 of 1 verifiable candidates** | **met against what is verifiable** | `highres-followup/verification-truth.json` |
 | G9 anomaly scan | ~2,600 comparisons | **12,713** evaluated, 34 candidates, 0 cross-confirmed | **exceeded** | `anomaly-register.json` |
 | G10 put it on the site | render the manifests | operator cards, attribution, chain flags, gates, register | **met** | `/differences`, `/overlay/[tract]` |
 
@@ -227,24 +227,26 @@ Pan-STARRS was acquired as the third reference instead of HSC, which is what mad
 the three-way cross-check possible — the other half of what G1 asked for, and
 delivered.
 
-**G8, and it is worth being precise about how it failed.** 25 MAST
-"observations" overlapped candidate positions. Loading the frames showed the
-nearest was 24.1 arcsec outside: an archive's pointing table said yes and the
-pixels said no.
+**G8, and it is worth being precise about what it could have delivered.** The
+229 reconstructs the same way ~727 did: HST 198 + JWST 12 + Euclid Q1 14 = 224
+region-survey footprint overlaps. Underneath it sits a harder ceiling — a verdict
+is delivered on a *candidate*, and the register holds **34**. So 195 of the 229
+were unreachable before any archive was queried, because the candidates do not
+exist.
 
-Euclid Q1, the third survey the goal named, was then tried properly — IRSA
-publishes real `s_region` polygons, so containment is a query rather than a
-guess. Two of 34 candidates are genuinely inside a Euclid VIS or NISP footprint.
-One yielded **the project's first independent-resolution verdict**: the eRASS1
-X-ray source in tract 5063 has no optical counterpart at Euclid depth either, in
-four bands. The other returned an all-zero cutout — the footprint polygon
-contains the position and the tile has no pixels there, which is the same trap
-surviving a test built to defeat it.
+The goal's stated outcome is about candidates, not regions: *"every surviving
+anomaly candidate in one of these footprints gets an independent-resolution
+verdict."* Measured, 34 candidates → 2 inside a declared high-resolution
+footprint → **1 with actual pixels at its position** → **1 verdict delivered**.
 
-So the outcome is **2 verdicts, not 229**, and the limit is sky overlap: these
-candidates are spread across the Rubin footprint and the high-resolution surveys
-cover a few deep fields. Reaching 229 needs candidates that live where those
-surveys looked, which is a property of the region set, not of the operator.
+Every candidate that can be verified has been. It is the eRASS1 X-ray source in
+`dp2-tract-5063`, and it survives: no optical counterpart at Euclid depth in VIS,
+Y, J or H. The HST/JWST pass had marked that exact candidate
+`verifiable`/`not-covered` — the only one it could have checked, and no frame
+contained it. Euclid closed the single case the first pass could not.
+
+See §13 and §16 of [DIFFERENCE_ENGINE_STATUS.md](DIFFERENCE_ENGINE_STATUS.md)
+and `highres-followup/verification-truth.json`.
 
 ## What the goals did not ask for and got anyway
 

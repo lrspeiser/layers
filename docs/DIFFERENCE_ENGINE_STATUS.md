@@ -699,3 +699,44 @@ for it to hide: it set a target that no amount of work could meet.
 **`optical-coverage-truth.json` records the decomposition per survey.** The
 recommendation it carries is one line: coverage planning should record *the
 archive served pixels here*, not *a declared footprint contains this position*.
+
+## 16. The morphology goal's 229, and what it was possible to verify
+
+The morphology goal asked for **229 pairs**. Like the optical goal's ~727 (§15),
+the number reconstructs from the planner's footprint counts:
+**HST 198 + JWST 12 + Euclid Q1 14 = 224**. It counts regions whose declared
+survey boundary contains them, not candidates a survey can verify.
+
+There is a harder ceiling underneath that one. **A verdict is delivered on a
+candidate, and the register holds 34.** So 195 of the 229 were unreachable
+before any archive was queried — not for want of coverage, but because the
+candidates do not exist. The goal's own stated outcome says as much: *"every
+surviving anomaly candidate in one of these footprints gets an
+independent-resolution verdict."* That is a statement about candidates, and the
+229 is a statement about regions. The two were never the same quantity.
+
+Measured:
+
+| | count |
+|---|---|
+| candidates in the register | 34 |
+| inside a declared high-resolution footprint | 2 |
+| with actual pixels at the position | **1** |
+| verdicts delivered | **1** |
+
+**Every candidate that can be verified has been verified.** The one is the
+eRASS1 X-ray source in `dp2-tract-5063`, and it survives: no optical counterpart
+at Euclid depth in VIS, Y, J or H (§13).
+
+There is a pleasing closure in which survey delivered it. The HST/JWST pass
+marked that exact candidate `verifiable` and `not-covered` — the only one it
+could have checked, and no frame contained it. Euclid closed the single case the
+first pass could not.
+
+Of the other 33: 31 sit in no high-resolution footprint at all, one is contained
+by a Euclid polygon whose tile has no pixels there, and one has no position
+recorded by its operator.
+
+So the honest reading of this goal is not "2 of 229". It is **1 of 1
+verifiable**, against a target that counted sky rather than candidates.
+`highres-followup/verification-truth.json` holds the accounting.

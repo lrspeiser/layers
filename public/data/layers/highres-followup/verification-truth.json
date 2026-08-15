@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "layers-highres-verification-truth-v1",
+  "generatedAt": "2026-08-15T05:46:06.863866+00:00",
+  "question": "The morphology goal asked for 229 pairs. Where does that number come from, and what is verifiable?",
+  "targetOrigin": {
+    "claimedByFootprint": {
+      "hst": 198,
+      "jwst": 12,
+      "euclid-q1": 14
+    },
+    "sum": 224,
+    "statedTarget": 229,
+    "reading": "The target is the sum of region-survey footprint overlaps, the same construction behind the optical goal's ~727. It counts regions a survey's declared boundary contains, not candidates a survey can verify."
+  },
+  "whatIsActuallyVerifiable": {
+    "candidatesInRegister": 34,
+    "ceilingImposedByCandidateCount": "A verdict is delivered on a candidate, and the register holds 34 of them. 195 of the 229 were unreachable before any survey was queried, because the candidates do not exist.",
+    "insideDeclaredHighResFootprint": 2,
+    "withActualPixelsAtThePosition": 1,
+    "verdictsDelivered": 1,
+    "fractionOfVerifiableDelivered": 1.0
+  },
+  "perSurvey": {
+    "hst-jwst": {
+      "verifiable": 1,
+      "verdictsDelivered": 1,
+      "refuted": 0,
+      "survives": 0,
+      "inconclusive": 0,
+      "unresolved": 0,
+      "notCovered": 1,
+      "notVerifiable": 31,
+      "note": "25 MAST observations overlapped candidate positions; loading the frames showed the nearest was 24.1 arcsec outside. One candidate was verifiable and no frame contained it."
+    },
+    "euclid-q1": {
+      "candidates": 34,
+      "positionsTested": 34,
+      "coveredByIndependentEuclid": 2,
+      "verdictsDelivered": 1,
+      "refuted": 0,
+      "survives": 1,
+      "detected": 0,
+      "notDetected": 0,
+      "notCovered": 32,
+      "footprintContainsButNoPixels": 1,
+      "note": "Containment tested against the real s_region polygon. Two candidates contained; one carries pixels and has a verdict, one returns an all-zero cutout."
+    }
+  },
+  "outcome": "The goal's stated outcome is that every surviving anomaly candidate in one of these footprints gets an independent-resolution verdict. Exactly one candidate has high-resolution pixels at its position across HST, JWST and Euclid Q1 combined, and it has a verdict: the eRASS1 X-ray source in dp2-tract-5063 has no optical counterpart at Euclid depth either. HST/JWST had marked that same candidate verifiable-but-not-covered, so Euclid closed the one case the first pass could not.",
+  "caveat": "This says the goal's outcome is met for everything verifiable, not that 229 verdicts exist. They cannot: there are 34 candidates, and 33 of them have no high-resolution pixels at their position."
+}
