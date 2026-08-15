@@ -129,6 +129,12 @@ def main() -> None:
     if ztf:
         sources_seen.append("variability")
         for item in ztf.get("mostChanged", []):
+            # The variability operator flags its whole changed population when the
+            # brighter/fainter split is one-sided, which means the comparison is
+            # biased rather than the objects having moved. Those must not enter a
+            # register whose purpose is to surface things worth looking at.
+            if item.get("populationSystematic"):
+                continue
             entries.append({
                 "operator": "variability",
                 "what": "changed between the ZTF baseline and the Rubin epoch",

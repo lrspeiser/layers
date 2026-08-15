@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-anomaly-register-v1",
-  "generatedAt": "2026-08-14T23:43:17.721429+00:00",
+  "generatedAt": "2026-08-15T01:29:45.618623+00:00",
   "regionSet": "200",
   "operatorsIncluded": [
     "pixel-residual",
@@ -10,10 +10,9 @@
   ],
   "operatorsMissing": [],
   "counts": {
-    "candidates": 18,
+    "candidates": 9,
     "byOperator": {
       "xray-counterpart": 2,
-      "variability": 9,
       "sed-departure": 7
     },
     "flaggedByMoreThanOneOperator": 0
@@ -63,170 +62,6 @@
           "check the eRASS1 detection likelihood; a spurious X-ray detection looks identical",
           "measure the chance-coincidence rate for this field",
           "go deeper in the optical"
-        ],
-        "confirmedBy": []
-      }
-    ],
-    "variability": [
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10056",
-        "tract": 10056,
-        "position": {
-          "raDeg": 151.7506805,
-          "decDeg": 3.7169488
-        },
-        "significance": 29.109110437415392,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "21 ZTF epochs, relative change +5.21 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10054",
-        "tract": 10054,
-        "position": {
-          "raDeg": 148.7752515,
-          "decDeg": 3.7120171
-        },
-        "significance": 7.058078120509475,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "21 ZTF epochs, relative change +0.90 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10054",
-        "tract": 10054,
-        "position": {
-          "raDeg": 148.7535378,
-          "decDeg": 3.7291742
-        },
-        "significance": 5.111776134235159,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "27 ZTF epochs, relative change +0.65 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10053",
-        "tract": 10053,
-        "position": {
-          "raDeg": 147.2792119,
-          "decDeg": 3.7276988
-        },
-        "significance": 4.905935791329264,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "21 ZTF epochs, relative change +0.68 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10215",
-        "tract": 10215,
-        "position": {
-          "raDeg": 28.2491946,
-          "decDeg": 5.1884311499999995
-        },
-        "significance": 4.891031452311501,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "40 ZTF epochs, relative change +0.65 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10054",
-        "tract": 10054,
-        "position": {
-          "raDeg": 148.7513503,
-          "decDeg": 3.6950702
-        },
-        "significance": 4.857669215946693,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "25 ZTF epochs, relative change +0.62 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10056",
-        "tract": 10056,
-        "position": {
-          "raDeg": 151.7094035,
-          "decDeg": 3.7125946499999998
-        },
-        "significance": 4.515614046203885,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "22 ZTF epochs, relative change +0.81 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10321",
-        "tract": 10321,
-        "position": {
-          "raDeg": 185.9448932,
-          "decDeg": 5.1949501
-        },
-        "significance": 4.2805729668354635,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "21 ZTF epochs, relative change +0.79 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "variability",
-        "what": "changed between the ZTF baseline and the Rubin epoch",
-        "regionId": "dp2-tract-10053",
-        "tract": 10053,
-        "position": {
-          "raDeg": 147.2716406,
-          "decDeg": 3.71506105
-        },
-        "significance": 4.134983708166683,
-        "scoredAgainst": "the field's own Rubin-minus-ZTF offset distribution",
-        "detail": "26 ZTF epochs, relative change +0.58 mag",
-        "falsifiedBy": [
-          "a single Rubin epoch cannot separate a real change from a bad measurement",
-          "re-measure in another Rubin epoch or band"
         ],
         "confirmedBy": []
       }

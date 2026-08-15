@@ -245,6 +245,24 @@ def main() -> None:
         if item.get("changeSignificance") is not None and abs(item["changeSignificance"]) > 4.0
     ]
 
+    # Sign balance, the same test the pixel scanner needed. Real change and
+    # measurement noise both send objects brighter about as often as fainter.
+    # A one-sided tail means the Rubin-minus-ZTF comparison is biased, not that
+    # a population of objects all moved the same way.
+    positive = sum(1 for item in changed if item["changeSignificance"] > 0)
+    negative = len(changed) - positive
+    imbalance = (
+        abs(positive - len(changed) / 2) / math.sqrt(len(changed) / 4) if len(changed) >= 20 else 0.0
+    )
+    sign_dominated = imbalance > 3.0
+    if sign_dominated:
+        for item in changed:
+            item["populationSystematic"] = (
+                "sign imbalance of %.1f sigma across the changed population (%d of %d one way); the "
+                "Rubin-to-ZTF comparison is biased rather than these objects having moved"
+                % (imbalance, max(positive, negative), len(changed))
+            )
+
     summary = {
         "schemaVersion": "layers-ztf-variability-v1",
         "generatedAt": utc_now(),
@@ -263,6 +281,17 @@ def main() -> None:
             "withRubinPhotometry": sum(1 for item in objects if item["rubinMagAB"] is not None),
             "variableInZtf": len(variable),
             "changedByRubinEpoch": len(changed),
+        },
+        "signBalance": {
+            "brighterOrFainterSplit": [positive, negative],
+            "imbalanceSigma": imbalance,
+            "populationSystematicDetected": sign_dominated,
+            "note": (
+                "Real change and measurement noise both move objects each way about equally. A "
+                "one-sided tail means the Rubin-to-ZTF comparison carries a bias the field median did "
+                "not remove, most likely at the faint end where the Rubin aperture collects "
+                "neighbours or sky."
+            ),
         },
         "thresholds": {
             "reducedChiSquare99thPercentile": chi_threshold,
@@ -292,6 +321,11 @@ def main() -> None:
     print(f"\n{len(objects)} ZTF objects across {summary['counts']['regionsMeasured']} regions")
     print(f"  variable in ZTF alone:      {len(variable)}")
     print(f"  changed by the Rubin epoch: {len(changed)}")
+    if sign_dominated:
+        print(
+            f"  POPULATION SYSTEMATIC: {max(positive, negative)} of {len(changed)} point the same way "
+            f"({imbalance:.1f} sigma); these are not {len(changed)} transients"
+        )
 
 
 if __name__ == "__main__":
