@@ -175,7 +175,7 @@ reproducible by reading the file named in the last column.
 
 | Goal | Target | Delivered | Verdict | Manifest |
 |---|---|---|---|---|
-| G0 acquire 200 tracts | 200 regions, ≥180 two-band | 200 regions, **165** two-band | **short; target unreachable** | `rubin-pixels-200`, `-band2` |
+| G0 acquire 200 tracts | 200 regions, ≥180 two-band | **167** of a reachable **173** (96.5%) | **met against DP2's actual bands** | `dp2-band-availability.json` |
 | G1 four-survey optical | ~727 pairs | **521** of a reachable **542** (96.1%) | **met against the real ceiling** | `optical-coverage-truth.json` |
 | G2 Gaia cross-match | 200 pairs, astrometry → 0.086–0.220″ | 147 measured; **0.085″** from 0.288″ | **met, and beats the pilots** | `gaia-crossmatch/comparison.json` |
 | G3 SED consistency | 600 pairs, GALEX + 2MASS + unWISE | 184 regions, 1394 sources; **2MASS + AllWISE, no GALEX** | **partly met** | `sed/consistency.json` |
@@ -187,23 +187,23 @@ reproducible by reading the file named in the last column.
 | G9 anomaly scan | ~2,600 comparisons | **12,713** evaluated, 34 candidates, 0 cross-confirmed | **exceeded** | `anomaly-register.json` |
 | G10 put it on the site | render the manifests | operator cards, attribution, chain flags, gates, register | **met** | `/differences`, `/overlay/[tract]` |
 
-## The three that are not met, and why
+## Where the targets exceeded what the archives hold
 
-**G0's second band, 165 against a target of 180, and 180 is unreachable.**
-The gap was worked rather than accepted: of the 43 regions without a validated
-second band, DP2 offers an unused band for only **11**, because **27 of the 43
-carry exactly one band in the entire release**. Those 11 were acquired and 8
-validated, taking the count from 157 to 165 against a hard ceiling of 168.
+**G0's second band: 167 of a reachable 173.** DP2 serves two or more bands for
+only **173 of the 200 regions** — 27 carry exactly one band in the entire
+release — so the target of 180 exceeded what exists by 7 before any pixels were
+fetched.
 
-So this is a shortfall, but not one more effort closes. The target assumed two
-bands are generally available across the 200-tract footprint, and in DP2 they
-are not. Reaching 180 would require choosing a different region set — trading
-sky coverage for band coverage — which is a change to G0's premise, not to its
-execution.
+Getting to 167 took three passes, because the first stopped at one band attempt
+per region: 157 at the start, +8 from regions with an unused band, +2 by retrying
+regions whose first alternative failed validation (tract 5391 in g, tract 5281 in
+z after g failed). Every region with any untried band in DP2 has now been
+attempted; the remaining 6 failed validation on every band available to them.
 
-The second band exists to make a colour term fittable, and that is where the
-eight paid off: the bandpass fit went from 37 regions measured to **156**, and
-from 22 within the 0.08 mag tolerance to **95**.
+The second band exists to make a colour term fittable, and that is where it paid
+off: the bandpass fit went from 37 regions measured to **156**, and from 22
+within the 0.08 mag tolerance to **95**. See §17 of
+[DIFFERENCE_ENGINE_STATUS.md](DIFFERENCE_ENGINE_STATUS.md).
 
 **G1's pair count, and where ~727 came from.** The target reconstructs
 exactly: summing the planner's `confirmedSurveyIds` across the four optical

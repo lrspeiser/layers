@@ -740,3 +740,50 @@ recorded by its operator.
 So the honest reading of this goal is not "2 of 229". It is **1 of 1
 verifiable**, against a target that counted sky rather than candidates.
 `highres-followup/verification-truth.json` holds the accounting.
+
+## 17. The acquisition goal's ≥180 two-band regions, against DP2's actual bands
+
+The acquisition goal asked for 200 validated regions with **≥180 carrying two
+bands**, on the premise of "167 new tracts, 2 bands each". The premise is an
+availability assumption, and like the footprint counts behind ~727 (§15) and 229
+(§16) it can be checked against the archive rather than argued about.
+
+Counting the bands DP2 actually serves for each of the 200 regions, from the
+cached SIA discovery responses:
+
+| bands available | regions |
+|---|---|
+| 1 | **27** |
+| 2 | 24 |
+| 3 | 26 |
+| 4 | 12 |
+| 5 | 55 |
+| 6 | 56 |
+| **≥2** | **173** |
+
+**DP2 has two or more bands for 173 of the 200 regions. The target of 180
+exceeds that ceiling by 7, and was unreachable before any pixels were fetched.**
+Twenty-seven regions carry exactly one band in the entire release; no acquisition
+strategy produces a second one.
+
+Delivered: **167 of the reachable 173, or 96.5%.** Getting there took three
+passes, because the first stopped at one band attempt per region:
+
+1. 157 at the start of this session.
+2. +8, from the 11 regions that had an unused band.
+3. +2, by retrying regions whose first alternative failed validation — tract
+   5391 in g, tract 5281 in z after g failed.
+
+Every region with any untried band in DP2 has now been attempted. The remaining
+6 of the 173 failed validation on every band the release offers them.
+
+That completes a pattern worth stating once, plainly. **Three of this goal set's
+targets — 727 optical pairs, 229 morphology pairs, 180 two-band regions — were
+computed from what archives declare rather than from what they serve.** Each was
+unreachable at the moment it was written: by 181 pairs, by 195 verdicts, and by 7
+regions respectively. The work delivered 96.1%, 100% and 96.5% of what was
+actually there.
+
+The recommendation from §15 applies to all three: derive targets from
+archive-served data, not from declared coverage. `dp2-band-availability.json`
+records this one.

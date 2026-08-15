@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "layers-dp2-band-availability-v1",
+  "generatedAt": "2026-08-15T05:50:06.392919+00:00",
+  "question": "The acquisition goal assumed two bands per tract. How many tracts does DP2 actually have two bands for?",
+  "regionsQueried": 200,
+  "bandsAvailablePerRegion": {
+    "1": 27,
+    "2": 24,
+    "3": 26,
+    "4": 12,
+    "5": 55,
+    "6": 56
+  },
+  "regionsWithAtLeastTwoBands": 173,
+  "regionsWithExactlyOneBand": 27,
+  "secondBandValidated": 167,
+  "target": 180,
+  "reachableCeiling": 173,
+  "finding": "DP2 offers two or more bands for 173 of 200 regions in this set. The goal's target of 180 exceeds that ceiling by 7, so it was unreachable before any pixels were fetched. Every region with an untried band has now been attempted."
+}

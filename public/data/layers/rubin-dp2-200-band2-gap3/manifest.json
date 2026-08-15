@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "layers-rubin-pixels-public-v1",
+  "generatedAt": "2026-08-15T05:49:11.267703+00:00",
+  "summary": {
+    "regionCount": 1,
+    "completeRegionCount": 1,
+    "scienceReadyRegionCount": 1,
+    "comparisonReadyRegionCount": 0,
+    "sourceCutoutCount": 4,
+    "sourceBytes": 24468480,
+    "mosaicBytes": 17291520
+  },
+  "honestStatus": "1 of 1 selected regions have cached Rubin DP2 MaskedImage mosaics; 1 pass local IMAGE/VARIANCE/MASK/WCS/unit gates and none are comparison-ready before cross-survey QA.",
+  "policy": {
+    "sodaRequestsPerMinute": 30,
+    "accountVoCutoutsPerMinute": 35,
+    "cacheBeforeRequest": true,
+    "cutoutDetail": "MaskedImage",
+    "cutoutSizeArcmin": 4.0,
+    "tokensSerialized": false,
+    "signedUrlsSerialized": false,
+    "wholePatchDownloads": false
+  },
+  "regions": [
+    {
+      "regionId": "dp2-tract-5281",
+      "tract": 5281,
+      "center": [
+        54.246544,
+        -26.032053
+      ],
+      "band": "z",
+      "status": "complete",
+      "sourceCutoutCount": 4,
+      "sourceBytes": 24468480,
+      "sourceSha256": [
+        "82ff079b542db0308baa0a366ef92d993d1f27122afad864c08cdbef1754b670",
+        "e5bdda9477efd4b42bf7eba14504af7dfeb218f5ab8870431b70eb2d2ba7569c",
+        "cd6e66aa214119a6834c1d56f9f95d9998fedc025926c0a8a9500420cdd88dc5",
+        "f56ce0ba47f93e80d88a8bf841c8b5b0716050db376ee713306d3381eb3e7d8f"
+      ],
+      "mosaicBytes": 17291520,
+      "mosaicSha256": "fe4d8a7f68d58c1ecdfb547d9d1b90973379112a1a16aa07e59fa1381eb65c70",
+      "previewPath": "/layer-previews/rubin-200-band2-gap3/dp2-tract-5281-z.png",
+      "previewSha256": "3eacf0ed8c6b50e74403c61b7ac8275564d2314b349a13c75b14220d5ccf54c5",
+      "validation": {
+        "valid": true,
+        "hasUsablePixels": true,
+        "hduCount": 4,
+        "shape": [
+          1200,
+          1200
+        ],
+        "planeShapesAgree": true,
+        "wcsPresent": true,
+        "units": {
+          "image": "nJy",
+          "variance": "nJy2",
+          "mask": "bitmask"
+        },
+        "imagePresent": true,
+        "variancePresent": true,
+        "maskPresent": true,
+        "maskInteger": true,
+        "checksumVerified": true,
+        "validPixelFraction": 0.6767777777777778,
+        "scienceReady": true,
+        "comparisonReady": false,
+        "comparisonBlockers": [
+          "PSF matching",
+          "bandpass transfer",
+          "background matching",
+          "common-mask and covariance QA"
+        ]
+      },
+      "error": null
+    }
+  ]
+}
