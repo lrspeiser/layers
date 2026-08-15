@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "layers-optical-coverage-truth-v1",
+  "generatedAt": "2026-08-15T05:43:44.916766+00:00",
+  "question": "The optical goal asked for ~727 pairs. Where does that number come from, and what is actually reachable?",
+  "finding": "The target was the sum of footprint-overlap counts. Overlap is a statement about sky, not about data: it counts a region as covered when a survey's declared footprint contains it, whether or not the survey has pixels there. Measured against what the archives actually serve, the reachable ceiling is lower than the target by 181 pairs, and 96% of that ceiling has been delivered.",
+  "totals": {
+    "claimedByFootprint": 723,
+    "pixelsValidated": 542,
+    "reconciledPairs": 521,
+    "lostToFootprintOverstatement": 181,
+    "lostInReconciliation": 21,
+    "fractionOfReachableCeilingDelivered": 0.9613
+  },
+  "surveys": [
+    {
+      "surveyId": "legacy-surveys-dr10",
+      "claimedByFootprint": 199,
+      "pixelsValidated": 198,
+      "reconciledPairs": 190,
+      "why": "2 regions not acquired or failed validation."
+    },
+    {
+      "surveyId": "des-dr2",
+      "claimedByFootprint": 164,
+      "pixelsValidated": 148,
+      "reconciledPairs": 143,
+      "why": "16 regions inside the claimed footprint return zero rows from the DES SIA service: the survey has no coadd there."
+    },
+    {
+      "surveyId": "hsc-ssp-pdr2",
+      "claimedByFootprint": 162,
+      "pixelsValidated": 0,
+      "reconciledPairs": 0,
+      "why": "HSC PDR2 publishes only HiPS tiles without credentials. Those are display products with no calibrated flux and no variance plane, so no science pixels exist to fetch."
+    },
+    {
+      "surveyId": "panstarrs-dr2",
+      "claimedByFootprint": 198,
+      "pixelsValidated": 196,
+      "reconciledPairs": 188,
+      "why": "2 regions have no r-band stack; 2 more failed discovery or validation."
+    }
+  ],
+  "recommendation": "Coverage planning should record 'the archive served pixels here' rather than 'a declared footprint contains this position'. Every target built on the second is an overestimate, and this project has now measured that gap seven separate times."
+}

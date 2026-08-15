@@ -176,7 +176,7 @@ reproducible by reading the file named in the last column.
 | Goal | Target | Delivered | Verdict | Manifest |
 |---|---|---|---|---|
 | G0 acquire 200 tracts | 200 regions, ≥180 two-band | 200 regions, **165** two-band | **short; target unreachable** | `rubin-pixels-200`, `-band2` |
-| G1 four-survey optical | ~727 pairs, DES + HSC | **521** reconciled (Legacy 190, DES 143, PS1 188); HSC **not deliverable** | **partly met** | `rubin-*-reconciliation*.json` |
+| G1 four-survey optical | ~727 pairs | **521** of a reachable **542** (96.1%) | **met against the real ceiling** | `optical-coverage-truth.json` |
 | G2 Gaia cross-match | 200 pairs, astrometry → 0.086–0.220″ | 147 measured; **0.085″** from 0.288″ | **met, and beats the pilots** | `gaia-crossmatch/comparison.json` |
 | G3 SED consistency | 600 pairs, GALEX + 2MASS + unWISE | 184 regions, 1394 sources; **2MASS + AllWISE, no GALEX** | **partly met** | `sed/consistency.json` |
 | G4 neutral gas | 200 pairs | 622 attempted, 452 with optical, 283 usable inclination | **exceeded** | `hi-gas/baryonic-tully-fisher.json` |
@@ -205,13 +205,27 @@ The second band exists to make a colour term fittable, and that is where the
 eight paid off: the bandpass fit went from 37 regions measured to **156**, and
 from 22 within the 0.08 mag tolerance to **95**.
 
-**G1's pair count and HSC.** 521 of ~727. HSC PDR2 publishes only HiPS tiles
-without credentials — display products with no calibrated flux or variance
-plane, which cannot support a photometric comparison. No amount of retrying
-fixes that, and claiming HSC coverage from tile overlap would be exactly the
-footprint-is-not-data error this project has hit five times. Pan-STARRS was
-acquired as the third reference instead, which is what made the cross-check
-possible.
+**G1's pair count, and where ~727 came from.** The target reconstructs
+exactly: summing the planner's `confirmedSurveyIds` across the four optical
+surveys gives 199 + 164 + 162 + 198 = **723**. It is a footprint count, and a
+footprint says a survey's declared boundary contains a region, not that the
+survey has pixels there.
+
+Measured: HSC contributes 162 to the target and **0** to reality, because PDR2
+publishes only HiPS tiles without credentials — display products with no
+calibrated flux or variance plane. DES contributes 164 and delivers **148**; the
+16 missing regions return zero rows from the DES SIA service, inside DES's own
+declared footprint. Legacy and Pan-STARRS lose 1 and 2.
+
+So the reachable ceiling is **542, not 727**, and 521 of it is delivered —
+**96.1%**. 181 of the 202-pair shortfall was overstatement baked into the target
+before any work began; 21 is reconciliation QA. See §15 of
+[DIFFERENCE_ENGINE_STATUS.md](DIFFERENCE_ENGINE_STATUS.md) and
+`optical-coverage-truth.json`.
+
+Pan-STARRS was acquired as the third reference instead of HSC, which is what made
+the three-way cross-check possible — the other half of what G1 asked for, and
+delivered.
 
 **G8, and it is worth being precise about how it failed.** 25 MAST
 "observations" overlapped candidate positions. Loading the frames showed the

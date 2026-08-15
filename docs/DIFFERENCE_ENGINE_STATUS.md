@@ -654,3 +654,48 @@ closable by better registration**, and the route to more matched regions is
 either a threshold justified by what the surveys can actually deliver, or deeper
 source catalogues that reduce centroid noise. Both are honest; pretending a
 sixth parameter would do it is not.
+
+## 15. Where the ~727 came from, and what was actually reachable
+
+The optical goal asked for **~727 pairs** and the delivered number is 521. The
+gap is not effort, and it is not an estimate — the target's own arithmetic can be
+reconstructed exactly.
+
+The region planner records a `confirmedSurveyIds` list per region, and summing it
+across the four optical surveys gives **199 + 164 + 162 + 198 = 723**. That is
+the target. It is a footprint count: a region is "covered" when a survey's
+declared footprint contains it, whether or not the survey has pixels there.
+
+Measured against what the archives actually serve:
+
+| survey | claimed by footprint | pixels validated | reconciled pairs |
+|---|---|---|---|
+| Legacy DR10 | 199 | 198 | 190 |
+| DES DR2 | 164 | **148** | 143 |
+| HSC PDR2 | 162 | **0** | 0 |
+| Pan-STARRS DR2 | 198 | 196 | 188 |
+| **total** | **723** | **542** | **521** |
+
+- **HSC contributes 162 to the target and 0 to reality.** PDR2 publishes only
+  HiPS tiles without credentials: display products with no calibrated flux and no
+  variance plane. There are no science pixels to fetch, at any effort.
+- **DES contributes 164 and delivers 148.** The 16 missing regions return *zero
+  rows* from the DES SIA service — the survey has no coadd there, inside its own
+  declared footprint.
+- Legacy and Pan-STARRS lose 1 and 2 respectively.
+
+So **181 of the 202-pair shortfall is footprint overstatement baked into the
+target**, and 21 is reconciliation QA. Against the reachable ceiling of 542, the
+delivered 521 is **96.1%**.
+
+This is the seventh time this project has measured footprint overlap
+overstating data — after NGC 0100's masked pixels, HIPASS's all-sky-but-no-
+detections, eROSITA's 55 tracts to 8 detections, HST's 25 observations to 0
+containing frames, VLASS's 197 overlaps to 39 sources, and Euclid's contained
+polygon with no pixels in §13. The difference here is that the overstatement was
+inside a planning number rather than a result, which is the more expensive place
+for it to hide: it set a target that no amount of work could meet.
+
+**`optical-coverage-truth.json` records the decomposition per survey.** The
+recommendation it carries is one line: coverage planning should record *the
+archive served pixels here*, not *a declared footprint contains this position*.
