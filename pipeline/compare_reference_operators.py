@@ -6,16 +6,19 @@ pairing can measure a difference but cannot say who owns it: a flux scale that
 departs from unity, and a scale that drifts with field density, each have two
 possible owners and one measurement.
 
-DES DR2 supplies a second, independent reference over part of the same sky, and
-two references over shared regions turn one number into three tests:
+DES DR2 and Pan-STARRS supply further independent references over part of the
+same sky, and any two references over shared regions turn one number into three
+tests. The operator takes as many references as it is given, and every pairing
+is reported separately, so a reference that disagrees is visible rather than
+averaged away:
 
 * **Whose zeropoint.** If Rubin-vs-Legacy and Rubin-vs-DES land on the same
   scale, two independently calibrated surveys agree with each other and disagree
   with Rubin the same way. The offset then sits on the Rubin side of the
   comparison, or in the aperture method common to both.
-* **Whose crowding term.** If the scale drifts with field density in one pairing
-  and not the other, the drift belongs to the reference that shows it, not to
-  Rubin, which is common to both.
+* **Whose crowding term.** If the scale drifts with field density in some
+  pairings and not others, the drift belongs to the references that show it,
+  not to Rubin, which is common to all of them.
 * **Whose field-to-field scatter.** Across regions measured against both, a
   positive correlation between the two scales means the two pairings move
   together, and the only thing they share is Rubin.
@@ -140,18 +143,74 @@ def describe(pair: dict[str, dict[str, float]]) -> dict[str, Any]:
         "medianMatchedSources": float(np.median([item["sources"] for item in pair.values()])),
     }
 
+def parse_reference(value: str) -> tuple[str, Path]:
+    if "=" not in value:
+        raise argparse.ArgumentTypeError("expected NAME=PATH")
+    name, _, path = value.partition("=")
+    return name.strip(), Path(path.strip())
+
+
+def paired_agreement(
+    left: dict[str, dict[str, float]],
+    right: dict[str, dict[str, float]],
+    shared: list[str],
+    rng: np.random.Generator,
+) -> dict[str, Any]:
+    """Do two references say the same thing about Rubin, region by region?
+
+    Paired rather than a difference of two medians over different sky, because
+    the field-to-field spread is large enough to swamp the effect otherwise.
+    """
+    if not shared:
+        return {"n": 0, "medianLogScaleDifferenceDex": None, "bootstrap95Interval": None, "agree": None}
+    difference = np.log10([left[k]["scale"] for k in shared]) - np.log10([right[k]["scale"] for k in shared])
+    draws = rng.integers(0, difference.size, size=(4000, difference.size))
+    boot = np.median(difference[draws], axis=1)
+    interval = [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]
+    return {
+        "n": len(shared),
+        "medianLogScaleDifferenceDex": float(np.median(difference)),
+        "bootstrap95Interval": interval,
+        "agree": bool(interval[0] <= 0.0 <= interval[1]),
+    }
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--legacy", type=Path, default=LAYERS / "rubin-reference-reconciliation-200.json")
-    parser.add_argument("--des", type=Path, default=LAYERS / "rubin-des-reconciliation.json")
+    parser.add_argument(
+        "--reference",
+        type=parse_reference,
+        action="append",
+        metavar="NAME=PATH",
+        help=(
+            "Repeatable reconciliation manifest, NAME=PATH. Defaults to Legacy and DES, plus "
+            "Pan-STARRS when its manifest exists. A third independently calibrated reference "
+            "either corroborates the attribution or breaks it."
+        ),
+    )
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
+    if args.reference:
+        requested = list(args.reference)
+    else:
+        requested = [
+            ("legacy", LAYERS / "rubin-reference-reconciliation-200.json"),
+            ("des", LAYERS / "rubin-des-reconciliation.json"),
+            ("ps1", LAYERS / "rubin-ps1-reconciliation.json"),
+        ]
     rng = np.random.default_rng(RANDOM_SEED)
-    legacy = load_pair(args.legacy)
-    des = load_pair(args.des)
-    shared = sorted(set(legacy) & set(des))
+
+    references: dict[str, dict[str, dict[str, float]]] = {}
+    unfiltered: dict[str, dict[str, dict[str, float]]] = {}
+    for name, path in requested:
+        pair = load_pair(path)
+        if not pair:
+            continue
+        references[name] = pair
+        unfiltered[name] = load_pair(path, matched_only=False)
+    if len(references) < 2:
+        raise SystemExit("Attribution needs at least two references; Rubin being the shared term is the whole method.")
 
     def density(pair: dict[str, dict[str, float]]) -> dict[str, Any]:
         return spearman(
@@ -160,106 +219,109 @@ def main() -> None:
             rng,
         )
 
-    crowding = {"legacy": density(legacy), "des": density(des)}
-    # Same correlation without the QA filter. If the two disagree, the QA cut is
-    # doing the work rather than the sky, and the finding says so.
-    all_legacy = load_pair(args.legacy, matched_only=False)
-    all_des = load_pair(args.des, matched_only=False)
-    crowding_unfiltered = {"legacy": density(all_legacy), "des": density(all_des)}
+    crowding = {name: density(pair) for name, pair in references.items()}
+    crowding_unfiltered = {name: density(pair) for name, pair in unfiltered.items()}
 
-    def same_answer(key: str) -> bool:
-        a, b = crowding[key], crowding_unfiltered[key]
+    def stable(name: str) -> bool:
+        a, b = crowding[name], crowding_unfiltered.get(name, {})
         if a.get("rho") is None or b.get("rho") is None:
             return False
         return bool(a["significant"]) == bool(b["significant"]) and (a["rho"] * b["rho"] > 0)
 
-    qa_filter_matters = not (same_answer("legacy") and same_answer("des"))
+    qa_filter_matters = not all(stable(name) for name in references)
 
-    if len(shared) >= 3:
-        shared_scales = spearman(
-            np.array([legacy[k]["scale"] for k in shared]),
-            np.array([des[k]["scale"] for k in shared]),
-            rng,
-        )
-    else:
-        shared_scales = {"n": len(shared), "rho": None, "pValue": None, "note": "too few shared regions"}
+    combinations: dict[str, Any] = {}
+    names = list(references)
+    for index, left in enumerate(names):
+        for right in names[index + 1:]:
+            shared = sorted(set(references[left]) & set(references[right]))
+            key = f"{left}-vs-{right}"
+            correlation = (
+                spearman(
+                    np.array([references[left][k]["scale"] for k in shared]),
+                    np.array([references[right][k]["scale"] for k in shared]),
+                    rng,
+                )
+                if len(shared) >= 3
+                else {"n": len(shared), "rho": None, "pValue": None, "note": "too few shared regions"}
+            )
+            combinations[key] = {
+                "sharedRegions": len(shared),
+                "sufficient": len(shared) >= MIN_SHARED_REGIONS,
+                "agreement": paired_agreement(references[left], references[right], shared, rng),
+                "scaleCorrelation": correlation,
+                "regionIds": shared,
+            }
 
-    # Do the two references agree with each other about Rubin? Compare the two
-    # scales region by region, so the test is paired rather than a difference of
-    # two medians over different sky.
-    if shared:
-        difference = np.log10([legacy[k]["scale"] for k in shared]) - np.log10(
-            [des[k]["scale"] for k in shared]
-        )
-        median_difference = float(np.median(difference))
-        # Bootstrap the median rather than assume a standard error.
-        draws = rng.integers(0, difference.size, size=(4000, difference.size))
-        boot = np.median(difference[draws], axis=1)
-        difference_ci = [float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))]
-        references_agree = bool(difference_ci[0] <= 0.0 <= difference_ci[1])
-    else:
-        median_difference, difference_ci, references_agree = None, None, None
-
-    enough = len(shared) >= MIN_SHARED_REGIONS
-
-    # Which pairings show the density trend decides who owns it. An early
-    # subset of the DES regions showed no trend, which read as "the trend is
-    # Legacy's"; over the full set both show it, and the answer inverts. Hence
-    # this is derived from the measured flags rather than written as a verdict.
-    legacy_dense = bool(crowding["legacy"].get("significant"))
-    des_dense = bool(crowding["des"].get("significant"))
-    if legacy_dense and des_dense:
-        crowding_owner = "common to both pairings, therefore Rubin's or the aperture method's"
-        crowding_logic = (
-            "Both pairings show it. The references are independently calibrated and were reduced "
-            "by different pipelines, so what the two comparisons share is Rubin and the 1.5 arcsec "
-            "aperture photometry applied identically to both."
-        )
-    elif legacy_dense or des_dense:
-        owner = "Legacy Survey" if legacy_dense else "DES"
-        crowding_owner = owner
-        crowding_logic = (
-            f"Only the {owner} pairing shows it. Rubin is common to both, so an effect present in "
-            "one pairing and absent in the other cannot be Rubin's."
-        )
-    else:
-        crowding_owner = "no density trend is resolved in either pairing"
-        crowding_logic = "Neither pairing's correlation clears the 1% permutation threshold."
+    usable = {k: v for k, v in combinations.items() if v["sufficient"]}
+    largest = max(combinations.values(), key=lambda item: item["sharedRegions"]) if combinations else {}
+    enough = bool(usable)
 
     findings: list[dict[str, Any]] = []
-    if references_agree is not None:
+
+    agreeing = [k for k, v in usable.items() if v["agreement"]["agree"]]
+    disagreeing = [k for k, v in usable.items() if v["agreement"]["agree"] is False]
+    if usable:
+        detail = "; ".join(
+            f"{k}: {v['agreement']['medianLogScaleDifferenceDex']:+.4f} dex "
+            f"[{v['agreement']['bootstrap95Interval'][0]:+.4f}, {v['agreement']['bootstrap95Interval'][1]:+.4f}] "
+            f"over {v['sharedRegions']} regions"
+            for k, v in usable.items()
+        )
         findings.append({
             "question": "Does the flux-scale offset belong to Rubin or to the reference?",
             "verdict": (
-                "Rubin side of the comparison, or the aperture method common to both"
-                if references_agree
-                else "the two references disagree, so the offset is not attributable from these data"
+                "Rubin side of the comparison, or the aperture method common to all pairings"
+                if not disagreeing
+                else f"the references do not all agree ({', '.join(disagreeing)}), so the offset is not attributable"
             ),
             "basis": (
-                f"Paired over {len(shared)} shared regions, the median log-scale difference between the "
-                f"two pairings is {median_difference:.4f} dex with a bootstrap 95% interval of "
-                f"[{difference_ci[0]:.4f}, {difference_ci[1]:.4f}]. Two independently calibrated "
-                "references agreeing about Rubin cannot both be wrong in the same direction by chance."
+                f"Paired median log-scale differences between reference pairings: {detail}. "
+                f"{len(references)} independently calibrated references, reduced by different "
+                "pipelines, agreeing about Rubin cannot all be wrong in the same direction by chance."
             ),
             "cannotDistinguish": (
                 "This does not separate a Rubin zeropoint from a systematic in the 1.5 arcsec aperture "
-                "photometry, which is identical in both pairings."
+                "photometry, which is identical in every pairing."
             ),
+            "referencesCompared": len(references),
+            "pairingsAgreeing": agreeing,
         })
-    if crowding["legacy"].get("rho") is not None and crowding["des"].get("rho") is not None:
+
+    dense = [name for name in references if crowding[name].get("significant")]
+    if all(crowding[name].get("rho") is not None for name in references):
+        if len(dense) == len(references):
+            owner = "common to every pairing, therefore Rubin's or the aperture method's"
+            logic = (
+                "Every pairing shows it. The references are independently calibrated and were reduced "
+                "by different pipelines, so what the comparisons share is Rubin and the 1.5 arcsec "
+                "aperture photometry applied identically to all of them."
+            )
+        elif dense:
+            owner = ", ".join(dense)
+            logic = (
+                f"Only {owner} show it. Rubin is common to every pairing, so an effect present in some "
+                "and absent in others cannot be Rubin's."
+            )
+        else:
+            owner = "no density trend is resolved in any pairing"
+            logic = "No pairing's correlation clears the 1% permutation threshold."
         findings.append({
             "question": "Does the density-dependent flux scale belong to Rubin or to the reference?",
-            "verdict": crowding_owner,
+            "verdict": owner,
             "basis": (
-                f"Scale against matched-source count: rho {crowding['legacy']['rho']:+.3f} "
-                f"(p {crowding['legacy']['pValue']:.4f}, n {crowding['legacy']['n']}) for Legacy, "
-                f"{crowding['des']['rho']:+.3f} (p {crowding['des']['pValue']:.4f}, "
-                f"n {crowding['des']['n']}) for DES. {crowding_logic}"
+                "Scale against matched-source count: "
+                + ", ".join(
+                    f"{name} {crowding[name]['rho']:+.3f} (p {crowding[name]['pValue']:.4f}, "
+                    f"n {crowding[name]['n']})"
+                    for name in references
+                )
+                + f". {logic}"
             ),
             "direction": (
-                "The scale falls as matched-source count rises in both pairings: Rubin measures "
-                "relatively less flux in the aperture where sources are denser, which is the sign "
-                "expected if neighbouring flux is being handled differently by the two sides."
+                "The scale falls as matched-source count rises: Rubin measures relatively less flux in "
+                "the aperture where sources are denser, which is the sign expected if neighbouring "
+                "flux is handled differently by the two sides."
             ),
             "qaFilterSensitivity": {
                 "matchedOnly": {k: {"rho": v.get("rho"), "n": v.get("n"), "pValue": v.get("pValue")}
@@ -279,59 +341,63 @@ def main() -> None:
                 "the same trend, and that attribution does not hold."
             ),
         })
-    if shared_scales.get("rho") is not None:
+
+    correlated = {k: v for k, v in usable.items() if v["scaleCorrelation"].get("rho") is not None}
+    if correlated:
+        positive = [
+            k for k, v in correlated.items()
+            if v["scaleCorrelation"].get("significant") and v["scaleCorrelation"]["rho"] > 0
+        ]
         findings.append({
             "question": "Whose field-to-field scatter is the larger part?",
             "verdict": (
                 "shared, therefore Rubin's"
-                if shared_scales.get("significant") and shared_scales["rho"] > 0 and enough
-                else "not established"
+                if len(positive) == len(correlated)
+                else f"established for {', '.join(positive)} only" if positive else "not established"
             ),
             "basis": (
-                f"Across {shared_scales['n']} regions measured against both references, the two scales "
-                f"correlate rho {shared_scales['rho']:+.3f} (p {shared_scales['pValue']:.4f}). The only "
-                "thing the two pairings share is the Rubin image, so correlated variation is Rubin's."
+                "; ".join(
+                    f"{k}: rho {v['scaleCorrelation']['rho']:+.3f} (p {v['scaleCorrelation']['pValue']:.4f}, "
+                    f"n {v['scaleCorrelation']['n']})"
+                    for k, v in correlated.items()
+                )
+                + ". The only thing any two pairings share is the Rubin image, so correlated variation "
+                "is Rubin's."
             ),
-            "sampleGate": (
-                f"{len(shared)} shared regions, threshold {MIN_SHARED_REGIONS}"
-                if enough
-                else f"below the {MIN_SHARED_REGIONS}-region threshold; reported, not relied on"
-            ),
+            "sampleGate": f"threshold {MIN_SHARED_REGIONS} shared regions per pairing",
         })
 
     payload = {
-        "schemaVersion": "layers-reference-cross-check-v1",
+        "schemaVersion": "layers-reference-cross-check-v2",
         "generatedAt": utc_now(),
         "purpose": (
-            "Two independent optical references over shared sky, used to attribute the optical "
+            "Independent optical references over shared sky, used to attribute the optical "
             "comparison's field-dependent effects to a survey rather than measure them again."
         ),
-        "pairs": {
-            "rubin-vs-legacy": describe(legacy),
-            "rubin-vs-des": describe(des),
-        },
+        "pairs": {f"rubin-vs-{name}": describe(pair) for name, pair in references.items()},
         "counts": {
-            "legacyRegions": len(legacy),
-            "desRegions": len(des),
-            "sharedRegions": len(shared),
+            **{f"{name}Regions": len(pair) for name, pair in references.items()},
+            "referencesCompared": len(references),
+            # The largest shared set is the primary evidence base; every pairing
+            # is reported separately under pairCombinations.
+            "sharedRegions": int(largest.get("sharedRegions", 0)),
             "sharedRegionThreshold": MIN_SHARED_REGIONS,
             "sharedSampleSufficient": enough,
+            "pairingsAboveThreshold": len(usable),
         },
         "crowdingCorrelation": crowding,
         "crowdingCorrelationAllRegions": crowding_unfiltered,
         "qaFilterChangesAnswer": qa_filter_matters,
-        "sharedScaleCorrelation": shared_scales,
-        "referenceAgreement": {
-            "medianLogScaleDifferenceDex": median_difference,
-            "bootstrap95Interval": difference_ci,
-            "referencesAgree": references_agree,
+        "pairCombinations": {
+            key: {k: v for k, v in value.items() if k != "regionIds"}
+            for key, value in combinations.items()
         },
         "findings": findings,
         "caveats": [
             "The density proxy is the matched compact-source count per field, which depends on the "
             "depth and PSF of both surveys in a pair and is not a sky density.",
-            "The two pairings sit on different common grids, 0.4 arcsec for Legacy and 0.263 arcsec "
-            "for DES, so only the physical 1.5 arcsec aperture makes them comparable.",
+            "The pairings sit on different common grids, so only the physical 1.5 arcsec aperture "
+            "makes them comparable.",
             "DES variance is a uniform sky estimate rather than a propagated plane, which affects "
             "weighting inside its pairing but not this attribution, which uses medians.",
             "Attribution is between the surveys in these pairings. It does not establish which "
@@ -339,23 +405,24 @@ def main() -> None:
         ],
         "regions": [
             {
-                "regionId": key,
-                "tract": legacy[key]["tract"],
-                "legacyScale": legacy[key]["scale"],
-                "desScale": des[key]["scale"],
-                "legacyMatchedSources": legacy[key]["sources"],
-                "desMatchedSources": des[key]["sources"],
+                "regionId": region_id,
+                "scales": {name: references[name][region_id]["scale"] for name in references
+                           if region_id in references[name]},
+                "matchedSources": {name: references[name][region_id]["sources"] for name in references
+                                   if region_id in references[name]},
             }
-            for key in shared
+            for region_id in sorted(set().union(*(set(pair) for pair in references.values())))
         ],
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
-    print(f"legacy {len(legacy)} regions, DES {len(des)} regions, {len(shared)} shared")
+    print(", ".join(f"{name} {len(pair)} regions" for name, pair in references.items()))
     for name, pair in payload["pairs"].items():
         if pair.get("regions"):
             print(f"  {name}: scale {pair['medianScale']:.4f}  ({pair['medianMagnitudeOffset']:+.4f} mag)")
+    for key, value in combinations.items():
+        print(f"  {key}: {value['sharedRegions']} shared")
     for finding in findings:
         print(f"\n{finding['question']}\n  -> {finding['verdict']}\n     {finding['basis']}")
     print(f"\nwrote {args.output.relative_to(ROOT).as_posix()}")

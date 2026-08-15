@@ -1,7 +1,7 @@
 {
-  "schemaVersion": "layers-reference-cross-check-v1",
-  "generatedAt": "2026-08-15T03:33:19.914481+00:00",
-  "purpose": "Two independent optical references over shared sky, used to attribute the optical comparison's field-dependent effects to a survey rather than measure them again.",
+  "schemaVersion": "layers-reference-cross-check-v2",
+  "generatedAt": "2026-08-15T03:57:05.912010+00:00",
+  "purpose": "Independent optical references over shared sky, used to attribute the optical comparison's field-dependent effects to a survey rather than measure them again.",
   "pairs": {
     "rubin-vs-legacy": {
       "regions": 91,
@@ -21,9 +21,11 @@
   "counts": {
     "legacyRegions": 91,
     "desRegions": 140,
+    "referencesCompared": 2,
     "sharedRegions": 71,
     "sharedRegionThreshold": 40,
-    "sharedSampleSufficient": true
+    "sharedSampleSufficient": true,
+    "pairingsAboveThreshold": 1
   },
   "crowdingCorrelation": {
     "legacy": {
@@ -62,34 +64,45 @@
     }
   },
   "qaFilterChangesAnswer": false,
-  "sharedScaleCorrelation": {
-    "n": 71,
-    "rho": 0.8844735077129443,
-    "pValue": 0.0,
-    "nullScatter": 0.11960175149213242,
-    "significant": true,
-    "test": "two-sided permutation, 20000 shuffles"
-  },
-  "referenceAgreement": {
-    "medianLogScaleDifferenceDex": -0.0016471554357649631,
-    "bootstrap95Interval": [
-      -0.004578294137279693,
-      0.0004959446857675867
-    ],
-    "referencesAgree": true
+  "pairCombinations": {
+    "legacy-vs-des": {
+      "sharedRegions": 71,
+      "sufficient": true,
+      "agreement": {
+        "n": 71,
+        "medianLogScaleDifferenceDex": -0.0016471554357649631,
+        "bootstrap95Interval": [
+          -0.004578294137279693,
+          0.0004959446857675867
+        ],
+        "agree": true
+      },
+      "scaleCorrelation": {
+        "n": 71,
+        "rho": 0.8844735077129443,
+        "pValue": 0.0,
+        "nullScatter": 0.11960175149213242,
+        "significant": true,
+        "test": "two-sided permutation, 20000 shuffles"
+      }
+    }
   },
   "findings": [
     {
       "question": "Does the flux-scale offset belong to Rubin or to the reference?",
-      "verdict": "Rubin side of the comparison, or the aperture method common to both",
-      "basis": "Paired over 71 shared regions, the median log-scale difference between the two pairings is -0.0016 dex with a bootstrap 95% interval of [-0.0046, 0.0005]. Two independently calibrated references agreeing about Rubin cannot both be wrong in the same direction by chance.",
-      "cannotDistinguish": "This does not separate a Rubin zeropoint from a systematic in the 1.5 arcsec aperture photometry, which is identical in both pairings."
+      "verdict": "Rubin side of the comparison, or the aperture method common to all pairings",
+      "basis": "Paired median log-scale differences between reference pairings: legacy-vs-des: -0.0016 dex [-0.0046, +0.0005] over 71 regions. 2 independently calibrated references, reduced by different pipelines, agreeing about Rubin cannot all be wrong in the same direction by chance.",
+      "cannotDistinguish": "This does not separate a Rubin zeropoint from a systematic in the 1.5 arcsec aperture photometry, which is identical in every pairing.",
+      "referencesCompared": 2,
+      "pairingsAgreeing": [
+        "legacy-vs-des"
+      ]
     },
     {
       "question": "Does the density-dependent flux scale belong to Rubin or to the reference?",
-      "verdict": "common to both pairings, therefore Rubin's or the aperture method's",
-      "basis": "Scale against matched-source count: rho -0.334 (p 0.0009, n 91) for Legacy, -0.269 (p 0.0010, n 140) for DES. Both pairings show it. The references are independently calibrated and were reduced by different pipelines, so what the two comparisons share is Rubin and the 1.5 arcsec aperture photometry applied identically to both.",
-      "direction": "The scale falls as matched-source count rises in both pairings: Rubin measures relatively less flux in the aperture where sources are denser, which is the sign expected if neighbouring flux is being handled differently by the two sides.",
+      "verdict": "common to every pairing, therefore Rubin's or the aperture method's",
+      "basis": "Scale against matched-source count: legacy -0.334 (p 0.0009, n 91), des -0.269 (p 0.0010, n 140). Every pairing shows it. The references are independently calibrated and were reduced by different pipelines, so what the comparisons share is Rubin and the 1.5 arcsec aperture photometry applied identically to all of them.",
+      "direction": "The scale falls as matched-source count rises: Rubin measures relatively less flux in the aperture where sources are denser, which is the sign expected if neighbouring flux is handled differently by the two sides.",
       "qaFilterSensitivity": {
         "matchedOnly": {
           "legacy": {
@@ -123,584 +136,1598 @@
     {
       "question": "Whose field-to-field scatter is the larger part?",
       "verdict": "shared, therefore Rubin's",
-      "basis": "Across 71 regions measured against both references, the two scales correlate rho +0.884 (p 0.0000). The only thing the two pairings share is the Rubin image, so correlated variation is Rubin's.",
-      "sampleGate": "71 shared regions, threshold 40"
+      "basis": "legacy-vs-des: rho +0.884 (p 0.0000, n 71). The only thing any two pairings share is the Rubin image, so correlated variation is Rubin's.",
+      "sampleGate": "threshold 40 shared regions per pairing"
     }
   ],
   "caveats": [
     "The density proxy is the matched compact-source count per field, which depends on the depth and PSF of both surveys in a pair and is not a sky density.",
-    "The two pairings sit on different common grids, 0.4 arcsec for Legacy and 0.263 arcsec for DES, so only the physical 1.5 arcsec aperture makes them comparable.",
+    "The pairings sit on different common grids, so only the physical 1.5 arcsec aperture makes them comparable.",
     "DES variance is a uniform sky estimate rather than a propagated plane, which affects weighting inside its pairing but not this attribution, which uses medians.",
     "Attribution is between the surveys in these pairings. It does not establish which survey is right in an absolute sense; no external standard is used here."
   ],
   "regions": [
     {
+      "regionId": "dp2-tract-10053",
+      "scales": {
+        "legacy": 1.0735721680623103
+      },
+      "matchedSources": {
+        "legacy": 51.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-10215",
+      "scales": {
+        "des": 0.9589468239675267
+      },
+      "matchedSources": {
+        "des": 47.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "scales": {
+        "legacy": 1.060117948481837
+      },
+      "matchedSources": {
+        "legacy": 52.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "scales": {
+        "legacy": 0.9640611209842658
+      },
+      "matchedSources": {
+        "legacy": 15.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "scales": {
+        "legacy": 1.0066187111232334
+      },
+      "matchedSources": {
+        "legacy": 24.0
+      }
+    },
+    {
       "regionId": "dp2-tract-2397",
-      "tract": 2397,
-      "legacyScale": 0.9682199641962108,
-      "desScale": 0.9619345128597867,
-      "legacyMatchedSources": 58.0,
-      "desMatchedSources": 86.0
+      "scales": {
+        "legacy": 0.9682199641962108,
+        "des": 0.9619345128597867
+      },
+      "matchedSources": {
+        "legacy": 58.0,
+        "des": 86.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "scales": {
+        "des": 1.4858433353385372
+      },
+      "matchedSources": {
+        "des": 55.0
+      }
     },
     {
       "regionId": "dp2-tract-4636",
-      "tract": 4636,
-      "legacyScale": 0.9654032566365406,
-      "desScale": 0.9756342852014173,
-      "legacyMatchedSources": 61.0,
-      "desMatchedSources": 94.0
+      "scales": {
+        "legacy": 0.9654032566365406,
+        "des": 0.9756342852014173
+      },
+      "matchedSources": {
+        "legacy": 61.0,
+        "des": 94.0
+      }
     },
     {
       "regionId": "dp2-tract-4637",
-      "tract": 4637,
-      "legacyScale": 0.9872691832229445,
-      "desScale": 0.989861555308226,
-      "legacyMatchedSources": 40.0,
-      "desMatchedSources": 56.0
+      "scales": {
+        "legacy": 0.9872691832229445,
+        "des": 0.989861555308226
+      },
+      "matchedSources": {
+        "legacy": 40.0,
+        "des": 56.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "scales": {
+        "des": 0.9706967885617241
+      },
+      "matchedSources": {
+        "des": 120.0
+      }
     },
     {
       "regionId": "dp2-tract-4848",
-      "tract": 4848,
-      "legacyScale": 0.9208773073700689,
-      "desScale": 0.9428317218681942,
-      "legacyMatchedSources": 144.0,
-      "desMatchedSources": 188.0
+      "scales": {
+        "legacy": 0.9208773073700689,
+        "des": 0.9428317218681942
+      },
+      "matchedSources": {
+        "legacy": 144.0,
+        "des": 188.0
+      }
     },
     {
       "regionId": "dp2-tract-4849",
-      "tract": 4849,
-      "legacyScale": 0.950473792517455,
-      "desScale": 0.9584180529979012,
-      "legacyMatchedSources": 133.0,
-      "desMatchedSources": 201.0
+      "scales": {
+        "legacy": 0.950473792517455,
+        "des": 0.9584180529979012
+      },
+      "matchedSources": {
+        "legacy": 133.0,
+        "des": 201.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "scales": {
+        "des": 0.9798934946651532
+      },
+      "matchedSources": {
+        "des": 108.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "scales": {
+        "des": 0.9490470645151593
+      },
+      "matchedSources": {
+        "des": 149.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "scales": {
+        "des": 0.9572229370356597
+      },
+      "matchedSources": {
+        "des": 190.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "scales": {
+        "legacy": 0.9274961357634697
+      },
+      "matchedSources": {
+        "legacy": 159.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "scales": {
+        "des": 0.9464742767859889
+      },
+      "matchedSources": {
+        "des": 175.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "scales": {
+        "des": 0.9840201014107366
+      },
+      "matchedSources": {
+        "des": 102.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "scales": {
+        "legacy": 2.4832115967302566
+      },
+      "matchedSources": {
+        "legacy": 97.0
+      }
     },
     {
       "regionId": "dp2-tract-5279",
-      "tract": 5279,
-      "legacyScale": 0.9619566209093732,
-      "desScale": 0.9740501416936345,
-      "legacyMatchedSources": 49.0,
-      "desMatchedSources": 51.0
+      "scales": {
+        "legacy": 0.9619566209093732,
+        "des": 0.9740501416936345
+      },
+      "matchedSources": {
+        "legacy": 49.0,
+        "des": 51.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "scales": {
+        "des": 0.9643466945518909
+      },
+      "matchedSources": {
+        "des": 73.0
+      }
     },
     {
       "regionId": "dp2-tract-5282",
-      "tract": 5282,
-      "legacyScale": 0.9986698613380778,
-      "desScale": 0.9672447690385856,
-      "legacyMatchedSources": 63.0,
-      "desMatchedSources": 33.0
+      "scales": {
+        "legacy": 0.9986698613380778,
+        "des": 0.9672447690385856
+      },
+      "matchedSources": {
+        "legacy": 63.0,
+        "des": 33.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "scales": {
+        "legacy": 0.4952235154775339
+      },
+      "matchedSources": {
+        "legacy": 127.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "scales": {
+        "legacy": 2.277102666397724
+      },
+      "matchedSources": {
+        "legacy": 44.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "scales": {
+        "legacy": 0.9265976508581077
+      },
+      "matchedSources": {
+        "legacy": 90.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "scales": {
+        "des": 1.7692386155761153
+      },
+      "matchedSources": {
+        "des": 41.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "scales": {
+        "legacy": 1.3095631599889521
+      },
+      "matchedSources": {
+        "legacy": 44.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "scales": {
+        "des": 0.9123812151550811
+      },
+      "matchedSources": {
+        "des": 111.0
+      }
     },
     {
       "regionId": "dp2-tract-8986",
-      "tract": 8986,
-      "legacyScale": 0.9064655436861855,
-      "desScale": 0.918777139722759,
-      "legacyMatchedSources": 77.0,
-      "desMatchedSources": 103.0
+      "scales": {
+        "legacy": 0.9064655436861855,
+        "des": 0.918777139722759
+      },
+      "matchedSources": {
+        "legacy": 77.0,
+        "des": 103.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8994",
+      "scales": {
+        "des": 1.6266259796637383
+      },
+      "matchedSources": {
+        "des": 53.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8995",
+      "scales": {
+        "des": 1.5635716286707333
+      },
+      "matchedSources": {
+        "des": 68.0
+      }
     },
     {
       "regionId": "dp2-tract-8996",
-      "tract": 8996,
-      "legacyScale": 2.4088421435765754,
-      "desScale": 2.099575279222793,
-      "legacyMatchedSources": 57.0,
-      "desMatchedSources": 82.0
+      "scales": {
+        "legacy": 2.4088421435765754,
+        "des": 2.099575279222793
+      },
+      "matchedSources": {
+        "legacy": 57.0,
+        "des": 82.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "scales": {
+        "des": 1.7804783453664204
+      },
+      "matchedSources": {
+        "des": 39.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-8998",
+      "scales": {
+        "des": 1.63514684045714
+      },
+      "matchedSources": {
+        "des": 83.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "scales": {
+        "legacy": 0.9036429608051662
+      },
+      "matchedSources": {
+        "legacy": 90.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9209",
+      "scales": {
+        "des": 0.8388853900235747
+      },
+      "matchedSources": {
+        "des": 105.0
+      }
     },
     {
       "regionId": "dp2-tract-9210",
-      "tract": 9210,
-      "legacyScale": 0.8792900620656128,
-      "desScale": 0.865391640676108,
-      "legacyMatchedSources": 89.0,
-      "desMatchedSources": 116.0
+      "scales": {
+        "legacy": 0.8792900620656128,
+        "des": 0.865391640676108
+      },
+      "matchedSources": {
+        "legacy": 89.0,
+        "des": 116.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "scales": {
+        "legacy": 0.9148621582431967
+      },
+      "matchedSources": {
+        "legacy": 63.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9217",
+      "scales": {
+        "des": 0.8876664995130896
+      },
+      "matchedSources": {
+        "des": 104.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "scales": {
+        "des": 0.8843334180343332
+      },
+      "matchedSources": {
+        "des": 90.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "scales": {
+        "legacy": 0.9194218534315861
+      },
+      "matchedSources": {
+        "legacy": 92.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "scales": {
+        "des": 0.9003743489739371
+      },
+      "matchedSources": {
+        "des": 62.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "scales": {
+        "des": 0.8481172812664373
+      },
+      "matchedSources": {
+        "des": 148.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "scales": {
+        "legacy": 0.8809273186919319
+      },
+      "matchedSources": {
+        "legacy": 92.0
+      }
     },
     {
       "regionId": "dp2-tract-9223",
-      "tract": 9223,
-      "legacyScale": 0.8624530817412238,
-      "desScale": 0.876050998173921,
-      "legacyMatchedSources": 86.0,
-      "desMatchedSources": 96.0
+      "scales": {
+        "legacy": 0.8624530817412238,
+        "des": 0.876050998173921
+      },
+      "matchedSources": {
+        "legacy": 86.0,
+        "des": 96.0
+      }
     },
     {
       "regionId": "dp2-tract-9227",
-      "tract": 9227,
-      "legacyScale": 0.8878353782268256,
-      "desScale": 0.8989272330771837,
-      "legacyMatchedSources": 104.0,
-      "desMatchedSources": 143.0
+      "scales": {
+        "legacy": 0.8878353782268256,
+        "des": 0.8989272330771837
+      },
+      "matchedSources": {
+        "legacy": 104.0,
+        "des": 143.0
+      }
     },
     {
       "regionId": "dp2-tract-9228",
-      "tract": 9228,
-      "legacyScale": 0.926930080190129,
-      "desScale": 0.9335449137370114,
-      "legacyMatchedSources": 49.0,
-      "desMatchedSources": 81.0
+      "scales": {
+        "legacy": 0.926930080190129,
+        "des": 0.9335449137370114
+      },
+      "matchedSources": {
+        "legacy": 49.0,
+        "des": 81.0
+      }
     },
     {
       "regionId": "dp2-tract-9229",
-      "tract": 9229,
-      "legacyScale": 0.9294286000371463,
-      "desScale": 0.9366368850235736,
-      "legacyMatchedSources": 76.0,
-      "desMatchedSources": 119.0
+      "scales": {
+        "legacy": 0.9294286000371463,
+        "des": 0.9366368850235736
+      },
+      "matchedSources": {
+        "legacy": 76.0,
+        "des": 119.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "scales": {
+        "des": 0.9100549871975682
+      },
+      "matchedSources": {
+        "des": 74.0
+      }
     },
     {
       "regionId": "dp2-tract-9231",
-      "tract": 9231,
-      "legacyScale": 0.8970244481345764,
-      "desScale": 0.917312666240521,
-      "legacyMatchedSources": 70.0,
-      "desMatchedSources": 100.0
+      "scales": {
+        "legacy": 0.8970244481345764,
+        "des": 0.917312666240521
+      },
+      "matchedSources": {
+        "legacy": 70.0,
+        "des": 100.0
+      }
     },
     {
       "regionId": "dp2-tract-9232",
-      "tract": 9232,
-      "legacyScale": 0.9154547451991416,
-      "desScale": 0.9175925340098734,
-      "legacyMatchedSources": 101.0,
-      "desMatchedSources": 71.0
+      "scales": {
+        "legacy": 0.9154547451991416,
+        "des": 0.9175925340098734
+      },
+      "matchedSources": {
+        "legacy": 101.0,
+        "des": 71.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9233",
+      "scales": {
+        "des": 0.9055773202422
+      },
+      "matchedSources": {
+        "des": 72.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9236",
+      "scales": {
+        "des": 1.4395235133605386
+      },
+      "matchedSources": {
+        "des": 75.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "scales": {
+        "des": 1.631546484850897
+      },
+      "matchedSources": {
+        "des": 92.0
+      }
     },
     {
       "regionId": "dp2-tract-9238",
-      "tract": 9238,
-      "legacyScale": 1.8732903234985898,
-      "desScale": 1.7784424890375887,
-      "legacyMatchedSources": 56.0,
-      "desMatchedSources": 88.0
+      "scales": {
+        "legacy": 1.8732903234985898,
+        "des": 1.7784424890375887
+      },
+      "matchedSources": {
+        "legacy": 56.0,
+        "des": 88.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "scales": {
+        "des": 2.15227444529494
+      },
+      "matchedSources": {
+        "des": 100.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "scales": {
+        "des": 2.1784632254861185
+      },
+      "matchedSources": {
+        "des": 74.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "scales": {
+        "des": 0.9735388810555987
+      },
+      "matchedSources": {
+        "des": 134.0
+      }
     },
     {
       "regionId": "dp2-tract-9245",
-      "tract": 9245,
-      "legacyScale": 1.846429222207666,
-      "desScale": 1.8100033883258961,
-      "legacyMatchedSources": 45.0,
-      "desMatchedSources": 43.0
+      "scales": {
+        "legacy": 1.846429222207666,
+        "des": 1.8100033883258961
+      },
+      "matchedSources": {
+        "legacy": 45.0,
+        "des": 43.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "scales": {
+        "legacy": 1.0027837735416196
+      },
+      "matchedSources": {
+        "legacy": 69.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9448",
+      "scales": {
+        "des": 0.9195940118277062
+      },
+      "matchedSources": {
+        "des": 37.0
+      }
     },
     {
       "regionId": "dp2-tract-9449",
-      "tract": 9449,
-      "legacyScale": 0.901235816268438,
-      "desScale": 0.9231466308502148,
-      "legacyMatchedSources": 94.0,
-      "desMatchedSources": 141.0
+      "scales": {
+        "legacy": 0.901235816268438,
+        "des": 0.9231466308502148
+      },
+      "matchedSources": {
+        "legacy": 94.0,
+        "des": 141.0
+      }
     },
     {
       "regionId": "dp2-tract-9450",
-      "tract": 9450,
-      "legacyScale": 0.8862750600303135,
-      "desScale": 0.9114813199914734,
-      "legacyMatchedSources": 80.0,
-      "desMatchedSources": 123.0
+      "scales": {
+        "legacy": 0.8862750600303135,
+        "des": 0.9114813199914734
+      },
+      "matchedSources": {
+        "legacy": 80.0,
+        "des": 123.0
+      }
     },
     {
       "regionId": "dp2-tract-9451",
-      "tract": 9451,
-      "legacyScale": 0.8826109263493791,
-      "desScale": 0.9155201792456084,
-      "legacyMatchedSources": 92.0,
-      "desMatchedSources": 127.0
+      "scales": {
+        "legacy": 0.8826109263493791,
+        "des": 0.9155201792456084
+      },
+      "matchedSources": {
+        "legacy": 92.0,
+        "des": 127.0
+      }
     },
     {
       "regionId": "dp2-tract-9452",
-      "tract": 9452,
-      "legacyScale": 0.853211288620417,
-      "desScale": 0.8933941966260893,
-      "legacyMatchedSources": 89.0,
-      "desMatchedSources": 139.0
+      "scales": {
+        "legacy": 0.853211288620417,
+        "des": 0.8933941966260893
+      },
+      "matchedSources": {
+        "legacy": 89.0,
+        "des": 139.0
+      }
     },
     {
       "regionId": "dp2-tract-9453",
-      "tract": 9453,
-      "legacyScale": 0.8665917528760179,
-      "desScale": 0.9011602712404966,
-      "legacyMatchedSources": 73.0,
-      "desMatchedSources": 110.0
+      "scales": {
+        "legacy": 0.8665917528760179,
+        "des": 0.9011602712404966
+      },
+      "matchedSources": {
+        "legacy": 73.0,
+        "des": 110.0
+      }
     },
     {
       "regionId": "dp2-tract-9454",
-      "tract": 9454,
-      "legacyScale": 0.9101484075241527,
-      "desScale": 0.9079309358646084,
-      "legacyMatchedSources": 99.0,
-      "desMatchedSources": 152.0
+      "scales": {
+        "legacy": 0.9101484075241527,
+        "des": 0.9079309358646084
+      },
+      "matchedSources": {
+        "legacy": 99.0,
+        "des": 152.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "scales": {
+        "des": 0.9109494723040598
+      },
+      "matchedSources": {
+        "des": 123.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "scales": {
+        "des": 0.9058844401139958
+      },
+      "matchedSources": {
+        "des": 143.0
+      }
     },
     {
       "regionId": "dp2-tract-9457",
-      "tract": 9457,
-      "legacyScale": 0.9008809772405459,
-      "desScale": 0.8873719097866994,
-      "legacyMatchedSources": 90.0,
-      "desMatchedSources": 126.0
+      "scales": {
+        "legacy": 0.9008809772405459,
+        "des": 0.8873719097866994
+      },
+      "matchedSources": {
+        "legacy": 90.0,
+        "des": 126.0
+      }
     },
     {
       "regionId": "dp2-tract-9458",
-      "tract": 9458,
-      "legacyScale": 0.9275132307029424,
-      "desScale": 0.9006833101513578,
-      "legacyMatchedSources": 96.0,
-      "desMatchedSources": 130.0
+      "scales": {
+        "legacy": 0.9275132307029424,
+        "des": 0.9006833101513578
+      },
+      "matchedSources": {
+        "legacy": 96.0,
+        "des": 130.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "scales": {
+        "des": 0.8946491175632526
+      },
+      "matchedSources": {
+        "des": 114.0
+      }
     },
     {
       "regionId": "dp2-tract-9460",
-      "tract": 9460,
-      "legacyScale": 0.8683796200788125,
-      "desScale": 0.8598208754371479,
-      "legacyMatchedSources": 119.0,
-      "desMatchedSources": 167.0
+      "scales": {
+        "legacy": 0.8683796200788125,
+        "des": 0.8598208754371479
+      },
+      "matchedSources": {
+        "legacy": 119.0,
+        "des": 167.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "scales": {
+        "des": 0.8892250882979432
+      },
+      "matchedSources": {
+        "des": 119.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "scales": {
+        "des": 0.8742829538849527
+      },
+      "matchedSources": {
+        "des": 102.0
+      }
     },
     {
       "regionId": "dp2-tract-9463",
-      "tract": 9463,
-      "legacyScale": 0.8926662127929768,
-      "desScale": 0.9011186240074587,
-      "legacyMatchedSources": 94.0,
-      "desMatchedSources": 138.0
+      "scales": {
+        "legacy": 0.8926662127929768,
+        "des": 0.9011186240074587
+      },
+      "matchedSources": {
+        "legacy": 94.0,
+        "des": 138.0
+      }
     },
     {
       "regionId": "dp2-tract-9464",
-      "tract": 9464,
-      "legacyScale": 0.9157255764920198,
-      "desScale": 0.8972760713403851,
-      "legacyMatchedSources": 96.0,
-      "desMatchedSources": 143.0
+      "scales": {
+        "legacy": 0.9157255764920198,
+        "des": 0.8972760713403851
+      },
+      "matchedSources": {
+        "legacy": 96.0,
+        "des": 143.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "scales": {
+        "des": 0.8819075210435435
+      },
+      "matchedSources": {
+        "des": 116.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "scales": {
+        "des": 0.9171089025881225
+      },
+      "matchedSources": {
+        "des": 118.0
+      }
     },
     {
       "regionId": "dp2-tract-9467",
-      "tract": 9467,
-      "legacyScale": 0.9169602736844871,
-      "desScale": 0.9267547915297344,
-      "legacyMatchedSources": 78.0,
-      "desMatchedSources": 106.0
+      "scales": {
+        "legacy": 0.9169602736844871,
+        "des": 0.9267547915297344
+      },
+      "matchedSources": {
+        "legacy": 78.0,
+        "des": 106.0
+      }
     },
     {
       "regionId": "dp2-tract-9468",
-      "tract": 9468,
-      "legacyScale": 0.8937386523715842,
-      "desScale": 0.8882833276320827,
-      "legacyMatchedSources": 93.0,
-      "desMatchedSources": 113.0
+      "scales": {
+        "legacy": 0.8937386523715842,
+        "des": 0.8882833276320827
+      },
+      "matchedSources": {
+        "legacy": 93.0,
+        "des": 113.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "scales": {
+        "legacy": 0.8984587673771794
+      },
+      "matchedSources": {
+        "legacy": 91.0
+      }
     },
     {
       "regionId": "dp2-tract-9470",
-      "tract": 9470,
-      "legacyScale": 0.8759274822087875,
-      "desScale": 0.8961259691071294,
-      "legacyMatchedSources": 83.0,
-      "desMatchedSources": 104.0
+      "scales": {
+        "legacy": 0.8759274822087875,
+        "des": 0.8961259691071294
+      },
+      "matchedSources": {
+        "legacy": 83.0,
+        "des": 104.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "scales": {
+        "des": 0.9407004192768723
+      },
+      "matchedSources": {
+        "des": 109.0
+      }
     },
     {
       "regionId": "dp2-tract-9472",
-      "tract": 9472,
-      "legacyScale": 0.9770405818834332,
-      "desScale": 0.9586093625531591,
-      "legacyMatchedSources": 53.0,
-      "desMatchedSources": 74.0
+      "scales": {
+        "legacy": 0.9770405818834332,
+        "des": 0.9586093625531591
+      },
+      "matchedSources": {
+        "legacy": 53.0,
+        "des": 74.0
+      }
     },
     {
       "regionId": "dp2-tract-9473",
-      "tract": 9473,
-      "legacyScale": 0.9047558686670177,
-      "desScale": 0.9037232680272788,
-      "legacyMatchedSources": 58.0,
-      "desMatchedSources": 75.0
+      "scales": {
+        "legacy": 0.9047558686670177,
+        "des": 0.9037232680272788
+      },
+      "matchedSources": {
+        "legacy": 58.0,
+        "des": 75.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "scales": {
+        "des": 0.8960124950588104
+      },
+      "matchedSources": {
+        "des": 82.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "scales": {
+        "des": 0.8792279792055759
+      },
+      "matchedSources": {
+        "des": 39.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "scales": {
+        "des": 0.877039582304221
+      },
+      "matchedSources": {
+        "des": 68.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9479",
+      "scales": {
+        "des": 1.6631693643148455
+      },
+      "matchedSources": {
+        "des": 72.0
+      }
     },
     {
       "regionId": "dp2-tract-9480",
-      "tract": 9480,
-      "legacyScale": 1.4190726495148778,
-      "desScale": 1.4180842754247258,
-      "legacyMatchedSources": 56.0,
-      "desMatchedSources": 82.0
+      "scales": {
+        "legacy": 1.4190726495148778,
+        "des": 1.4180842754247258
+      },
+      "matchedSources": {
+        "legacy": 56.0,
+        "des": 82.0
+      }
     },
     {
       "regionId": "dp2-tract-9481",
-      "tract": 9481,
-      "legacyScale": 1.6389531137458475,
-      "desScale": 1.5326759494372775,
-      "legacyMatchedSources": 37.0,
-      "desMatchedSources": 46.0
+      "scales": {
+        "legacy": 1.6389531137458475,
+        "des": 1.5326759494372775
+      },
+      "matchedSources": {
+        "legacy": 37.0,
+        "des": 46.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "scales": {
+        "des": 2.002523910202858
+      },
+      "matchedSources": {
+        "des": 82.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "scales": {
+        "des": 2.0055207207916816
+      },
+      "matchedSources": {
+        "des": 95.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "scales": {
+        "des": 0.9397796027974151
+      },
+      "matchedSources": {
+        "des": 109.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "scales": {
+        "des": 0.9683455837124361
+      },
+      "matchedSources": {
+        "des": 113.0
+      }
     },
     {
       "regionId": "dp2-tract-9488",
-      "tract": 9488,
-      "legacyScale": 1.4509440071057933,
-      "desScale": 1.447634502449501,
-      "legacyMatchedSources": 53.0,
-      "desMatchedSources": 58.0
+      "scales": {
+        "legacy": 1.4509440071057933,
+        "des": 1.447634502449501
+      },
+      "matchedSources": {
+        "legacy": 53.0,
+        "des": 58.0
+      }
     },
     {
       "regionId": "dp2-tract-9489",
-      "tract": 9489,
-      "legacyScale": 1.6138463120255957,
-      "desScale": 1.6542179798082162,
-      "legacyMatchedSources": 50.0,
-      "desMatchedSources": 61.0
+      "scales": {
+        "legacy": 1.6138463120255957,
+        "des": 1.6542179798082162
+      },
+      "matchedSources": {
+        "legacy": 50.0,
+        "des": 61.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "scales": {
+        "legacy": 0.9791220854562337
+      },
+      "matchedSources": {
+        "legacy": 8.0
+      }
     },
     {
       "regionId": "dp2-tract-9691",
-      "tract": 9691,
-      "legacyScale": 0.3813104358697673,
-      "desScale": 0.3928009515831578,
-      "legacyMatchedSources": 45.0,
-      "desMatchedSources": 43.0
+      "scales": {
+        "legacy": 0.3813104358697673,
+        "des": 0.3928009515831578
+      },
+      "matchedSources": {
+        "legacy": 45.0,
+        "des": 43.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "scales": {
+        "des": 0.4584467403988528
+      },
+      "matchedSources": {
+        "des": 84.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "scales": {
+        "des": 0.36482840111072445
+      },
+      "matchedSources": {
+        "des": 86.0
+      }
     },
     {
       "regionId": "dp2-tract-9694",
-      "tract": 9694,
-      "legacyScale": 0.5287657761898229,
-      "desScale": 0.4862594254236461,
-      "legacyMatchedSources": 33.0,
-      "desMatchedSources": 54.0
+      "scales": {
+        "legacy": 0.5287657761898229,
+        "des": 0.4862594254236461
+      },
+      "matchedSources": {
+        "legacy": 33.0,
+        "des": 54.0
+      }
     },
     {
       "regionId": "dp2-tract-9695",
-      "tract": 9695,
-      "legacyScale": 0.8565885253616207,
-      "desScale": 0.8974729964394842,
-      "legacyMatchedSources": 116.0,
-      "desMatchedSources": 167.0
+      "scales": {
+        "legacy": 0.8565885253616207,
+        "des": 0.8974729964394842
+      },
+      "matchedSources": {
+        "legacy": 116.0,
+        "des": 167.0
+      }
     },
     {
       "regionId": "dp2-tract-9696",
-      "tract": 9696,
-      "legacyScale": 0.9104499384491486,
-      "desScale": 0.9288176120478344,
-      "legacyMatchedSources": 33.0,
-      "desMatchedSources": 47.0
+      "scales": {
+        "legacy": 0.9104499384491486,
+        "des": 0.9288176120478344
+      },
+      "matchedSources": {
+        "legacy": 33.0,
+        "des": 47.0
+      }
     },
     {
       "regionId": "dp2-tract-9697",
-      "tract": 9697,
-      "legacyScale": 0.9364789682821081,
-      "desScale": 0.926997046399518,
-      "legacyMatchedSources": 67.0,
-      "desMatchedSources": 101.0
+      "scales": {
+        "legacy": 0.9364789682821081,
+        "des": 0.926997046399518
+      },
+      "matchedSources": {
+        "legacy": 67.0,
+        "des": 101.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "scales": {
+        "des": 0.9136365343540229
+      },
+      "matchedSources": {
+        "des": 154.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "scales": {
+        "des": 0.9155685908968113
+      },
+      "matchedSources": {
+        "des": 155.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "scales": {
+        "des": 0.9042311839314494
+      },
+      "matchedSources": {
+        "des": 107.0
+      }
     },
     {
       "regionId": "dp2-tract-9701",
-      "tract": 9701,
-      "legacyScale": 0.9121608017346379,
-      "desScale": 0.9206565815258001,
-      "legacyMatchedSources": 58.0,
-      "desMatchedSources": 84.0
+      "scales": {
+        "legacy": 0.9121608017346379,
+        "des": 0.9206565815258001
+      },
+      "matchedSources": {
+        "legacy": 58.0,
+        "des": 84.0
+      }
     },
     {
       "regionId": "dp2-tract-9702",
-      "tract": 9702,
-      "legacyScale": 0.8899497223495356,
-      "desScale": 0.9037469580729403,
-      "legacyMatchedSources": 102.0,
-      "desMatchedSources": 140.0
+      "scales": {
+        "legacy": 0.8899497223495356,
+        "des": 0.9037469580729403
+      },
+      "matchedSources": {
+        "legacy": 102.0,
+        "des": 140.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "scales": {
+        "des": 0.8818348713293357
+      },
+      "matchedSources": {
+        "des": 110.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "scales": {
+        "des": 0.9328434222684779
+      },
+      "matchedSources": {
+        "des": 117.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "scales": {
+        "des": 0.9222952052662787
+      },
+      "matchedSources": {
+        "des": 108.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "scales": {
+        "des": 0.9146587464009908
+      },
+      "matchedSources": {
+        "des": 122.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "scales": {
+        "des": 0.9162619335993316
+      },
+      "matchedSources": {
+        "des": 96.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "scales": {
+        "des": 0.866236292130502
+      },
+      "matchedSources": {
+        "des": 118.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "scales": {
+        "des": 0.8803872500771242
+      },
+      "matchedSources": {
+        "des": 153.0
+      }
     },
     {
       "regionId": "dp2-tract-9710",
-      "tract": 9710,
-      "legacyScale": 0.8774673084876988,
-      "desScale": 0.8876549642009777,
-      "legacyMatchedSources": 83.0,
-      "desMatchedSources": 139.0
+      "scales": {
+        "legacy": 0.8774673084876988,
+        "des": 0.8876549642009777
+      },
+      "matchedSources": {
+        "legacy": 83.0,
+        "des": 139.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "scales": {
+        "des": 0.9245158134652329
+      },
+      "matchedSources": {
+        "des": 141.0
+      }
     },
     {
       "regionId": "dp2-tract-9713",
-      "tract": 9713,
-      "legacyScale": 0.927467851031881,
-      "desScale": 0.9427500297977204,
-      "legacyMatchedSources": 78.0,
-      "desMatchedSources": 115.0
+      "scales": {
+        "legacy": 0.927467851031881,
+        "des": 0.9427500297977204
+      },
+      "matchedSources": {
+        "legacy": 78.0,
+        "des": 115.0
+      }
     },
     {
       "regionId": "dp2-tract-9714",
-      "tract": 9714,
-      "legacyScale": 0.9393361255944176,
-      "desScale": 0.9427747082039231,
-      "legacyMatchedSources": 94.0,
-      "desMatchedSources": 139.0
+      "scales": {
+        "legacy": 0.9393361255944176,
+        "des": 0.9427747082039231
+      },
+      "matchedSources": {
+        "legacy": 94.0,
+        "des": 139.0
+      }
     },
     {
       "regionId": "dp2-tract-9715",
-      "tract": 9715,
-      "legacyScale": 0.9033989537252254,
-      "desScale": 0.911147542118703,
-      "legacyMatchedSources": 74.0,
-      "desMatchedSources": 94.0
+      "scales": {
+        "legacy": 0.9033989537252254,
+        "des": 0.911147542118703
+      },
+      "matchedSources": {
+        "legacy": 74.0,
+        "des": 94.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "scales": {
+        "des": 0.9578529474472608
+      },
+      "matchedSources": {
+        "des": 56.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "scales": {
+        "des": 0.9003180438258513
+      },
+      "matchedSources": {
+        "des": 93.0
+      }
     },
     {
       "regionId": "dp2-tract-9718",
-      "tract": 9718,
-      "legacyScale": 0.889570812097247,
-      "desScale": 0.8913365018412034,
-      "legacyMatchedSources": 26.0,
-      "desMatchedSources": 38.0
+      "scales": {
+        "legacy": 0.889570812097247,
+        "des": 0.8913365018412034
+      },
+      "matchedSources": {
+        "legacy": 26.0,
+        "des": 38.0
+      }
     },
     {
       "regionId": "dp2-tract-9719",
-      "tract": 9719,
-      "legacyScale": 0.9050980979870896,
-      "desScale": 0.9146932816609304,
-      "legacyMatchedSources": 39.0,
-      "desMatchedSources": 57.0
+      "scales": {
+        "legacy": 0.9050980979870896,
+        "des": 0.9146932816609304
+      },
+      "matchedSources": {
+        "legacy": 39.0,
+        "des": 57.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9722",
+      "scales": {
+        "des": 1.609528370124957
+      },
+      "matchedSources": {
+        "des": 94.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "scales": {
+        "des": 1.3564705272371846
+      },
+      "matchedSources": {
+        "des": 105.0
+      }
     },
     {
       "regionId": "dp2-tract-9724",
-      "tract": 9724,
-      "legacyScale": 1.3118986607092773,
-      "desScale": 1.4794607677296048,
-      "legacyMatchedSources": 20.0,
-      "desMatchedSources": 30.0
+      "scales": {
+        "legacy": 1.3118986607092773,
+        "des": 1.4794607677296048
+      },
+      "matchedSources": {
+        "legacy": 20.0,
+        "des": 30.0
+      }
     },
     {
       "regionId": "dp2-tract-9725",
-      "tract": 9725,
-      "legacyScale": 2.253697880189962,
-      "desScale": 2.200536555296732,
-      "legacyMatchedSources": 39.0,
-      "desMatchedSources": 64.0
+      "scales": {
+        "legacy": 2.253697880189962,
+        "des": 2.200536555296732
+      },
+      "matchedSources": {
+        "legacy": 39.0,
+        "des": 64.0
+      }
     },
     {
       "regionId": "dp2-tract-9726",
-      "tract": 9726,
-      "legacyScale": 0.9264661087394069,
-      "desScale": 0.9051511294358648,
-      "legacyMatchedSources": 52.0,
-      "desMatchedSources": 65.0
+      "scales": {
+        "legacy": 0.9264661087394069,
+        "des": 0.9051511294358648
+      },
+      "matchedSources": {
+        "legacy": 52.0,
+        "des": 65.0
+      }
     },
     {
       "regionId": "dp2-tract-9727",
-      "tract": 9727,
-      "legacyScale": 0.9171890206728242,
-      "desScale": 0.9302942885170752,
-      "legacyMatchedSources": 96.0,
-      "desMatchedSources": 136.0
+      "scales": {
+        "legacy": 0.9171890206728242,
+        "des": 0.9302942885170752
+      },
+      "matchedSources": {
+        "legacy": 96.0,
+        "des": 136.0
+      }
     },
     {
       "regionId": "dp2-tract-9728",
-      "tract": 9728,
-      "legacyScale": 0.924083485742416,
-      "desScale": 0.9275949262886936,
-      "legacyMatchedSources": 83.0,
-      "desMatchedSources": 124.0
+      "scales": {
+        "legacy": 0.924083485742416,
+        "des": 0.9275949262886936
+      },
+      "matchedSources": {
+        "legacy": 83.0,
+        "des": 124.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "scales": {
+        "des": 0.9501988834359525
+      },
+      "matchedSources": {
+        "des": 42.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "scales": {
+        "des": 0.9523768421423046
+      },
+      "matchedSources": {
+        "des": 83.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "scales": {
+        "legacy": 0.9647039251781467
+      },
+      "matchedSources": {
+        "legacy": 59.0
+      }
     },
     {
       "regionId": "dp2-tract-9934",
-      "tract": 9934,
-      "legacyScale": 0.37928521790370684,
-      "desScale": 0.41265096914014443,
-      "legacyMatchedSources": 28.0,
-      "desMatchedSources": 34.0
+      "scales": {
+        "legacy": 0.37928521790370684,
+        "des": 0.41265096914014443
+      },
+      "matchedSources": {
+        "legacy": 28.0,
+        "des": 34.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "scales": {
+        "des": 0.4226266797977941
+      },
+      "matchedSources": {
+        "des": 58.0
+      }
     },
     {
       "regionId": "dp2-tract-9943",
-      "tract": 9943,
-      "legacyScale": 0.9393920014298479,
-      "desScale": 0.9124386718655588,
-      "legacyMatchedSources": 101.0,
-      "desMatchedSources": 113.0
+      "scales": {
+        "legacy": 0.9393920014298479,
+        "des": 0.9124386718655588
+      },
+      "matchedSources": {
+        "legacy": 101.0,
+        "des": 113.0
+      }
     },
     {
       "regionId": "dp2-tract-9944",
-      "tract": 9944,
-      "legacyScale": 0.9184554333613774,
-      "desScale": 0.8609449055175646,
-      "legacyMatchedSources": 102.0,
-      "desMatchedSources": 133.0
+      "scales": {
+        "legacy": 0.9184554333613774,
+        "des": 0.8609449055175646
+      },
+      "matchedSources": {
+        "legacy": 102.0,
+        "des": 133.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "scales": {
+        "des": 0.8826371147952851
+      },
+      "matchedSources": {
+        "des": 109.0
+      }
     },
     {
       "regionId": "dp2-tract-9950",
-      "tract": 9950,
-      "legacyScale": 0.9162958893165725,
-      "desScale": 0.8343159257288294,
-      "legacyMatchedSources": 86.0,
-      "desMatchedSources": 116.0
+      "scales": {
+        "legacy": 0.9162958893165725,
+        "des": 0.8343159257288294
+      },
+      "matchedSources": {
+        "legacy": 86.0,
+        "des": 116.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "scales": {
+        "legacy": 0.9209091019563965
+      },
+      "matchedSources": {
+        "legacy": 84.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "scales": {
+        "legacy": 0.8740194419509311
+      },
+      "matchedSources": {
+        "legacy": 75.0
+      }
     },
     {
       "regionId": "dp2-tract-9953",
-      "tract": 9953,
-      "legacyScale": 0.8604511654915379,
-      "desScale": 0.8923314255691834,
-      "legacyMatchedSources": 59.0,
-      "desMatchedSources": 82.0
+      "scales": {
+        "legacy": 0.8604511654915379,
+        "des": 0.8923314255691834
+      },
+      "matchedSources": {
+        "legacy": 59.0,
+        "des": 82.0
+      }
     },
     {
       "regionId": "dp2-tract-9955",
-      "tract": 9955,
-      "legacyScale": 0.9198670756552564,
-      "desScale": 0.9220663559396252,
-      "legacyMatchedSources": 73.0,
-      "desMatchedSources": 96.0
+      "scales": {
+        "legacy": 0.9198670756552564,
+        "des": 0.9220663559396252
+      },
+      "matchedSources": {
+        "legacy": 73.0,
+        "des": 96.0
+      }
     },
     {
       "regionId": "dp2-tract-9956",
-      "tract": 9956,
-      "legacyScale": 0.9269920763630993,
-      "desScale": 0.9367456305378845,
-      "legacyMatchedSources": 63.0,
-      "desMatchedSources": 82.0
+      "scales": {
+        "legacy": 0.9269920763630993,
+        "des": 0.9367456305378845
+      },
+      "matchedSources": {
+        "legacy": 63.0,
+        "des": 82.0
+      }
     },
     {
       "regionId": "dp2-tract-9957",
-      "tract": 9957,
-      "legacyScale": 0.8870778012041363,
-      "desScale": 0.9042458067646908,
-      "legacyMatchedSources": 47.0,
-      "desMatchedSources": 55.0
+      "scales": {
+        "legacy": 0.8870778012041363,
+        "des": 0.9042458067646908
+      },
+      "matchedSources": {
+        "legacy": 47.0,
+        "des": 55.0
+      }
     },
     {
       "regionId": "dp2-tract-9958",
-      "tract": 9958,
-      "legacyScale": 0.9145806823005156,
-      "desScale": 0.9039802122840042,
-      "legacyMatchedSources": 73.0,
-      "desMatchedSources": 102.0
+      "scales": {
+        "legacy": 0.9145806823005156,
+        "des": 0.9039802122840042
+      },
+      "matchedSources": {
+        "legacy": 73.0,
+        "des": 102.0
+      }
     },
     {
       "regionId": "dp2-tract-9959",
-      "tract": 9959,
-      "legacyScale": 0.9004450898981601,
-      "desScale": 0.8925626648478354,
-      "legacyMatchedSources": 45.0,
-      "desMatchedSources": 68.0
+      "scales": {
+        "legacy": 0.9004450898981601,
+        "des": 0.8925626648478354
+      },
+      "matchedSources": {
+        "legacy": 45.0,
+        "des": 68.0
+      }
     },
     {
       "regionId": "dp2-tract-9960",
-      "tract": 9960,
-      "legacyScale": 0.9269621001693353,
-      "desScale": 0.9147022848346126,
-      "legacyMatchedSources": 86.0,
-      "desMatchedSources": 104.0
+      "scales": {
+        "legacy": 0.9269621001693353,
+        "des": 0.9147022848346126
+      },
+      "matchedSources": {
+        "legacy": 86.0,
+        "des": 104.0
+      }
     },
     {
       "regionId": "dp2-tract-9964",
-      "tract": 9964,
-      "legacyScale": 1.4901616549490302,
-      "desScale": 1.4885596114844049,
-      "legacyMatchedSources": 114.0,
-      "desMatchedSources": 173.0
+      "scales": {
+        "legacy": 1.4901616549490302,
+        "des": 1.4885596114844049
+      },
+      "matchedSources": {
+        "legacy": 114.0,
+        "des": 173.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9965",
+      "scales": {
+        "des": 1.5046980251099538
+      },
+      "matchedSources": {
+        "des": 91.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9966",
+      "scales": {
+        "des": 1.9470964076642319
+      },
+      "matchedSources": {
+        "des": 62.0
+      }
     },
     {
       "regionId": "dp2-tract-9967",
-      "tract": 9967,
-      "legacyScale": 2.0458881384901195,
-      "desScale": 2.0830865682205437,
-      "legacyMatchedSources": 45.0,
-      "desMatchedSources": 65.0
+      "scales": {
+        "legacy": 2.0458881384901195,
+        "des": 2.0830865682205437
+      },
+      "matchedSources": {
+        "legacy": 45.0,
+        "des": 65.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9968",
+      "scales": {
+        "des": 0.922513725254479
+      },
+      "matchedSources": {
+        "des": 99.0
+      }
     },
     {
       "regionId": "dp2-tract-9969",
-      "tract": 9969,
-      "legacyScale": 1.0167087326963338,
-      "desScale": 0.9737619937486758,
-      "legacyMatchedSources": 73.0,
-      "desMatchedSources": 97.0
+      "scales": {
+        "legacy": 1.0167087326963338,
+        "des": 0.9737619937486758
+      },
+      "matchedSources": {
+        "legacy": 73.0,
+        "des": 97.0
+      }
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "scales": {
+        "des": 0.9137667706810506
+      },
+      "matchedSources": {
+        "des": 84.0
+      }
     },
     {
       "regionId": "dp2-tract-9974",
-      "tract": 9974,
-      "legacyScale": 0.9805104750119129,
-      "desScale": 0.9545610627068306,
-      "legacyMatchedSources": 42.0,
-      "desMatchedSources": 46.0
+      "scales": {
+        "legacy": 0.9805104750119129,
+        "des": 0.9545610627068306
+      },
+      "matchedSources": {
+        "legacy": 42.0,
+        "des": 46.0
+      }
     }
   ]
 }
