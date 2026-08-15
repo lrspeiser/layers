@@ -1,0 +1,659 @@
+{
+  "schemaVersion": "layers-reference-cross-check-v1",
+  "generatedAt": "2026-08-15T03:29:41.659363+00:00",
+  "purpose": "Two independent optical references over shared sky, used to attribute the optical comparison's field-dependent effects to a survey rather than measure them again.",
+  "pairs": {
+    "rubin-vs-legacy": {
+      "regions": 91,
+      "medianScale": 0.9198670756552564,
+      "medianMagnitudeOffset": 0.09068731337582293,
+      "scaleScatterDex": 0.13467492855732763,
+      "medianMatchedSources": 73.0
+    },
+    "rubin-vs-des": {
+      "regions": 140,
+      "medianScale": 0.9201252966767531,
+      "medianMagnitudeOffset": 0.09038275406619747,
+      "scaleScatterDex": 0.13835330934092527,
+      "medianMatchedSources": 98.0
+    }
+  },
+  "counts": {
+    "legacyRegions": 91,
+    "desRegions": 140,
+    "sharedRegions": 71,
+    "sharedRegionThreshold": 40,
+    "sharedSampleSufficient": true
+  },
+  "crowdingCorrelation": {
+    "legacy": {
+      "n": 91,
+      "rho": -0.33375283844493464,
+      "pValue": 0.0009,
+      "nullScatter": 0.10566198094489856,
+      "significant": true,
+      "test": "two-sided permutation, 20000 shuffles"
+    },
+    "des": {
+      "n": 140,
+      "rho": -0.2691087643418969,
+      "pValue": 0.00105,
+      "nullScatter": 0.08474081305087569,
+      "significant": true,
+      "test": "two-sided permutation, 20000 shuffles"
+    }
+  },
+  "sharedScaleCorrelation": {
+    "n": 71,
+    "rho": 0.8844735077129443,
+    "pValue": 0.0,
+    "nullScatter": 0.11996465674391141,
+    "significant": true,
+    "test": "two-sided permutation, 20000 shuffles"
+  },
+  "referenceAgreement": {
+    "medianLogScaleDifferenceDex": -0.0016471554357649631,
+    "bootstrap95Interval": [
+      -0.004578294137279693,
+      0.0004959446857675867
+    ],
+    "referencesAgree": true
+  },
+  "findings": [
+    {
+      "question": "Does the flux-scale offset belong to Rubin or to the reference?",
+      "verdict": "Rubin side of the comparison, or the aperture method common to both",
+      "basis": "Paired over 71 shared regions, the median log-scale difference between the two pairings is -0.0016 dex with a bootstrap 95% interval of [-0.0046, 0.0005]. Two independently calibrated references agreeing about Rubin cannot both be wrong in the same direction by chance.",
+      "cannotDistinguish": "This does not separate a Rubin zeropoint from a systematic in the 1.5 arcsec aperture photometry, which is identical in both pairings."
+    },
+    {
+      "question": "Does the density-dependent flux scale belong to Rubin or to the reference?",
+      "verdict": "common to both pairings, therefore Rubin's or the aperture method's",
+      "basis": "Scale against matched-source count: rho -0.334 (p 0.0009, n 91) for Legacy, -0.269 (p 0.0010, n 140) for DES. Both pairings show it. The references are independently calibrated and were reduced by different pipelines, so what the two comparisons share is Rubin and the 1.5 arcsec aperture photometry applied identically to both.",
+      "direction": "The scale falls as matched-source count rises in both pairings: Rubin measures relatively less flux in the aperture where sources are denser, which is the sign expected if neighbouring flux is being handled differently by the two sides.",
+      "supersedes": "An earlier subset of DES regions showed no density trend, which supported attributing it to Legacy's broader PSF. Over the full set the DES pairing shows the same trend, and that attribution does not hold."
+    },
+    {
+      "question": "Whose field-to-field scatter is the larger part?",
+      "verdict": "shared, therefore Rubin's",
+      "basis": "Across 71 regions measured against both references, the two scales correlate rho +0.884 (p 0.0000). The only thing the two pairings share is the Rubin image, so correlated variation is Rubin's.",
+      "sampleGate": "71 shared regions, threshold 40"
+    }
+  ],
+  "caveats": [
+    "The density proxy is the matched compact-source count per field, which depends on the depth and PSF of both surveys in a pair and is not a sky density.",
+    "The two pairings sit on different common grids, 0.4 arcsec for Legacy and 0.263 arcsec for DES, so only the physical 1.5 arcsec aperture makes them comparable.",
+    "DES variance is a uniform sky estimate rather than a propagated plane, which affects weighting inside its pairing but not this attribution, which uses medians.",
+    "Attribution is between the surveys in these pairings. It does not establish which survey is right in an absolute sense; no external standard is used here."
+  ],
+  "regions": [
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "legacyScale": 0.9682199641962108,
+      "desScale": 0.9619345128597867,
+      "legacyMatchedSources": 58.0,
+      "desMatchedSources": 86.0
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "legacyScale": 0.9654032566365406,
+      "desScale": 0.9756342852014173,
+      "legacyMatchedSources": 61.0,
+      "desMatchedSources": 94.0
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "legacyScale": 0.9872691832229445,
+      "desScale": 0.989861555308226,
+      "legacyMatchedSources": 40.0,
+      "desMatchedSources": 56.0
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "legacyScale": 0.9208773073700689,
+      "desScale": 0.9428317218681942,
+      "legacyMatchedSources": 144.0,
+      "desMatchedSources": 188.0
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "legacyScale": 0.950473792517455,
+      "desScale": 0.9584180529979012,
+      "legacyMatchedSources": 133.0,
+      "desMatchedSources": 201.0
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "legacyScale": 0.9619566209093732,
+      "desScale": 0.9740501416936345,
+      "legacyMatchedSources": 49.0,
+      "desMatchedSources": 51.0
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "legacyScale": 0.9986698613380778,
+      "desScale": 0.9672447690385856,
+      "legacyMatchedSources": 63.0,
+      "desMatchedSources": 33.0
+    },
+    {
+      "regionId": "dp2-tract-8986",
+      "tract": 8986,
+      "legacyScale": 0.9064655436861855,
+      "desScale": 0.918777139722759,
+      "legacyMatchedSources": 77.0,
+      "desMatchedSources": 103.0
+    },
+    {
+      "regionId": "dp2-tract-8996",
+      "tract": 8996,
+      "legacyScale": 2.4088421435765754,
+      "desScale": 2.099575279222793,
+      "legacyMatchedSources": 57.0,
+      "desMatchedSources": 82.0
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "tract": 9210,
+      "legacyScale": 0.8792900620656128,
+      "desScale": 0.865391640676108,
+      "legacyMatchedSources": 89.0,
+      "desMatchedSources": 116.0
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "tract": 9223,
+      "legacyScale": 0.8624530817412238,
+      "desScale": 0.876050998173921,
+      "legacyMatchedSources": 86.0,
+      "desMatchedSources": 96.0
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "legacyScale": 0.8878353782268256,
+      "desScale": 0.8989272330771837,
+      "legacyMatchedSources": 104.0,
+      "desMatchedSources": 143.0
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "legacyScale": 0.926930080190129,
+      "desScale": 0.9335449137370114,
+      "legacyMatchedSources": 49.0,
+      "desMatchedSources": 81.0
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "legacyScale": 0.9294286000371463,
+      "desScale": 0.9366368850235736,
+      "legacyMatchedSources": 76.0,
+      "desMatchedSources": 119.0
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "legacyScale": 0.8970244481345764,
+      "desScale": 0.917312666240521,
+      "legacyMatchedSources": 70.0,
+      "desMatchedSources": 100.0
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "legacyScale": 0.9154547451991416,
+      "desScale": 0.9175925340098734,
+      "legacyMatchedSources": 101.0,
+      "desMatchedSources": 71.0
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "legacyScale": 1.8732903234985898,
+      "desScale": 1.7784424890375887,
+      "legacyMatchedSources": 56.0,
+      "desMatchedSources": 88.0
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "legacyScale": 1.846429222207666,
+      "desScale": 1.8100033883258961,
+      "legacyMatchedSources": 45.0,
+      "desMatchedSources": 43.0
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "legacyScale": 0.901235816268438,
+      "desScale": 0.9231466308502148,
+      "legacyMatchedSources": 94.0,
+      "desMatchedSources": 141.0
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "legacyScale": 0.8862750600303135,
+      "desScale": 0.9114813199914734,
+      "legacyMatchedSources": 80.0,
+      "desMatchedSources": 123.0
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "legacyScale": 0.8826109263493791,
+      "desScale": 0.9155201792456084,
+      "legacyMatchedSources": 92.0,
+      "desMatchedSources": 127.0
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "legacyScale": 0.853211288620417,
+      "desScale": 0.8933941966260893,
+      "legacyMatchedSources": 89.0,
+      "desMatchedSources": 139.0
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "legacyScale": 0.8665917528760179,
+      "desScale": 0.9011602712404966,
+      "legacyMatchedSources": 73.0,
+      "desMatchedSources": 110.0
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "legacyScale": 0.9101484075241527,
+      "desScale": 0.9079309358646084,
+      "legacyMatchedSources": 99.0,
+      "desMatchedSources": 152.0
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "legacyScale": 0.9008809772405459,
+      "desScale": 0.8873719097866994,
+      "legacyMatchedSources": 90.0,
+      "desMatchedSources": 126.0
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "legacyScale": 0.9275132307029424,
+      "desScale": 0.9006833101513578,
+      "legacyMatchedSources": 96.0,
+      "desMatchedSources": 130.0
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "legacyScale": 0.8683796200788125,
+      "desScale": 0.8598208754371479,
+      "legacyMatchedSources": 119.0,
+      "desMatchedSources": 167.0
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "legacyScale": 0.8926662127929768,
+      "desScale": 0.9011186240074587,
+      "legacyMatchedSources": 94.0,
+      "desMatchedSources": 138.0
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "legacyScale": 0.9157255764920198,
+      "desScale": 0.8972760713403851,
+      "legacyMatchedSources": 96.0,
+      "desMatchedSources": 143.0
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "legacyScale": 0.9169602736844871,
+      "desScale": 0.9267547915297344,
+      "legacyMatchedSources": 78.0,
+      "desMatchedSources": 106.0
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "legacyScale": 0.8937386523715842,
+      "desScale": 0.8882833276320827,
+      "legacyMatchedSources": 93.0,
+      "desMatchedSources": 113.0
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "legacyScale": 0.8759274822087875,
+      "desScale": 0.8961259691071294,
+      "legacyMatchedSources": 83.0,
+      "desMatchedSources": 104.0
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "legacyScale": 0.9770405818834332,
+      "desScale": 0.9586093625531591,
+      "legacyMatchedSources": 53.0,
+      "desMatchedSources": 74.0
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "legacyScale": 0.9047558686670177,
+      "desScale": 0.9037232680272788,
+      "legacyMatchedSources": 58.0,
+      "desMatchedSources": 75.0
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "legacyScale": 1.4190726495148778,
+      "desScale": 1.4180842754247258,
+      "legacyMatchedSources": 56.0,
+      "desMatchedSources": 82.0
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "legacyScale": 1.6389531137458475,
+      "desScale": 1.5326759494372775,
+      "legacyMatchedSources": 37.0,
+      "desMatchedSources": 46.0
+    },
+    {
+      "regionId": "dp2-tract-9488",
+      "tract": 9488,
+      "legacyScale": 1.4509440071057933,
+      "desScale": 1.447634502449501,
+      "legacyMatchedSources": 53.0,
+      "desMatchedSources": 58.0
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "legacyScale": 1.6138463120255957,
+      "desScale": 1.6542179798082162,
+      "legacyMatchedSources": 50.0,
+      "desMatchedSources": 61.0
+    },
+    {
+      "regionId": "dp2-tract-9691",
+      "tract": 9691,
+      "legacyScale": 0.3813104358697673,
+      "desScale": 0.3928009515831578,
+      "legacyMatchedSources": 45.0,
+      "desMatchedSources": 43.0
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "legacyScale": 0.5287657761898229,
+      "desScale": 0.4862594254236461,
+      "legacyMatchedSources": 33.0,
+      "desMatchedSources": 54.0
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "legacyScale": 0.8565885253616207,
+      "desScale": 0.8974729964394842,
+      "legacyMatchedSources": 116.0,
+      "desMatchedSources": 167.0
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "legacyScale": 0.9104499384491486,
+      "desScale": 0.9288176120478344,
+      "legacyMatchedSources": 33.0,
+      "desMatchedSources": 47.0
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "legacyScale": 0.9364789682821081,
+      "desScale": 0.926997046399518,
+      "legacyMatchedSources": 67.0,
+      "desMatchedSources": 101.0
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "legacyScale": 0.9121608017346379,
+      "desScale": 0.9206565815258001,
+      "legacyMatchedSources": 58.0,
+      "desMatchedSources": 84.0
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "legacyScale": 0.8899497223495356,
+      "desScale": 0.9037469580729403,
+      "legacyMatchedSources": 102.0,
+      "desMatchedSources": 140.0
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "legacyScale": 0.8774673084876988,
+      "desScale": 0.8876549642009777,
+      "legacyMatchedSources": 83.0,
+      "desMatchedSources": 139.0
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "legacyScale": 0.927467851031881,
+      "desScale": 0.9427500297977204,
+      "legacyMatchedSources": 78.0,
+      "desMatchedSources": 115.0
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "legacyScale": 0.9393361255944176,
+      "desScale": 0.9427747082039231,
+      "legacyMatchedSources": 94.0,
+      "desMatchedSources": 139.0
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "legacyScale": 0.9033989537252254,
+      "desScale": 0.911147542118703,
+      "legacyMatchedSources": 74.0,
+      "desMatchedSources": 94.0
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "legacyScale": 0.889570812097247,
+      "desScale": 0.8913365018412034,
+      "legacyMatchedSources": 26.0,
+      "desMatchedSources": 38.0
+    },
+    {
+      "regionId": "dp2-tract-9719",
+      "tract": 9719,
+      "legacyScale": 0.9050980979870896,
+      "desScale": 0.9146932816609304,
+      "legacyMatchedSources": 39.0,
+      "desMatchedSources": 57.0
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "legacyScale": 1.3118986607092773,
+      "desScale": 1.4794607677296048,
+      "legacyMatchedSources": 20.0,
+      "desMatchedSources": 30.0
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "legacyScale": 2.253697880189962,
+      "desScale": 2.200536555296732,
+      "legacyMatchedSources": 39.0,
+      "desMatchedSources": 64.0
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "legacyScale": 0.9264661087394069,
+      "desScale": 0.9051511294358648,
+      "legacyMatchedSources": 52.0,
+      "desMatchedSources": 65.0
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "legacyScale": 0.9171890206728242,
+      "desScale": 0.9302942885170752,
+      "legacyMatchedSources": 96.0,
+      "desMatchedSources": 136.0
+    },
+    {
+      "regionId": "dp2-tract-9728",
+      "tract": 9728,
+      "legacyScale": 0.924083485742416,
+      "desScale": 0.9275949262886936,
+      "legacyMatchedSources": 83.0,
+      "desMatchedSources": 124.0
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "legacyScale": 0.37928521790370684,
+      "desScale": 0.41265096914014443,
+      "legacyMatchedSources": 28.0,
+      "desMatchedSources": 34.0
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "legacyScale": 0.9393920014298479,
+      "desScale": 0.9124386718655588,
+      "legacyMatchedSources": 101.0,
+      "desMatchedSources": 113.0
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "legacyScale": 0.9184554333613774,
+      "desScale": 0.8609449055175646,
+      "legacyMatchedSources": 102.0,
+      "desMatchedSources": 133.0
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "legacyScale": 0.9162958893165725,
+      "desScale": 0.8343159257288294,
+      "legacyMatchedSources": 86.0,
+      "desMatchedSources": 116.0
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "legacyScale": 0.8604511654915379,
+      "desScale": 0.8923314255691834,
+      "legacyMatchedSources": 59.0,
+      "desMatchedSources": 82.0
+    },
+    {
+      "regionId": "dp2-tract-9955",
+      "tract": 9955,
+      "legacyScale": 0.9198670756552564,
+      "desScale": 0.9220663559396252,
+      "legacyMatchedSources": 73.0,
+      "desMatchedSources": 96.0
+    },
+    {
+      "regionId": "dp2-tract-9956",
+      "tract": 9956,
+      "legacyScale": 0.9269920763630993,
+      "desScale": 0.9367456305378845,
+      "legacyMatchedSources": 63.0,
+      "desMatchedSources": 82.0
+    },
+    {
+      "regionId": "dp2-tract-9957",
+      "tract": 9957,
+      "legacyScale": 0.8870778012041363,
+      "desScale": 0.9042458067646908,
+      "legacyMatchedSources": 47.0,
+      "desMatchedSources": 55.0
+    },
+    {
+      "regionId": "dp2-tract-9958",
+      "tract": 9958,
+      "legacyScale": 0.9145806823005156,
+      "desScale": 0.9039802122840042,
+      "legacyMatchedSources": 73.0,
+      "desMatchedSources": 102.0
+    },
+    {
+      "regionId": "dp2-tract-9959",
+      "tract": 9959,
+      "legacyScale": 0.9004450898981601,
+      "desScale": 0.8925626648478354,
+      "legacyMatchedSources": 45.0,
+      "desMatchedSources": 68.0
+    },
+    {
+      "regionId": "dp2-tract-9960",
+      "tract": 9960,
+      "legacyScale": 0.9269621001693353,
+      "desScale": 0.9147022848346126,
+      "legacyMatchedSources": 86.0,
+      "desMatchedSources": 104.0
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "tract": 9964,
+      "legacyScale": 1.4901616549490302,
+      "desScale": 1.4885596114844049,
+      "legacyMatchedSources": 114.0,
+      "desMatchedSources": 173.0
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "tract": 9967,
+      "legacyScale": 2.0458881384901195,
+      "desScale": 2.0830865682205437,
+      "legacyMatchedSources": 45.0,
+      "desMatchedSources": 65.0
+    },
+    {
+      "regionId": "dp2-tract-9969",
+      "tract": 9969,
+      "legacyScale": 1.0167087326963338,
+      "desScale": 0.9737619937486758,
+      "legacyMatchedSources": 73.0,
+      "desMatchedSources": 97.0
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "legacyScale": 0.9805104750119129,
+      "desScale": 0.9545610627068306,
+      "legacyMatchedSources": 42.0,
+      "desMatchedSources": 46.0
+    }
+  ]
+}

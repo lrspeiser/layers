@@ -56,6 +56,11 @@ def main() -> None:
     sed = load(LAYERS / "sed/consistency.json")
     lensing = load(LAYERS / "lensing-light/correlation.json")
     xray = load(LAYERS / "xray-counterparts/comparison.json")
+    radio = load(LAYERS / "radio-counterparts/comparison.json")
+    register = load(LAYERS / "anomaly-register.json")
+    des = load(regions_dir / "des-dr2.json")
+    desRecon = load(regions_dir / "rubin-des-reconciliation.json")
+    crossCheck = load(regions_dir / "reference-cross-check.json")
 
     # Injection/recovery and the covariance measurement are a separate stage from
     # reconciliation, so a region that cleared them is only visible if both are
@@ -97,6 +102,21 @@ def main() -> None:
         "sed": {**((sed or {}).get("counts") or {}), "colourRelation": (sed or {}).get("colourRelation")},
         "lensing": {**((lensing or {}).get("counts") or {}), "surveys": (lensing or {}).get("surveys")},
         "xray": (xray or {}).get("counts"),
+        "radio": (radio or {}).get("counts"),
+        "des": {
+            **((des or {}).get("counts") or {}),
+            "reconciled": ((desRecon or {}).get("counts") or {}).get("reconciled"),
+            "matched": ((desRecon or {}).get("counts") or {}).get("matched"),
+        },
+        "crossCheck": {
+            **((crossCheck or {}).get("counts") or {}),
+            "pairs": (crossCheck or {}).get("pairs"),
+            "findings": (crossCheck or {}).get("findings"),
+        },
+        "register": {
+            **((register or {}).get("counts") or {}),
+            "comparisonsEvaluated": ((register or {}).get("comparisonsEvaluated") or {}).get("total"),
+        },
         "gates": gates,
         "topAnomalies": ((anomalies or {}).get("topCandidates") or [])[:40],
     }

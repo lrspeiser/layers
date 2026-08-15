@@ -158,20 +158,27 @@ def inspect_fits(path: Path, target: dict[str, Any], label: str) -> dict[str, An
         scales = np.abs(proj_plane_pixel_scales(wcs.celestial) * 3600.0)
         finite = np.isfinite(data)
         finite_values = data[finite]
-        if finite_values.size == 0:
+        # The PS1 mask plane is sparse and inverted relative to the image planes:
+        # NaN marks an unflagged pixel, and a finite value marks a flag. Typical
+        # good cutouts are 99.85% NaN, so an all-NaN mask is a field with nothing
+        # flagged, which is the best case rather than a failure. Treating it as
+        # one rejected 40% of regions on the first pass through the 200-region set.
+        if finite_values.size == 0 and label != "mask":
             raise ValueError(f"No finite pixels in {path}")
 
         stats: dict[str, Any] = {
             "finitePixelCount": int(finite.sum()),
             "finiteFraction": float(finite.mean()),
-            "minimum": float(np.min(finite_values)),
-            "maximum": float(np.max(finite_values)),
-            "median": float(np.median(finite_values)),
+            "minimum": float(np.min(finite_values)) if finite_values.size else None,
+            "maximum": float(np.max(finite_values)) if finite_values.size else None,
+            "median": float(np.median(finite_values)) if finite_values.size else None,
         }
         if label == "weight":
             stats["negativePixelCount"] = int(np.sum(finite_values < 0))
             stats["positivePixelFraction"] = float(np.mean(finite_values > 0))
         if label == "mask":
+            stats["maskConvention"] = "finite value = flagged pixel; NaN = unflagged"
+            stats["flaggedPixelCount"] = int(finite.sum())
             stats["nonzeroPixelCount"] = int(np.count_nonzero(finite_values))
             stats["nonzeroPixelFractionOfAllPixels"] = float(
                 np.count_nonzero(finite & (data != 0)) / data.size
@@ -389,114 +396,142 @@ def discover_dynamic_targets(region_path: Path) -> list[dict[str, Any]]:
     return targets
 
 
+
+def build_region(target: dict[str, Any], validated_at: str) -> dict[str, Any]:
+    """Acquire and validate one region's three PS1 planes."""
+    with target["discovery"].open(newline="", encoding="utf-8-sig") as handle:
+        rows = list(csv.DictReader(handle))
+    selected = {
+        row["type"]: row
+        for row in rows
+        if row["filter"] == "i" and row["type"] in PRODUCT_LABELS
+    }
+    if set(selected) != set(PRODUCT_LABELS):
+        raise ValueError(
+            f"Discovery for tract {target['tract']} lacks required planes: {sorted(selected)}"
+        )
+
+    products: list[dict[str, Any]] = []
+    for product_type in ("stack", "stack.wt", "stack.mask"):
+        row = selected[product_type]
+        role = PRODUCT_LABELS[product_type]
+        params = {
+            "ra": f"{target['raDeg']:.8f}",
+            "dec": f"{target['decDeg']:.8f}",
+            "size": str(CUTOUT_SIZE_PIXELS),
+            "format": "fits",
+            "red": row["filename"],
+        }
+        request = requests.Request("GET", FITSCUT, params=params).prepare()
+        url = request.url
+        if not url:
+            raise RuntimeError("Could not construct FITS-cutout URL")
+        output = (
+            FITS_ROOT
+            / target["regionId"]
+            / f"ps1-dr2-i-{role}-{CUTOUT_SIZE_PIXELS}px.fits"
+        )
+        digest, size, transfer = download(url, output)
+        inspection = inspect_fits(output, target, role)
+        products.append(
+            {
+                "role": role,
+                "archiveProductType": product_type,
+                "sourceSkycell": f"{int(row['projcell']):04d}.{int(row['subcell']):03d}",
+                "sourceProductId": row["shortname"],
+                "sourceFilename": row["filename"],
+                "sourceUrl": url,
+                "localPath": relative(output),
+                "bytes": size,
+                "sha256": digest,
+                "transfer": transfer,
+                "retrievedAt": datetime.fromtimestamp(
+                    output.stat().st_mtime, timezone.utc
+                ).isoformat(),
+                "validatedAt": validated_at,
+                "validation": inspection,
+            }
+        )
+        time.sleep(0.5)
+
+    plane_registration = compare_wcs(products)
+    source_pixel_gate = bool(
+        plane_registration["sameShape"]
+        and plane_registration["planesPixelRegistered"]
+        and all(
+            product["validation"]["wcsPresent"]
+            and product["validation"]["fitsStructureValid"]
+            and product["validation"]["unitsValidation"]["interpretationVerified"]
+            and product["validation"]["targetCenterOffsetArcsec"] < 1.0
+            # A mask with no finite pixels has nothing flagged, so the coverage
+            # requirement applies to the two image planes only.
+            and (
+                product["role"] == "mask"
+                or product["validation"]["stats"]["finiteFraction"] > 0
+            )
+            for product in products
+        )
+        and products[1]["validation"]["stats"]["negativePixelCount"] == 0
+        and products[2]["validation"]["stats"]["integerValued"]
+    )
+    region = {
+        "regionId": target["regionId"],
+        "tract": target["tract"],
+        "center": {"raDeg": target["raDeg"], "decDeg": target["decDeg"]},
+        "surveyId": "panstarrs-dr2",
+        "release": "DR1 stack product served by the current PS1 archive",
+        "catalogReleaseContext": "DR2",
+        "band": "i",
+        "cutout": {
+            "sizePixels": CUTOUT_SIZE_PIXELS,
+            "nativePixelScaleArcsec": PIXEL_SCALE_ARCSEC,
+            "nominalSizeArcmin": CUTOUT_SIZE_ARCMIN,
+            "resampled": False,
+        },
+        "discovery": {
+            "localPath": relative(target["discovery"]),
+            "sha256": sha256(target["discovery"]),
+            "rowCount": len(rows),
+        },
+        "products": products,
+        "supportPlaneValidation": plane_registration,
+        "sourcePixelsValidated": source_pixel_gate,
+        "comparisonReady": False,
+        "comparisonReadinessReason": (
+            "Authentic PS1 stack and support pixels are validated, but no Rubin/PS1 "
+            "common-grid reprojection, PSF matching, photometric normalization, or "
+            "alignment QA has been performed."
+        ),
+    }
+    region["previews"] = preview_region(region)
+    return region
+
+
 def build(targets: tuple[dict[str, Any], ...] | list[dict[str, Any]] = TARGETS) -> dict[str, Any]:
     RESULT_ROOT.mkdir(parents=True, exist_ok=True)
     PUBLIC_ROOT.mkdir(parents=True, exist_ok=True)
     validated_at = utc_now()
     detailed_regions: list[dict[str, Any]] = []
+    failed_regions: list[dict[str, Any]] = []
 
     for target in targets:
-        with target["discovery"].open(newline="", encoding="utf-8-sig") as handle:
-            rows = list(csv.DictReader(handle))
-        selected = {
-            row["type"]: row
-            for row in rows
-            if row["filter"] == "i" and row["type"] in PRODUCT_LABELS
-        }
-        if set(selected) != set(PRODUCT_LABELS):
-            raise ValueError(
-                f"Discovery for tract {target['tract']} lacks required planes: {sorted(selected)}"
-            )
-
-        products: list[dict[str, Any]] = []
-        for product_type in ("stack", "stack.wt", "stack.mask"):
-            row = selected[product_type]
-            role = PRODUCT_LABELS[product_type]
-            params = {
-                "ra": f"{target['raDeg']:.8f}",
-                "dec": f"{target['decDeg']:.8f}",
-                "size": str(CUTOUT_SIZE_PIXELS),
-                "format": "fits",
-                "red": row["filename"],
-            }
-            request = requests.Request("GET", FITSCUT, params=params).prepare()
-            url = request.url
-            if not url:
-                raise RuntimeError("Could not construct FITS-cutout URL")
-            output = (
-                FITS_ROOT
-                / target["regionId"]
-                / f"ps1-dr2-i-{role}-{CUTOUT_SIZE_PIXELS}px.fits"
-            )
-            digest, size, transfer = download(url, output)
-            inspection = inspect_fits(output, target, role)
-            products.append(
-                {
-                    "role": role,
-                    "archiveProductType": product_type,
-                    "sourceSkycell": f"{int(row['projcell']):04d}.{int(row['subcell']):03d}",
-                    "sourceProductId": row["shortname"],
-                    "sourceFilename": row["filename"],
-                    "sourceUrl": url,
-                    "localPath": relative(output),
-                    "bytes": size,
-                    "sha256": digest,
-                    "transfer": transfer,
-                    "retrievedAt": datetime.fromtimestamp(
-                        output.stat().st_mtime, timezone.utc
-                    ).isoformat(),
-                    "validatedAt": validated_at,
-                    "validation": inspection,
-                }
-            )
-            time.sleep(0.5)
-
-        plane_registration = compare_wcs(products)
-        source_pixel_gate = bool(
-            plane_registration["sameShape"]
-            and plane_registration["planesPixelRegistered"]
-            and all(
-                product["validation"]["wcsPresent"]
-                and product["validation"]["fitsStructureValid"]
-                and product["validation"]["unitsValidation"]["interpretationVerified"]
-                and product["validation"]["targetCenterOffsetArcsec"] < 1.0
-                and product["validation"]["stats"]["finiteFraction"] > 0
-                for product in products
-            )
-            and products[1]["validation"]["stats"]["negativePixelCount"] == 0
-            and products[2]["validation"]["stats"]["integerValued"]
-        )
-        region = {
-            "regionId": target["regionId"],
-            "tract": target["tract"],
-            "center": {"raDeg": target["raDeg"], "decDeg": target["decDeg"]},
-            "surveyId": "panstarrs-dr2",
-            "release": "DR1 stack product served by the current PS1 archive",
-            "catalogReleaseContext": "DR2",
-            "band": "i",
-            "cutout": {
-                "sizePixels": CUTOUT_SIZE_PIXELS,
-                "nativePixelScaleArcsec": PIXEL_SCALE_ARCSEC,
-                "nominalSizeArcmin": CUTOUT_SIZE_ARCMIN,
-                "resampled": False,
-            },
-            "discovery": {
-                "localPath": relative(target["discovery"]),
-                "sha256": sha256(target["discovery"]),
-                "rowCount": len(rows),
-            },
-            "products": products,
-            "supportPlaneValidation": plane_registration,
-            "sourcePixelsValidated": source_pixel_gate,
-            "comparisonReady": False,
-            "comparisonReadinessReason": (
-                "Authentic PS1 stack and support pixels are validated, but no Rubin/PS1 "
-                "common-grid reprojection, PSF matching, photometric normalization, or "
-                "alignment QA has been performed."
-            ),
-        }
-        region["previews"] = preview_region(region)
+        try:
+            region = build_region(target, validated_at)
+        except Exception as error:
+            # One region's cutout must not end the run. A 200-region fetch died at
+            # region 3 because a mask plane came back all-NaN, throwing away every
+            # region behind it. A region that cannot be validated is a recorded
+            # status; the manifest reports how many, so a quiet loss is impossible.
+            failed_regions.append({
+                "regionId": target["regionId"],
+                "tract": target["tract"],
+                "status": "acquisition-failed",
+                "error": f"{type(error).__name__}: {error}",
+            })
+            print(f"[failed] {target['regionId']}: {type(error).__name__}: {error}", flush=True)
+            continue
         detailed_regions.append(region)
+        print(f"[ok] {region['regionId']}  sourcePixelsValidated={region['sourcePixelsValidated']}", flush=True)
 
     detailed = {
         "schemaVersion": "layers-panstarrs-gap-fill-evidence-v1",
@@ -509,10 +544,12 @@ def build(targets: tuple[dict[str, Any], ...] | list[dict[str, Any]] = TARGETS) 
             "The service supports stack, mask, and weight images and linearizes stack cutouts."
         ),
         "regions": detailed_regions,
+        "failedRegions": failed_regions,
         "readiness": {
             "sourcePixelsValidatedCount": sum(
                 bool(region["sourcePixelsValidated"]) for region in detailed_regions
             ),
+            "acquisitionFailedCount": len(failed_regions),
             "comparisonReadyCount": 0,
             "alignmentQa": "not-run",
         },

@@ -36,16 +36,22 @@ export type AnomalyRow = {
   sky: { raDeg: number; decDeg: number };
 };
 
+export type AttributionRow = { question: string; verdict: string; basis: string };
+
 export function DifferenceIndex({
   operators,
   gates,
   anomalies,
   anomalyContext,
+  attribution = [],
+  register,
 }: {
   operators: OperatorCard[];
   gates: GateRow[];
   anomalies: AnomalyRow[];
   anomalyContext: { scanned: number; skipped: number; raw: number; surviving: number };
+  attribution?: AttributionRow[];
+  register?: { candidates: number; evaluated: number; confirmed: number };
 }) {
   const fullyCleared = gates.filter((row) => row.cleared.length === GATES.length).length;
   return (
@@ -110,8 +116,37 @@ export function DifferenceIndex({
         </div>
       </div>
 
+      {attribution.length > 0 && (
+        <div className={styles.section}>
+          <h2>Which survey does the difference belong to?</h2>
+          <p>
+            A single reference can measure a difference but cannot say who owns it. DES DR2 gives a
+            second, independently calibrated optical reference over part of the same sky, and Rubin
+            is the only thing the two comparisons share. Each answer below is what that shared term
+            allows, and no more.
+          </p>
+          <div className={styles.attribution}>
+            {attribution.map((row) => (
+              <article key={row.question}>
+                <h3>{row.question}</h3>
+                <strong>{row.verdict}</strong>
+                <p>{row.basis}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className={styles.section}>
         <h2>Residuals with no boring explanation</h2>
+        {register && register.evaluated > 0 && (
+          <p className={styles.denominator}>
+            Across every operator, {register.candidates} candidates come out of{" "}
+            {register.evaluated.toLocaleString()} comparisons evaluated, and {register.confirmed} are
+            flagged by more than one operator. The denominator is stated because a candidate count
+            on its own says nothing about how unusual anything is.
+          </p>
+        )}
         <p>
           {anomalyContext.raw} candidates were found across {anomalyContext.scanned} scannable
           regions ({anomalyContext.skipped} regions could not be scanned). {anomalyContext.surviving}{" "}

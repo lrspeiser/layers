@@ -89,9 +89,30 @@ export default function DifferencesPage() {
       detail: `eRASS1 detections inside Rubin pixels: ${summary.xray?.withOpticalCounterpart ?? 0} with an optical counterpart, ${summary.xray?.withoutOpticalCounterpart ?? 0} without, to a stated depth. Only ${summary.xray?.regionsWithAnyCataloguedSource ?? 0} of ${summary.xray?.regionsQueried ?? 0} regions hold a catalogued X-ray source at all.`,
       state: "measured",
     },
+    {
+      id: "radio",
+      label: "Radio counterparts",
+      kind: "association",
+      headline: `${summary.radio?.radioSourcesInsideRubinPixels ?? 0} sources`,
+      detail: `VLASS 3 GHz detections inside Rubin pixels across ${summary.radio?.fieldsSearched ?? 0} fields: ${summary.radio?.withOpticalCounterpart ?? 0} with optical light at the position, ${summary.radio?.withoutOpticalCounterpart ?? 0} without. Radio and optical trace different emission, so a bare radio source is an association result, not a photometric difference.`,
+      state: "measured",
+    },
+    {
+      id: "second-reference",
+      label: "Second optical reference",
+      kind: "attribution",
+      headline: `${summary.crossCheck?.sharedRegions ?? 0} shared regions`,
+      detail: `DES DR2 over ${summary.des?.reconciled ?? 0} regions, ${summary.crossCheck?.sharedRegions ?? 0} of them also measured against Legacy. Two references over the same sky is what turns a measured difference into an answer about which survey it belongs to.`,
+      state: "measured",
+    },
   ];
 
   const rows: AnomalyRow[] = (summary.topAnomalies ?? []) as unknown as AnomalyRow[];
+  const attribution = (summary.crossCheck?.findings ?? []) as Array<{
+    question: string;
+    verdict: string;
+    basis: string;
+  }>;
 
   return (
     <main id="top">
@@ -115,6 +136,12 @@ export default function DifferencesPage() {
         operators={operators}
         gates={gates}
         anomalies={rows}
+        attribution={attribution}
+        register={{
+          candidates: summary.register?.candidates ?? 0,
+          evaluated: summary.register?.comparisonsEvaluated ?? 0,
+          confirmed: summary.register?.flaggedByMoreThanOneOperator ?? 0,
+        }}
         anomalyContext={{
           scanned: summary.anomalies?.regionsScanned ?? 0,
           skipped: summary.anomalies?.regionsSkipped ?? 0,
