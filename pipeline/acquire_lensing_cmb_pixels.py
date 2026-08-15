@@ -473,6 +473,15 @@ def clean_stale(products: list[dict]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--skip-download", action="store_true", help="Require already-cached source files")
+    # The region set was hardcoded to the 50-region file, which capped this
+    # operator at 95 pairs regardless of how many Rubin regions existed.
+    parser.add_argument("--regions", type=Path, default=SELECTED)
+    # The Rubin manifest was also pinned to the 50-region set, so every new
+    # region failed with "Rubin aligned preview missing" rather than for any
+    # reason to do with the lensing maps.
+    parser.add_argument("--rubin-manifest", type=Path, default=RUBIN_MANIFEST)
+    parser.add_argument("--output", type=Path, default=None)
+    parser.add_argument("--public-manifest", type=Path, default=None)
     args = parser.parse_args()
     SOURCES.mkdir(parents=True, exist_ok=True)
     PRODUCTS.mkdir(parents=True, exist_ok=True)
@@ -486,10 +495,10 @@ def main() -> None:
                 raise FileNotFoundError(path)
     source_records = ensure_sources()
 
-    selected_doc = json.loads(SELECTED.read_text())
+    selected_doc = json.loads(args.regions.read_text(encoding="utf-8"))
     resolution_doc = json.loads(RESOLUTION.read_text())
     overlap = {x["surveyId"]: set(x["confirmedRubinTractIds"]) for x in resolution_doc["resolved"]}
-    rubin_doc = json.loads(RUBIN_MANIFEST.read_text())
+    rubin_doc = json.loads(args.rubin_manifest.read_text(encoding="utf-8"))
     rubin_by_tract = {x["tract"]: x for x in rubin_doc["regions"]}
 
     act_alm, act_lmax = alm_from_fits(SOURCES / SOURCES_SPEC["act-alm"]["file"])

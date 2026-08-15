@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "layers-vlass-v1",
+  "generatedAt": "2026-08-15T02:19:40.397699+00:00",
+  "survey": "VLASS",
+  "access": "CADC SIA v2 discovery, datalink service descriptor, SODA sync cutout",
+  "accessNote": "The registered CIRADA cutout host is unreachable, and CADC's SIA rows carry a plane identifier the cutout service rejects with a 400 that names the identifier back. The artifact identifier inside the datalink SODA descriptor is what works.",
+  "counts": {
+    "regions": 8,
+    "scienceReady": 8,
+    "outsideFootprint": 0,
+    "noImage": 0,
+    "failed": 0
+  },
+  "caveats": [
+    "VLASS quick-look images carry known flux-scale uncertainty at the few-percent level.",
+    "Radio and optical trace different emission, so a radio source without an optical counterpart is an association result, not a photometric difference."
+  ],
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "center": [
+        185.89726,
+        3.994139
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS2.2.T12t19.J122203+043000",
+      "artifact": "nrao:VLASS/VLASS2.2.se.T12t19.J122203+043000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-10079/vlass.fits",
+        "sha256": "dabc89751444f6e2f6270d712548b5dacbaadeb51e40770e38abba6c561c80fb",
+        "bytes": 584640
+      },
+      "validation": {
+        "shape": [
+          267,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "center": [
+        185.950385,
+        5.206457
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS2.2.T12t19.J122205+053000",
+      "artifact": "nrao:VLASS/VLASS2.2.se.T12t19.J122205+053000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-10321/vlass.fits",
+        "sha256": "d780188d0de0110c832c0e590e0139517fa725f60fc83ad123f4f27e9085251c",
+        "bytes": 809280
+      },
+      "validation": {
+        "shape": [
+          401,
+          402
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.02,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "center": [
+        14.999972,
+        8.181558
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS2.1.T13t02.J005810+083000",
+      "artifact": "nrao:VLASS/VLASS2.1.se.T13t02.J005810+083000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-10689/vlass.fits",
+        "sha256": "5bf6c0a2f652a3a2557b43fc42ce75aa7191b51cec4c0308d6dd382b28cebdc9",
+        "bytes": 803520
+      },
+      "validation": {
+        "shape": [
+          401,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "center": [
+        188.984509,
+        8.181567
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS3.2.T13t19.J123420+083000",
+      "artifact": "nrao:VLASS/VLASS3.2.se.T13t19.J123420+083000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-10805/vlass.fits",
+        "sha256": "6cf5f8580a04fa0f99f5c521731c7698149110f231cbe17dd6dd97586902e58e",
+        "bytes": 800640
+      },
+      "validation": {
+        "shape": [
+          401,
+          402
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.02,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "center": [
+        4.5188,
+        11.156658
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS3.1.T13t01.J001820+113000",
+      "artifact": "nrao:VLASS/VLASS3.1.se.T13t01.J001820+113000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-11162/vlass.fits",
+        "sha256": "7621f9a73e9d694258034ee589d0b3977fcea129a74f60a628897b9fc2054268",
+        "bytes": 806400
+      },
+      "validation": {
+        "shape": [
+          401,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "center": [
+        19.746807,
+        12.644207
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS3.1.T14t02.J011824+123000",
+      "artifact": "nrao:VLASS/VLASS3.1.se.T14t02.J011824+123000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-11411/vlass.fits",
+        "sha256": "51f5849366b0eb44c75a054cecddc04558d778d481d088dbebb849b79fd99b3b",
+        "bytes": 800640
+      },
+      "validation": {
+        "shape": [
+          401,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "center": [
+        10.646076,
+        16.620749
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS2.2.T15t01.J004318+163000",
+      "artifact": "nrao:VLASS/VLASS2.2.se.T15t01.J004318+163000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-12112/vlass.fits",
+        "sha256": "78b3824767c4a95f2e70f72cdade0878bacca8c2c5c914b027e88898b6ea88b0",
+        "bytes": 797760
+      },
+      "validation": {
+        "shape": [
+          401,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "center": [
+        25.470997,
+        21.45082
+      ],
+      "status": "validated-science-input",
+      "observation": "VLASS2.2.T16t03.J014042+213000",
+      "artifact": "nrao:VLASS/VLASS2.2.se.T16t03.J014042+213000.06.2048.v1.I.iter3.image.pbcor.tt0.subim.fits",
+      "unit": "Jy/beam",
+      "band": "3 GHz",
+      "localFits": {
+        "path": "pipeline/results/vlass/products/dp2-tract-12814/vlass.fits",
+        "sha256": "f0a7faaff8b206bf28820e34ffb5e248256d7f498ba5226e216792981811f424",
+        "bytes": 815040
+      },
+      "validation": {
+        "shape": [
+          402,
+          401
+        ],
+        "pixelScaleArcsec": 0.60000000000012,
+        "fieldArcmin": 4.01,
+        "finitePixelFraction": 1.0
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "quick-look flux scale is uncertain at the few-percent level",
+        "primary-beam correction is not uniform across epochs",
+        "radio and optical measure different emission; this supports association, not photometry"
+      ]
+    }
+  ]
+}

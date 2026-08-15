@@ -10,7 +10,13 @@ test("tract product index exposes real files and never promotes a display to a s
   const path = join(root, "public", "data", "layers", "tract-product-index.json");
   const text = await readFile(path, "utf8");
   const index = JSON.parse(text);
-  assert.equal(index.summary.tractCount, 50);
+  // Was pinned at 50 from the original region set. The index now covers the
+  // 200-tract acquisition, so this guards that it is populated rather than
+  // that it has one exact size. The assertions that actually protect
+  // correctness are below: comparisonReady stays 0, no science claim is
+  // allowed, no local paths or credentials leak, and every referenced
+  // preview file exists on disk.
+  assert.ok(index.summary.tractCount >= 50);
   assert.ok(index.summary.familyCounts.optical >= 50);
   assert.ok(index.summary.familyCounts.radio >= 3);
   assert.ok(index.summary.familyCounts["uv-ir"] >= 50);
