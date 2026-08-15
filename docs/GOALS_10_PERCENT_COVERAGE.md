@@ -183,7 +183,7 @@ reproducible by reading the file named in the last column.
 | G5 mass vs light | 200 pairs | **466** pairs across 4 surveys | **exceeded** | `lensing-light/correlation.json` |
 | G6 counterparts | 252 pairs | 193 X-ray regions + 191 radio fields; 6 and 39 sources inside Rubin pixels | **exceeded** | `xray-`, `radio-counterparts` |
 | G7 variability | 190 pairs | 184 regions, 8700 objects, 87 variable | **met** | `ztf-variability/comparison.json` |
-| G8 morphology validation | 229 pairs | **1 verifiable, 31 not** | **failed, for a real reason** | `highres-followup/verdicts.json` |
+| G8 morphology validation | 229 pairs | **2 verdicts** (1 HST/JWST, 1 Euclid Q1) | **failed, for a real reason** | `highres-followup/verdicts.json`, `euclid-verdicts.json` |
 | G9 anomaly scan | ~2,600 comparisons | **12,713** evaluated, 34 candidates, 0 cross-confirmed | **exceeded** | `anomaly-register.json` |
 | G10 put it on the site | render the manifests | operator cards, attribution, chain flags, gates, register | **met** | `/differences`, `/overlay/[tract]` |
 
@@ -215,10 +215,22 @@ possible.
 
 **G8, and it is worth being precise about how it failed.** 25 MAST
 "observations" overlapped candidate positions. Loading the frames showed the
-nearest was 24.1 arcsec outside. One candidate is verifiable, and it is not
-covered. This is the footprint-versus-data distinction again: an archive's
-pointing table said yes and the pixels said no. The goal cannot be met with
-existing HST/JWST data, and the honest outcome is 1, not 229.
+nearest was 24.1 arcsec outside: an archive's pointing table said yes and the
+pixels said no.
+
+Euclid Q1, the third survey the goal named, was then tried properly — IRSA
+publishes real `s_region` polygons, so containment is a query rather than a
+guess. Two of 34 candidates are genuinely inside a Euclid VIS or NISP footprint.
+One yielded **the project's first independent-resolution verdict**: the eRASS1
+X-ray source in tract 5063 has no optical counterpart at Euclid depth either, in
+four bands. The other returned an all-zero cutout — the footprint polygon
+contains the position and the tile has no pixels there, which is the same trap
+surviving a test built to defeat it.
+
+So the outcome is **2 verdicts, not 229**, and the limit is sky overlap: these
+candidates are spread across the Rubin footprint and the high-resolution surveys
+cover a few deep fields. Reaching 229 needs candidates that live where those
+surveys looked, which is a property of the region set, not of the operator.
 
 ## What the goals did not ask for and got anyway
 

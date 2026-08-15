@@ -1,0 +1,579 @@
+{
+  "schemaVersion": "layers-euclid-followup-v1",
+  "generatedAt": "2026-08-15T05:24:05.554259+00:00",
+  "survey": "Euclid Q1 (MER background-subtracted mosaics)",
+  "access": "IRSA ObsCore TAP for containment, datalink for image URLs, IBE for cutouts",
+  "method": {
+    "containment": "CONTAINS(POINT(candidate), s_region) = 1 against each product's real footprint polygon. The HST/JWST pass trusted a pointing table and found the nearest frame 24.1 arcsec outside; this asks the data instead.",
+    "independence": "Only Euclid VIS and NISP products are used. MER mosaics also carry DECam layers, and DECam is the camera behind both Legacy Survey and DES, so those cannot corroborate a comparison made against those surveys.",
+    "detectionThresholdSigma": 5.0,
+    "noise": "empirical blank-aperture scatter in the same image, never the RMS plane"
+  },
+  "counts": {
+    "candidates": 34,
+    "positionsTested": 34,
+    "coveredByIndependentEuclid": 2,
+    "verdictsDelivered": 1,
+    "refuted": 0,
+    "survives": 1,
+    "detected": 0,
+    "notDetected": 0,
+    "notCovered": 32,
+    "footprintContainsButNoPixels": 1
+  },
+  "caveats": [
+    "A Euclid detection refutes an absence claim; it does not by itself validate or refute a photometric departure, which needs matched photometry rather than a detection.",
+    "Euclid VIS is a single broad optical band. Agreement in it does not transfer to the Rubin band the candidate was measured in.",
+    "ObsCore containment is necessary but not sufficient. A MER tile is zero-filled outside its real coverage and zero is a finite value, so a position can sit inside the published footprint polygon and still have no pixels. That is counted separately and never as a verdict."
+  ],
+  "candidates": [
+    {
+      "operator": "xray-counterpart",
+      "what": "eRASS1 X-ray source with no optical counterpart",
+      "regionId": "dp2-tract-10805",
+      "position": {
+        "raDeg": 189.00688324459,
+        "decDeg": 8.2024284532
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "xray-counterpart",
+      "what": "eRASS1 X-ray source with no optical counterpart",
+      "regionId": "dp2-tract-5063",
+      "position": {
+        "raDeg": 53.08004705061,
+        "decDeg": -27.49322381431
+      },
+      "productsContainingPosition": 8,
+      "independentProducts": 4,
+      "status": "verdict-delivered",
+      "verdict": "survives",
+      "reading": "Euclid sees nothing above 5.0 sigma in any of 4 independent bands, so the absence survives an independent look at higher resolution.",
+      "measurements": [
+        {
+          "pixelScaleArcsec": 0.100000000000008,
+          "apertureRadiusArcsec": 1.0,
+          "aperturePixels": 312,
+          "apertureSum": 70.26514676585793,
+          "blankApertureMedian": 27.007168721407652,
+          "blankApertureSigma": 107.6567501288373,
+          "blankAperturesUsed": 400,
+          "significance": 0.4018138945554428,
+          "detected": false,
+          "noiseModel": "empirical blank-aperture scatter in this Euclid image",
+          "band": "Y",
+          "obsId": "102044825_NISP",
+          "instrument": "NISP",
+          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-Y.fits"
+        },
+        {
+          "pixelScaleArcsec": 0.100000000000008,
+          "apertureRadiusArcsec": 1.0,
+          "aperturePixels": 312,
+          "apertureSum": 0.22135197177703958,
+          "blankApertureMedian": 0.10872651170757308,
+          "blankApertureSigma": 0.37209119024026843,
+          "blankAperturesUsed": 400,
+          "significance": 0.3026824150196662,
+          "detected": false,
+          "noiseModel": "empirical blank-aperture scatter in this Euclid image",
+          "band": "VIS",
+          "obsId": "102044825_VIS",
+          "instrument": "VIS",
+          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-VIS.fits"
+        },
+        {
+          "pixelScaleArcsec": 0.100000000000008,
+          "apertureRadiusArcsec": 1.0,
+          "aperturePixels": 312,
+          "apertureSum": 62.98647915944457,
+          "blankApertureMedian": 56.159600427374244,
+          "blankApertureSigma": 148.43611638540884,
+          "blankAperturesUsed": 400,
+          "significance": 0.04599203279035266,
+          "detected": false,
+          "noiseModel": "empirical blank-aperture scatter in this Euclid image",
+          "band": "J",
+          "obsId": "102044825_NISP",
+          "instrument": "NISP",
+          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-J.fits"
+        },
+        {
+          "pixelScaleArcsec": 0.100000000000008,
+          "apertureRadiusArcsec": 1.0,
+          "aperturePixels": 312,
+          "apertureSum": 29.29674106836319,
+          "blankApertureMedian": 41.76411893963814,
+          "blankApertureSigma": 146.01524059014005,
+          "blankAperturesUsed": 400,
+          "significance": -0.08538408607818183,
+          "detected": false,
+          "noiseModel": "empirical blank-aperture scatter in this Euclid image",
+          "band": "H",
+          "obsId": "102044825_NISP",
+          "instrument": "NISP",
+          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-H.fits"
+        }
+      ]
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-5061",
+      "position": {
+        "raDeg": 49.738575886401726,
+        "decDeg": -27.512401731725472
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8883",
+      "position": {
+        "raDeg": 209.73934738613036,
+        "decDeg": -3.697695813315665
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9947",
+      "position": {
+        "raDeg": 349.6068048742697,
+        "decDeg": 2.2264461393055175
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9239",
+      "position": {
+        "raDeg": 19.268482762237273,
+        "decDeg": -0.7278798070527206
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8884",
+      "position": {
+        "raDeg": 211.1888805697968,
+        "decDeg": -3.7768421115735356
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-7939",
+      "position": {
+        "raDeg": 240.0090561783962,
+        "decDeg": -9.665931783185206
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8883",
+      "position": {
+        "raDeg": 209.73818231525465,
+        "decDeg": -3.6941943829656227
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-11411",
+      "position": {
+        "raDeg": 19.729358416846868,
+        "decDeg": 12.670775297417343
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9484",
+      "position": {
+        "raDeg": 22.239063905726812,
+        "decDeg": 0.7594510517449331
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9232",
+      "position": {
+        "raDeg": 8.873041121719854,
+        "decDeg": -0.7128712278434594
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-7939",
+      "position": {
+        "raDeg": 240.00945310933096,
+        "decDeg": -9.662946994258538
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-11411",
+      "position": {
+        "raDeg": 19.73038340928456,
+        "decDeg": 12.674273165607602
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9480",
+      "position": {
+        "raDeg": 16.273090465455674,
+        "decDeg": 0.7144592798162194
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9947",
+      "position": {
+        "raDeg": 349.5946295869371,
+        "decDeg": 2.2289509327121606
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9228",
+      "position": {
+        "raDeg": 2.994278522358389,
+        "decDeg": -0.7190336157069778
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-10053",
+      "position": {
+        "raDeg": 147.28133074865056,
+        "decDeg": 3.7227614417741526
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9812",
+      "position": {
+        "raDeg": 148.77708381282045,
+        "decDeg": 2.2367566190533754
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9945",
+      "position": {
+        "raDeg": 346.6036772344131,
+        "decDeg": 2.216784400890249
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9973",
+      "position": {
+        "raDeg": 28.260606500795582,
+        "decDeg": 3.7234235000153824
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9468",
+      "position": {
+        "raDeg": 358.50483015661086,
+        "decDeg": -0.7715529558244081
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9242",
+      "position": {
+        "raDeg": 23.702347524357847,
+        "decDeg": -0.7737101113772163
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 54.631489,
+        "decDeg": -30.528379
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 303.556422,
+        "decDeg": -27.489998
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 23.669945,
+        "decDeg": 0.715906
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 10.36346,
+        "decDeg": -0.711804
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 209.718789,
+        "decDeg": -3.702071
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 5.801487,
+        "decDeg": -40.928715
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 14.978291,
+        "decDeg": 8.205615
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 25.458911,
+        "decDeg": 21.427866
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 23.725181,
+        "decDeg": 0.76734
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 355.570841,
+        "decDeg": -2.211738
+      },
+      "productsContainingPosition": 0,
+      "independentProducts": 0,
+      "status": "not-covered",
+      "verdict": null,
+      "note": "No Euclid Q1 product's footprint polygon contains this position."
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "position": {
+        "raDeg": 55.47559,
+        "decDeg": -29.01576
+      },
+      "productsContainingPosition": 8,
+      "independentProducts": 4,
+      "status": "footprint-contains-but-no-pixels",
+      "verdict": null,
+      "emptyBands": [
+        "J",
+        "VIS",
+        "H",
+        "Y"
+      ],
+      "note": "Every independent Euclid product whose footprint polygon contains this position returns an all-zero cutout there. Containment in ObsCore is a statement about a polygon, not about pixels."
+    }
+  ]
+}

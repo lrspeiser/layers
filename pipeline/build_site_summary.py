@@ -61,6 +61,7 @@ def main() -> None:
     des = load(regions_dir / "des-dr2.json")
     desRecon = load(regions_dir / "rubin-des-reconciliation.json")
     crossCheck = load(regions_dir / "reference-cross-check.json")
+    euclid = load(LAYERS / "highres-followup/euclid-verdicts.json")
     ps1Recon = load(regions_dir / "rubin-ps1-reconciliation.json")
     curve = load(regions_dir / "curve-of-growth.json")
 
@@ -113,6 +114,16 @@ def main() -> None:
         "ps1": {
             "reconciled": ((ps1Recon or {}).get("counts") or {}).get("reconciled"),
             "matched": ((ps1Recon or {}).get("counts") or {}).get("matched"),
+        },
+        "euclid": {
+            **((euclid or {}).get("counts") or {}),
+            "verdicts": [
+                {"operator": c.get("operator"), "what": c.get("what"), "regionId": c.get("regionId"),
+                 "verdict": c.get("verdict"), "reading": c.get("reading"),
+                 "bands": [m.get("band") for m in (c.get("measurements") or [])]}
+                for c in ((euclid or {}).get("candidates") or [])
+                if c.get("status") == "verdict-delivered"
+            ],
         },
         "crossCheck": {
             **((crossCheck or {}).get("counts") or {}),

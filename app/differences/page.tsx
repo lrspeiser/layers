@@ -98,6 +98,18 @@ export default function DifferencesPage() {
       state: "measured",
     },
     {
+      id: "highres",
+      label: "Independent-resolution check",
+      kind: "verification",
+      headline: `${summary.euclid?.verdictsDelivered ?? 0} verdicts`,
+      detail: `Euclid Q1 VIS and NISP, at 0.10″ pixels. Of ${summary.euclid?.candidates ?? 0} candidates, ${summary.euclid?.coveredByIndependentEuclid ?? 0} sit inside a real Euclid footprint polygon and ${summary.euclid?.footprintContainsButNoPixels ?? 0} of those returns an all-zero cutout — the polygon contains the position, the tile has no pixels there. ${
+        (summary.euclid?.verdicts ?? []).length > 0
+          ? (summary.euclid.verdicts as Array<{ reading: string }>)[0].reading
+          : ""
+      }`,
+      state: (summary.euclid?.verdictsDelivered ?? 0) > 0 ? "partial" : "none",
+    },
+    {
       id: "second-reference",
       label: "Independent references",
       kind: "attribution",

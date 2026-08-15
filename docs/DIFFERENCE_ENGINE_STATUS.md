@@ -558,3 +558,58 @@ sufficient explanation.
 **Unlike the other two findings, this one has not converged and should not be
 relied on.** It is recorded with its full history in the manifest so the next
 reference added either settles it or shows it moving again.
+
+## 13. Euclid Q1: one real verdict, and the sixth time footprint was not data
+
+The morphology goal named HST, JWST **and Euclid Q1**. Only the first two were
+tried, and they produced one verifiable candidate out of 34 because MAST's
+pointing table listed 25 overlapping "observations" whose nearest frame was
+24.1 arcsec outside the position. `pipeline/check_euclid_followup.py` closes the
+Euclid half, and it was built specifically not to repeat that.
+
+**Containment is asked of the data.** IRSA publishes Euclid Q1 through ObsCore
+with a real `s_region` polygon per product, so the test is
+`CONTAINS(POINT(candidate), s_region) = 1` rather than a distance to a field
+centre. A circle around the three Euclid Deep Field centres would have claimed
+5 regions and 1 candidate in EDF-F; the polygon test finds **2 of 34 candidates**
+contained, one of which the circle would have missed entirely.
+
+**Only VIS and NISP count.** MER mosaics carry DECam ancillary layers beside the
+Euclid pixels. DECam is the camera behind both Legacy Survey and DES, so a
+"confirmation" from a DECam layer would be the reference this project already
+compares against, wearing a different name.
+
+### The verdict
+
+**dp2-tract-5063, an eRASS1 X-ray source with no optical counterpart at Rubin
+depth: survives.** Euclid sees nothing above 5σ at that position in any of four
+independent bands, measured against blank-aperture scatter in the same image:
+
+| band | instrument | pixel scale | significance |
+|---|---|---|---|
+| VIS | VIS | 0.100″ | +0.30 |
+| Y | NISP | 0.100″ | +0.40 |
+| J | NISP | 0.100″ | +0.05 |
+| H | NISP | 0.100″ | −0.09 |
+
+This is the project's first independent-resolution verdict on a candidate. It
+does not make the object a discovery: X-ray sources without optical counterparts
+are a known population, and no absolute depth is quoted here because the Euclid
+flux chain has not been verified against Euclid's own catalogue — the same
+standard applied to Pan-STARRS in §12.
+
+### The sixth time, and the first to survive a real footprint test
+
+The second contained candidate returns an **all-zero cutout in all four bands**.
+The ObsCore polygon contains the position; the tile has no pixels there. A MER
+tile is zero-filled outside its real coverage, and zero is a finite value, so
+every "is there data" check based on finiteness passes.
+
+This is worth recording precisely because the containment query was the fix for
+the last five instances. **`CONTAINS(s_region)` is necessary and still not
+sufficient.** Only loading the pixels settles it, and the operator now counts
+`footprintContainsButNoPixels` as its own status rather than folding it into a
+generic failure.
+
+Running total for the goal: **2 verdicts** across HST/JWST and Euclid, from 34
+candidates. Not 229.
