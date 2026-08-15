@@ -36,6 +36,11 @@ from astropy.wcs.utils import proj_plane_pixel_scales
 
 
 ROOT = Path(__file__).resolve().parents[1]
+# The band is a parameter, not a constant. It was hardcoded to i, which is the
+# right gap-fill band but the wrong one for a photometric comparison: Rubin is r
+# in 157 of the 200 regions, and an r-versus-i ratio measures source colour as
+# much as it measures throughput.
+BAND = "i"
 RESULT_ROOT = ROOT / "pipeline" / "results" / "panstarrs-gap-fill"
 FITS_ROOT = RESULT_ROOT / "fits"
 PREVIEW_ROOT = ROOT / "public" / "images" / "layers" / "panstarrs-gap-fill"
@@ -366,12 +371,12 @@ def discover_dynamic_targets(region_path: Path) -> list[dict[str, Any]]:
     for item in payload.get("regions", []):
         region_id = str(item["id"])
         center = item["center"]
-        discovery = discovery_root / f"{region_id}-i.csv"
+        discovery = discovery_root / f"{region_id}-{BAND}.csv"
         if not discovery.is_file() or discovery.stat().st_size == 0:
             params = {
                 "ra": f"{float(center[0]):.10f}",
                 "dec": f"{float(center[1]):.10f}",
-                "filters": "i",
+                "filters": BAND,
                 "type": "stack,stack.wt,stack.mask",
                 "sep": ",",
             }
@@ -404,7 +409,7 @@ def build_region(target: dict[str, Any], validated_at: str) -> dict[str, Any]:
     selected = {
         row["type"]: row
         for row in rows
-        if row["filter"] == "i" and row["type"] in PRODUCT_LABELS
+        if row["filter"] == BAND and row["type"] in PRODUCT_LABELS
     }
     if set(selected) != set(PRODUCT_LABELS):
         raise ValueError(
@@ -429,7 +434,7 @@ def build_region(target: dict[str, Any], validated_at: str) -> dict[str, Any]:
         output = (
             FITS_ROOT
             / target["regionId"]
-            / f"ps1-dr2-i-{role}-{CUTOUT_SIZE_PIXELS}px.fits"
+            / f"ps1-dr2-{BAND}-{role}-{CUTOUT_SIZE_PIXELS}px.fits"
         )
         digest, size, transfer = download(url, output)
         inspection = inspect_fits(output, target, role)
@@ -481,7 +486,7 @@ def build_region(target: dict[str, Any], validated_at: str) -> dict[str, Any]:
         "surveyId": "panstarrs-dr2",
         "release": "DR1 stack product served by the current PS1 archive",
         "catalogReleaseContext": "DR2",
-        "band": "i",
+        "band": BAND,
         "cutout": {
             "sizePixels": CUTOUT_SIZE_PIXELS,
             "nativePixelScaleArcsec": PIXEL_SCALE_ARCSEC,
@@ -621,7 +626,11 @@ if __name__ == "__main__":
     parser.add_argument("--result-root", type=Path, default=RESULT_ROOT)
     parser.add_argument("--preview-root", type=Path, default=PREVIEW_ROOT)
     parser.add_argument("--public-root", type=Path, default=PUBLIC_ROOT)
+    parser.add_argument("--band", default=BAND, choices=("g", "r", "i", "z", "y"),
+                        help="PS1 filter. Use the band Rubin was observed in, or the "
+                             "comparison measures colour rather than throughput.")
     args = parser.parse_args()
+    BAND = args.band
     RESULT_ROOT = args.result_root
     FITS_ROOT = RESULT_ROOT / "fits"
     PREVIEW_ROOT = args.preview_root
