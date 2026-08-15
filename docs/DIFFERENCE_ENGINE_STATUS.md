@@ -81,36 +81,44 @@ improvement and is already implemented in `gaia_registration.py`.
 This is the blocker that failed on every SPARC pilot (0.379–1.080 mag residual
 against a 0.08 mag tolerance). Those pilots had **one** Rubin band, so no Rubin
 colour existed and no colour term could be fitted at all. A second band was
-acquired for 39 regions this session (28 g, 14 i, 2 z, 1 y), which makes the fit
-possible for the first time.
+acquired for the 200-region set this session — **165 regions with two bands** —
+which makes the fit possible for the first time.
 
 `pipeline/measure_bandpass_transfer.py` fits
 `m_ref − m_rubin = a + b·(m_band2 − m_rubin)` on compact sources.
 
-Per-field results look encouraging:
-
-- colour term significant at >2σ in **34/37** fields
-- RMS residual improves in **37/37** (guaranteed by least squares, but confirms the fit is doing something)
-- median residual **0.090 → 0.073 mag**, crossing below the 0.08 tolerance
-- **22/37** fields land within tolerance
+Per-field results look encouraging: **156 regions measured**, **95 of them
+within the 0.08 mag tolerance**, and the RMS residual improves wherever the fit
+runs (guaranteed by least squares, but it confirms the fit is doing something).
 
 **But a bandpass colour term is a property of the two filter systems. It must be
 the same constant in every field.** It is not:
 
-| Pair | Fields | Weighted mean | Reduced χ² | Field spread ÷ stated uncertainty |
-|---|---|---|---|---|
-| Rubin g−r vs Legacy r | 22 | +0.0342 ± 0.0041 | **443.6** | 15.8 |
-| Rubin i−r vs Legacy r | 12 | +0.1838 ± 0.0074 | **8.6** | 9.0 |
+| Pair | Fields | Weighted mean | Reduced χ² |
+|---|---|---|---|
+| Rubin g−r vs Legacy r | **112** | −0.0677 ± 0.0018 | **93.8** |
+| Rubin i−r vs Legacy r | 22 | — | **5.1** |
+| Rubin z−i vs Legacy r | 13 | −0.8429 ± 0.0371 | **5.2** |
+| Rubin z−r vs Legacy r | 3 | +0.1057 ± 0.0087 | **3.5** |
 
-A reduced χ² of 443 means the field-to-field spread is 16× larger than the
-per-field uncertainties admit. **A single linear Rubin-colour term does not
-describe the Rubin→Legacy transfer.** Something field-dependent dominates —
-candidates are PSF-matching residuals in the wings, aperture effects, crowding,
-or genuine spatial structure in the Legacy calibration.
+Re-measured after the second-band gap fill took the two-band set from 157 to 165
+regions: **156 regions measured** where the first pass managed 37, and **95
+within the 0.08 mag tolerance** where it managed 22. The first pass reported
+reduced χ² of 443.6 for g−r on 22 fields; on 112 fields it is 93.8. The number
+moved by a factor of five, so quote the current one — but every colour pair is
+still inconsistent with a single constant, by a wide margin, and the conclusion
+below is unchanged and now rests on five times the evidence.
+
+A reduced χ² of 93.8 on 112 fields means the field-to-field spread is far larger
+than the per-field uncertainties admit. **A single linear Rubin-colour term does
+not describe the Rubin→Legacy transfer.** Something field-dependent dominates.
+Two of the candidates once listed here can now be ruled out: §11 shows the
+deficit does not move with aperture, so PSF wings and aperture effects are not
+it. Crowding and spatial structure in the reference calibration remain.
 
 This is a real advance even though it is a negative result: the pilots could not
 ask the question, and the answer rules out the simplest hypothesis. The bandpass
-blocker stays closed, and the 22 "within tolerance" fields must not be read as a
+blocker stays closed, and the 95 "within tolerance" fields must not be read as a
 validated transfer.
 
 ## 4. Detection limits and the covariance measurement
@@ -327,7 +335,7 @@ aperture collects more neighbour flux. Legacy's PSF is broader than Rubin's
 and pushes the ratio down.
 
 **This is the same conclusion the colour term reached by another route.** The
-bandpass fit gave a reduced χ² of 443 against a single constant; the scalar flux
+bandpass fit gives a reduced χ² of 93.8 on 112 fields against a single constant; the scalar flux
 ratio now shows a 0.040 dex robust spread driven by field density. Two
 independent measurements agree that the Rubin-to-Legacy photometric relationship
 is not one constant across the sky, and at least part of that is the aperture,

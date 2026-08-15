@@ -175,7 +175,7 @@ reproducible by reading the file named in the last column.
 
 | Goal | Target | Delivered | Verdict | Manifest |
 |---|---|---|---|---|
-| G0 acquire 200 tracts | 200 regions, ≥180 two-band | 200 regions, **157** two-band | **short on band 2** | `rubin-pixels-200`, `-band2` |
+| G0 acquire 200 tracts | 200 regions, ≥180 two-band | 200 regions, **165** two-band | **short; target unreachable** | `rubin-pixels-200`, `-band2` |
 | G1 four-survey optical | ~727 pairs, DES + HSC | **521** reconciled (Legacy 190, DES 143, PS1 188); HSC **not deliverable** | **partly met** | `rubin-*-reconciliation*.json` |
 | G2 Gaia cross-match | 200 pairs, astrometry → 0.086–0.220″ | 147 measured; **0.085″** from 0.288″ | **met, and beats the pilots** | `gaia-crossmatch/comparison.json` |
 | G3 SED consistency | 600 pairs, GALEX + 2MASS + unWISE | 184 regions, 1394 sources; **2MASS + AllWISE, no GALEX** | **partly met** | `sed/consistency.json` |
@@ -189,8 +189,21 @@ reproducible by reading the file named in the last column.
 
 ## The three that are not met, and why
 
-**G0's second band, 157 against a target of 180.** 167 regions were attempted
-and 157 validated. This is a real shortfall, not a definitional one.
+**G0's second band, 165 against a target of 180, and 180 is unreachable.**
+The gap was worked rather than accepted: of the 43 regions without a validated
+second band, DP2 offers an unused band for only **11**, because **27 of the 43
+carry exactly one band in the entire release**. Those 11 were acquired and 8
+validated, taking the count from 157 to 165 against a hard ceiling of 168.
+
+So this is a shortfall, but not one more effort closes. The target assumed two
+bands are generally available across the 200-tract footprint, and in DP2 they
+are not. Reaching 180 would require choosing a different region set — trading
+sky coverage for band coverage — which is a change to G0's premise, not to its
+execution.
+
+The second band exists to make a colour term fittable, and that is where the
+eight paid off: the bandpass fit went from 37 regions measured to **156**, and
+from 22 within the 0.08 mag tolerance to **95**.
 
 **G1's pair count and HSC.** 521 of ~727. HSC PDR2 publishes only HiPS tiles
 without credentials — display products with no calibrated flux or variance
