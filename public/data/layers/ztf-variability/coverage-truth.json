@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "layers-ztf-coverage-truth-v1",
+  "generatedAt": "2026-08-15T06:14:46.615913+00:00",
+  "question": "The variability goal asked for 190 regions. How many can ZTF actually supply?",
+  "thresholds": {
+    "minEpochsPerObject": 20,
+    "minObjectsPerRegion": 5,
+    "why": "A variability statistic needs a light curve long enough to have a variance worth testing, and a region needs enough objects for its own empirical null. Both floors are what make a departure meaningful rather than a small-sample artefact."
+  },
+  "counts": {
+    "regions": 200,
+    "withoutScienceReadyRubinMosaic": 7,
+    "attempted": 193,
+    "withZeroUsableZtfObjects": 5,
+    "withSomeButUnderTheObjectFloor": 3,
+    "measured": 185
+  },
+  "ceilings": {
+    "withCurrentFloors": 185,
+    "ifObjectFloorRelaxedToOne": 188,
+    "note": "Relaxing the five-object floor to one would add at most 3 regions, each resting its variability statistic on 2 to 4 light curves. That buys a larger region count by making every number in those regions less trustworthy, which is the trade this project has refused elsewhere."
+  },
+  "target": 190,
+  "finding": "5 regions contain no ZTF object with 20 or more epochs, and 7 have no science-ready Rubin mosaic, so at most 188 regions can yield a variability measurement at any threshold. The target of 190 exceeds that by 2.",
+  "regionsWithZeroUsableObjects": [
+    "dp2-tract-2397",
+    "dp2-tract-3233",
+    "dp2-tract-4638",
+    "dp2-tract-8259",
+    "dp2-tract-9468"
+  ],
+  "regionsUnderObjectFloor": [
+    {
+      "regionId": "dp2-tract-11162",
+      "usableObjects": 3
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "usableObjects": 4
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "usableObjects": 2
+    }
+  ]
+}

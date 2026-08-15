@@ -1,12 +1,12 @@
 {
   "schemaVersion": "layers-goal-scorecard-v1",
-  "generatedAt": "2026-08-15T06:13:10.532117+00:00",
+  "generatedAt": "2026-08-15T06:14:57.263699+00:00",
   "purpose": "Per goal: what was asked, what the archives can supply, and what was delivered. A target above the ceiling was unreachable when written, and that is reported as a quantity rather than argued in prose.",
   "counts": {
     "met": 6,
     "atCeiling": 2,
     "belowCeiling": 3,
-    "targetsExceedingArchiveCeiling": 4
+    "targetsExceedingArchiveCeiling": 5
   },
   "policy": {
     "comparisonReadyProducts": 0,
@@ -123,16 +123,16 @@
       "id": "G7",
       "name": "Variability",
       "statedTarget": 190,
-      "archiveCeiling": null,
-      "ceilingBasis": null,
-      "ceilingIsIndependentOfResult": null,
+      "archiveCeiling": 188,
+      "ceilingBasis": "independently measured from the archive",
+      "ceilingIsIndependentOfResult": true,
       "delivered": 185,
       "unit": "regions with light curves",
-      "targetExceedsCeilingBy": 0,
-      "fractionOfCeiling": null,
+      "targetExceedsCeilingBy": 2,
+      "fractionOfCeiling": 0.984,
       "status": "below-ceiling",
-      "evidence": "ztf-variability/comparison.json",
-      "note": null
+      "evidence": "ztf-variability/coverage-truth.json",
+      "note": "185 measured under a 5-object, 20-epoch floor. Relaxing the object floor to one would add at most 3 regions, each resting its variability statistic on 2 to 4 light curves. 5 regions hold no usable ZTF object at all and 7 have no science-ready Rubin mosaic, so 188 is the ceiling at any threshold and the target of 190 exceeds it by 2."
     },
     {
       "id": "G8",

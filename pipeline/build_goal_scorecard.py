@@ -76,6 +76,7 @@ def main() -> None:
     xray = load(LAYERS / "xray-counterparts/comparison.json")
     radio = load(LAYERS / "radio-counterparts/comparison.json")
     ztf = load(LAYERS / "ztf-variability/comparison.json")
+    ztf_truth = load(LAYERS / "ztf-variability/coverage-truth.json")
     register = load(LAYERS / "anomaly-register.json")
     summary = load(LAYERS / "site-summary.json")
 
@@ -147,8 +148,17 @@ def main() -> None:
             "xray-counterparts/comparison.json, radio-counterparts/comparison.json",
         ),
         score(
-            "G7", "Variability", 190, None, (ztf.get("counts") or {}).get("regionsMeasured"),
-            "regions with light curves", "ztf-variability/comparison.json",
+            "G7", "Variability", 190,
+            # Independently measured, not taken from the result: 5 regions hold no
+            # ZTF object with 20+ epochs and 7 have no Rubin mosaic, so 188 is the
+            # most any threshold could yield.
+            (ztf_truth.get("ceilings") or {}).get("ifObjectFloorRelaxedToOne"),
+            (ztf.get("counts") or {}).get("regionsMeasured"),
+            "regions with light curves", "ztf-variability/coverage-truth.json",
+            "185 measured under a 5-object, 20-epoch floor. Relaxing the object floor to one "
+            "would add at most 3 regions, each resting its variability statistic on 2 to 4 light "
+            "curves. 5 regions hold no usable ZTF object at all and 7 have no science-ready Rubin "
+            "mosaic, so 188 is the ceiling at any threshold and the target of 190 exceeds it by 2.",
         ),
         score(
             "G8", "Morphology validation", 229,
