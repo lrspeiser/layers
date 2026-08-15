@@ -115,9 +115,11 @@ def main() -> None:
             "collections": collections,
             "instruments": instruments[:8],
             "filters": filters,
+            "archivePointingsNearby": bool(len(table)),
             "verifiable": bool(len(table)),
             "verdict": (
-                "high-resolution imaging exists at this position and can confirm or refute it"
+                "an archive pointing lies near this position; whether an image contains it is "
+                "settled by resolve_highres_verdicts.py, which loads the pixels"
                 if len(table)
                 else "no HST or JWST observation covers this position, so this check cannot be run"
             ),
@@ -132,6 +134,12 @@ def main() -> None:
         "archive": "MAST CAOM over TAP",
         "collections": list(COLLECTIONS),
         "searchRadiusArcsec": SEARCH_RADIUS_DEG * 3600,
+        "whatThisTests": (
+            "MAST ObsPointing rows within the search radius. That is proximity to a pointing, not "
+            "containment inside a frame, and the two differ: the single candidate this flagged as "
+            "verifiable falls about 25 arcsec outside every image the archive returned for it. "
+            "Containment is only established by loading the image."
+        ),
         "queryValidation": (
             "The same query returns HST and JWST rows at COSMOS and the Hubble Ultra Deep Field, so a "
             "zero here is an absence of observations rather than a broken query."

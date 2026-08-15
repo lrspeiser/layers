@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "layers-highres-verdicts-v1",
+  "generatedAt": "2026-08-15T01:34:25.926320+00:00",
+  "archive": "Hubble Legacy Archive combined images via SIAP",
+  "detectionSigma": 5.0,
+  "rubinPsfArcsec": 2.0,
+  "counts": {
+    "verifiable": 1,
+    "verdictsDelivered": 1,
+    "refuted": 0,
+    "survives": 0,
+    "inconclusive": 0,
+    "unresolved": 0,
+    "notCovered": 1,
+    "notVerifiable": 8
+  },
+  "interpretation": "A verdict of survives means one independent check at higher resolution did not kill the candidate, not that it is real. Inconclusive means imaging exists but not in a band that settles the question, which is a different and honest outcome from either.",
+  "verdicts": [
+    {
+      "operator": "xray-counterpart",
+      "what": "eRASS1 X-ray source with no optical counterpart",
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "significance": null,
+      "position": {
+        "raDeg": 53.08004705061,
+        "decDeg": -27.49322381431
+      },
+      "highResolutionObservations": 25,
+      "collections": [
+        "HST"
+      ],
+      "instruments": [
+        "STIS/CCD",
+        "WFPC2/PC"
+      ],
+      "filters": [
+        "F300W",
+        "MIRVIS",
+        "detection"
+      ],
+      "archivePointingsNearby": true,
+      "verifiable": true,
+      "verdict": "not-covered",
+      "reason": "2 HST image(s) were returned for this position and none of them contains it; the nearest falls 24.1 arcsec off the frame edge. The archive records a pointing nearby, not pixels here.",
+      "measurements": [
+        {
+          "url": "https://hla.stsci.edu/cgi-bin/getdata.cgi?config=ops&amp;dataset=hst_09481_d5_wfpc2_f300w_wf",
+          "detector": "WFPC2",
+          "filter": "F300W",
+          "exposureSeconds": 2000.0,
+          "title": "09481_d5 WFPC2 F300W (combined) GOODS",
+          "outsideImage": true,
+          "pixel": [
+            1256.9348040026475,
+            2391.0109321044083
+          ],
+          "shape": [
+            2150,
+            2150
+          ],
+          "offEdgeArcsec": 24.1
+        },
+        {
+          "url": "https://hla.stsci.edu/cgi-bin/getdata.cgi?config=ops&amp;dataset=hst_09481_d8_wfpc2_f300w_wf",
+          "detector": "WFPC2",
+          "filter": "F300W",
+          "exposureSeconds": 500.0,
+          "title": "09481_d8 WFPC2 F300W (combined) GOODS",
+          "outsideImage": true,
+          "pixel": [
+            1260.2619752001187,
+            2407.206383825699
+          ],
+          "shape": [
+            2150,
+            2150
+          ],
+          "offEdgeArcsec": 25.7
+        }
+      ]
+    }
+  ],
+  "notVerifiable": [
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 54.631489,
+        "decDeg": -30.528379
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 235.100306,
+        "decDeg": -26.06583
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 303.556422,
+        "decDeg": -27.489998
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 5.801487,
+        "decDeg": -40.928715
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 209.718789,
+        "decDeg": -3.702071
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 14.978291,
+        "decDeg": 8.205615
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 25.458911,
+        "decDeg": 21.427866
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "xray-counterpart",
+      "position": {
+        "raDeg": 189.00688324459,
+        "decDeg": 8.2024284532
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    }
+  ]
+}

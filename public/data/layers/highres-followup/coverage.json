@@ -1,27 +1,24 @@
 {
   "schemaVersion": "layers-highres-followup-v1",
-  "generatedAt": "2026-08-14T23:39:07.742037+00:00",
+  "generatedAt": "2026-08-15T01:34:24.965467+00:00",
   "archive": "MAST CAOM over TAP",
   "collections": [
     "HST",
     "JWST"
   ],
   "searchRadiusArcsec": 72.0,
+  "whatThisTests": "MAST ObsPointing rows within the search radius. That is proximity to a pointing, not containment inside a frame, and the two differ: the single candidate this flagged as verifiable falls about 25 arcsec outside every image the archive returned for it. Containment is only established by loading the image.",
   "queryValidation": "The same query returns HST and JWST rows at COSMOS and the Hubble Ultra Deep Field, so a zero here is an absence of observations rather than a broken query.",
   "counts": {
-    "candidatesChecked": 18,
+    "candidatesChecked": 9,
     "queriesFailed": 0,
     "withHighResolutionCoverage": 1,
-    "withoutCoverage": 17
+    "withoutCoverage": 8
   },
   "interpretation": "This says which candidates can be checked, not whether any survived. A candidate without coverage is not refuted and not confirmed; it separates unconfirmed-because-nobody-looked from unconfirmed-because-the-check-was-impossible.",
   "byOperator": {
     "sed-departure": {
       "candidates": 7,
-      "verifiable": 0
-    },
-    "variability": {
-      "candidates": 9,
       "verifiable": 0
     },
     "xray-counterpart": {
@@ -53,8 +50,9 @@
         "MIRVIS",
         "detection"
       ],
+      "archivePointingsNearby": true,
       "verifiable": true,
-      "verdict": "high-resolution imaging exists at this position and can confirm or refute it"
+      "verdict": "an archive pointing lies near this position; whether an image contains it is settled by resolve_highres_verdicts.py, which loads the pixels"
     },
     {
       "operator": "sed-departure",
@@ -70,6 +68,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -87,6 +86,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -104,6 +104,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -121,6 +122,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -138,6 +140,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -155,6 +158,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -172,159 +176,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10056",
-      "tract": 10056,
-      "significance": 29.109110437415392,
-      "position": {
-        "raDeg": 151.7506805,
-        "decDeg": 3.7169488
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10054",
-      "tract": 10054,
-      "significance": 7.058078120509475,
-      "position": {
-        "raDeg": 148.7752515,
-        "decDeg": 3.7120171
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10054",
-      "tract": 10054,
-      "significance": 5.111776134235159,
-      "position": {
-        "raDeg": 148.7535378,
-        "decDeg": 3.7291742
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10053",
-      "tract": 10053,
-      "significance": 4.905935791329264,
-      "position": {
-        "raDeg": 147.2792119,
-        "decDeg": 3.7276988
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10215",
-      "tract": 10215,
-      "significance": 4.891031452311501,
-      "position": {
-        "raDeg": 28.2491946,
-        "decDeg": 5.1884311499999995
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10054",
-      "tract": 10054,
-      "significance": 4.857669215946693,
-      "position": {
-        "raDeg": 148.7513503,
-        "decDeg": 3.6950702
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10056",
-      "tract": 10056,
-      "significance": 4.515614046203885,
-      "position": {
-        "raDeg": 151.7094035,
-        "decDeg": 3.7125946499999998
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10321",
-      "tract": 10321,
-      "significance": 4.2805729668354635,
-      "position": {
-        "raDeg": 185.9448932,
-        "decDeg": 5.1949501
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "variability",
-      "what": "changed between the ZTF baseline and the Rubin epoch",
-      "regionId": "dp2-tract-10053",
-      "tract": 10053,
-      "significance": 4.134983708166683,
-      "position": {
-        "raDeg": 147.2716406,
-        "decDeg": 3.71506105
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -342,6 +194,7 @@
       "collections": [],
       "instruments": [],
       "filters": [],
+      "archivePointingsNearby": false,
       "verifiable": false,
       "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
     }
