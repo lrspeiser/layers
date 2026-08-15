@@ -61,6 +61,7 @@ def main() -> None:
     des = load(regions_dir / "des-dr2.json")
     desRecon = load(regions_dir / "rubin-des-reconciliation.json")
     crossCheck = load(regions_dir / "reference-cross-check.json")
+    ps1Recon = load(regions_dir / "rubin-ps1-reconciliation.json")
     curve = load(regions_dir / "curve-of-growth.json")
 
     # Injection/recovery and the covariance measurement are a separate stage from
@@ -109,13 +110,23 @@ def main() -> None:
             "reconciled": ((desRecon or {}).get("counts") or {}).get("reconciled"),
             "matched": ((desRecon or {}).get("counts") or {}).get("matched"),
         },
+        "ps1": {
+            "reconciled": ((ps1Recon or {}).get("counts") or {}).get("reconciled"),
+            "matched": ((ps1Recon or {}).get("counts") or {}).get("matched"),
+        },
         "crossCheck": {
             **((crossCheck or {}).get("counts") or {}),
             "pairs": (crossCheck or {}).get("pairs"),
             "findings": (crossCheck or {}).get("findings"),
+            # Without this the site shows PS1's scale beside two verified ones
+            # with no sign that its flux chain was never checked.
+            "unverifiedChainFlags": (crossCheck or {}).get("unverifiedChainFlags"),
         },
         "curveOfGrowth": {
             "headline": (curve or {}).get("headline"),
+            "attribution": (curve or {}).get("attribution"),
+            "flatPairings": (curve or {}).get("flatPairings"),
+            "dissentingPairings": (curve or {}).get("dissentingPairings"),
             "pairings": {
                 name: {
                     "fields": value.get("fields"),

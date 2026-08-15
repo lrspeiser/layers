@@ -38,6 +38,14 @@ export type AnomalyRow = {
 
 export type AttributionRow = { question: string; verdict: string; basis: string };
 
+export type ChainFlag = {
+  reference: string;
+  medianScale: number;
+  departureMag: number;
+  reading: string;
+  toResolve: string;
+};
+
 export function DifferenceIndex({
   operators,
   gates,
@@ -45,6 +53,7 @@ export function DifferenceIndex({
   anomalyContext,
   attribution = [],
   register,
+  chainFlags = [],
 }: {
   operators: OperatorCard[];
   gates: GateRow[];
@@ -52,6 +61,7 @@ export function DifferenceIndex({
   anomalyContext: { scanned: number; skipped: number; raw: number; surviving: number };
   attribution?: AttributionRow[];
   register?: { candidates: number; evaluated: number; confirmed: number };
+  chainFlags?: ChainFlag[];
 }) {
   const fullyCleared = gates.filter((row) => row.cleared.length === GATES.length).length;
   return (
@@ -120,11 +130,23 @@ export function DifferenceIndex({
         <div className={styles.section}>
           <h2>Which survey does the difference belong to?</h2>
           <p>
-            A single reference can measure a difference but cannot say who owns it. DES DR2 gives a
-            second, independently calibrated optical reference over part of the same sky, and Rubin
-            is the only thing the two comparisons share. Each answer below is what that shared term
-            allows, and no more.
+            A single reference can measure a difference but cannot say who owns it. Legacy Survey,
+            DES DR2 and Pan-STARRS are independently calibrated and were reduced by different
+            pipelines, so across the sky they share, Rubin is the only term every comparison has in
+            common. Each answer below is what that shared term allows, and no more. Where a
+            reference dissents it is named rather than averaged in.
           </p>
+          {chainFlags.length > 0 && (
+            <div className={styles.chainFlags} role="note">
+              {chainFlags.map((flag) => (
+                <p key={flag.reference}>
+                  <strong>{flag.reference.toUpperCase()} is excluded from the zeropoint test.</strong>{" "}
+                  Its median scale is {flag.medianScale.toFixed(4)}, a {Math.abs(flag.departureMag).toFixed(3)} mag
+                  departure from the references whose flux chain has been verified. {flag.reading} {flag.toResolve}
+                </p>
+              ))}
+            </div>
+          )}
           <div className={styles.attribution}>
             {attribution.map((row) => (
               <article key={row.question}>

@@ -35,8 +35,8 @@ export default function DifferencesPage() {
       id: "optical",
       label: "Optical difference",
       kind: "same band",
-      headline: `${summary.reconciliation?.reconciled ?? 0} regions`,
-      detail: `Rubin against Legacy or Pan-STARRS on a common grid. ${summary.reconciliation?.psfMatched ?? 0} PSF-matched, ${summary.reconciliation?.skyMatched ?? 0} background-matched, ${summary.reconciliation?.astrometryPassed ?? 0} inside the 0.30″ astrometry threshold.`,
+      headline: `${(summary.reconciliation?.reconciled ?? 0) + (summary.des?.reconciled ?? 0) + (summary.ps1?.reconciled ?? 0)} pairs`,
+      detail: `Three independently calibrated references on a common grid with Rubin: Legacy ${summary.reconciliation?.reconciled ?? 0}, DES ${summary.des?.reconciled ?? 0}, Pan-STARRS ${summary.ps1?.reconciled ?? 0} reconciled. Of the Legacy set, ${summary.reconciliation?.psfMatched ?? 0} are PSF-matched, ${summary.reconciliation?.skyMatched ?? 0} background-matched, ${summary.reconciliation?.astrometryPassed ?? 0} inside the 0.30″ astrometry threshold.`,
       state: "measured",
     },
     {
@@ -99,10 +99,14 @@ export default function DifferencesPage() {
     },
     {
       id: "second-reference",
-      label: "Second optical reference",
+      label: "Independent references",
       kind: "attribution",
-      headline: `${summary.crossCheck?.sharedRegions ?? 0} shared regions`,
-      detail: `DES DR2 over ${summary.des?.reconciled ?? 0} regions, ${summary.crossCheck?.sharedRegions ?? 0} of them also measured against Legacy. Two references over the same sky is what turns a measured difference into an answer about which survey it belongs to.`,
+      headline: `${summary.crossCheck?.referencesCompared ?? 0} verified chains`,
+      detail: `Rubin is the only term every optical pairing shares, which is what turns a measured difference into an answer about whose it is. ${summary.crossCheck?.sharedRegions ?? 0} regions are measured against more than one reference. ${
+        (summary.crossCheck?.unverifiedChainFlags ?? []).length > 0
+          ? `Pan-STARRS is acquired and reconciled but its absolute flux chain has never been checked against the survey's own catalogue, so it is excluded from the zeropoint test and carries its own flag below.`
+          : `Every reference here has a verified absolute flux chain.`
+      }`,
       state: "measured",
     },
   ];
@@ -120,13 +124,22 @@ export default function DifferencesPage() {
   const curvePairings = Object.entries(summary.curveOfGrowth?.pairings ?? {}) as Array<
     [string, { fields: number; sources: number; gain: number; interval: number[]; verdict: string }]
   >;
+  const dissenting = (summary.curveOfGrowth?.dissentingPairings ?? []) as string[];
+  const flatPairings = (summary.curveOfGrowth?.flatPairings ?? []) as string[];
   if (curvePairings.length > 0) {
-    const [, first] = curvePairings[0];
     attribution.push({
       question: "Is the Rubin flux deficit an aperture effect or a zeropoint?",
-      verdict: first.verdict.startsWith("zeropoint")
-        ? "a zeropoint-like constant, not an aperture effect"
-        : first.verdict,
+      // Never collapse this to the first pairing's verdict. With three pairings
+      // that read the first one alone and it would have reported a clean
+      // "zeropoint-like" while one pairing was trending the other way.
+      verdict:
+        dissenting.length === 0
+          ? "a zeropoint-like constant, not an aperture effect"
+          : `zeropoint-like against ${flatPairings
+              .map((name) => name.replace("rubin-vs-", ""))
+              .join(" and ")}; ${dissenting
+              .map((name) => name.replace("rubin-vs-", ""))
+              .join(" and ")} dissents`,
       basis: `${curvePairings
         .map(
           ([name, value]) =>
@@ -134,9 +147,23 @@ export default function DifferencesPage() {
               3,
             )}, ${value.interval[1].toFixed(3)}] over ${value.fields} fields and ${value.sources} isolated sources`,
         )
-        .join("; ")}. The ratio is measured at seven radii from 1.0″ to 5.0″ on the PSF-matched planes. An aperture effect would climb toward 1 as the aperture grows; a constant calibration factor would not care. Only sources with no detected neighbour within three times the largest aperture are used, because blending would imitate the climb.`,
+        .join("; ")}. The ratio is measured at seven radii from 1.0″ to 5.0″ on the PSF-matched planes. An aperture effect would climb toward 1 as the aperture grows; a constant calibration factor would not care. Only sources with no detected neighbour within three times the largest aperture are used, because blending would imitate the climb.${
+        summary.curveOfGrowth?.attribution ? ` ${summary.curveOfGrowth.attribution}` : ""
+      }`,
     });
   }
+
+  // A reference whose absolute flux chain was never checked can be wrong by a
+  // constant, which is the whole quantity a zeropoint test reads. Showing its
+  // scale beside two verified ones without saying so would invite the reader to
+  // conclude the surveys disagree.
+  const chainFlags = (summary.crossCheck?.unverifiedChainFlags ?? []) as Array<{
+    reference: string;
+    medianScale: number;
+    departureMag: number;
+    reading: string;
+    toResolve: string;
+  }>;
 
   return (
     <main id="top">
@@ -158,6 +185,7 @@ export default function DifferencesPage() {
       </header>
       <DifferenceIndex
         operators={operators}
+        chainFlags={chainFlags}
         gates={gates}
         anomalies={rows}
         attribution={attribution}
