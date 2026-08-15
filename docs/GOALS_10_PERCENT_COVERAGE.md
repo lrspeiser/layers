@@ -165,3 +165,55 @@ viewer.
    that formal uncertainties understate the truth by a median factor of 7. Each
    new operator must ship with its own injection/recovery-equivalent calibration
    before any of its residuals are ranked, or the anomaly list will be noise.
+
+---
+
+# Status as of 2026-08-14
+
+Measured from the manifests on disk, not from intent. Every number below is
+reproducible by reading the file named in the last column.
+
+| Goal | Target | Delivered | Verdict | Manifest |
+|---|---|---|---|---|
+| G0 acquire 200 tracts | 200 regions, ≥180 two-band | 200 regions, **157** two-band | **short on band 2** | `rubin-pixels-200`, `-band2` |
+| G1 four-survey optical | ~727 pairs, DES + HSC | **521** reconciled (Legacy 190, DES 143, PS1 188); HSC **not deliverable** | **partly met** | `rubin-*-reconciliation*.json` |
+| G2 Gaia cross-match | 200 pairs, astrometry → 0.086–0.220″ | 147 measured; **0.085″** from 0.288″ | **met, and beats the pilots** | `gaia-crossmatch/comparison.json` |
+| G3 SED consistency | 600 pairs, GALEX + 2MASS + unWISE | 184 regions, 1394 sources; **2MASS + AllWISE, no GALEX** | **partly met** | `sed/consistency.json` |
+| G4 neutral gas | 200 pairs | 622 attempted, 452 with optical, 283 usable inclination | **exceeded** | `hi-gas/baryonic-tully-fisher.json` |
+| G5 mass vs light | 200 pairs | **466** pairs across 4 surveys | **exceeded** | `lensing-light/correlation.json` |
+| G6 counterparts | 252 pairs | 193 X-ray regions + 191 radio fields; 6 and 39 sources inside Rubin pixels | **exceeded** | `xray-`, `radio-counterparts` |
+| G7 variability | 190 pairs | 184 regions, 8700 objects, 87 variable | **met** | `ztf-variability/comparison.json` |
+| G8 morphology validation | 229 pairs | **1 verifiable, 31 not** | **failed, for a real reason** | `highres-followup/verdicts.json` |
+| G9 anomaly scan | ~2,600 comparisons | **12,713** evaluated, 34 candidates, 0 cross-confirmed | **exceeded** | `anomaly-register.json` |
+| G10 put it on the site | render the manifests | operator cards, attribution, chain flags, gates, register | **met** | `/differences`, `/overlay/[tract]` |
+
+## The three that are not met, and why
+
+**G0's second band, 157 against a target of 180.** 167 regions were attempted
+and 157 validated. This is a real shortfall, not a definitional one.
+
+**G1's pair count and HSC.** 521 of ~727. HSC PDR2 publishes only HiPS tiles
+without credentials — display products with no calibrated flux or variance
+plane, which cannot support a photometric comparison. No amount of retrying
+fixes that, and claiming HSC coverage from tile overlap would be exactly the
+footprint-is-not-data error this project has hit five times. Pan-STARRS was
+acquired as the third reference instead, which is what made the cross-check
+possible.
+
+**G8, and it is worth being precise about how it failed.** 25 MAST
+"observations" overlapped candidate positions. Loading the frames showed the
+nearest was 24.1 arcsec outside. One candidate is verifiable, and it is not
+covered. This is the footprint-versus-data distinction again: an archive's
+pointing table said yes and the pixels said no. The goal cannot be met with
+existing HST/JWST data, and the honest outcome is 1, not 229.
+
+## What the goals did not ask for and got anyway
+
+The three-way optical cross-check named under G1 turned into the project's
+strongest result and its own operator, `compare_reference_operators.py`, plus
+`measure_curve_of_growth.py`, which settled the aperture-versus-zeropoint
+question the goals never posed. See §10–§12 of
+[DIFFERENCE_ENGINE_STATUS.md](DIFFERENCE_ENGINE_STATUS.md).
+
+`comparisonReady` remains 0 across every product, deliberately. No astrophysical
+claim stands.
