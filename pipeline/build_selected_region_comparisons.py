@@ -257,7 +257,13 @@ def main() -> None:
     if args.panstarrs_manifest.is_file():
         ps1_payload = json.loads(args.panstarrs_manifest.read_text(encoding="utf-8"))
         for record in ps1_payload["regions"]:
-            if record.get("sourcePixelsValidated"):
+            # Gap-fill means gap-fill: PS1 supplies tracts Legacy does not cover,
+            # it does not displace a Legacy reference that exists. This used to
+            # overwrite unconditionally, which was harmless while PS1 covered a
+            # handful of regions and would have replaced the entire Legacy chain
+            # once it covered 198 of 200. To build a PS1-only set, pass a legacy
+            # manifest with no regions rather than relying on precedence here.
+            if record.get("sourcePixelsValidated") and int(record["tract"]) not in references:
                 references[int(record["tract"])] = normalize_ps1_reference(record, args.products)
     records: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []
