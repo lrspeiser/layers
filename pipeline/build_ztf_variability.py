@@ -72,30 +72,50 @@ def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def fetch_lightcurves(cache: Path, ra: float, dec: float, band: str, name: str) -> list[dict[str, str]] | None:
+def fetch_lightcurves(
+    cache: Path, ra: float, dec: float, band: str, name: str
+) -> tuple[list[dict[str, str]] | None, str | None]:
+    """Return the rows, or None plus the reason it could not be fetched.
+
+    The reason used to be discarded by a bare ``except Exception: return None``,
+    and every failure was reported as "ZTF light-curve query failed". That reads
+    as a fault in the service. The one failing region here is at galactic
+    latitude low enough that the cone contains far more sources than a typical
+    field, and the query exceeds the read timeout -- a statement about the field,
+    not the archive. The same swallowed-reason pattern produced a false claim
+    about missing exposure times elsewhere in this project.
+    """
     path = cache / f"{name}-{band}.csv"
     if not path.is_file():
-        try:
-            response = requests.get(
-                LIGHTCURVE_URL,
-                params={
-                    "POS": f"CIRCLE {ra:.7f} {dec:+.7f} {SEARCH_RADIUS_DEG:.5f}",
-                    "BANDNAME": band,
-                    "FORMAT": "CSV",
-                },
-                timeout=180,
-            )
-            response.raise_for_status()
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_bytes(response.content)
-        except Exception:
-            return None
-        finally:
-            time.sleep(REQUEST_PAUSE_SECONDS)
+        last_error: Exception | None = None
+        # A crowded field is slow rather than broken, so the retry lengthens the
+        # timeout instead of simply repeating the same wait.
+        for timeout in (180, 420):
+            try:
+                response = requests.get(
+                    LIGHTCURVE_URL,
+                    params={
+                        "POS": f"CIRCLE {ra:.7f} {dec:+.7f} {SEARCH_RADIUS_DEG:.5f}",
+                        "BANDNAME": band,
+                        "FORMAT": "CSV",
+                    },
+                    timeout=timeout,
+                )
+                response.raise_for_status()
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(response.content)
+                last_error = None
+                break
+            except Exception as error:
+                last_error = error
+            finally:
+                time.sleep(REQUEST_PAUSE_SECONDS)
+        if last_error is not None:
+            return None, f"{type(last_error).__name__}: {last_error}"
     try:
-        return list(csv.DictReader(io.StringIO(path.read_text(encoding="utf-8", errors="replace"))))
-    except Exception:
-        return None
+        return list(csv.DictReader(io.StringIO(path.read_text(encoding="utf-8", errors="replace")))), None
+    except Exception as error:
+        return None, f"{type(error).__name__}: {error}"
 
 
 def aperture(image: np.ndarray, x: float, y: float, radius: float) -> float | None:
@@ -169,9 +189,13 @@ def main() -> None:
         region_id = region["regionId"]
         ra, dec = region["center"]
         band = BAND_BY_RUBIN.get(region["band"], "r")
-        rows = fetch_lightcurves(args.cache, ra, dec, band, region_id)
+        rows, failure = fetch_lightcurves(args.cache, ra, dec, band, region_id)
         if rows is None:
-            skipped.append({"regionId": region_id, "reason": "ZTF light-curve query failed"})
+            skipped.append({
+                "regionId": region_id,
+                "reason": f"ZTF light-curve query failed: {failure}",
+                "center": [ra, dec],
+            })
             continue
         grouped: dict[str, list[dict[str, str]]] = {}
         for row in rows:

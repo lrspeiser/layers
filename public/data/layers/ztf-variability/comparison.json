@@ -1,28 +1,28 @@
 {
   "schemaVersion": "layers-ztf-variability-v1",
-  "generatedAt": "2026-08-15T01:29:31.645594+00:00",
+  "generatedAt": "2026-08-15T06:12:46.988709+00:00",
   "comparisonKind": "static versus variable",
   "gatedByBandpassTransfer": false,
   "whyNotGated": "Variability is measured inside ZTF as a chi-square about a constant, which never leaves one photometric system. The Rubin epoch adds an offset carrying an unknown ZTF-to-Rubin bandpass term, but it is the same for every object in a field, so the field median removes it.",
   "counts": {
-    "regionsMeasured": 184,
-    "regionsSkipped": 9,
-    "objects": 8700,
-    "withRubinPhotometry": 7589,
-    "variableInZtf": 87,
-    "changedByRubinEpoch": 214
+    "regionsMeasured": 185,
+    "regionsSkipped": 8,
+    "objects": 8941,
+    "withRubinPhotometry": 7808,
+    "variableInZtf": 90,
+    "changedByRubinEpoch": 231
   },
   "signBalance": {
     "brighterOrFainterSplit": [
-      199,
-      15
+      215,
+      16
     ],
-    "imbalanceSigma": 12.577981057253805,
+    "imbalanceSigma": 13.093238729699403,
     "populationSystematicDetected": true,
     "note": "Real change and measurement noise both move objects each way about equally. A one-sided tail means the Rubin-to-ZTF comparison carries a bias the field median did not remove, most likely at the faint end where the Rubin aperture collects neighbours or sky."
   },
   "thresholds": {
-    "reducedChiSquare99thPercentile": 17.9400088548244,
+    "reducedChiSquare99thPercentile": 18.037853166605466,
     "note": "ZTF error bars are optimistic, so a reduced chi-square of 1 is not the variability threshold. It is taken from the 99th percentile of this sample's own distribution.",
     "changeSigma": 4.0
   },
@@ -51,10 +51,6 @@
     {
       "regionId": "dp2-tract-4638",
       "reason": "only 0 ZTF objects with enough epochs"
-    },
-    {
-      "regionId": "dp2-tract-6530",
-      "reason": "ZTF light-curve query failed"
     },
     {
       "regionId": "dp2-tract-8259",
@@ -141,7 +137,7 @@
       "relativeChangeMag": 2.6542936411004696,
       "fieldScatterMag": 0.48035051152416636,
       "changeSignificance": 5.525743342456985,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9467",
@@ -180,7 +176,7 @@
       "relativeChangeMag": 2.8341204112445517,
       "fieldScatterMag": 0.22686061001232713,
       "changeSignificance": 12.492783172409487,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -253,7 +249,7 @@
       "relativeChangeMag": 2.3072869732726566,
       "fieldScatterMag": 0.17526382024627435,
       "changeSignificance": 13.164650696478834,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9957",
@@ -387,6 +383,23 @@
       "medianErrorMag": 0.055233888300000006,
       "raDeg": 343.6845755,
       "decDeg": 0.7259457,
+      "rubinApertureFluxNjy": null,
+      "rubinMagAB": null,
+      "rubinMinusZtfMag": null
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300064387",
+      "epochs": 149,
+      "meanMag": 18.720894340635414,
+      "reducedChiSquare": 100.84352844962248,
+      "robustScatterMag": 0.3563836814999962,
+      "medianErrorMag": 0.0617369935,
+      "raDeg": 250.8844058,
+      "decDeg": -18.5880355,
       "rubinApertureFluxNjy": null,
       "rubinMagAB": null,
       "rubinMinusZtfMag": null
@@ -549,6 +562,23 @@
       "rubinMinusZtfMag": null
     },
     {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300023021",
+      "epochs": 285,
+      "meanMag": 17.5269293384475,
+      "reducedChiSquare": 70.97322280336662,
+      "robustScatterMag": 0.1618991786999985,
+      "medianErrorMag": 0.0233160444,
+      "raDeg": 250.8796069,
+      "decDeg": -18.5913125,
+      "rubinApertureFluxNjy": null,
+      "rubinMagAB": null,
+      "rubinMinusZtfMag": null
+    },
+    {
       "regionId": "dp2-tract-9701",
       "tract": 9701,
       "ztfBand": "r",
@@ -619,7 +649,7 @@
       "relativeChangeMag": 1.8791871194866108,
       "fieldScatterMag": 0.23387193406137946,
       "changeSignificance": 8.035111724835781,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9327",
@@ -679,7 +709,28 @@
       "relativeChangeMag": 1.8769446946650206,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 12.615506963591418,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300066814",
+      "epochs": 29,
+      "meanMag": 19.23223771993344,
+      "reducedChiSquare": 57.57654793795042,
+      "robustScatterMag": 0.3471592408200034,
+      "medianErrorMag": 0.116848469,
+      "raDeg": 250.9287508,
+      "decDeg": -18.5877963,
+      "rubinApertureFluxNjy": 64100.979333400726,
+      "rubinMagAB": 19.382838338221262,
+      "rubinMinusZtfMag": 0.15060061828782167,
+      "fieldOffsetMag": 0.10519261487712939,
+      "relativeChangeMag": 0.04540800341069229,
+      "fieldScatterMag": 0.06732190585669239,
+      "changeSignificance": 0.6744907594765952
     },
     {
       "regionId": "dp2-tract-9957",
@@ -701,7 +752,7 @@
       "relativeChangeMag": 2.0489864558940276,
       "fieldScatterMag": 0.10187064248766038,
       "changeSignificance": 20.113610809338144,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-8642",
@@ -723,7 +774,7 @@
       "relativeChangeMag": 1.2022743655347128,
       "fieldScatterMag": 0.09842177646876638,
       "changeSignificance": 12.215532056731856,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9812",
@@ -745,67 +796,7 @@
       "relativeChangeMag": 1.6637199491197787,
       "fieldScatterMag": 0.1854293221089532,
       "changeSignificance": 8.972259242484975,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
-    },
-    {
-      "regionId": "dp2-tract-5280",
-      "tract": 5280,
-      "ztfBand": "r",
-      "rubinBand": "r",
-      "oid": "252207400011430",
-      "epochs": 238,
-      "meanMag": 18.163969573645044,
-      "reducedChiSquare": 44.048554282913976,
-      "robustScatterMag": 0.18378524576999922,
-      "medianErrorMag": 0.046138033300000006,
-      "raDeg": 52.61966375,
-      "decDeg": -26.0121848,
-      "rubinApertureFluxNjy": 181546.7713623047,
-      "rubinMagAB": 18.25252867549768,
-      "rubinMinusZtfMag": 0.08855910185263483,
-      "fieldOffsetMag": 0.12001702399173197,
-      "relativeChangeMag": -0.03145792213909715,
-      "fieldScatterMag": 0.11623113215229508,
-      "changeSignificance": -0.2706497093900671
-    },
-    {
-      "regionId": "dp2-tract-9489",
-      "tract": 9489,
-      "ztfBand": "r",
-      "rubinBand": "i",
-      "oid": "400215100024456",
-      "epochs": 230,
-      "meanMag": 18.799782238758613,
-      "reducedChiSquare": 43.434817286242094,
-      "robustScatterMag": 0.32435270153999907,
-      "medianErrorMag": 0.0721083656,
-      "raDeg": 29.6027616,
-      "decDeg": 0.7585452500000001,
-      "rubinApertureFluxNjy": null,
-      "rubinMagAB": null,
-      "rubinMinusZtfMag": null
-    },
-    {
-      "regionId": "dp2-tract-9232",
-      "tract": 9232,
-      "ztfBand": "r",
-      "rubinBand": "r",
-      "oid": "1442208300014978",
-      "epochs": 26,
-      "meanMag": 19.965182392531513,
-      "reducedChiSquare": 39.018211805544,
-      "robustScatterMag": 0.1757541498300016,
-      "medianErrorMag": 0.177322209,
-      "raDeg": 8.88912075,
-      "decDeg": -0.7743445499999999,
-      "rubinApertureFluxNjy": 15665.918971918523,
-      "rubinMagAB": 20.912610310170013,
-      "rubinMinusZtfMag": 0.9474279176384997,
-      "fieldOffsetMag": 0.09227457254303673,
-      "relativeChangeMag": 0.8551533450954629,
-      "fieldScatterMag": 0.13078611017136688,
-      "changeSignificance": 6.5385639497571235,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     }
   ],
   "mostChanged": [
@@ -829,7 +820,7 @@
       "relativeChangeMag": 2.820685497673022,
       "fieldScatterMag": 0.030559899704566268,
       "changeSignificance": 92.3002210393889,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-10056",
@@ -851,7 +842,7 @@
       "relativeChangeMag": 5.205876605744201,
       "fieldScatterMag": 0.17884011319881588,
       "changeSignificance": 29.109110437415392,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -873,7 +864,7 @@
       "relativeChangeMag": 3.5472483942769024,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 23.842117962658115,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-5192",
@@ -895,7 +886,7 @@
       "relativeChangeMag": 1.3320558844237258,
       "fieldScatterMag": 0.05945857710920309,
       "changeSignificance": 22.40309050748455,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9694",
@@ -917,7 +908,7 @@
       "relativeChangeMag": 0.663864847177134,
       "fieldScatterMag": 0.031008963731761784,
       "changeSignificance": 21.40880465789807,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -939,7 +930,7 @@
       "relativeChangeMag": 3.073366655002271,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 20.65701698513311,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9957",
@@ -961,7 +952,7 @@
       "relativeChangeMag": 2.0489864558940276,
       "fieldScatterMag": 0.10187064248766038,
       "changeSignificance": 20.113610809338144,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -983,7 +974,7 @@
       "relativeChangeMag": 2.9537359160468775,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 19.852942989430908,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1005,7 +996,29 @@
       "relativeChangeMag": 2.868071653153347,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 19.277167843718832,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300066083",
+      "epochs": 38,
+      "meanMag": 20.36630795844004,
+      "reducedChiSquare": 4.228563970879552,
+      "robustScatterMag": 0.19240448912999883,
+      "medianErrorMag": 0.1771567465,
+      "raDeg": 250.87978245,
+      "decDeg": -18.58616185,
+      "rubinApertureFluxNjy": 7304.039119869471,
+      "rubinMagAB": 21.741092273549253,
+      "rubinMinusZtfMag": 1.3747843151092134,
+      "fieldOffsetMag": 0.10519261487712939,
+      "relativeChangeMag": 1.269591700232084,
+      "fieldScatterMag": 0.06732190585669239,
+      "changeSignificance": 18.858522854873627,
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1027,7 +1040,7 @@
       "relativeChangeMag": 2.7367473831267937,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 18.394498126429045,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1049,7 +1062,7 @@
       "relativeChangeMag": 2.5551427137985243,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 17.173878799155588,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1071,7 +1084,7 @@
       "relativeChangeMag": 2.4839914720391825,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 16.695650011469677,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9212",
@@ -1093,7 +1106,7 @@
       "relativeChangeMag": 2.7346276787688026,
       "fieldScatterMag": 0.16846889955120659,
       "changeSignificance": 16.232240407895613,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9126",
@@ -1115,7 +1128,7 @@
       "relativeChangeMag": 0.6971501606477961,
       "fieldScatterMag": 0.049194249638648005,
       "changeSignificance": 14.171375023882888,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-5192",
@@ -1137,7 +1150,7 @@
       "relativeChangeMag": 0.8085167121456962,
       "fieldScatterMag": 0.05945857710920309,
       "changeSignificance": 13.59798285553915,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9694",
@@ -1159,7 +1172,7 @@
       "relativeChangeMag": 0.41149392283026387,
       "fieldScatterMag": 0.031008963731761784,
       "changeSignificance": 13.270160408771735,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9709",
@@ -1181,7 +1194,7 @@
       "relativeChangeMag": 2.3072869732726566,
       "fieldScatterMag": 0.17526382024627435,
       "changeSignificance": 13.164650696478834,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-7939",
@@ -1203,7 +1216,7 @@
       "relativeChangeMag": 1.5571746658506882,
       "fieldScatterMag": 0.12052379645747828,
       "changeSignificance": 12.920059868841514,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1225,7 +1238,7 @@
       "relativeChangeMag": 1.8769446946650206,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 12.615506963591418,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9220",
@@ -1247,7 +1260,29 @@
       "relativeChangeMag": 2.8341204112445517,
       "fieldScatterMag": 0.22686061001232713,
       "changeSignificance": 12.492783172409487,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300064413",
+      "epochs": 54,
+      "meanMag": 20.525036893803897,
+      "reducedChiSquare": 1.9427595820226216,
+      "robustScatterMag": 0.19147267502999962,
+      "medianErrorMag": 0.1806643605,
+      "raDeg": 250.8845738,
+      "decDeg": -18.59369855,
+      "rubinApertureFluxNjy": 9381.15953451395,
+      "rubinMagAB": 21.469358696078192,
+      "rubinMinusZtfMag": 0.9443218022742954,
+      "fieldOffsetMag": 0.10519261487712939,
+      "relativeChangeMag": 0.839129187397166,
+      "fieldScatterMag": 0.06732190585669239,
+      "changeSignificance": 12.464430065058078,
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1269,7 +1304,7 @@
       "relativeChangeMag": 1.8521095916407937,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 12.448582804326533,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9934",
@@ -1291,7 +1326,7 @@
       "relativeChangeMag": 0.375000562355293,
       "fieldScatterMag": 0.030559899704566268,
       "changeSignificance": 12.271001082482622,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-8642",
@@ -1313,7 +1348,7 @@
       "relativeChangeMag": 1.2022743655347128,
       "fieldScatterMag": 0.09842177646876638,
       "changeSignificance": 12.215532056731856,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9694",
@@ -1335,7 +1370,7 @@
       "relativeChangeMag": 0.36821845499764194,
       "fieldScatterMag": 0.031008963731761784,
       "changeSignificance": 11.87458111089614,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9934",
@@ -1357,7 +1392,7 @@
       "relativeChangeMag": 0.35532832135250203,
       "fieldScatterMag": 0.030559899704566268,
       "changeSignificance": 11.627273806118179,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9974",
@@ -1379,7 +1414,7 @@
       "relativeChangeMag": 1.456895980812103,
       "fieldScatterMag": 0.13294588575645624,
       "changeSignificance": 10.958563873732752,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9455",
@@ -1401,7 +1436,7 @@
       "relativeChangeMag": 1.503211252227608,
       "fieldScatterMag": 0.1374528957626245,
       "changeSignificance": 10.936191950612608,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9974",
@@ -1423,7 +1458,7 @@
       "relativeChangeMag": 1.4504292090577362,
       "fieldScatterMag": 0.13294588575645624,
       "changeSignificance": 10.909921738494258,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9974",
@@ -1445,7 +1480,7 @@
       "relativeChangeMag": 1.4497390351834962,
       "fieldScatterMag": 0.13294588575645624,
       "changeSignificance": 10.904730349002866,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-8985",
@@ -1467,7 +1502,7 @@
       "relativeChangeMag": 1.1016223858675236,
       "fieldScatterMag": 0.10188594209327492,
       "changeSignificance": 10.812309953997444,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-4850",
@@ -1489,7 +1524,7 @@
       "relativeChangeMag": 0.8351922246303012,
       "fieldScatterMag": 0.077882838544484,
       "changeSignificance": 10.723700371465894,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1511,7 +1546,7 @@
       "relativeChangeMag": 1.5317840495806117,
       "fieldScatterMag": 0.1487807584809645,
       "changeSignificance": 10.295578979566724,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-8708",
@@ -1533,7 +1568,7 @@
       "relativeChangeMag": 0.6172701800693154,
       "fieldScatterMag": 0.06196850460585793,
       "changeSignificance": 9.961030752563367,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9704",
@@ -1555,7 +1590,29 @@
       "relativeChangeMag": 0.5911644806542817,
       "fieldScatterMag": 0.06148552751082891,
       "changeSignificance": 9.614693157672999,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+    },
+    {
+      "regionId": "dp2-tract-6530",
+      "tract": 6530,
+      "ztfBand": "r",
+      "rubinBand": "r",
+      "oid": "329205300051385",
+      "epochs": 31,
+      "meanMag": 20.59638562780963,
+      "reducedChiSquare": 11.325990662718025,
+      "robustScatterMag": 0.19873467222000069,
+      "medianErrorMag": 0.210441828,
+      "raDeg": 250.9028911,
+      "decDeg": -18.5744906,
+      "rubinApertureFluxNjy": 10638.434806101024,
+      "rubinMagAB": 21.33280565873838,
+      "rubinMinusZtfMag": 0.7364200309287483,
+      "fieldOffsetMag": 0.10519261487712939,
+      "relativeChangeMag": 0.6312274160516189,
+      "fieldScatterMag": 0.06732190585669239,
+      "changeSignificance": 9.37625588609015,
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9693",
@@ -1577,7 +1634,7 @@
       "relativeChangeMag": 0.4371070788620486,
       "fieldScatterMag": 0.04735200017672876,
       "changeSignificance": 9.231016160471839,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-8984",
@@ -1599,7 +1656,7 @@
       "relativeChangeMag": 0.5825315105047117,
       "fieldScatterMag": 0.0638013862100483,
       "changeSignificance": 9.130389559043262,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     },
     {
       "regionId": "dp2-tract-9812",
@@ -1621,73 +1678,7 @@
       "relativeChangeMag": 1.6637199491197787,
       "fieldScatterMag": 0.1854293221089532,
       "changeSignificance": 8.972259242484975,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
-    },
-    {
-      "regionId": "dp2-tract-9453",
-      "tract": 9453,
-      "ztfBand": "r",
-      "rubinBand": "r",
-      "oid": "1489207300014685",
-      "epochs": 50,
-      "meanMag": 19.28126033598648,
-      "reducedChiSquare": 4.945713486454414,
-      "robustScatterMag": 0.13974453863999853,
-      "medianErrorMag": 0.068652723,
-      "raDeg": 336.2829056,
-      "decDeg": -0.7683187499999999,
-      "rubinApertureFluxNjy": 92033.52121734619,
-      "rubinMagAB": 18.99013490369653,
-      "rubinMinusZtfMag": -0.29112543228995236,
-      "fieldOffsetMag": 0.1020822084365669,
-      "relativeChangeMag": -0.39320764072651926,
-      "fieldScatterMag": 0.04392193441968663,
-      "changeSignificance": -8.952420833046832,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
-    },
-    {
-      "regionId": "dp2-tract-9569",
-      "tract": 9569,
-      "ztfBand": "r",
-      "rubinBand": "r",
-      "oid": "468204300012383",
-      "epochs": 41,
-      "meanMag": 20.924968294771556,
-      "reducedChiSquare": 2.2263264608441435,
-      "robustScatterMag": 0.32879798111999875,
-      "medianErrorMag": 0.262472272,
-      "raDeg": 148.1581139,
-      "decDeg": 0.948602,
-      "rubinApertureFluxNjy": 7674.631835587323,
-      "rubinMagAB": 21.68735612288655,
-      "rubinMinusZtfMag": 0.7623878281149921,
-      "fieldOffsetMag": 0.029610822206947773,
-      "relativeChangeMag": 0.7327770059080443,
-      "fieldScatterMag": 0.08279853032559145,
-      "changeSignificance": 8.850120926380221,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
-    },
-    {
-      "regionId": "dp2-tract-9479",
-      "tract": 9479,
-      "ztfBand": "r",
-      "rubinBand": "i",
-      "oid": "398215100018953",
-      "epochs": 34,
-      "meanMag": 20.50626113028628,
-      "reducedChiSquare": 1.4571676245374774,
-      "robustScatterMag": 0.1929615760799987,
-      "medianErrorMag": 0.1882335545,
-      "raDeg": 14.83968595,
-      "decDeg": 0.7653228000000001,
-      "rubinApertureFluxNjy": 281.08693527057767,
-      "rubinMagAB": 25.277898349088122,
-      "rubinMinusZtfMag": 4.7716372188018426,
-      "fieldOffsetMag": -0.360137204398324,
-      "relativeChangeMag": 5.1317744232001665,
-      "fieldScatterMag": 0.5821692258290051,
-      "changeSignificance": 8.814918747882205,
-      "populationSystematic": "sign imbalance of 12.6 sigma across the changed population (199 of 214 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
+      "populationSystematic": "sign imbalance of 13.1 sigma across the changed population (215 of 231 one way); the Rubin-to-ZTF comparison is biased rather than these objects having moved"
     }
   ]
 }
