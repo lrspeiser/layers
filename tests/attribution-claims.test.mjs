@@ -98,3 +98,47 @@ test("no published manifest leaks a local path or a credential", async () => {
   }
   assert.deepEqual(offenders, [], `public manifests must not carry local paths or credentials`);
 });
+
+// The goal scorecard is the only place this repository states which objectives
+// were reached. It is checked rather than trusted: a goal must not claim a
+// status its own numbers do not support, and a ceiling that is merely the
+// delivered value must say so, because "at-ceiling" would otherwise be circular.
+test("the goal scorecard cannot claim more than it measured", async () => {
+  const card = await readJson("public", "data", "layers", "goal-scorecard.json");
+  assert.equal(card.goals.length, 11);
+
+  for (const goal of card.goals) {
+    const { id, statedTarget, archiveCeiling, delivered, status } = goal;
+    assert.ok(Number.isFinite(delivered), `${id} must report a delivered number`);
+
+    if (status === "met") {
+      assert.ok(delivered >= statedTarget, `${id} claims met but delivered ${delivered} < ${statedTarget}`);
+    }
+    if (status === "at-ceiling") {
+      assert.ok(Number.isFinite(archiveCeiling), `${id} claims at-ceiling without a ceiling`);
+      assert.ok(delivered >= archiveCeiling, `${id} claims at-ceiling but is below it`);
+      // A ceiling taken from the result makes the claim self-fulfilling. It is
+      // allowed, but it must be labelled so nobody reads it as independent.
+      assert.equal(typeof goal.ceilingIsIndependentOfResult, "boolean");
+      if (!goal.ceilingIsIndependentOfResult) {
+        assert.equal(goal.ceilingBasis, "the delivered value itself");
+        assert.ok(goal.note && goal.note.length > 0, `${id} must explain a self-derived ceiling`);
+      }
+    }
+    if (archiveCeiling !== null && statedTarget > archiveCeiling) {
+      assert.equal(goal.targetExceedsCeilingBy, statedTarget - archiveCeiling);
+      assert.ok(goal.note && goal.note.length > 0, `${id} must explain why its target exceeded the archive`);
+    }
+    assert.ok(goal.evidence && goal.evidence.length > 0, `${id} must name the manifest behind it`);
+  }
+
+  // Delivered numbers are a floor: these regress only if something broke.
+  const byId = Object.fromEntries(card.goals.map((g) => [g.id, g]));
+  assert.ok(byId.G0.delivered >= 167, "second-band regions regressed");
+  assert.ok(byId.G1.delivered >= 521, "reconciled optical pairs regressed");
+  assert.ok(byId.G9.delivered >= 12713, "comparisons evaluated regressed");
+
+  // Reaching a ceiling is never a claim that a comparison is publishable.
+  assert.equal(card.policy.comparisonReadyProducts, 0);
+  assert.equal(card.policy.astrophysicalClaimsStanding, 0);
+});
