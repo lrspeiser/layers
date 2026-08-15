@@ -162,12 +162,19 @@ def reference_flux_chain(
             for product in evidence.get("products", []):
                 if product.get("role") != "science":
                     continue
+                # The key is unitsValidation, not units. Reading the wrong one
+                # returned no exposure for every PS1 region, and the failure was
+                # recorded as "no EXPTIME recorded for this skycell" -- a claim
+                # about the archive that was actually a claim about this line.
+                # The headers carry it: 1092 s on the first region checked.
                 calibration = (
                     product.get("validation", {})
-                    .get("units", {})
+                    .get("unitsValidation", {})
                     .get("magnitudeCalibration", {})
                 )
                 exposure = calibration.get("exposureTimeSeconds")
+                if exposure:
+                    break
         if not exposure:
             return {
                 "surveyId": survey,

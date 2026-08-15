@@ -266,19 +266,46 @@ def main() -> None:
             ),
         }
 
-    combined = [p for p in pairings.values() if p.get("sufficient")]
-    flat = [p["curveIsFlat"] for p in combined]
-    if len(combined) >= 2 and len(set(flat)) == 1:
-        headline = f"All {len(combined)} pairings agree: {combined[0]['verdict']}"
-    elif len(combined) >= 2:
+    measured = {k: v for k, v in pairings.items() if v.get("sufficient")}
+    flat = {k for k, v in measured.items() if v["curveIsFlat"]}
+    dissenting = sorted(set(measured) - flat)
+    # Rubin is common to every pairing, so the same attribution logic applies to
+    # a shape as to a value: a trend that appears in one pairing and not the
+    # others belongs to that pairing's reference or to its PSF match, not to
+    # Rubin. A majority is not a vote here, it is which side Rubin sits on.
+    if len(measured) >= 2 and not dissenting:
         headline = (
-            f"{sum(flat)} of {len(combined)} pairings are flat, so the shape is not a property of "
-            "Rubin alone"
+            f"All {len(measured)} pairings are flat: the deficit is zeropoint-like, not an "
+            "aperture effect"
         )
-    elif combined:
-        headline = f"One pairing measured, which cannot attribute a shape: {combined[0]['verdict']}"
+        attribution = (
+            "Rubin is common to every pairing, so a shape they all share is Rubin's or the "
+            "aperture method's."
+        )
+    elif len(flat) >= 2 and dissenting:
+        headline = (
+            f"{len(flat)} of {len(measured)} pairings are flat; {', '.join(dissenting)} dissents"
+        )
+        attribution = (
+            f"The flat result stands for the pairings that show it: against those references the "
+            f"deficit is zeropoint-like, not an aperture effect. Rubin is common to every pairing, "
+            f"so a radial trend appearing only in {', '.join(dissenting)} belongs to that "
+            "reference or to its PSF match rather than to Rubin, and that pairing cannot testify "
+            "about shape until it is resolved."
+        )
+    elif measured:
+        headline = (
+            f"No two pairings agree on a shape ({len(measured)} measured)"
+            if len(measured) > 1
+            else f"One pairing measured, which cannot attribute a shape: {list(measured.values())[0]['verdict']}"
+        )
+        attribution = (
+            "Attribution needs at least two pairings that agree, because Rubin being the shared "
+            "term is the whole method."
+        )
     else:
         headline = "No pairing reached the field threshold"
+        attribution = None
 
     payload = {
         "schemaVersion": "layers-curve-of-growth-v1",
@@ -302,6 +329,9 @@ def main() -> None:
             "significance": "bootstrap 95% interval on the per-field median gain",
         },
         "headline": headline,
+        "attribution": attribution,
+        "flatPairings": sorted(flat),
+        "dissentingPairings": dissenting,
         "pairings": pairings,
         "caveats": [
             "This measures the shape of the ratio against radius, not either survey's absolute "

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-curve-of-growth-v1",
-  "generatedAt": "2026-08-15T03:37:26.455453+00:00",
+  "generatedAt": "2026-08-15T04:40:39.529402+00:00",
   "question": "Is the Rubin flux deficit an aperture effect left by incomplete PSF matching, or a zeropoint difference? The two predict different shapes for scale against radius.",
   "method": {
     "radiiArcsec": [
@@ -17,7 +17,15 @@
     "skySubtraction": "local median in a 6.0-9.0 arcsec annulus, per source and per side; a sky error grows as the aperture area and could manufacture a trend",
     "significance": "bootstrap 95% interval on the per-field median gain"
   },
-  "headline": "Both pairings agree: zeropoint-like: the ratio does not change with aperture",
+  "headline": "2 of 3 pairings are flat; rubin-vs-ps1 dissents",
+  "attribution": "The flat result stands for the pairings that show it: against those references the deficit is zeropoint-like, not an aperture effect. Rubin is common to every pairing, so a radial trend appearing only in rubin-vs-ps1 belongs to that reference or to its PSF match rather than to Rubin, and that pairing cannot testify about shape until it is resolved.",
+  "flatPairings": [
+    "rubin-vs-des",
+    "rubin-vs-legacy"
+  ],
+  "dissentingPairings": [
+    "rubin-vs-ps1"
+  ],
   "pairings": {
     "rubin-vs-legacy": {
       "fields": 130,
@@ -66,6 +74,30 @@
       "curveIsFlat": true,
       "deficitFractionRecovered": 0.24029067520364145,
       "verdict": "zeropoint-like: the ratio does not change with aperture"
+    },
+    "rubin-vs-ps1": {
+      "fields": 90,
+      "sufficient": true,
+      "totalIsolatedSources": 1014,
+      "medianScaleByRadiusArcsec": {
+        "1.0": 1.0605688678189256,
+        "1.5": 1.0962536676457946,
+        "2.0": 1.09791968348439,
+        "2.5": 1.0828518982500772,
+        "3.0": 1.067964179660821,
+        "4.0": 1.0609085981200037,
+        "5.0": 1.0499553001434152
+      },
+      "anchorRadiusArcsec": 1.5,
+      "widestRadiusArcsec": 5.0,
+      "medianGainAnchorToWidest": 0.9801110332362502,
+      "gainBootstrap95Interval": [
+        0.9624012985163906,
+        0.994021176237232
+      ],
+      "curveIsFlat": false,
+      "deficitFractionRecovered": null,
+      "verdict": "the ratio falls with aperture, which neither hypothesis predicts"
     }
   },
   "caveats": [

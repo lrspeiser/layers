@@ -60,9 +60,12 @@ A 0.055 mag Rubin-r versus DECam-r throughput difference is physically sensible.
 | injection/recovery QA | never run | **running per region** — see §4 |
 | bandpass transfer | untestable | **testable and failing** — see §3 |
 
-48 of 50 regions reconcile. The 2 failures are Pan-STARRS gap-fill regions with
+48 of 50 regions reconcile. ~~The 2 failures are Pan-STARRS gap-fill regions with
 no recorded `EXPTIME`, so their stack units cannot be placed on an absolute
-scale. That is reported, not papered over.
+scale.~~ **Withdrawn — see §12.** The exposure times were in the headers all
+along; the reader looked under `validation.units` where the manifest writes
+`validation.unitsValidation`, so every PS1 region returned no exposure. A claim
+about the archive that was really a claim about one line.
 
 Blockers remaining per region: **25 regions are down to 3** (from 6), 22 at 4,
 1 at 5.
@@ -456,3 +459,94 @@ difference would produce exactly that pair.
 **This is not a claim that Rubin's calibration is wrong.** It is a measured,
 shape-resolved statement about the difference between three surveys' fluxes on
 matched compact sources, with no external standard involved.
+
+## 12. A third reference, and what it changed
+
+Pan-STARRS was acquired for all 200 regions as a third independently calibrated
+optical reference. Getting it there took four fixes, three of which were faults
+in this repository rather than in the archive:
+
+- **The gap-fill overwrote Legacy.** The PS1 branch replaced any Legacy
+  reference for the same tract instead of supplying tracts Legacy lacked. That
+  was harmless while PS1 covered two regions; with PS1 validating for 198 of 200
+  the next run would have silently replaced the whole Rubin-vs-Legacy chain,
+  under the same file names, with a Rubin-vs-PS1 one.
+- **The band was hardcoded to i.** Right for filling a coverage gap, wrong for
+  photometry: Rubin is r in 157 of 200 regions. The i-band build reported
+  `sameNamedBand: 4` of 48; the r-band build reports **154 of 189**.
+- **The mask convention was read backwards.** PS1 marks flagged pixels with
+  finite values and leaves the rest NaN, so a good cutout is 99.85% NaN and an
+  all-NaN mask is a clean field. Requiring finite mask pixels rejected 40% of
+  regions for being unblemished. Acquisition went from 112 to **198 of 200**.
+- **`EXPTIME` was read from the wrong key.** `reconcile_selected_regions.py`
+  looked in `validation.units`; the manifest writes `validation.unitsValidation`.
+  Every PS1 region therefore returned no exposure time, and §2 recorded the
+  resulting failures as *"Pan-STARRS gap-fill regions with no recorded EXPTIME,
+  so their stack units cannot be placed on an absolute scale."* That was a claim
+  about the archive that was really a claim about one line: the headers carry it,
+  1092 s on the first region checked. **That sentence in §2 is withdrawn.**
+
+With those fixed, 188 of 189 PS1 regions reconcile, 151 matched.
+
+### PS1 does not corroborate the zeropoint. It cannot.
+
+| | Rubin vs Legacy | Rubin vs DES | Rubin vs PS1 |
+|---|---|---|---|
+| median scale | 0.9199 | 0.9201 | **1.1530** |
+| absolute flux chain | verified | verified | **not verified** |
+
+PS1 lands 0.245 mag from the two verified references. A real PS1-versus-DES
+zeropoint difference is a few hundredths of a magnitude, not a quarter of one,
+and the PS1 chain is the one this project has never checked against the survey's
+own photometric catalogue — it is marked `verified: false` in every record it
+writes. Two verified chains agreeing with each other and disagreeing with one
+unverified chain is a statement about the unverified chain.
+
+So the operator now excludes an unverified chain from the zeropoint finding and
+reports it as its own flag. **The zeropoint conclusion is unchanged and still
+rests on two references, not three.** Resolving it means comparing aperture
+magnitudes against the published PS1 catalogue for the same sources.
+
+The other two findings are rank correlations, which no constant factor can
+touch, so PS1 contributes to both.
+
+### PS1's curve of growth dissents, and that is informative
+
+| radius | 1.0″ | 1.5″ | 2.0″ | 2.5″ | 3.0″ | 4.0″ | 5.0″ |
+|---|---|---|---|---|---|---|---|
+| vs PS1 (90 fields, 1014 sources) | 1.0606 | 1.0963 | 1.0979 | 1.0829 | 1.0680 | 1.0609 | 1.0500 |
+
+The PS1 ratio *falls* with aperture — gain 0.9801, bootstrap 95%
+[0.9624, 0.9940] — where Legacy and DES are flat. Shape is independent of any
+constant chain error, so unlike the scale this is a usable PS1 result. It means
+PS1 gains relatively more flux at large radii than Rubin does, after both were
+PSF-matched: a residual wing mismatch the circular-Gaussian match did not
+remove, which is unsurprising for stacked PS1 warps.
+
+Rubin is common to every pairing, so the same attribution logic applies to a
+shape as to a value: a trend appearing in one pairing and not the others belongs
+to that reference or its PSF match. The flat result stands for Legacy and DES;
+PS1 cannot testify about shape until its wing residual is resolved.
+
+### The crowding attribution has now moved three times
+
+| references | verdict |
+|---|---|
+| Legacy + partial DES | Legacy's, from its broader PSF |
+| Legacy + full DES | common to both, therefore Rubin's |
+| Legacy + DES + PS1 | Legacy and DES, not Rubin's |
+
+Measured: legacy −0.334 (p 0.0009), des −0.269 (p 0.0010), ps1 −0.130 (p 0.11).
+**All three have the same sign**; only two clear the 1% threshold. A pass/fail
+flag makes that look more decisive than it is — PS1 is weak agreement, not
+absence.
+
+The PSF-blending mechanism can now be tested rather than asserted, and it fails:
+ordered by reference FWHM the correlations are Legacy 2.225″/−0.334, PS1
+1.527″/−0.130, DES 1.487″/−0.269. DES and PS1 have nearly the same reference PSF
+and very different correlations, so blending in the reference PSF is not a
+sufficient explanation.
+
+**Unlike the other two findings, this one has not converged and should not be
+relied on.** It is recorded with its full history in the manifest so the next
+reference added either settles it or shows it moving again.

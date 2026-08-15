@@ -134,11 +134,18 @@ def load_pair(path: Path, matched_only: bool = True) -> dict[str, dict[str, floa
             continue
         if scale <= 0 or sources <= 0:
             continue
+        documented = (region.get("units") or {}).get("documentedChain") or {}
+        psf = region.get("psf") or {}
         out[region["regionId"]] = {
             "scale": float(scale),
             "sources": float(sources),
             "scatterDex": float(empirical.get("scatterDex") or float("nan")),
             "tract": region.get("tract"),
+            # Whether the absolute flux chain has been checked against the
+            # survey's own documentation. An unverified chain can be wrong by a
+            # constant, which is exactly the quantity the zeropoint test reads.
+            "chainVerified": bool(documented.get("verified")),
+            "referenceFwhmArcsec": psf.get("preMatchReferenceFwhmArcsec"),
         }
     return out
 
@@ -154,6 +161,13 @@ def describe(pair: dict[str, dict[str, float]]) -> dict[str, Any]:
         "medianMagnitudeOffset": float(-2.5 * np.median(logs)),
         "scaleScatterDex": float(np.std(logs, ddof=1)) if scales.size > 1 else None,
         "medianMatchedSources": float(np.median([item["sources"] for item in pair.values()])),
+        "fluxChainVerified": all(item["chainVerified"] for item in pair.values()),
+        "medianReferenceFwhmArcsec": (
+            float(np.median(widths))
+            if (widths := [item["referenceFwhmArcsec"] for item in pair.values()
+                           if isinstance(item.get("referenceFwhmArcsec"), (int, float))])
+            else None
+        ),
     }
 
 def parse_reference(value: str) -> tuple[str, Path]:
@@ -266,20 +280,34 @@ def main() -> None:
                 "regionIds": shared,
             }
 
+    # A zeropoint is a constant, and an unverified absolute flux chain can be
+    # wrong by a constant. So a reference whose chain this project has not
+    # checked against the survey's own documentation cannot testify about a
+    # zeropoint, however many regions it covers. It can still testify about the
+    # other two findings, which are rank correlations and therefore untouched by
+    # any constant factor.
+    verified = {name for name, pair in references.items()
+                if all(item["chainVerified"] for item in pair.values())}
+    unverified = [name for name in references if name not in verified]
+
     usable = {k: v for k, v in combinations.items() if v["sufficient"]}
+    zeropoint_usable = {
+        k: v for k, v in usable.items()
+        if all(part in verified for part in k.split("-vs-"))
+    }
     largest = max(combinations.values(), key=lambda item: item["sharedRegions"]) if combinations else {}
     enough = bool(usable)
 
     findings: list[dict[str, Any]] = []
 
-    agreeing = [k for k, v in usable.items() if v["agreement"]["agree"]]
-    disagreeing = [k for k, v in usable.items() if v["agreement"]["agree"] is False]
-    if usable:
+    agreeing = [k for k, v in zeropoint_usable.items() if v["agreement"]["agree"]]
+    disagreeing = [k for k, v in zeropoint_usable.items() if v["agreement"]["agree"] is False]
+    if zeropoint_usable:
         detail = "; ".join(
             f"{k}: {v['agreement']['medianLogScaleDifferenceDex']:+.4f} dex "
             f"[{v['agreement']['bootstrap95Interval'][0]:+.4f}, {v['agreement']['bootstrap95Interval'][1]:+.4f}] "
             f"over {v['sharedRegions']} regions"
-            for k, v in usable.items()
+            for k, v in zeropoint_usable.items()
         )
         findings.append({
             "question": "Does the flux-scale offset belong to Rubin or to the reference?",
@@ -290,15 +318,22 @@ def main() -> None:
             ),
             "basis": (
                 f"Paired median log-scale differences between reference pairings: {detail}. "
-                f"{len(references)} independently calibrated references, reduced by different "
-                "pipelines, agreeing about Rubin cannot all be wrong in the same direction by chance."
+                f"{len(verified)} references with a verified absolute flux chain, reduced by different "
+                "pipelines, agreeing about Rubin cannot both be wrong in the same direction by "
+                "chance."
             ),
             "cannotDistinguish": (
                 "This does not separate a Rubin zeropoint from a systematic in the 1.5 arcsec aperture "
                 "photometry, which is identical in every pairing."
             ),
-            "referencesCompared": len(references),
+            "referencesCompared": len(verified),
             "pairingsAgreeing": agreeing,
+            "excludedForUnverifiedChain": unverified,
+            "whyExcluded": (
+                "A zeropoint is a constant and an unverified absolute flux chain can be wrong by a "
+                "constant, so an unchecked chain cannot testify about one. These references still "
+                "contribute to the two rank-correlation findings, which no constant factor affects."
+            ) if unverified else None,
         })
 
     dense = [name for name in references if crowding[name].get("significant")]
@@ -348,6 +383,28 @@ def main() -> None:
                     "the filter; only a result that survives both is reported as attribution."
                 ),
             },
+            "signConsistency": {
+                "allSameSign": bool(
+                    len({np.sign(crowding[name]["rho"]) for name in references
+                         if crowding[name].get("rho") is not None}) == 1
+                ),
+                "perReference": {
+                    name: {"rho": crowding[name].get("rho"), "pValue": crowding[name].get("pValue"),
+                           "clearsThreshold": crowding[name].get("significant")}
+                    for name in references
+                },
+                "note": (
+                    "A significance threshold makes this look more decisive than it is. Read the "
+                    "signs and magnitudes together, not the pass/fail flag: a reference below the "
+                    "threshold with the same sign is weak agreement, not absence."
+                ),
+            },
+            "stability": (
+                "This attribution has changed three times as references were added: Legacy's on two "
+                "references with a partial DES set, then common-to-both on the full DES set, then "
+                "this. Unlike the other two findings it has not converged, and it should not be "
+                "relied on until it survives a reference being added."
+            ),
             "supersedes": (
                 "An earlier subset of DES regions showed no density trend, which supported "
                 "attributing it to Legacy's broader PSF. Over the full set the DES pairing shows "
@@ -380,6 +437,52 @@ def main() -> None:
             "sampleGate": f"threshold {MIN_SHARED_REGIONS} shared regions per pairing",
         })
 
+    # An unverified chain that lands far from the verified ones is evidence
+    # about that chain, not about Rubin. Reported as its own flag so it cannot
+    # be read as a survey disagreement.
+    chain_flags = []
+    verified_scales = [
+        float(np.median([item["scale"] for item in references[name].values()])) for name in verified
+    ]
+    for name in unverified:
+        scale = float(np.median([item["scale"] for item in references[name].values()]))
+        departure = float(np.log10(scale) - np.median(np.log10(verified_scales))) if verified_scales else None
+        chain_flags.append({
+            "reference": name,
+            "medianScale": scale,
+            "departureFromVerifiedDex": departure,
+            "departureMag": -2.5 * departure if departure is not None else None,
+            "reading": (
+                "The absolute flux chain for this reference has not been checked against the "
+                "survey's own calibration documentation, and it lands "
+                f"{abs(departure or 0):.3f} dex from the verified references. Two verified chains "
+                "agreeing with each other and disagreeing with one unverified chain is a statement "
+                "about the unverified chain."
+            ),
+            "toResolve": (
+                "Compare aperture magnitudes against the survey's own published photometric "
+                "catalogue for the same sources. Until then this reference cannot carry a zeropoint."
+            ),
+        })
+
+    # Does the density trend track the reference's delivered PSF width? A broader
+    # reference PSF blends more neighbour flux into a fixed aperture, so it is the
+    # natural mechanism. Tested rather than assumed, because it was asserted once
+    # already on two points and did not survive the third.
+    widths = {name: describe(pair).get("medianReferenceFwhmArcsec") for name, pair in references.items()}
+    ordering = [
+        {"reference": name, "medianReferenceFwhmArcsec": widths[name],
+         "crowdingRho": crowding[name].get("rho"), "significant": crowding[name].get("significant")}
+        for name in sorted(references, key=lambda n: -(widths.get(n) or 0))
+    ]
+    tracks_width = None
+    usable_widths = [row for row in ordering if row["medianReferenceFwhmArcsec"] and row["crowdingRho"] is not None]
+    if len(usable_widths) >= 3:
+        by_width = [row["crowdingRho"] for row in usable_widths]
+        # Monotonic in the predicted direction: a broader reference PSF should
+        # give a more negative correlation.
+        tracks_width = all(a <= b for a, b in zip(by_width, by_width[1:]))
+
     payload = {
         "schemaVersion": "layers-reference-cross-check-v2",
         "generatedAt": utc_now(),
@@ -401,6 +504,21 @@ def main() -> None:
         "crowdingCorrelation": crowding,
         "crowdingCorrelationAllRegions": crowding_unfiltered,
         "qaFilterChangesAnswer": qa_filter_matters,
+        "unverifiedChainFlags": chain_flags,
+        "crowdingVersusReferencePsf": {
+            "ordering": ordering,
+            "monotonicInPredictedDirection": tracks_width,
+            "hypothesis": (
+                "A broader reference PSF blends more neighbour flux into a fixed aperture, so the "
+                "density trend should strengthen with reference FWHM."
+            ),
+            "reading": (
+                "Consistent with the PSF mechanism" if tracks_width
+                else "The trend does not order by reference PSF width, so blending in the reference "
+                     "PSF is not a sufficient explanation." if tracks_width is False
+                else "Too few references with both quantities to test."
+            ),
+        },
         "pairCombinations": {
             key: {k: v for k, v in value.items() if k != "regionIds"}
             for key, value in combinations.items()
