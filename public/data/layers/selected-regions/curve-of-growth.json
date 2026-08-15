@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "layers-curve-of-growth-v1",
+  "generatedAt": "2026-08-15T03:37:26.455453+00:00",
+  "question": "Is the Rubin flux deficit an aperture effect left by incomplete PSF matching, or a zeropoint difference? The two predict different shapes for scale against radius.",
+  "method": {
+    "radiiArcsec": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      4.0,
+      5.0
+    ],
+    "planes": "already reconciled, PSF-matched, sky-subtracted RUBIN and REFERENCE planes",
+    "isolation": "no detected neighbour within 3.0x the largest aperture, on either side; blending would push any ratio toward 1 and imitate the aperture signature",
+    "skySubtraction": "local median in a 6.0-9.0 arcsec annulus, per source and per side; a sky error grows as the aperture area and could manufacture a trend",
+    "significance": "bootstrap 95% interval on the per-field median gain"
+  },
+  "headline": "Both pairings agree: zeropoint-like: the ratio does not change with aperture",
+  "pairings": {
+    "rubin-vs-legacy": {
+      "fields": 130,
+      "sufficient": true,
+      "totalIsolatedSources": 1561,
+      "medianScaleByRadiusArcsec": {
+        "1.0": 0.9379478748836815,
+        "1.5": 0.9344137354982112,
+        "2.0": 0.936318459387302,
+        "2.5": 0.9381485445195723,
+        "3.0": 0.936062339333108,
+        "4.0": 0.9346547160965856,
+        "5.0": 0.9395551494493746
+      },
+      "anchorRadiusArcsec": 1.5,
+      "widestRadiusArcsec": 5.0,
+      "medianGainAnchorToWidest": 0.996326504480834,
+      "gainBootstrap95Interval": [
+        0.9661024763322441,
+        1.026532422430087
+      ],
+      "curveIsFlat": true,
+      "deficitFractionRecovered": -0.0523366393325563,
+      "verdict": "zeropoint-like: the ratio does not change with aperture"
+    },
+    "rubin-vs-des": {
+      "fields": 79,
+      "sufficient": true,
+      "totalIsolatedSources": 893,
+      "medianScaleByRadiusArcsec": {
+        "1.0": 0.9308723952517217,
+        "1.5": 0.9399624515400322,
+        "2.0": 0.9373444435940337,
+        "2.5": 0.945056143542301,
+        "3.0": 0.9477613847614744,
+        "4.0": 0.9505060786573073,
+        "5.0": 0.9524911457158665
+      },
+      "anchorRadiusArcsec": 1.5,
+      "widestRadiusArcsec": 5.0,
+      "medianGainAnchorToWidest": 1.0153479141995307,
+      "gainBootstrap95Interval": [
+        0.9967512373509887,
+        1.0261964606209366
+      ],
+      "curveIsFlat": true,
+      "deficitFractionRecovered": 0.24029067520364145,
+      "verdict": "zeropoint-like: the ratio does not change with aperture"
+    }
+  },
+  "caveats": [
+    "This measures the shape of the ratio against radius, not either survey's absolute calibration. A flat curve rules out an aperture explanation; it does not say which survey's zeropoint is right.",
+    "Sources are compact detections. The result does not transfer to extended emission.",
+    "The planes are PSF-matched already, so a radius-dependent ratio is a statement about what the PSF match left behind, not about the delivered PSFs themselves."
+  ]
+}

@@ -114,6 +114,30 @@ export default function DifferencesPage() {
     basis: string;
   }>;
 
+  // The curve of growth answers the one question the two-reference test could
+  // not: whether the deficit is aperture or calibration. It reads as a fourth
+  // attribution because that is what it is.
+  const curvePairings = Object.entries(summary.curveOfGrowth?.pairings ?? {}) as Array<
+    [string, { fields: number; sources: number; gain: number; interval: number[]; verdict: string }]
+  >;
+  if (curvePairings.length > 0) {
+    const [, first] = curvePairings[0];
+    attribution.push({
+      question: "Is the Rubin flux deficit an aperture effect or a zeropoint?",
+      verdict: first.verdict.startsWith("zeropoint")
+        ? "a zeropoint-like constant, not an aperture effect"
+        : first.verdict,
+      basis: `${curvePairings
+        .map(
+          ([name, value]) =>
+            `${name.replace("rubin-vs-", "")}: gain ${value.gain.toFixed(4)} [${value.interval[0].toFixed(
+              3,
+            )}, ${value.interval[1].toFixed(3)}] over ${value.fields} fields and ${value.sources} isolated sources`,
+        )
+        .join("; ")}. The ratio is measured at seven radii from 1.0″ to 5.0″ on the PSF-matched planes. An aperture effect would climb toward 1 as the aperture grows; a constant calibration factor would not care. Only sources with no detected neighbour within three times the largest aperture are used, because blending would imitate the climb.`,
+    });
+  }
+
   return (
     <main id="top">
       <header className="layers-header">

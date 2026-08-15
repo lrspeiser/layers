@@ -383,10 +383,9 @@ measures the correlation with and without the filter: unfiltered it is −0.406
 (n 189) and −0.247 (n 142), the same sign and significance in both pairings.
 
 Two of the three attributions therefore stand, and both point the same way: the
-1.5 arcsec aperture is implicated on the Rubin side. PSF-matched aperture
-photometry or model fitting is not one option among several, it is the specific
-next step — the same conclusion as before, now resting on the two findings that
-held rather than the one that did not.
+deficit and its variation sit on the Rubin side of the comparison. What neither
+can say is whether that means the aperture or the calibration — which §11
+measures directly.
 
 ### A bug this found, which the empirical scale caught
 
@@ -400,3 +399,60 @@ The independent compact-source ratio is what caught it: an offset of almost
 exactly 9 magnitudes is not a physical difference between two optical surveys.
 After the fix, matched regions went from 14 to 140 of 143 and background-matched
 from 16 to 142. The builder now respects a manifest that identifies itself.
+
+## 11. Aperture or zeropoint? The curve of growth says zeropoint
+
+§10 established that the ~7% Rubin flux deficit sits on the Rubin side of the
+comparison but could not separate the two explanations that matter. They predict
+different shapes, which makes the question decidable:
+
+- **an aperture effect** — Rubin light outside the small aperture, left there by
+  a PSF match that did not reach the wings. The measured ratio must then climb
+  toward 1 as the aperture grows.
+- **a zeropoint difference** — a constant calibration factor. The ratio must then
+  be flat, because a constant does not care how much of the source is enclosed.
+
+`pipeline/measure_curve_of_growth.py` measures the ratio at seven radii from 1.0
+to 5.0 arcsec on the already reconciled, PSF-matched, sky-subtracted planes,
+independently in both pairings.
+
+| radius | 1.0″ | 1.5″ | 2.0″ | 2.5″ | 3.0″ | 4.0″ | 5.0″ |
+|---|---|---|---|---|---|---|---|
+| vs Legacy (130 fields, 1561 sources) | 0.9379 | 0.9344 | 0.9363 | 0.9381 | 0.9361 | 0.9347 | 0.9396 |
+| vs DES (79 fields, 893 sources) | 0.9309 | 0.9400 | 0.9373 | 0.9451 | 0.9478 | 0.9505 | 0.9525 |
+
+**The curve is flat, so the deficit is not an aperture effect.** Against Legacy
+the per-field median gain from 1.5″ to 5.0″ is 0.9963, bootstrap 95% interval
+[0.9661, 1.0265] — a 3.3× larger aperture recovers none of the 6.5% deficit. The
+DES pairing rises slightly, gain 1.0153 [0.9968, 1.0262], recovering about a
+quarter of its deficit, with an interval that only just includes 1. So Legacy is
+flat outright and DES is at most weakly rising, and neither is the near-total
+recovery the aperture hypothesis requires.
+
+Two confounds could each have manufactured a rising curve on their own, so
+neither is left to chance. **Blending**: a larger aperture swallows neighbours,
+whose flux enters both sides and drags any ratio toward 1 — only sources with no
+detected neighbour within 3× the largest aperture are used, which is what cuts
+the usable sample to 1561 and 893 sources. **Sky**: a background error is
+constant per pixel and therefore grows as the aperture *area*, so the local sky
+is re-measured in a 6–9″ annulus per source and per side. Pixelisation of the
+hard-edged aperture largely cancels, because both planes are on the same grid and
+share the same aperture mask.
+
+The scale here, ~0.936, is slightly above the reconciliation's 0.920 because this
+measurement subtracts a local sky per source and admits only isolated sources.
+The two are consistent, and the shape result does not depend on either value.
+
+**What this closes and what it opens.** It closes the PSF-wing explanation: more
+PSF-matching work would not move this number, so that is no longer the next step.
+It opens a narrower question — a ~0.07 mag constant between Rubin and two
+independently calibrated references, in the same named band, which is a
+throughput or zeropoint question and needs the filter curves and the surveys'
+own calibration papers rather than more pixels. It also does not conflict with
+the density correlation in §10: a constant offset with radius and a scale that
+varies with field density can both be true, and a detection or deblending
+difference would produce exactly that pair.
+
+**This is not a claim that Rubin's calibration is wrong.** It is a measured,
+shape-resolved statement about the difference between three surveys' fluxes on
+matched compact sources, with no external standard involved.

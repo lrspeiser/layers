@@ -61,6 +61,7 @@ def main() -> None:
     des = load(regions_dir / "des-dr2.json")
     desRecon = load(regions_dir / "rubin-des-reconciliation.json")
     crossCheck = load(regions_dir / "reference-cross-check.json")
+    curve = load(regions_dir / "curve-of-growth.json")
 
     # Injection/recovery and the covariance measurement are a separate stage from
     # reconciliation, so a region that cleared them is only visible if both are
@@ -112,6 +113,21 @@ def main() -> None:
             **((crossCheck or {}).get("counts") or {}),
             "pairs": (crossCheck or {}).get("pairs"),
             "findings": (crossCheck or {}).get("findings"),
+        },
+        "curveOfGrowth": {
+            "headline": (curve or {}).get("headline"),
+            "pairings": {
+                name: {
+                    "fields": value.get("fields"),
+                    "sources": value.get("totalIsolatedSources"),
+                    "curve": value.get("medianScaleByRadiusArcsec"),
+                    "gain": value.get("medianGainAnchorToWidest"),
+                    "interval": value.get("gainBootstrap95Interval"),
+                    "verdict": value.get("verdict"),
+                }
+                for name, value in ((curve or {}).get("pairings") or {}).items()
+                if value.get("sufficient")
+            },
         },
         "register": {
             **((register or {}).get("counts") or {}),
