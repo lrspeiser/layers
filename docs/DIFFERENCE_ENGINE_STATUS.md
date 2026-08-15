@@ -336,7 +336,7 @@ different PSFs.
 
 ---
 
-## 10. The three-way optical test: what belongs to Rubin and what belongs to Legacy
+## 10. The three-way optical test: what belongs to Rubin
 
 Every optical comparison in this project had been Rubin against Legacy alone,
 which cannot attribute a field-dependent effect to either side. DES DR2 supplies
@@ -344,36 +344,49 @@ a second independent reference: 148 science-ready regions from the public NOIRLa
 cutout service, 143 reconciled against Rubin, 108 sharing a region with the
 Legacy measurement.
 
+This test now lives in `pipeline/compare_reference_operators.py` rather than in a
+one-off calculation, which matters, because running it as an operator over the
+full region set **changed one of its three answers**. The numbers below are the
+operator's; significance is a two-sided permutation test with 20,000 shuffles.
+
 | | Rubin vs Legacy | Rubin vs DES |
 |---|---|---|
-| regions | 148 | 108 |
-| compact-source flux scale | 0.9167 (+0.094 mag) | 0.9142 (+0.097 mag) |
-| field-to-field spread | 0.036 | 0.032 |
-| **correlation with source count** | **−0.357** | **−0.083** |
+| regions with an empirical scale, QA-passed | 91 | 140 |
+| compact-source flux scale | 0.9199 (+0.0907 mag) | 0.9201 (+0.0904 mag) |
+| **correlation with matched-source count** | **−0.334** (p 0.0009) | **−0.269** (p 0.0010) |
 
-Three things follow, and they separate cleanly.
+**The zeropoint offset belongs to Rubin or to the aperture, not to the
+reference.** Paired over the 71 regions measured against both, the median
+log-scale difference between the two pairings is −0.0016 dex, bootstrap 95%
+interval [−0.0046, +0.0005] — consistent with zero. Two independently calibrated
+surveys, reduced by different pipelines, agree that Rubin is about 9% fainter in
+a fixed 1.5 arcsec aperture. A reference calibration error cannot produce the
+same offset twice.
 
-**The zeropoint offset belongs to Rubin or to the aperture, not to Legacy.** Two
-independent surveys agree that Rubin is about 9% fainter in a fixed 1.5 arcsec
-aperture (0.094 and 0.097 mag). A Legacy calibration error cannot produce the
-same offset against DES.
+**Most of the field-to-field variation belongs to Rubin.** Across those 71
+regions the two scales correlate **+0.884** (p < 0.0001). A variation driven by
+the reference would not reproduce itself against a different reference; one
+driven by Rubin, or by the aperture method applied to Rubin, would.
 
-**The crowding dependence belongs to Legacy.** The correlation between flux scale
-and source count is −0.357 against Legacy and −0.083 against DES, a factor of
-four weaker. The measured PSFs explain it: Legacy 2.25 arcsec, DES 1.49 arcsec,
-so Legacy is 1.5× broader and blends 1.5× more neighbour flux into the same
-aperture in a dense field. The crowding term was a property of the reference all
-along.
+**The crowding dependence is not Legacy's. That earlier attribution is
+withdrawn.** The first pass measured −0.357 against Legacy and −0.083 against
+DES and concluded the term was a property of the reference, explained by Legacy's
+broader PSF. Over the full 140-region DES set the DES pairing shows the same
+trend, −0.269 at p 0.0010, against Legacy's −0.334 at p 0.0009. The effect is
+present in both pairings, so what it shares is Rubin and the aperture, not
+Legacy. The PSF-width story was a plausible mechanism attached to a number that
+did not survive the larger sample.
 
-**Most of the remaining field variation belongs to Rubin.** Across the 108 shared
-regions the two scales correlate at **+0.759**. A variation driven by the
-reference would not reproduce itself against a different reference; one driven by
-Rubin, or by the aperture method applied to Rubin, would.
+The result is not an artefact of the QA cut. Reconciliation QA drops 99 of 190
+Legacy regions, and a crowded field is likelier to fail it, so the operator
+measures the correlation with and without the filter: unfiltered it is −0.406
+(n 189) and −0.247 (n 142), the same sign and significance in both pairings.
 
-This is the strongest attribution the project has made. It also narrows the
-bandpass work: the aperture is implicated on both sides, so PSF-matched aperture
+Two of the three attributions therefore stand, and both point the same way: the
+1.5 arcsec aperture is implicated on the Rubin side. PSF-matched aperture
 photometry or model fitting is not one option among several, it is the specific
-next step.
+next step — the same conclusion as before, now resting on the two findings that
+held rather than the one that did not.
 
 ### A bug this found, which the empirical scale caught
 

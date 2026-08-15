@@ -96,14 +96,20 @@ def spearman(x: np.ndarray, y: np.ndarray, rng: np.random.Generator) -> dict[str
     }
 
 
-def load_pair(path: Path, label: str) -> dict[str, dict[str, float]]:
-    """Per-region empirical scale and matched-source count for one survey pair."""
+def load_pair(path: Path, matched_only: bool = True) -> dict[str, dict[str, float]]:
+    """Per-region empirical scale and matched-source count for one survey pair.
+
+    ``matched_only`` keeps regions that passed reconciliation QA. That is the
+    defensible default, but it drops 99 of 190 Legacy regions, and QA failure is
+    not independent of field density: a crowded field is likelier to fail. So the
+    caller measures the correlation both ways rather than trusting either alone.
+    """
     if not path.is_file():
         return {}
     payload = json.loads(path.read_text(encoding="utf-8"))
     out: dict[str, dict[str, float]] = {}
     for region in payload.get("regions", []):
-        if region.get("status") != "matched":
+        if matched_only and region.get("status") != "matched":
             continue
         empirical = (region.get("units") or {}).get("empiricalPointSourceScale") or {}
         scale = empirical.get("scale")
@@ -143,22 +149,31 @@ def main() -> None:
     args = parser.parse_args()
 
     rng = np.random.default_rng(RANDOM_SEED)
-    legacy = load_pair(args.legacy, "legacy")
-    des = load_pair(args.des, "des")
+    legacy = load_pair(args.legacy)
+    des = load_pair(args.des)
     shared = sorted(set(legacy) & set(des))
 
-    crowding = {
-        "legacy": spearman(
-            np.array([legacy[k]["sources"] for k in legacy]),
-            np.array([legacy[k]["scale"] for k in legacy]),
+    def density(pair: dict[str, dict[str, float]]) -> dict[str, Any]:
+        return spearman(
+            np.array([item["sources"] for item in pair.values()]),
+            np.array([item["scale"] for item in pair.values()]),
             rng,
-        ),
-        "des": spearman(
-            np.array([des[k]["sources"] for k in des]),
-            np.array([des[k]["scale"] for k in des]),
-            rng,
-        ),
-    }
+        )
+
+    crowding = {"legacy": density(legacy), "des": density(des)}
+    # Same correlation without the QA filter. If the two disagree, the QA cut is
+    # doing the work rather than the sky, and the finding says so.
+    all_legacy = load_pair(args.legacy, matched_only=False)
+    all_des = load_pair(args.des, matched_only=False)
+    crowding_unfiltered = {"legacy": density(all_legacy), "des": density(all_des)}
+
+    def same_answer(key: str) -> bool:
+        a, b = crowding[key], crowding_unfiltered[key]
+        if a.get("rho") is None or b.get("rho") is None:
+            return False
+        return bool(a["significant"]) == bool(b["significant"]) and (a["rho"] * b["rho"] > 0)
+
+    qa_filter_matters = not (same_answer("legacy") and same_answer("des"))
 
     if len(shared) >= 3:
         shared_scales = spearman(
@@ -246,6 +261,18 @@ def main() -> None:
                 "relatively less flux in the aperture where sources are denser, which is the sign "
                 "expected if neighbouring flux is being handled differently by the two sides."
             ),
+            "qaFilterSensitivity": {
+                "matchedOnly": {k: {"rho": v.get("rho"), "n": v.get("n"), "pValue": v.get("pValue")}
+                                for k, v in crowding.items()},
+                "allRegions": {k: {"rho": v.get("rho"), "n": v.get("n"), "pValue": v.get("pValue")}
+                               for k, v in crowding_unfiltered.items()},
+                "answerDependsOnQaFilter": qa_filter_matters,
+                "note": (
+                    "Reconciliation QA drops 99 of 190 Legacy regions, and a crowded field is "
+                    "likelier to fail it. The correlation is therefore measured with and without "
+                    "the filter; only a result that survives both is reported as attribution."
+                ),
+            },
             "supersedes": (
                 "An earlier subset of DES regions showed no density trend, which supported "
                 "attributing it to Legacy's broader PSF. Over the full set the DES pairing shows "
@@ -291,6 +318,8 @@ def main() -> None:
             "sharedSampleSufficient": enough,
         },
         "crowdingCorrelation": crowding,
+        "crowdingCorrelationAllRegions": crowding_unfiltered,
+        "qaFilterChangesAnswer": qa_filter_matters,
         "sharedScaleCorrelation": shared_scales,
         "referenceAgreement": {
             "medianLogScaleDifferenceDex": median_difference,
