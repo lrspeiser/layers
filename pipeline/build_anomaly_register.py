@@ -217,6 +217,36 @@ def main() -> None:
                 entry["confirmedBy"].append({"operator": other["operator"], "separationArcsec": round(gap, 2)})
                 other["confirmedBy"].append({"operator": entry["operator"], "separationArcsec": round(gap, 2)})
 
+    # How many comparisons each operator actually evaluated. A register that
+    # reports only survivors hides its own selectivity: 34 candidates means
+    # something very different out of 30 than out of 30,000, and the second is
+    # the case here. Read as a denominator, not as a score.
+    evaluated: dict[str, int] = {}
+    if pixels:
+        evaluated["pixel-residual"] = int((pixels.get("counts") or {}).get("totalCandidates", 0))
+        evaluated["pixel-residual-regions"] = int((pixels.get("counts") or {}).get("regionsScanned", 0))
+    if xray:
+        counts = xray.get("counts") or {}
+        evaluated["xray-counterpart"] = int(counts.get("regionsQueried", 0))
+    if radio:
+        counts = radio.get("counts") or {}
+        evaluated["radio-counterpart"] = int(counts.get("fieldsSearched", 0))
+    if ztf:
+        counts = ztf.get("counts") or {}
+        evaluated["variability"] = int(counts.get("objects", 0))
+    if sed:
+        counts = sed.get("counts") or {}
+        evaluated["sed-departure"] = int(counts.get("sedSources", 0))
+    gaia = load(LAYERS / "gaia-crossmatch/comparison.json")
+    if gaia:
+        evaluated["gaia-crossmatch-regions"] = int((gaia.get("counts") or {}).get("measured", 0))
+    lensing = load(LAYERS / "lensing-light/correlation.json")
+    if lensing:
+        evaluated["lensing-light-pairs"] = int((lensing.get("counts") or {}).get("pairs", 0))
+    gas = load(LAYERS / "hi-gas/comparison.json")
+    if gas:
+        evaluated["gas-detections"] = int((gas.get("counts") or {}).get("usable", 0))
+
     multi = [entry for entry in entries if entry["confirmedBy"]]
     by_operator: dict[str, list[dict[str, Any]]] = {}
     for entry in entries:
@@ -230,6 +260,16 @@ def main() -> None:
         "regionSet": args.set,
         "operatorsIncluded": sources_seen,
         "operatorsMissing": missing,
+        "comparisonsEvaluated": {
+            **evaluated,
+            "total": sum(value for key, value in evaluated.items() if not key.endswith("-regions")),
+            "note": (
+                "The denominator behind the candidate list. Each entry counts what its operator "
+                "actually measured: pixel residuals tested, regions queried, objects with light "
+                "curves, sources with an SED. They are different units and are not summed into a "
+                "single meaningful quantity beyond scale."
+            ),
+        },
         "counts": {
             "candidates": len(entries),
             "byOperator": {name: len(rows) for name, rows in by_operator.items()},
@@ -260,6 +300,7 @@ def main() -> None:
     args.public_manifest.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 
     print(f"register: {len(entries)} candidates from {len(sources_seen)} operators")
+    print("evaluated:", ", ".join(f"{k}={v}" for k, v in sorted(evaluated.items())))
     for name, rows in sorted(by_operator.items()):
         print(f"  {name:20s} {len(rows)}")
     if missing:

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-anomaly-register-v1",
-  "generatedAt": "2026-08-15T03:12:57.488325+00:00",
+  "generatedAt": "2026-08-15T03:23:38.071100+00:00",
   "regionSet": "200",
   "operatorsIncluded": [
     "pixel-residual",
@@ -10,6 +10,19 @@
     "sed-departure"
   ],
   "operatorsMissing": [],
+  "comparisonsEvaluated": {
+    "pixel-residual": 1147,
+    "pixel-residual-regions": 146,
+    "xray-counterpart": 193,
+    "radio-counterpart": 191,
+    "variability": 8700,
+    "sed-departure": 1394,
+    "gaia-crossmatch-regions": 147,
+    "lensing-light-pairs": 466,
+    "gas-detections": 622,
+    "total": 12713,
+    "note": "The denominator behind the candidate list. Each entry counts what its operator actually measured: pixel residuals tested, regions queried, objects with light curves, sources with an SED. They are different units and are not summed into a single meaningful quantity beyond scale."
+  },
   "counts": {
     "candidates": 34,
     "byOperator": {
