@@ -119,10 +119,17 @@ def main() -> None:
             (gaia.get("counts") or {}).get("measured"), "regions measured",
             "gaia-crossmatch/comparison.json",
             "147 of 200 measured. Of the 53 skipped: 44 have no epoch with 10+ matched stars, "
-            "7 have no science-ready Rubin mosaic, 2 have too few Rubin detections. The match "
-            "radius is 1.5 arcsec, five times the reconciler's residual, so matching is not the "
-            "constraint; stellar density is. Astrometry reached 0.085 arcsec p95 at the fitted "
-            "epoch, better than the 0.086-0.220 arcsec the goal quoted from the pilots.",
+            "7 have no science-ready Rubin mosaic, 2 have too few Rubin detections. An "
+            "independent ceiling was attempted and is not derivable. Every one of the 200 fields "
+            "holds at least 10 Gaia sources, so Gaia density does not bound it; the skipped "
+            "fields are sparser (median 20 sources against 31 for the measured ones) but none "
+            "falls below the floor. The match radius is 1.5 arcsec, five times the reconciler's "
+            "residual, so matching is not the constraint either. What binds is the overlap "
+            "between Gaia stars and Rubin detections, and that is the measurement itself -- "
+            "bounding it independently would need a stellar-detection model this project has no "
+            "way to validate, so the ceiling is labelled self-derived rather than dressed up as "
+            "independent. Astrometry reached 0.085 arcsec p95 at the fitted epoch, better than "
+            "the 0.086-0.220 arcsec the goal quoted from the pilots.",
             ceiling_basis="the delivered value itself",
         ),
         score(
