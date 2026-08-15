@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-highres-verdicts-v1",
-  "generatedAt": "2026-08-15T01:34:25.926320+00:00",
+  "generatedAt": "2026-08-15T03:21:46.396362+00:00",
   "archive": "Hubble Legacy Archive combined images via SIAP",
   "detectionSigma": 5.0,
   "rubinPsfArcsec": 2.0,
@@ -12,7 +12,7 @@
     "inconclusive": 0,
     "unresolved": 0,
     "notCovered": 1,
-    "notVerifiable": 8
+    "notVerifiable": 31
   },
   "interpretation": "A verdict of survives means one independent check at higher resolution did not kill the candidate, not that it is real. Inconclusive means imaging exists but not in a band that settles the question, which is a different and honest outcome from either.",
   "verdicts": [
@@ -83,18 +83,162 @@
   ],
   "notVerifiable": [
     {
-      "operator": "sed-departure",
+      "operator": "radio-counterpart",
       "position": {
-        "raDeg": 54.631489,
-        "decDeg": -30.528379
+        "raDeg": 49.738575886401726,
+        "decDeg": -27.512401731725472
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 209.73934738613036,
+        "decDeg": -3.697695813315665
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 349.6068048742697,
+        "decDeg": 2.2264461393055175
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 19.268482762237273,
+        "decDeg": -0.7278798070527206
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 211.1888805697968,
+        "decDeg": -3.7768421115735356
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 240.0090561783962,
+        "decDeg": -9.665931783185206
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 209.73818231525465,
+        "decDeg": -3.6941943829656227
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 19.729358416846868,
+        "decDeg": 12.670775297417343
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 8.873041121719854,
+        "decDeg": -0.7128712278434594
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 240.00945310933096,
+        "decDeg": -9.662946994258538
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 19.73038340928456,
+        "decDeg": 12.674273165607602
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 349.5946295869371,
+        "decDeg": 2.2289509327121606
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 2.994278522358389,
+        "decDeg": -0.7190336157069778
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 147.28133074865056,
+        "decDeg": 3.7227614417741526
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 148.77708381282045,
+        "decDeg": 2.2367566190533754
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 346.6036772344131,
+        "decDeg": 2.216784400890249
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 28.260606500795582,
+        "decDeg": 3.7234235000153824
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 358.50483015661086,
+        "decDeg": -0.7715529558244081
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "position": {
+        "raDeg": 23.702347524357847,
+        "decDeg": -0.7737101113772163
       },
       "reason": "no HST or JWST observation covers this position, so this check cannot be run"
     },
     {
       "operator": "sed-departure",
       "position": {
-        "raDeg": 235.100306,
-        "decDeg": -26.06583
+        "raDeg": 54.631489,
+        "decDeg": -30.528379
       },
       "reason": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -109,8 +253,16 @@
     {
       "operator": "sed-departure",
       "position": {
-        "raDeg": 5.801487,
-        "decDeg": -40.928715
+        "raDeg": 23.669945,
+        "decDeg": 0.715906
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 10.36346,
+        "decDeg": -0.711804
       },
       "reason": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -119,6 +271,14 @@
       "position": {
         "raDeg": 209.718789,
         "decDeg": -3.702071
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 5.801487,
+        "decDeg": -40.928715
       },
       "reason": "no HST or JWST observation covers this position, so this check cannot be run"
     },
@@ -135,6 +295,30 @@
       "position": {
         "raDeg": 25.458911,
         "decDeg": 21.427866
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 23.725181,
+        "decDeg": 0.76734
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 355.570841,
+        "decDeg": -2.211738
+      },
+      "reason": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "position": {
+        "raDeg": 55.47559,
+        "decDeg": -29.01576
       },
       "reason": "no HST or JWST observation covers this position, so this check cannot be run"
     },

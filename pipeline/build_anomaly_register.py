@@ -125,6 +125,32 @@ def main() -> None:
     else:
         missing.append("xray-counterpart")
 
+    radio = load(LAYERS / "radio-counterparts/comparison.json")
+    if radio:
+        sources_seen.append("radio-counterpart")
+        for item in radio.get("sources", []):
+            if item.get("opticalCounterpart"):
+                continue
+            entries.append({
+                "operator": "radio-counterpart",
+                "what": "VLASS radio source with no optical counterpart",
+                "regionId": item.get("regionId"),
+                "tract": item.get("tract"),
+                "position": {"raDeg": item["position"]["raDeg"], "decDeg": item["position"]["decDeg"]},
+                "significance": item["radio"]["significance"],
+                "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+                "detail": f"{item['radio']['peakJyPerBeam']:.4f} Jy/beam at "
+                          f"{item['radio']['significance']:.1f} sigma, no optical flux above "
+                          f"{item.get('opticalThresholdNjy', 0):.0f} nJy (limit {item.get('limitingMagAB')} AB)",
+                "falsifiedBy": [
+                    "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+                    "measure the chance-coincidence rate for this field",
+                    "go deeper in the optical",
+                ],
+            })
+    else:
+        missing.append("radio-counterpart")
+
     ztf = load(LAYERS / "ztf-variability/comparison.json")
     if ztf:
         sources_seen.append("variability")

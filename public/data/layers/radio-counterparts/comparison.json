@@ -1,0 +1,781 @@
+{
+  "schemaVersion": "layers-radio-counterparts-v1",
+  "generatedAt": "2026-08-15T03:12:43.656955+00:00",
+  "comparisonKind": "counterpart association",
+  "gatedByBandpassTransfer": false,
+  "sourceOfPositions": "Detected in the VLASS cutout pixels. The CIRADA component catalogue that would supply vetted positions is unreachable, so these detections have not survived anyone else's vetting and the thresholds are correspondingly conservative.",
+  "method": {
+    "radioDetectionSigma": 7.0,
+    "beamArcsec": 2.5,
+    "minimumAreaPixels": 2,
+    "opticalApertureArcsec": 2.0,
+    "opticalDetectionSigma": 5.0,
+    "opticalNoise": "blank-aperture scatter in the same Rubin image, not the variance planes",
+    "maxDetectionsPerField": 25
+  },
+  "counts": {
+    "fieldsSearched": 191,
+    "fieldsSkipped": 1,
+    "fieldsNoiseDominated": 0,
+    "radioSourcesInsideRubinPixels": 39,
+    "withOpticalCounterpart": 18,
+    "withoutOpticalCounterpart": 21
+  },
+  "limitingMagnitude": {
+    "median": 23.417310449366312
+  },
+  "caveats": [
+    "Radio and optical trace different emission, so this is association, not a photometric difference.",
+    "VLASS quick-look flux is uncertain at the few-percent level and primary-beam correction is not uniform across epochs, so the radio flux is indicative.",
+    "Positions are detections rather than catalogue entries, so a spurious radio peak looks exactly like an optically dark source. Chance coincidence is not yet quantified."
+  ],
+  "skipped": [
+    {
+      "regionId": "dp2-tract-9939",
+      "reason": "could not measure optical blank-aperture noise"
+    }
+  ],
+  "sources": [
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "position": {
+        "raDeg": 19.729358416846868,
+        "decDeg": 12.670775297417343
+      },
+      "radio": {
+        "peakJyPerBeam": 0.004328702110797167,
+        "significance": 35.9224467016801,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00012050131625902621
+      },
+      "opticalFluxNjy": 1410.887272537686,
+      "opticalThresholdNjy": 2676.5687834563805,
+      "opticalSignificance": 2.6356267794391224,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.83105397869125
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "position": {
+        "raDeg": 19.72986951623573,
+        "decDeg": 12.672279938378226
+      },
+      "radio": {
+        "peakJyPerBeam": 0.002406102605164051,
+        "significance": 19.96743836384294,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00012050131625902621
+      },
+      "opticalFluxNjy": 55026.44466924667,
+      "opticalThresholdNjy": 2676.5687834563805,
+      "opticalSignificance": 102.79288357795986,
+      "opticalCounterpart": true,
+      "limitingMagAB": 22.83105397869125
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "position": {
+        "raDeg": 19.73038340928456,
+        "decDeg": 12.674273165607602
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0021228643599897623,
+        "significance": 17.616939182859326,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00012050131625902621
+      },
+      "opticalFluxNjy": 1612.2459810823202,
+      "opticalThresholdNjy": 2676.5687834563805,
+      "opticalSignificance": 3.0117775994539366,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.83105397869125
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "position": {
+        "raDeg": 49.738575886401726,
+        "decDeg": -27.512401731725472
+      },
+      "radio": {
+        "peakJyPerBeam": 0.012998825870454311,
+        "significance": 78.22938636145958,
+        "areaPixels": 10,
+        "imageNoiseJyPerBeam": 0.00016616295327171712
+      },
+      "opticalFluxNjy": 288.3132708519697,
+      "opticalThresholdNjy": 1445.9842568599793,
+      "opticalSignificance": 0.9969447090594717,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.499591088481804
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "position": {
+        "raDeg": 54.766198731954944,
+        "decDeg": -27.550048582494743
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0024964483454823494,
+        "significance": 20.900966434977818,
+        "areaPixels": 16,
+        "imageNoiseJyPerBeam": 0.0001194417661618047
+      },
+      "opticalFluxNjy": 41681.40760231018,
+      "opticalThresholdNjy": 1049.1245950607968,
+      "opticalSignificance": 198.64851037971684,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.8479323287672
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "position": {
+        "raDeg": 303.61307045460535,
+        "decDeg": -27.498657710213564
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0010922466171905398,
+        "significance": 7.396168281791448,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014767736151698044
+      },
+      "opticalFluxNjy": 5933.92505872855,
+      "opticalThresholdNjy": 2441.4028400805737,
+      "opticalSignificance": 12.152695493982288,
+      "opticalCounterpart": true,
+      "limitingMagAB": 22.930901386371204
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "position": {
+        "raDeg": 303.6124852887128,
+        "decDeg": -27.49671803816494
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0010592526523396373,
+        "significance": 7.172749035185334,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014767736151698044
+      },
+      "opticalFluxNjy": 96712.60643005371,
+      "opticalThresholdNjy": 2441.4028400805737,
+      "opticalSignificance": 198.06769461049265,
+      "opticalCounterpart": true,
+      "limitingMagAB": 22.930901386371204
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "position": {
+        "raDeg": 240.0090561783962,
+        "decDeg": -9.665931783185206
+      },
+      "radio": {
+        "peakJyPerBeam": 0.010514688678085804,
+        "significance": 38.64415274178013,
+        "areaPixels": 20,
+        "imageNoiseJyPerBeam": 0.000272090029980599
+      },
+      "opticalFluxNjy": 37.221316039562225,
+      "opticalThresholdNjy": 3095.105993675348,
+      "opticalSignificance": 0.06012930755137564,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.673311184315246
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "position": {
+        "raDeg": 240.00945310933096,
+        "decDeg": -9.662946994258538
+      },
+      "radio": {
+        "peakJyPerBeam": 0.005311964545398951,
+        "significance": 19.522819508593212,
+        "areaPixels": 17,
+        "imageNoiseJyPerBeam": 0.000272090029980599
+      },
+      "opticalFluxNjy": 53.63204227387905,
+      "opticalThresholdNjy": 3095.105993675348,
+      "opticalSignificance": 0.08664007368967769,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.673311184315246
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "position": {
+        "raDeg": 209.73934738613036,
+        "decDeg": -3.697695813315665
+      },
+      "radio": {
+        "peakJyPerBeam": 0.018903911113739014,
+        "significance": 77.52984659628315,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00024382753150765663
+      },
+      "opticalFluxNjy": 48.69243790546898,
+      "opticalThresholdNjy": 1007.2996239100007,
+      "opticalSignificance": 0.24169788586071936,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.892103320497906
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "position": {
+        "raDeg": 209.73818231525465,
+        "decDeg": -3.6941943829656227
+      },
+      "radio": {
+        "peakJyPerBeam": 0.009405315853655338,
+        "significance": 38.57364176842349,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00024382753150765663
+      },
+      "opticalFluxNjy": 366.5955614335835,
+      "opticalThresholdNjy": 1007.2996239100007,
+      "opticalSignificance": 1.819694720080317,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.892103320497906
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "position": {
+        "raDeg": 211.1888805697968,
+        "decDeg": -3.7768421115735356
+      },
+      "radio": {
+        "peakJyPerBeam": 0.006207591388374567,
+        "significance": 39.14775166129806,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015856827339873688
+      },
+      "opticalFluxNjy": 718.2979226483149,
+      "opticalThresholdNjy": 838.8314537393055,
+      "opticalSignificance": 4.281539035322998,
+      "opticalCounterpart": false,
+      "limitingMagAB": 24.090813232803914
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "tract": 9221,
+      "position": {
+        "raDeg": 352.53638708206745,
+        "decDeg": -2.2588843842319264
+      },
+      "radio": {
+        "peakJyPerBeam": 0.001135986647568643,
+        "significance": 7.104364856142872,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015989981800926216
+      },
+      "opticalFluxNjy": 2014.4625758721959,
+      "opticalThresholdNjy": 1455.5885598302282,
+      "opticalSignificance": 6.919752708509717,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.492403416003103
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "tract": 9222,
+      "position": {
+        "raDeg": 354.0722607255711,
+        "decDeg": -2.219980213814628
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0017067616572603583,
+        "significance": 10.425686352833853,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00016370736654632196
+      },
+      "opticalFluxNjy": 27758.0968542099,
+      "opticalThresholdNjy": 1136.431492213438,
+      "opticalSignificance": 122.1283334912921,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.76114184958423
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "position": {
+        "raDeg": 2.994278522358389,
+        "decDeg": -0.7190336157069778
+      },
+      "radio": {
+        "peakJyPerBeam": 0.001922809169627726,
+        "significance": 14.165107258912894,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.0001357426480775757
+      },
+      "opticalFluxNjy": -397.533099938184,
+      "opticalThresholdNjy": 1601.902112432381,
+      "opticalSignificance": -1.2408158302961365,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.388410064776046
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "position": {
+        "raDeg": 8.873041121719854,
+        "decDeg": -0.7128712278434594
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0031158151105046272,
+        "significance": 22.778246650536477,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00013678906714407901
+      },
+      "opticalFluxNjy": 199.48624505847692,
+      "opticalThresholdNjy": 1428.72243167704,
+      "opticalSignificance": 0.6981280640506189,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.512630341423197
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "position": {
+        "raDeg": 19.268482762237273,
+        "decDeg": -0.7278798070527206
+      },
+      "radio": {
+        "peakJyPerBeam": 0.007165409158915281,
+        "significance": 51.034866731284936,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.0001404022312166205
+      },
+      "opticalFluxNjy": 645.658490953967,
+      "opticalThresholdNjy": 3916.351242220354,
+      "opticalSignificance": 0.824311267071023,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.417795912372767
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "position": {
+        "raDeg": 23.701016738269352,
+        "decDeg": -0.7738838446639494
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0029711259994655848,
+        "significance": 18.94245596699986,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015685009402379818
+      },
+      "opticalFluxNjy": 4422.431455142796,
+      "opticalThresholdNjy": 1939.5130776701644,
+      "opticalSignificance": 11.400880731506156,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.180768219276754
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "position": {
+        "raDeg": 23.70017878541315,
+        "decDeg": -0.774542172663974
+      },
+      "radio": {
+        "peakJyPerBeam": 0.002770031802356243,
+        "significance": 17.660377059996907,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015685009402379818
+      },
+      "opticalFluxNjy": 4437.388398543,
+      "opticalThresholdNjy": 1939.5130776701644,
+      "opticalSignificance": 11.439439232535113,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.180768219276754
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "position": {
+        "raDeg": 23.702347524357847,
+        "decDeg": -0.7737101113772163
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0011694419663399458,
+        "significance": 7.455793849651831,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015685009402379818
+      },
+      "opticalFluxNjy": 502.035549800843,
+      "opticalThresholdNjy": 1939.5130776701644,
+      "opticalSignificance": 1.2942308963544398,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.180768219276754
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "position": {
+        "raDeg": 346.6631748391075,
+        "decDeg": -0.7703847012975167
+      },
+      "radio": {
+        "peakJyPerBeam": 0.003872155910357833,
+        "significance": 23.61448652184613,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00016397375004430613
+      },
+      "opticalFluxNjy": 18910.76723051071,
+      "opticalThresholdNjy": 1059.04971329385,
+      "opticalSignificance": 89.28177305149615,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.837709132539175
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "position": {
+        "raDeg": 358.5051744515293,
+        "decDeg": -0.7727165714530481
+      },
+      "radio": {
+        "peakJyPerBeam": 0.002660436322912574,
+        "significance": 16.624985558495226,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00016002638399605188
+      },
+      "opticalFluxNjy": 2166.1681777597405,
+      "opticalThresholdNjy": 1030.5288447704545,
+      "opticalSignificance": 10.509983241867646,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.867349619247477
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "position": {
+        "raDeg": 358.50483015661086,
+        "decDeg": -0.7715529558244081
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0012543488992378116,
+        "significance": 7.838388070236959,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00016002638399605188
+      },
+      "opticalFluxNjy": 167.6752886660397,
+      "opticalThresholdNjy": 1030.5288447704545,
+      "opticalSignificance": 0.8135400067495859,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.867349619247477
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "position": {
+        "raDeg": 16.273090465455674,
+        "decDeg": 0.7144592798162194
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0024901439901441336,
+        "significance": 17.254570478668892,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014431793554192467
+      },
+      "opticalFluxNjy": 1801.2790158996359,
+      "opticalThresholdNjy": 2572.902740701463,
+      "opticalSignificance": 3.5004801918951367,
+      "opticalCounterpart": false,
+      "limitingMagAB": 22.873941576035243
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "position": {
+        "raDeg": 22.239063905726812,
+        "decDeg": 0.7594510517449331
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0035214542876929045,
+        "significance": 23.838903675495825,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014771880182194082
+      },
+      "opticalFluxNjy": -357.8174111098051,
+      "opticalThresholdNjy": 1439.3512455504833,
+      "opticalSignificance": -1.2429815592821367,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.50458303011621
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "position": {
+        "raDeg": 22.237717793137318,
+        "decDeg": 0.7581223239495772
+      },
+      "radio": {
+        "peakJyPerBeam": 0.002588488394394517,
+        "significance": 17.523080085056893,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014771880182194082
+      },
+      "opticalFluxNjy": 14789.216354500502,
+      "opticalThresholdNjy": 1439.3512455504833,
+      "opticalSignificance": 51.374591157714015,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.50458303011621
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "tract": 9485,
+      "position": {
+        "raDeg": 23.732829403848097,
+        "decDeg": 0.7726169968064063
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0030941693112254143,
+        "significance": 22.52021088360886,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00013739521921961567
+      },
+      "opticalFluxNjy": 1575.3694477528334,
+      "opticalThresholdNjy": 1331.6567043222224,
+      "opticalSignificance": 5.915073466906225,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.589019300215885
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "position": {
+        "raDeg": 149.647565913538,
+        "decDeg": 0.742771962586538
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0018360476242378354,
+        "significance": 12.58410438104747,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014590212927691936
+      },
+      "opticalFluxNjy": 730151.78125,
+      "opticalThresholdNjy": 838.2184836048817,
+      "opticalSignificance": 4355.378672335373,
+      "opticalCounterpart": true,
+      "limitingMagAB": 24.091606916858513
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "position": {
+        "raDeg": 343.71764729881096,
+        "decDeg": 0.775448272100062
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0011252108961343765,
+        "significance": 7.27633019431785,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015463988935151177
+      },
+      "opticalFluxNjy": 783040.848526001,
+      "opticalThresholdNjy": 1718.231401292011,
+      "opticalSignificance": 2278.624543635972,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.31229587085303
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "position": {
+        "raDeg": 346.6961174481455,
+        "decDeg": 0.7734547196479473
+      },
+      "radio": {
+        "peakJyPerBeam": 0.017077557742595673,
+        "significance": 110.49007502573971,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00015456191643111196
+      },
+      "opticalFluxNjy": 27942.45048713684,
+      "opticalThresholdNjy": 914.3370353126786,
+      "opticalSignificance": 152.8016989795304,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.997234221836163
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "position": {
+        "raDeg": 148.77708381282045,
+        "decDeg": 2.2367566190533754
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0013342039892449975,
+        "significance": 9.24941220369609,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.0001442474353896614
+      },
+      "opticalFluxNjy": 412.7916228817776,
+      "opticalThresholdNjy": 614.2542553257686,
+      "opticalSignificance": 3.3601038926694478,
+      "opticalCounterpart": false,
+      "limitingMagAB": 24.429129565515417
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "position": {
+        "raDeg": 346.6036772344131,
+        "decDeg": 2.216784400890249
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0013323494931682944,
+        "significance": 9.139318280162714,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014578215270828423
+      },
+      "opticalFluxNjy": 295.5377462641336,
+      "opticalThresholdNjy": 1369.6983897994144,
+      "opticalSignificance": 1.0788424242340449,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.55843763697475
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "position": {
+        "raDeg": 349.6068048742697,
+        "decDeg": 2.2264461393055175
+      },
+      "radio": {
+        "peakJyPerBeam": 0.007970641367137432,
+        "significance": 54.243042656114135,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014694310969370008
+      },
+      "opticalFluxNjy": -46.54034818802029,
+      "opticalThresholdNjy": 1559.8247973027721,
+      "opticalSignificance": -0.1491845374829828,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.417310449366312
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "position": {
+        "raDeg": 349.5946295869371,
+        "decDeg": 2.2289509327121606
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0023068105801939964,
+        "significance": 15.698664503578943,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014694310969370008
+      },
+      "opticalFluxNjy": 412.88959265779704,
+      "opticalThresholdNjy": 1559.8247973027721,
+      "opticalSignificance": 1.3235127219792893,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.417310449366312
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "tract": 9964,
+      "position": {
+        "raDeg": 14.87143687622923,
+        "decDeg": 3.7223812749282166
+      },
+      "radio": {
+        "peakJyPerBeam": 0.017014145851135254,
+        "significance": 117.53966962588274,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014475237088286546
+      },
+      "opticalFluxNjy": 323466.56477355957,
+      "opticalThresholdNjy": 3108.6715944263515,
+      "opticalSignificance": 520.2649346323914,
+      "opticalCounterpart": true,
+      "limitingMagAB": 22.66856288792948
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "tract": 9964,
+      "position": {
+        "raDeg": 14.872935397501768,
+        "decDeg": 3.721882404502716
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0076225074008107185,
+        "significance": 52.65894682290835,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00014475237088286546
+      },
+      "opticalFluxNjy": 30193.76686501503,
+      "opticalThresholdNjy": 3108.6715944263515,
+      "opticalSignificance": 48.563777079493555,
+      "opticalCounterpart": true,
+      "limitingMagAB": 22.66856288792948
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "position": {
+        "raDeg": 28.260606500795582,
+        "decDeg": 3.7234235000153824
+      },
+      "radio": {
+        "peakJyPerBeam": 0.00115133635699749,
+        "significance": 8.241603936595597,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00013969809346032206
+      },
+      "opticalFluxNjy": 590.6273679211736,
+      "opticalThresholdNjy": 2026.2200898104588,
+      "opticalSignificance": 1.4574610401193469,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.133283457410883
+    },
+    {
+      "regionId": "dp2-tract-10053",
+      "tract": 10053,
+      "position": {
+        "raDeg": 147.28133074865056,
+        "decDeg": 3.7227614417741526
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0013759481953456998,
+        "significance": 9.895123576584394,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00013905315933615157
+      },
+      "opticalFluxNjy": 89.58577954024076,
+      "opticalThresholdNjy": 1856.4429018807757,
+      "opticalSignificance": 0.24128342285529158,
+      "opticalCounterpart": false,
+      "limitingMagAB": 23.228296009279607
+    },
+    {
+      "regionId": "dp2-tract-10053",
+      "tract": 10053,
+      "position": {
+        "raDeg": 147.29669511444374,
+        "decDeg": 3.705930205681496
+      },
+      "radio": {
+        "peakJyPerBeam": 0.0011508528841659427,
+        "significance": 8.276351933750991,
+        "areaPixels": 5,
+        "imageNoiseJyPerBeam": 0.00013905315933615157
+      },
+      "opticalFluxNjy": 2557.6886324584484,
+      "opticalThresholdNjy": 1856.4429018807757,
+      "opticalSignificance": 6.8886811166323385,
+      "opticalCounterpart": true,
+      "limitingMagAB": 23.228296009279607
+    }
+  ]
+}

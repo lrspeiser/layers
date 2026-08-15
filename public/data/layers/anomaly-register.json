@@ -1,19 +1,21 @@
 {
   "schemaVersion": "layers-anomaly-register-v1",
-  "generatedAt": "2026-08-15T01:29:45.618623+00:00",
+  "generatedAt": "2026-08-15T03:12:57.488325+00:00",
   "regionSet": "200",
   "operatorsIncluded": [
     "pixel-residual",
     "xray-counterpart",
+    "radio-counterpart",
     "variability",
     "sed-departure"
   ],
   "operatorsMissing": [],
   "counts": {
-    "candidates": 9,
+    "candidates": 34,
     "byOperator": {
       "xray-counterpart": 2,
-      "sed-departure": 7
+      "radio-counterpart": 21,
+      "sed-departure": 11
     },
     "flaggedByMoreThanOneOperator": 0
   },
@@ -66,6 +68,407 @@
         "confirmedBy": []
       }
     ],
+    "radio-counterpart": [
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-5061",
+        "tract": 5061,
+        "position": {
+          "raDeg": 49.738575886401726,
+          "decDeg": -27.512401731725472
+        },
+        "significance": 78.22938636145958,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0130 Jy/beam at 78.2 sigma, no optical flux above 1446 nJy (limit 23.499591088481804 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-8883",
+        "tract": 8883,
+        "position": {
+          "raDeg": 209.73934738613036,
+          "decDeg": -3.697695813315665
+        },
+        "significance": 77.52984659628315,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0189 Jy/beam at 77.5 sigma, no optical flux above 1007 nJy (limit 23.892103320497906 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9947",
+        "tract": 9947,
+        "position": {
+          "raDeg": 349.6068048742697,
+          "decDeg": 2.2264461393055175
+        },
+        "significance": 54.243042656114135,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0080 Jy/beam at 54.2 sigma, no optical flux above 1560 nJy (limit 23.417310449366312 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9239",
+        "tract": 9239,
+        "position": {
+          "raDeg": 19.268482762237273,
+          "decDeg": -0.7278798070527206
+        },
+        "significance": 51.034866731284936,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0072 Jy/beam at 51.0 sigma, no optical flux above 3916 nJy (limit 22.417795912372767 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-8884",
+        "tract": 8884,
+        "position": {
+          "raDeg": 211.1888805697968,
+          "decDeg": -3.7768421115735356
+        },
+        "significance": 39.14775166129806,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0062 Jy/beam at 39.1 sigma, no optical flux above 839 nJy (limit 24.090813232803914 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-7939",
+        "tract": 7939,
+        "position": {
+          "raDeg": 240.0090561783962,
+          "decDeg": -9.665931783185206
+        },
+        "significance": 38.64415274178013,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0105 Jy/beam at 38.6 sigma, no optical flux above 3095 nJy (limit 22.673311184315246 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-8883",
+        "tract": 8883,
+        "position": {
+          "raDeg": 209.73818231525465,
+          "decDeg": -3.6941943829656227
+        },
+        "significance": 38.57364176842349,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0094 Jy/beam at 38.6 sigma, no optical flux above 1007 nJy (limit 23.892103320497906 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-11411",
+        "tract": 11411,
+        "position": {
+          "raDeg": 19.729358416846868,
+          "decDeg": 12.670775297417343
+        },
+        "significance": 35.9224467016801,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0043 Jy/beam at 35.9 sigma, no optical flux above 2677 nJy (limit 22.83105397869125 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9484",
+        "tract": 9484,
+        "position": {
+          "raDeg": 22.239063905726812,
+          "decDeg": 0.7594510517449331
+        },
+        "significance": 23.838903675495825,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0035 Jy/beam at 23.8 sigma, no optical flux above 1439 nJy (limit 23.50458303011621 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9232",
+        "tract": 9232,
+        "position": {
+          "raDeg": 8.873041121719854,
+          "decDeg": -0.7128712278434594
+        },
+        "significance": 22.778246650536477,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0031 Jy/beam at 22.8 sigma, no optical flux above 1429 nJy (limit 23.512630341423197 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-7939",
+        "tract": 7939,
+        "position": {
+          "raDeg": 240.00945310933096,
+          "decDeg": -9.662946994258538
+        },
+        "significance": 19.522819508593212,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0053 Jy/beam at 19.5 sigma, no optical flux above 3095 nJy (limit 22.673311184315246 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-11411",
+        "tract": 11411,
+        "position": {
+          "raDeg": 19.73038340928456,
+          "decDeg": 12.674273165607602
+        },
+        "significance": 17.616939182859326,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0021 Jy/beam at 17.6 sigma, no optical flux above 2677 nJy (limit 22.83105397869125 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9480",
+        "tract": 9480,
+        "position": {
+          "raDeg": 16.273090465455674,
+          "decDeg": 0.7144592798162194
+        },
+        "significance": 17.254570478668892,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0025 Jy/beam at 17.3 sigma, no optical flux above 2573 nJy (limit 22.873941576035243 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9947",
+        "tract": 9947,
+        "position": {
+          "raDeg": 349.5946295869371,
+          "decDeg": 2.2289509327121606
+        },
+        "significance": 15.698664503578943,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0023 Jy/beam at 15.7 sigma, no optical flux above 1560 nJy (limit 23.417310449366312 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9228",
+        "tract": 9228,
+        "position": {
+          "raDeg": 2.994278522358389,
+          "decDeg": -0.7190336157069778
+        },
+        "significance": 14.165107258912894,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0019 Jy/beam at 14.2 sigma, no optical flux above 1602 nJy (limit 23.388410064776046 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-10053",
+        "tract": 10053,
+        "position": {
+          "raDeg": 147.28133074865056,
+          "decDeg": 3.7227614417741526
+        },
+        "significance": 9.895123576584394,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0014 Jy/beam at 9.9 sigma, no optical flux above 1856 nJy (limit 23.228296009279607 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9812",
+        "tract": 9812,
+        "position": {
+          "raDeg": 148.77708381282045,
+          "decDeg": 2.2367566190533754
+        },
+        "significance": 9.24941220369609,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0013 Jy/beam at 9.2 sigma, no optical flux above 614 nJy (limit 24.429129565515417 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9945",
+        "tract": 9945,
+        "position": {
+          "raDeg": 346.6036772344131,
+          "decDeg": 2.216784400890249
+        },
+        "significance": 9.139318280162714,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0013 Jy/beam at 9.1 sigma, no optical flux above 1370 nJy (limit 23.55843763697475 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9973",
+        "tract": 9973,
+        "position": {
+          "raDeg": 28.260606500795582,
+          "decDeg": 3.7234235000153824
+        },
+        "significance": 8.241603936595597,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0012 Jy/beam at 8.2 sigma, no optical flux above 2026 nJy (limit 23.133283457410883 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9468",
+        "tract": 9468,
+        "position": {
+          "raDeg": 358.50483015661086,
+          "decDeg": -0.7715529558244081
+        },
+        "significance": 7.838388070236959,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0013 Jy/beam at 7.8 sigma, no optical flux above 1031 nJy (limit 23.867349619247477 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "radio-counterpart",
+        "what": "VLASS radio source with no optical counterpart",
+        "regionId": "dp2-tract-9242",
+        "tract": 9242,
+        "position": {
+          "raDeg": 23.702347524357847,
+          "decDeg": -0.7737101113772163
+        },
+        "significance": 7.455793849651831,
+        "scoredAgainst": "VLASS image noise for the radio detection, blank-aperture scatter for the optical limit",
+        "detail": "0.0012 Jy/beam at 7.5 sigma, no optical flux above 1940 nJy (limit 23.180768219276754 AB)",
+        "falsifiedBy": [
+          "positions are detections, not catalogue entries; a spurious radio peak looks identical",
+          "measure the chance-coincidence rate for this field",
+          "go deeper in the optical"
+        ],
+        "confirmedBy": []
+      }
+    ],
     "sed-departure": [
       {
         "operator": "sed-departure",
@@ -76,27 +479,9 @@
           "raDeg": 54.631489,
           "decDeg": -30.528379
         },
-        "significance": 7.779833093255376,
+        "significance": 8.180998110701973,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -3.61 dex",
-        "falsifiedBy": [
-          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
-          "fit a stellar population model instead"
-        ],
-        "confirmedBy": []
-      },
-      {
-        "operator": "sed-departure",
-        "what": "Rubin flux departs from what the infrared SED predicts",
-        "regionId": null,
-        "tract": null,
-        "position": {
-          "raDeg": 235.100306,
-          "decDeg": -26.06583
-        },
-        "significance": 5.374612232948655,
-        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -2.49 dex",
+        "detail": "residual -3.70 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"
@@ -112,9 +497,9 @@
           "raDeg": 303.556422,
           "decDeg": -27.489998
         },
-        "significance": 5.015974337053106,
+        "significance": 5.34326976439373,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -2.33 dex",
+        "detail": "residual -2.41 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"
@@ -127,12 +512,30 @@
         "regionId": null,
         "tract": null,
         "position": {
-          "raDeg": 5.801487,
-          "decDeg": -40.928715
+          "raDeg": 23.669945,
+          "decDeg": 0.715906
         },
-        "significance": 4.417956103106655,
+        "significance": 4.94487761564879,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual +2.05 dex",
+        "detail": "residual -2.23 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 10.36346,
+          "decDeg": -0.711804
+        },
+        "significance": 4.608416278285778,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -2.08 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"
@@ -148,9 +551,27 @@
           "raDeg": 209.718789,
           "decDeg": -3.702071
         },
-        "significance": 4.160882237894416,
+        "significance": 4.453927879314109,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -1.93 dex",
+        "detail": "residual -2.01 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 5.801487,
+          "decDeg": -40.928715
+        },
+        "significance": 4.179134727840378,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual +1.89 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"
@@ -166,9 +587,9 @@
           "raDeg": 14.978291,
           "decDeg": 8.205615
         },
-        "significance": 3.853383572080921,
+        "significance": 4.147930843186443,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -1.79 dex",
+        "detail": "residual -1.87 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"
@@ -184,9 +605,63 @@
           "raDeg": 25.458911,
           "decDeg": 21.427866
         },
-        "significance": 3.8420283845316923,
+        "significance": 4.137260403991641,
         "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
-        "detail": "residual -1.78 dex",
+        "detail": "residual -1.87 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 23.725181,
+          "decDeg": 0.76734
+        },
+        "significance": 3.3346341373559847,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual +1.51 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 355.570841,
+          "decDeg": -2.211738
+        },
+        "significance": 3.045676173639202,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -1.38 dex",
+        "falsifiedBy": [
+          "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
+          "fit a stellar population model instead"
+        ],
+        "confirmedBy": []
+      },
+      {
+        "operator": "sed-departure",
+        "what": "Rubin flux departs from what the infrared SED predicts",
+        "regionId": null,
+        "tract": null,
+        "position": {
+          "raDeg": 55.47559,
+          "decDeg": -29.01576
+        },
+        "significance": 3.0404260835467065,
+        "scoredAgainst": "observed scatter about the fitted infrared-colour relation",
+        "detail": "residual -1.37 dex",
         "falsifiedBy": [
           "a power law is a crude SED; real near-to-mid infrared curvature sets a floor",
           "fit a stellar population model instead"

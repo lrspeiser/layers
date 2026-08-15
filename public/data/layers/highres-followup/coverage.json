@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-highres-followup-v1",
-  "generatedAt": "2026-08-15T01:34:24.965467+00:00",
+  "generatedAt": "2026-08-15T03:21:45.320217+00:00",
   "archive": "MAST CAOM over TAP",
   "collections": [
     "HST",
@@ -10,15 +10,19 @@
   "whatThisTests": "MAST ObsPointing rows within the search radius. That is proximity to a pointing, not containment inside a frame, and the two differ: the single candidate this flagged as verifiable falls about 25 arcsec outside every image the archive returned for it. Containment is only established by loading the image.",
   "queryValidation": "The same query returns HST and JWST rows at COSMOS and the Hubble Ultra Deep Field, so a zero here is an absence of observations rather than a broken query.",
   "counts": {
-    "candidatesChecked": 9,
-    "queriesFailed": 0,
+    "candidatesChecked": 32,
+    "queriesFailed": 2,
     "withHighResolutionCoverage": 1,
-    "withoutCoverage": 8
+    "withoutCoverage": 31
   },
   "interpretation": "This says which candidates can be checked, not whether any survived. A candidate without coverage is not refuted and not confirmed; it separates unconfirmed-because-nobody-looked from unconfirmed-because-the-check-was-impossible.",
   "byOperator": {
+    "radio-counterpart": {
+      "candidates": 19,
+      "verifiable": 0
+    },
     "sed-departure": {
-      "candidates": 7,
+      "candidates": 11,
       "verifiable": 0
     },
     "xray-counterpart": {
@@ -55,11 +59,353 @@
       "verdict": "an archive pointing lies near this position; whether an image contains it is settled by resolve_highres_verdicts.py, which loads the pixels"
     },
     {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "significance": 78.22938636145958,
+      "position": {
+        "raDeg": 49.738575886401726,
+        "decDeg": -27.512401731725472
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "significance": 77.52984659628315,
+      "position": {
+        "raDeg": 209.73934738613036,
+        "decDeg": -3.697695813315665
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "significance": 54.243042656114135,
+      "position": {
+        "raDeg": 349.6068048742697,
+        "decDeg": 2.2264461393055175
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "significance": 51.034866731284936,
+      "position": {
+        "raDeg": 19.268482762237273,
+        "decDeg": -0.7278798070527206
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "significance": 39.14775166129806,
+      "position": {
+        "raDeg": 211.1888805697968,
+        "decDeg": -3.7768421115735356
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "significance": 38.64415274178013,
+      "position": {
+        "raDeg": 240.0090561783962,
+        "decDeg": -9.665931783185206
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "significance": 38.57364176842349,
+      "position": {
+        "raDeg": 209.73818231525465,
+        "decDeg": -3.6941943829656227
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "significance": 35.9224467016801,
+      "position": {
+        "raDeg": 19.729358416846868,
+        "decDeg": 12.670775297417343
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "significance": 22.778246650536477,
+      "position": {
+        "raDeg": 8.873041121719854,
+        "decDeg": -0.7128712278434594
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "significance": 19.522819508593212,
+      "position": {
+        "raDeg": 240.00945310933096,
+        "decDeg": -9.662946994258538
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "significance": 17.616939182859326,
+      "position": {
+        "raDeg": 19.73038340928456,
+        "decDeg": 12.674273165607602
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "significance": 15.698664503578943,
+      "position": {
+        "raDeg": 349.5946295869371,
+        "decDeg": 2.2289509327121606
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "significance": 14.165107258912894,
+      "position": {
+        "raDeg": 2.994278522358389,
+        "decDeg": -0.7190336157069778
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-10053",
+      "tract": 10053,
+      "significance": 9.895123576584394,
+      "position": {
+        "raDeg": 147.28133074865056,
+        "decDeg": 3.7227614417741526
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "significance": 9.24941220369609,
+      "position": {
+        "raDeg": 148.77708381282045,
+        "decDeg": 2.2367566190533754
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "significance": 9.139318280162714,
+      "position": {
+        "raDeg": 346.6036772344131,
+        "decDeg": 2.216784400890249
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "significance": 8.241603936595597,
+      "position": {
+        "raDeg": 28.260606500795582,
+        "decDeg": 3.7234235000153824
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "significance": 7.838388070236959,
+      "position": {
+        "raDeg": 358.50483015661086,
+        "decDeg": -0.7715529558244081
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "radio-counterpart",
+      "what": "VLASS radio source with no optical counterpart",
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "significance": 7.455793849651831,
+      "position": {
+        "raDeg": 23.702347524357847,
+        "decDeg": -0.7737101113772163
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
       "operator": "sed-departure",
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 7.779833093255376,
+      "significance": 8.180998110701973,
       "position": {
         "raDeg": 54.631489,
         "decDeg": -30.528379
@@ -77,25 +423,7 @@
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 5.374612232948655,
-      "position": {
-        "raDeg": 235.100306,
-        "decDeg": -26.06583
-      },
-      "highResolutionObservations": 0,
-      "collections": [],
-      "instruments": [],
-      "filters": [],
-      "archivePointingsNearby": false,
-      "verifiable": false,
-      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
-    },
-    {
-      "operator": "sed-departure",
-      "what": "Rubin flux departs from what the infrared SED predicts",
-      "regionId": null,
-      "tract": null,
-      "significance": 5.015974337053106,
+      "significance": 5.34326976439373,
       "position": {
         "raDeg": 303.556422,
         "decDeg": -27.489998
@@ -113,10 +441,10 @@
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 4.417956103106655,
+      "significance": 4.94487761564879,
       "position": {
-        "raDeg": 5.801487,
-        "decDeg": -40.928715
+        "raDeg": 23.669945,
+        "decDeg": 0.715906
       },
       "highResolutionObservations": 0,
       "collections": [],
@@ -131,7 +459,25 @@
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 4.160882237894416,
+      "significance": 4.608416278285778,
+      "position": {
+        "raDeg": 10.36346,
+        "decDeg": -0.711804
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "tract": null,
+      "significance": 4.453927879314109,
       "position": {
         "raDeg": 209.718789,
         "decDeg": -3.702071
@@ -149,7 +495,25 @@
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 3.853383572080921,
+      "significance": 4.179134727840378,
+      "position": {
+        "raDeg": 5.801487,
+        "decDeg": -40.928715
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "tract": null,
+      "significance": 4.147930843186443,
       "position": {
         "raDeg": 14.978291,
         "decDeg": 8.205615
@@ -167,10 +531,64 @@
       "what": "Rubin flux departs from what the infrared SED predicts",
       "regionId": null,
       "tract": null,
-      "significance": 3.8420283845316923,
+      "significance": 4.137260403991641,
       "position": {
         "raDeg": 25.458911,
         "decDeg": 21.427866
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "tract": null,
+      "significance": 3.3346341373559847,
+      "position": {
+        "raDeg": 23.725181,
+        "decDeg": 0.76734
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "tract": null,
+      "significance": 3.045676173639202,
+      "position": {
+        "raDeg": 355.570841,
+        "decDeg": -2.211738
+      },
+      "highResolutionObservations": 0,
+      "collections": [],
+      "instruments": [],
+      "filters": [],
+      "archivePointingsNearby": false,
+      "verifiable": false,
+      "verdict": "no HST or JWST observation covers this position, so this check cannot be run"
+    },
+    {
+      "operator": "sed-departure",
+      "what": "Rubin flux departs from what the infrared SED predicts",
+      "regionId": null,
+      "tract": null,
+      "significance": 3.0404260835467065,
+      "position": {
+        "raDeg": 55.47559,
+        "decDeg": -29.01576
       },
       "highResolutionObservations": 0,
       "collections": [],
