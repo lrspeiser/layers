@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "layers-des-dr2-v1",
+  "generatedAt": "2026-08-15T01:37:04.683999+00:00",
+  "survey": "DES DR2",
+  "access": "NOIRLab Astro Data Lab SIA2 and cutout service, public, no credentials",
+  "purpose": "A second independent optical reference. Every optical comparison so far has been Rubin against Legacy alone, which cannot say whether the field-dependent colour term, the crowding-dependent flux scale, and the residual sign imbalance belong to Rubin or to Legacy. Rubin-minus-DES answers that.",
+  "hscNote": "HSC PDR2, the other survey named in this goal, publishes only HiPS tiles without credentials. Those are display products with no calibrated flux or variance plane and cannot support a photometric comparison, so no HSC science pixels are claimed here.",
+  "counts": {
+    "regions": 12,
+    "scienceReady": 4,
+    "outsideFootprint": 8,
+    "noImage": 0,
+    "failed": 0
+  },
+  "regions": [
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "status": "outside-des-footprint"
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "center": [
+        65.853617,
+        -48.344831
+      ],
+      "status": "validated-science-input",
+      "band": "r",
+      "backgroundSubtracted": true,
+      "unit": "DES coadd ADU",
+      "zeropointAB": 30.0,
+      "fluxConversion": "nJy = ADU * 10^(-0.4*(30.0 - 8.9)) * 1e9",
+      "localFits": {
+        "path": "pipeline/results/des-dr2/products/dp2-tract-2397/des-dr2-r.fits",
+        "sha256": "51710fe273d1ce8f1eb3e80f91160f729486805e751e270513b52bb535ab0648",
+        "bytes": 3352320
+      },
+      "validation": {
+        "valid": true,
+        "shape": [
+          914,
+          914
+        ],
+        "pixelScaleArcsec": 0.263000000000016,
+        "finitePixelFraction": 1.0,
+        "fieldArcmin": 4.006,
+        "wcsPresent": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer",
+        "bandpass transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "center": [
+        5.837801,
+        -40.90733
+      ],
+      "status": "validated-science-input",
+      "band": "r",
+      "backgroundSubtracted": true,
+      "unit": "DES coadd ADU",
+      "zeropointAB": 30.0,
+      "fluxConversion": "nJy = ADU * 10^(-0.4*(30.0 - 8.9)) * 1e9",
+      "localFits": {
+        "path": "pipeline/results/des-dr2/products/dp2-tract-3233/des-dr2-r.fits",
+        "sha256": "25015b876ccfed5c8ca0a8d7d6261dc1b1c02e7326f60b323e209e340fe9a81c",
+        "bytes": 2001600
+      },
+      "validation": {
+        "valid": true,
+        "shape": [
+          909,
+          548
+        ],
+        "pixelScaleArcsec": 0.263000000000016,
+        "finitePixelFraction": 1.0,
+        "fieldArcmin": 3.984,
+        "wcsPresent": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer",
+        "bandpass transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "center": [
+        51.184802,
+        -30.494662
+      ],
+      "status": "validated-science-input",
+      "band": "r",
+      "backgroundSubtracted": true,
+      "unit": "DES coadd ADU",
+      "zeropointAB": 30.0,
+      "fluxConversion": "nJy = ADU * 10^(-0.4*(30.0 - 8.9)) * 1e9",
+      "localFits": {
+        "path": "pipeline/results/des-dr2/products/dp2-tract-4636/des-dr2-r.fits",
+        "sha256": "ddf1868944099dd7cf5311efda955ecd7c3134994ffde4bf5cca08cb3df67717",
+        "bytes": 3349440
+      },
+      "validation": {
+        "valid": true,
+        "shape": [
+          913,
+          914
+        ],
+        "pixelScaleArcsec": 0.263000000000016,
+        "finitePixelFraction": 1.0,
+        "fieldArcmin": 4.002,
+        "wcsPresent": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer",
+        "bandpass transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "center": [
+        52.890963,
+        -30.494662
+      ],
+      "status": "validated-science-input",
+      "band": "r",
+      "backgroundSubtracted": true,
+      "unit": "DES coadd ADU",
+      "zeropointAB": 30.0,
+      "fluxConversion": "nJy = ADU * 10^(-0.4*(30.0 - 8.9)) * 1e9",
+      "localFits": {
+        "path": "pipeline/results/des-dr2/products/dp2-tract-4637/des-dr2-r.fits",
+        "sha256": "7c23a746c3f25e702ef81c32fa4636c0619e301c9351019c2c3c0cfb5b480fb0",
+        "bytes": 3343680
+      },
+      "validation": {
+        "valid": true,
+        "shape": [
+          913,
+          913
+        ],
+        "pixelScaleArcsec": 0.263000000000016,
+        "finitePixelFraction": 1.0,
+        "fieldArcmin": 4.002,
+        "wcsPresent": true
+      },
+      "scienceReady": true,
+      "comparisonReady": false,
+      "comparisonBlockers": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer",
+        "bandpass transfer",
+        "resampling covariance",
+        "injection/recovery QA"
+      ]
+    }
+  ]
+}
