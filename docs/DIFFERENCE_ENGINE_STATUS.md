@@ -71,10 +71,12 @@ Blockers remaining per region: **25 regions are down to 3** (from 6), 22 at 4,
 1 at 5.
 
 Registration is the weakest gate at **30/48**, median post-match p95 = 0.285″
-against a 0.30″ threshold. The pilots reached 0.086–0.220″ by propagating Gaia
-proper motions across the survey epoch baseline; this runner only applies a
-median source-to-source offset. Gaia epoch propagation is the obvious next
-improvement and is already implemented in `gaia_registration.py`.
+against a 0.30″ threshold. ~~Gaia epoch propagation is the obvious next
+improvement.~~ **Measured and ruled out — see §14.** Fitting rotation and scale
+on top of the translation recovers 8 regions of 188, and the terms it would
+remove are absent: median rotation −0.00025°, median scale factor 0.99999. The
+residual is centroid-level scatter, so the gate measures how well the two
+surveys agree rather than how well the fit was done.
 
 ## 3. Bandpass transfer: a clear negative result
 
@@ -613,3 +615,42 @@ generic failure.
 
 Running total for the goal: **2 verdicts** across HST/JWST and Euclid, from 34
 candidates. Not 229.
+
+## 14. The registration gate cannot be fixed by a better transform
+
+Registration is the tightest reconciliation gate — 110 of 190 Legacy regions
+clear the 0.30″ p95 threshold, and that is what holds `matched` down to 91. The
+reconciler corrects it with a single median source-to-source translation, and §2
+recorded the obvious next step: propagate Gaia proper motions, fit something
+richer than a shift.
+
+Obvious is not the same as correct, and this project has already paid once for
+asserting a plausible mechanism and withdrawing it when more data arrived (§12).
+So `pipeline/diagnose_registration_residual.py` measures the decomposition
+before anything is implemented. On mutual nearest-neighbour source pairs from
+the reconciled planes, over **188 regions**:
+
+| model | free parameters | median p95 | regions ≤ 0.30″ |
+|---|---|---|---|
+| translation | 2 | 0.3229″ | 68 |
+| similarity (+rotation, scale) | 4 | 0.3186″ | 76 |
+| affine | 6 | 0.3134″ | 76 |
+
+**Tripling the free parameters recovers 8 regions of 188.** The terms a richer
+transform would remove are not there to remove: median rotation is −0.00025°
+with a 0.013° spread, and the median scale factor is 0.99999. Similarity and
+affine pass exactly the same 76 regions, so the sixth parameter buys nothing at
+all beyond the fourth.
+
+**The gate is not measuring how well the fit was done. It is measuring how well
+the two surveys agree on these fields.** The residual is centroid-level scatter,
+and no transform removes scatter. Had the richer transform been implemented on
+the strength of "the reconciler only applies a median offset", it would have
+shipped as an improvement that moves 4% of regions, and the 0.30″ threshold
+would still have been read as a fit-quality problem.
+
+That has a consequence worth stating plainly: **the astrometry blocker is not
+closable by better registration**, and the route to more matched regions is
+either a threshold justified by what the surveys can actually deliver, or deeper
+source catalogues that reduce centroid noise. Both are honest; pretending a
+sixth parameter would do it is not.

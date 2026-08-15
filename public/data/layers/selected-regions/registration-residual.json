@@ -1,0 +1,6049 @@
+{
+  "schemaVersion": "layers-registration-residual-v1",
+  "generatedAt": "2026-08-15T05:40:44.472392+00:00",
+  "question": "Registration is the tightest reconciliation gate. Is the residual an unmodelled rotation or scale that a richer transform would remove, or irreducible scatter?",
+  "thresholdArcsec": 0.3,
+  "method": "Mutual nearest-neighbour source pairs on the reconciled planes, fitted under three models of increasing freedom, with the p95 residual reported for each. Mutual matching matters: one-way nearest neighbours in a crowded field pair different objects and the transform absorbs the mismatch.",
+  "summary": {
+    "translation": {
+      "medianP95Arcsec": 0.32294955063342395,
+      "regionsPassingThreshold": 68,
+      "regionsMeasured": 188
+    },
+    "similarity": {
+      "medianP95Arcsec": 0.3185985894037576,
+      "regionsPassingThreshold": 76,
+      "regionsMeasured": 188
+    },
+    "affine": {
+      "medianP95Arcsec": 0.3133586683480073,
+      "regionsPassingThreshold": 76,
+      "regionsMeasured": 188
+    }
+  },
+  "regionsRecoveredByAffine": 8,
+  "similarityTerms": {
+    "medianRotationDeg": -0.00025076794961629423,
+    "rotationSpreadDeg": 0.01260658746719795,
+    "medianScaleFactor": 0.9999855321067316
+  },
+  "verdict": "A richer transform recovers only 8 regions. The residual is mostly irreducible scatter, not an unmodelled rotation or scale, so the gate is measuring how well two surveys agree rather than how well the fit was done.",
+  "regions": [
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 50,
+          "freeParameters": 2,
+          "p95Arcsec": 0.26577743953239247,
+          "medianArcsec": 0.10689634569081932,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 50,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2674908938396763,
+          "medianArcsec": 0.11492883917506544,
+          "passesThreshold": true,
+          "rotationDeg": 0.006087533014044976,
+          "scaleFactor": 1.0001137165533942
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 50,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2651116036985743,
+          "medianArcsec": 0.11104822703990946,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-10053"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 52,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3304946192694644,
+          "medianArcsec": 0.0982334969755951,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 52,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3413459115908056,
+          "medianArcsec": 0.10818565232450808,
+          "passesThreshold": false,
+          "rotationDeg": 0.00644725124792557,
+          "scaleFactor": 0.9998390415315153
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 52,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3413151874464564,
+          "medianArcsec": 0.11043796918662835,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-10054"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 131,
+          "freeParameters": 2,
+          "p95Arcsec": 0.23705950907718643,
+          "medianArcsec": 0.08548173971263687,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 131,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2311177402631599,
+          "medianArcsec": 0.08458431253947699,
+          "passesThreshold": true,
+          "rotationDeg": 0.003205064211965402,
+          "scaleFactor": 0.999988730563251
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 131,
+          "freeParameters": 6,
+          "p95Arcsec": 0.22392127941274798,
+          "medianArcsec": 0.08422165041171303,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-10055"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 53,
+          "freeParameters": 2,
+          "p95Arcsec": 0.4269279083911797,
+          "medianArcsec": 0.13846436491328548,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 53,
+          "freeParameters": 4,
+          "p95Arcsec": 0.42033055925722884,
+          "medianArcsec": 0.14949256616224157,
+          "passesThreshold": false,
+          "rotationDeg": 0.006877254242447397,
+          "scaleFactor": 0.9994557002255693
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 53,
+          "freeParameters": 6,
+          "p95Arcsec": 0.4085712575683283,
+          "medianArcsec": 0.15186132991274898,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-10056"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 111,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2290542962116589,
+          "medianArcsec": 0.05662997547695484,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 111,
+          "freeParameters": 4,
+          "p95Arcsec": 0.22768643135867303,
+          "medianArcsec": 0.057919517312414216,
+          "passesThreshold": true,
+          "rotationDeg": 0.004319392054564407,
+          "scaleFactor": 0.9999772358212903
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 111,
+          "freeParameters": 6,
+          "p95Arcsec": 0.22604187123158292,
+          "medianArcsec": 0.05760227197938919,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-10079"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 27,
+          "freeParameters": 2,
+          "p95Arcsec": 0.45565159350929385,
+          "medianArcsec": 0.12915042017261316,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 27,
+          "freeParameters": 4,
+          "p95Arcsec": 0.44345389355823567,
+          "medianArcsec": 0.12707110173351072,
+          "passesThreshold": false,
+          "rotationDeg": 0.00892995101139368,
+          "scaleFactor": 0.9997886294064197
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 27,
+          "freeParameters": 6,
+          "p95Arcsec": 0.4156737122613303,
+          "medianArcsec": 0.13400433769334189,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-10215"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 72,
+          "freeParameters": 2,
+          "p95Arcsec": 0.302308202712428,
+          "medianArcsec": 0.12999031561571145,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 72,
+          "freeParameters": 4,
+          "p95Arcsec": 0.28645776787400784,
+          "medianArcsec": 0.12331362721998923,
+          "passesThreshold": true,
+          "rotationDeg": -0.017089979395398615,
+          "scaleFactor": 0.9998138856652067
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 72,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2838312368398426,
+          "medianArcsec": 0.12225658795553335,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-10321"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 54,
+          "freeParameters": 2,
+          "p95Arcsec": 0.29907002776312797,
+          "medianArcsec": 0.1049005523535644,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 54,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3201138231768821,
+          "medianArcsec": 0.1252616600854174,
+          "passesThreshold": false,
+          "rotationDeg": 0.019406072850507425,
+          "scaleFactor": 1.000168093461738
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 54,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3143043929720338,
+          "medianArcsec": 0.11719048444383133,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-10689"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 69,
+          "freeParameters": 2,
+          "p95Arcsec": 0.37905205700977607,
+          "medianArcsec": 0.1167636401828296,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 69,
+          "freeParameters": 4,
+          "p95Arcsec": 0.37269726261348746,
+          "medianArcsec": 0.12259566345560878,
+          "passesThreshold": false,
+          "rotationDeg": -0.018624041553395816,
+          "scaleFactor": 0.9999659959818314
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 69,
+          "freeParameters": 6,
+          "p95Arcsec": 0.38276708536970006,
+          "medianArcsec": 0.11427977334562352,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-10805"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 52,
+          "freeParameters": 2,
+          "p95Arcsec": 0.26285518743229946,
+          "medianArcsec": 0.11854485717866552,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 52,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2697210585106664,
+          "medianArcsec": 0.12499842226784849,
+          "passesThreshold": true,
+          "rotationDeg": 0.0004830278431518013,
+          "scaleFactor": 0.9997878753980579
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 52,
+          "freeParameters": 6,
+          "p95Arcsec": 0.270233082349031,
+          "medianArcsec": 0.1136428721090761,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-11162"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 18,
+          "freeParameters": 2,
+          "p95Arcsec": 0.38133301433632866,
+          "medianArcsec": 0.09871713418721972,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 18,
+          "freeParameters": 4,
+          "p95Arcsec": 0.4207867307061856,
+          "medianArcsec": 0.08679649735110834,
+          "passesThreshold": false,
+          "rotationDeg": -0.008575647227961104,
+          "scaleFactor": 0.999481344193777
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 18,
+          "freeParameters": 6,
+          "p95Arcsec": 0.42314561612699036,
+          "medianArcsec": 0.08766882113254323,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-11411"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 23,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3018102927681073,
+          "medianArcsec": 0.08827227141433303,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 23,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3039444665634652,
+          "medianArcsec": 0.08432621026204234,
+          "passesThreshold": false,
+          "rotationDeg": -0.00011939090760235431,
+          "scaleFactor": 1.000013151550058
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 23,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3060649016440889,
+          "medianArcsec": 0.09633285502997571,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-12814"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2945243923662936,
+          "medianArcsec": 0.07470496967769122,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2848673756388407,
+          "medianArcsec": 0.07157371261186031,
+          "passesThreshold": true,
+          "rotationDeg": -0.00874971502322723,
+          "scaleFactor": 0.9999688037380108
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2827458054809903,
+          "medianArcsec": 0.06864088472367448,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-2397"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.32363562905754345,
+          "medianArcsec": 0.1261064192520858,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3181479170830247,
+          "medianArcsec": 0.11677118243933393,
+          "passesThreshold": false,
+          "rotationDeg": -0.011663028320583673,
+          "scaleFactor": 1.0002897777954558
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31855340100499746,
+          "medianArcsec": 0.11433143344278338,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-3233"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 60,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2502513620984102,
+          "medianArcsec": 0.08870235618737876,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 60,
+          "freeParameters": 4,
+          "p95Arcsec": 0.24699109632727778,
+          "medianArcsec": 0.08148624044171748,
+          "passesThreshold": true,
+          "rotationDeg": -0.004645807114763758,
+          "scaleFactor": 1.0000302134366696
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 60,
+          "freeParameters": 6,
+          "p95Arcsec": 0.23050341882040487,
+          "medianArcsec": 0.08589994542527249,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-4636"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 41,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2903710830738958,
+          "medianArcsec": 0.10752190117957901,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 41,
+          "freeParameters": 4,
+          "p95Arcsec": 0.28626664178358835,
+          "medianArcsec": 0.11556230516907956,
+          "passesThreshold": true,
+          "rotationDeg": 0.003862618263794685,
+          "scaleFactor": 0.9998725003751913
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 41,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2745164862540052,
+          "medianArcsec": 0.11215941829503563,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-4637"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3469070391708358,
+          "medianArcsec": 0.10702031661585247,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34377295172343514,
+          "medianArcsec": 0.11335465326003652,
+          "passesThreshold": false,
+          "rotationDeg": 0.0017653697774749596,
+          "scaleFactor": 1.000282191630738
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33469000179462827,
+          "medianArcsec": 0.11349734830342051,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-4638"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 142,
+          "freeParameters": 2,
+          "p95Arcsec": 0.26222129255045407,
+          "medianArcsec": 0.0786343926559649,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 142,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2649277367518953,
+          "medianArcsec": 0.0853765635115811,
+          "passesThreshold": true,
+          "rotationDeg": 0.000986423967494753,
+          "scaleFactor": 0.9999007528905371
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 142,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26369546602849914,
+          "medianArcsec": 0.08531487664354129,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-4848"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 126,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30346680180348584,
+          "medianArcsec": 0.05988291337513821,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 126,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2996059268492638,
+          "medianArcsec": 0.061348887142057065,
+          "passesThreshold": true,
+          "rotationDeg": -0.009641944054103508,
+          "scaleFactor": 0.9999032268012645
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 126,
+          "freeParameters": 6,
+          "p95Arcsec": 0.29641005559279693,
+          "medianArcsec": 0.06041872822125964,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-4849"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.39428643073535147,
+          "medianArcsec": 0.11916409258434575,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.40492192611112326,
+          "medianArcsec": 0.1173400783851368,
+          "passesThreshold": false,
+          "rotationDeg": 0.008005749025887354,
+          "scaleFactor": 0.9999853650964146
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.4091759387991498,
+          "medianArcsec": 0.1149033730651776,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-4850"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 92,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3301043261302563,
+          "medianArcsec": 0.10545407335410348,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 92,
+          "freeParameters": 4,
+          "p95Arcsec": 0.311297532688741,
+          "medianArcsec": 0.11520102009968292,
+          "passesThreshold": false,
+          "rotationDeg": -0.006350743181529408,
+          "scaleFactor": 1.0000704486505725
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 92,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31016265675222987,
+          "medianArcsec": 0.1148651329607766,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5061"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 117,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3588434690829403,
+          "medianArcsec": 0.10017855048945004,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 117,
+          "freeParameters": 4,
+          "p95Arcsec": 0.358531334774045,
+          "medianArcsec": 0.09489924948340168,
+          "passesThreshold": false,
+          "rotationDeg": 0.002478851621072784,
+          "scaleFactor": 1.0002393261231106
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 117,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3644438134140843,
+          "medianArcsec": 0.09950175996308336,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5062"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 151,
+          "freeParameters": 2,
+          "p95Arcsec": 0.1943439647632186,
+          "medianArcsec": 0.04603644072669062,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 151,
+          "freeParameters": 4,
+          "p95Arcsec": 0.1943347162828447,
+          "medianArcsec": 0.047174978551659835,
+          "passesThreshold": true,
+          "rotationDeg": 0.0019087219849302374,
+          "scaleFactor": 1.0000214672015728
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 151,
+          "freeParameters": 6,
+          "p95Arcsec": 0.19436646653964845,
+          "medianArcsec": 0.049995130441755395,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-5063"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 98,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3640369372124811,
+          "medianArcsec": 0.08952641452042098,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 98,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3753907826545555,
+          "medianArcsec": 0.09685252234842129,
+          "passesThreshold": false,
+          "rotationDeg": 0.0006819105394636999,
+          "scaleFactor": 0.999934821741953
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 98,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3792171847275475,
+          "medianArcsec": 0.0913058662319839,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5064"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 65,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3946650218239137,
+          "medianArcsec": 0.12817343202272982,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 65,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3977435227054822,
+          "medianArcsec": 0.13687873367153472,
+          "passesThreshold": false,
+          "rotationDeg": -0.022152308192232267,
+          "scaleFactor": 1.0001903851089553
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 65,
+          "freeParameters": 6,
+          "p95Arcsec": 0.38307136692126287,
+          "medianArcsec": 0.12712148092956177,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5065"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 91,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2380908893316823,
+          "medianArcsec": 0.07428901715784228,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 91,
+          "freeParameters": 4,
+          "p95Arcsec": 0.23319729920867355,
+          "medianArcsec": 0.0664488782758574,
+          "passesThreshold": true,
+          "rotationDeg": -0.010193281518569132,
+          "scaleFactor": 0.9999644165355489
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 91,
+          "freeParameters": 6,
+          "p95Arcsec": 0.23828860074074604,
+          "medianArcsec": 0.06685989532863328,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-5214"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 49,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2170054751057189,
+          "medianArcsec": 0.09983340517588027,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 49,
+          "freeParameters": 4,
+          "p95Arcsec": 0.22150415834669335,
+          "medianArcsec": 0.10139335499687138,
+          "passesThreshold": true,
+          "rotationDeg": -0.006874664404129693,
+          "scaleFactor": 1.0001892639049719
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 49,
+          "freeParameters": 6,
+          "p95Arcsec": 0.23774036868523332,
+          "medianArcsec": 0.09417040436439546,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-5279"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 83,
+          "freeParameters": 2,
+          "p95Arcsec": 0.37117054833595914,
+          "medianArcsec": 0.10374077468927968,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 83,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34641255406366733,
+          "medianArcsec": 0.1123105517849152,
+          "passesThreshold": false,
+          "rotationDeg": -0.03010246991445705,
+          "scaleFactor": 1.000060950377625
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 83,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33620021026397,
+          "medianArcsec": 0.10519173553301268,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5280"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 67,
+          "freeParameters": 2,
+          "p95Arcsec": 0.35670044132839857,
+          "medianArcsec": 0.09915242306048982,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 67,
+          "freeParameters": 4,
+          "p95Arcsec": 0.33764969757847796,
+          "medianArcsec": 0.10210640219283842,
+          "passesThreshold": false,
+          "rotationDeg": -0.00972845558947747,
+          "scaleFactor": 1.000160542798975
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 67,
+          "freeParameters": 6,
+          "p95Arcsec": 0.32363869396337785,
+          "medianArcsec": 0.10251568880883148,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5282"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 14,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3951456076997046,
+          "medianArcsec": 0.11850775793726567,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 14,
+          "freeParameters": 4,
+          "p95Arcsec": 0.37957269089370593,
+          "medianArcsec": 0.12846532189068718,
+          "passesThreshold": false,
+          "rotationDeg": -0.013993108908659686,
+          "scaleFactor": 0.9995258052641578
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 14,
+          "freeParameters": 6,
+          "p95Arcsec": 0.36919181944163804,
+          "medianArcsec": 0.130084601291015,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-5670"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3449423136128081,
+          "medianArcsec": 0.10515719390377247,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34759389847976097,
+          "medianArcsec": 0.10131354833619773,
+          "passesThreshold": false,
+          "rotationDeg": -0.010773284680626436,
+          "scaleFactor": 1.0000168954679771
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.35491674050965866,
+          "medianArcsec": 0.09922860188504791,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-6509"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 132,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2974577315889387,
+          "medianArcsec": 0.06981685223520406,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 132,
+          "freeParameters": 4,
+          "p95Arcsec": 0.296720114351666,
+          "medianArcsec": 0.06915300035833374,
+          "passesThreshold": true,
+          "rotationDeg": -0.012471636804606693,
+          "scaleFactor": 0.9999521440059309
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 132,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2937494198048868,
+          "medianArcsec": 0.07040047995681425,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-6524"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 44,
+          "freeParameters": 2,
+          "p95Arcsec": 0.32413389954938987,
+          "medianArcsec": 0.06431789952289035,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 44,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3040010873650793,
+          "medianArcsec": 0.06871464863118551,
+          "passesThreshold": false,
+          "rotationDeg": 0.014239861282587925,
+          "scaleFactor": 0.999972574267011
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 44,
+          "freeParameters": 6,
+          "p95Arcsec": 0.28186607983259837,
+          "medianArcsec": 0.0689678422263661,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-7939"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 90,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3637992734169793,
+          "medianArcsec": 0.0889509892209951,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 90,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3613507517742629,
+          "medianArcsec": 0.0926819463425134,
+          "passesThreshold": false,
+          "rotationDeg": 0.009619823019047631,
+          "scaleFactor": 0.9997953841412952
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 90,
+          "freeParameters": 6,
+          "p95Arcsec": 0.36214031479932296,
+          "medianArcsec": 0.09491942783263238,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8259"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 37,
+          "freeParameters": 2,
+          "p95Arcsec": 0.4033381611889386,
+          "medianArcsec": 0.14057857543489988,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 37,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3798814185367778,
+          "medianArcsec": 0.1461443064975918,
+          "passesThreshold": false,
+          "rotationDeg": 0.03218228616779469,
+          "scaleFactor": 1.0000829897180308
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 37,
+          "freeParameters": 6,
+          "p95Arcsec": 0.37008350762575015,
+          "medianArcsec": 0.1555110513495835,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8272"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 67,
+          "freeParameters": 2,
+          "p95Arcsec": 0.26849377933181096,
+          "medianArcsec": 0.09176157602728409,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 67,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26746126767662476,
+          "medianArcsec": 0.10289693321156701,
+          "passesThreshold": true,
+          "rotationDeg": -0.010824698141790857,
+          "scaleFactor": 1.0000869377052068
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 67,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26137468028147604,
+          "medianArcsec": 0.1003540040055935,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-8642"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 38,
+          "freeParameters": 2,
+          "p95Arcsec": 0.32913330596391915,
+          "medianArcsec": 0.10491188126396492,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 38,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3154129511309783,
+          "medianArcsec": 0.10070692419065527,
+          "passesThreshold": false,
+          "rotationDeg": -0.019572235586908168,
+          "scaleFactor": 0.9999152336906341
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 38,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3271965280343819,
+          "medianArcsec": 0.1145108074016851,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8708"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 66,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3655518710110971,
+          "medianArcsec": 0.06633894091964992,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 66,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3341512293647704,
+          "medianArcsec": 0.07376412923163148,
+          "passesThreshold": false,
+          "rotationDeg": 0.014835662875442562,
+          "scaleFactor": 1.0000180697505079
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 66,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3046841488970463,
+          "medianArcsec": 0.08684890636583573,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8883"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 63,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30317336133330564,
+          "medianArcsec": 0.09316786874247454,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 63,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2744303015516197,
+          "medianArcsec": 0.0965370849775915,
+          "passesThreshold": true,
+          "rotationDeg": 0.013686254222873704,
+          "scaleFactor": 0.9999608377487662
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 63,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27367365040475533,
+          "medianArcsec": 0.09492693321075807,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-8884"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 73,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34245943537643786,
+          "medianArcsec": 0.11450312734233978,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 73,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3276620773860548,
+          "medianArcsec": 0.11715847934370213,
+          "passesThreshold": false,
+          "rotationDeg": 0.021439439065381254,
+          "scaleFactor": 0.9997703651981897
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 73,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3270824496624041,
+          "medianArcsec": 0.11413612215250825,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8984"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 83,
+          "freeParameters": 2,
+          "p95Arcsec": 0.41890713057944257,
+          "medianArcsec": 0.11374072383886556,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 83,
+          "freeParameters": 4,
+          "p95Arcsec": 0.4038777670504257,
+          "medianArcsec": 0.12026361566078654,
+          "passesThreshold": false,
+          "rotationDeg": 0.01264461874952991,
+          "scaleFactor": 1.000001989454949
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 83,
+          "freeParameters": 6,
+          "p95Arcsec": 0.4091317694797794,
+          "medianArcsec": 0.12015245083813056,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8985"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 75,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2575430895338851,
+          "medianArcsec": 0.10224910891616723,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 75,
+          "freeParameters": 4,
+          "p95Arcsec": 0.25098471317968496,
+          "medianArcsec": 0.10391849730664847,
+          "passesThreshold": true,
+          "rotationDeg": -0.0036771412211242353,
+          "scaleFactor": 0.9999266132111285
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 75,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2509465151236176,
+          "medianArcsec": 0.10434572747475457,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-8986"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 38,
+          "freeParameters": 2,
+          "p95Arcsec": 0.4240575418129198,
+          "medianArcsec": 0.12460413100267195,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 38,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3923287259583855,
+          "medianArcsec": 0.13308773504069177,
+          "passesThreshold": false,
+          "rotationDeg": -0.013171254332411581,
+          "scaleFactor": 1.000382651260828
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 38,
+          "freeParameters": 6,
+          "p95Arcsec": 0.38542792183780716,
+          "medianArcsec": 0.12728266980637928,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8994"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 40,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36950178911127224,
+          "medianArcsec": 0.13223124998276242,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 40,
+          "freeParameters": 4,
+          "p95Arcsec": 0.32789297458769384,
+          "medianArcsec": 0.14785046055917211,
+          "passesThreshold": false,
+          "rotationDeg": 0.014738576008236698,
+          "scaleFactor": 0.9994014436809168
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 40,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33947640031236453,
+          "medianArcsec": 0.13905723037641754,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8995"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 55,
+          "freeParameters": 2,
+          "p95Arcsec": 0.35177542273388,
+          "medianArcsec": 0.10871520558976107,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 55,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3410172291606506,
+          "medianArcsec": 0.10769221547211898,
+          "passesThreshold": false,
+          "rotationDeg": -0.013465271195493268,
+          "scaleFactor": 1.0000238766505085
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 55,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3118741967334982,
+          "medianArcsec": 0.12535632998027152,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8996"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 41,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3142698094761476,
+          "medianArcsec": 0.11048739889104306,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 41,
+          "freeParameters": 4,
+          "p95Arcsec": 0.32361990280635133,
+          "medianArcsec": 0.11233917180876068,
+          "passesThreshold": false,
+          "rotationDeg": 0.009699880340346953,
+          "scaleFactor": 0.9997946084708461
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 41,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3088096734917999,
+          "medianArcsec": 0.10109346181271377,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8997"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 65,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3755870741828384,
+          "medianArcsec": 0.13394371029602553,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 65,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3562902143737476,
+          "medianArcsec": 0.14083243208640944,
+          "passesThreshold": false,
+          "rotationDeg": -0.013242024763001615,
+          "scaleFactor": 1.0000547711311907
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 65,
+          "freeParameters": 6,
+          "p95Arcsec": 0.35098729807448437,
+          "medianArcsec": 0.13876692489063489,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-8998"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 39,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34479378070727795,
+          "medianArcsec": 0.09911449692777742,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 39,
+          "freeParameters": 4,
+          "p95Arcsec": 0.33607570957098687,
+          "medianArcsec": 0.09834458783310113,
+          "passesThreshold": false,
+          "rotationDeg": -0.012990055634657166,
+          "scaleFactor": 1.000012543186513
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 39,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33158907616883215,
+          "medianArcsec": 0.09028017436971457,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9125"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 26,
+          "freeParameters": 2,
+          "p95Arcsec": 0.33592944621118664,
+          "medianArcsec": 0.1225791890946043,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 26,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3375351143132255,
+          "medianArcsec": 0.13426729993211556,
+          "passesThreshold": false,
+          "rotationDeg": 0.052407972437496064,
+          "scaleFactor": 0.9998904574168478
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 26,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3221974337804211,
+          "medianArcsec": 0.11938731323193674,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9126"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 86,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2938005531316682,
+          "medianArcsec": 0.08881963449324876,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 86,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2703375029572523,
+          "medianArcsec": 0.09298679439842533,
+          "passesThreshold": true,
+          "rotationDeg": 0.0015287437079154309,
+          "scaleFactor": 1.0001240029972032
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 86,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26643215536632303,
+          "medianArcsec": 0.09700483580941391,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9207"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 80,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3652837095202118,
+          "medianArcsec": 0.12411288563632385,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 80,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3496425861160865,
+          "medianArcsec": 0.12428998079241717,
+          "passesThreshold": false,
+          "rotationDeg": -0.009332789788765438,
+          "scaleFactor": 1.000059758555854
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 80,
+          "freeParameters": 6,
+          "p95Arcsec": 0.349171376229701,
+          "medianArcsec": 0.1170027302707852,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9209"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 92,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2705152096185265,
+          "medianArcsec": 0.09130530726358653,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 92,
+          "freeParameters": 4,
+          "p95Arcsec": 0.27341887238681667,
+          "medianArcsec": 0.09202856955809566,
+          "passesThreshold": true,
+          "rotationDeg": 0.00633992115479985,
+          "scaleFactor": 1.0000240680202772
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 92,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2714276169374228,
+          "medianArcsec": 0.09387084929102814,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9210"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 88,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36107780565843184,
+          "medianArcsec": 0.05505837722884434,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 88,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3300782345698658,
+          "medianArcsec": 0.06923241917465428,
+          "passesThreshold": false,
+          "rotationDeg": 0.014799569683678309,
+          "scaleFactor": 1.0000595375743278
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 88,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3258502212464704,
+          "medianArcsec": 0.07334395332280816,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9212"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 63,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2919368655182034,
+          "medianArcsec": 0.09516357900759831,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 63,
+          "freeParameters": 4,
+          "p95Arcsec": 0.28433537999004044,
+          "medianArcsec": 0.0917430524710697,
+          "passesThreshold": true,
+          "rotationDeg": -0.011673407521448539,
+          "scaleFactor": 0.9997758243894654
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 63,
+          "freeParameters": 6,
+          "p95Arcsec": 0.28815723988940845,
+          "medianArcsec": 0.08629569527013743,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9214"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 88,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36901090134484865,
+          "medianArcsec": 0.09603813059962044,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 88,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3645147278665737,
+          "medianArcsec": 0.10090088421864833,
+          "passesThreshold": false,
+          "rotationDeg": 0.0054543057162552006,
+          "scaleFactor": 1.0001497990469397
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 88,
+          "freeParameters": 6,
+          "p95Arcsec": 0.361639481479184,
+          "medianArcsec": 0.09765343850010036,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9217"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.4060078542284822,
+          "medianArcsec": 0.12506383088953585,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3602864278372542,
+          "medianArcsec": 0.12877239204671806,
+          "passesThreshold": false,
+          "rotationDeg": -0.02790381673771935,
+          "scaleFactor": 0.9997167950902363
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3555285900847921,
+          "medianArcsec": 0.12341067747952311,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9218"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 85,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27693932926796716,
+          "medianArcsec": 0.08763334125435386,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 85,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2774476519257191,
+          "medianArcsec": 0.09098372982948309,
+          "passesThreshold": true,
+          "rotationDeg": -0.018725834600704528,
+          "scaleFactor": 1.0000048491670177
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 85,
+          "freeParameters": 6,
+          "p95Arcsec": 0.25997680039936016,
+          "medianArcsec": 0.08993854279132374,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9219"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 72,
+          "freeParameters": 2,
+          "p95Arcsec": 0.38787446424952815,
+          "medianArcsec": 0.10871501973788356,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 72,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3548847516123976,
+          "medianArcsec": 0.11057853800107534,
+          "passesThreshold": false,
+          "rotationDeg": -0.01889603914075661,
+          "scaleFactor": 1.0001824679559908
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 72,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3471287391509675,
+          "medianArcsec": 0.10815413105667976,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9220"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 112,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31707664750798986,
+          "medianArcsec": 0.11334029620539507,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 112,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3114970408639321,
+          "medianArcsec": 0.11082069541987653,
+          "passesThreshold": false,
+          "rotationDeg": -0.010255058995290433,
+          "scaleFactor": 0.9997988432747267
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 112,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31149583187625596,
+          "medianArcsec": 0.1056474900395761,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9221"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 95,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3980486849256315,
+          "medianArcsec": 0.09431324600835117,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 95,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3825476880121265,
+          "medianArcsec": 0.09029518514929825,
+          "passesThreshold": false,
+          "rotationDeg": -0.007456272092111782,
+          "scaleFactor": 1.000008310328343
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 95,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3686524231461906,
+          "medianArcsec": 0.10277893769216954,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9222"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 83,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2682494554672956,
+          "medianArcsec": 0.12191212621376381,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 83,
+          "freeParameters": 4,
+          "p95Arcsec": 0.270746192676733,
+          "medianArcsec": 0.12253446131397816,
+          "passesThreshold": true,
+          "rotationDeg": -0.012775874642819561,
+          "scaleFactor": 1.0000837079185183
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 83,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26216032819773105,
+          "medianArcsec": 0.12649230360956198,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9223"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 73,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31893961086932454,
+          "medianArcsec": 0.14667459856575182,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 73,
+          "freeParameters": 4,
+          "p95Arcsec": 0.31484801392005785,
+          "medianArcsec": 0.13912179247791207,
+          "passesThreshold": false,
+          "rotationDeg": 0.0007380067636837523,
+          "scaleFactor": 0.9998328999354598
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 73,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3099646918370351,
+          "medianArcsec": 0.13841049797730479,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9226"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 101,
+          "freeParameters": 2,
+          "p95Arcsec": 0.25548852379619835,
+          "medianArcsec": 0.09502668227857125,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 101,
+          "freeParameters": 4,
+          "p95Arcsec": 0.25394631810286333,
+          "medianArcsec": 0.08915485265117477,
+          "passesThreshold": true,
+          "rotationDeg": -0.00044286617016979,
+          "scaleFactor": 1.000316891342562
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 101,
+          "freeParameters": 6,
+          "p95Arcsec": 0.25312400590520745,
+          "medianArcsec": 0.08485087964931812,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9227"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 57,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3417288556242163,
+          "medianArcsec": 0.09642241326726882,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 57,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34052170485286903,
+          "medianArcsec": 0.08755554167029712,
+          "passesThreshold": false,
+          "rotationDeg": -0.018174619315251977,
+          "scaleFactor": 0.9998460045399813
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 57,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3253349296345699,
+          "medianArcsec": 0.0876262930426733,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9228"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2706770378993789,
+          "medianArcsec": 0.0748077871729673,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.27911064915961675,
+          "medianArcsec": 0.08065218616045342,
+          "passesThreshold": true,
+          "rotationDeg": 0.005926156549684349,
+          "scaleFactor": 1.0000626483687576
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.25993553011329396,
+          "medianArcsec": 0.08114671133239579,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9229"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.37394093786741306,
+          "medianArcsec": 0.13749682057650037,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.39935773402240926,
+          "medianArcsec": 0.13351684864837976,
+          "passesThreshold": false,
+          "rotationDeg": 0.00164939672119355,
+          "scaleFactor": 1.0003867121662011
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.4080133088410045,
+          "medianArcsec": 0.13469197709514782,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9230"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 75,
+          "freeParameters": 2,
+          "p95Arcsec": 0.24026661724602782,
+          "medianArcsec": 0.08088366098102671,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 75,
+          "freeParameters": 4,
+          "p95Arcsec": 0.23281201731972925,
+          "medianArcsec": 0.08384006752392076,
+          "passesThreshold": true,
+          "rotationDeg": 0.007609256757180919,
+          "scaleFactor": 0.9998803190713506
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 75,
+          "freeParameters": 6,
+          "p95Arcsec": 0.23390675662089752,
+          "medianArcsec": 0.08418064490529555,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9231"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 102,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3668730692376793,
+          "medianArcsec": 0.0819420523273364,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 102,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34518538048088254,
+          "medianArcsec": 0.08078036555152221,
+          "passesThreshold": false,
+          "rotationDeg": -0.0024181542073728624,
+          "scaleFactor": 0.9999355368886678
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 102,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3433129462588713,
+          "medianArcsec": 0.08328429678744159,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9232"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3745043381064411,
+          "medianArcsec": 0.10307690395265601,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3618573899825597,
+          "medianArcsec": 0.10453342895941209,
+          "passesThreshold": false,
+          "rotationDeg": 0.004929602218985486,
+          "scaleFactor": 1.000011431071123
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.35762754981959544,
+          "medianArcsec": 0.10627685434858257,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9233"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 56,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3624730755394449,
+          "medianArcsec": 0.13903648870205157,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 56,
+          "freeParameters": 4,
+          "p95Arcsec": 0.369132223008417,
+          "medianArcsec": 0.14120984523906593,
+          "passesThreshold": false,
+          "rotationDeg": -0.0060850483412062005,
+          "scaleFactor": 0.9998920948165907
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 56,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3711440950539521,
+          "medianArcsec": 0.14018107948131153,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9236"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 74,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3690889519356316,
+          "medianArcsec": 0.12949126479740208,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 74,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3599588970767085,
+          "medianArcsec": 0.12676990761177348,
+          "passesThreshold": false,
+          "rotationDeg": 0.006250935001017929,
+          "scaleFactor": 1.0000684187204654
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 74,
+          "freeParameters": 6,
+          "p95Arcsec": 0.36175781661794265,
+          "medianArcsec": 0.12342063843136679,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9237"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 58,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36260513429223323,
+          "medianArcsec": 0.10371935983213591,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 58,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3459910748823038,
+          "medianArcsec": 0.12076143829529357,
+          "passesThreshold": false,
+          "rotationDeg": -0.012331267733361316,
+          "scaleFactor": 0.9998454474264425
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 58,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3611649117205942,
+          "medianArcsec": 0.1274106242172357,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9238"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 68,
+          "freeParameters": 2,
+          "p95Arcsec": 0.38870218489832564,
+          "medianArcsec": 0.12538410706020325,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 68,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3865663946628958,
+          "medianArcsec": 0.130824600034762,
+          "passesThreshold": false,
+          "rotationDeg": 0.008982501512659396,
+          "scaleFactor": 1.0001780934447388
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 68,
+          "freeParameters": 6,
+          "p95Arcsec": 0.39081947823227214,
+          "medianArcsec": 0.12377350993064536,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9239"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 45,
+          "freeParameters": 2,
+          "p95Arcsec": 0.43408728736959773,
+          "medianArcsec": 0.14953803045432232,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 45,
+          "freeParameters": 4,
+          "p95Arcsec": 0.4095688883096511,
+          "medianArcsec": 0.14364346535988712,
+          "passesThreshold": false,
+          "rotationDeg": 0.023174747069743512,
+          "scaleFactor": 1.0005110143919265
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 45,
+          "freeParameters": 6,
+          "p95Arcsec": 0.38530048389382776,
+          "medianArcsec": 0.1564746923729537,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9240"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 85,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3614988623106819,
+          "medianArcsec": 0.11645056344295898,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 85,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3678792410097734,
+          "medianArcsec": 0.11800185402864412,
+          "passesThreshold": false,
+          "rotationDeg": 0.0063179201465978704,
+          "scaleFactor": 1.0001831242630705
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 85,
+          "freeParameters": 6,
+          "p95Arcsec": 0.36929844110616383,
+          "medianArcsec": 0.11906560937261447,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9242"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 44,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30566083059960575,
+          "medianArcsec": 0.09273867356871912,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 44,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2957233446429632,
+          "medianArcsec": 0.08835394332311522,
+          "passesThreshold": true,
+          "rotationDeg": -0.006551219536345779,
+          "scaleFactor": 1.0000060288343708
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 44,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3089247482198639,
+          "medianArcsec": 0.08625965645152656,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9245"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 68,
+          "freeParameters": 2,
+          "p95Arcsec": 0.26173126805415503,
+          "medianArcsec": 0.10293653609625847,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 68,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2737390917625914,
+          "medianArcsec": 0.10296354376591066,
+          "passesThreshold": true,
+          "rotationDeg": -0.010014942296814695,
+          "scaleFactor": 1.000033878238996
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 68,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2729805680862529,
+          "medianArcsec": 0.09972212653389156,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9327"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 66,
+          "freeParameters": 2,
+          "p95Arcsec": 0.29716426578940014,
+          "medianArcsec": 0.12178081028348131,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 66,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2916404209597901,
+          "medianArcsec": 0.12143370269742877,
+          "passesThreshold": true,
+          "rotationDeg": 0.008497666131534649,
+          "scaleFactor": 0.9999986216547473
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 66,
+          "freeParameters": 6,
+          "p95Arcsec": 0.30699610471243777,
+          "medianArcsec": 0.10885437489512134,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9328"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 43,
+          "freeParameters": 2,
+          "p95Arcsec": 0.22055236919250767,
+          "medianArcsec": 0.08519358079036014,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 43,
+          "freeParameters": 4,
+          "p95Arcsec": 0.22289244691883534,
+          "medianArcsec": 0.0790723787169905,
+          "passesThreshold": true,
+          "rotationDeg": -0.013236537771061721,
+          "scaleFactor": 1.000198226093888
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 43,
+          "freeParameters": 6,
+          "p95Arcsec": 0.21906022291985172,
+          "medianArcsec": 0.08247448360705578,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9448"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 96,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2964025479499951,
+          "medianArcsec": 0.09439363699281111,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 96,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2679213580430803,
+          "medianArcsec": 0.09679400380737496,
+          "passesThreshold": true,
+          "rotationDeg": 0.012040105472140709,
+          "scaleFactor": 1.00007070292012
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 96,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26946579809917104,
+          "medianArcsec": 0.09834033178840955,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9449"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27671612638277593,
+          "medianArcsec": 0.09651009191532592,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2816469965793935,
+          "medianArcsec": 0.09935271010527744,
+          "passesThreshold": true,
+          "rotationDeg": 0.002330150059580473,
+          "scaleFactor": 1.000027821212351
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2789062350659056,
+          "medianArcsec": 0.09669437412024262,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9450"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 89,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27912224074930975,
+          "medianArcsec": 0.08007978302236472,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 89,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26970839343713343,
+          "medianArcsec": 0.09953055246245368,
+          "passesThreshold": true,
+          "rotationDeg": 0.02023298834644976,
+          "scaleFactor": 1.0000253013512033
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 89,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2699674418126617,
+          "medianArcsec": 0.09978900529172423,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9451"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 89,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27346540696316063,
+          "medianArcsec": 0.089120420693004,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 89,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2697238935239834,
+          "medianArcsec": 0.09466659044615408,
+          "passesThreshold": true,
+          "rotationDeg": -0.0010656201378278986,
+          "scaleFactor": 0.9999300541169664
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 89,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27535856975718564,
+          "medianArcsec": 0.087612525937481,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9452"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 74,
+          "freeParameters": 2,
+          "p95Arcsec": 0.35283974991199485,
+          "medianArcsec": 0.10436395695781922,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 74,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3292859925289423,
+          "medianArcsec": 0.11695620637448548,
+          "passesThreshold": false,
+          "rotationDeg": -0.0023915398068966127,
+          "scaleFactor": 0.9997274044464252
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 74,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3152499623968113,
+          "medianArcsec": 0.11197821253219176,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9453"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 94,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2636504771152177,
+          "medianArcsec": 0.08318527456692137,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 94,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26183822214654057,
+          "medianArcsec": 0.08213966223258488,
+          "passesThreshold": true,
+          "rotationDeg": -0.005429988363069435,
+          "scaleFactor": 0.999921167878492
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 94,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26163890059387407,
+          "medianArcsec": 0.08272805022764029,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9454"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 77,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3196222393726186,
+          "medianArcsec": 0.09726800635010993,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 77,
+          "freeParameters": 4,
+          "p95Arcsec": 0.29525464568621607,
+          "medianArcsec": 0.09725848763582294,
+          "passesThreshold": true,
+          "rotationDeg": 0.01612594939660302,
+          "scaleFactor": 0.999690778063483
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 77,
+          "freeParameters": 6,
+          "p95Arcsec": 0.28827019056527087,
+          "medianArcsec": 0.09612924766557379,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9455"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 89,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31600716853432853,
+          "medianArcsec": 0.1060236418859498,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 89,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3013811025013152,
+          "medianArcsec": 0.10848725650449903,
+          "passesThreshold": false,
+          "rotationDeg": -0.005430800585901803,
+          "scaleFactor": 1.000246587691394
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 89,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3006672523721756,
+          "medianArcsec": 0.1077174807466375,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9456"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 91,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2920518418693193,
+          "medianArcsec": 0.07914361317707438,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 91,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2942639620780238,
+          "medianArcsec": 0.07436609499656915,
+          "passesThreshold": true,
+          "rotationDeg": -0.0023240037169277024,
+          "scaleFactor": 0.9999860114760559
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 91,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3003104070058667,
+          "medianArcsec": 0.07978731587029393,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9457"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 93,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30890391134908823,
+          "medianArcsec": 0.08507086659875912,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 93,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3174938817920455,
+          "medianArcsec": 0.0889955523190618,
+          "passesThreshold": false,
+          "rotationDeg": -0.006361148055927116,
+          "scaleFactor": 1.0002420117179407
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 93,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3118659091582028,
+          "medianArcsec": 0.08842126851388205,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9458"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31944826940580084,
+          "medianArcsec": 0.11234416226778207,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.32519565769018993,
+          "medianArcsec": 0.1140736223360846,
+          "passesThreshold": false,
+          "rotationDeg": -0.0006606212936700866,
+          "scaleFactor": 0.9999795302435458
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3129799489682472,
+          "medianArcsec": 0.11218366991244015,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9459"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 118,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2730034676744465,
+          "medianArcsec": 0.08639299703925635,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 118,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2757286811377124,
+          "medianArcsec": 0.08181372464850035,
+          "passesThreshold": true,
+          "rotationDeg": 0.0025785843449816197,
+          "scaleFactor": 0.9999052304109868
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 118,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27145162373361365,
+          "medianArcsec": 0.09088864623701844,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9460"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 86,
+          "freeParameters": 2,
+          "p95Arcsec": 0.33666811893887877,
+          "medianArcsec": 0.11004099667408321,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 86,
+          "freeParameters": 4,
+          "p95Arcsec": 0.32704898001685845,
+          "medianArcsec": 0.11388991860773552,
+          "passesThreshold": false,
+          "rotationDeg": -0.004383376268752964,
+          "scaleFactor": 0.9998019056991191
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 86,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31629847785761644,
+          "medianArcsec": 0.11270752592985164,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9461"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 73,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27794780369435035,
+          "medianArcsec": 0.0828243591028904,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 73,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2574903668374439,
+          "medianArcsec": 0.09366409590705549,
+          "passesThreshold": true,
+          "rotationDeg": 0.017009375088854573,
+          "scaleFactor": 0.9997158323349554
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 73,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2607211190640266,
+          "medianArcsec": 0.09850382431908192,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9462"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 96,
+          "freeParameters": 2,
+          "p95Arcsec": 0.20722185629631668,
+          "medianArcsec": 0.06131808904108203,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 96,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2131800910229833,
+          "medianArcsec": 0.061609701836583694,
+          "passesThreshold": true,
+          "rotationDeg": -0.004249337666320869,
+          "scaleFactor": 0.9999602459731988
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 96,
+          "freeParameters": 6,
+          "p95Arcsec": 0.21031639402562988,
+          "medianArcsec": 0.06478258491441681,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9463"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 93,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27564477794623937,
+          "medianArcsec": 0.09019451352495314,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 93,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2726440503352139,
+          "medianArcsec": 0.09012123843760186,
+          "passesThreshold": true,
+          "rotationDeg": -0.014120909365405148,
+          "scaleFactor": 1.0000307362603307
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 93,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26074596363349306,
+          "medianArcsec": 0.10148858654843852,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9464"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3471592746307613,
+          "medianArcsec": 0.11969934706832894,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3504987946267792,
+          "medianArcsec": 0.11711602724139676,
+          "passesThreshold": false,
+          "rotationDeg": -0.01778753524003667,
+          "scaleFactor": 1.0002493457061474
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3456592979405022,
+          "medianArcsec": 0.10635887188206833,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9465"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 84,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3491354720898031,
+          "medianArcsec": 0.10487671167266532,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 84,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3326247517857078,
+          "medianArcsec": 0.11620500528616169,
+          "passesThreshold": false,
+          "rotationDeg": 0.012531382920130165,
+          "scaleFactor": 1.0000654971131901
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 84,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31793666091883016,
+          "medianArcsec": 0.11349496069227508,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9466"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 71,
+          "freeParameters": 2,
+          "p95Arcsec": 0.24634446812592134,
+          "medianArcsec": 0.08153996048212668,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 71,
+          "freeParameters": 4,
+          "p95Arcsec": 0.25129354423694195,
+          "medianArcsec": 0.08871142019976314,
+          "passesThreshold": true,
+          "rotationDeg": -0.0021210482648367323,
+          "scaleFactor": 0.9999705390070912
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 71,
+          "freeParameters": 6,
+          "p95Arcsec": 0.24980639040604746,
+          "medianArcsec": 0.0890551549289917,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9467"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 92,
+          "freeParameters": 2,
+          "p95Arcsec": 0.277691659432081,
+          "medianArcsec": 0.08996457031143953,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 92,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2800389363725514,
+          "medianArcsec": 0.09073096133317574,
+          "passesThreshold": true,
+          "rotationDeg": 0.009192212218677533,
+          "scaleFactor": 1.0000718903713794
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 92,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27452722997095125,
+          "medianArcsec": 0.09558966502060387,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9468"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 102,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30872148287170875,
+          "medianArcsec": 0.07504410354718208,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 102,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3168958261121932,
+          "medianArcsec": 0.0702218696910801,
+          "passesThreshold": false,
+          "rotationDeg": 0.00841631669653819,
+          "scaleFactor": 1.0003279249381831
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 102,
+          "freeParameters": 6,
+          "p95Arcsec": 0.327121100669844,
+          "medianArcsec": 0.07470126049713588,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9469"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 85,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2875399907784914,
+          "medianArcsec": 0.08427283222356814,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 85,
+          "freeParameters": 4,
+          "p95Arcsec": 0.25594674039655424,
+          "medianArcsec": 0.08260352779460169,
+          "passesThreshold": true,
+          "rotationDeg": -0.01253399392640775,
+          "scaleFactor": 1.0001124851652656
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 85,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2632655792838775,
+          "medianArcsec": 0.0857331662945016,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9470"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 86,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3473470561222235,
+          "medianArcsec": 0.1046074088993579,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 86,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3635389166519177,
+          "medianArcsec": 0.11082866424063181,
+          "passesThreshold": false,
+          "rotationDeg": 0.002537427934314936,
+          "scaleFactor": 1.0001356504887204
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 86,
+          "freeParameters": 6,
+          "p95Arcsec": 0.36397941770962144,
+          "medianArcsec": 0.11009656768510148,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9471"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 59,
+          "freeParameters": 2,
+          "p95Arcsec": 0.37593957390552746,
+          "medianArcsec": 0.08119075604103622,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 59,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3618012603285009,
+          "medianArcsec": 0.09034305526378082,
+          "passesThreshold": false,
+          "rotationDeg": 0.012176350614211488,
+          "scaleFactor": 0.9998591716319271
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 59,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3572720806657711,
+          "medianArcsec": 0.08660289692051172,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9472"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 57,
+          "freeParameters": 2,
+          "p95Arcsec": 0.22983968965643972,
+          "medianArcsec": 0.07032885540351444,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 57,
+          "freeParameters": 4,
+          "p95Arcsec": 0.23458155023235347,
+          "medianArcsec": 0.07241434015584625,
+          "passesThreshold": true,
+          "rotationDeg": 7.361213994120073e-05,
+          "scaleFactor": 1.0001956141514359
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 57,
+          "freeParameters": 6,
+          "p95Arcsec": 0.232102611439937,
+          "medianArcsec": 0.07242532318990973,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9473"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 73,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30772009571776693,
+          "medianArcsec": 0.07655516920336418,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 73,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3033493135354841,
+          "medianArcsec": 0.07489034895956659,
+          "passesThreshold": false,
+          "rotationDeg": 0.003315802490452054,
+          "scaleFactor": 1.0000972770907672
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 73,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3025894448510592,
+          "medianArcsec": 0.07607567187515563,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9474"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 59,
+          "freeParameters": 2,
+          "p95Arcsec": 0.24960992171562887,
+          "medianArcsec": 0.07574237469523835,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 59,
+          "freeParameters": 4,
+          "p95Arcsec": 0.24177893785256874,
+          "medianArcsec": 0.07911510634203933,
+          "passesThreshold": true,
+          "rotationDeg": 0.002561460291964223,
+          "scaleFactor": 1.0002161933570084
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 59,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2435416999313986,
+          "medianArcsec": 0.08271036043562925,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9475"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34504734311551727,
+          "medianArcsec": 0.09256197401264125,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.35763807522705243,
+          "medianArcsec": 0.09709633454319049,
+          "passesThreshold": false,
+          "rotationDeg": -0.0008538175393693166,
+          "scaleFactor": 1.000008094873102
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.353472122669003,
+          "medianArcsec": 0.0924995394117286,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9476"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 53,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3765172350055011,
+          "medianArcsec": 0.14812597521587562,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 53,
+          "freeParameters": 4,
+          "p95Arcsec": 0.36338755569738473,
+          "medianArcsec": 0.14772814699480658,
+          "passesThreshold": false,
+          "rotationDeg": 0.025884416571972463,
+          "scaleFactor": 1.0002627069623233
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 53,
+          "freeParameters": 6,
+          "p95Arcsec": 0.345073280880413,
+          "medianArcsec": 0.1488854081087652,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9479"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 59,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27391838589842854,
+          "medianArcsec": 0.10871436365149488,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 59,
+          "freeParameters": 4,
+          "p95Arcsec": 0.29135246646000335,
+          "medianArcsec": 0.10774373803299292,
+          "passesThreshold": true,
+          "rotationDeg": -0.016608338078682443,
+          "scaleFactor": 1.0003603125613665
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 59,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27920825061158033,
+          "medianArcsec": 0.10522633869901585,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9480"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 38,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2698742753740172,
+          "medianArcsec": 0.12883730021381445,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 38,
+          "freeParameters": 4,
+          "p95Arcsec": 0.28180191178485103,
+          "medianArcsec": 0.1294483365173441,
+          "passesThreshold": true,
+          "rotationDeg": 0.004321263476474166,
+          "scaleFactor": 0.9998605875861131
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 38,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27842638336978487,
+          "medianArcsec": 0.12901554528237782,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9481"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36496889296104407,
+          "medianArcsec": 0.13183015923174385,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3381424968519715,
+          "medianArcsec": 0.1391828705484693,
+          "passesThreshold": false,
+          "rotationDeg": 0.01024415695990279,
+          "scaleFactor": 0.9999536866678809
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.34421809522605895,
+          "medianArcsec": 0.1419447709830013,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9482"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 66,
+          "freeParameters": 2,
+          "p95Arcsec": 0.40509499727947934,
+          "medianArcsec": 0.14977811811497868,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 66,
+          "freeParameters": 4,
+          "p95Arcsec": 0.40653462716111133,
+          "medianArcsec": 0.1474758099977066,
+          "passesThreshold": false,
+          "rotationDeg": -0.03146659097146086,
+          "scaleFactor": 0.9998568227789704
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 66,
+          "freeParameters": 6,
+          "p95Arcsec": 0.40342710042373675,
+          "medianArcsec": 0.1478396784386405,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9483"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 84,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3428055425550043,
+          "medianArcsec": 0.11206220538329902,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 84,
+          "freeParameters": 4,
+          "p95Arcsec": 0.32813777457961896,
+          "medianArcsec": 0.10872391211321396,
+          "passesThreshold": false,
+          "rotationDeg": -0.0025956763792169286,
+          "scaleFactor": 1.0000075457531146
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 84,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33183197769822464,
+          "medianArcsec": 0.11150124922057109,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9484"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 75,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3488268397442873,
+          "medianArcsec": 0.1228259488633825,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 75,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3478747570024112,
+          "medianArcsec": 0.12233463049530054,
+          "passesThreshold": false,
+          "rotationDeg": 0.018719123896558196,
+          "scaleFactor": 0.9998350888787774
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 75,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3537179624494657,
+          "medianArcsec": 0.1302998366798748,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9485"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 53,
+          "freeParameters": 2,
+          "p95Arcsec": 0.25743631977688525,
+          "medianArcsec": 0.0819441288125657,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 53,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2578320448375718,
+          "medianArcsec": 0.07873467715339125,
+          "passesThreshold": true,
+          "rotationDeg": -0.010899467402376753,
+          "scaleFactor": 0.9998900942302873
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 53,
+          "freeParameters": 6,
+          "p95Arcsec": 0.24553103296874682,
+          "medianArcsec": 0.07721824203558739,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9488"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 50,
+          "freeParameters": 2,
+          "p95Arcsec": 0.409096006526835,
+          "medianArcsec": 0.10497389802558468,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 50,
+          "freeParameters": 4,
+          "p95Arcsec": 0.38075315050869385,
+          "medianArcsec": 0.11512356475729026,
+          "passesThreshold": false,
+          "rotationDeg": -0.0018114661836562977,
+          "scaleFactor": 1.000430766370834
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 50,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31833784973641954,
+          "medianArcsec": 0.10779616718089394,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9489"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 124,
+          "freeParameters": 2,
+          "p95Arcsec": 0.255950866201867,
+          "medianArcsec": 0.06434893336790547,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 124,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26362583028715775,
+          "medianArcsec": 0.0652987611333195,
+          "passesThreshold": true,
+          "rotationDeg": 0.0004150112840543995,
+          "scaleFactor": 0.9999460837597864
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 124,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2631119459683751,
+          "medianArcsec": 0.06521730409017484,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9570"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 131,
+          "freeParameters": 2,
+          "p95Arcsec": 0.30296614217911066,
+          "medianArcsec": 0.08758903917748441,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 131,
+          "freeParameters": 4,
+          "p95Arcsec": 0.29000045621868525,
+          "medianArcsec": 0.08366879643120811,
+          "passesThreshold": true,
+          "rotationDeg": -0.00453489998488536,
+          "scaleFactor": 0.9997465664354692
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 131,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2902930983516079,
+          "medianArcsec": 0.08269763794102529,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9571"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 38,
+          "freeParameters": 2,
+          "p95Arcsec": 0.27985647958031207,
+          "medianArcsec": 0.11565856196619595,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 38,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2617816214216888,
+          "medianArcsec": 0.12207295909380661,
+          "passesThreshold": true,
+          "rotationDeg": 0.01181379684047521,
+          "scaleFactor": 1.0001828551838026
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 38,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2518689997140693,
+          "medianArcsec": 0.11525667509274423,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9572"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 42,
+          "freeParameters": 2,
+          "p95Arcsec": 0.19817663517380246,
+          "medianArcsec": 0.07711064545316759,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 42,
+          "freeParameters": 4,
+          "p95Arcsec": 0.1793361288771658,
+          "medianArcsec": 0.08137379804127239,
+          "passesThreshold": true,
+          "rotationDeg": 0.022766938450517714,
+          "scaleFactor": 1.000020570796109
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 42,
+          "freeParameters": 6,
+          "p95Arcsec": 0.16667775030816961,
+          "medianArcsec": 0.09222819393708453,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9691"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 58,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3224113622768239,
+          "medianArcsec": 0.093344367352739,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 58,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3153575917655665,
+          "medianArcsec": 0.10113171581180114,
+          "passesThreshold": false,
+          "rotationDeg": -0.013936497374221183,
+          "scaleFactor": 0.9997701653921904
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 58,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3116472146136479,
+          "medianArcsec": 0.08688342771941861,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9692"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 74,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3968224618305333,
+          "medianArcsec": 0.1289114692242309,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 74,
+          "freeParameters": 4,
+          "p95Arcsec": 0.39240370140693687,
+          "medianArcsec": 0.13426388619432114,
+          "passesThreshold": false,
+          "rotationDeg": -0.008562390596887542,
+          "scaleFactor": 0.9996108879705793
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 74,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3835735711245631,
+          "medianArcsec": 0.12427109116529261,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9693"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 35,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2583403285687778,
+          "medianArcsec": 0.07180758873844263,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 35,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2545417522653314,
+          "medianArcsec": 0.07579231151126746,
+          "passesThreshold": true,
+          "rotationDeg": 0.020389594977139675,
+          "scaleFactor": 0.9998557583625257
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 35,
+          "freeParameters": 6,
+          "p95Arcsec": 0.25826087713132706,
+          "medianArcsec": 0.07294952784062805,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9694"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 121,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2734177545338054,
+          "medianArcsec": 0.07537959764260123,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 121,
+          "freeParameters": 4,
+          "p95Arcsec": 0.27431861138537006,
+          "medianArcsec": 0.08047746140888463,
+          "passesThreshold": true,
+          "rotationDeg": 0.0059872859708187814,
+          "scaleFactor": 0.999879949114448
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 121,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27603356647010663,
+          "medianArcsec": 0.08226808042513535,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9695"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 30,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2736082864537109,
+          "medianArcsec": 0.09824763126295667,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 30,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2585385618286741,
+          "medianArcsec": 0.10309457185227314,
+          "passesThreshold": true,
+          "rotationDeg": -0.001221503816116212,
+          "scaleFactor": 1.0004109019436846
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 30,
+          "freeParameters": 6,
+          "p95Arcsec": 0.250024463458564,
+          "medianArcsec": 0.09074998460780229,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9696"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 68,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34919219287116615,
+          "medianArcsec": 0.08607815866187976,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 68,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3284658756815164,
+          "medianArcsec": 0.07931459426671408,
+          "passesThreshold": false,
+          "rotationDeg": -0.006623581801539521,
+          "scaleFactor": 0.999756786070953
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 68,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3247060410690739,
+          "medianArcsec": 0.08514103595454586,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9697"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 97,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3540101158252131,
+          "medianArcsec": 0.11050524714817964,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 97,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3503402240646163,
+          "medianArcsec": 0.10168485145982406,
+          "passesThreshold": false,
+          "rotationDeg": 0.009080916447852054,
+          "scaleFactor": 0.9998007841517084
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 97,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3466923887657066,
+          "medianArcsec": 0.1071279718135193,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9698"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 99,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34707852100806513,
+          "medianArcsec": 0.10482640236603018,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 99,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3408198377164711,
+          "medianArcsec": 0.11036398408251585,
+          "passesThreshold": false,
+          "rotationDeg": -0.0027968066370229402,
+          "scaleFactor": 1.0000706565776076
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 99,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3379822819734187,
+          "medianArcsec": 0.10912373701374259,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9699"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 81,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3498638678551702,
+          "medianArcsec": 0.10164454818571264,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 81,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3562866775154811,
+          "medianArcsec": 0.0950264908226829,
+          "passesThreshold": false,
+          "rotationDeg": -0.004517444627052042,
+          "scaleFactor": 0.9998326094306752
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 81,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3382119299290695,
+          "medianArcsec": 0.09456777907102233,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9700"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.28420101395415825,
+          "medianArcsec": 0.07699557394251674,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2820250050790926,
+          "medianArcsec": 0.08064820997956214,
+          "passesThreshold": true,
+          "rotationDeg": -0.0003197061416084961,
+          "scaleFactor": 1.0000185286795062
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27616581516041,
+          "medianArcsec": 0.09092928888055579,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9701"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 103,
+          "freeParameters": 2,
+          "p95Arcsec": 0.28818924478369784,
+          "medianArcsec": 0.0854493332818532,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 103,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2679857969631757,
+          "medianArcsec": 0.09412956930232758,
+          "passesThreshold": true,
+          "rotationDeg": -0.01729466322807978,
+          "scaleFactor": 0.9999297188455937
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 103,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27921670905301677,
+          "medianArcsec": 0.09593355686087034,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9702"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3244554229912038,
+          "medianArcsec": 0.09724679864953623,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34892946296236416,
+          "medianArcsec": 0.09222543887940882,
+          "passesThreshold": false,
+          "rotationDeg": 0.01661182116575288,
+          "scaleFactor": 0.9999606721632298
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.338602863251728,
+          "medianArcsec": 0.09269446407647694,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9703"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36037381069690316,
+          "medianArcsec": 0.11323599905875346,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34214626161151535,
+          "medianArcsec": 0.10629232587662568,
+          "passesThreshold": false,
+          "rotationDeg": -0.007161266747005142,
+          "scaleFactor": 1.0000871325263798
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3271463070077268,
+          "medianArcsec": 0.1063553265593237,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9704"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 80,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31440905496940097,
+          "medianArcsec": 0.10325115929909057,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 80,
+          "freeParameters": 4,
+          "p95Arcsec": 0.29961437857794465,
+          "medianArcsec": 0.10885482497088661,
+          "passesThreshold": true,
+          "rotationDeg": -0.018188874215825105,
+          "scaleFactor": 0.9999856991170486
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 80,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2906813920682005,
+          "medianArcsec": 0.10940316938105071,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9705"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 81,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3168574748475176,
+          "medianArcsec": 0.09707613839794746,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 81,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3192855563614294,
+          "medianArcsec": 0.10371093284980898,
+          "passesThreshold": false,
+          "rotationDeg": 0.0038638669113106147,
+          "scaleFactor": 0.9998033222115594
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 81,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31571156183314736,
+          "medianArcsec": 0.10814905983621571,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9706"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 76,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36352002554522533,
+          "medianArcsec": 0.11895530148016159,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 76,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3567521922155559,
+          "medianArcsec": 0.11281955671026925,
+          "passesThreshold": false,
+          "rotationDeg": -0.0096773395840057,
+          "scaleFactor": 0.9996847525190272
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 76,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3529457871474514,
+          "medianArcsec": 0.11072093659620377,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9707"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 88,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3322369295335899,
+          "medianArcsec": 0.09862317216189478,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 88,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3294936288582081,
+          "medianArcsec": 0.10087705019506576,
+          "passesThreshold": false,
+          "rotationDeg": 0.0031225469437388565,
+          "scaleFactor": 0.9997547532379293
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 88,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3284795866672799,
+          "medianArcsec": 0.09883633427930483,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9708"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 105,
+          "freeParameters": 2,
+          "p95Arcsec": 0.32348773899002403,
+          "medianArcsec": 0.09565235626431766,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 105,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3181595387959484,
+          "medianArcsec": 0.09651195783051011,
+          "passesThreshold": false,
+          "rotationDeg": -0.0007785754068469971,
+          "scaleFactor": 0.9998896779450268
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 105,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31981762130878266,
+          "medianArcsec": 0.09621252611275667,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9709"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 81,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2922014143752465,
+          "medianArcsec": 0.07625188665030361,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 81,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2811104716492031,
+          "medianArcsec": 0.07566485119120893,
+          "passesThreshold": true,
+          "rotationDeg": -0.001861703185176469,
+          "scaleFactor": 1.0000229105862923
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 81,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2787676818943237,
+          "medianArcsec": 0.07792330180022743,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9710"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 101,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3636966704858365,
+          "medianArcsec": 0.10691050248826076,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 101,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34453950848720594,
+          "medianArcsec": 0.10440139440076648,
+          "passesThreshold": false,
+          "rotationDeg": -0.010330271831065496,
+          "scaleFactor": 0.9999472096222842
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 101,
+          "freeParameters": 6,
+          "p95Arcsec": 0.34988247160348745,
+          "medianArcsec": 0.1108162555504249,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9711"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 105,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3263165320239601,
+          "medianArcsec": 0.09153962874265996,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 105,
+          "freeParameters": 4,
+          "p95Arcsec": 0.33031861568406296,
+          "medianArcsec": 0.09353117836665018,
+          "passesThreshold": false,
+          "rotationDeg": -0.0021109467443920925,
+          "scaleFactor": 0.9999040300647256
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 105,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3285953017745595,
+          "medianArcsec": 0.0924804976954175,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9712"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 79,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36020867678972934,
+          "medianArcsec": 0.12422529255894282,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 79,
+          "freeParameters": 4,
+          "p95Arcsec": 0.34196800639199443,
+          "medianArcsec": 0.1225991508998973,
+          "passesThreshold": false,
+          "rotationDeg": -0.006272819844755323,
+          "scaleFactor": 1.000024638272248
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 79,
+          "freeParameters": 6,
+          "p95Arcsec": 0.34647021169938214,
+          "medianArcsec": 0.11871113301036129,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9713"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 96,
+          "freeParameters": 2,
+          "p95Arcsec": 0.21287976230561442,
+          "medianArcsec": 0.05847302645319214,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 96,
+          "freeParameters": 4,
+          "p95Arcsec": 0.20936483626048513,
+          "medianArcsec": 0.059974480237897046,
+          "passesThreshold": true,
+          "rotationDeg": 0.002425026610425432,
+          "scaleFactor": 0.99998806498802
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 96,
+          "freeParameters": 6,
+          "p95Arcsec": 0.20316287562601504,
+          "medianArcsec": 0.06326173374734496,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9714"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 76,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3177745229757831,
+          "medianArcsec": 0.0871539661507467,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 76,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3190376400115669,
+          "medianArcsec": 0.08516211268619937,
+          "passesThreshold": false,
+          "rotationDeg": -0.008490490202300716,
+          "scaleFactor": 0.9999700550084184
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 76,
+          "freeParameters": 6,
+          "p95Arcsec": 0.315421943448286,
+          "medianArcsec": 0.07898489553402688,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9715"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 49,
+          "freeParameters": 2,
+          "p95Arcsec": 0.312228630180001,
+          "medianArcsec": 0.08458728912250525,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 49,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3121649443191953,
+          "medianArcsec": 0.08716657083818981,
+          "passesThreshold": false,
+          "rotationDeg": -0.002219126083877856,
+          "scaleFactor": 0.9999683677508235
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 49,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3080173786114289,
+          "medianArcsec": 0.08535916946370672,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9716"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 70,
+          "freeParameters": 2,
+          "p95Arcsec": 0.37241067649834786,
+          "medianArcsec": 0.10100928287542499,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 70,
+          "freeParameters": 4,
+          "p95Arcsec": 0.352594543966428,
+          "medianArcsec": 0.09772668169336496,
+          "passesThreshold": false,
+          "rotationDeg": -0.007005701216712895,
+          "scaleFactor": 1.0000401309901672
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 70,
+          "freeParameters": 6,
+          "p95Arcsec": 0.35079102473194473,
+          "medianArcsec": 0.1020734160842742,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9717"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 27,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2412285202510357,
+          "medianArcsec": 0.07548888791587903,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 27,
+          "freeParameters": 4,
+          "p95Arcsec": 0.22701323772864804,
+          "medianArcsec": 0.06983533548716336,
+          "passesThreshold": true,
+          "rotationDeg": 0.01272048552445563,
+          "scaleFactor": 1.0001122324095644
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 27,
+          "freeParameters": 6,
+          "p95Arcsec": 0.22246867163058148,
+          "medianArcsec": 0.06956419865631652,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9718"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 43,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2241126291948505,
+          "medianArcsec": 0.09582342063656539,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 43,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2184161631536262,
+          "medianArcsec": 0.09083424992433434,
+          "passesThreshold": true,
+          "rotationDeg": -0.029162456841502427,
+          "scaleFactor": 0.9999039644010559
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 43,
+          "freeParameters": 6,
+          "p95Arcsec": 0.20879885027133754,
+          "medianArcsec": 0.08928145032237081,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9719"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 67,
+          "freeParameters": 2,
+          "p95Arcsec": 0.4193756710516105,
+          "medianArcsec": 0.1263522143722307,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 67,
+          "freeParameters": 4,
+          "p95Arcsec": 0.40711184860559013,
+          "medianArcsec": 0.1201002908339687,
+          "passesThreshold": false,
+          "rotationDeg": -0.01633297401106405,
+          "scaleFactor": 1.0001258978866348
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 67,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3883334653994486,
+          "medianArcsec": 0.13383051860644166,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9722"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 64,
+          "freeParameters": 2,
+          "p95Arcsec": 0.41635440829177234,
+          "medianArcsec": 0.11789661687074575,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 64,
+          "freeParameters": 4,
+          "p95Arcsec": 0.4161017866038537,
+          "medianArcsec": 0.1281286492487199,
+          "passesThreshold": false,
+          "rotationDeg": -0.005547421658939818,
+          "scaleFactor": 0.9998391682119981
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 64,
+          "freeParameters": 6,
+          "p95Arcsec": 0.43367364751281096,
+          "medianArcsec": 0.1178419994720589,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9723"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 23,
+          "freeParameters": 2,
+          "p95Arcsec": 0.23452418880832487,
+          "medianArcsec": 0.07602971813700984,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 23,
+          "freeParameters": 4,
+          "p95Arcsec": 0.19555848280206636,
+          "medianArcsec": 0.07932340662368942,
+          "passesThreshold": true,
+          "rotationDeg": -0.034306121701243676,
+          "scaleFactor": 1.0002250970596591
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 23,
+          "freeParameters": 6,
+          "p95Arcsec": 0.19997363151381015,
+          "medianArcsec": 0.08197600517954311,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9724"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 41,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3763172533756495,
+          "medianArcsec": 0.11415280138470289,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 41,
+          "freeParameters": 4,
+          "p95Arcsec": 0.38823321820160256,
+          "medianArcsec": 0.12204589665492019,
+          "passesThreshold": false,
+          "rotationDeg": 0.015621708279522722,
+          "scaleFactor": 0.9997094767194865
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 41,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3699528464069826,
+          "medianArcsec": 0.1097167460229181,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9725"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 53,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2552919588736652,
+          "medianArcsec": 0.09708430012533618,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 53,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26085948289528926,
+          "medianArcsec": 0.09170596738959269,
+          "passesThreshold": true,
+          "rotationDeg": 0.00023299662599202036,
+          "scaleFactor": 1.0001857537890135
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 53,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2553046909948169,
+          "medianArcsec": 0.08774033652698798,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9726"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 92,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3425408777339935,
+          "medianArcsec": 0.08896891882601396,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 92,
+          "freeParameters": 4,
+          "p95Arcsec": 0.338481888455989,
+          "medianArcsec": 0.08702247037387237,
+          "passesThreshold": false,
+          "rotationDeg": 0.0070220803405020345,
+          "scaleFactor": 1.0000994434715866
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 92,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3428681031072159,
+          "medianArcsec": 0.08482461169947911,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9727"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 83,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31741817820728563,
+          "medianArcsec": 0.11201575227104554,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 83,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3133473591471226,
+          "medianArcsec": 0.11126767514869901,
+          "passesThreshold": false,
+          "rotationDeg": -0.005582939361088196,
+          "scaleFactor": 0.999852182317348
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 83,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3137373877277674,
+          "medianArcsec": 0.10862425816548288,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9728"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 31,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3121309761230041,
+          "medianArcsec": 0.1572756233844374,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 31,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2878571658566824,
+          "medianArcsec": 0.1787471668890695,
+          "passesThreshold": true,
+          "rotationDeg": 0.005234718412404405,
+          "scaleFactor": 0.9995105808066361
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 31,
+          "freeParameters": 6,
+          "p95Arcsec": 0.29769000408768953,
+          "medianArcsec": 0.17101986753138734,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9731"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 58,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3484531586805315,
+          "medianArcsec": 0.10636555189028699,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 58,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3543350093523889,
+          "medianArcsec": 0.11206334632551132,
+          "passesThreshold": false,
+          "rotationDeg": -0.00018182975762409237,
+          "scaleFactor": 0.9999214083303389
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 58,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3678548446118183,
+          "medianArcsec": 0.10715201697456264,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9732"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 56,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3385488070593504,
+          "medianArcsec": 0.10464014753628517,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 56,
+          "freeParameters": 4,
+          "p95Arcsec": 0.321891277699907,
+          "medianArcsec": 0.11036622942298913,
+          "passesThreshold": false,
+          "rotationDeg": -0.004677704447582341,
+          "scaleFactor": 0.9996810169200284
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 56,
+          "freeParameters": 6,
+          "p95Arcsec": 0.29539623552734157,
+          "medianArcsec": 0.11261781691387285,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9811"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 89,
+          "freeParameters": 2,
+          "p95Arcsec": 0.35380797867650154,
+          "medianArcsec": 0.07501507729166615,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 89,
+          "freeParameters": 4,
+          "p95Arcsec": 0.33860684956524795,
+          "medianArcsec": 0.07780264539543041,
+          "passesThreshold": false,
+          "rotationDeg": -0.008446299316919405,
+          "scaleFactor": 0.9998541878681199
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 89,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3354156320101712,
+          "medianArcsec": 0.07775824259307318,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9812"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 151,
+          "freeParameters": 2,
+          "p95Arcsec": 0.21344085586183587,
+          "medianArcsec": 0.06012717263472257,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 151,
+          "freeParameters": 4,
+          "p95Arcsec": 0.21045952712249155,
+          "medianArcsec": 0.06606433774360006,
+          "passesThreshold": true,
+          "rotationDeg": -0.005847990527797575,
+          "scaleFactor": 1.0001222173432744
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 151,
+          "freeParameters": 6,
+          "p95Arcsec": 0.20636359662157716,
+          "medianArcsec": 0.06420018457538008,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9813"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 85,
+          "freeParameters": 2,
+          "p95Arcsec": 0.33046755025278257,
+          "medianArcsec": 0.09451046387277424,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 85,
+          "freeParameters": 4,
+          "p95Arcsec": 0.33044753699035556,
+          "medianArcsec": 0.10008512855758145,
+          "passesThreshold": false,
+          "rotationDeg": 0.0020878923435356743,
+          "scaleFactor": 1.0003545457954297
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 85,
+          "freeParameters": 6,
+          "p95Arcsec": 0.33378918780382955,
+          "medianArcsec": 0.09682248487350797,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9814"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 27,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3857541881553036,
+          "medianArcsec": 0.09790796064360123,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 27,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3552651725614269,
+          "medianArcsec": 0.10742300524454114,
+          "passesThreshold": false,
+          "rotationDeg": 0.01943301528219412,
+          "scaleFactor": 1.0003635016934498
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 27,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3239665161011669,
+          "medianArcsec": 0.09591810426543644,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9934"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 32,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3197944919694449,
+          "medianArcsec": 0.12564307088292764,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 32,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3233096739480906,
+          "medianArcsec": 0.1321202413202125,
+          "passesThreshold": false,
+          "rotationDeg": 0.00814740251554668,
+          "scaleFactor": 1.000236893268926
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 32,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3194968442841717,
+          "medianArcsec": 0.12698203350982107,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9937"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 87,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3162896191478706,
+          "medianArcsec": 0.11386352279943837,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 87,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2962773816118856,
+          "medianArcsec": 0.12674108403633563,
+          "passesThreshold": true,
+          "rotationDeg": -0.022999801592715783,
+          "scaleFactor": 1.0000829336567003
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 87,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2951742595063581,
+          "medianArcsec": 0.11598931938200517,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9940"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 100,
+          "freeParameters": 2,
+          "p95Arcsec": 0.29371166590348974,
+          "medianArcsec": 0.09296621646025799,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 100,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2841799386184162,
+          "medianArcsec": 0.09430347789814578,
+          "passesThreshold": true,
+          "rotationDeg": -0.0001080801650197038,
+          "scaleFactor": 0.9997790040594002
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 100,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26819705685936157,
+          "medianArcsec": 0.08677594603266817,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9943"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 100,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3075632886353191,
+          "medianArcsec": 0.0856678585134379,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 100,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3039876579750513,
+          "medianArcsec": 0.08781442045144632,
+          "passesThreshold": false,
+          "rotationDeg": 0.004505167529253902,
+          "scaleFactor": 0.9999785333892823
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 100,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31124400170856437,
+          "medianArcsec": 0.08753236009998072,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9944"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 61,
+          "freeParameters": 2,
+          "p95Arcsec": 0.31782652051937815,
+          "medianArcsec": 0.1031612595808314,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 61,
+          "freeParameters": 4,
+          "p95Arcsec": 0.324720067888319,
+          "medianArcsec": 0.0976577486530699,
+          "passesThreshold": false,
+          "rotationDeg": 0.0097442930940983,
+          "scaleFactor": 0.9999834926387073
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 61,
+          "freeParameters": 6,
+          "p95Arcsec": 0.30995683112951516,
+          "medianArcsec": 0.1059351651713435,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9945"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 62,
+          "freeParameters": 2,
+          "p95Arcsec": 0.38814085121973324,
+          "medianArcsec": 0.12037299682183679,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 62,
+          "freeParameters": 4,
+          "p95Arcsec": 0.37886478689751074,
+          "medianArcsec": 0.12790030110266198,
+          "passesThreshold": false,
+          "rotationDeg": -0.024346397935987158,
+          "scaleFactor": 1.0002595038040996
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 62,
+          "freeParameters": 6,
+          "p95Arcsec": 0.378915016955485,
+          "medianArcsec": 0.1281246404805248,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9947"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 100,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3675992107500436,
+          "medianArcsec": 0.11796962931100971,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 100,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3575286504802115,
+          "medianArcsec": 0.11778369984503784,
+          "passesThreshold": false,
+          "rotationDeg": 0.01508166005573737,
+          "scaleFactor": 0.9999479442047025
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 100,
+          "freeParameters": 6,
+          "p95Arcsec": 0.353229588273243,
+          "medianArcsec": 0.12150940537014177,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9948"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 83,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3745588878488407,
+          "medianArcsec": 0.09885515885028902,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 83,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3786233739947517,
+          "medianArcsec": 0.09944728376497806,
+          "passesThreshold": false,
+          "rotationDeg": -0.0066098484790369436,
+          "scaleFactor": 0.9997674658712808
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 83,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3818343714578516,
+          "medianArcsec": 0.10144638515098944,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9950"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 84,
+          "freeParameters": 2,
+          "p95Arcsec": 0.24516384427170299,
+          "medianArcsec": 0.07775366856220398,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 84,
+          "freeParameters": 4,
+          "p95Arcsec": 0.24959856533054728,
+          "medianArcsec": 0.08269447752034431,
+          "passesThreshold": true,
+          "rotationDeg": -0.0035658915192548256,
+          "scaleFactor": 0.9997734622715108
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 84,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2479229367274098,
+          "medianArcsec": 0.07761998120113872,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9951"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3959984850458726,
+          "medianArcsec": 0.09916153230925459,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.38209111357470116,
+          "medianArcsec": 0.09565099254898714,
+          "passesThreshold": false,
+          "rotationDeg": 0.006916621555613348,
+          "scaleFactor": 0.9999018072954642
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.383402953170015,
+          "medianArcsec": 0.1026095309627727,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9952"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 66,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3294919451404715,
+          "medianArcsec": 0.08592138885091716,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 66,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3305008738390544,
+          "medianArcsec": 0.0843328258184371,
+          "passesThreshold": false,
+          "rotationDeg": -0.016573855581104826,
+          "scaleFactor": 1.0000213945406584
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 66,
+          "freeParameters": 6,
+          "p95Arcsec": 0.314045791151342,
+          "medianArcsec": 0.08533259574802032,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9953"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 82,
+          "freeParameters": 2,
+          "p95Arcsec": 0.36959230916978036,
+          "medianArcsec": 0.11705421440125838,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 82,
+          "freeParameters": 4,
+          "p95Arcsec": 0.37004794847282746,
+          "medianArcsec": 0.11511109569333405,
+          "passesThreshold": false,
+          "rotationDeg": -0.0019971021046782163,
+          "scaleFactor": 1.0001129736216692
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 82,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3591720432470532,
+          "medianArcsec": 0.115592862780418,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9954"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 75,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2681694324563902,
+          "medianArcsec": 0.12198897199811148,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 75,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26546494298502676,
+          "medianArcsec": 0.11887417469956749,
+          "passesThreshold": true,
+          "rotationDeg": 0.0038107571370650556,
+          "scaleFactor": 1.0001713054781682
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 75,
+          "freeParameters": 6,
+          "p95Arcsec": 0.26703232982367325,
+          "medianArcsec": 0.11986429820261627,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9955"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 65,
+          "freeParameters": 2,
+          "p95Arcsec": 0.444711532549208,
+          "medianArcsec": 0.09728135630485676,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 65,
+          "freeParameters": 4,
+          "p95Arcsec": 0.45132860796516716,
+          "medianArcsec": 0.09515002633296059,
+          "passesThreshold": false,
+          "rotationDeg": 0.0033736795760464745,
+          "scaleFactor": 0.9998639967976028
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 65,
+          "freeParameters": 6,
+          "p95Arcsec": 0.43986138132375274,
+          "medianArcsec": 0.10401736195131948,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9956"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 49,
+          "freeParameters": 2,
+          "p95Arcsec": 0.28739592311549417,
+          "medianArcsec": 0.11272256239571202,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 49,
+          "freeParameters": 4,
+          "p95Arcsec": 0.2780674545684234,
+          "medianArcsec": 0.10784478418803413,
+          "passesThreshold": true,
+          "rotationDeg": 0.007409676330009224,
+          "scaleFactor": 0.9997711672316426
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 49,
+          "freeParameters": 6,
+          "p95Arcsec": 0.265369985239446,
+          "medianArcsec": 0.1098642495375517,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9957"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 71,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2748985572790681,
+          "medianArcsec": 0.08227037321480772,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 71,
+          "freeParameters": 4,
+          "p95Arcsec": 0.27382606111409313,
+          "medianArcsec": 0.07779784366607821,
+          "passesThreshold": true,
+          "rotationDeg": 0.0024400105509908795,
+          "scaleFactor": 1.00003524263634
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 71,
+          "freeParameters": 6,
+          "p95Arcsec": 0.27790127801374603,
+          "medianArcsec": 0.0821689148188447,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9958"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 47,
+          "freeParameters": 2,
+          "p95Arcsec": 0.34732082270763753,
+          "medianArcsec": 0.0987741382281971,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 47,
+          "freeParameters": 4,
+          "p95Arcsec": 0.30650193188911745,
+          "medianArcsec": 0.12254438169894243,
+          "passesThreshold": false,
+          "rotationDeg": 0.004460685192468591,
+          "scaleFactor": 0.9996183842485465
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 47,
+          "freeParameters": 6,
+          "p95Arcsec": 0.29233860602700396,
+          "medianArcsec": 0.12696855127559326,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9959"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 88,
+          "freeParameters": 2,
+          "p95Arcsec": 0.24842882666423138,
+          "medianArcsec": 0.08074977085321905,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 88,
+          "freeParameters": 4,
+          "p95Arcsec": 0.24338297430323302,
+          "medianArcsec": 0.08025253679108163,
+          "passesThreshold": true,
+          "rotationDeg": 0.0052697173492276764,
+          "scaleFactor": 1.0000387084570255
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 88,
+          "freeParameters": 6,
+          "p95Arcsec": 0.24534820155433773,
+          "medianArcsec": 0.08047890316656456,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9960"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 123,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2462088925526307,
+          "medianArcsec": 0.06940652205971418,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 123,
+          "freeParameters": 4,
+          "p95Arcsec": 0.24178354508769584,
+          "medianArcsec": 0.0695557891898306,
+          "passesThreshold": true,
+          "rotationDeg": 0.007983902664744644,
+          "scaleFactor": 1.0000220604558743
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 123,
+          "freeParameters": 6,
+          "p95Arcsec": 0.24678566052982345,
+          "medianArcsec": 0.07435810151728406,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9964"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 70,
+          "freeParameters": 2,
+          "p95Arcsec": 0.40534488128270646,
+          "medianArcsec": 0.11652902004839852,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 70,
+          "freeParameters": 4,
+          "p95Arcsec": 0.41071348297739374,
+          "medianArcsec": 0.12396366410064508,
+          "passesThreshold": false,
+          "rotationDeg": -0.00866547054815201,
+          "scaleFactor": 0.9998903530757808
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 70,
+          "freeParameters": 6,
+          "p95Arcsec": 0.40711296789224044,
+          "medianArcsec": 0.12015774583027086,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9965"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 54,
+          "freeParameters": 2,
+          "p95Arcsec": 0.33621204267903115,
+          "medianArcsec": 0.11903437405257922,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 54,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3436468861900418,
+          "medianArcsec": 0.12311807655552354,
+          "passesThreshold": false,
+          "rotationDeg": 0.006464029058684951,
+          "scaleFactor": 0.9995674458264798
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 54,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3315198526908081,
+          "medianArcsec": 0.12354791973301567,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9966"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 47,
+          "freeParameters": 2,
+          "p95Arcsec": 0.29410946824255707,
+          "medianArcsec": 0.11341502233078898,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 47,
+          "freeParameters": 4,
+          "p95Arcsec": 0.29418220047862553,
+          "medianArcsec": 0.11009956007999001,
+          "passesThreshold": true,
+          "rotationDeg": 0.027634569491048474,
+          "scaleFactor": 0.999901750841461
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 47,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2801690559438513,
+          "medianArcsec": 0.10570241943309397,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9967"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 78,
+          "freeParameters": 2,
+          "p95Arcsec": 0.3833668403625367,
+          "medianArcsec": 0.11844765939936944,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 78,
+          "freeParameters": 4,
+          "p95Arcsec": 0.3722022731433058,
+          "medianArcsec": 0.11261101082107552,
+          "passesThreshold": false,
+          "rotationDeg": 0.013862882389417495,
+          "scaleFactor": 0.9997761167056108
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 78,
+          "freeParameters": 6,
+          "p95Arcsec": 0.3787557941871811,
+          "medianArcsec": 0.1148609982572932,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9968"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 75,
+          "freeParameters": 2,
+          "p95Arcsec": 0.41117893336608496,
+          "medianArcsec": 0.09271214782866417,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 75,
+          "freeParameters": 4,
+          "p95Arcsec": 0.39994721762570296,
+          "medianArcsec": 0.09856880205983863,
+          "passesThreshold": false,
+          "rotationDeg": -0.004952520886692756,
+          "scaleFactor": 1.0003755920057802
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 75,
+          "freeParameters": 6,
+          "p95Arcsec": 0.39958755400446694,
+          "medianArcsec": 0.09982181267873709,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9969"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 68,
+          "freeParameters": 2,
+          "p95Arcsec": 0.32405439462074054,
+          "medianArcsec": 0.1342154437257945,
+          "passesThreshold": false
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 68,
+          "freeParameters": 4,
+          "p95Arcsec": 0.316558140954458,
+          "medianArcsec": 0.13064245407852548,
+          "passesThreshold": false,
+          "rotationDeg": 0.010795439186168428,
+          "scaleFactor": 0.999677107871111
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 68,
+          "freeParameters": 6,
+          "p95Arcsec": 0.31883610172908644,
+          "medianArcsec": 0.1331232974568572,
+          "passesThreshold": false
+        }
+      },
+      "regionId": "dp2-tract-9973"
+    },
+    {
+      "pixelScaleArcsec": 0.399999999999996,
+      "models": {
+        "translation": {
+          "model": "translation",
+          "pairs": 44,
+          "freeParameters": 2,
+          "p95Arcsec": 0.2622609816963564,
+          "medianArcsec": 0.11631384272997129,
+          "passesThreshold": true
+        },
+        "similarity": {
+          "model": "similarity",
+          "pairs": 44,
+          "freeParameters": 4,
+          "p95Arcsec": 0.26795839486314543,
+          "medianArcsec": 0.12112926018100773,
+          "passesThreshold": true,
+          "rotationDeg": 0.024744568733422276,
+          "scaleFactor": 0.9998997612341016
+        },
+        "affine": {
+          "model": "affine",
+          "pairs": 44,
+          "freeParameters": 6,
+          "p95Arcsec": 0.2730320909495859,
+          "medianArcsec": 0.1216037827234524,
+          "passesThreshold": true
+        }
+      },
+      "regionId": "dp2-tract-9974"
+    }
+  ]
+}
