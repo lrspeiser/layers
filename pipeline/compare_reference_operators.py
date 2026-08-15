@@ -56,6 +56,19 @@ RANDOM_SEED = 20260814
 MIN_SHARED_REGIONS = 40
 
 
+def display_path(path: Path) -> str:
+    """Repo-relative when possible, absolute otherwise.
+
+    A bare .relative_to(ROOT) raises for any output written outside the repo,
+    and it does so in the final print, after the work is done and the file is
+    written -- an exit code that says the run failed when it succeeded.
+    """
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -425,7 +438,7 @@ def main() -> None:
         print(f"  {key}: {value['sharedRegions']} shared")
     for finding in findings:
         print(f"\n{finding['question']}\n  -> {finding['verdict']}\n     {finding['basis']}")
-    print(f"\nwrote {args.output.relative_to(ROOT).as_posix()}")
+    print(f"\nwrote {display_path(args.output)}")
 
 
 if __name__ == "__main__":

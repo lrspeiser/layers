@@ -67,6 +67,26 @@ MIN_SOURCES_PER_FIELD = 8
 MIN_FIELDS = 20
 
 
+def parse_pairing(value: str) -> tuple[str, Path]:
+    if "=" not in value:
+        raise argparse.ArgumentTypeError("expected NAME=DIR")
+    name, _, path = value.partition("=")
+    return name.strip(), Path(path.strip())
+
+
+def display_path(path: Path) -> str:
+    """Repo-relative when possible, absolute otherwise.
+
+    A bare .relative_to(ROOT) raises for any output written outside the repo,
+    and it does so in the final print, after the work is done and the file is
+    written -- an exit code that says the run failed when it succeeded.
+    """
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -154,14 +174,29 @@ def field_curve(path: Path) -> dict[str, Any] | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--legacy-products", type=Path, default=ROOT / "pipeline/results/reconciled-regions-200")
-    parser.add_argument("--des-products", type=Path, default=ROOT / "pipeline/results/reconciled-regions-des")
+    parser.add_argument(
+        "--pairing",
+        type=parse_pairing,
+        action="append",
+        metavar="NAME=DIR",
+        help=(
+            "Repeatable reconciled-product directory, NAME=DIR. Defaults to the Legacy, DES and "
+            "Pan-STARRS sets. Each pairing is measured independently, because the whole value of "
+            "the test is that separate references can disagree."
+        ),
+    )
     parser.add_argument("--limit", type=int, help="fields per pairing, for a quick pass")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
 
+    requested = args.pairing or [
+        ("rubin-vs-legacy", ROOT / "pipeline/results/reconciled-regions-200"),
+        ("rubin-vs-des", ROOT / "pipeline/results/reconciled-regions-des"),
+        ("rubin-vs-ps1", ROOT / "pipeline/results/reconciled-regions-ps1"),
+    ]
+
     pairings: dict[str, Any] = {}
-    for name, root in (("rubin-vs-legacy", args.legacy_products), ("rubin-vs-des", args.des_products)):
+    for name, root in requested:
         if not root.is_dir():
             continue
         paths = sorted(p for region in sorted(root.iterdir()) if region.is_dir() for p in region.glob("*.fits"))
@@ -232,15 +267,16 @@ def main() -> None:
         }
 
     combined = [p for p in pairings.values() if p.get("sufficient")]
-    if len(combined) == 2:
-        agree = combined[0]["curveIsFlat"] == combined[1]["curveIsFlat"]
+    flat = [p["curveIsFlat"] for p in combined]
+    if len(combined) >= 2 and len(set(flat)) == 1:
+        headline = f"All {len(combined)} pairings agree: {combined[0]['verdict']}"
+    elif len(combined) >= 2:
         headline = (
-            f"Both pairings agree: {combined[0]['verdict']}"
-            if agree
-            else "The two pairings disagree, so the shape is not a property of Rubin alone"
+            f"{sum(flat)} of {len(combined)} pairings are flat, so the shape is not a property of "
+            "Rubin alone"
         )
     elif combined:
-        headline = f"One pairing measured: {combined[0]['verdict']}"
+        headline = f"One pairing measured, which cannot attribute a shape: {combined[0]['verdict']}"
     else:
         headline = "No pairing reached the field threshold"
 
@@ -292,7 +328,7 @@ def main() -> None:
             f"[{result['gainBootstrap95Interval'][0]:.4f}, {result['gainBootstrap95Interval'][1]:.4f}]"
             f" -> {result['verdict']}"
         )
-    print(f"\nwrote {args.output.relative_to(ROOT).as_posix()}")
+    print(f"\nwrote {display_path(args.output)}")
 
 
 if __name__ == "__main__":

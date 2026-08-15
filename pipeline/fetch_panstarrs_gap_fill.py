@@ -380,15 +380,34 @@ def discover_dynamic_targets(region_path: Path) -> list[dict[str, Any]]:
                 "type": "stack,stack.wt,stack.mask",
                 "sep": ",",
             }
-            response = requests.get(
-                FILENAME_SERVICE, params=params,
-                headers={"User-Agent": "Layers-Rubin-Light-Atlas/1.0 (bounded science cutouts)"},
-                timeout=(30, 120),
-            )
-            response.raise_for_status()
-            if "projcell" not in response.text or "filename" not in response.text:
-                raise RuntimeError(f"Pan-STARRS discovery returned an unexpected response for {region_id}")
-            discovery.write_bytes(response.content)
+            # Retried like the cutout downloads are. A single connection reset at
+            # region 188 of 200 ended a whole run that had no way to resume past
+            # it, and a shared archive resets connections as a matter of course.
+            last_error: Exception | None = None
+            for attempt in range(3):
+                try:
+                    response = requests.get(
+                        FILENAME_SERVICE, params=params,
+                        headers={"User-Agent": "Layers-Rubin-Light-Atlas/1.0 (bounded science cutouts)"},
+                        timeout=(30, 120),
+                    )
+                    response.raise_for_status()
+                    if "projcell" not in response.text or "filename" not in response.text:
+                        raise RuntimeError(
+                            f"Pan-STARRS discovery returned an unexpected response for {region_id}"
+                        )
+                    discovery.write_bytes(response.content)
+                    last_error = None
+                    break
+                except Exception as error:
+                    last_error = error
+                    if attempt < 2:
+                        time.sleep(2**attempt)
+            if last_error is not None:
+                # Recorded and skipped, not raised. One unreachable region must
+                # not discard the 199 that resolved.
+                print(f"[discovery-failed] {region_id}: {type(last_error).__name__}: {last_error}", flush=True)
+                continue
         targets.append({
             "regionId": region_id,
             "tract": int(item["tract"]),
