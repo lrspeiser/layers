@@ -244,7 +244,19 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "manifest.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     args.public_manifest.parent.mkdir(parents=True, exist_ok=True)
-    args.public_manifest.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
+    # The public manifest must not carry a path into pipeline/results: that tree
+    # is gitignored because it holds pixels, some access-restricted, and a path
+    # names where they sit on one machine. Checksums and byte counts stay, since
+    # they verify a reproduced file without describing this filesystem.
+    public = json.loads(json.dumps(summary))
+    for region in public.get("regions", []):
+        if isinstance(region.get("localFits"), dict):
+            region["localFits"].pop("path", None)
+    public["localPathPolicy"] = (
+        "Local paths are not published. Checksums and byte counts remain so a file reproduced "
+        "from the recorded source can be verified."
+    )
+    args.public_manifest.write_text(json.dumps(public, indent=2) + "\n", encoding="utf-8")
     print(f"\nVLASS: {len(ready)} science-ready of {len(records)} regions")
     for key, value in summary["counts"].items():
         print(f"  {key}: {value}")

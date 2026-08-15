@@ -27,7 +27,6 @@
         "retrievedAt": "2026-08-14T05:59:27.142781+00:00",
         "cacheHit": true,
         "responseContentType": null,
-        "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/gaia-dr3.csv",
         "bytes": 13907,
         "sha256": "fb0c00470d134e207b50bae186cd79ccdad20efc201951f6925c82bf86fa2bfd"
       },
@@ -88,7 +87,6 @@
           "retrievedAt": "2026-08-14T05:59:38.853402+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/ztf-reference-metadata.csv",
           "bytes": 6406,
           "sha256": "064ecb1ea0c90087a3e9cfac1feda81ecaf7f3b1613ff16d840abf78cbecf28f"
         },
@@ -97,7 +95,6 @@
           "retrievedAt": "2026-08-14T05:59:52.411952+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/ztf-lightcurves.csv",
           "bytes": 595295,
           "sha256": "93e32b15e62a7efd4ed279324d9caf6a2dd7e8d231e7b39e0a77f3fc0f03533a"
         }
@@ -151,7 +148,6 @@
           "retrievedAt": "2026-08-14T05:59:53.012210+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/erosita-erass1-main.vot",
           "bytes": 33607,
           "sha256": "bb1656326eb52e2799633c927c2268c0200a7b5abac142c65303538cc8e4ea53"
         },
@@ -160,7 +156,6 @@
           "retrievedAt": "2026-08-14T05:59:53.399712+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/erosita-erass1-upper-limit.json",
           "bytes": 35,
           "sha256": "e110bb82dabc58499080ae02ec361e980266b574c605e40c5b64147b77856ad2"
         }
@@ -202,7 +197,6 @@
         "retrievedAt": "2026-08-14T05:59:59.039071+00:00",
         "cacheHit": true,
         "responseContentType": null,
-        "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/vlass-obscore.csv",
         "bytes": 4084,
         "sha256": "815c0b6ade61bdf94b3cf21ee9c2748866833d18526f7d563263febd32f51901"
       },
@@ -247,7 +241,6 @@
           "retrievedAt": "2026-08-14T06:00:00.260609+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/lotss-dr3-sources.vot",
           "bytes": 16193,
           "sha256": "499a5366e7066a95523edd3210506051be03d7f8024ff118d8496c98a06e916b"
         },
@@ -256,7 +249,6 @@
           "retrievedAt": "2026-08-14T06:00:01.313595+00:00",
           "cacheHit": true,
           "responseContentType": null,
-          "cachePath": "pipeline/results/multisurvey-pilots/cache/ugc00191/lotss-dr3-cutout.fits",
           "bytes": 164160,
           "sha256": "fe102681e66b75bd3fa30c301ed4d9fd0027ff1711a26aa396fab32ef93002ef"
         }
@@ -312,5 +304,6 @@
       "previewReadiness": "display-only rendering derived from the retained archive FITS"
     }
   ],
-  "interpretation": "available means authentic returned coverage/data; none means a valid empty/no-coverage result; error means the request could not be established."
+  "interpretation": "available means authentic returned coverage/data; none means a valid empty/no-coverage result; error means the request could not be established.",
+  "localPathPolicy": "Local paths are not published. Checksums and byte counts remain so a file reproduced from the recorded source can be verified; the pixels live outside this repository."
 }

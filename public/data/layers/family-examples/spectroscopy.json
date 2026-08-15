@@ -2055,7 +2055,6 @@
   },
   "artifacts": [
     {
-      "path": "pipeline/results/family-examples/spectroscopy/desi-edr-tract-9813-spectrum.fits",
       "bytes": 195840,
       "sha256": "c6f9cf124f1851304bde543410063d95df4409c978e60a4d53e4e875705d34a8",
       "role": "retrieved spectral arrays and metadata",
@@ -2078,5 +2077,6 @@
       "inspect blend/deblender flags and aperture association",
       "propagate spectrum and Rubin photometry uncertainties"
     ]
-  }
+  },
+  "localPathPolicy": "Local paths are not published. Checksums and byte counts remain so a file reproduced from the recorded source can be verified; the pixels live outside this repository."
 }

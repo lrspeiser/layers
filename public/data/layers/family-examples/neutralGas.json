@@ -101,14 +101,12 @@
   },
   "artifacts": [
     {
-      "path": "pipeline/results/family-examples/neutral-gas/hipass-tract-5061.vot",
       "bytes": 2829,
       "sha256": "efb209d02d47f069b3e4f2b0d6793748ad9f4a3dedce01758db6d6a03e9ad546",
       "role": "unaltered TAP response",
       "productType": "VOTable catalog"
     },
     {
-      "path": "pipeline/results/family-examples/neutral-gas/hipass-tract-5061.csv",
       "bytes": 179,
       "sha256": "dec0933eb89142638e4e7c15eb0c1cac402edc621ef2c81992476503e2d31b5c",
       "role": "portable tabular copy",
@@ -124,5 +122,6 @@
       "match the 15.5 arcmin Parkes beam to the optical analysis",
       "separate confused H I emitters and propagate baseline uncertainty"
     ]
-  }
+  },
+  "localPathPolicy": "Local paths are not published. Checksums and byte counts remain so a file reproduced from the recorded source can be verified; the pixels live outside this repository."
 }

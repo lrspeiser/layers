@@ -70,7 +70,6 @@
       "provenancePath": "pipeline/output/dp2-sparc/ugc00634/edp2_provenance.json"
     },
     "lotss": {
-      "path": "pipeline/results/multisurvey-pilots/cache/ugc00634/lotss-dr3-cutout.fits",
       "sha256": "1af7db3e67dde39eb174b2d9e2946afb05931bf8ae6a5daec8dc0b613aa789bf",
       "unit": "JY/BEAM",
       "wcs": "RA---SIN / DEC--SIN",
@@ -84,12 +83,10 @@
   },
   "outputs": {
     "rubinAlignedFits": {
-      "path": "pipeline/results/multisurvey-pilots/common-grid/ugc00634/rubin-i-on-lotss-dr3.fits",
       "sha256": "5fbfea7b30cb4054ffe7c480ce42433e2154473b6eb80a1ca30ffcfd08d19365",
       "bytes": 164160
     },
     "coverageMaskFits": {
-      "path": "pipeline/results/multisurvey-pilots/common-grid/ugc00634/common-coverage-mask.fits",
       "sha256": "b7368ddcff5103bc8c0c2f57d4c9e275e840efc32beab32791e38b66a65582e6",
       "bytes": 43200
     }
@@ -110,5 +107,6 @@
     "No photometric difference, flux ratio, or missing-light claim is supported across nJy optical pixels and Jy/beam radio pixels.",
     "No PSF, beam, bandpass, pixel-area, or noise matching has been performed.",
     "Bilinear reprojection is not flux conserving and the aligned Rubin FITS must not be used for photometry."
-  ]
+  ],
+  "localPathPolicy": "Local paths are not published. Checksums and byte counts remain so a file reproduced from the recorded source can be verified; the pixels live outside this repository."
 }

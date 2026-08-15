@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { dirname, join, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -64,4 +64,37 @@ test("no operator promotes a comparison to publishable, and no credentials leak"
   assert.ok(summary.register.comparisonsEvaluated > 0);
   assert.ok(summary.register.candidates >= 0);
   assert.ok(summary.register.candidates < summary.register.comparisonsEvaluated);
+});
+
+// A local path leaked into a public manifest in this session, in a file no test
+// covered. The existing checks named specific manifests, so a new operator's
+// output was unguarded by construction. This walks every published manifest
+// instead, so the next new one is covered the moment it is written.
+test("no published manifest leaks a local path or a credential", async () => {
+  const { readdir } = await import("node:fs/promises");
+  const layers = join(root, "public", "data", "layers");
+
+  const walk = async (dir) => {
+    const out = [];
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) out.push(...(await walk(full)));
+      else if (entry.name.endsWith(".json")) out.push(full);
+    }
+    return out;
+  };
+
+  const files = await walk(layers);
+  assert.ok(files.length > 50, "expected the published layer manifests to be present");
+
+  const offenders = [];
+  for (const file of files) {
+    const text = await readFile(file, "utf8");
+    // pipeline/results is gitignored because it holds pixels; publishing a path
+    // into it advertises a layout no reader can use.
+    if (/pipeline\/results|Authorization:|RUBIN_RSP_TOKEN|X-Amz-Signature/i.test(text)) {
+      offenders.push(file.slice(root.length + 1).split(sep).join("/"));
+    }
+  }
+  assert.deepEqual(offenders, [], `public manifests must not carry local paths or credentials`);
 });

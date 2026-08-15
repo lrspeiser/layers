@@ -392,8 +392,20 @@ def main() -> None:
     }
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "manifest.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    # The public manifest must not carry local filesystem paths. localFits names
+    # a file under pipeline/results, which is gitignored precisely because it
+    # holds pixels; publishing its path advertises a layout nobody outside can
+    # use and breaks the rule every other public manifest here follows.
+    public = json.loads(json.dumps(payload))
+    for candidate in public.get("candidates", []):
+        for measurement in candidate.get("measurements") or []:
+            measurement.pop("localFits", None)
+    public["localProductsNote"] = (
+        "Cutouts stay local. This manifest carries the measurements and verdicts; the pixels are "
+        "reproducible from the obsId and position with pipeline/check_euclid_followup.py."
+    )
     args.public_manifest.parent.mkdir(parents=True, exist_ok=True)
-    args.public_manifest.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    args.public_manifest.write_text(json.dumps(public, indent=2) + "\n", encoding="utf-8")
     print("\n" + json.dumps(payload["counts"], indent=2))
     print(f"wrote {display_path(args.public_manifest)}")
 

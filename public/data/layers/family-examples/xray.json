@@ -520,14 +520,12 @@
   },
   "artifacts": [
     {
-      "path": "pipeline/results/family-examples/xray/erass1-tract-9813.vot",
       "bytes": 8552,
       "sha256": "9d23fc863ba375a40773a13336d085c8f68a7b59b80a0f2f187ac749aaafdf17",
       "role": "unaltered TAP response",
       "productType": "VOTable catalog"
     },
     {
-      "path": "pipeline/results/family-examples/xray/erass1-tract-9813.csv",
       "bytes": 4837,
       "sha256": "cf8321c4f8d143385c689961c9b59b32e1fdbd4a107a288217dbacf16fe48120",
       "role": "portable tabular copy",
@@ -543,5 +541,6 @@
       "propagate positional uncertainties and masks",
       "model Rubin source-selection and bandpass differences"
     ]
-  }
+  },
+  "localPathPolicy": "Local paths are not published. Checksums and byte counts remain so a file reproduced from the recorded source can be verified; the pixels live outside this repository."
 }

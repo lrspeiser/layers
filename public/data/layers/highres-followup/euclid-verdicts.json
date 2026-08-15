@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-euclid-followup-v1",
-  "generatedAt": "2026-08-15T05:24:05.554259+00:00",
+  "generatedAt": "2026-08-15T05:35:17.751177+00:00",
   "survey": "Euclid Q1 (MER background-subtracted mosaics)",
   "access": "IRSA ObsCore TAP for containment, datalink for image URLs, IBE for cutouts",
   "method": {
@@ -68,8 +68,7 @@
           "noiseModel": "empirical blank-aperture scatter in this Euclid image",
           "band": "Y",
           "obsId": "102044825_NISP",
-          "instrument": "NISP",
-          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-Y.fits"
+          "instrument": "NISP"
         },
         {
           "pixelScaleArcsec": 0.100000000000008,
@@ -84,8 +83,7 @@
           "noiseModel": "empirical blank-aperture scatter in this Euclid image",
           "band": "VIS",
           "obsId": "102044825_VIS",
-          "instrument": "VIS",
-          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-VIS.fits"
+          "instrument": "VIS"
         },
         {
           "pixelScaleArcsec": 0.100000000000008,
@@ -100,8 +98,7 @@
           "noiseModel": "empirical blank-aperture scatter in this Euclid image",
           "band": "J",
           "obsId": "102044825_NISP",
-          "instrument": "NISP",
-          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-J.fits"
+          "instrument": "NISP"
         },
         {
           "pixelScaleArcsec": 0.100000000000008,
@@ -116,8 +113,7 @@
           "noiseModel": "empirical blank-aperture scatter in this Euclid image",
           "band": "H",
           "obsId": "102044825_NISP",
-          "instrument": "NISP",
-          "localFits": "pipeline/results/euclid-followup/cutouts/53.08005-27.49322-H.fits"
+          "instrument": "NISP"
         }
       ]
     },
@@ -575,5 +571,6 @@
       ],
       "note": "Every independent Euclid product whose footprint polygon contains this position returns an all-zero cutout there. Containment in ObsCore is a statement about a polygon, not about pixels."
     }
-  ]
+  ],
+  "localProductsNote": "Cutouts stay local. This manifest carries the measurements and verdicts; the pixels are reproducible from the obsId and position with pipeline/check_euclid_followup.py."
 }
