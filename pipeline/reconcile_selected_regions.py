@@ -138,6 +138,23 @@ def reference_flux_chain(
                 "pixel-area factor is required. Same convention as fetch_legacy_survey.py."
             ),
         }
+    if survey == "des-dr2":
+        # normalize_des_cutouts.py already applied the DES 30.0 AB zeropoint, so
+        # the pixels arrive in nJy and no further conversion applies. There is
+        # also no pixel-area factor: the DES cutout service returns coadd pixels
+        # at the coadd scale, unlike the Legacy viewer.
+        return {
+            "surveyId": survey,
+            "nativeUnit": "nJy",
+            "scale": 1.0,
+            "unitScale": 1.0,
+            "pixelAreaFactor": 1.0,
+            "valuePixelScaleArcsec": grid_scale_arcsec,
+            "gridPixelScaleArcsec": grid_scale_arcsec,
+            "verified": True,
+            "formula": "already nJy; DES DR2 coadds carry a fixed 30.0 AB zeropoint",
+            "reference": "Applied upstream by normalize_des_cutouts.py.",
+        }
     if survey == "panstarrs-dr2":
         evidence = ps1_evidence.get(record["regionId"])
         exposure = None

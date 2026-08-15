@@ -246,7 +246,13 @@ def main() -> None:
         if not record.get("scienceReady"):
             continue
         record = dict(record)
-        record.update({"referenceSurveyId": "legacy-surveys-dr10", "referenceSurvey": "Legacy Survey", "referenceRelease": "DR10"})
+        # Only label as Legacy if the manifest has not already identified itself.
+        # Overriding it silently relabelled a DES reference as Legacy, and the
+        # reconcile stage then applied the nanomaggy chain to pixels already in
+        # nJy, a factor of about 3,400.
+        record.setdefault("referenceSurveyId", "legacy-surveys-dr10")
+        record.setdefault("referenceSurvey", "Legacy Survey")
+        record.setdefault("referenceRelease", "DR10")
         references[int(record["tract"])] = record
     if args.panstarrs_manifest.is_file():
         ps1_payload = json.loads(args.panstarrs_manifest.read_text(encoding="utf-8"))

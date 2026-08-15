@@ -333,3 +333,57 @@ not the surveys.
 The fix for both is the same and is not a tuning parameter: PSF-matched aperture
 photometry, or model fitting, instead of a fixed circular aperture on images with
 different PSFs.
+
+---
+
+## 10. The three-way optical test: what belongs to Rubin and what belongs to Legacy
+
+Every optical comparison in this project had been Rubin against Legacy alone,
+which cannot attribute a field-dependent effect to either side. DES DR2 supplies
+a second independent reference: 148 science-ready regions from the public NOIRLab
+cutout service, 143 reconciled against Rubin, 108 sharing a region with the
+Legacy measurement.
+
+| | Rubin vs Legacy | Rubin vs DES |
+|---|---|---|
+| regions | 148 | 108 |
+| compact-source flux scale | 0.9167 (+0.094 mag) | 0.9142 (+0.097 mag) |
+| field-to-field spread | 0.036 | 0.032 |
+| **correlation with source count** | **−0.357** | **−0.083** |
+
+Three things follow, and they separate cleanly.
+
+**The zeropoint offset belongs to Rubin or to the aperture, not to Legacy.** Two
+independent surveys agree that Rubin is about 9% fainter in a fixed 1.5 arcsec
+aperture (0.094 and 0.097 mag). A Legacy calibration error cannot produce the
+same offset against DES.
+
+**The crowding dependence belongs to Legacy.** The correlation between flux scale
+and source count is −0.357 against Legacy and −0.083 against DES, a factor of
+four weaker. The measured PSFs explain it: Legacy 2.25 arcsec, DES 1.49 arcsec,
+so Legacy is 1.5× broader and blends 1.5× more neighbour flux into the same
+aperture in a dense field. The crowding term was a property of the reference all
+along.
+
+**Most of the remaining field variation belongs to Rubin.** Across the 108 shared
+regions the two scales correlate at **+0.759**. A variation driven by the
+reference would not reproduce itself against a different reference; one driven by
+Rubin, or by the aperture method applied to Rubin, would.
+
+This is the strongest attribution the project has made. It also narrows the
+bandpass work: the aperture is implicated on both sides, so PSF-matched aperture
+photometry or model fitting is not one option among several, it is the specific
+next step.
+
+### A bug this found, which the empirical scale caught
+
+The first Rubin-versus-DES run produced a flux scale of 0.0003, an offset of
++8.999 mag. `build_selected_region_comparisons.py` hardcoded
+`referenceSurveyId: "legacy-surveys-dr10"` onto whatever reference manifest it
+was handed, so DES pixels already converted to nJy were relabelled as Legacy and
+had the nanomaggy chain applied on top, a factor of about 3,400.
+
+The independent compact-source ratio is what caught it: an offset of almost
+exactly 9 magnitudes is not a physical difference between two optical surveys.
+After the fix, matched regions went from 14 to 140 of 143 and background-matched
+from 16 to 142. The builder now respects a manifest that identifies itself.

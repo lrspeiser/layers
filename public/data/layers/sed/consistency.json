@@ -1,25 +1,25 @@
 {
   "schemaVersion": "layers-sed-consistency-v1",
-  "generatedAt": "2026-08-14T21:29:06.977481+00:00",
+  "generatedAt": "2026-08-15T01:49:20.887346+00:00",
   "comparisonKind": "spectral energy distribution consistency",
   "gatedByBandpassTransfer": false,
   "method": "2MASS PSC and AllWISE photometry are matched within 3 arcsec, a power law is fitted to the infrared points only, and that law is extrapolated to the Rubin effective frequency. The Rubin measurement is deliberately excluded from the fit so the prediction is independent.",
   "counts": {
-    "regionsMeasured": 47,
-    "regionsSkipped": 3,
-    "sedSources": 494
+    "regionsMeasured": 184,
+    "regionsSkipped": 9,
+    "sedSources": 1394
   },
   "infraredSlope": {
-    "median": 1.0559602534705643,
-    "scatter": 0.4810653646808952
+    "median": 1.0930463700909505,
+    "scatter": 0.3530541905818929
   },
   "status": "measured",
   "colourRelation": {
-    "intercept": -1.4466537290956163,
-    "colourTerm": -0.3823152069661364,
-    "sources": 494,
-    "residualScatterDex": 0.4635662779912015,
-    "residualVersusColourCorrelation": -7.134511623292673e-16
+    "intercept": -1.3309210238099223,
+    "colourTerm": -0.3506485791990095,
+    "sources": 1394,
+    "residualScatterDex": 0.45176689395073366,
+    "residualVersusColourCorrelation": 8.681981719218163e-18
   },
   "fieldSystematics": {
     "demotedRegions": [
@@ -27,12 +27,26 @@
       "dp2-tract-5062",
       "dp2-tract-5192",
       "dp2-tract-8708",
-      "dp2-tract-8884"
+      "dp2-tract-8884",
+      "dp2-tract-9125",
+      "dp2-tract-9218",
+      "dp2-tract-9231",
+      "dp2-tract-9237",
+      "dp2-tract-9328",
+      "dp2-tract-9455",
+      "dp2-tract-9470",
+      "dp2-tract-9692",
+      "dp2-tract-9693",
+      "dp2-tract-9694",
+      "dp2-tract-9697",
+      "dp2-tract-9698",
+      "dp2-tract-9701",
+      "dp2-tract-9934"
     ],
     "rateCutoff": 0.06
   },
   "noteworthy": {
-    "count": 7,
+    "count": 11,
     "threshold": "3 x the observed residual scatter of the fitted colour relation",
     "sources": [
       {
@@ -58,35 +72,8 @@
         "observedRubinFluxNjy": 120.04800236225128,
         "logObservedOverPredicted": -4.735636560105506,
         "infraredColourJminusW1": -0.8304284884263097,
-        "colourRelationResidualDex": -3.6064682704331705,
-        "significanceSigma": -7.779833093255376,
-        "classification": "noteworthy"
-      },
-      {
-        "raDeg": 235.100306,
-        "decDeg": -26.06583,
-        "infraredBands": [
-          "J",
-          "H",
-          "Ks",
-          "W1",
-          "W2"
-        ],
-        "infraredFluxNjy": {
-          "J": 8583973.031511532,
-          "H": 9313224.709985118,
-          "Ks": 6898113.503710848,
-          "W1": 3384673.8580028387,
-          "W2": 1845824.1461945046
-        },
-        "powerLawSlope": 1.2495330836569352,
-        "predictedRubinFluxNjy": 36415459.049592875,
-        "predictedRubinMagAB": 12.496785527506946,
-        "observedRubinFluxNjy": 10219.869842529297,
-        "logObservedOverPredicted": -3.5518404242190775,
-        "infraredColourJminusW1": -1.0104287936020921,
-        "colourRelationResidualDex": -2.4914889884739884,
-        "significanceSigma": -5.374612232948655,
+        "colourRelationResidualDex": -3.695904105888651,
+        "significanceSigma": -8.180998110701973,
         "classification": "noteworthy"
       },
       {
@@ -112,13 +99,13 @@
         "observedRubinFluxNjy": 1393.2626037597656,
         "logObservedOverPredicted": -3.4452292144619032,
         "infraredColourJminusW1": -0.8544286562729899,
-        "colourRelationResidualDex": -2.325236553927093,
-        "significanceSigma": -5.015974337053106,
+        "colourRelationResidualDex": -2.413912385001024,
+        "significanceSigma": -5.34326976439373,
         "classification": "noteworthy"
       },
       {
-        "raDeg": 5.801487,
-        "decDeg": -40.928715,
+        "raDeg": 23.669945,
+        "decDeg": 0.715906,
         "infraredBands": [
           "J",
           "H",
@@ -127,20 +114,47 @@
           "W2"
         ],
         "infraredFluxNjy": {
-          "J": 476527.5208526445,
-          "H": 734344.6449599853,
-          "Ks": 1041191.3166722818,
-          "W1": 1727892.138580574,
-          "W2": 2773259.30326555
+          "J": 278283.93384656555,
+          "H": 349542.5336491687,
+          "Ks": 246337.59970145675,
+          "W1": 118882.23335164566,
+          "W2": 84215.15034666983
         },
-        "powerLawSlope": -1.3099501642891629,
-        "predictedRubinFluxNjy": 255541.78104503217,
-        "predictedRubinMagAB": 17.88134520659342,
-        "observedRubinFluxNjy": 297939.7598724365,
-        "logObservedOverPredicted": 0.06666654604380852,
-        "infraredColourJminusW1": 1.3985716031264235,
-        "colourRelationResidualDex": 2.0480154670456647,
-        "significanceSigma": 4.417956103106655,
+        "powerLawSlope": 1.0658759421514634,
+        "predictedRubinFluxNjy": 770473.4865217772,
+        "predictedRubinMagAB": 16.68310575399698,
+        "observedRubinFluxNjy": 442.28618144989014,
+        "logObservedOverPredicted": -3.241054327681293,
+        "infraredColourJminusW1": -0.9234279467392974,
+        "colourRelationResidualDex": -2.2339320013881636,
+        "significanceSigma": -4.94487761564879,
+        "classification": "noteworthy"
+      },
+      {
+        "raDeg": 10.36346,
+        "decDeg": -0.711804,
+        "infraredBands": [
+          "J",
+          "H",
+          "Ks",
+          "W1",
+          "W2"
+        ],
+        "infraredFluxNjy": {
+          "J": 17852061.530274197,
+          "H": 19315235.539751172,
+          "Ks": 14829635.184727574,
+          "W1": 7796808.760601035,
+          "W2": 5046500.562229304
+        },
+        "powerLawSlope": 1.05096348983803,
+        "predictedRubinFluxNjy": 46018534.75492843,
+        "predictedRubinMagAB": 12.242668033810675,
+        "observedRubinFluxNjy": 36767.59826242924,
+        "logObservedOverPredicted": -3.0974675247177257,
+        "infraredColourJminusW1": -0.8994287325669363,
+        "colourRelationResidualDex": -2.0819299080731657,
+        "significanceSigma": -4.608416278285778,
         "classification": "noteworthy"
       },
       {
@@ -166,8 +180,35 @@
         "observedRubinFluxNjy": 997.3804750824347,
         "logObservedOverPredicted": -2.983843373758453,
         "infraredColourJminusW1": -1.0244296862412532,
-        "colourRelationResidualDex": -1.9288446921804154,
-        "significanceSigma": -4.160882237894416,
+        "colourRelationResidualDex": -2.012137163918313,
+        "significanceSigma": -4.453927879314109,
+        "classification": "noteworthy"
+      },
+      {
+        "raDeg": 5.801487,
+        "decDeg": -40.928715,
+        "infraredBands": [
+          "J",
+          "H",
+          "Ks",
+          "W1",
+          "W2"
+        ],
+        "infraredFluxNjy": {
+          "J": 476527.5208526445,
+          "H": 734344.6449599853,
+          "Ks": 1041191.3166722818,
+          "W1": 1727892.138580574,
+          "W2": 2773259.30326555
+        },
+        "powerLawSlope": -1.3099501642891629,
+        "predictedRubinFluxNjy": 255541.78104503217,
+        "predictedRubinMagAB": 17.88134520659342,
+        "observedRubinFluxNjy": 297939.7598724365,
+        "logObservedOverPredicted": 0.06666654604380852,
+        "infraredColourJminusW1": 1.3985716031264235,
+        "colourRelationResidualDex": 1.8879947153980923,
+        "significanceSigma": 4.179134727840378,
         "classification": "noteworthy"
       },
       {
@@ -193,8 +234,8 @@
         "observedRubinFluxNjy": 10211.575206205249,
         "logObservedOverPredicted": -2.8932924720046103,
         "infraredColourJminusW1": -0.8884290530015054,
-        "colourRelationResidualDex": -1.7862986801819931,
-        "significanceSigma": -3.853383572080921,
+        "colourRelationResidualDex": -1.8738978333487872,
+        "significanceSigma": -4.147930843186443,
         "classification": "noteworthy"
       },
       {
@@ -220,8 +261,89 @@
         "observedRubinFluxNjy": 22275.992546617985,
         "logObservedOverPredicted": -2.89338097953938,
         "infraredColourJminusW1": -0.8744291140366613,
-        "colourRelationResidualDex": -1.7810347981539052,
-        "significanceSigma": -3.8420283845316923,
+        "colourRelationResidualDex": -1.8690772821766615,
+        "significanceSigma": -4.137260403991641,
+        "classification": "noteworthy"
+      },
+      {
+        "raDeg": 23.725181,
+        "decDeg": 0.76734,
+        "infraredBands": [
+          "J",
+          "H",
+          "Ks",
+          "W1",
+          "W2"
+        ],
+        "infraredFluxNjy": {
+          "J": 287666.05405923456,
+          "H": 509447.9360508992,
+          "Ks": 603574.0152251476,
+          "W1": 931358.3615526087,
+          "W2": 1504493.3556658113
+        },
+        "powerLawSlope": -1.1687701161926267,
+        "predictedRubinFluxNjy": 140907.40679439518,
+        "predictedRubinMagAB": 18.527665444029193,
+        "observedRubinFluxNjy": 75372.53466796875,
+        "logObservedOverPredicted": -0.27172070218337396,
+        "infraredColourJminusW1": 1.2755705044936125,
+        "colourRelationResidualDex": 1.5064773066953974,
+        "significanceSigma": 3.3346341373559847,
+        "classification": "noteworthy"
+      },
+      {
+        "raDeg": 355.570841,
+        "decDeg": -2.211738,
+        "infraredBands": [
+          "J",
+          "H",
+          "Ks",
+          "W1",
+          "W2"
+        ],
+        "infraredFluxNjy": {
+          "J": 807027.230624652,
+          "H": 943409.0918985374,
+          "Ks": 495599.2439530549,
+          "W1": 270343.9488464715,
+          "W2": 141967.97377740828
+        },
+        "powerLawSlope": 1.4293426303108805,
+        "predictedRubinFluxNjy": 2826089.9735804875,
+        "predictedRubinMagAB": 15.272035039332728,
+        "observedRubinFluxNjy": 14477.698593139648,
+        "logObservedOverPredicted": -2.290486453326674,
+        "infraredColourJminusW1": -1.1874288393784598,
+        "colourRelationResidualDex": -1.3759356649447376,
+        "significanceSigma": -3.045676173639202,
+        "classification": "noteworthy"
+      },
+      {
+        "raDeg": 55.47559,
+        "decDeg": -29.01576,
+        "infraredBands": [
+          "J",
+          "H",
+          "Ks",
+          "W1",
+          "W2"
+        ],
+        "infraredFluxNjy": {
+          "J": 4033559.4896751,
+          "H": 4569827.374676225,
+          "Ks": 3164684.711736591,
+          "W1": 1594838.3541995948,
+          "W2": 842927.8249050329
+        },
+        "powerLawSlope": 1.2774508746174102,
+        "predictedRubinFluxNjy": 12908363.444421634,
+        "predictedRubinMagAB": 13.622822038042067,
+        "observedRubinFluxNjy": 57496.31768798828,
+        "logObservedOverPredicted": -2.351231153293358,
+        "infraredColourJminusW1": -1.0074294878769945,
+        "colourRelationResidualDex": -1.3735638480506895,
+        "significanceSigma": -3.0404260835467065,
         "classification": "noteworthy"
       }
     ]
@@ -240,11 +362,99 @@
       "reason": "only 1 SED-usable sources"
     },
     {
+      "regionId": "dp2-tract-8994",
+      "reason": "only 0 SED-usable sources"
+    },
+    {
+      "regionId": "dp2-tract-9236",
+      "reason": "only 1 SED-usable sources"
+    },
+    {
       "regionId": "dp2-tract-9245",
       "reason": "only 1 SED-usable sources"
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "reason": "only 1 SED-usable sources"
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "reason": "only 1 SED-usable sources"
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "reason": "only 1 SED-usable sources"
+    },
+    {
+      "regionId": "dp2-tract-9939",
+      "reason": "only 0 SED-usable sources"
     }
   ],
   "regions": [
+    {
+      "regionId": "dp2-tract-10053",
+      "tract": 10053,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 124,
+        "matchedPairs": 12,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.2554463972292054,
+        "scatter": 0.014134330772065539
+      }
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "tract": 10054,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 19,
+        "allwiseRows": 93,
+        "matchedPairs": 19,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.0826925392479798,
+        "scatter": 0.17565265128068305
+      }
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "tract": 10055,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 98,
+        "matchedPairs": 9,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.1685336823417605,
+        "scatter": 0.07316385991579011
+      }
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "tract": 10056,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 94,
+        "matchedPairs": 14,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.0378443337229917,
+        "scatter": 0.5067055823933717
+      }
+    },
     {
       "regionId": "dp2-tract-10079",
       "tract": 10079,
@@ -259,6 +469,22 @@
       "infraredSlope": {
         "median": 0.9480190016124826,
         "scatter": 0.6320987629761089
+      }
+    },
+    {
+      "regionId": "dp2-tract-10215",
+      "tract": 10215,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 108,
+        "matchedPairs": 18,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.0531334158820875,
+        "scatter": 0.19855372328643847
       }
     },
     {
@@ -630,22 +856,6 @@
       }
     },
     {
-      "regionId": "dp2-tract-5281",
-      "tract": 5281,
-      "rubinBand": "z",
-      "rubinEffectiveWavelengthUm": 0.8691,
-      "counts": {
-        "twomassRows": 19,
-        "allwiseRows": 126,
-        "matchedPairs": 19,
-        "sedUsable": 7
-      },
-      "infraredSlope": {
-        "median": 1.0235068972474053,
-        "scatter": 0.0725989443766536
-      }
-    },
-    {
       "regionId": "dp2-tract-5282",
       "tract": 5282,
       "rubinBand": "r",
@@ -659,22 +869,6 @@
       "infraredSlope": {
         "median": 1.0680648220164204,
         "scatter": 0.20973291578295553
-      }
-    },
-    {
-      "regionId": "dp2-tract-5391",
-      "tract": 5391,
-      "rubinBand": "g",
-      "rubinEffectiveWavelengthUm": 0.4827,
-      "counts": {
-        "twomassRows": 73,
-        "allwiseRows": 156,
-        "matchedPairs": 67,
-        "sedUsable": 37
-      },
-      "infraredSlope": {
-        "median": 1.2470487114531985,
-        "scatter": 0.18910605301701433
       }
     },
     {
@@ -758,22 +952,6 @@
       }
     },
     {
-      "regionId": "dp2-tract-8026",
-      "tract": 8026,
-      "rubinBand": "g",
-      "rubinEffectiveWavelengthUm": 0.4827,
-      "counts": {
-        "twomassRows": 10,
-        "allwiseRows": 108,
-        "matchedPairs": 10,
-        "sedUsable": 5
-      },
-      "infraredSlope": {
-        "median": 0.8950311655743786,
-        "scatter": 0.4582335818016317
-      }
-    },
-    {
       "regionId": "dp2-tract-8259",
       "tract": 8259,
       "rubinBand": "r",
@@ -854,6 +1032,150 @@
       }
     },
     {
+      "regionId": "dp2-tract-8984",
+      "tract": 8984,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 96,
+        "matchedPairs": 13,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.3070895307473935,
+        "scatter": 0.12292828112427696
+      }
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "tract": 8985,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 90,
+        "matchedPairs": 10,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.1704842805043334,
+        "scatter": 0.40811842478427485
+      }
+    },
+    {
+      "regionId": "dp2-tract-8986",
+      "tract": 8986,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 6,
+        "allwiseRows": 106,
+        "matchedPairs": 6,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": 1.1653099543118715,
+        "scatter": 0.1634307625914321
+      }
+    },
+    {
+      "regionId": "dp2-tract-8995",
+      "tract": 8995,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 97,
+        "matchedPairs": 9,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 0.9389314517651555,
+        "scatter": 0.1202236949880948
+      }
+    },
+    {
+      "regionId": "dp2-tract-8996",
+      "tract": 8996,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 80,
+        "matchedPairs": 10,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.2665041573312708,
+        "scatter": 0.08834939568829575
+      }
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "tract": 8997,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 102,
+        "matchedPairs": 11,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.061101938854546,
+        "scatter": 0.30878156449019317
+      }
+    },
+    {
+      "regionId": "dp2-tract-8998",
+      "tract": 8998,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 125,
+        "matchedPairs": 14,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.2191191279844664,
+        "scatter": 0.2664076601017982
+      }
+    },
+    {
+      "regionId": "dp2-tract-9125",
+      "tract": 9125,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 92,
+        "matchedPairs": 13,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.3789071304183105,
+        "scatter": 0.11083987788738675
+      }
+    },
+    {
+      "regionId": "dp2-tract-9126",
+      "tract": 9126,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 114,
+        "matchedPairs": 18,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2548659567997662,
+        "scatter": 0.2703578037242926
+      }
+    },
+    {
       "regionId": "dp2-tract-9207",
       "tract": 9207,
       "rubinBand": "r",
@@ -870,6 +1192,550 @@
       }
     },
     {
+      "regionId": "dp2-tract-9209",
+      "tract": 9209,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 112,
+        "matchedPairs": 17,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.1949365773611678,
+        "scatter": 0.23967636631006686
+      }
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "tract": 9210,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 142,
+        "matchedPairs": 17,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.2838153444549676,
+        "scatter": 0.18111750990914835
+      }
+    },
+    {
+      "regionId": "dp2-tract-9212",
+      "tract": 9212,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 24,
+        "allwiseRows": 122,
+        "matchedPairs": 24,
+        "sedUsable": 12
+      },
+      "infraredSlope": {
+        "median": 1.1560228793964469,
+        "scatter": 0.2619002383579343
+      }
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "tract": 9214,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 97,
+        "matchedPairs": 13,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.096728538556257,
+        "scatter": 0.28298437730824455
+      }
+    },
+    {
+      "regionId": "dp2-tract-9217",
+      "tract": 9217,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 79,
+        "matchedPairs": 16,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.0546283778649965,
+        "scatter": 0.4314838306653051
+      }
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "tract": 9218,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 105,
+        "matchedPairs": 10,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.3746815525537617,
+        "scatter": 0.1258021623476917
+      }
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "tract": 9219,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 116,
+        "matchedPairs": 23,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 0.8859221387918832,
+        "scatter": 0.40912851995503235
+      }
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "tract": 9220,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 108,
+        "matchedPairs": 15,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.1218380179975718,
+        "scatter": 0.10160399755241152
+      }
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "tract": 9221,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 132,
+        "matchedPairs": 11,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.2127730347521315,
+        "scatter": 0.08900399419205793
+      }
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "tract": 9222,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 115,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.350775284330132,
+        "scatter": 0.20729933012816731
+      }
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "tract": 9223,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 131,
+        "matchedPairs": 10,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.1774474716414132,
+        "scatter": 0.20191659337542464
+      }
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "tract": 9226,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 93,
+        "matchedPairs": 13,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 0.9925855398706365,
+        "scatter": 0.6793427341059882
+      }
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 123,
+        "matchedPairs": 20,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.0265646714312597,
+        "scatter": 0.32135675356858423
+      }
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 186,
+        "matchedPairs": 14,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.0573704713846657,
+        "scatter": 0.4675742117651435
+      }
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 111,
+        "matchedPairs": 18,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.0699237028421826,
+        "scatter": 0.6016394698549854
+      }
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "tract": 9230,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 111,
+        "matchedPairs": 9,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.0303272150188874,
+        "scatter": 0.12132685713545277
+      }
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 118,
+        "matchedPairs": 12,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.2321908164718753,
+        "scatter": 0.3373679075742186
+      }
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 115,
+        "matchedPairs": 17,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 0.9949568245607715,
+        "scatter": 0.2910848071153605
+      }
+    },
+    {
+      "regionId": "dp2-tract-9233",
+      "tract": 9233,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 89,
+        "matchedPairs": 11,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.9978887907914598,
+        "scatter": 0.10088822946434847
+      }
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "tract": 9237,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 96,
+        "matchedPairs": 8,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.8801180891995937,
+        "scatter": 0.14628843337189645
+      }
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 7,
+        "allwiseRows": 92,
+        "matchedPairs": 7,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.7392851951155888,
+        "scatter": 0.44572413574000963
+      }
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 117,
+        "matchedPairs": 9,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.9918786178825789,
+        "scatter": 0.05182603723505123
+      }
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "tract": 9240,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 8,
+        "allwiseRows": 118,
+        "matchedPairs": 7,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.3581536387660555,
+        "scatter": 0.30256434921241837
+      }
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 137,
+        "matchedPairs": 15,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.1628349957316342,
+        "scatter": 0.3084265441547858
+      }
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "tract": 9327,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 107,
+        "matchedPairs": 16,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.0933727719499935,
+        "scatter": 0.1706476904223816
+      }
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "tract": 9328,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 21,
+        "allwiseRows": 105,
+        "matchedPairs": 20,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 1.017572142955711,
+        "scatter": 0.24885231578615102
+      }
+    },
+    {
+      "regionId": "dp2-tract-9448",
+      "tract": 9448,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 134,
+        "matchedPairs": 23,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.398247226361186,
+        "scatter": 0.15896959896951202
+      }
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 28,
+        "allwiseRows": 108,
+        "matchedPairs": 25,
+        "sedUsable": 12
+      },
+      "infraredSlope": {
+        "median": 1.2016790809739069,
+        "scatter": 0.17845367733095877
+      }
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 122,
+        "matchedPairs": 20,
+        "sedUsable": 14
+      },
+      "infraredSlope": {
+        "median": 1.1663625075292372,
+        "scatter": 0.25639546624151105
+      }
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 107,
+        "matchedPairs": 23,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 1.214720970085539,
+        "scatter": 0.45057524246488734
+      }
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 109,
+        "matchedPairs": 21,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.2453459369670348,
+        "scatter": 0.2842616544006006
+      }
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 110,
+        "matchedPairs": 8,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.2789486020477476,
+        "scatter": 0.41493016354244067
+      }
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 26,
+        "allwiseRows": 101,
+        "matchedPairs": 25,
+        "sedUsable": 13
+      },
+      "infraredSlope": {
+        "median": 1.2003913151108188,
+        "scatter": 0.2044637671232048
+      }
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "tract": 9455,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 119,
+        "matchedPairs": 17,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 1.1846682172588658,
+        "scatter": 0.28980835884762857
+      }
+    },
+    {
       "regionId": "dp2-tract-9456",
       "tract": 9456,
       "rubinBand": "r",
@@ -883,6 +1749,294 @@
       "infraredSlope": {
         "median": 1.0575660970220238,
         "scatter": 0.3640275214325858
+      }
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 113,
+        "matchedPairs": 12,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.1397738251536569,
+        "scatter": 0.2930455362147566
+      }
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 87,
+        "matchedPairs": 13,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.1471878046944353,
+        "scatter": 0.21151693689687928
+      }
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "tract": 9459,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 103,
+        "matchedPairs": 13,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2025839699210015,
+        "scatter": 0.25482647591664886
+      }
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 122,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 0.9658331896000831,
+        "scatter": 0.5583668273298357
+      }
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "tract": 9461,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 6,
+        "allwiseRows": 94,
+        "matchedPairs": 5,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.184154568052742,
+        "scatter": 0.36549306323428776
+      }
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "tract": 9462,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 19,
+        "allwiseRows": 85,
+        "matchedPairs": 19,
+        "sedUsable": 12
+      },
+      "infraredSlope": {
+        "median": 1.043064545903923,
+        "scatter": 0.27017528820714326
+      }
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 102,
+        "matchedPairs": 16,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 1.0656531787476533,
+        "scatter": 0.33383231329576624
+      }
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 92,
+        "matchedPairs": 14,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": 1.384050440889157,
+        "scatter": 0.04251421774141958
+      }
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "tract": 9465,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 98,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.1809566281374417,
+        "scatter": 0.24264057241969011
+      }
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "tract": 9466,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 98,
+        "matchedPairs": 11,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.134709198964165,
+        "scatter": 0.2333535114025523
+      }
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 83,
+        "matchedPairs": 11,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.8705329081985135,
+        "scatter": 0.5476901927841826
+      }
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 93,
+        "matchedPairs": 14,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.1360872736510184,
+        "scatter": 0.21022507744197202
+      }
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "tract": 9469,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 34,
+        "allwiseRows": 132,
+        "matchedPairs": 29,
+        "sedUsable": 15
+      },
+      "infraredSlope": {
+        "median": 0.6459954306592831,
+        "scatter": 0.6406783689263313
+      }
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 104,
+        "matchedPairs": 17,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.1795407783349228,
+        "scatter": 0.1475782987226161
+      }
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "tract": 9471,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 100,
+        "matchedPairs": 10,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2515785360691334,
+        "scatter": 0.277011424574572
+      }
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 98,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 0.6081196220256837,
+        "scatter": 0.6895402649383517
+      }
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 4,
+        "allwiseRows": 116,
+        "matchedPairs": 3,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": 0.7737580736963001,
+        "scatter": 0.5084024039465815
+      }
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "tract": 9474,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 116,
+        "matchedPairs": 16,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 0.9963229787749871,
+        "scatter": 0.22094465294511675
       }
     },
     {
@@ -918,6 +2072,422 @@
       }
     },
     {
+      "regionId": "dp2-tract-9479",
+      "tract": 9479,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 63,
+        "matchedPairs": 10,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 0.971718200053094,
+        "scatter": 0.0425220041271015
+      }
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 121,
+        "matchedPairs": 11,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.9879000750552983,
+        "scatter": 0.557891993894136
+      }
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 7,
+        "allwiseRows": 83,
+        "matchedPairs": 7,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.2006340166470155,
+        "scatter": 0.4958125550093696
+      }
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "tract": 9482,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 103,
+        "matchedPairs": 13,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.066900220838387,
+        "scatter": 0.1245374553694217
+      }
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "tract": 9483,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 91,
+        "matchedPairs": 9,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.03820802040034,
+        "scatter": 0.15195459706230488
+      }
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 111,
+        "matchedPairs": 9,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.2873992585451743,
+        "scatter": 0.22373780824156206
+      }
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "tract": 9485,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 117,
+        "matchedPairs": 9,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": -0.05144708702058165,
+        "scatter": 1.656543123050474
+      }
+    },
+    {
+      "regionId": "dp2-tract-9488",
+      "tract": 9488,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 92,
+        "matchedPairs": 9,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 0.3727868136816288,
+        "scatter": 0.34891725121928374
+      }
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 103,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2416388822664493,
+        "scatter": 0.15459223534143993
+      }
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "tract": 9569,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 89,
+        "matchedPairs": 15,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": 0.756207193718311,
+        "scatter": 0.4860185647702124
+      }
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 25,
+        "allwiseRows": 119,
+        "matchedPairs": 24,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.2736900163453693,
+        "scatter": 0.09927863469664006
+      }
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "tract": 9572,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 95,
+        "matchedPairs": 14,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.0796630244921923,
+        "scatter": 0.10566524716839008
+      }
+    },
+    {
+      "regionId": "dp2-tract-9691",
+      "tract": 9691,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 24,
+        "allwiseRows": 111,
+        "matchedPairs": 23,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.2886445809708198,
+        "scatter": 0.1917284268888242
+      }
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "tract": 9692,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 28,
+        "allwiseRows": 114,
+        "matchedPairs": 24,
+        "sedUsable": 14
+      },
+      "infraredSlope": {
+        "median": 1.2006271201046141,
+        "scatter": 0.3602230826176371
+      }
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "tract": 9693,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 24,
+        "allwiseRows": 124,
+        "matchedPairs": 22,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.264685921947936,
+        "scatter": 0.1773360939259764
+      }
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 32,
+        "allwiseRows": 121,
+        "matchedPairs": 30,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.0869612552059762,
+        "scatter": 0.11333523629202272
+      }
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 22,
+        "allwiseRows": 135,
+        "matchedPairs": 20,
+        "sedUsable": 13
+      },
+      "infraredSlope": {
+        "median": 1.1920135722919125,
+        "scatter": 0.3087786475493748
+      }
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 21,
+        "allwiseRows": 113,
+        "matchedPairs": 21,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.1121654578601667,
+        "scatter": 0.14454997437256498
+      }
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 24,
+        "allwiseRows": 97,
+        "matchedPairs": 24,
+        "sedUsable": 13
+      },
+      "infraredSlope": {
+        "median": 1.3187925240965865,
+        "scatter": 0.24297124583612079
+      }
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "tract": 9698,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 125,
+        "matchedPairs": 23,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.3850412846017517,
+        "scatter": 0.33053799682522406
+      }
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "tract": 9699,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 130,
+        "matchedPairs": 19,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.3163960058793749,
+        "scatter": 0.4190044103916944
+      }
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "tract": 9700,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 78,
+        "matchedPairs": 17,
+        "sedUsable": 14
+      },
+      "infraredSlope": {
+        "median": 0.7755736486754193,
+        "scatter": 0.6140637502778268
+      }
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 29,
+        "allwiseRows": 61,
+        "matchedPairs": 19,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.3026232921519338,
+        "scatter": 0.313467014337601
+      }
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 99,
+        "matchedPairs": 17,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.220552361924413,
+        "scatter": 0.31369495833586847
+      }
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 103,
+        "matchedPairs": 17,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.256564235669882,
+        "scatter": 0.1608148968311114
+      }
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "tract": 9704,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 101,
+        "matchedPairs": 11,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2090860733740048,
+        "scatter": 0.2904610304312444
+      }
+    },
+    {
       "regionId": "dp2-tract-9705",
       "tract": 9705,
       "rubinBand": "r",
@@ -931,6 +2501,182 @@
       "infraredSlope": {
         "median": 0.9051489060011911,
         "scatter": 0.5792595742407199
+      }
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "tract": 9706,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 119,
+        "matchedPairs": 18,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.1074382971178987,
+        "scatter": 0.086672307254398
+      }
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "tract": 9707,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 76,
+        "matchedPairs": 22,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 1.0350044505782436,
+        "scatter": 0.23251287640576257
+      }
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "tract": 9708,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 96,
+        "matchedPairs": 11,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 0.928061966008425,
+        "scatter": 0.8317379710494944
+      }
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "tract": 9709,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 112,
+        "matchedPairs": 14,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.1160669155727534,
+        "scatter": 0.33710856261369804
+      }
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 92,
+        "matchedPairs": 10,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.9934340515714469,
+        "scatter": 0.011308864178907954
+      }
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "tract": 9711,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 107,
+        "matchedPairs": 14,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.0543245144679505,
+        "scatter": 0.5275170058551251
+      }
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "tract": 9712,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 112,
+        "matchedPairs": 15,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.8538936250310692,
+        "scatter": 0.4047034567293278
+      }
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 97,
+        "matchedPairs": 15,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.3434930565413299,
+        "scatter": 0.39442960219299306
+      }
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 19,
+        "allwiseRows": 108,
+        "matchedPairs": 18,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 1.276905043082098,
+        "scatter": 0.4243207206547157
+      }
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 20,
+        "allwiseRows": 112,
+        "matchedPairs": 19,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.246654501971666,
+        "scatter": 0.18265335352726209
+      }
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "tract": 9717,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 92,
+        "matchedPairs": 17,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": -0.009242336318751003,
+        "scatter": 0.3574929199478825
       }
     },
     {
@@ -950,6 +2696,86 @@
       }
     },
     {
+      "regionId": "dp2-tract-9719",
+      "tract": 9719,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 117,
+        "matchedPairs": 13,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.5203416044715908,
+        "scatter": 0.7546658186743863
+      }
+    },
+    {
+      "regionId": "dp2-tract-9722",
+      "tract": 9722,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 116,
+        "matchedPairs": 9,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.4264611803183289,
+        "scatter": 0.2916594988302808
+      }
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "tract": 9723,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 118,
+        "matchedPairs": 9,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.1112443665481468,
+        "scatter": 0.17443524040558697
+      }
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 86,
+        "matchedPairs": 11,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.4144978570168654,
+        "scatter": 0.11031394705779193
+      }
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 99,
+        "matchedPairs": 14,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.0502457939787884,
+        "scatter": 0.07856309191313858
+      }
+    },
+    {
       "regionId": "dp2-tract-9726",
       "tract": 9726,
       "rubinBand": "r",
@@ -963,6 +2789,86 @@
       "infraredSlope": {
         "median": 1.103213513650067,
         "scatter": 0.30629172978012553
+      }
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 112,
+        "matchedPairs": 16,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.2334007094671153,
+        "scatter": 0.330027872445502
+      }
+    },
+    {
+      "regionId": "dp2-tract-9728",
+      "tract": 9728,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 4,
+        "allwiseRows": 117,
+        "matchedPairs": 4,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 0.7938361439432045,
+        "scatter": 0.5757724931487334
+      }
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "tract": 9732,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 139,
+        "matchedPairs": 9,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.100970398874759,
+        "scatter": 0.1444202210623025
+      }
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "tract": 9811,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 118,
+        "matchedPairs": 12,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.9875286848163337,
+        "scatter": 0.22307575078960765
+      }
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 93,
+        "matchedPairs": 12,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.07453451020832,
+        "scatter": 0.13090731048087928
       }
     },
     {
@@ -982,6 +2888,198 @@
       }
     },
     {
+      "regionId": "dp2-tract-9814",
+      "tract": 9814,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 115,
+        "matchedPairs": 9,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.2211527781600489,
+        "scatter": 0.18966231479059978
+      }
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 38,
+        "allwiseRows": 106,
+        "matchedPairs": 36,
+        "sedUsable": 12
+      },
+      "infraredSlope": {
+        "median": 1.2638240421310065,
+        "scatter": 0.1633811913957888
+      }
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "tract": 9937,
+      "rubinBand": "g",
+      "rubinEffectiveWavelengthUm": 0.4827,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 108,
+        "matchedPairs": 18,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.084447565766633,
+        "scatter": 0.2393640232747772
+      }
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "tract": 9940,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 25,
+        "allwiseRows": 95,
+        "matchedPairs": 25,
+        "sedUsable": 10
+      },
+      "infraredSlope": {
+        "median": 1.1122284260927222,
+        "scatter": 0.3737320604741587
+      }
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 117,
+        "matchedPairs": 16,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 0.8918095215440914,
+        "scatter": 0.4174832526725347
+      }
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 104,
+        "matchedPairs": 13,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 0.965046841138712,
+        "scatter": 0.0017368237604032865
+      }
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 14,
+        "allwiseRows": 103,
+        "matchedPairs": 14,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 1.1793239130980657,
+        "scatter": 0.09747537723242658
+      }
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 15,
+        "allwiseRows": 104,
+        "matchedPairs": 15,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 0.980332891038699,
+        "scatter": 0.11998618631313335
+      }
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "tract": 9948,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 21,
+        "allwiseRows": 118,
+        "matchedPairs": 20,
+        "sedUsable": 9
+      },
+      "infraredSlope": {
+        "median": 0.9232283502839619,
+        "scatter": 0.29205274461797637
+      }
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 101,
+        "matchedPairs": 11,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.0417074591044984,
+        "scatter": 0.3320540924016766
+      }
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "tract": 9951,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 23,
+        "allwiseRows": 105,
+        "matchedPairs": 23,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 0.9768000014828853,
+        "scatter": 0.5698530573917677
+      }
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "tract": 9952,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 16,
+        "allwiseRows": 109,
+        "matchedPairs": 14,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.4207615430429574,
+        "scatter": 0.060685628038730025
+      }
+    },
+    {
       "regionId": "dp2-tract-9953",
       "tract": 9953,
       "rubinBand": "r",
@@ -995,6 +3093,246 @@
       "infraredSlope": {
         "median": 1.1960369959026171,
         "scatter": 0.18064205473082048
+      }
+    },
+    {
+      "regionId": "dp2-tract-9954",
+      "tract": 9954,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 99,
+        "matchedPairs": 10,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.0869329935389507,
+        "scatter": 0.31575516836710843
+      }
+    },
+    {
+      "regionId": "dp2-tract-9955",
+      "tract": 9955,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 97,
+        "matchedPairs": 11,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.0715055157041276,
+        "scatter": 0.028619479384436944
+      }
+    },
+    {
+      "regionId": "dp2-tract-9956",
+      "tract": 9956,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 4,
+        "allwiseRows": 101,
+        "matchedPairs": 4,
+        "sedUsable": 3
+      },
+      "infraredSlope": {
+        "median": 1.05337726173222,
+        "scatter": 0.0063108233385601314
+      }
+    },
+    {
+      "regionId": "dp2-tract-9957",
+      "tract": 9957,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 99,
+        "matchedPairs": 12,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.0610152685212157,
+        "scatter": 0.16875049584846774
+      }
+    },
+    {
+      "regionId": "dp2-tract-9958",
+      "tract": 9958,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 91,
+        "matchedPairs": 12,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.1192847982090575,
+        "scatter": 0.40199358838365173
+      }
+    },
+    {
+      "regionId": "dp2-tract-9959",
+      "tract": 9959,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 10,
+        "allwiseRows": 91,
+        "matchedPairs": 10,
+        "sedUsable": 2
+      },
+      "infraredSlope": {
+        "median": 0.8499079221927113,
+        "scatter": 0.428467350887992
+      }
+    },
+    {
+      "regionId": "dp2-tract-9960",
+      "tract": 9960,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 105,
+        "matchedPairs": 12,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 0.999731145991597,
+        "scatter": 0.22441118259965762
+      }
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "tract": 9964,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 17,
+        "allwiseRows": 143,
+        "matchedPairs": 16,
+        "sedUsable": 11
+      },
+      "infraredSlope": {
+        "median": 0.8887296229484504,
+        "scatter": 0.7083218998104697
+      }
+    },
+    {
+      "regionId": "dp2-tract-9965",
+      "tract": 9965,
+      "rubinBand": "i",
+      "rubinEffectiveWavelengthUm": 0.7546,
+      "counts": {
+        "twomassRows": 8,
+        "allwiseRows": 98,
+        "matchedPairs": 8,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 0.8774751128494098,
+        "scatter": 0.6083257411355748
+      }
+    },
+    {
+      "regionId": "dp2-tract-9966",
+      "tract": 9966,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 11,
+        "allwiseRows": 90,
+        "matchedPairs": 11,
+        "sedUsable": 5
+      },
+      "infraredSlope": {
+        "median": 1.3768174814144876,
+        "scatter": 0.16255001508295622
+      }
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "tract": 9967,
+      "rubinBand": "z",
+      "rubinEffectiveWavelengthUm": 0.8691,
+      "counts": {
+        "twomassRows": 12,
+        "allwiseRows": 124,
+        "matchedPairs": 12,
+        "sedUsable": 8
+      },
+      "infraredSlope": {
+        "median": 1.1754687661973207,
+        "scatter": 0.3194334060525819
+      }
+    },
+    {
+      "regionId": "dp2-tract-9968",
+      "tract": 9968,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 8,
+        "allwiseRows": 126,
+        "matchedPairs": 8,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.1360418908259615,
+        "scatter": 0.571903282469546
+      }
+    },
+    {
+      "regionId": "dp2-tract-9969",
+      "tract": 9969,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 13,
+        "allwiseRows": 121,
+        "matchedPairs": 13,
+        "sedUsable": 6
+      },
+      "infraredSlope": {
+        "median": 0.8743102824855072,
+        "scatter": 0.8413412785956272
+      }
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 9,
+        "allwiseRows": 128,
+        "matchedPairs": 8,
+        "sedUsable": 4
+      },
+      "infraredSlope": {
+        "median": 1.2736480234128467,
+        "scatter": 0.1817763736448888
+      }
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "rubinBand": "r",
+      "rubinEffectiveWavelengthUm": 0.6223,
+      "counts": {
+        "twomassRows": 18,
+        "allwiseRows": 97,
+        "matchedPairs": 17,
+        "sedUsable": 7
+      },
+      "infraredSlope": {
+        "median": 1.1845728586920643,
+        "scatter": 0.2722815921225411
       }
     }
   ]
