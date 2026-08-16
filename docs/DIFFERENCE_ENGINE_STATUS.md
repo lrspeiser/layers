@@ -1115,3 +1115,54 @@ being measured: the honest state is a quantified correction factor that nobody
 has applied to the released columns yet, and applying it would mean republishing
 the catalogue with errors multiplied by a size-dependent factor rather than a
 constant. `pipeline/measure_resampling_covariance.py` reproduces the table.
+
+## 23. The correction curve, measured on the catalogue's own segment shapes
+
+§22 established that the released error columns are about twice too small, from
+circular apertures on blank sky. That is enough to report the problem and not
+enough to fix it. The catalogue measures flux in **segments** — connected regions
+of whatever outline the threshold produced — and a circle of equal area is a
+different aperture. Correcting released values from the circular curve would mean
+interpolating across shape and extrapolating past the largest circle measured.
+
+So this measures it directly: reproduce the catalogue's own detection (same
+summed frame, same 3σ threshold on the quadrature background RMS, deblended),
+take each real segment footprint, and translate it to up to 120 random blank-sky
+positions. The scatter of those sums against σ·√N for the same footprint is that
+shape's inflation factor. **188 regions, 9,780 segments.**
+
+| segment area (px) | segments | variance inflation | error bars understated by |
+|---|---|---|---|
+| 0–10 | 2613 | ×2.92 | ×1.71 |
+| 10–20 | 2980 | ×4.11 | ×2.03 |
+| 20–40 | 2628 | ×5.11 | ×2.26 |
+| 40–80 | 1385 | ×5.76 | ×2.40 |
+| 80–160 | 172 | ×6.19 | ×2.49 |
+| **overall** | **9780** | **×4.21** | **×2.05** |
+
+Two independent geometries agree: ×2.05 here against ×2.37 for a 3-pixel circle
+in §22. The inflation rises monotonically with area, so a single scalar
+correction would be wrong at both ends — which is precisely why this was worth
+measuring rather than assuming.
+
+**Where it stops, and why that matters.** The curve ends at 160 pixels. A larger
+footprint cannot be placed on clean sky often enough to give a stable scatter —
+there is not that much blank sky in a 512×512 cutout. **94.9% of the catalogue
+falls inside the measured range.** The remaining 5% are the extended sources §21
+already shows carry a separate, unexplained bias, so they should be flagged
+rather than extrapolated. Two systematics landing on the same population is worth
+noticing.
+
+**Pilot agreement, third time asked.** A 6-region pilot gave the same direction
+with a steeper tail (×10.3 against the full run's ×5.8 at 40–80 px). Direction
+held; the sparse end did not. The two earlier pilots in this session reversed
+outright — §21's Kron result and §22's control — so the rule stands: the full run
+is the number, and a pilot only shows the method runs.
+
+**Still not applied.** `appliedToReleasedColumns` is `false`. Multiplying
+`rubin_flux_err_njy` and `reference_flux_err_njy` by √inflation at each source's
+area, and dividing the `_snr` columns by it, rewrites every row of the release
+and its checksums. That is a publishing decision. What has changed is that it is
+now a well-defined one: the factor is measured on the real apertures, over the
+range covering 95% of the rows, with the remainder identified rather than
+guessed.

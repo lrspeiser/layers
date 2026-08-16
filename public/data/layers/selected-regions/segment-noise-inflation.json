@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "layers-segment-noise-inflation-v1",
+  "question": "The circular measurement said the error columns are about twice too small. To correct them we need the inflation on the catalogue's own segment shapes, across the areas it actually uses.",
+  "method": "Reproduce the catalogue's detection (sum of both frames, 3 sigma on the quadrature background RMS, deblended), take each real segment footprint, and translate it to many random blank-sky positions. The scatter of those sums against sigma*sqrt(N) for the same footprint is that shape's inflation factor. No assumed geometry and no interpolation across shape.",
+  "regionsMeasured": 188,
+  "segmentsMeasured": 9780,
+  "placementsPerSegment": 120,
+  "overall": {
+    "medianVarianceInflation": 4.209150377656601,
+    "medianErrorBarUnderstatedBy": 2.0516214021248174
+  },
+  "byArea": [
+    {
+      "areaPixelsFrom": 0,
+      "areaPixelsTo": 10,
+      "segments": 2613,
+      "medianAreaPixels": 7.0,
+      "medianVarianceInflation": 2.9203709895313907,
+      "medianErrorBarUnderstatedBy": 1.7089092982166698
+    },
+    {
+      "areaPixelsFrom": 10,
+      "areaPixelsTo": 20,
+      "segments": 2980,
+      "medianAreaPixels": 14.0,
+      "medianVarianceInflation": 4.114553624286613,
+      "medianErrorBarUnderstatedBy": 2.0284362509792153
+    },
+    {
+      "areaPixelsFrom": 20,
+      "areaPixelsTo": 40,
+      "segments": 2628,
+      "medianAreaPixels": 27.0,
+      "medianVarianceInflation": 5.111540562477533,
+      "medianErrorBarUnderstatedBy": 2.260871637771046
+    },
+    {
+      "areaPixelsFrom": 40,
+      "areaPixelsTo": 80,
+      "segments": 1385,
+      "medianAreaPixels": 51.0,
+      "medianVarianceInflation": 5.758419777707125,
+      "medianErrorBarUnderstatedBy": 2.3996707644398065
+    },
+    {
+      "areaPixelsFrom": 80,
+      "areaPixelsTo": 160,
+      "segments": 172,
+      "medianAreaPixels": 91.5,
+      "medianVarianceInflation": 6.189908361317637,
+      "medianErrorBarUnderstatedBy": 2.4879526445086606
+    }
+  ],
+  "appliedToReleasedColumns": false,
+  "note": "Measured, not applied. This is the curve a correction needs; multiplying rubin_flux_err_njy and reference_flux_err_njy by sqrt of the inflation at each source's area, and dividing the _snr columns by it, would rewrite every row of the release and its checksums. That is a publishing decision, not a measurement.",
+  "reproduce": "python pipeline/measure_segment_noise_inflation.py",
+  "coverage": {
+    "largestAreaMeasuredPixels": 160,
+    "catalogueFractionWithinMeasuredRange": 0.9493,
+    "limitation": "The curve is measured to 160 pixels because a larger footprint cannot be placed on clean sky often enough to get a stable scatter -- there is not that much blank sky in a 512x512 cutout. Segments above that would have to extrapolate, and they are the extended sources section 21 already shows carry a separate, unexplained bias. Any correction should be applied within the measured range and the remainder flagged rather than extrapolated."
+  },
+  "pilotAgreement": "A 6-region pilot gave the same direction and a steeper large-area end (x10.3 against the full run's x5.8 at 40-80 px). Direction held this time; magnitude at the sparse end did not. Two earlier pilots this session reversed outright, so the full run is the number."
+}
