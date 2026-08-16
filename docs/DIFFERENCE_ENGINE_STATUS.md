@@ -1878,3 +1878,47 @@ not evidence that they are right.
 
 `pipeline/verify_goals_from_raw.py --check` reproduces the rebuildable ones and
 exits non-zero on disagreement.
+
+## 39. G2 rebuilt from the Gaia cache, and a discrepancy that was mine
+
+Adding G2 to the raw-input rebuild: all **147 of 147** measured regions reproduce
+their published `gaiaSources` count exactly from the cached Gaia CSVs.
+
+Getting there produced a convincing false alarm. Reading `pipeline/results/gaia-200`
+reproduced **none** of the 147 — tract 10053 held 12 sources against a published
+34, and the pattern held across every region checked. A live Gaia cone at 2′
+returned 12 as well, which made the cache look right and the manifest look
+inflated by roughly 3×.
+
+Both were right. There are two caches: `gaia-200` at a smaller search radius and
+`gaia-200r3` at a larger one, and the operator used r3. Against r3 the agreement
+is 147 of 147. The smaller cache is not wrong; it answers a different query, and a
+fresh cone at its radius agrees with it.
+
+That is the **fifth** check of mine that was wrong before it was right, against
+one genuinely wrong published number (G0). The running tally is worth keeping
+because it is the actual lesson of §36–§39: writing a correct independent recount
+is harder than the thing it audits, and a disagreement is evidence of *a* mistake
+without saying whose. Each false alarm came from the same root — reading a number
+that was near the right one but answered a different question:
+
+| check | what I read | what it answers |
+|---|---|---|
+| G1 | `pixelsValidated` 652 | the ceiling, not reconciled pairs |
+| G3 | regions 184 | not sources with an SED |
+| G9 | every integer in `comparisonsEvaluated` | included region counts as addends |
+| G8 | `verdictsDelivered` summed | double-counts one candidate across surveys |
+| G2 | the `gaia-200` cache | a different search radius |
+
+**Standing verification status:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G7, and 69% of G9** |
+| checked against own evidence only | G3, G4, G5, G6, G8, rest of G9 |
+| not machine-checkable here | G10 |
+
+Five of eleven now rest on inputs rather than on the pipeline's own reporting.
+The remainder would need re-querying 2MASS, AllWISE, HIPASS, Planck, ACT, VLASS,
+eROSITA and MAST — verifiable in principle, at roughly the cost of the original
+acquisition.

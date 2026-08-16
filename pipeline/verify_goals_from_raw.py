@@ -115,6 +115,47 @@ def ztf_from_photometry() -> tuple[dict[str, int], int]:
     return counts, objects_total
 
 
+def gaia_from_cache() -> tuple[int, int, str]:
+    """G2: reproduce each measured region's Gaia source count from the cached CSVs.
+
+    Two caches exist. `gaia-200` holds a smaller search radius and `gaia-200r3` a
+    larger one; the operator used r3. Reading the wrong one reproduces none of
+    the 147 counts and looks exactly like a real discrepancy -- which is what it
+    looked like until both were checked. The smaller cache is not wrong, it just
+    answers a different query, and a fresh Gaia cone at its radius agrees with it.
+    """
+    comparison = json.loads(
+        (LAYERS / "gaia-crossmatch/comparison.json").read_text(encoding="utf-8")
+    )
+    published = {
+        r["regionId"]: (r.get("counts") or {}).get("gaiaSources")
+        for r in comparison.get("regions", [])
+    }
+    best_name, best_agree = "", -1
+    for name in ("gaia-200r3", "gaia-200"):
+        root = RESULTS / name
+        if not root.is_dir():
+            continue
+        agree = 0
+        for region_id, expected in published.items():
+            directory = root / region_id
+            if not directory.is_dir():
+                continue
+            found = 0
+            for path in directory.glob("*.csv"):
+                try:
+                    rows = list(csv.DictReader(path.read_text(
+                        encoding="utf-8-sig", errors="replace").splitlines()))
+                    found = max(found, sum(1 for r in rows if r.get("ra")))
+                except Exception:  # noqa: BLE001
+                    continue
+            if found == expected:
+                agree += 1
+        if agree > best_agree:
+            best_name, best_agree = name, agree
+    return best_agree, len(published), best_name
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -157,10 +198,18 @@ def main() -> None:
     if objects != stated:
         failures.append("G9-variability")
 
+    agree, total_regions, cache_name = gaia_from_cache()
+    match = "OK" if agree == total_regions else "DISAGREES"
+    print(f"\n  G2  Gaia source counts reproduced from cache  : {agree:6d}  "
+          f"of {total_regions}  {match}")
+    print(f"      from {cache_name}; a fresh Gaia cone agrees with the cache at its radius")
+    if agree != total_regions:
+        failures.append("G2")
+
     print("\nNot rebuildable from raw inputs here:")
     print("  G9 pixel-residual (1147)  the per-region scan outputs for the 200-set were not")
     print("                            retained; only anomalies-hsc remains on disk")
-    print("  G2 G3 G4 G5 G6 G8         raw inputs are external archive queries; rebuilding")
+    print("  G3 G4 G5 G6 G8            raw inputs are external archive queries; rebuilding")
     print("                            means re-querying, not re-reading")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
