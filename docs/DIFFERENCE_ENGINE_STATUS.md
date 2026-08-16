@@ -1558,3 +1558,53 @@ was that it applied to 107 of 107 regions rather than to some.
 
 With this, all four optical references have completed the chain G1 specifies.
 The delivered count stands at 628 reconciled pairs of a measured ceiling of 652.
+
+## 32. The images are a decade apart, and nothing was testing for it
+
+A reader asked whether the images would differ simply because of when they were
+taken. They would, and nothing in the pipeline was checking.
+
+The anomaly scanner lists exactly two boring explanations for a residual:
+proximity to a mask edge, and wing residuals on a bright source. Both concern the
+images. Neither concerns time. And the images are not contemporaneous:
+
+| reference | years before Rubin | proper motion moving half a PSF |
+|---|---|---|
+| Pan-STARRS DR2 | 13.5 | 30 mas/yr |
+| Legacy DR10 | 9.0 | 44 mas/yr |
+| HSC PDR2 | 9.0 | 44 mas/yr |
+| DES DR2 | 9.5 | 42 mas/yr |
+
+Rubin's epoch is **2025.5**, and it had to be *fitted from Gaia proper motions*
+because no cutout carries a usable observation date — Rubin's `DATE` is when the
+file was written, HSC's `DATE-OBS` is a J2000 placeholder, and the Legacy cutouts
+carry no date keyword at all. The 0.37 yr field-to-field scatter is the evidence
+that the fit measures an epoch rather than absorbing something else, and 2025.5
+agrees with DP2's stated April 2025 – January 2026 window.
+
+Over nine years, a star at 44 mas/yr shifts half a point-spread width.
+Differencing a source that moved gives a **dipole**, bright on one side and dark
+on the other. A variable star is genuinely a different brightness. An asteroid is
+in one epoch and not the other. **None of those is "Rubin disagrees with Legacy",
+and all of them look exactly like it** — so any would have ranked in the
+highest-interest category.
+
+**The test, and its result.** Every unexplained candidate was cross-matched
+against Gaia DR3 and each nearby source's motion propagated across the epoch gap.
+**0 of 18 sit on a mover.** In fact none coincides with a catalogued Gaia source
+at all, so the moved-star explanation is ruled out for every one — a test they
+could have failed and did not.
+
+That null needed defending, because every candidate returning zero is also what a
+broken query looks like. A positive control ships in the manifest: the same query
+returns 9 sources in the Pleiades and 4 within 60″ of the first candidate, so zero
+within 3″ is field sparsity rather than a dead query.
+
+**What this does not settle.** Gaia is complete only to about G = 21, so a fainter
+high-proper-motion star would move and never appear in this check — it rules out
+motion of a *catalogued* star, not motion. Variability is untested. Solar-system
+objects are untested. Both remain live explanations for anything in the candidate
+list, and the list is still not a set of detections.
+
+`pipeline/measure_epoch_separation.py` and
+`pipeline/check_candidate_epochs.py` reproduce both halves.
