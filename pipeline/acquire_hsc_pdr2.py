@@ -179,7 +179,28 @@ def main() -> None:
     parser.add_argument("--env", type=Path, default=ROOT / ".env")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--band", default=BAND)
+    parser.add_argument(
+        "--check-endpoint",
+        action="store_true",
+        help="Verify the cutout URL without credentials and exit. A 401 is the pass: it means "
+             "the service exists and accepted the rerun and filter names, and only the account "
+             "is missing. A 404 would mean the URL or rerun is wrong.",
+    )
     args = parser.parse_args()
+
+    if args.check_endpoint:
+        url = cutout_url(150.0, 2.0)
+        request = urllib.request.Request(url)
+        request.add_header("User-Agent", USER_AGENT)
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                print(f"HTTP {response.status} without credentials -- unexpected but not fatal")
+        except urllib.error.HTTPError as error:
+            verdict = "reachable, credentials required" if error.code in (401, 403) else "WRONG URL or rerun"
+            print(f"HTTP {error.code} {error.reason}  ->  {verdict}")
+        except Exception as error:  # noqa: BLE001
+            print(f"could not reach the service: {type(error).__name__}: {error}")
+        raise SystemExit(0)
 
     user, password = credentials(args.env)
     secrets = (password, user)
