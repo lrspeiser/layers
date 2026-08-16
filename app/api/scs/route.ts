@@ -181,6 +181,8 @@ export async function GET(request: Request) {
     votable(rows, {
       matches: String(rows.length),
       cutOn: "departure_significance measures distance from the field's own median flux ratio in units of that field's own scatter",
+      extendedSourceBias:
+        "departure_significance is size-biased: extended sources sit low, and three times more so where the PSF-matching kernel convolved Rubin (p=2.8e-08 over 186 regions, cause unknown). Restrict a search to compact sources.",
       caveat: release.caveat,
       bulk: "/data/catalogue/rubin-reference-sources.parquet",
     }),

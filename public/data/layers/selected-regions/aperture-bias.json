@@ -1,0 +1,41 @@
+{
+  "generated": "2026-08-15",
+  "question": "Does the catalogue's flux ratio depend on which frame the PSF-matching kernel convolved? It should not: that choice is an implementation detail.",
+  "answer": "Yes, strongly.",
+  "statistic": "median flux ratio of extended sources minus that of compact ones, per region",
+  "split": "each region's own median segment area",
+  "groups": {
+    "gaussian-matched": {
+      "regions": 29,
+      "medianSizeBias": -0.1413526035040651,
+      "negativeRegions": 28
+    },
+    "reference-convolved": {
+      "regions": 81,
+      "medianSizeBias": -0.042652009966309246,
+      "negativeRegions": 52
+    },
+    "rubin-convolved": {
+      "regions": 76,
+      "medianSizeBias": -0.1443295689175742,
+      "negativeRegions": 65
+    }
+  },
+  "kruskalWallisP": 2.7545706955756574e-08,
+  "rubinConvolvedVsRestP": 0.0004767727986334082,
+  "kernelSumCorrectedP": 1.5102743538398526e-09,
+  "falsifiedHypotheses": [
+    {
+      "hypothesis": "the fitted kernel does not conserve flux",
+      "verdict": "falsified",
+      "evidence": "dividing out the fitted kernel sum increases the separation"
+    },
+    {
+      "hypothesis": "the segment is the wrong aperture for extended sources",
+      "verdict": "falsified",
+      "evidence": "Kron apertures fix compact sources (ratio 1.0016 vs 0.9542) but worsen extended ones and reverse the asymmetry above S/N 50"
+    }
+  ],
+  "consequence": "departure_significance is not trustworthy for extended sources. The compact-source result is unaffected: the bias is a size-dependent term and vanishes for the compact half of each field.",
+  "reproduce": "python pipeline/diagnose_aperture_bias.py --explain"
+}

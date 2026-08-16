@@ -972,3 +972,83 @@ physical sense: a one-sided sign distribution, an asymmetry that grew with
 signal-to-noise, sources four times larger than average. That is not something a
 unit test expresses, and it is the argument for publishing a catalogue with
 documented selection effects rather than a curated list of anomalies.
+
+## 21. The departure statistic is size-biased, and the cause is not yet known
+
+§20 left the extended-source aperture effect open, and named PSF-model
+photometry as the fix. That turned out to be the wrong diagnosis. The effect is
+larger than an aperture problem, and it is not astrophysical at all.
+
+**The test.** Every reconciled pair is PSF-matched by convolving *one* frame
+with a fitted Alard–Lupton kernel. Which one is decided per region by whichever
+direction leaves the smaller residual. That is an implementation detail: after
+matching, both frames carry the same PSF, so a fixed aperture should collect the
+same fraction of a source's light either way. Split each region at its own
+median source area and take the median flux ratio of the extended half minus the
+compact half:
+
+| kernel direction | regions | median size bias | negative in |
+|---|---|---|---|
+| rubin-convolved | 76 | **−0.1443** | 65/76 |
+| gaussian-matched | 29 | −0.1414 | 28/29 |
+| reference-convolved | 81 | −0.0427 | 52/81 |
+
+Kruskal–Wallis across the three groups gives **p = 2.8 × 10⁻⁸** over 186
+regions; rubin-convolved against the rest, p = 4.8 × 10⁻⁴. Extended sources
+measure fainter in Rubin everywhere, and about three times more so when Rubin is
+the frame that got convolved.
+
+Nothing on the sky knows which frame this pipeline chose to convolve. So a
+measurable part of `departure_significance` is an artefact of the pipeline's own
+bookkeeping, and it lands hardest on extended sources — which are most of the
+catalogue.
+
+**Two explanations, both falsified.**
+
+1. *The fitted kernel does not conserve flux.* This looked decisive. Only 5% of
+   the 516 fitted kernels sum to within 1% of unity, the median deviation is
+   6.2%, the range runs 0.24 to 1.38, and the two directions deviate in opposite
+   senses (0.9359 against 1.0287) — exactly the sign pattern needed. An
+   Alard–Lupton kernel's normalisation absorbs the photometric scale between
+   frames, which is correct for building a difference image and wrong for
+   measuring flux off the convolved one. Dividing it out **increases** the
+   separation, p 3.4 × 10⁻² → 1.7 × 10⁻⁵. Refuted.
+
+2. *The segment is the wrong aperture.* A segment is wherever the summed frame
+   crossed a threshold, so the light fraction inside it depends on the profile;
+   a Kron aperture scales with the source's own moments and was designed for
+   exactly this. Measured through identical Rubin-derived Kron apertures, which
+   capture 1.90× the segment flux: compact sources improve to a ratio of
+   **1.0016** against the segment's 0.9542 — agreement to 0.2%, so part of the
+   long-standing "Rubin is ~5% faint" result really is the segment aperture. But
+   extended sources get *worse* (0.9368), the ratio slides with area
+   (rho −0.069, p 3 × 10⁻⁸) where the segment ratio is flat (p 0.63), and above
+   S/N 50 the asymmetry reverses outright: segment 16 high / 0 low, Kron 3 high
+   / 45 low, three times the outliers. A residual-sky model was fitted to explain
+   the slide and also failed — the per-pixel residual is not constant across
+   area bins (+1.27, +0.70, +1.31, +0.17, −1.77 nJy/px). Refuted.
+
+**Consequence, and what changed.** `departure_significance` is not trustworthy
+for extended sources. The compact-source result is unaffected: the bias is a
+size-dependent term that vanishes on the compact half of each field, and on that
+half Kron and segment photometry agree to 0.2%. `/data` now carries the warning
+next to the column advice rather than below it, the cone search returns it as an
+`INFO` so a `pyvo` user sees it without visiting the site, and
+`catalogue-release.json` records it as `extendedSourceBias`.
+
+`pipeline/diagnose_aperture_bias.py --explain` reproduces all of it from the
+published Parquet and summary alone — no Rubin pixels, no data rights — so this
+is checkable by anyone who downloads the release. `tests/aperture-bias.test.mjs`
+holds the finding in place, including the requirement that the kernel-sum
+correction keeps making things worse.
+
+**What this does not say.** It does not say the catalogue is wrong; the
+measurements are what they are. It says one derived statistic carries a
+systematic that correlates with source size, that the systematic is at least
+partly ours rather than the sky's, and that two reasonable fixes have been tried
+and refuted rather than left as plausible-sounding future work. The obvious
+remaining candidate is that convolution moves flux across a fixed aperture
+boundary differently in the two frames because the matching is imperfect in the
+wings, which would call for a spatially varying kernel — but that is a
+hypothesis, and this section has already recorded two of those turning out to be
+wrong.

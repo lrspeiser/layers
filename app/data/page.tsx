@@ -5,6 +5,7 @@ import release from "@/public/data/layers/selected-regions/catalogue-release.jso
 import reliability from "@/public/data/layers/selected-regions/catalogue-reliability.json";
 import synthetic from "@/public/data/layers/selected-regions/synthetic-bandpass.json";
 import moc from "@/public/data/layers/selected-regions/coverage-moc.json";
+import bias from "@/public/data/layers/selected-regions/aperture-bias.json";
 
 export const metadata: Metadata = {
   title: "Data access",
@@ -101,6 +102,25 @@ tbl.sort("departure_significance")`}</code>
             <h2>Which column to cut on</h2>
             <p className={styles.emphasis}>departure_significance</p>
             <p>{release.whichSignificance}</p>
+          </article>
+
+          <article className={styles.card} data-tone="caution">
+            <h2>Extended sources are biased</h2>
+            <p>{release.extendedSourceBias}</p>
+            <dl className={styles.stats}>
+              <div>
+                <dt>rubin-convolved</dt>
+                <dd>{bias.groups["rubin-convolved"].medianSizeBias.toFixed(3)}</dd>
+              </div>
+              <div>
+                <dt>reference-convolved</dt>
+                <dd>{bias.groups["reference-convolved"].medianSizeBias.toFixed(3)}</dd>
+              </div>
+              <div>
+                <dt>p</dt>
+                <dd>{bias.kruskalWallisP?.toExponential(1)}</dd>
+              </div>
+            </dl>
           </article>
 
           <article className={styles.card}>

@@ -129,12 +129,32 @@ def main() -> None:
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--public", type=Path, default=DEFAULT_PUBLIC)
     parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY)
+    parser.add_argument(
+        "--allow-shrink",
+        action="store_true",
+        help="publish even if this would replace the release with fewer rows",
+    )
     args = parser.parse_args()
 
     parquet_source = args.source / "rubin-reference-sources.parquet"
     votable_source = args.source / "rubin-reference-sources.vot"
     if not parquet_source.is_file():
         raise SystemExit("run build_source_catalogue.py first")
+
+    # The source directory is gitignored working data, so a --limit pilot run
+    # leaves a small catalogue sitting exactly where the full one was. Publishing
+    # that would quietly replace the release with a fraction of itself, and every
+    # consistency check downstream would still pass because everything would agree
+    # on the smaller number. Refuse, and make the operator say so out loud.
+    incoming = pq.read_metadata(parquet_source).num_rows
+    if args.summary.is_file() and not args.allow_shrink:
+        published = json.loads(args.summary.read_text(encoding="utf-8")).get("rows")
+        if isinstance(published, int) and incoming < published:
+            raise SystemExit(
+                f"refusing to shrink the release: {incoming} rows incoming against "
+                f"{published} published. A --limit pilot leaves its output in the same "
+                f"place as a full run. Rebuild the full catalogue, or pass --allow-shrink."
+            )
 
     args.public.mkdir(parents=True, exist_ok=True)
     parquet_public = args.public / "rubin-reference-sources.parquet"
@@ -240,17 +260,31 @@ def main() -> None:
             ),
         },
         "whichSignificance": (
-            "Cut on departure_significance. It measures distance from the field's own median flux "
-            "ratio in units of that field's own scatter, so no error model can be wrong. "
+            "Cut on departure_significance, and cut on the compact half of the field. It measures "
+            "distance from the field's own median flux ratio in units of that field's own scatter, "
+            "so no error model can be wrong. "
             "difference_significance is dominated by the roughly 7% offset between Rubin and these "
             "references and flags most bright sources; "
             "departure_significance_propagated divides by an error that omits source Poisson noise."
+        ),
+        "extendedSourceBias": (
+            "Measured, unexplained, and the reason to restrict a search to compact sources. The "
+            "flux ratio of extended sources sits below that of compact ones in nearly every field, "
+            "and by three times as much where the PSF-matching kernel convolved Rubin rather than "
+            "the reference (medians -0.144 against -0.043 across 186 regions, Kruskal-Wallis "
+            "p = 2.8e-08). Which frame is convolved is an implementation detail chosen by residual "
+            "size, so no part of this can be astrophysical. Two explanations were tested and both "
+            "fail: dividing out the fitted kernel normalisation separates the groups further, and "
+            "Kron apertures fix compact sources while reversing the asymmetry above S/N 50. Until "
+            "it is understood, treat a large departure on an extended source as unexplained "
+            "instrument systematics. Reproduce with pipeline/diagnose_aperture_bias.py."
         ),
         "caveat": (
             "A large departure is not a detection. The filter colour term is measured at -0.080 "
             "mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under "
             "4 millimagnitudes, so colour alone moves a source very little. What remains "
-            "unexplained is the field-to-field scatter, forty times larger than the filters permit."
+            "unexplained is the field-to-field scatter, forty times larger than the filters permit, "
+            "and a size-dependent bias that makes extended sources unreliable."
         ),
         "columns": COLUMN_DICTIONARY,
     }

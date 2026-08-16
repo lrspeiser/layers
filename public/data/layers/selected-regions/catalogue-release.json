@@ -38,8 +38,8 @@
     "rateIsAnUpperLimit": true,
     "note": "Multiply a flagged count by the rate to estimate how many are noise. Where no false positive was observed the 95% upper limit is used, since zero events does not mean a zero rate. The remainder is an upper bound on what could be astrophysical, not a count of it."
   },
-  "whichSignificance": "Cut on departure_significance. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",
-  "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the field-to-field scatter, forty times larger than the filters permit.",
+  "whichSignificance": "Cut on departure_significance, and cut on the compact half of the field. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",
+  "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the field-to-field scatter, forty times larger than the filters permit, and a size-dependent bias that makes extended sources unreliable.",
   "columns": {
     "source_id": {
       "unit": "",
@@ -201,5 +201,6 @@
       "ucd": "meta.code.qual",
       "description": "Segment larger than 500 pixels; deblending may have merged neighbours."
     }
-  }
+  },
+  "extendedSourceBias": "Measured, unexplained, and the reason to restrict a search to compact sources. The flux ratio of extended sources sits below that of compact ones in nearly every field, and by three times as much where the PSF-matching kernel convolved Rubin rather than the reference (medians -0.144 against -0.043 across 186 regions, Kruskal-Wallis p = 2.8e-08). Which frame is convolved is an implementation detail chosen by residual size, so no part of this can be astrophysical. Two explanations were tested and both fail: dividing out the fitted kernel normalisation separates the groups further, and Kron apertures fix compact sources while reversing the asymmetry above S/N 50. Until it is understood, treat a large departure on an extended source as unexplained instrument systematics. Reproduce with pipeline/diagnose_aperture_bias.py."
 }
