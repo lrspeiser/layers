@@ -1831,3 +1831,50 @@ against their own manifests. Reproducing each from raw inputs is the same work
 again per operator, and the honest statement is that they are internally
 consistent and not independently confirmed. G7 is now confirmed; G0 was
 confirmed and found wrong.
+
+## 38. What survives a check that can actually disagree
+
+§36 recounted every goal against its cited evidence; §37 showed that is weaker
+than it sounds, because the evidence file and the scorecard entry come from the
+same stage and a number wrong at source is wrong in both, identically, and
+passes. §37 rebuilt G7 from raw photometry. This extends that to everything whose
+raw inputs are still on disk.
+
+**Rebuilt from raw inputs, all matching:**
+
+| goal | rebuilt | published | from |
+|---|---|---|---|
+| G1 | **628** | 628 | 628 reconciled FITS products opened; RUBIN and REFERENCE planes present, pixels finite. legacy 190 + des 143 + ps1 188 + hsc 107, zero unusable |
+| G7 | **185** | 185 | 193 cached ZTF CSVs, operator's floors reapplied |
+| G9 variability | **8941** | 8941 | same CSVs, objects passing ≥20 epochs in regions passing ≥5 objects |
+
+The G9 term is 69% of the 12,954 comparisons that goal claims.
+
+**Not rebuildable, and why each differs:**
+
+- **G9's pixel-residual term (1147)** — the per-region scan outputs for the
+  200-region set were not retained. `pipeline/results` is gitignored working
+  data, and only `anomalies-hsc` survives. This is recoverable by re-running the
+  scan; it is not recoverable by reading.
+- **G2, G3, G4, G5, G6, G8** — the raw inputs are external archive queries.
+  Rebuilding means re-querying Gaia, 2MASS, AllWISE, HIPASS, Planck, ACT, VLASS,
+  eROSITA, MAST — not re-reading a local file. Verifiable in principle, at the
+  cost of the original acquisition.
+- **G10** — the evidence is rendered pages.
+
+**Where the goals now stand on evidence, not assertion:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | G0, G1, G7, and 69% of G9 |
+| checked against own evidence only | G2, G3, G4, G5, G6, G8, rest of G9 |
+| not machine-checkable here | G10 |
+
+G0 is the reason this distinction is drawn rather than assumed: it is the one
+figure that was wrong, and the only one whose original check went to raw inputs.
+Every goal verified against raw inputs has either matched or been corrected. No
+goal checked only against its own manifest has ever been shown wrong — which is
+not evidence that they are right.
+
+`pipeline/verify_goals_from_raw.py --check` reproduces the rebuildable ones and
+exits non-zero on disagreement.
