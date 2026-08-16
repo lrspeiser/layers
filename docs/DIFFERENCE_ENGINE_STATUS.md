@@ -2096,3 +2096,45 @@ reporting. What remains is G5, whose lensing maps are cached but whose 466 pairs
 would need the convergence-to-light correlation recomputed; G9's pixel-residual
 term, whose intermediates were not retained; and the parts of G3 and G6 that need
 their operators' selection logic reimplemented rather than read.
+
+## 44. G5 closes: 483 products less 17 recorded skips
+
+G5's 466 lensing-light pairs rebuild exactly from the product directories. A
+"pair" is one region against one lensing map, so the products are named
+`<region>-<survey>` and counting directories counts pairs directly — counting
+distinct regions instead gives 189 and answers a different question, which is the
+eighth chance in this thread to make that same mistake.
+
+| | count |
+|---|---|
+| region-by-survey products with content | 483 |
+| act-dr6 / planck-2018 / des-y3-lensing / spt-3g | 173 / 185 / 124 / 1 |
+| recorded skips | 17 |
+| 9 insufficient lensing coverage, 8 no usable Rubin light | |
+| **483 − 17** | **466** ✓ |
+
+**Eight of eleven figures now rebuild from raw inputs**, with the verifier
+reporting each one and exiting non-zero on disagreement:
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G4, G5, G7, G8, and 69% of G9** |
+| explained, needs the operator reimplemented to close | G3, G6 |
+| intermediates not retained | G9's pixel-residual term |
+| render bug found, fixed, structurally guarded | G10 |
+
+**What the whole audit produced.** One wrong published number: G0's delivered
+count, inferred as 173 − 6 rather than counted, overstating by six. One live
+defect: `/differences` accumulating a heading on every render, invisible to any
+check that renders a page once. And eight figures that now rest on inputs rather
+than on the pipeline's own reporting.
+
+Against that, **eight of my own checks were wrong before they were right** — the
+ceiling read as a pair count, regions read as sources, region counts summed as
+comparisons, verdicts double-counted across surveys, the wrong Gaia cache, one
+catalogue instead of two, cones instead of tract footprints, and infrared pairs
+counted without the Rubin-flux requirement. Every one produced a confident,
+plausible disagreement. The ratio is the finding: **an independent recount is
+harder to get right than the number it audits**, and a disagreement is evidence
+of a mistake without saying whose. Trusting any first run would have "corrected"
+eight correct numbers to fix one wrong one.

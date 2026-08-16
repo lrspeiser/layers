@@ -235,6 +235,24 @@ def highres_from_cache() -> tuple[int, int, str]:
     return with_observation, queried, "candidate positions with >=1 MAST observation"
 
 
+def lensing_pairs_from_products() -> tuple[int, int, int]:
+    """G5: count region-by-survey lensing products, less the skips the operator recorded.
+
+    A "pair" here is one region against one lensing map, so the product directory
+    is named `<region>-<survey>` and counting directories counts pairs directly.
+    Counting distinct regions instead gives 189 and answers a different question.
+    """
+    root = RESULTS / "lensing-cmb-pixels/products"
+    if not root.is_dir():
+        return -1, 0, 0
+    products = sum(1 for p in root.iterdir() if p.is_dir() and any(p.iterdir()))
+    correlation = json.loads(
+        (LAYERS / "lensing-light/correlation.json").read_text(encoding="utf-8")
+    )
+    skipped = len(correlation.get("skipped") or [])
+    return products - skipped, products, skipped
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -301,11 +319,19 @@ def main() -> None:
     if verifiable != published.get("G8"):
         failures.append("G8")
 
+    pairs, products, skipped = lensing_pairs_from_products()
+    match = "OK" if pairs == published.get("G5") else "DISAGREES"
+    print(f"\n  G5  lensing-light pairs from products         : {pairs:6d}  "
+          f"published {published.get('G5')}  {match}")
+    print(f"      {products} region-by-survey products less {skipped} recorded skips")
+    if pairs != published.get("G5"):
+        failures.append("G5")
+
     print("\nNot rebuildable from raw inputs here:")
     print("  G9 pixel-residual (1147)  the per-region scan outputs for the 200-set were not")
     print("                            retained; only anomalies-hsc remains on disk")
-    print("  G5                        raw inputs are external archive queries; rebuilding")
-    print("                            means re-querying, not re-reading")
+    print("  G3 G6                     need their operators' selection logic reimplemented")
+    print("                            rather than read; see sections 40 and 41")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
 
