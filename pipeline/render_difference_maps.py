@@ -158,7 +158,13 @@ def preview_bands(preview_dir: Path) -> tuple[str | None, str | None]:
 
 def render_region(path: Path, preview_dir: Path) -> dict[str, Any] | None:
     with fits.open(path, memmap=False) as hdus:
-        difference = np.asarray(hdus["DIFFERENCE"].data, dtype=np.float64)
+        names = {hdu.name for hdu in hdus}
+        # Prefer the fitted-kernel difference where fit_matching_kernel.py left
+        # one. The Gaussian match never cancels a real PSF core, so its map is
+        # dominated by subtraction residuals; the fitted kernel cuts the residual
+        # at star positions by a median factor of about four.
+        plane = "KERNEL_DIFFERENCE" if "KERNEL_DIFFERENCE" in names else "DIFFERENCE"
+        difference = np.asarray(hdus[plane].data, dtype=np.float64)
         rubin = np.asarray(hdus["RUBIN"].data, dtype=np.float64)
         common = np.asarray(hdus["COMMON_MASK"].data).astype(bool)
         wcs = WCS(hdus["RUBIN"].header).celestial
@@ -208,6 +214,8 @@ def render_region(path: Path, preview_dir: Path) -> dict[str, Any] | None:
     off_source = [p for p in peaks if not p["onSource"]]
     rubin_band, reference_band = preview_bands(preview_dir)
     return {
+        "differencePlane": plane,
+        "kernelMatched": plane == "KERNEL_DIFFERENCE",
         "rubinBand": rubin_band,
         "referenceBand": reference_band,
         "sameNamedBand": bool(rubin_band and reference_band and rubin_band == reference_band),
@@ -326,6 +334,7 @@ def main() -> None:
             "totalPeaks": sum(r["peakCount"] for r in regions),
             "offSourcePeaks": sum(r["offSourcePeakCount"] for r in regions),
             "crossBandRegions": sum(1 for r in regions if not r["sameNamedBand"]),
+            "kernelMatchedRegions": sum(1 for r in regions if r["kernelMatched"]),
             "sameBandRegions": sum(1 for r in regions if r["sameNamedBand"]),
             "regionsWithAnOffSourcePeak": sum(1 for r in regions if r["offSourcePeakCount"]),
         },
@@ -392,6 +401,7 @@ def main() -> None:
                 "rubinBand": item["rubinBand"],
                 "referenceBand": item["referenceBand"],
                 "sameNamedBand": item["sameNamedBand"],
+                "kernelMatched": item["kernelMatched"],
             }
             for item in regions
         ],

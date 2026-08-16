@@ -222,3 +222,43 @@ test("the difference map diverges in both directions", async () => {
     assert.ok(blue > 0, `${region.regionId} has no reference-brighter pixels`);
   }
 });
+
+// The Gaussian PSF match never cancels a real core, so its difference maps are
+// dominated by subtraction residuals. A fitted kernel is only worth keeping if
+// it demonstrably reduces them, and the fit records that per region.
+test("the fitted kernel is only kept where it measurably improves the subtraction", async () => {
+  const fit = await readJson("public", "data", "layers", "selected-regions", "kernel-matching.json");
+  assert.ok(fit.counts.regionsFitted > 100);
+  assert.ok(fit.counts.improved > fit.counts.notImproved, "most regions should improve");
+  // The residual is measured at star positions against the frame's own scatter,
+  // before and after, so the claim is a measurement rather than an assertion.
+  assert.ok(fit.counts.medianResidualAfterSigma < fit.counts.medianResidualBeforeSigma);
+  assert.ok(fit.counts.medianImprovementFactor > 1.5);
+
+  for (const region of fit.regions) {
+    assert.ok(region.stars >= 8, `${region.regionId} fitted on only ${region.stars} stars`);
+    assert.equal(typeof region.improved, "boolean");
+    // A region marked improved must actually have a smaller residual, and one
+    // that is not must carry no improvement factor.
+    if (region.improved) {
+      assert.ok(region.starResidualAfterSigma < region.starResidualBeforeSigma, region.regionId);
+    } else {
+      assert.equal(region.improvementFactor, null);
+    }
+    assert.match(region.direction, /^(rubin-convolved|reference-convolved)$/);
+  }
+
+  // Both convolution directions must occur: which frame is sharper varies, and
+  // a fit that only ever went one way would mean the choice was not being made.
+  const directions = new Set(fit.regions.map((r) => r.direction));
+  assert.equal(directions.size, 2, "only one convolution direction was ever chosen");
+});
+
+test("difference maps say which plane they were drawn from", async () => {
+  const index = await readJson("public", "data", "layers", "selected-regions", "difference-index.json");
+  assert.ok(index.counts.kernelMatchedRegions > 0, "no region used the fitted-kernel plane");
+  assert.ok(index.counts.kernelMatchedRegions <= index.counts.regionsRendered);
+  for (const region of index.regions) {
+    assert.equal(typeof region.kernelMatched, "boolean");
+  }
+});
