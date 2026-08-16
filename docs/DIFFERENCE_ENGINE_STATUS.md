@@ -1922,3 +1922,48 @@ Five of eleven now rest on inputs rather than on the pipeline's own reporting.
 The remainder would need re-querying 2MASS, AllWISE, HIPASS, Planck, ACT, VLASS,
 eROSITA and MAST — verifiable in principle, at roughly the cost of the original
 acquisition.
+
+## 40. G4 rebuilt from the H I catalogues, and the sixth wrong check
+
+G4's 622 now reproduces from the cached HICAT and NHICAT VOTables. Getting there
+took two wrong attempts, both from misreading the selection rather than the data.
+
+The first used HICAT alone and searched cones around each region centre. That
+found **6** detections against a published 622 — a factor of a hundred, which
+looks like a catastrophic disagreement and is entirely my error. The operator
+uses *both* catalogues, and assigns detections to whole DP2 **tract footprints**,
+which are degrees across, not to the 4-arcmin cutouts.
+
+Corrected, the reproduction gives **623** inside a tract bound against the
+published 622. One apart, and the one is identifiable: **J0033-09** carries
+`W50max = --`, no line width. A baryonic Tully-Fisher residual cannot be computed
+without one, and the builder's own docstring requires "a finite line width". So
+623 is *in the footprint* and 622 is *in the footprint and testable*. Both are
+right for their definition, and the difference is exactly one named object.
+
+That is the sixth check of mine that was wrong before it was right, against one
+genuinely wrong published number. Same root every time: a number near the right
+one, answering a different question.
+
+**A correction to §38.** It listed G3–G6 and G8 as needing external archive
+re-queries. That was wrong — the raw inputs are cached on disk (`sed`, `hi-gas`,
+`vlass`, `radio-xray-hi`, `lensing-cmb-pixels`, several hundred files each). G4
+was rebuilt from its cache with no network access at all. The others are
+tractable the same way.
+
+**G9's pixel-residual term remains unverified**, and the attempt is worth
+recording. The per-region scan outputs for the 200-set were not retained, so the
+plan was to regenerate: recovery over the 190 reconciled regions, then re-scan.
+The recovery regeneration produced 42 of 190 region directories and no final
+manifest while reporting exit 0, so the re-scan saw 116 regions with no
+calibration and scanned 32 instead of 146. That is a failed reproduction attempt,
+not evidence about the published 1147, and the partial outputs were deleted
+rather than left to be mistaken for a result.
+
+**Standing verification status:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G4, G7, and 69% of G9** |
+| checked against own evidence only | G3, G5, G6, G8, rest of G9 |
+| not machine-checkable here | G10 |

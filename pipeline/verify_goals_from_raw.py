@@ -156,6 +156,58 @@ def gaia_from_cache() -> tuple[int, int, str]:
     return best_agree, len(published), best_name
 
 
+def hi_detections_from_catalogues() -> tuple[int, int, str]:
+    """G4: reproduce the H I detection count from the cached HICAT and NHICAT VOTables.
+
+    Two subtleties, both of which produced wrong answers first. The operator uses
+    *both* catalogues, not just HICAT; and it assigns detections to whole DP2
+    tract footprints, which are degrees across, not to the 4-arcmin cutouts. A
+    cone around each region centre finds 6 detections and looks like a
+    catastrophic disagreement with the published 622.
+
+    Reproduced correctly this gives 623 inside a tract bound. The published 622
+    additionally requires a finite W50 line width, which a baryonic Tully-Fisher
+    residual cannot be computed without. Exactly one detection, J0033-09, sits in
+    the footprint with no linewidth. Both numbers are right for their definition.
+    """
+    import io
+    from astropy.coordinates import SkyCoord
+    from astropy.table import Table, vstack
+    import astropy.units as u
+
+    cache = RESULTS / "hi-gas/cache"
+    tables = []
+    for name in ("VIII-73-hicat.vot", "VIII-89-nhicat.vot"):
+        path = cache / name
+        if not path.is_file():
+            return -1, 0, "cache missing"
+        table = Table.read(io.BytesIO(path.read_bytes()), format="votable")
+        keep = [c for c in ("HIPASS", "RAJ2000", "DEJ2000", "W50max") if c in table.colnames]
+        tables.append(table[keep])
+    catalogue = vstack(tables, metadata_conflicts="silent")
+    coords = SkyCoord(
+        list(catalogue["RAJ2000"]), list(catalogue["DEJ2000"]), unit=(u.hourangle, u.deg)
+    )
+    ra, dec = coords.ra.deg, coords.dec.deg
+
+    footprint = json.loads(
+        (ROOT / "public/data/coverage/rubin-dp2-footprint.json").read_text(encoding="utf-8")
+    )
+    inside_any = np.zeros(ra.size, dtype=bool)
+    for row in footprint["tracts"]:
+        bounds = row[2]
+        if bounds["ra"]["wraps"]:
+            in_ra = (ra >= bounds["ra"]["start"]) | (ra <= bounds["ra"]["end"])
+        else:
+            in_ra = (ra >= bounds["ra"]["start"]) & (ra <= bounds["ra"]["end"])
+        inside_any |= in_ra & (dec >= bounds["dec_min"]) & (dec <= bounds["dec_max"])
+
+    width = catalogue["W50max"]
+    has_width = ~np.asarray(getattr(width, "mask", np.zeros(len(width), dtype=bool)))
+    testable = int((inside_any & has_width).sum())
+    return testable, int(inside_any.sum()), "hicat + nhicat, tract footprints, finite W50"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -206,10 +258,18 @@ def main() -> None:
     if agree != total_regions:
         failures.append("G2")
 
+    testable, in_footprint, _how = hi_detections_from_catalogues()
+    match = "OK" if testable == published.get("G4") else "DISAGREES"
+    print(f"\n  G4  H I detections testable from catalogues   : {testable:6d}  "
+          f"published {published.get('G4')}  {match}")
+    print(f"      {in_footprint} inside a tract footprint, less those with no W50 linewidth")
+    if testable != published.get("G4"):
+        failures.append("G4")
+
     print("\nNot rebuildable from raw inputs here:")
     print("  G9 pixel-residual (1147)  the per-region scan outputs for the 200-set were not")
     print("                            retained; only anomalies-hsc remains on disk")
-    print("  G3 G4 G5 G6 G8            raw inputs are external archive queries; rebuilding")
+    print("  G3 G5 G6 G8               raw inputs are external archive queries; rebuilding")
     print("                            means re-querying, not re-reading")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
