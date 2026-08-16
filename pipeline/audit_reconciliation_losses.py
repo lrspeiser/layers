@@ -75,11 +75,20 @@ SURVEYS = [
         "validatedBy": ("flag", "sourcePixelsValidated"),
         "reconciled": [SELECTED / "rubin-ps1-reconciliation.json"],
     },
+    {
+        # Added 2026-08-16 once PDR2 science coadds were fetched with data rights.
+        "surveyId": "hsc-ssp-pdr2",
+        "acquired": [LAYERS / "hsc-pdr2/manifest.json"],
+        "validatedBy": ("flag", "sourcePixelsValidated"),
+        "reconciled": [SELECTED / "rubin-hsc-reconciliation.json"],
+    },
 ]
 
 # From optical-coverage-truth.json. The audit has to reproduce these before its
 # loss counts mean anything.
-EXPECTED_VALIDATED = {"legacy-surveys-dr10": 198, "des-dr2": 148, "panstarrs-dr2": 196}
+EXPECTED_VALIDATED = {
+    "legacy-surveys-dr10": 198, "des-dr2": 148, "panstarrs-dr2": 196, "hsc-ssp-pdr2": 110,
+}
 
 
 def load(path: pathlib.Path) -> dict:

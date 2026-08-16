@@ -71,6 +71,24 @@
         "dp2-tract-9935": "no Rubin product for this region, so no reference can pair with it",
         "dp2-tract-9936": "no Rubin product for this region, so no reference can pair with it"
       }
+    },
+    {
+      "surveyId": "hsc-ssp-pdr2",
+      "validatedPixels": 110,
+      "reconciledPairs": 107,
+      "lost": 3,
+      "explainedByRecordedFailure": 0,
+      "explainedByMissingProduct": 3,
+      "unexplained": 0,
+      "failureReasons": {},
+      "missingProductReasons": {
+        "no Rubin product for this region, so no reference can pair with it": 3
+      },
+      "lostRegions": {
+        "dp2-tract-9241": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9935": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9936": "no Rubin product for this region, so no reference can pair with it"
+      }
     }
   ],
   "unexplainedTotal": 0,

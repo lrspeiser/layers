@@ -108,13 +108,19 @@ def main() -> None:
             "G1", "Same-band optical across the reference surveys", 727,
             optical_totals.get("pixelsValidated"), optical_totals.get("reconciledPairs"),
             "reconciled optical pairs", "selected-regions/optical-coverage-truth.json",
-            "The target is a sum of footprint overlaps, 199+164+162+198=723. HSC PDR2 contributes "
-            "162 to it and 0 to reality: PDR2 publishes only HiPS tiles, which carry no calibrated "
-            "flux and no variance plane. The 21 pairs between the delivered 521 and the reachable "
-            "542 are attributed per region in reconciliation-losses.json: 12 to four regions that "
-            "hold no Rubin product and so fail against every reference, 4 to regions lacking one "
-            "survey's optical product, 2 to reconciler failures with a recorded reason, and 3 to "
-            "pairs the pilot run reconciled outside the 200-region set. None is a silent drop.",
+            "The target is a sum of footprint overlaps, 199+164+162+198=723. HSC PDR2 was the "
+            "largest gap and is now closed as far as the data allows: with data-rights "
+            "credentials it delivers 110 validated regions and 107 reconciled pairs, having "
+            "previously contributed 162 to the footprint count and 0 to reality because "
+            "everything PDR2 serves without an account is HiPS, carrying no calibrated flux and "
+            "no variance plane. That took the delivered count from 521 to 628 and the reachable "
+            "ceiling from 542 to 652, or 96.3% of what the archives hold. The remaining 75 "
+            "between 723 claimed and 652 reachable is footprint overstatement, 52 of it inside "
+            "HSC's own HiPS footprint where its own wide coadd has no data. Losses between "
+            "pixels and pairs are attributed per region in reconciliation-losses.json; none is a "
+            "silent drop. The goal's scientific purpose -- the three-way optical cross-check -- "
+            "is answered in sections 28 to 30: the field-dependent term belongs to none of the "
+            "three references individually.",
         ),
         score(
             "G2", "Gaia cross-match and registration", 200,

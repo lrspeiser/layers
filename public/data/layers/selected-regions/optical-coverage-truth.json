@@ -5,17 +5,18 @@
   "finding": "The target was the sum of footprint-overlap counts. Overlap is a statement about sky, not about data: it counts a region as covered when a survey's declared footprint contains it, whether or not the survey has pixels there. Measured against what the archives actually serve, the reachable ceiling is lower than the target by 181 pairs, and 96% of that ceiling has been delivered.",
   "totals": {
     "claimedByFootprint": 723,
-    "pixelsValidated": 542,
-    "reconciledPairs": 521,
-    "lostToFootprintOverstatement": 181,
-    "lostInReconciliation": 21,
-    "fractionOfReachableCeilingDelivered": 0.9613,
+    "pixelsValidated": 652,
+    "reconciledPairs": 628,
+    "lostToFootprintOverstatement": 71,
+    "lostInReconciliation": 24,
+    "fractionOfReachableCeilingDelivered": 0.9632,
     "hscResolved": {
       "claimedByFootprint": 162,
       "pixelsValidated": 110,
       "insideFootprintButNoCoadd": 52,
       "note": "Fetched with data rights on 2026-08-16; see public/data/layers/hsc-pdr2/manifest.json."
-    }
+    },
+    "hscAddedOn": "2026-08-16"
   },
   "surveys": [
     {
@@ -36,8 +37,8 @@
       "surveyId": "hsc-ssp-pdr2",
       "claimedByFootprint": 162,
       "pixelsValidated": 110,
-      "reconciledPairs": 0,
-      "why": "Resolved 2026-08-16. PDR2 science coadds need a STARS account; everything served without one is HiPS, with no calibrated flux and no variance plane, which is why this contributed 162 to the footprint count and 0 to reality. With credentials, 110 of the 162 claimed regions return a coadd. The other 52 sit inside the claimed HiPS footprint and the wide coadd does not cover them -- footprint overstating reality for the eighth time in this project, this time within a single survey's own published products."
+      "reconciledPairs": 107,
+      "why": "Resolved 2026-08-16 with data-rights credentials. PDR2 science coadds need a STARS account; everything served without one is HiPS, with no calibrated flux and no variance plane. 110 of the 162 claimed regions return a coadd, and 107 reconcile. The other 52 sit inside HSC's own published HiPS footprint while HSC's own wide coadd does not cover them."
     },
     {
       "surveyId": "panstarrs-dr2",
