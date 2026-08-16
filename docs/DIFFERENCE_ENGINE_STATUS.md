@@ -2138,3 +2138,52 @@ plausible disagreement. The ratio is the finding: **an independent recount is
 harder to get right than the number it audits**, and a disagreement is evidence
 of a mistake without saying whose. Trusting any first run would have "corrected"
 eight correct numbers to fix one wrong one.
+
+## 45. G9's pixel-residual term closes, and the earlier failure was mine
+
+§40 recorded G9's 1147 as unverifiable because the 200-set scan intermediates
+were not retained, and §41 recorded a failed attempt to regenerate them: the
+recovery stage produced 42 of 190 region directories and no final manifest while
+reporting exit 0.
+
+That was not a defect in the recovery stage. Re-run without concurrent work it
+produced **187 directories and a manifest**. The first attempt processed regions
+in input order and stopped mid-list at tract 8995 — the signature of an
+interrupted process, and the interruption was mine: I ran `npm run build` and the
+test suite against the same machine while it worked.
+
+Worth stating plainly because §41 published it as "a failed reproduction, not
+evidence about the published 1147". That was the right call for the wrong reason
+— the caution was warranted, but the cause was contention I created, not
+anything about the pipeline.
+
+**Re-run, the scan reproduces exactly:**
+
+| | published | reproduced |
+|---|---|---|
+| regions scanned | 146 | 146 |
+| regions skipped | 44 | 44 |
+| candidates | **1147** | **1147** |
+| without a boring explanation | 0 | 0 |
+
+Identical on every field. The scanner's own population-systematic guard fired
+identically too — 69 of 85 survivors pointing the same way at 5.7σ, all demoted —
+which is a stronger check than the count, since it depends on the residual values
+rather than only on how many there were.
+
+The recovery stage also reported a median empirical-to-formal noise ratio of
+**5.79**, against 5.42 measured on the HSC set in §31. Two independent region sets
+agreeing that formal errors understate the truth by a factor near six.
+
+**G9 now stands at 86% verified from raw inputs** — pixel-residual 1147,
+variability 8941, gas-detections 622 and lensing-light 466, out of 12,954. What
+remains is sed-departure 1394 and the counterpart terms 193 and 191, which are
+exactly the G3 and G6 selections §41 left explained but not closed.
+
+**Final verification status:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G4, G5, G7, G8, G9 (86%)** |
+| explained, needs the operator reimplemented | G3, G6 |
+| render bug found, fixed, structurally guarded | G10 |
