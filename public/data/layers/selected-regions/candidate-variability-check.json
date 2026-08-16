@@ -1,0 +1,224 @@
+{
+  "schemaVersion": "layers-candidate-variability-check-v1",
+  "question": "The proper-motion check ruled out moved stars but left variability open. Are the unexplained candidates sources that changed brightness between epochs?",
+  "method": "Group each field's cached ZTF r-band photometry into per-object light curves, keep objects with at least 10 clean epochs, and compute a reduced chi-square about the weighted mean. A candidate within 3 arcsec of an object above the threshold has a time-domain explanation.",
+  "reducedChiSquareThreshold": 18.037853166605466,
+  "thresholdBasis": "The 99th percentile of the variability operator's own sample. ZTF error bars are optimistic, so a reduced chi-square of 1 is not the line, and reusing the operator's number keeps both stages agreeing on what variable means.",
+  "matchRadiusArcsec": 3.0,
+  "candidatesChecked": 18,
+  "candidatesWithZtfCoverage": 18,
+  "explainedByVariability": 0,
+  "positiveControl": {
+    "regionsWithLightCurves": 5,
+    "regionsChecked": 5,
+    "objectsWithLightCurves": 350,
+    "objectsAboveVariabilityThreshold": 12,
+    "reading": "The fields contain ZTF objects and some of them exceed the variability threshold, so a candidate coinciding with a variable would have been found."
+  },
+  "candidates": [
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.75827286433417,
+      "dec": 3.73944826119095,
+      "empiricalSigma": 12.565315754933748,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.7599564486597,
+      "dec": 3.739448263516174,
+      "empiricalSigma": 9.904349701305621,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.75658928001218,
+      "dec": 3.7394482556461344,
+      "empiricalSigma": 5.909331407411809,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.7338140486456,
+      "dec": 3.7420611969448645,
+      "empiricalSigma": 4.829674293879612,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.75705694492308,
+      "dec": 3.738748257596516,
+      "empiricalSigma": 4.816037332267274,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "ra": 148.76037734470415,
+      "dec": 3.738748263680527,
+      "empiricalSigma": 4.5657303863630245,
+      "ztfObjectsInField": 60,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.71664442551497,
+      "dec": 3.702488064196405,
+      "empiricalSigma": 5.4573228876862,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.7132767620974,
+      "dec": 3.7276879838497394,
+      "empiricalSigma": 5.282297297918606,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.7250619536937,
+      "dec": 3.705848202931289,
+      "empiricalSigma": 5.103043564278427,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.7132767196706,
+      "dec": 3.7293679836764397,
+      "empiricalSigma": 4.937728555906138,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.71832793908288,
+      "dec": 3.702488098375201,
+      "empiricalSigma": 4.6567336599501195,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.71898264231757,
+      "dec": 3.702301444162911,
+      "empiricalSigma": 4.547261058577187,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.71234142062448,
+      "dec": 3.7288079596581696,
+      "empiricalSigma": 4.229532797637647,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.71566238015734,
+      "dec": 3.702301376146949,
+      "empiricalSigma": 4.15777242660898,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "ra": 151.72562312968432,
+      "dec": 3.7056148760541765,
+      "empiricalSigma": 4.0205093951700235,
+      "ztfObjectsInField": 92,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "ra": 8.86242678020433,
+      "dec": -0.7239215764900464,
+      "empiricalSigma": 6.009654659068995,
+      "ztfObjectsInField": 39,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "ra": 355.5166412812844,
+      "dec": 2.2233314825525157,
+      "empiricalSigma": 4.790397171182598,
+      "ztfObjectsInField": 94,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "ra": 28.277791225110274,
+      "dec": 3.742061495590317,
+      "empiricalSigma": 4.0183745256320575,
+      "ztfObjectsInField": 65,
+      "ztfCoverage": true,
+      "ztfSourcesWithin3Arcsec": 0,
+      "variableSources": [],
+      "explainedByVariability": false
+    }
+  ],
+  "limitsOfThisTest": [
+    "ZTF is complete to about r=20.5. A fainter variable would change and never appear here, so this rules out variability of a ZTF-detectable source, not variability.",
+    "A source that varied slowly over the 9-year gap but was steady within ZTF's own baseline would pass this test and still explain the residual.",
+    "Solar-system objects remain untested: an asteroid present in one epoch is not a light curve at a fixed position."
+  ],
+  "reproduce": "python pipeline/check_candidate_variability.py"
+}

@@ -1608,3 +1608,52 @@ list, and the list is still not a set of detections.
 
 `pipeline/measure_epoch_separation.py` and
 `pipeline/check_candidate_epochs.py` reproduce both halves.
+
+## 33. Both time-domain explanations tested, and together they say what the candidates are
+
+§32 measured the epoch gaps and ruled out one time-dependent explanation: none of
+the 18 unexplained candidates sits on a catalogued star that moved. It left
+variability open as the larger remaining one. That is now tested too.
+
+**The variability test.** ZTF light curves for these fields were already on disk
+from the variability operator — 193 regions of per-epoch r-band photometry.
+Grouping each field's rows into per-object light curves, keeping objects with at
+least 10 clean epochs, and computing a reduced chi-square about the weighted
+mean gives a direct answer. The threshold is the variability operator's own
+**18.04**, the 99th percentile of its sample, reused so that both stages agree on
+what "variable" means — ZTF's error bars are optimistic, so a reduced chi-square
+of 1 is not the line.
+
+**0 of 18.** No candidate lies within 3″ of a ZTF object above the threshold.
+
+The control is what makes that worth stating: **12 objects in these very fields
+do exceed the threshold**, across 350 light curves in 5 of 5 regions. A candidate
+sitting on a variable would have been found.
+
+**Read together, the two checks characterise the candidates.** Neither found
+anything, and the reason is the same in both: *no catalogued point source is
+near any of them at all* — no Gaia source within 3″, no ZTF object within 3″.
+These are not point sources whose brightness or position changed. They are
+diffuse residuals, which fits what the scanner is: a multi-scale detector that
+reports `effectiveRadiusArcsec` and `templateEnclosedFluxFraction`.
+
+That narrows the remaining explanations usefully. Point-source time-domain
+effects — proper motion, stellar variability — are excluded not because the
+sources are steady but because there are no sources there. What is left is
+diffuse: sky-subtraction differences between surveys, scattered light,
+flat-field residuals at large scales, and genuinely diffuse astrophysics. The
+first three are instrumental and are the ones to attack next.
+
+**Still untested, and recorded in both manifests.** Gaia is complete to about
+G = 21 and ZTF to about r = 20.5, so a fainter mover or variable would not appear
+in either check — these rule out *catalogued* movers and variables, not motion
+and variability. A source that varied slowly across the 9-year gap while staying
+steady inside ZTF's own baseline would pass. Solar-system objects remain untested
+by both, since an asteroid is not a light curve at a fixed position.
+
+`pipeline/check_candidate_variability.py` reproduces this;
+`tests/candidate-time-domain.test.mjs` holds both checks and, more importantly,
+holds their positive controls — a null result without one is indistinguishable
+from a broken lookup, which nearly happened when the motion check first read
+`ra`/`dec` where the scanner writes `raDeg`/`decDeg` and confidently reported
+"0 of 0".
