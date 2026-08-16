@@ -1,16 +1,16 @@
 {
   "schemaVersion": "layers-difference-agreement-v1",
-  "generatedAt": "2026-08-16T02:05:05.122943+00:00",
+  "generatedAt": "2026-08-16T04:11:07.029639+00:00",
   "purpose": "Which difference peaks appear against more than one independent reference. Rubin is the only term the pairings share, so a repeated peak is on the Rubin side and a solitary one belongs to the reference that shows it.",
   "matchRadiusArcsec": 2.0,
   "matchedOnSky": "Positions are matched in sky coordinates, not pixels: the pairings sit on 0.4, 0.263 and 0.25 arcsec grids, so the same pixel offset is a different angle in each.",
   "onSourceExcluded": "Only off-source peaks are cross-matched. A peak on a bright source is a PSF-match residual that appears in every pairing by construction, so confirming one would mean nothing.",
   "counts": {
     "regionsWithTwoOrMorePairings": 190,
-    "distinctOffSourcePositions": 224,
-    "confirmedByTwoOrMore": 3,
-    "confirmedWithAgreeingDirection": 3,
-    "regionsWithAConfirmedPosition": 3
+    "distinctOffSourcePositions": 256,
+    "confirmedByTwoOrMore": 6,
+    "confirmedWithAgreeingDirection": 6,
+    "regionsWithAConfirmedPosition": 6
   },
   "caveat": "Confirmation across references is not a detection. Every pairing shares the same unvalidated bandpass transfer, so a genuine colour difference would appear in all of them and be confirmed here. What this removes is the larger population of per-reference artefacts.",
   "regions": [
@@ -23,12 +23,46 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 0
+        "ps1": 3
       },
-      "distinctPositions": 0,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 147.253172,
+            "decDeg": 3.737414
+          },
+          "seenIn": {
+            "ps1": 10.94
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 147.249834,
+            "decDeg": 3.736648
+          },
+          "seenIn": {
+            "ps1": -9.69
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 147.25185,
+            "decDeg": 3.738593
+          },
+          "seenIn": {
+            "ps1": 7.96
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-10054",
@@ -55,24 +89,12 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 1
+        "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 150.216406,
-            "decDeg": 3.748408
-          },
-          "seenIn": {
-            "ps1": -11.86
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-10056",
@@ -83,19 +105,30 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 1
+        "ps1": 2
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
-            "raDeg": 151.739783,
+            "raDeg": 151.740896,
+            "decDeg": 3.693982
+          },
+          "seenIn": {
+            "ps1": -11.42
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 151.739644,
             "decDeg": 3.696341
           },
           "seenIn": {
-            "ps1": -13.77
+            "ps1": -11.14
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -152,9 +185,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 1,
         "des": 0,
-        "ps1": 3
+        "ps1": 4
       },
-      "distinctPositions": 4,
+      "distinctPositions": 5,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -175,7 +208,7 @@
             "decDeg": 5.190537
           },
           "seenIn": {
-            "ps1": -8.23
+            "ps1": -8.4
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -186,7 +219,7 @@
             "decDeg": 5.228031
           },
           "seenIn": {
-            "ps1": -7.67
+            "ps1": -7.91
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -197,7 +230,18 @@
             "decDeg": 5.206643
           },
           "seenIn": {
-            "ps1": -6.8
+            "ps1": -6.96
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.275384,
+            "decDeg": 5.228587
+          },
+          "seenIn": {
+            "ps1": -5.7
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -213,12 +257,35 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 0
+        "ps1": 2
       },
-      "distinctPositions": 0,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 185.94626,
+            "decDeg": 5.23302
+          },
+          "seenIn": {
+            "ps1": -7.94
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 185.940751,
+            "decDeg": 5.233991
+          },
+          "seenIn": {
+            "ps1": -7.86
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-10689",
@@ -228,8 +295,8 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
-        "ps1": 2
+        "legacy": 1,
+        "ps1": 1
       },
       "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
@@ -237,11 +304,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 14.976058,
-            "decDeg": 8.165999
+            "raDeg": 14.976119,
+            "decDeg": 8.166057
           },
           "seenIn": {
-            "ps1": -10.96
+            "legacy": -11.47
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -284,9 +351,9 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 7,
-        "ps1": 3
+        "ps1": 1
       },
-      "distinctPositions": 10,
+      "distinctPositions": 8,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -369,33 +436,11 @@
         },
         {
           "sky": {
-            "raDeg": 4.547077,
+            "raDeg": 4.547148,
             "decDeg": 11.188299
           },
           "seenIn": {
-            "ps1": -6.41
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 4.549977,
-            "decDeg": 11.187392
-          },
-          "seenIn": {
-            "ps1": -6.13
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 4.535598,
-            "decDeg": 11.178531
-          },
-          "seenIn": {
-            "ps1": 5.85
+            "ps1": -6.47
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -410,10 +455,10 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 4,
+        "legacy": 3,
         "ps1": 0
       },
-      "distinctPositions": 4,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -423,7 +468,7 @@
             "decDeg": 12.661929
           },
           "seenIn": {
-            "legacy": -11.06
+            "legacy": -11.08
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -434,7 +479,7 @@
             "decDeg": 12.664929
           },
           "seenIn": {
-            "legacy": -8.84
+            "legacy": -8.39
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -445,18 +490,7 @@
             "decDeg": 12.662929
           },
           "seenIn": {
-            "legacy": -8.04
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 19.738892,
-            "decDeg": 12.661929
-          },
-          "seenIn": {
-            "legacy": -7.75
+            "legacy": -7.93
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -584,9 +618,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 3
+        "ps1": 1
       },
-      "distinctPositions": 3,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -596,29 +630,7 @@
             "decDeg": -30.486946
           },
           "seenIn": {
-            "ps1": -6.39
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 51.194452,
-            "decDeg": -30.496226
-          },
-          "seenIn": {
-            "ps1": -5.41
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 51.19599,
-            "decDeg": -30.489478
-          },
-          "seenIn": {
-            "ps1": 5.18
+            "ps1": -6.45
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -649,13 +661,25 @@
         "des"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
+        "legacy": 1,
         "des": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 54.592029,
+            "decDeg": -30.522273
+          },
+          "seenIn": {
+            "legacy": -12.59
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-4848",
@@ -728,7 +752,7 @@
             "decDeg": -29.037612
           },
           "seenIn": {
-            "ps1": -10.84
+            "ps1": -11.14
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -736,43 +760,43 @@
         {
           "sky": {
             "raDeg": 55.521928,
-            "decDeg": -28.996563
+            "decDeg": -28.996494
           },
           "seenIn": {
-            "ps1": -8.24
+            "ps1": -8.3
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 55.533553,
-            "decDeg": -29.000795
+            "raDeg": 55.533473,
+            "decDeg": -29.000726
           },
           "seenIn": {
-            "ps1": -7.16
+            "ps1": -7.0
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 55.492091,
-            "decDeg": -29.036801
+            "raDeg": 55.49209,
+            "decDeg": -29.036731
           },
           "seenIn": {
-            "ps1": -6.74
+            "ps1": -6.46
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 55.509253,
-            "decDeg": -29.038016
+            "raDeg": 55.509173,
+            "decDeg": -29.037947
           },
           "seenIn": {
-            "ps1": -6.37
+            "ps1": -6.43
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -790,30 +814,19 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 2
+        "ps1": 1
       },
-      "distinctPositions": 2,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
             "raDeg": 49.779262,
-            "decDeg": -27.548686
+            "decDeg": -27.548756
           },
           "seenIn": {
-            "ps1": -6.9
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 49.777362,
-            "decDeg": -27.547041
-          },
-          "seenIn": {
-            "ps1": -6.56
+            "ps1": -6.86
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -831,11 +844,11 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 4
+        "ps1": 1
       },
-      "distinctPositions": 4,
-      "confirmedByTwoOrMore": 1,
-      "confirmedAndDirectionsAgree": 1,
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
@@ -843,41 +856,18 @@
             "decDeg": -27.486646
           },
           "seenIn": {
-            "des": -27.15,
-            "ps1": -9.38
-          },
-          "referenceCount": 2,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 51.408421,
-            "decDeg": -27.515604
-          },
-          "seenIn": {
-            "ps1": -15.59
+            "des": -27.15
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 51.458501,
-            "decDeg": -27.508142
+            "raDeg": 51.4085,
+            "decDeg": -27.515605
           },
           "seenIn": {
-            "ps1": 9.07
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 51.399273,
-            "decDeg": -27.486795
-          },
-          "seenIn": {
-            "ps1": -8.11
+            "ps1": -13.71
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -931,9 +921,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 2
+        "ps1": 3
       },
-      "distinctPositions": 2,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -943,18 +933,29 @@
             "decDeg": -27.499255
           },
           "seenIn": {
-            "ps1": -6.35
+            "ps1": -6.39
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 56.426326,
-            "decDeg": -27.552323
+            "raDeg": 56.417104,
+            "decDeg": -27.494198
           },
           "seenIn": {
-            "ps1": -5.26
+            "ps1": -5.39
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 56.397325,
+            "decDeg": -27.490912
+          },
+          "seenIn": {
+            "ps1": 4.84
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -988,12 +989,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 50.929919,
+            "decDeg": -26.057574
+          },
+          "seenIn": {
+            "ps1": 5.61
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-5280",
@@ -1005,20 +1018,53 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
-        "ps1": 3
+        "des": 1,
+        "ps1": 5
       },
-      "distinctPositions": 3,
+      "distinctPositions": 6,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
+        {
+          "sky": {
+            "raDeg": 52.622589,
+            "decDeg": -26.062076
+          },
+          "seenIn": {
+            "des": -5.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
         {
           "sky": {
             "raDeg": 52.638541,
             "decDeg": -26.00225
           },
           "seenIn": {
-            "ps1": -8.7
+            "ps1": -8.72
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 52.621356,
+            "decDeg": -26.063355
+          },
+          "seenIn": {
+            "ps1": -7.87
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 52.618263,
+            "decDeg": -26.064395
+          },
+          "seenIn": {
+            "ps1": -7.02
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1029,18 +1075,18 @@
             "decDeg": -26.031748
           },
           "seenIn": {
-            "ps1": -8.43
+            "ps1": -6.91
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 52.601822,
-            "decDeg": -26.028415
+            "raDeg": 52.601977,
+            "decDeg": -26.028137
           },
           "seenIn": {
-            "ps1": -8.08
+            "ps1": -6.64
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1057,25 +1103,13 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 1,
+        "des": 0,
         "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 55.894319,
-            "decDeg": -26.052265
-          },
-          "seenIn": {
-            "des": -5.09
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-5670",
@@ -1085,10 +1119,10 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 1,
+        "legacy": 3,
         "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -1098,7 +1132,29 @@
             "decDeg": -24.455708
           },
           "seenIn": {
-            "legacy": -13.61
+            "legacy": -23.63
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 329.208946,
+            "decDeg": -24.450598
+          },
+          "seenIn": {
+            "legacy": -10.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 329.169394,
+            "decDeg": -24.488599
+          },
+          "seenIn": {
+            "legacy": 9.87
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1122,11 +1178,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 217.623822,
+            "raDeg": 217.623749,
             "decDeg": -18.125271
           },
           "seenIn": {
-            "ps1": 32.03
+            "ps1": 33.03
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1174,24 +1230,12 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 1
+        "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 359.978082,
-            "decDeg": -6.687258
-          },
-          "seenIn": {
-            "ps1": 5.92
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-8272",
@@ -1252,9 +1296,9 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 4
+        "ps1": 5
       },
-      "distinctPositions": 4,
+      "distinctPositions": 5,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -1264,40 +1308,51 @@
             "decDeg": -3.725188
           },
           "seenIn": {
-            "ps1": 8.97
+            "ps1": 9.22
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 209.784188,
+            "raDeg": 209.784119,
             "decDeg": -3.720043
           },
           "seenIn": {
-            "ps1": 8.94
+            "ps1": 8.51
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 209.736243,
-            "decDeg": -3.725548
+            "raDeg": 209.736174,
+            "decDeg": -3.725617
           },
           "seenIn": {
-            "ps1": 8.46
+            "ps1": 7.97
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 209.759412,
-            "decDeg": -3.686181
+            "raDeg": 209.743472,
+            "decDeg": -3.726851
           },
           "seenIn": {
-            "ps1": -7.87
+            "ps1": 7.92
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 209.720889,
+            "decDeg": -3.729808
+          },
+          "seenIn": {
+            "ps1": 7.38
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1313,24 +1368,12 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 1
+        "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 211.198419,
-            "decDeg": -3.77448
-          },
-          "seenIn": {
-            "ps1": -10.37
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-8984",
@@ -1341,9 +1384,9 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 1
+        "ps1": 2
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -1353,7 +1396,18 @@
             "decDeg": -2.245137
           },
           "seenIn": {
-            "ps1": -6.44
+            "ps1": -5.88
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 0.006185,
+            "decDeg": -2.217846
+          },
+          "seenIn": {
+            "ps1": -4.66
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1370,10 +1424,10 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 1,
+        "des": 2,
         "ps1": 4
       },
-      "distinctPositions": 5,
+      "distinctPositions": 6,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -1383,7 +1437,29 @@
             "decDeg": -2.233157
           },
           "seenIn": {
-            "des": -131.72
+            "des": -128.49
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.514534,
+            "decDeg": -2.198382
+          },
+          "seenIn": {
+            "des": -8.33
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.502086,
+            "decDeg": -2.21292
+          },
+          "seenIn": {
+            "ps1": -7.34
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1394,18 +1470,7 @@
             "decDeg": -2.213353
           },
           "seenIn": {
-            "ps1": -7.45
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 1.50167,
-            "decDeg": -2.213267
-          },
-          "seenIn": {
-            "ps1": -7.16
+            "ps1": -7.12
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1413,10 +1478,10 @@
         {
           "sky": {
             "raDeg": 1.502709,
-            "decDeg": -2.211114
+            "decDeg": -2.211045
           },
           "seenIn": {
-            "ps1": -6.69
+            "ps1": -6.76
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1445,9 +1510,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 2
+        "ps1": 3
       },
-      "distinctPositions": 3,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -1457,7 +1522,7 @@
             "decDeg": -2.208389
           },
           "seenIn": {
-            "des": -16.56
+            "des": -16.62
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1468,7 +1533,18 @@
             "decDeg": -2.244641
           },
           "seenIn": {
-            "ps1": 5.95
+            "ps1": 5.86
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.94267,
+            "decDeg": -2.21608
+          },
+          "seenIn": {
+            "ps1": -5.69
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1545,7 +1621,7 @@
             "decDeg": -2.224099
           },
           "seenIn": {
-            "des": -239.05
+            "des": -345.16
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1597,12 +1673,24 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 209.763492,
+            "decDeg": -2.762953
+          },
+          "seenIn": {
+            "ps1": -11.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9126",
@@ -1612,20 +1700,31 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
+        "legacy": 1,
         "ps1": 4
       },
-      "distinctPositions": 4,
+      "distinctPositions": 5,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
-            "raDeg": 210.807472,
+            "raDeg": 210.798931,
+            "decDeg": -2.790823
+          },
+          "seenIn": {
+            "legacy": -4.11
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 210.807402,
             "decDeg": -2.804618
           },
           "seenIn": {
-            "ps1": -10.65
+            "ps1": -10.17
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1636,29 +1735,29 @@
             "decDeg": -2.805384
           },
           "seenIn": {
-            "ps1": -10.32
+            "ps1": -9.34
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 210.830682,
-            "decDeg": -2.804156
-          },
-          "seenIn": {
-            "ps1": 7.73
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 210.831794,
+            "raDeg": 210.831725,
             "decDeg": -2.803948
           },
           "seenIn": {
-            "ps1": 7.73
+            "ps1": 8.44
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 210.828459,
+            "decDeg": -2.802973
+          },
+          "seenIn": {
+            "ps1": 6.76
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1710,12 +1809,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 336.198827,
+            "decDeg": -2.2145
+          },
+          "seenIn": {
+            "ps1": -14.3
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9212",
@@ -1768,11 +1879,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 346.634357,
+            "raDeg": 346.63443,
             "decDeg": -2.25046
           },
           "seenIn": {
-            "des": -184.77
+            "des": -167.13
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1780,10 +1891,10 @@
         {
           "sky": {
             "raDeg": 346.6236,
-            "decDeg": -2.239422
+            "decDeg": -2.239353
           },
           "seenIn": {
-            "ps1": -12.73
+            "ps1": -10.33
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1844,10 +1955,10 @@
         {
           "sky": {
             "raDeg": 351.067364,
-            "decDeg": -2.22406
+            "decDeg": -2.224133
           },
           "seenIn": {
-            "des": -128.1
+            "des": -112.15
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1899,12 +2010,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 355.519938,
+            "decDeg": -2.200269
+          },
+          "seenIn": {
+            "ps1": -7.59
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9226",
@@ -1923,22 +2046,22 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 0.005902,
-            "decDeg": -0.776575
+            "raDeg": 359.99882,
+            "decDeg": -0.765816
           },
           "seenIn": {
-            "ps1": 5.62
+            "ps1": -5.6
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 359.998889,
-            "decDeg": -0.765746
+            "raDeg": 359.990418,
+            "decDeg": -0.774076
           },
           "seenIn": {
-            "ps1": -5.56
+            "ps1": -5.55
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1956,22 +2079,22 @@
         },
         {
           "sky": {
-            "raDeg": 359.990487,
-            "decDeg": -0.773937
+            "raDeg": 359.988474,
+            "decDeg": -0.770119
           },
           "seenIn": {
-            "ps1": -5.4
+            "ps1": -5.17
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 359.990001,
-            "decDeg": -0.776575
+            "raDeg": 0.01472,
+            "decDeg": -0.765885
           },
           "seenIn": {
-            "ps1": -5.22
+            "ps1": -5.15
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -1997,11 +2120,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 1.49607,
+            "raDeg": 1.496143,
             "decDeg": -0.775353
           },
           "seenIn": {
-            "des": -160.4
+            "des": -133.26
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2012,7 +2135,7 @@
             "decDeg": -0.774477
           },
           "seenIn": {
-            "des": -95.82
+            "des": -80.21
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2042,7 +2165,7 @@
             "decDeg": -0.714131
           },
           "seenIn": {
-            "des": -23.52
+            "des": -23.27
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2053,7 +2176,7 @@
             "decDeg": -0.712597
           },
           "seenIn": {
-            "des": -21.12
+            "des": -21.09
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2109,11 +2232,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 5.939454,
-            "decDeg": -0.753376
+            "raDeg": 5.912242,
+            "decDeg": -0.732091
           },
           "seenIn": {
-            "ps1": -8.15
+            "ps1": -11.0
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2143,7 +2266,7 @@
             "decDeg": -0.774175
           },
           "seenIn": {
-            "des": -26.77
+            "des": -25.25
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2197,12 +2320,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 14.847645,
+            "decDeg": -0.717916
+          },
+          "seenIn": {
+            "ps1": -18.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9237",
@@ -2214,13 +2349,25 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 16.325626,
+            "decDeg": -0.722243
+          },
+          "seenIn": {
+            "des": -44.19
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9238",
@@ -2287,9 +2434,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -2299,7 +2446,18 @@
             "decDeg": -0.724505
           },
           "seenIn": {
-            "des": -31.64
+            "des": -33.16
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.718107,
+            "decDeg": -0.714998
+          },
+          "seenIn": {
+            "ps1": -17.15
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2316,13 +2474,48 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
-        "ps1": 0
+        "des": 1,
+        "ps1": 3
       },
-      "distinctPositions": 0,
-      "confirmedByTwoOrMore": 0,
-      "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 28.167772,
+            "decDeg": -0.762482
+          },
+          "seenIn": {
+            "des": -26.19,
+            "ps1": -8.74
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.16671,
+            "decDeg": -0.748252
+          },
+          "seenIn": {
+            "ps1": -9.5
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.166017,
+            "decDeg": -0.758524
+          },
+          "seenIn": {
+            "ps1": -9.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9327",
@@ -2379,18 +2572,18 @@
             "decDeg": -0.746399
           },
           "seenIn": {
-            "legacy": -67.28
+            "legacy": -92.08
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 328.909507,
-            "decDeg": -0.748646
+            "raDeg": 328.909298,
+            "decDeg": -0.748855
           },
           "seenIn": {
-            "ps1": -8.29
+            "ps1": -7.27
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2528,7 +2721,7 @@
             "decDeg": -0.725093
           },
           "seenIn": {
-            "des": -117.92
+            "des": -102.56
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2629,31 +2822,53 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
-        "ps1": 3
+        "des": 1,
+        "ps1": 4
       },
-      "distinctPositions": 3,
+      "distinctPositions": 5,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
-            "raDeg": 346.647847,
-            "decDeg": -0.714669
+            "raDeg": 346.640721,
+            "decDeg": -0.756573
           },
           "seenIn": {
-            "ps1": -13.5
+            "des": -42.24
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 346.644379,
+            "raDeg": 346.64431,
             "decDeg": -0.712309
           },
           "seenIn": {
-            "ps1": -13.15
+            "ps1": -11.42
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 346.648194,
+            "decDeg": -0.714531
+          },
+          "seenIn": {
+            "ps1": -11.2
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 346.646668,
+            "decDeg": -0.714253
+          },
+          "seenIn": {
+            "ps1": -9.25
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2664,7 +2879,7 @@
             "decDeg": -0.717792
           },
           "seenIn": {
-            "ps1": -11.79
+            "ps1": -8.98
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2694,7 +2909,7 @@
             "decDeg": -0.776729
           },
           "seenIn": {
-            "des": -122.83
+            "des": -103.15
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2748,12 +2963,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 352.612379,
+            "decDeg": -0.737662
+          },
+          "seenIn": {
+            "ps1": 7.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9465",
@@ -2765,13 +2992,25 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 354.050157,
+            "decDeg": -0.772793
+          },
+          "seenIn": {
+            "des": -50.9
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9466",
@@ -2796,7 +3035,7 @@
             "decDeg": -0.715666
           },
           "seenIn": {
-            "des": -46.93
+            "des": -43.9
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2840,11 +3079,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 358.530491,
-            "decDeg": -0.721878
+            "raDeg": 358.530564,
+            "decDeg": -0.721951
           },
           "seenIn": {
-            "des": -232.22
+            "des": -204.64
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -2890,7 +3129,7 @@
             "decDeg": 0.73797
           },
           "seenIn": {
-            "des": -50.43
+            "des": -49.2
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3011,9 +3250,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 2,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 2,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -3035,6 +3274,17 @@
           },
           "seenIn": {
             "des": -17.65
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.896268,
+            "decDeg": 0.713298
+          },
+          "seenIn": {
+            "ps1": -10.39
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3064,7 +3314,7 @@
             "decDeg": 0.719636
           },
           "seenIn": {
-            "legacy": -20.52,
+            "legacy": -19.76,
             "des": -25.96
           },
           "referenceCount": 2,
@@ -3143,22 +3393,22 @@
         },
         {
           "sky": {
-            "raDeg": 10.348104,
-            "decDeg": 0.716098
+            "raDeg": 10.34013,
+            "decDeg": 0.712973
           },
           "seenIn": {
-            "ps1": -14.17
+            "ps1": -15.13
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 10.353865,
-            "decDeg": 0.713949
+            "raDeg": 10.347202,
+            "decDeg": 0.716652
           },
           "seenIn": {
-            "ps1": -13.7
+            "ps1": -13.4
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3175,20 +3425,31 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 1
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
+        {
+          "sky": {
+            "raDeg": 14.793186,
+            "decDeg": 0.711157
+          },
+          "seenIn": {
+            "des": -18.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
         {
           "sky": {
             "raDeg": 14.839696,
             "decDeg": 0.769962
           },
           "seenIn": {
-            "ps1": -13.35
+            "ps1": -14.42
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3206,9 +3467,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -3218,7 +3479,18 @@
             "decDeg": 0.736363
           },
           "seenIn": {
-            "des": -29.32
+            "des": -50.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 16.324256,
+            "decDeg": 0.765248
+          },
+          "seenIn": {
+            "ps1": -21.53
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3235,13 +3507,25 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 17.791005,
+            "decDeg": 0.723725
+          },
+          "seenIn": {
+            "des": -24.7
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9482",
@@ -3271,13 +3555,58 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
-        "ps1": 0
+        "des": 2,
+        "ps1": 2
       },
-      "distinctPositions": 0,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 20.748275,
+            "decDeg": 0.712401
+          },
+          "seenIn": {
+            "des": -57.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.770412,
+            "decDeg": 0.71262
+          },
+          "seenIn": {
+            "des": -46.19
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.769913,
+            "decDeg": 0.764567
+          },
+          "seenIn": {
+            "ps1": -27.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.762624,
+            "decDeg": 0.76672
+          },
+          "seenIn": {
+            "ps1": -20.69
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9484",
@@ -3290,9 +3619,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 1,
         "des": 1,
-        "ps1": 4
+        "ps1": 3
       },
-      "distinctPositions": 5,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 1,
       "confirmedAndDirectionsAgree": 1,
       "positions": [
@@ -3303,7 +3632,7 @@
           },
           "seenIn": {
             "des": -17.23,
-            "ps1": -25.57
+            "ps1": -24.06
           },
           "referenceCount": 2,
           "directionsAgree": true
@@ -3325,7 +3654,7 @@
             "decDeg": 0.728252
           },
           "seenIn": {
-            "ps1": 8.47
+            "ps1": 8.39
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3336,18 +3665,7 @@
             "decDeg": 0.714447
           },
           "seenIn": {
-            "ps1": -8.15
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 22.197991,
-            "decDeg": 0.714792
-          },
-          "seenIn": {
-            "ps1": -6.43
+            "ps1": -7.4
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3364,20 +3682,53 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
-        "ps1": 1
+        "des": 1,
+        "ps1": 3
       },
-      "distinctPositions": 1,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
-            "raDeg": 23.69088,
-            "decDeg": 0.770247
+            "raDeg": 23.734842,
+            "decDeg": 0.749509
           },
           "seenIn": {
-            "ps1": -6.78
+            "des": -16.68
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.691227,
+            "decDeg": 0.770594
+          },
+          "seenIn": {
+            "ps1": 7.25
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.720675,
+            "decDeg": 0.721107
+          },
+          "seenIn": {
+            "ps1": -6.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.72123,
+            "decDeg": 0.720066
+          },
+          "seenIn": {
+            "ps1": -5.97
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3528,12 +3879,24 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 151.132415,
+            "decDeg": 0.760731
+          },
+          "seenIn": {
+            "ps1": -7.5
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9572",
@@ -3702,10 +4065,10 @@
         {
           "sky": {
             "raDeg": 337.782097,
-            "decDeg": 0.774534
+            "decDeg": 0.774604
           },
           "seenIn": {
-            "ps1": -18.23
+            "ps1": -18.69
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3774,13 +4137,25 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 340.712378,
+            "decDeg": 0.768727
+          },
+          "seenIn": {
+            "des": -35.4
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9700",
@@ -3841,9 +4216,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 1
+        "ps1": 2
       },
-      "distinctPositions": 1,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -3853,7 +4228,18 @@
             "decDeg": 0.767598
           },
           "seenIn": {
-            "ps1": 21.11
+            "ps1": 20.44
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 345.175085,
+            "decDeg": 0.76732
+          },
+          "seenIn": {
+            "ps1": 13.33
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -3961,12 +4347,24 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 354.047747,
+            "decDeg": 0.726801
+          },
+          "seenIn": {
+            "ps1": -6.63
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9709",
@@ -3979,9 +4377,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 1
+        "ps1": 2
       },
-      "distinctPositions": 2,
+      "distinctPositions": 3,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -3991,7 +4389,7 @@
             "decDeg": 0.742134
           },
           "seenIn": {
-            "des": -65.74
+            "des": -60.22
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4002,7 +4400,18 @@
             "decDeg": 0.713456
           },
           "seenIn": {
-            "ps1": 6.26
+            "ps1": 6.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 355.524955,
+            "decDeg": 0.713456
+          },
+          "seenIn": {
+            "ps1": 6.04
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4032,7 +4441,7 @@
             "decDeg": 0.733733
           },
           "seenIn": {
-            "des": -76.34
+            "des": -71.92
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4059,10 +4468,10 @@
         {
           "sky": {
             "raDeg": 358.48799,
-            "decDeg": 0.726136
+            "decDeg": 0.726063
           },
           "seenIn": {
-            "des": -99.47
+            "des": -92.73
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4090,7 +4499,7 @@
             "decDeg": 2.19861
           },
           "seenIn": {
-            "ps1": -25.09
+            "ps1": -17.35
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4186,9 +4595,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 1,
-        "ps1": 4
+        "ps1": 3
       },
-      "distinctPositions": 5,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -4205,11 +4614,11 @@
         },
         {
           "sky": {
-            "raDeg": 5.980795,
-            "decDeg": 2.25386
+            "raDeg": 5.980864,
+            "decDeg": 2.253791
           },
           "seenIn": {
-            "ps1": 5.22
+            "ps1": 5.11
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4217,21 +4626,10 @@
         {
           "sky": {
             "raDeg": 5.924384,
-            "decDeg": 2.216041
+            "decDeg": 2.215972
           },
           "seenIn": {
-            "ps1": -4.87
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 5.968391,
-            "decDeg": 2.213971
-          },
-          "seenIn": {
-            "ps1": 4.83
+            "ps1": -4.85
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4242,7 +4640,7 @@
             "decDeg": 2.253036
           },
           "seenIn": {
-            "ps1": -4.73
+            "ps1": -4.81
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4276,32 +4674,33 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 3,
+        "legacy": 4,
         "des": 1,
-        "ps1": 1
+        "ps1": 3
       },
-      "distinctPositions": 5,
-      "confirmedByTwoOrMore": 0,
-      "confirmedAndDirectionsAgree": 0,
+      "distinctPositions": 7,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
       "positions": [
-        {
-          "sky": {
-            "raDeg": 8.935544,
-            "decDeg": 2.232633
-          },
-          "seenIn": {
-            "legacy": -6.03
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
         {
           "sky": {
             "raDeg": 8.935544,
             "decDeg": 2.235188
           },
           "seenIn": {
-            "legacy": -5.47
+            "legacy": -6.6,
+            "ps1": -6.51
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.935544,
+            "decDeg": 2.232633
+          },
+          "seenIn": {
+            "legacy": -6.77
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4312,7 +4711,18 @@
             "decDeg": 2.231966
           },
           "seenIn": {
-            "legacy": -5.19
+            "legacy": -5.34
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.897849,
+            "decDeg": 2.240744
+          },
+          "seenIn": {
+            "legacy": -5.07
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4320,10 +4730,10 @@
         {
           "sky": {
             "raDeg": 8.899368,
-            "decDeg": 2.221237
+            "decDeg": 2.221164
           },
           "seenIn": {
-            "des": -70.96
+            "des": -63.85
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4334,7 +4744,18 @@
             "decDeg": 2.24965
           },
           "seenIn": {
-            "ps1": -21.56
+            "ps1": -21.45
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.898186,
+            "decDeg": 2.260623
+          },
+          "seenIn": {
+            "ps1": -6.93
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4350,76 +4771,65 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 2,
+        "legacy": 0,
         "des": 1,
-        "ps1": 3
+        "ps1": 4
       },
-      "distinctPositions": 6,
+      "distinctPositions": 5,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
-        {
-          "sky": {
-            "raDeg": 10.439382,
-            "decDeg": 2.253633
-          },
-          "seenIn": {
-            "legacy": -4.47
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 10.427595,
-            "decDeg": 2.213522
-          },
-          "seenIn": {
-            "legacy": -4.41
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
         {
           "sky": {
             "raDeg": 10.40737,
             "decDeg": 2.260904
           },
           "seenIn": {
-            "des": -12.43
+            "des": -11.6
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 10.445225,
-            "decDeg": 2.264235
-          },
-          "seenIn": {
-            "ps1": -11.06
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 10.4462,
+            "raDeg": 10.44613,
             "decDeg": 2.26132
           },
           "seenIn": {
-            "ps1": -9.85
+            "ps1": -8.54
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 10.438705,
+            "raDeg": 10.420824,
+            "decDeg": 2.218185
+          },
+          "seenIn": {
+            "ps1": -6.51
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.438636,
             "decDeg": 2.255759
           },
           "seenIn": {
-            "ps1": 6.08
+            "ps1": 6.33
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.445086,
+            "decDeg": 2.264165
+          },
+          "seenIn": {
+            "ps1": -5.57
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4436,10 +4846,10 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 6,
-        "ps1": 0
+        "des": 8,
+        "ps1": 2
       },
-      "distinctPositions": 6,
+      "distinctPositions": 10,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -4449,7 +4859,7 @@
             "decDeg": 2.200882
           },
           "seenIn": {
-            "des": -138.21
+            "des": -224.71
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4460,7 +4870,7 @@
             "decDeg": 2.200445
           },
           "seenIn": {
-            "des": -136.22
+            "des": -220.45
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4471,7 +4881,7 @@
             "decDeg": 2.20059
           },
           "seenIn": {
-            "des": -133.67
+            "des": -217.53
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4482,29 +4892,73 @@
             "decDeg": 2.200299
           },
           "seenIn": {
-            "des": -125.02
+            "des": -201.75
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 14.898388,
+            "raDeg": 14.898461,
             "decDeg": 2.20008
           },
           "seenIn": {
-            "des": -110.71
+            "des": -180.45
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 14.902116,
+            "raDeg": 14.902043,
             "decDeg": 2.199861
           },
           "seenIn": {
-            "des": -99.81
+            "des": -161.57
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.905479,
+            "decDeg": 2.199569
+          },
+          "seenIn": {
+            "des": -150.32
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.907526,
+            "decDeg": 2.199423
+          },
+          "seenIn": {
+            "des": -150.0
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.869012,
+            "decDeg": 2.242965
+          },
+          "seenIn": {
+            "ps1": -20.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.86053,
+            "decDeg": 2.253373
+          },
+          "seenIn": {
+            "ps1": 18.94
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4538,14 +4992,27 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
-        "des": 0,
+        "legacy": 1,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
-      "confirmedByTwoOrMore": 0,
-      "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 17.869393,
+            "decDeg": 2.256299
+          },
+          "seenIn": {
+            "legacy": -8.87,
+            "des": -10.47
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9725",
@@ -4574,43 +5041,21 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 2,
+        "legacy": 0,
         "des": 3,
         "ps1": 1
       },
-      "distinctPositions": 6,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
-        {
-          "sky": {
-            "raDeg": 20.839372,
-            "decDeg": 2.251299
-          },
-          "seenIn": {
-            "legacy": -7.03
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 20.836036,
-            "decDeg": 2.222077
-          },
-          "seenIn": {
-            "legacy": -6.22
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
         {
           "sky": {
             "raDeg": 20.854668,
             "decDeg": 2.2087
           },
           "seenIn": {
-            "des": -166.75
+            "des": -153.21
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4621,7 +5066,7 @@
             "decDeg": 2.262105
           },
           "seenIn": {
-            "des": -107.49
+            "des": -98.49
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4632,18 +5077,18 @@
             "decDeg": 2.230035
           },
           "seenIn": {
-            "des": -30.71
+            "des": -28.46
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 20.858708,
-            "decDeg": 2.237039
+            "raDeg": 20.859056,
+            "decDeg": 2.237247
           },
           "seenIn": {
-            "ps1": -6.76
+            "ps1": -6.45
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4687,11 +5132,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 23.819935,
-            "decDeg": 2.234015
+            "raDeg": 23.81799,
+            "decDeg": 2.22221
           },
           "seenIn": {
-            "ps1": -13.72
+            "ps1": -8.29
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4702,40 +5147,29 @@
             "decDeg": 2.248667
           },
           "seenIn": {
-            "ps1": 8.62
+            "ps1": 7.87
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 23.816879,
-            "decDeg": 2.217974
+            "raDeg": 23.816809,
+            "decDeg": 2.217904
           },
           "seenIn": {
-            "ps1": -8.36
+            "ps1": -7.25
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 23.818268,
-            "decDeg": 2.222002
-          },
-          "seenIn": {
-            "ps1": -7.83
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 23.817642,
+            "raDeg": 23.817712,
             "decDeg": 2.22346
           },
           "seenIn": {
-            "ps1": -6.75
+            "ps1": -6.33
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4743,10 +5177,21 @@
         {
           "sky": {
             "raDeg": 23.831543,
-            "decDeg": 2.211934
+            "decDeg": 2.212003
           },
           "seenIn": {
-            "ps1": 6.35
+            "ps1": 6.12
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.808329,
+            "decDeg": 2.229361
+          },
+          "seenIn": {
+            "ps1": -6.08
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4754,10 +5199,10 @@
         {
           "sky": {
             "raDeg": 23.815279,
-            "decDeg": 2.227696
+            "decDeg": 2.227626
           },
           "seenIn": {
-            "ps1": 5.93
+            "ps1": 5.87
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4773,21 +5218,43 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
+        "legacy": 2,
         "des": 2,
-        "ps1": 5
+        "ps1": 4
       },
-      "distinctPositions": 7,
+      "distinctPositions": 8,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
+        {
+          "sky": {
+            "raDeg": 28.2765,
+            "decDeg": 2.216411
+          },
+          "seenIn": {
+            "legacy": 4.28
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.254261,
+            "decDeg": 2.228077
+          },
+          "seenIn": {
+            "legacy": -4.03
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
         {
           "sky": {
             "raDeg": 28.261633,
             "decDeg": 2.260391
           },
           "seenIn": {
-            "des": -18.21
+            "des": -20.29
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4798,62 +5265,51 @@
             "decDeg": 2.226931
           },
           "seenIn": {
-            "des": -9.02
+            "des": -10.56
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 28.235387,
+            "raDeg": 28.235456,
             "decDeg": 2.252688
           },
           "seenIn": {
-            "ps1": -6.17
+            "ps1": -6.44
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 28.282988,
-            "decDeg": 2.234971
-          },
-          "seenIn": {
-            "ps1": -5.91
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 28.282503,
-            "decDeg": 2.239902
-          },
-          "seenIn": {
-            "ps1": -5.75
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 28.28917,
+            "raDeg": 28.289379,
             "decDeg": 2.21754
           },
           "seenIn": {
-            "ps1": -5.55
+            "ps1": -6.2
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 28.287921,
-            "decDeg": 2.22636
+            "raDeg": 28.283058,
+            "decDeg": 2.234971
           },
           "seenIn": {
-            "ps1": 5.43
+            "ps1": -6.03
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.281947,
+            "decDeg": 2.239624
+          },
+          "seenIn": {
+            "ps1": -5.8
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -4870,42 +5326,32 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 1,
-        "ps1": 2
+        "des": 2,
+        "ps1": 1
       },
-      "distinctPositions": 3,
-      "confirmedByTwoOrMore": 0,
-      "confirmedAndDirectionsAgree": 0,
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
       "positions": [
+        {
+          "sky": {
+            "raDeg": 29.722007,
+            "decDeg": 2.26427
+          },
+          "seenIn": {
+            "des": -14.09,
+            "ps1": -7.01
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        },
         {
           "sky": {
             "raDeg": 29.759446,
             "decDeg": 2.225704
           },
           "seenIn": {
-            "des": -16.91
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 29.722198,
-            "decDeg": 2.264184
-          },
-          "seenIn": {
-            "ps1": -7.04
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 29.748764,
-            "decDeg": 2.238956
-          },
-          "seenIn": {
-            "ps1": -5.43
+            "des": -18.6
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5031,11 +5477,11 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 339.165003,
+            "raDeg": 339.16493,
             "decDeg": 2.198617
           },
           "seenIn": {
-            "des": -63.08
+            "des": -54.65
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5065,7 +5511,7 @@
             "decDeg": 2.201398
           },
           "seenIn": {
-            "des": -59.8
+            "des": -53.21
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5163,24 +5609,12 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 1
+        "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 354.08238,
-            "decDeg": 2.249087
-          },
-          "seenIn": {
-            "ps1": 9.6
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-9951",
@@ -5191,12 +5625,24 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 0
+        "ps1": 1
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 355.538129,
+            "decDeg": 2.255342
+          },
+          "seenIn": {
+            "ps1": 6.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9952",
@@ -5219,7 +5665,7 @@
             "decDeg": 2.228796
           },
           "seenIn": {
-            "ps1": -21.01
+            "ps1": -19.62
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5227,10 +5673,10 @@
         {
           "sky": {
             "raDeg": 357.038654,
-            "decDeg": 2.235118
+            "decDeg": 2.235048
           },
           "seenIn": {
-            "ps1": -17.66
+            "ps1": -15.58
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5264,35 +5710,12 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "ps1": 2
+        "ps1": 0
       },
-      "distinctPositions": 2,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 359.967168,
-            "decDeg": 3.68611
-          },
-          "seenIn": {
-            "ps1": 5.47
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 359.974402,
-            "decDeg": 3.720038
-          },
-          "seenIn": {
-            "ps1": 5.3
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-9955",
@@ -5305,9 +5728,9 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 2,
-        "ps1": 1
+        "ps1": 0
       },
-      "distinctPositions": 3,
+      "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
@@ -5332,17 +5755,6 @@
           },
           "referenceCount": 1,
           "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 1.489486,
-            "decDeg": 3.709144
-          },
-          "seenIn": {
-            "ps1": -8.8
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
         }
       ]
     },
@@ -5355,25 +5767,14 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 1,
+        "legacy": 0,
         "des": 2,
-        "ps1": 4
+        "ps1": 2
       },
-      "distinctPositions": 7,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
-        {
-          "sky": {
-            "raDeg": 2.974455,
-            "decDeg": 3.730962
-          },
-          "seenIn": {
-            "legacy": -4.88
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
         {
           "sky": {
             "raDeg": 2.959047,
@@ -5402,40 +5803,18 @@
             "decDeg": 3.703898
           },
           "seenIn": {
-            "ps1": -7.61
+            "ps1": -7.67
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 3.004159,
-            "decDeg": 3.695267
+            "raDeg": 3.004228,
+            "decDeg": 3.695268
           },
           "seenIn": {
-            "ps1": 7.42
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 2.983718,
-            "decDeg": 3.689625
-          },
-          "seenIn": {
-            "ps1": -5.21
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 2.967297,
-            "decDeg": 3.706394
-          },
-          "seenIn": {
-            "ps1": -4.9
+            "ps1": 6.95
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5451,9 +5830,9 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
+        "legacy": 1,
         "des": 0,
-        "ps1": 2
+        "ps1": 1
       },
       "distinctPositions": 2,
       "confirmedByTwoOrMore": 0,
@@ -5461,22 +5840,22 @@
       "positions": [
         {
           "sky": {
-            "raDeg": 4.452621,
-            "decDeg": 3.739904
+            "raDeg": 4.454375,
+            "decDeg": 3.741184
           },
           "seenIn": {
-            "ps1": -10.12
+            "legacy": -16.0
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 4.439615,
-            "decDeg": 3.743102
+            "raDeg": 4.44386,
+            "decDeg": 3.750523
           },
           "seenIn": {
-            "ps1": -10.06
+            "ps1": -11.87
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5494,52 +5873,19 @@
       "offSourcePeaksByPairing": {
         "legacy": 0,
         "des": 0,
-        "ps1": 4
+        "ps1": 1
       },
-      "distinctPositions": 4,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
         {
           "sky": {
-            "raDeg": 5.959934,
-            "decDeg": 3.733748
+            "raDeg": 5.960003,
+            "decDeg": 3.733678
           },
           "seenIn": {
-            "ps1": -145.55
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 5.981494,
-            "decDeg": 3.75145
-          },
-          "seenIn": {
-            "ps1": -16.88
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 5.979687,
-            "decDeg": 3.751246
-          },
-          "seenIn": {
-            "ps1": -15.09
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        },
-        {
-          "sky": {
-            "raDeg": 5.982602,
-            "decDeg": 3.748535
-          },
-          "seenIn": {
-            "ps1": -13.75
+            "ps1": -120.55
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5556,13 +5902,25 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 0,
+        "des": 1,
         "ps1": 0
       },
-      "distinctPositions": 0,
+      "distinctPositions": 1,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": []
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 7.463534,
+            "decDeg": 3.744438
+          },
+          "seenIn": {
+            "des": -11.52
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
     },
     {
       "regionId": "dp2-tract-9960",
@@ -5675,7 +6033,7 @@
             "decDeg": 3.711349
           },
           "seenIn": {
-            "des": -260.22
+            "des": -713.4
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5741,11 +6099,11 @@
         },
         {
           "sky": {
-            "raDeg": 20.809703,
-            "decDeg": 3.744782
+            "raDeg": 20.838635,
+            "decDeg": 3.745656
           },
           "seenIn": {
-            "ps1": -7.67
+            "ps1": -6.59
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5762,25 +6120,13 @@
       ],
       "offSourcePeaksByPairing": {
         "legacy": 0,
-        "des": 1,
+        "des": 0,
         "ps1": 0
       },
-      "distinctPositions": 1,
+      "distinctPositions": 0,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
-      "positions": [
-        {
-          "sky": {
-            "raDeg": 22.331308,
-            "decDeg": 3.713117
-          },
-          "seenIn": {
-            "des": -19.76
-          },
-          "referenceCount": 1,
-          "directionsAgree": true
-        }
-      ]
+      "positions": []
     },
     {
       "regionId": "dp2-tract-9973",
@@ -5805,7 +6151,7 @@
             "decDeg": 3.733904
           },
           "seenIn": {
-            "des": -67.38
+            "des": -74.82
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5816,29 +6162,29 @@
             "decDeg": 3.736676
           },
           "seenIn": {
-            "des": -45.54
+            "des": -50.09
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 28.277335,
+            "raDeg": 28.277404,
             "decDeg": 3.733663
           },
           "seenIn": {
-            "ps1": -10.37
+            "ps1": -10.18
           },
           "referenceCount": 1,
           "directionsAgree": true
         },
         {
           "sky": {
-            "raDeg": 28.268702,
+            "raDeg": 28.268633,
             "decDeg": 3.689955
           },
           "seenIn": {
-            "ps1": -8.08
+            "ps1": -6.97
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5854,21 +6200,32 @@
         "ps1"
       ],
       "offSourcePeaksByPairing": {
-        "legacy": 0,
+        "legacy": 1,
         "des": 1,
-        "ps1": 1
+        "ps1": 2
       },
-      "distinctPositions": 2,
+      "distinctPositions": 4,
       "confirmedByTwoOrMore": 0,
       "confirmedAndDirectionsAgree": 0,
       "positions": [
+        {
+          "sky": {
+            "raDeg": 29.777146,
+            "decDeg": 3.719406
+          },
+          "seenIn": {
+            "legacy": -11.08
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
         {
           "sky": {
             "raDeg": 29.73669,
             "decDeg": 3.68604
           },
           "seenIn": {
-            "des": -144.48
+            "des": -154.3
           },
           "referenceCount": 1,
           "directionsAgree": true
@@ -5879,7 +6236,18 @@
             "decDeg": 3.728057
           },
           "seenIn": {
-            "ps1": -8.97
+            "ps1": -9.05
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 29.77249,
+            "decDeg": 3.698776
+          },
+          "seenIn": {
+            "ps1": -6.93
           },
           "referenceCount": 1,
           "directionsAgree": true
