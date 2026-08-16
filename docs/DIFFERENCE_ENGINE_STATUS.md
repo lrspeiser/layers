@@ -895,3 +895,80 @@ recorded.
 
 Stated limit: these covariates correlate with each other, so a null does not
 fully clear a mechanism. What it does is remove it as the *dominant* cause.
+
+## 20. Three selection effects in the source catalogue
+
+Publishing a catalogue forced a question the maps never had to answer: *are these
+sources actually interesting?* Asking it found three artefacts, each hidden by
+the one before.
+
+### 1. Asymmetric detection — found, fixed
+
+Detection ran on the Rubin frame alone, so a source entered the catalogue only if
+it scattered bright **in Rubin**, and its reference flux was then measured with
+no such selection. The sign distribution says it plainly:
+
+| Rubin S/N | Rubin-brighter | reference-brighter |
+|---|---|---|
+| 5–10 | 417 | **0** |
+| 10–20 | 304 | **0** |
+| 20–50 | 88 | 1 |
+| 50+ | 67 | 3 |
+
+876 of 880 flagged sources pointed one way, and the median sat at 25.6 mag —
+fainter than the 24.0 completeness limit. Astrophysics has no reason to run from
+22:1 to infinity as signal-to-noise falls; a selection effect must.
+
+**Detection now runs on the sum of both background-subtracted frames.** The sum
+is symmetric, so a source scattering bright in either is equally likely to be
+found. The ratio went 219:1 → 2.2:1, and the recovered negatives are exactly the
+predicted mirror population: median Rubin S/N 2.1 against reference S/N 10.0 —
+sources the old detector could not see at all.
+
+### 2. Extended-source aperture effect — found, not fixed
+
+Only visible once (1) was fixed, because it is what made a high-signal-to-noise
+cut make things *worse*: 2.2:1 overall but **18:1 above S/N 20**, with flagged
+sources four times larger than unflagged.
+
+Segments are defined on the summed frame, and Rubin's sharper PSF keeps more of
+an extended source inside a shared segment than the broader reference PSF does.
+
+### 3. The attempted fix, and an over-claim to correct
+
+The reconciler had matched PSFs with a circular Gaussian, which never cancels a
+real PSF. `fit_matching_kernel.py` had already fitted a proper Alard–Lupton
+kernel, and the matched frame is exactly recoverable from the stored difference,
+so photometry moved onto that pair.
+
+**A twelve-region pilot showed the asymmetry gone — 6 against 6 at S/N ≥ 5 — and
+that was wrong.** Over all 189 regions:
+
+| both S/N ≥ | Gaussian-matched | kernel-matched |
+|---|---|---|
+| 0 | 2.2:1 | 2.6:1 |
+| 10 | 9.3:1 | 9.6:1 |
+| 20 | **18:1** | **10:1** |
+
+Only the highest bin improved; the overall ratio slightly worsened, and flagged
+sources are still four times larger than unflagged (151 px against 40). The
+kernel-matched pair is kept because it is the more correct thing to measure, but
+it is **not** the fix. A spatially constant kernel matches the core; extended
+flux needs a spatially varying kernel or model photometry.
+
+The pilot was too small to support the claim, which is the same small-sample trap
+this project corrected in §12 and guards against with a 40-region threshold in
+the attribution operator. It caught me anyway.
+
+### What this says about testing
+
+None of the three would have been caught by the 65 tests. The catalogue was
+internally consistent, its uncertainties empirical, its false-positive rate below
+0.14%. **The injection test passed throughout — because it injects into both
+frames symmetrically, so it could never expose an asymmetric detection stage.**
+
+Each artefact was found by asking whether the *shape* of a population made
+physical sense: a one-sided sign distribution, an asymmetry that grew with
+signal-to-noise, sources four times larger than average. That is not something a
+unit test expresses, and it is the argument for publishing a catalogue with
+documented selection effects rather than a curated list of anomalies.

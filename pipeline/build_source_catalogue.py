@@ -92,6 +92,38 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
             else np.asarray(hdus["DIFFERENCE"].data, dtype=np.float64)
         )
         difference_plane = "KERNEL_DIFFERENCE" if "KERNEL_DIFFERENCE" in names else "DIFFERENCE"
+        kernel_direction = (
+            hdus["KERNEL_DIFFERENCE"].header.get("KDIRECT") if "KERNEL_DIFFERENCE" in names else None
+        )
+
+    # Photometry on the kernel-matched pair, not the Gaussian-matched one.
+    #
+    # The reconciler matched PSFs by convolving both frames to a common circular
+    # Gaussian, which never cancels a real PSF. Segment fluxes measured on those
+    # frames therefore disagree for extended sources: Rubin's sharper core
+    # concentrates more flux inside a shared segment than the broader reference
+    # does. That is visible as an 18:1 Rubin-brighter excess above S/N 20, with
+    # the flagged sources four times larger than the unflagged ones.
+    #
+    # fit_matching_kernel.py already fitted the proper Alard-Lupton kernel, and
+    # the matched frame is exactly recoverable from the stored difference:
+    #   reference-convolved  difference = rubin - conv(reference)
+    #   rubin-convolved      difference = conv(rubin) - reference
+    # Reconstructing it costs nothing and is the more correct pair to measure.
+    #
+    # It is NOT a fix for the extended-source effect, and a twelve-region pilot
+    # that suggested otherwise was too small. Over all 189 regions the asymmetry
+    # above S/N 20 improves from 18:1 to 10:1 and the overall ratio slightly
+    # worsens, 2.2:1 to 2.6:1, with flagged sources still four times larger than
+    # unflagged. A spatially constant kernel matches the core; extended flux
+    # needs either a spatially varying kernel or model photometry.
+    photometry_pair = "gaussian-matched"
+    if kernel_direction == "reference-convolved":
+        reference = np.where(np.isfinite(difference), rubin - difference, reference)
+        photometry_pair = "kernel-matched"
+    elif kernel_direction == "rubin-convolved":
+        rubin = np.where(np.isfinite(difference), reference + difference, rubin)
+        photometry_pair = "kernel-matched"
 
     wcs = WCS(header).celestial
     pixel_scale = float(np.mean(proj_plane_pixel_scales(wcs)) * 3600.0)
@@ -276,6 +308,8 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
         "droppedWithoutPosition": dropped_without_position,
         "pixelScaleArcsec": round(pixel_scale, 4),
         "differencePlane": difference_plane,
+        "photometryPair": photometry_pair,
+        "kernelDirection": kernel_direction,
         "backgroundRmsMedianNjy": float(np.median(background.background_rms)),
         "detectionSigma": DETECT_SIGMA,
         "flaggedNearEdge": int(edge.sum()),
@@ -348,7 +382,12 @@ def main() -> None:
                 "Rubin-brighter, with the asymmetry running from 67:3 at high signal-to-noise to "
                 "417:0 below ten. The sum is symmetric between the frames."
             ),
-            "photometry": "segment flux on a shared segmentation, so both frames measure the same pixels",
+            "photometry": (
+                "Segment flux on a shared segmentation, so both frames measure the same pixels, "
+                "and on the kernel-matched pair rather than the Gaussian-matched one. A circular "
+                "Gaussian never cancels a real PSF, so segment fluxes on those frames disagree for "
+                "extended sources -- Rubin's sharper core keeps more flux inside a shared segment."
+            ),
             "uncertainty": (
                 "empirical Background2D RMS propagated over each segment, never the propagated "
                 "variance planes: those understate the truth on these products by a median factor "
@@ -417,14 +456,14 @@ def main() -> None:
                 "against reference S/N 10.0, sources the old detector could not see."
             ),
             "extendedSourceAperture": (
-                "NOT FIXED, and it is why a high-signal-to-noise cut makes the asymmetry worse "
-                "rather than better: 2.2:1 overall but 18:1 above S/N 20. The flagged sources "
-                "there are extended -- median segment area 134 pixels against 33 for unflagged, "
-                "with the flag rate rising from 1 in 8,415 compact sources to 25 in 2,856 large "
-                "ones. Segments are defined on the summed frame, and Rubin's sharper PSF "
-                "concentrates more of an extended source inside that segment than the broader "
-                "reference PSF does. Cut on area_pixels or use PSF-model photometry before "
-                "treating an extended-source departure as real."
+                "STILL PRESENT after moving photometry onto the kernel-matched pair. Measured over "
+                "all 189 regions: the asymmetry above S/N 20 improves from 18:1 to 10:1, but the "
+                "overall ratio does not, 2.2:1 to 2.6:1, and flagged sources remain about four "
+                "times larger than unflagged -- median segment area 151 pixels against 40. A "
+                "twelve-region pilot suggested the kernel had fixed it; it had not, and the pilot "
+                "was too small to say. A spatially constant kernel matches the core, while "
+                "extended flux needs a spatially varying kernel or model photometry. Cut on "
+                "area_pixels before treating an extended-source departure as real."
             ),
         },
         "caveat": (

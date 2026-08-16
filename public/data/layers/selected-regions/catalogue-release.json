@@ -1,22 +1,22 @@
 {
   "schemaVersion": "layers-catalogue-release-v1",
-  "generatedAt": "2026-08-16T05:35:08.855429+00:00",
+  "generatedAt": "2026-08-16T05:42:04.267856+00:00",
   "published": true,
-  "rows": 64889,
-  "rowsInBulkFiles": 64889,
+  "rows": 70910,
+  "rowsInBulkFiles": 70910,
   "skippedWithoutPosition": 0,
   "regions": 189,
   "files": {
     "parquet": {
       "path": "/data/catalogue/rubin-reference-sources.parquet",
-      "bytes": 15297396,
-      "sha256": "465a4c4c2c58189da40e0c9ba89e2646262ca3649bfb550db96a4314af085e78",
+      "bytes": 16748155,
+      "sha256": "2476055fb06af9b83f12d633c810f81fd6b983247b278254c5df2dd17ba3dc87",
       "use": "bulk analysis; read with pandas, polars or pyarrow"
     },
     "votableGzip": {
       "path": "/data/catalogue/rubin-reference-sources.vot.gz",
-      "bytes": 16543224,
-      "sha256": "b8686db8313fdc906ec0caa1450f2a48bad717d481a854354f697f792aab014d",
+      "bytes": 18085714,
+      "sha256": "f1e3fd3f588fdacaefae1d1f53c262210a9e7ea0329a2159a3d4be7c279f583b",
       "use": "opens directly in TOPCAT, pyvo and astroquery"
     }
   },
@@ -27,7 +27,7 @@
       "root": "/data/catalogue/tiles",
       "scheme": "one-degree bins in RA and Dec, named RRR_sDD",
       "count": 206,
-      "totalBytes": 26066999,
+      "totalBytes": 28473222,
       "why": "A serverless route cannot hold 50,000 rows per request, and sending the whole table to answer a positional query wastes the reader's bandwidth. A cone of any sane radius touches one or a few tiles."
     }
   },

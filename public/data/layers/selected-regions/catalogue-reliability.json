@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-catalogue-reliability-v1",
-  "generatedAt": "2026-08-16T05:34:49.972235+00:00",
+  "generatedAt": "2026-08-16T05:40:08.599007+00:00",
   "question": "How complete is the source catalogue, and how many of its 5-sigma departures are false positives?",
   "method": {
     "completeness": "Synthetic Gaussians at the frame's own measured PSF width are injected at blank positions across a magnitude ladder, detection is re-run exactly as the catalogue runs it -- on the SUM of both frames -- and the recovered fraction is reported per bin. Matching the catalogue's detection is not optional: measuring recovery against a different detector reports the selection function of a pipeline nobody is using.",
@@ -124,14 +124,14 @@
     }
   ],
   "applicationToCatalogue": {
-    "cleanSources": 61422,
-    "flaggedAbove5Sigma": 622,
+    "cleanSources": 67182,
+    "flaggedAbove5Sigma": 777,
     "falsePositiveRate": 0.0,
     "rateUsed": 0.00139,
     "rateIsUpperLimit": true,
-    "expectedFalsePositives": 85.4,
-    "excessOverNoise": 536.6,
-    "reading": "At most about 85 of the 622 flagged sources are consistent with noise, leaving at least roughly 537 in excess. No false positive was seen in the injection test, so this uses the 95% upper limit of three over the number recovered rather than a rate of zero, which the sample cannot support. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
+    "expectedFalsePositives": 93.4,
+    "excessOverNoise": 683.6,
+    "reading": "At most about 93 of the 777 flagged sources are consistent with noise, leaving at least roughly 684 in excess. No false positive was seen in the injection test, so this uses the 95% upper limit of three over the number recovered rather than a rate of zero, which the sample cannot support. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
   },
   "howToReadIt": "Multiply the catalogue's flagged count by the false-positive rate to estimate how many of its outliers are noise. The remainder is not thereby real: the bandpass transfer between these surveys is unvalidated, so a genuine colour difference produces a departure that this test, which injects identical colours, cannot create.",
   "regions": [
