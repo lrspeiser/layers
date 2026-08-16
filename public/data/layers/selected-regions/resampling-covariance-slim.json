@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "layers-resampling-covariance-v1",
+  "question": "Resampling makes each output pixel a weighted sum of several input pixels, so neighbouring pixels share noise. The catalogue quotes sigma*sqrt(N), which assumes they do not. By how much is every error bar wrong?",
+  "method": "Empirical. Mask every detected source and grow the mask, then measure the noise autocorrelation on the remaining sky and the scatter of real aperture sums placed on blank sky, against the sigma*sqrt(N) the catalogue assumes. Rubin is the control: it was not resampled onto anything, so it should show less.",
+  "regionsMeasured": 190,
+  "maskSigma": 1.5,
+  "maskGrowPixels": 8,
+  "summary": {
+    "rubin": {
+      "regions": 188,
+      "medianLag1Autocorrelation": 0.681994586548765,
+      "byRadius": {
+        "r1.5": {
+          "regions": 188,
+          "medianVarianceInflation": 3.668957156090141,
+          "medianErrorBarUnderstatedBy": 1.9154522066838788
+        },
+        "r2.0": {
+          "regions": 188,
+          "medianVarianceInflation": 4.061797422936927,
+          "medianErrorBarUnderstatedBy": 2.015390141619465
+        },
+        "r3.0": {
+          "regions": 188,
+          "medianVarianceInflation": 5.1234975314835935,
+          "medianErrorBarUnderstatedBy": 2.263514420427578
+        },
+        "r4.0": {
+          "regions": 186,
+          "medianVarianceInflation": 5.845343349446893,
+          "medianErrorBarUnderstatedBy": 2.4177144888193256
+        },
+        "r6.0": {
+          "regions": 99,
+          "medianVarianceInflation": 6.705576600358225,
+          "medianErrorBarUnderstatedBy": 2.58951281139102
+        }
+      }
+    },
+    "reference": {
+      "regions": 190,
+      "medianLag1Autocorrelation": 0.7589754472812589,
+      "byRadius": {
+        "r1.5": {
+          "regions": 190,
+          "medianVarianceInflation": 3.746725271536878,
+          "medianErrorBarUnderstatedBy": 1.9356459571773135
+        },
+        "r2.0": {
+          "regions": 190,
+          "medianVarianceInflation": 4.308382509603854,
+          "medianErrorBarUnderstatedBy": 2.075664353792263
+        },
+        "r3.0": {
+          "regions": 189,
+          "medianVarianceInflation": 5.610679088062126,
+          "medianErrorBarUnderstatedBy": 2.3686872077296584
+        },
+        "r4.0": {
+          "regions": 189,
+          "medianVarianceInflation": 6.508644813052594,
+          "medianErrorBarUnderstatedBy": 2.551204580791708
+        },
+        "r6.0": {
+          "regions": 111,
+          "medianVarianceInflation": 7.107197479102676,
+          "medianErrorBarUnderstatedBy": 2.6659327596739337
+        }
+      }
+    }
+  },
+  "control": {
+    "rubinLag1": 0.681994586548765,
+    "referenceLag1": 0.7589754472812589,
+    "interpretation": "The reference frame is the one resampled onto Rubin's grid. If its autocorrelation exceeds Rubin's, the excess is resampling rather than a generic property of astronomical images.",
+    "verdict": "Resampling contributes, but is not the main term. The resampled reference is the more correlated frame (lag-1 0.759 against Rubin's 0.682) and is worse at every aperture radius, so reconciliation does add correlation. Rubin's own 0.682 predates this project entirely: DP2 coadds are warped and stacked from many exposures, so their noise arrived correlated. The blocker named 'resampling covariance' therefore understates the problem by attributing to reconciliation something the inputs already carried.",
+    "pilotWarning": "An 8-region pilot inverted this control (Rubin 0.881 against 0.680) and would have supported the opposite conclusion. The magnitude survived the pilot; the ordering did not."
+  },
+  "reproduce": "python pipeline/measure_resampling_covariance.py",
+  "affectedColumns": {
+    "understated": [
+      "rubin_flux_err_njy",
+      "reference_flux_err_njy"
+    ],
+    "overstated": [
+      "rubin_snr",
+      "reference_snr"
+    ],
+    "unaffected": [
+      "departure_significance",
+      "flux_ratio",
+      "rubin_mag_ab",
+      "reference_mag_ab"
+    ],
+    "why": "photutils' segment_fluxerr sums the background RMS in quadrature over a segment, which is sigma*sqrt(N) -- the variance of a sum of N independent pixels. The pixels are not independent, so those errors are too small by the measured factor and the S/N columns are too large by it. departure_significance divides by the field's own measured 16th-to-84th percentile scatter rather than by a propagated error, so it never assumed independence and is unaffected. That is the column the release recommends, and it survives this for the same reason the empirical nulls have survived every other uncertainty failure in this project."
+  },
+  "headline": "Quoted flux uncertainties are too small by about a factor of two, measured: 1.9x at a 1.5-pixel aperture rising to 2.7x at 6 pixels, from an aperture-sum variance 3.7 to 7.1 times what independent pixels would give. This is an independent confirmation of the previously measured fact that the products' variance planes understate the truth by about seven -- the same order, reached from noise autocorrelation rather than from the planes."
+}

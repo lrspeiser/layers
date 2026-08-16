@@ -1052,3 +1052,66 @@ boundary differently in the two frames because the matching is imperfect in the
 wings, which would call for a spatially varying kernel — but that is a
 hypothesis, and this section has already recorded two of those turning out to be
 wrong.
+
+## 22. The quoted flux errors are half what they should be
+
+Three blockers are retained on all 190 reconciled regions: bandpass transfer,
+injection/recovery QA, and **resampling covariance**. The first two have since
+been measured (§18, and the reliability run). The third never had been, and it
+was the one that mattered most, because it is not bookkeeping — it decides
+whether every error bar in the published catalogue is right.
+
+`rubin_flux_err_njy` comes from photutils' `segment_fluxerr`, which sums the
+background RMS in quadrature over a segment. That is σ·√N: the variance of a sum
+of N **independent** pixels. Measured on blank sky across 190 regions, with every
+detected source masked and the mask grown by 8 pixels:
+
+| aperture | variance inflation | error bars understated by |
+|---|---|---|
+| r = 1.5 px | ×3.75 | **×1.94** |
+| r = 3.0 px | ×5.61 | **×2.37** |
+| r = 6.0 px | ×7.11 | ×2.67 |
+
+Pixels are not independent. Lag-1 noise autocorrelation is **0.759** in the
+reference and **0.682** in Rubin. The quoted flux uncertainties are too small by
+roughly a factor of two, and the `_snr` columns too large by the same.
+
+This is an independent confirmation of something this project already measured
+another way: the products' variance planes understate the truth by a median
+factor of about seven. Here the aperture-sum variance inflation is 3.7–7.1,
+reached from noise autocorrelation rather than from the planes. Two routes, same
+order.
+
+**The control, and what it says.** The reference is the frame resampled onto
+Rubin's grid, so if this were resampling it should be the more correlated one. It
+is — 0.759 against 0.682, and worse at every radius. So reconciliation does add
+correlation. But Rubin's own 0.682 predates this project entirely: DP2 coadds are
+warped and stacked from many exposures, so their noise arrived correlated. The
+blocker's name **understates** the problem by attributing to reconciliation
+something the inputs already carried.
+
+**How nearly this was reported backwards.** An eight-region pilot gave Rubin
+0.881 against the reference's 0.680 — the control inverted — and the conclusion
+drafted from it was that the blocker was misnamed because resampling had nothing
+to do with it. At 190 regions the ordering reverses. The magnitude survived the
+pilot; the ordering did not. That is twice in one session that a pilot pointed
+the wrong way (§21's Kron result was the other), which is worth taking as a
+standing rule rather than two coincidences.
+
+**What is and is not affected.** Understated: `rubin_flux_err_njy`,
+`reference_flux_err_njy`. Overstated: `rubin_snr`, `reference_snr`. Unaffected:
+`departure_significance`, `flux_ratio`, and the magnitudes.
+
+That last point is the important one. `departure_significance` divides by the
+field's own measured 16th-to-84th percentile scatter, not by a propagated error,
+so it never assumed independent pixels and does not inherit this. It is the
+column the release tells people to cut on, and it survives here for the same
+reason the empirical nulls have survived every other uncertainty failure in this
+project — a measured scatter cannot be wrong about its own noise model, because
+it does not have one.
+
+Two of the three retained blockers are now measured. This one is not closed by
+being measured: the honest state is a quantified correction factor that nobody
+has applied to the released columns yet, and applying it would mean republishing
+the catalogue with errors multiplied by a size-dependent factor rather than a
+constant. `pipeline/measure_resampling_covariance.py` reproduces the table.

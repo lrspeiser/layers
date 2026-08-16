@@ -6,6 +6,9 @@ import reliability from "@/public/data/layers/selected-regions/catalogue-reliabi
 import synthetic from "@/public/data/layers/selected-regions/synthetic-bandpass.json";
 import moc from "@/public/data/layers/selected-regions/coverage-moc.json";
 import bias from "@/public/data/layers/selected-regions/aperture-bias.json";
+// The slim companion: the full file carries a per-region block and is ~750 kB,
+// which a page import would ship straight into the worker bundle.
+import covariance from "@/public/data/layers/selected-regions/resampling-covariance-slim.json";
 
 export const metadata: Metadata = {
   title: "Data access",
@@ -122,6 +125,33 @@ tbl.sort("departure_significance")`}</code>
                 <dd>{bias.kruskalWallisP?.toExponential(1)}</dd>
               </div>
             </dl>
+          </article>
+
+          <article className={styles.card} data-tone="caution">
+            <h2>The error columns are too small</h2>
+            <p>{covariance.headline}</p>
+            <dl className={styles.stats}>
+              <div>
+                <dt>flux errors understated by</dt>
+                <dd>
+                  &times;
+                  {covariance.summary.reference.byRadius[
+                    "r3.0"
+                  ].medianErrorBarUnderstatedBy.toFixed(1)}
+                </dd>
+              </div>
+              <div>
+                <dt>regions measured</dt>
+                <dd>{covariance.regionsMeasured}</dd>
+              </div>
+            </dl>
+            <p className={styles.muted}>
+              Affects <code>rubin_flux_err_njy</code>, <code>reference_flux_err_njy</code> and both{" "}
+              <code>_snr</code> columns. It does <em>not</em> affect{" "}
+              <code>departure_significance</code>, which divides by the field&rsquo;s own measured
+              scatter and never assumed independent pixels &mdash; the same reason the empirical
+              nulls have survived every other uncertainty failure here.
+            </p>
           </article>
 
           <article className={styles.card}>
