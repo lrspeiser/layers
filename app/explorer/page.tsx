@@ -44,6 +44,7 @@ export default function ExplorerPage() {
         </Link>
         <nav>
           <Link href="/">Full footprint</Link>
+          <Link href="/data">Download the catalogue</Link>
           <Link href="/differences">Operators</Link>
           <Link href="/coverage">Coverage</Link>
         </nav>

@@ -82,3 +82,30 @@ test("the cone search route serves the catalogue, not just positions", async () 
   assert.match(source, /SR must be between/);
   assert.match(source, /QUERY_STATUS" value="ERROR/);
 });
+
+// A published catalogue nobody can find is not published. Every page a reader
+// might land on has to offer a route to it.
+test("the data page is reachable from every entry point", async () => {
+  const { readdir } = await import("node:fs/promises");
+  const appDir = join(root, "app");
+  const entries = await readdir(appDir, { withFileTypes: true });
+
+  const pages = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory() || entry.name.startsWith("_") || entry.name === "api") continue;
+    const page = join(appDir, entry.name, "page.tsx");
+    try {
+      pages.push([entry.name, await readFile(page, "utf8")]);
+    } catch {
+      continue;
+    }
+  }
+  assert.ok(pages.length >= 4, "expected several pages");
+
+  // The three pages a scientist actually arrives on must link to the data.
+  for (const name of ["coverage", "differences", "explorer"]) {
+    const found = pages.find(([dir]) => dir === name);
+    assert.ok(found, `${name} page is missing`);
+    assert.match(found[1], /href="\/data"/, `${name} does not link to the catalogue`);
+  }
+});
