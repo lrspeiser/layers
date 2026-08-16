@@ -10,6 +10,7 @@ import bias from "@/public/data/layers/selected-regions/aperture-bias.json";
 // which a page import would ship straight into the worker bundle.
 import covariance from "@/public/data/layers/selected-regions/resampling-covariance-slim.json";
 import segments from "@/public/data/layers/selected-regions/segment-noise-inflation.json";
+import threeWay from "@/public/data/layers/selected-regions/three-way-optical-corrected.json";
 
 export const metadata: Metadata = {
   title: "Data access",
@@ -213,6 +214,41 @@ tbl.sort("departure_significance")`}</code>
                 </li>
               ))}
             </ul>
+          </article>
+
+          <article className={styles.card}>
+            <h2>Three references agree Rubin reads faint</h2>
+            <p>
+              Rubin measures about 8&ndash;10% less flux than three independent optical surveys
+              on compact sources &mdash; different instruments, different filters, different
+              calibration heritage, measured on identical Rubin pixels across{" "}
+              {threeWay.regionsCompared} regions.
+            </p>
+            <dl className={styles.stats}>
+              <div>
+                <dt>Legacy DR10</dt>
+                <dd>{threeWay.after["legacy-surveys-dr10"].medianScale.toFixed(3)}</dd>
+              </div>
+              <div>
+                <dt>Pan-STARRS DR2</dt>
+                <dd>{threeWay.after["panstarrs-dr2"].medianScale.toFixed(3)}</dd>
+              </div>
+              <div>
+                <dt>HSC PDR2</dt>
+                <dd>{threeWay.after["hsc-ssp-pdr2"].medianScale.toFixed(3)}</dd>
+              </div>
+            </dl>
+            <p className={styles.muted}>
+              Agreement across the three improved from{" "}
+              {threeWay.medianAgreementBefore.toFixed(3)} to{" "}
+              {threeWay.medianAgreementAfter.toFixed(3)} once a{" "}
+              <strong>0.244 mag error in this project&rsquo;s own Pan-STARRS zeropoint</strong> was
+              measured against Pan-STARRS&rsquo;s published magnitudes and removed. What did{" "}
+              <em>not</em> improve is the field-to-field scatter: it is common to all three
+              references, so it belongs to Rubin or to the sky rather than to any one survey&rsquo;s
+              calibration, and it is still unexplained. This is a calibration comparison on compact
+              sources, not a statement about missing light.
+            </p>
           </article>
 
           <article className={styles.card} data-tone="caution">
