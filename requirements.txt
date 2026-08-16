@@ -1,0 +1,40 @@
+# Python dependencies for the pipeline/ analysis scripts.
+#
+# Pinned, because "can I re-run this" is the first question anyone asks of an
+# analysis and an unpinned list does not answer it. These are the versions every
+# number currently in public/data/layers was produced with.
+#
+#   python -m venv .venv
+#   .venv/Scripts/python -m pip install -r requirements.txt      # Windows
+#   .venv/bin/python -m pip install -r requirements.txt          # POSIX
+#
+# Rubin DP2 access additionally needs RUBIN_RSP_TOKEN in .env. That token is
+# never read into any manifest, and the DP2 pixels it fetches are access
+# restricted and are not redistributed by this repository -- see
+# docs/DATA_STORAGE.md, which is why the pipeline reproduces products from
+# recorded sources and checksums rather than shipping them.
+
+# Core array and image handling
+numpy==2.4.2
+scipy==1.17.1
+astropy==7.2.2
+
+# Source detection, deblending and photometry. photutils is the standard
+# implementation; a hand-rolled version would be a worse one.
+photutils==3.0.0
+scikit-image==0.26.0          # required by photutils deblend_sources
+
+# Reprojection onto a common pixel grid
+reproject==0.21.0
+
+# Catalogue output. pyarrow writes Parquet for bulk work; VOTable comes from
+# astropy and is what TOPCAT, pyvo and astroquery open directly.
+pyarrow==25.0.1
+
+# Archive access over IVOA protocols
+pyvo==1.9.1
+requests==2.34.2
+
+# Rendering the preview and difference images
+matplotlib==3.11.1
+pillow==12.3.0

@@ -1,0 +1,1923 @@
+{
+  "schemaVersion": "layers-source-catalogue-v1",
+  "generatedAt": "2026-08-16T04:19:53.437052+00:00",
+  "purpose": "One row per detected source with Rubin and reference flux measured on identical pixels, so the comparison produces something that can be cross-matched, queried and checked rather than only looked at.",
+  "method": {
+    "detection": "photutils detect_sources at 3.0 sigma over a Background2D sky, npixels 5, then deblend_sources",
+    "photometry": "segment flux on a shared segmentation, so both frames measure the same pixels",
+    "uncertainty": "empirical Background2D RMS propagated over each segment, never the propagated variance planes: those understate the truth on these products by a median factor of about seven",
+    "whichSignificanceToUse": "departure_significance is the one to use. It measures how far a source's flux ratio sits from its own field's median, in units of the field's own measured scatter, so no error model can be wrong. difference_significance measures departure from zero and is dominated by the roughly 7% offset between Rubin and these references, so it flags most bright sources. departure_significance_propagated divides by photutils' segment_fluxerr, which is background RMS only and omits the source's own Poisson noise; it is kept for comparison and understates the uncertainty on bright sources.",
+    "flagsNotFiltering": "Rows that should be distrusted are flagged and kept. A filtered catalogue hides how much was removed; a flagged one lets the reader choose and count. Signal-to-noise is published as a column rather than a flag, because the obvious flag never fired: detection at 3 sigma over 5 pixels already guarantees a higher integrated ratio."
+  },
+  "counts": {
+    "regions": 189,
+    "sources": 50233,
+    "clean": 46574,
+    "flaggedNearEdge": 2636,
+    "medianRubinSnr": 22.782187899637027,
+    "flaggedNegativeReference": 1116,
+    "cleanAbove5SigmaFromZero": 12674,
+    "cleanAbove5SigmaFromFieldRatio": 880
+  },
+  "products": {
+    "parquetFile": "rubin-reference-sources.parquet",
+    "votableFile": "rubin-reference-sources.vot",
+    "parquetBytes": 11786660,
+    "votableBytes": 53683701,
+    "published": false,
+    "note": "These files are not published in this repository: they are analysis products built from access-restricted Rubin pixels. Rebuild them with pipeline/build_source_catalogue.py. VOTable opens directly in TOPCAT, pyvo and astroquery; Parquet is the columnar form for bulk work."
+  },
+  "caveat": "A large difference_significance is not a detection. Bandpass transfer between these surveys is not validated, so a genuine colour difference produces the same signal.",
+  "regions": [
+    {
+      "regionId": "dp2-tract-10053",
+      "sources": 173,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.762216565905298,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.996879701972098
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "sources": 270,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.029413011830959,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 19.331481215308543
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "sources": 612,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.3007395634829813,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 33,
+      "medianRubinSnr": 33.743936121019445
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "sources": 253,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.516832785812609,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 22.351762887250853
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "sources": 574,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 2.2734555220732164,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 40.45819906734971
+    },
+    {
+      "regionId": "dp2-tract-10215",
+      "sources": 88,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.604732071516288,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 24.66084327012082
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "sources": 586,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 0.9996338493685457,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 44.44334123161009
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "sources": 140,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.34467793453122,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 18.460329124300422
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "sources": 607,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.2145137435132467,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 44.87125785673707
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "sources": 278,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.8807307868843,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 19.5762347477911
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "sources": 81,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 15.049848935558849,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.00475173776365
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "sources": 63,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 15.837344328819345,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 2,
+      "medianRubinSnr": 24.718553810043925
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "sources": 255,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.541480982816672,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 19.959053275389195
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "sources": 187,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 14.637648667849277,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 25.157504900514205
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "sources": 194,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.54878305206277,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 17.52547130458064
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "sources": 133,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.383840704373942,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 18.694288404855765
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "sources": 248,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.514278093713017,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 17.280543999491904
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "sources": 490,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.2529545864653375,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 18.94739796393108
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "sources": 521,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.053539444483518,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 21.555311289653453
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "sources": 203,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.77995680357455,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 19.24073324176959
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "sources": 277,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.398507429482727,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 20.30895842954026
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "sources": 461,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.034390328505259,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 22.302392083750266
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "sources": 534,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.042790476317512,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 32,
+      "medianRubinSnr": 24.283003511297622
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "sources": 472,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.9345353621529933,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 24.475537620508806
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "sources": 225,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.492775359521058,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 18.67449478114732
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "sources": 367,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.209982000772518,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 42.55923624685097
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "sources": 168,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.198540015540477,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.59193218055963
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "sources": 247,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.245816207638837,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 19.813009149442845
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "sources": 191,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.993839929740313,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 19.923460316988425
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "sources": 75,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.385341168195474,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 20.966442995262298
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "sources": 194,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.22467719167215,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 28.623029083659887
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "sources": 303,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.934721632332526,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 45.01219062977947
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "sources": 146,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.76297962879075,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 27.717051632581935
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "sources": 329,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.698300252943647,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 20.82739389343576
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "sources": 102,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 22.388861525245588,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 2,
+      "medianRubinSnr": 18.669880647112787
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "sources": 512,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.3419623052790168,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 41.5132055588044
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "sources": 159,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.5802692155826,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 32.6851556833133
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "sources": 470,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.9471931050807498,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 34.906768844553405
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "sources": 392,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 2.3634526247938368,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 30.0946406417413
+    },
+    {
+      "regionId": "dp2-tract-8984",
+      "sources": 339,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.195136503101363,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 21.046817363817887
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "sources": 263,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.988886269073239,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 18.25584364991957
+    },
+    {
+      "regionId": "dp2-tract-8986",
+      "sources": 209,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.244390695552768,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 19.056369585418466
+    },
+    {
+      "regionId": "dp2-tract-8994",
+      "sources": 91,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 22.704181375060752,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 23.92531369125368
+    },
+    {
+      "regionId": "dp2-tract-8995",
+      "sources": 105,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 29.86861055871048,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 22.088652086368526
+    },
+    {
+      "regionId": "dp2-tract-8996",
+      "sources": 179,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 26.387670483624593,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 19.934153678909972
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "sources": 114,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 41.450280652680846,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 17.435356309790286
+    },
+    {
+      "regionId": "dp2-tract-8998",
+      "sources": 161,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 24.969133571461292,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 25.354600499612378
+    },
+    {
+      "regionId": "dp2-tract-9125",
+      "sources": 276,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.05007491725469,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 23.490619585432114
+    },
+    {
+      "regionId": "dp2-tract-9126",
+      "sources": 111,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.1770429970367635,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 16.480669010215696
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "sources": 326,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.561757396153191,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 22.48603449983939
+    },
+    {
+      "regionId": "dp2-tract-9209",
+      "sources": 280,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.461457298340118,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 20.81378986539148
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "sources": 321,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.496148311329895,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 19.249622182358813
+    },
+    {
+      "regionId": "dp2-tract-9212",
+      "sources": 410,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.602637113922945,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 29.57488426417562
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "sources": 344,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.349436385088499,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 23.915579604397795
+    },
+    {
+      "regionId": "dp2-tract-9217",
+      "sources": 338,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 2.9418375702400144,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 29.135881263347986
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "sources": 396,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.3436735450764745,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 23.915254083598658
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "sources": 368,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.231102478026684,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 24.884772062716806
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "sources": 358,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 2.9873815339611465,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 26.269813792797105
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "sources": 386,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.31508646510575,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 33.07268488083575
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "sources": 389,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.823751771164333,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 25.176342627251042
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "sources": 372,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.670991338940122,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 25.473687229702215
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "sources": 214,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.008610472139146,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 20.137796470688546
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "sources": 361,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.266052059320581,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 20.891521093750757
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "sources": 210,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.401738927833485,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 18.194383846401777
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "sources": 268,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.172552998323816,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 19.785287116805783
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "sources": 188,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.501954178079702,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 20.319226078190333
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "sources": 223,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.618376362975024,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 20.78850504166086
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "sources": 287,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.9592918555911965,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 23.298111596115493
+    },
+    {
+      "regionId": "dp2-tract-9233",
+      "sources": 191,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.149456494624191,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 18.814892241403495
+    },
+    {
+      "regionId": "dp2-tract-9236",
+      "sources": 196,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 21.984922521701364,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 21.216722466427843
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "sources": 211,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 21.0354621506662,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 18.220574204074136
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "sources": 157,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 24.786155014142935,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.629045841338574
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "sources": 204,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 23.822769297343413,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 21.19918692106291
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "sources": 152,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 30.57529030709533,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.773255267224073
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "sources": 295,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.476724718041066,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 19.013033638498822
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "sources": 100,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 23.634935095456868,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 24.948086767753523
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "sources": 199,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 12.361817507995418,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 19.45423064908465
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "sources": 233,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.595486521177836,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 20.621688522045524
+    },
+    {
+      "regionId": "dp2-tract-9448",
+      "sources": 95,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.77407344734138,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 25.69278437815614
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "sources": 267,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.626744835044269,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 25.154162697190337
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "sources": 306,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.709241209625841,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 21.498943772915382
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "sources": 320,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.810365463177446,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 22.82512211400462
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "sources": 269,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.051084471177409,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 22.936035559084527
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "sources": 224,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.631863279487405,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 20.302722206673323
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "sources": 334,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.9016399700742515,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 20.995488879550784
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "sources": 288,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.701049476763312,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 20.860284886053467
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "sources": 306,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.012886790191171,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 21.133972913144472
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "sources": 372,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.21833735943426,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 31,
+      "medianRubinSnr": 17.39086893885211
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "sources": 298,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.318470082838213,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 21.578804169757067
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "sources": 360,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.7732604527519245,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 17.714610501418242
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "sources": 387,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.077617547050701,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 22.875861423854698
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "sources": 347,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.433841787262484,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 21.20725530116142
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "sources": 273,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.861657438515298,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 19.296892957464873
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "sources": 251,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.430490598423455,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 27.542598639407668
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "sources": 382,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.776886351123785,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 20.446609915951917
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "sources": 330,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.406348398080784,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 22.64921585096439
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "sources": 263,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.687360130280525,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 20.511968952192195
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "sources": 351,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.532279605514981,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 20.34701875441536
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "sources": 381,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.387421924533292,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 24,
+      "medianRubinSnr": 23.05826878225371
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "sources": 372,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.503930691552549,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 22.9077447215735
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "sources": 246,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.717272007964922,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 19.657271796852037
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "sources": 265,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.813184525873943,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 20.956285500085645
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "sources": 195,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.078088146789767,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 18.466185315761837
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "sources": 170,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.448531339232577,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 18.91964757615759
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "sources": 209,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 12.557988492539263,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 24.04865096910442
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "sources": 185,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.974232356379686,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 19.002535148223263
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "sources": 182,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 12.714941425567496,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 20.406306246127212
+    },
+    {
+      "regionId": "dp2-tract-9479",
+      "sources": 210,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 18.009946192609974,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 15.5617689620069
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "sources": 123,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 20.67550963362077,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 26.843174118971003
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "sources": 101,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 30.44904377099354,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 22.162856307790406
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "sources": 180,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 24.742236470825205,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 19.41328316628429
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "sources": 177,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 29.130627193620285,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 21.216138649911503
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "sources": 252,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.95749563666413,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 19.09340910124412
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "sources": 260,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.094286738297038,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 16.80486621035722
+    },
+    {
+      "regionId": "dp2-tract-9488",
+      "sources": 133,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 22.970210750957122,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 18.951336358633853
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "sources": 153,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 25.311172997636884,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 22.606282313747656
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "sources": 35,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.723019265913651,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 0,
+      "medianRubinSnr": 23.18969171045385
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "sources": 675,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.4753223440663474,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 41,
+      "medianRubinSnr": 38.4329235427667
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "sources": 555,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.8601667764459617,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 34,
+      "medianRubinSnr": 28.974378803187957
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "sources": 150,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.110939798099436,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 2,
+      "medianRubinSnr": 19.570644880224336
+    },
+    {
+      "regionId": "dp2-tract-9691",
+      "sources": 149,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.7952614029829626,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 20.92763863684819
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "sources": 186,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.075735962739361,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 19.962852563244716
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "sources": 252,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.143163794128322,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 19.218483201670768
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "sources": 114,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.921747201549374,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 18.716943588560746
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "sources": 332,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.33073000141869,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 27.227702311501915
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "sources": 94,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.15862695847649,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 20.089783307792707
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "sources": 231,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.195773388045016,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 18.828691282653804
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "sources": 408,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.768951012648666,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 20.228851051893137
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "sources": 384,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.608407510199456,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 20.64975433340462
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "sources": 239,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.718250742972016,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 22.77032772086654
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "sources": 250,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.077742728884981,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 21.81592526830648
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "sources": 304,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.408695423904959,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 21.221302639573203
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "sources": 323,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.305741547253622,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 19.892793415161297
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "sources": 253,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.861879794753502,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 18.633611321680394
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "sources": 304,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.205564708220399,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 18.62875714494168
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "sources": 330,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.142765096167052,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 21.607523100297616
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "sources": 263,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.730157813558053,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 20.585323599024502
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "sources": 322,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.989502884637325,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 20.065608860265833
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "sources": 373,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.286901707125805,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 22.490232545742376
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "sources": 284,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.4908529157673875,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 20.967723973378767
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "sources": 392,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.304420251457554,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 29,
+      "medianRubinSnr": 20.997330086197234
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "sources": 384,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.059495379347486,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 32,
+      "medianRubinSnr": 21.119191453662175
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "sources": 245,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.19949537342652,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 19.693733831923222
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "sources": 278,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.407874866317101,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 24.148024943632553
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "sources": 202,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.975262413129816,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 23.30031283047706
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "sources": 134,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 12.292006795119649,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 19.61198754853463
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "sources": 249,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.844374494363821,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 20.112510253115012
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "sources": 102,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.039917574569238,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 17.923483677586788
+    },
+    {
+      "regionId": "dp2-tract-9719",
+      "sources": 115,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.3169052688506,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 20.48251323305227
+    },
+    {
+      "regionId": "dp2-tract-9722",
+      "sources": 201,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 18.50466578805826,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 18.06968353912479
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "sources": 198,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 31.12915832047807,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 20.914020901276448
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "sources": 73,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 30.49085462951151,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 1,
+      "medianRubinSnr": 19.16197572003969
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "sources": 120,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 40.3562886302915,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 18.23465630963093
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "sources": 149,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 14.486101547216865,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 17.123630092168785
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "sources": 272,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.81006237638708,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 18.490788323806612
+    },
+    {
+      "regionId": "dp2-tract-9728",
+      "sources": 264,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.339693659472495,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 17.80991551833118
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "sources": 119,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.987445767808662,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 16.337432883367107
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "sources": 187,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.430706558821637,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 16.636328932452102
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "sources": 182,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.491867556638356,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 19.526420466316992
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "sources": 566,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.319384065887583,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 36.95924941036767
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "sources": 777,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.471552502160323,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 49,
+      "medianRubinSnr": 35.22294937682827
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "sources": 430,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 1.9074180929072937,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 28.06767697618458
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "sources": 111,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 9.412466760687183,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 18.945927171819744
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "sources": 140,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.531670866937791,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 18.97440392982878
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "sources": 283,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.692081083372019,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 17.743473261461656
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "sources": 360,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.596972074173208,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 28.006983728993333
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "sources": 305,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.178702514231144,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 24.60019855610806
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "sources": 312,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.589473499945916,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 23.770867820542882
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "sources": 325,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.727744571294991,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 19.77269970683351
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "sources": 400,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.027143052220711,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 22.847274176936615
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "sources": 325,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.5817668787018917,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 23.232394962299757
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "sources": 283,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 5.412269945716199,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 26.309012221581707
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "sources": 373,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 4.449222699792117,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 19.962309349237316
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "sources": 330,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 3.6851062167576063,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 22.85723863346411
+    },
+    {
+      "regionId": "dp2-tract-9954",
+      "sources": 216,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 6.681261237293684,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 20.13759004894853
+    },
+    {
+      "regionId": "dp2-tract-9955",
+      "sources": 236,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.79871673385113,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 19.568828734579697
+    },
+    {
+      "regionId": "dp2-tract-9956",
+      "sources": 213,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.606544442552966,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 15.270940582093354
+    },
+    {
+      "regionId": "dp2-tract-9957",
+      "sources": 173,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 11.037972457447797,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 17.454225615550484
+    },
+    {
+      "regionId": "dp2-tract-9958",
+      "sources": 222,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 7.900274409677554,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 18.252657427148698
+    },
+    {
+      "regionId": "dp2-tract-9959",
+      "sources": 217,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 8.063443003240607,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 15.681642318597156
+    },
+    {
+      "regionId": "dp2-tract-9960",
+      "sources": 223,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "DIFFERENCE",
+      "backgroundRmsMedianNjy": 10.194158588477576,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 24.633239094727017
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "sources": 282,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 23.056879905403402,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 29.76198084901933
+    },
+    {
+      "regionId": "dp2-tract-9965",
+      "sources": 202,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 21.953163881588075,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 19.34445905755742
+    },
+    {
+      "regionId": "dp2-tract-9966",
+      "sources": 122,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 29.584967996415514,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 23.31050508214757
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "sources": 132,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 44.68161494154016,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.481327420707135
+    },
+    {
+      "regionId": "dp2-tract-9968",
+      "sources": 243,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 12.831990346189622,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 19.896237151899513
+    },
+    {
+      "regionId": "dp2-tract-9969",
+      "sources": 230,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 14.453437898728533,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 21.591264086029234
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "sources": 177,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 13.067617703494673,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 22.478963290575518
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "sources": 127,
+      "pixelScaleArcsec": 0.4,
+      "differencePlane": "KERNEL_DIFFERENCE",
+      "backgroundRmsMedianNjy": 14.939967346040135,
+      "detectionSigma": 3.0,
+      "flaggedNearEdge": 1,
+      "medianRubinSnr": 18.62209181285372
+    }
+  ]
+}
