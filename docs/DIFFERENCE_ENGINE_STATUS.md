@@ -1784,3 +1784,50 @@ and the first version of this script ignored it.
 
 `--check` exits non-zero on disagreement, so the scorecard cannot drift from its
 evidence again without failing.
+
+## 37. Checking a number against the manifest that produced it is not independent
+
+§36 recounted every goal's delivered figure from its cited evidence and found all
+ten recountable ones correct. That is a weaker result than it sounds: the
+evidence file and the scorecard entry are produced by the same pipeline stage, so
+agreement between them shows internal consistency, not correctness. A number
+wrong at the source would be wrong in both, identically, and pass.
+
+G0 escaped that circularity by accident — its recount went to the acquisition
+manifests, the cached SIA discovery responses and the FITS pixels themselves,
+which is why it caught the error. The others did not.
+
+**G7 reproduced from raw data.** The variability goal's 185 was rebuilt from the
+193 cached ZTF light-curve CSVs, applying the builder's published acceptance
+rules rather than reading any summary:
+
+| | reproduced | manifest |
+|---|---|---|
+| attempted (files on disk) | 193 | 193 |
+| zero usable objects | 5 | 5 |
+| some, but under the object floor | 3 | 3 |
+| **measured** | **185** | **185** |
+
+Every line matches, from the raw photometry.
+
+**Getting there took two wrong attempts, both instructive.** Counting objects
+with any epochs gave 188 — which turns out to be a number the manifest already
+publishes, as `ceilings.ifObjectFloorRelaxedToOne`. Applying the ≥20-epoch and
+≥5-object floors gave 186, one too many. The remaining difference was the epoch
+filter: the operator rejects any epoch with **nonzero `catflags`**, and I had
+rejected only bit 15.
+
+That last point mattered beyond the count. `check_candidate_variability.py`
+(§33) used the same loose bitmask, so it was building light curves from a
+slightly different sample than the operator while quoting the operator's
+threshold. It has been aligned. The direction is reassuring — the loose rule
+admitted *more* objects to match candidates against, so the 0-of-18 null was if
+anything conservative — but two stages quoting one threshold should not be
+selecting different epochs, and reasoning about which way an inconsistency
+happens to lean is not a substitute for removing it.
+
+**What remains unverified this way.** G1–G6 and G8–G10 are still checked only
+against their own manifests. Reproducing each from raw inputs is the same work
+again per operator, and the honest statement is that they are internally
+consistent and not independently confirmed. G7 is now confirmed; G0 was
+confirmed and found wrong.

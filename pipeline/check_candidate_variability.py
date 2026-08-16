@@ -49,9 +49,13 @@ OUTPUT = SELECTED / "candidate-variability-check.json"
 # anything varying is close enough to produce the residual.
 MATCH_ARCSEC = 3.0
 MIN_EPOCHS = 10
-# ZTF sets bit 15 (32768) for a variety of quality problems; the operator's own
-# selection keeps only clean epochs, so this does the same.
-BAD_CATFLAGS = 32768
+# The variability operator rejects any epoch with a nonzero catflags, not just
+# one bit. Matching it exactly matters: a looser rule here would admit epochs the
+# operator discarded, and the two stages would be measuring different samples
+# while quoting the same threshold. (This previously masked only bit 15, which
+# was more permissive -- it admitted more objects to match candidates against, so
+# the null result was if anything conservative, but the inconsistency is worth
+# removing rather than reasoning around.)
 
 
 def light_curves(path: pathlib.Path) -> dict[str, dict]:
@@ -60,7 +64,7 @@ def light_curves(path: pathlib.Path) -> dict[str, dict]:
     with path.open(newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             try:
-                if int(row["catflags"]) & BAD_CATFLAGS:
+                if int(row.get("catflags") or 0) != 0:
                     continue
                 grouped[row["oid"]].append(
                     (
