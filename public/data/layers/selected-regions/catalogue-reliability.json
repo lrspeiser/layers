@@ -1,9 +1,9 @@
 {
   "schemaVersion": "layers-catalogue-reliability-v1",
-  "generatedAt": "2026-08-16T04:31:07.398582+00:00",
+  "generatedAt": "2026-08-16T05:34:49.972235+00:00",
   "question": "How complete is the source catalogue, and how many of its 5-sigma departures are false positives?",
   "method": {
-    "completeness": "Synthetic Gaussians at the frame's own measured PSF width are injected at blank positions across a magnitude ladder, detection is re-run exactly as the catalogue runs it, and the recovered fraction is reported per bin.",
+    "completeness": "Synthetic Gaussians at the frame's own measured PSF width are injected at blank positions across a magnitude ladder, detection is re-run exactly as the catalogue runs it -- on the SUM of both frames -- and the recovered fraction is reported per bin. Matching the catalogue's detection is not optional: measuring recovery against a different detector reports the selection function of a pipeline nobody is using.",
     "falsePositives": "The same sources are injected into both frames with the field's own median flux ratio, so they carry no departure by construction. Any recovered injection measuring above the 5-sigma cut is a false positive with known truth, which measures the cut's reliability without needing a noise model.",
     "departureCut": 5.0,
     "sampledRegions": 9,
@@ -12,10 +12,12 @@
   "counts": {
     "regions": 9,
     "injected": 2420,
-    "recovered": 2086,
-    "overallCompleteness": 0.862,
-    "falsePositives": 6,
-    "falsePositiveRate": 0.00288,
+    "recovered": 2157,
+    "overallCompleteness": 0.8913,
+    "falsePositives": 0,
+    "falsePositiveRate": 0.0,
+    "falsePositiveRate95UpperLimit": 0.00139,
+    "rateIsAnUpperLimit": true,
     "median90PercentCompleteMagAB": 24.0,
     "regionsAttempted": 24,
     "regionsYieldingAMeasurement": 9,
@@ -88,46 +90,48 @@
     {
       "magAB": 23.5,
       "injected": 182,
-      "recovered": 180,
-      "completeness": 0.989,
+      "recovered": 182,
+      "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 24.0,
       "injected": 174,
-      "recovered": 162,
-      "completeness": 0.931,
-      "falsePositiveRate": 0.01235
+      "recovered": 167,
+      "completeness": 0.9598,
+      "falsePositiveRate": 0.0
     },
     {
       "magAB": 24.5,
       "injected": 160,
-      "recovered": 120,
-      "completeness": 0.75,
-      "falsePositiveRate": 0.025
+      "recovered": 111,
+      "completeness": 0.6937,
+      "falsePositiveRate": 0.0
     },
     {
       "magAB": 25.0,
       "injected": 160,
-      "recovered": 35,
-      "completeness": 0.2188,
-      "falsePositiveRate": 0.02857
+      "recovered": 60,
+      "completeness": 0.375,
+      "falsePositiveRate": 0.0
     },
     {
       "magAB": 25.5,
       "injected": 158,
-      "recovered": 3,
-      "completeness": 0.019,
+      "recovered": 51,
+      "completeness": 0.3228,
       "falsePositiveRate": 0.0
     }
   ],
   "applicationToCatalogue": {
-    "cleanSources": 46574,
-    "flaggedAbove5Sigma": 880,
-    "falsePositiveRate": 0.00288,
-    "expectedFalsePositives": 134.0,
-    "excessOverNoise": 746.0,
-    "reading": "About 134 of the 880 flagged sources are consistent with noise at this rate, leaving roughly 746 in excess. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
+    "cleanSources": 61422,
+    "flaggedAbove5Sigma": 622,
+    "falsePositiveRate": 0.0,
+    "rateUsed": 0.00139,
+    "rateIsUpperLimit": true,
+    "expectedFalsePositives": 85.4,
+    "excessOverNoise": 536.6,
+    "reading": "At most about 85 of the 622 flagged sources are consistent with noise, leaving at least roughly 537 in excess. No false positive was seen in the injection test, so this uses the 95% upper limit of three over the number recovered rather than a rate of zero, which the sample cannot support. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
   },
   "howToReadIt": "Multiply the catalogue's flagged count by the false-positive rate to estimate how many of its outliers are noise. The remainder is not thereby real: the bandpass transfer between these surveys is unvalidated, so a genuine colour difference produces a departure that this test, which injects identical colours, cannot create.",
   "regions": [
@@ -136,11 +140,11 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 1.774,
       "fieldFluxRatio": 1.3127,
-      "faintest90PercentCompleteMagAB": 23.0,
+      "faintest90PercentCompleteMagAB": 24.0,
       "injectedTotal": 287,
-      "recoveredTotal": 212,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00472,
+      "recoveredTotal": 229,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -208,22 +212,22 @@
         {
           "magAB": 23.5,
           "injected": 19,
-          "recovered": 17,
-          "completeness": 0.8947,
+          "recovered": 19,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.0,
           "injected": 20,
-          "recovered": 11,
-          "completeness": 0.55,
-          "recoveredFlaggedAboveCut": 1
+          "recovered": 18,
+          "completeness": 0.9,
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.5,
           "injected": 22,
-          "recovered": 0,
-          "completeness": 0.0,
+          "recovered": 8,
+          "completeness": 0.3636,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -247,11 +251,11 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.21,
       "fieldFluxRatio": 1.1279,
-      "faintest90PercentCompleteMagAB": 24.5,
+      "faintest90PercentCompleteMagAB": 25.5,
       "injectedTotal": 350,
-      "recoveredTotal": 301,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00332,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -333,22 +337,22 @@
         {
           "magAB": 24.5,
           "injected": 25,
-          "recovered": 23,
-          "completeness": 0.92,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
           "injected": 25,
-          "recovered": 3,
-          "completeness": 0.12,
-          "recoveredFlaggedAboveCut": 1
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.5,
           "injected": 25,
-          "recovered": 0,
-          "completeness": 0.0,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -358,11 +362,11 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.56,
       "fieldFluxRatio": 0.9511,
-      "faintest90PercentCompleteMagAB": 24.5,
+      "faintest90PercentCompleteMagAB": 25.5,
       "injectedTotal": 350,
-      "recoveredTotal": 315,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00317,
+      "recoveredTotal": 349,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -437,8 +441,8 @@
         {
           "magAB": 24.0,
           "injected": 25,
-          "recovered": 25,
-          "completeness": 1.0,
+          "recovered": 24,
+          "completeness": 0.96,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -446,20 +450,20 @@
           "injected": 25,
           "recovered": 25,
           "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 1
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
           "injected": 25,
-          "recovered": 14,
-          "completeness": 0.56,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.5,
           "injected": 25,
-          "recovered": 1,
-          "completeness": 0.04,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -469,11 +473,11 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.43,
       "fieldFluxRatio": 0.9534,
-      "faintest90PercentCompleteMagAB": 24.5,
+      "faintest90PercentCompleteMagAB": 24.0,
       "injectedTotal": 350,
-      "recoveredTotal": 310,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00323,
+      "recoveredTotal": 298,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -555,15 +559,15 @@
         {
           "magAB": 24.5,
           "injected": 25,
-          "recovered": 25,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 1
+          "recovered": 19,
+          "completeness": 0.76,
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
           "injected": 25,
-          "recovered": 9,
-          "completeness": 0.36,
+          "recovered": 3,
+          "completeness": 0.12,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -580,9 +584,9 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.442,
       "fieldFluxRatio": 0.9501,
-      "faintest90PercentCompleteMagAB": 23.5,
+      "faintest90PercentCompleteMagAB": 24.0,
       "injectedTotal": 109,
-      "recoveredTotal": 106,
+      "recoveredTotal": 108,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -638,8 +642,8 @@
         {
           "magAB": 24.0,
           "injected": 16,
-          "recovered": 13,
-          "completeness": 0.8125,
+          "recovered": 15,
+          "completeness": 0.9375,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -649,9 +653,9 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.139,
       "fieldFluxRatio": 0.9828,
-      "faintest90PercentCompleteMagAB": 24.0,
+      "faintest90PercentCompleteMagAB": 24.5,
       "injectedTotal": 170,
-      "recoveredTotal": 153,
+      "recoveredTotal": 156,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -728,8 +732,8 @@
         {
           "magAB": 24.5,
           "injected": 13,
-          "recovered": 10,
-          "completeness": 0.7692,
+          "recovered": 13,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -748,7 +752,7 @@
       "fieldFluxRatio": 0.9505,
       "faintest90PercentCompleteMagAB": 23.5,
       "injectedTotal": 104,
-      "recoveredTotal": 92,
+      "recoveredTotal": 95,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -804,8 +808,8 @@
         {
           "magAB": 25.0,
           "injected": 12,
-          "recovered": 0,
-          "completeness": 0.0,
+          "recovered": 3,
+          "completeness": 0.25,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -818,8 +822,8 @@
       "faintest90PercentCompleteMagAB": 24.0,
       "injectedTotal": 350,
       "recoveredTotal": 295,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00339,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -896,7 +900,7 @@
           "injected": 25,
           "recovered": 25,
           "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 1
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.5,
@@ -908,15 +912,15 @@
         {
           "magAB": 25.0,
           "injected": 25,
-          "recovered": 2,
-          "completeness": 0.08,
+          "recovered": 3,
+          "completeness": 0.12,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.5,
           "injected": 25,
-          "recovered": 1,
-          "completeness": 0.04,
+          "recovered": 0,
+          "completeness": 0.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -926,11 +930,11 @@
       "pixelScaleArcsec": 0.4,
       "psfSigmaPixels": 2.387,
       "fieldFluxRatio": 0.873,
-      "faintest90PercentCompleteMagAB": 24.0,
+      "faintest90PercentCompleteMagAB": 23.5,
       "injectedTotal": 350,
-      "recoveredTotal": 302,
-      "falsePositives": 1,
-      "falsePositiveRate": 0.00331,
+      "recoveredTotal": 277,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
@@ -1005,22 +1009,22 @@
         {
           "magAB": 24.0,
           "injected": 25,
-          "recovered": 25,
-          "completeness": 1.0,
+          "recovered": 22,
+          "completeness": 0.88,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.5,
           "injected": 25,
-          "recovered": 20,
-          "completeness": 0.8,
-          "recoveredFlaggedAboveCut": 1
+          "recovered": 4,
+          "completeness": 0.16,
+          "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
           "injected": 25,
-          "recovered": 7,
-          "completeness": 0.28,
+          "recovered": 1,
+          "completeness": 0.04,
           "recoveredFlaggedAboveCut": 0
         },
         {

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-catalogue-release-v1",
-  "generatedAt": "2026-08-16T05:30:41.651441+00:00",
+  "generatedAt": "2026-08-16T05:35:08.855429+00:00",
   "published": true,
   "rows": 64889,
   "rowsInBulkFiles": 64889,
@@ -16,7 +16,7 @@
     "votableGzip": {
       "path": "/data/catalogue/rubin-reference-sources.vot.gz",
       "bytes": 16543224,
-      "sha256": "0e7ada4cef5a4742d78f3c47e5b5f02ae25146ae816c9c878898724fc7ea62fc",
+      "sha256": "b8686db8313fdc906ec0caa1450f2a48bad717d481a854354f697f792aab014d",
       "use": "opens directly in TOPCAT, pyvo and astroquery"
     }
   },
@@ -33,8 +33,10 @@
   },
   "reliability": {
     "median90PercentCompleteMagAB": 24.0,
-    "falsePositiveRate": 0.00288,
-    "note": "Multiply a flagged count by the false-positive rate to estimate how many are noise. The remainder is an upper bound on what could be astrophysical, not a count of it."
+    "falsePositiveRate": 0.0,
+    "falsePositiveRate95UpperLimit": 0.00139,
+    "rateIsAnUpperLimit": true,
+    "note": "Multiply a flagged count by the rate to estimate how many are noise. Where no false positive was observed the 95% upper limit is used, since zero events does not mean a zero rate. The remainder is an upper bound on what could be astrophysical, not a count of it."
   },
   "whichSignificance": "Cut on departure_significance. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",
   "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the field-to-field scatter, forty times larger than the filters permit.",

@@ -112,12 +112,25 @@ tbl.sort("departure_significance")`}</code>
               </div>
               <div>
                 <dt>false-positive rate</dt>
-                <dd>{(reliability.counts.falsePositiveRate * 100).toFixed(2)}%</dd>
+                <dd>
+                  {reliability.counts.rateIsAnUpperLimit ? "< " : ""}
+                  {(
+                    (reliability.counts.rateIsAnUpperLimit
+                      ? reliability.counts.falsePositiveRate95UpperLimit
+                      : reliability.counts.falsePositiveRate) * 100
+                  ).toFixed(2)}
+                  %
+                </dd>
               </div>
             </dl>
             <p className={styles.muted}>
               Measured by injecting synthetic sources into both frames with the field&rsquo;s own
-              flux ratio, so they carry no departure by construction. {release.reliability.note}
+              flux ratio, so they carry no departure by construction, and detected the same way the
+              catalogue detects &mdash; on the sum of both frames.
+              {reliability.counts.rateIsAnUpperLimit
+                ? " No false positive was seen, so this is the 95% upper limit rather than a rate of zero."
+                : ""}{" "}
+              {release.reliability.note}
             </p>
           </article>
 

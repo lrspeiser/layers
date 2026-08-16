@@ -230,10 +230,13 @@ def main() -> None:
         "reliability": {
             "median90PercentCompleteMagAB": reliability.get("counts", {}).get("median90PercentCompleteMagAB"),
             "falsePositiveRate": reliability.get("counts", {}).get("falsePositiveRate"),
+            "falsePositiveRate95UpperLimit": reliability.get("counts", {}).get("falsePositiveRate95UpperLimit"),
+            "rateIsAnUpperLimit": reliability.get("counts", {}).get("rateIsAnUpperLimit"),
             "note": (
-                "Multiply a flagged count by the false-positive rate to estimate how many are "
-                "noise. The remainder is an upper bound on what could be astrophysical, not a "
-                "count of it."
+                "Multiply a flagged count by the rate to estimate how many are noise. Where no "
+                "false positive was observed the 95% upper limit is used, since zero events does "
+                "not mean a zero rate. The remainder is an upper bound on what could be "
+                "astrophysical, not a count of it."
             ),
         },
         "whichSignificance": (

@@ -185,19 +185,27 @@ def run_region(path: Path, rng: np.random.Generator) -> dict[str, Any] | None:
         # physics, no departure.
         inject(test_reference, positions, flux / field_ratio, sigma)
 
+        # Detection must match the catalogue's exactly, or completeness and the
+        # false-positive rate describe a pipeline that is not the one in use.
+        # The catalogue detects on the SUM of both frames; measuring recovery
+        # against Rubin-only detection would report the selection function of a
+        # stage that no longer exists.
         background = Background2D(test_rubin, box_size=BACKGROUND_BOX, filter_size=3,
                                   mask=~valid, bkg_estimator=MedianBackground())
-        detection = test_rubin - background.background
-        segments = detect_sources(detection, DETECT_SIGMA * background.background_rms,
-                                  npixels=MIN_PIXELS, mask=~valid)
+        reference_background = Background2D(test_reference, box_size=BACKGROUND_BOX, filter_size=3,
+                                            mask=~valid, bkg_estimator=MedianBackground())
+        detection = (test_rubin - background.background) + (test_reference - reference_background.background)
+        threshold = DETECT_SIGMA * np.hypot(background.background_rms, reference_background.background_rms)
+        segments = detect_sources(detection, threshold, npixels=MIN_PIXELS, mask=~valid)
         if segments is None:
             continue
         segments = deblend_sources(detection, segments, npixels=MIN_PIXELS,
                                    nlevels=32, contrast=0.001, progress_bar=False)
-        rubin_cat = SourceCatalog(detection, segments, background=background.background,
+        rubin_cat = SourceCatalog(test_rubin - background.background, segments,
+                                  background=background.background,
                                   error=background.background_rms, mask=~valid)
-        reference_cat = SourceCatalog(test_reference, segments,
-                                      error=background.background_rms, mask=~valid)
+        reference_cat = SourceCatalog(test_reference - reference_background.background, segments,
+                                      error=reference_background.background_rms, mask=~valid)
         xs = np.asarray(rubin_cat.xcentroid, dtype=np.float64)
         ys = np.asarray(rubin_cat.ycentroid, dtype=np.float64)
         rubin_flux = np.asarray(rubin_cat.segment_flux, dtype=np.float64)
@@ -319,17 +327,31 @@ def main() -> None:
         flagged = counts.get("cleanAbove5SigmaFromFieldRatio")
         rate = false_positives / recovered if recovered else None
         if clean and flagged is not None and rate is not None:
-            expected = clean * rate
+            # With no false positives observed, the expectation uses the upper
+            # limit: an estimate of zero noise would be a stronger claim than the
+            # measurement supports.
+            effective = rate if false_positives else 3.0 / recovered
+            expected = clean * effective
             application = {
                 "cleanSources": clean,
                 "flaggedAbove5Sigma": flagged,
                 "falsePositiveRate": round(rate, 5),
+                "rateUsed": round(effective, 5),
+                "rateIsUpperLimit": bool(false_positives == 0),
                 "expectedFalsePositives": round(expected, 1),
                 "excessOverNoise": round(flagged - expected, 1),
                 "reading": (
-                    f"About {expected:.0f} of the {flagged} flagged sources are consistent with "
-                    f"noise at this rate, leaving roughly {flagged - expected:.0f} in excess. "
-                    "Excess is not the same as real: this test injects sources with identical "
+                    f"At most about {expected:.0f} of the {flagged} flagged sources are "
+                    f"consistent with noise, leaving at least roughly {flagged - expected:.0f} "
+                    "in excess. "
+                    + (
+                        "No false positive was seen in the injection test, so this uses the 95% "
+                        "upper limit of three over the number recovered rather than a rate of "
+                        "zero, which the sample cannot support. "
+                        if false_positives == 0
+                        else ""
+                    )
+                    + "Excess is not the same as real: this test injects sources with identical "
                     "colours in both frames, so it cannot produce a bandpass-driven departure, "
                     "and the bandpass transfer between these surveys is unvalidated. The excess "
                     "is an upper bound on what could be astrophysical, not a count of it."
@@ -347,7 +369,10 @@ def main() -> None:
             "completeness": (
                 "Synthetic Gaussians at the frame's own measured PSF width are injected at blank "
                 "positions across a magnitude ladder, detection is re-run exactly as the catalogue "
-                "runs it, and the recovered fraction is reported per bin."
+                "runs it -- on the SUM of both frames -- and the recovered fraction is reported "
+                "per bin. Matching the catalogue's detection is not optional: measuring recovery "
+                "against a different detector reports the selection function of a pipeline nobody "
+                "is using."
             ),
             "falsePositives": (
                 "The same sources are injected into both frames with the field's own median flux "
@@ -369,6 +394,11 @@ def main() -> None:
             "overallCompleteness": round(recovered / injected, 4) if injected else None,
             "falsePositives": false_positives,
             "falsePositiveRate": round(false_positives / recovered, 5) if recovered else None,
+            # Zero events does not mean zero rate. With none seen in N trials the
+            # 95% upper limit is 3/N -- the rule of three -- and quoting 0.00%
+            # would claim a precision the sample cannot support.
+            "falsePositiveRate95UpperLimit": round(3.0 / recovered, 5) if recovered else None,
+            "rateIsAnUpperLimit": bool(false_positives == 0),
             "median90PercentCompleteMagAB": float(np.median(limits)) if limits else None,
             "regionsAttempted": len(paths),
             "regionsYieldingAMeasurement": len(records),
