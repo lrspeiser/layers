@@ -1310,3 +1310,47 @@ tool built specifically to stop this class of error, and it survived two rounds 
 reporting before a check of an unrelated question exposed it. The lesson §25 drew
 — that the defence which works is running the full thing and comparing — needs
 one addition: *including against the sources you are already reading.*
+
+## 27. Which threshold the extended-source transfer actually fails
+
+§26 established that bandpass transfer blocks all 190 regions because no
+extended-source transfer has passed QA, making it the single gate in front of
+every quantitative claim here. "The transfer fails" had been treated as one fact.
+It is four, and which one fails says what the problem is:
+
+| threshold | limit | meaning |
+|---|---|---|
+| `minimumResolvedCells` | 20 | enough independent samples |
+| `minimumColorSupportFraction` | 0.8 | galaxy colours inside the stellar range |
+| `maximumMedianAbsoluteResidualMag` | 0.08 | no systematic offset |
+| `maximumRobustResidualScatterMag` | 0.12 | the model predicts precisely |
+
+Failing on **scatter** means the colour model does not work on resolved light.
+Failing on **median** with scatter inside tolerance means the opposite — it
+predicts very well and everything is displaced by a constant.
+
+| target | colour support | median resid | scatter |
+|---|---|---|---|
+| ugc00634 | 0.19 | 0.474 (5.9×) | 0.311 (2.6×) |
+| ugc00191 | 0.68 | 1.080 (13.5×) | 0.512 (4.3×) |
+| **ugc00891** | **1.00** | 0.379 (4.7×) | **0.035 — passes, 3.4× inside** |
+
+The one galaxy whose colours lie entirely inside the stellar calibration range
+has residual scatter roughly ten times smaller than the other two, comfortably
+inside tolerance, and fails **only** on the offset. Its point-source
+cross-validation RMS is 0.0100 mag. On that target the colour model is not the
+problem: a bandpass error would show as colour-dependent scatter, and scatter is
+the part that passes.
+
+If that holds up, the gate in front of all 190 regions is the **same unexplained
+extended-source photometric systematic as §21**, surfacing a second time rather
+than an independent filter problem — one cause behind both, and resolved-source
+photometry is where to attack it.
+
+**It is n=1.** Two small samples reversed against their full runs in this
+session; one target is smaller than either. The other two failures are consistent
+with the reading — both have poor colour support, so their residuals include
+extrapolation beyond the stellar range, which would inflate scatter — but
+consistency is not confirmation. This is a lead to test on more resolved galaxies
+with full colour support, not a diagnosis to act on.
+`pipeline/diagnose_extended_transfer.py` reproduces the table.

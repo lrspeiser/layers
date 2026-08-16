@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "layers-extended-transfer-diagnosis-v1",
+  "question": "The extended-source transfer gates every quantitative claim in this project. Which of its four thresholds does it actually fail, and what does that implicate?",
+  "targetsAudited": 4,
+  "targets": [
+    {
+      "objectId": "ugc00191",
+      "layers": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "status": "qa-failed",
+      "breaches": {
+        "colorSupportFraction": {
+          "value": 0.6785714285714286,
+          "limit": 0.8,
+          "ratio": 0.8482142857142857
+        },
+        "medianAbsoluteResidualMag": {
+          "value": 1.0804442934993235,
+          "limit": 0.08,
+          "ratio": 13.505553668741543
+        },
+        "robustResidualScatterMag": {
+          "value": 0.5116969116156729,
+          "limit": 0.12,
+          "ratio": 4.2641409301306075
+        }
+      },
+      "within": {
+        "qualifiedCells": {
+          "value": 56,
+          "limit": 20,
+          "ratio": 2.8
+        }
+      }
+    },
+    {
+      "objectId": "ugc00191",
+      "layers": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "status": "qa-failed",
+      "breaches": {
+        "qualifiedCells": {
+          "value": 0,
+          "limit": 20,
+          "ratio": 0.0
+        },
+        "colorSupportFraction": {
+          "value": 0.0,
+          "limit": 0.8,
+          "ratio": 0.0
+        }
+      },
+      "within": {}
+    },
+    {
+      "objectId": "ugc00634",
+      "layers": [
+        "rubin-dp2-deep-coadd",
+        "legacy-survey-dr10"
+      ],
+      "status": "qa-failed",
+      "breaches": {
+        "colorSupportFraction": {
+          "value": 0.1891891891891892,
+          "limit": 0.8,
+          "ratio": 0.23648648648648649
+        },
+        "medianAbsoluteResidualMag": {
+          "value": 0.4739768569919122,
+          "limit": 0.08,
+          "ratio": 5.924710712398903
+        },
+        "robustResidualScatterMag": {
+          "value": 0.3113884282551534,
+          "limit": 0.12,
+          "ratio": 2.594903568792945
+        }
+      },
+      "within": {
+        "qualifiedCells": {
+          "value": 37,
+          "limit": 20,
+          "ratio": 1.85
+        }
+      }
+    },
+    {
+      "objectId": "ugc00891",
+      "layers": [
+        "rubin-dp2-deep-coadd",
+        "panstarrs-dr1-stack"
+      ],
+      "status": "qa-failed",
+      "breaches": {
+        "qualifiedCells": {
+          "value": 7,
+          "limit": 20,
+          "ratio": 0.35
+        },
+        "medianAbsoluteResidualMag": {
+          "value": 0.3792660070788342,
+          "limit": 0.08,
+          "ratio": 4.740825088485427
+        }
+      },
+      "within": {
+        "colorSupportFraction": {
+          "value": 1.0,
+          "limit": 0.8,
+          "ratio": 1.25
+        },
+        "robustResidualScatterMag": {
+          "value": 0.03518301659681943,
+          "limit": 0.12,
+          "ratio": 0.2931918049734953
+        }
+      }
+    }
+  ],
+  "offsetNotScatter": [
+    "ugc00891"
+  ],
+  "finding": "In the one target where the galaxy's colours lie entirely inside the stellar calibration range (ugc00891, colorSupportFraction 1.0), the residual scatter is 0.035 mag against a 0.12 limit -- 3.4 times better than required -- while the median absolute residual is 0.379 mag against a 0.08 limit. The colour model predicts resolved light precisely and everything is displaced by a near-constant offset. On that target the failure is photometric, not spectral: a bandpass error would show as colour-dependent scatter, and the scatter is the part that passes. The other two targets fail scatter as well, but both have poorer colour support (0.68 and 0.19), so their residuals include extrapolation beyond the stellar range.",
+  "caution": "One target with complete colour support is not a result. This session has twice had a small sample point the opposite way from the full set, and n=1 is smaller than either. It is a lead worth testing on more resolved galaxies with full colour support, not a diagnosis to act on.",
+  "whyItMatters": "If this holds, the blocker gating all 190 regions is the same unexplained extended-source photometric systematic as section 21, surfacing a second time, rather than an independent filter problem. One cause behind both, and the extended-source photometry is where to attack it.",
+  "reproduce": "python pipeline/diagnose_extended_transfer.py"
+}
