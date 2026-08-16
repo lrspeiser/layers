@@ -1,13 +1,23 @@
-# Machine access: what to expose, and the one decision that blocks the rest
+# Machine access: what is exposed, and how to use it
 
 Written 2026-08-15, in answer to "should we expose our analysis as API calls that
 their own code can use?"
 
-Short answer: **yes, but as IVOA protocols rather than a bespoke REST API — and
-one class of data cannot be exposed at all until you make a call that is yours,
-not mine, to make.**
+Short answer: **yes, as IVOA protocols rather than a bespoke REST API.** That is
+now built and live.
 
-## The blocker, found before building anything
+## Resolved 2026-08-15
+
+The project holds Rubin data rights and has chosen to publish. The catalogue is
+live: Parquet and gzipped VOTable at `/data/catalogue/`, spatially tiled behind
+an IVOA cone search at `/api/scs`, with a column dictionary and the completeness
+and false-positive rates on `/data`.
+
+Option 3 below is what was taken. The pixels themselves are still not
+redistributed — that part of the storage policy is unchanged, and rests on
+archive duplication and 36 GB rather than on rights.
+
+## The blocker as it stood, kept for the record
 
 [DATA_STORAGE.md](DATA_STORAGE.md) states the policy in its first line:
 
@@ -33,8 +43,10 @@ engineering one, and it has three defensible answers:
 3. **Confirm that derived catalogues are not restricted and serve it openly.**
    Requires reading Rubin's actual DP2 data-rights policy, not inferring it.
 
-Until one of those is chosen, the catalogue stays local. `published: false` is
-recorded in `source-catalogue.json` and a test asserts it.
+Option 3 was chosen. `catalogue-release.json` records `published: true`, and the
+tests now assert the opposite of what they asserted before: that the files exist,
+that the cone search serves them, and that the column dictionary explains which
+significance to cut on.
 
 ## What is safe to expose today
 
@@ -80,6 +92,10 @@ without repeating the measurements.
 TAP means ADQL, which means a query parser and an execution engine over the
 table. That is a real service, not a route: either a hosted database with a TAP
 front end (CADC's `youcat`, or a Postgres with `pgSphere` behind `vollt`), or
-registration with an existing provider. Worth doing once the catalogue's access
-question is settled, and not before — building a query service for a table that
-cannot be served would be the wrong order.
+registration with an existing provider.
+
+Now that the catalogue is published, this is the next genuine step, and the
+choice is between hosting one and registering the existing files with a provider
+who already runs one. Cone search covers "what is near this position", which is
+the common case; TAP would add "every source with departure_significance above 5
+and rubin_mag_ab brighter than 22", which cone search cannot express.

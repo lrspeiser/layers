@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "layers-catalogue-release-v1",
+  "generatedAt": "2026-08-16T05:18:24.661775+00:00",
+  "published": true,
+  "rows": 50233,
+  "regions": 189,
+  "files": {
+    "parquet": {
+      "path": "/data/catalogue/rubin-reference-sources.parquet",
+      "bytes": 11786660,
+      "sha256": "1ea4646ffba271c79e6e7b7982cf418fb15a7a2507dbb5d0308b043c1149b32c",
+      "use": "bulk analysis; read with pandas, polars or pyarrow"
+    },
+    "votableGzip": {
+      "path": "/data/catalogue/rubin-reference-sources.vot.gz",
+      "bytes": 12423738,
+      "sha256": "a0947e4b901fa81144bb39b1f4f604b57c36e80a0be5f5b118a5308c04142b84",
+      "use": "opens directly in TOPCAT, pyvo and astroquery"
+    }
+  },
+  "coneSearch": {
+    "endpoint": "/api/scs",
+    "protocol": "IVOA Simple Cone Search",
+    "tiles": {
+      "root": "/data/catalogue/tiles",
+      "scheme": "one-degree bins in RA and Dec, named RRR_sDD",
+      "count": 206,
+      "totalBytes": 20186083,
+      "why": "A serverless route cannot hold 50,000 rows per request, and sending the whole table to answer a positional query wastes the reader's bandwidth. A cone of any sane radius touches one or a few tiles."
+    }
+  },
+  "reliability": {
+    "median90PercentCompleteMagAB": 24.0,
+    "falsePositiveRate": 0.00288,
+    "note": "Multiply a flagged count by the false-positive rate to estimate how many are noise. The remainder is an upper bound on what could be astrophysical, not a count of it."
+  },
+  "whichSignificance": "Cut on departure_significance. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",
+  "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the field-to-field scatter, forty times larger than the filters permit.",
+  "columns": {
+    "source_id": {
+      "unit": "",
+      "ucd": "meta.id;meta.main",
+      "description": "Region id and segment label."
+    },
+    "region_id": {
+      "unit": "",
+      "ucd": "meta.id",
+      "description": "Which reconciled region this source was measured in."
+    },
+    "ra_deg": {
+      "unit": "deg",
+      "ucd": "pos.eq.ra;meta.main",
+      "description": "ICRS right ascension of the Rubin centroid."
+    },
+    "dec_deg": {
+      "unit": "deg",
+      "ucd": "pos.eq.dec;meta.main",
+      "description": "ICRS declination of the Rubin centroid."
+    },
+    "x_pixel": {
+      "unit": "pix",
+      "ucd": "pos.cartesian.x",
+      "description": "Centroid column in the reconciled frame."
+    },
+    "y_pixel": {
+      "unit": "pix",
+      "ucd": "pos.cartesian.y",
+      "description": "Centroid row in the reconciled frame."
+    },
+    "area_pixels": {
+      "unit": "pix2",
+      "ucd": "phys.area",
+      "description": "Segment area."
+    },
+    "semimajor_arcsec": {
+      "unit": "arcsec",
+      "ucd": "phys.size.smajAxis",
+      "description": "Second-moment semimajor axis."
+    },
+    "semiminor_arcsec": {
+      "unit": "arcsec",
+      "ucd": "phys.size.sminAxis",
+      "description": "Second-moment semiminor axis."
+    },
+    "ellipticity": {
+      "unit": "",
+      "ucd": "src.ellipticity",
+      "description": "1 minus the ratio of second-moment semiminor to semimajor axis. Zero is round; a PSF-like source sits near zero and an edge-on disc near one."
+    },
+    "rubin_flux_njy": {
+      "unit": "nJy",
+      "ucd": "phot.flux",
+      "description": "Rubin segment flux on the shared segmentation."
+    },
+    "rubin_flux_err_njy": {
+      "unit": "nJy",
+      "ucd": "stat.error;phot.flux",
+      "description": "Background-RMS error only. Excludes source Poisson noise; see departure_significance."
+    },
+    "reference_flux_njy": {
+      "unit": "nJy",
+      "ucd": "phot.flux",
+      "description": "Reference segment flux on the same pixels."
+    },
+    "reference_flux_err_njy": {
+      "unit": "nJy",
+      "ucd": "stat.error;phot.flux",
+      "description": "As above, for the reference frame."
+    },
+    "difference_flux_njy": {
+      "unit": "nJy",
+      "ucd": "phot.flux",
+      "description": "Segment flux of the difference plane."
+    },
+    "rubin_mag_ab": {
+      "unit": "mag",
+      "ucd": "phot.mag",
+      "description": "AB magnitude from rubin_flux_njy; NaN when flux is non-positive."
+    },
+    "reference_mag_ab": {
+      "unit": "mag",
+      "ucd": "phot.mag",
+      "description": "AB magnitude from reference_flux_njy."
+    },
+    "difference_significance": {
+      "unit": "",
+      "ucd": "stat.snr",
+      "description": "Difference over combined propagated error. Dominated by the ~7% Rubin offset; flags most bright sources. Not the column to cut on."
+    },
+    "flux_ratio": {
+      "unit": "",
+      "ucd": "arith.ratio",
+      "description": "rubin_flux_njy / reference_flux_njy."
+    },
+    "field_flux_ratio": {
+      "unit": "",
+      "ucd": "arith.ratio",
+      "description": "Median flux ratio of this source's field."
+    },
+    "expected_rubin_flux_njy": {
+      "unit": "nJy",
+      "ucd": "phot.flux",
+      "description": "reference_flux_njy scaled by field_flux_ratio."
+    },
+    "departure_njy": {
+      "unit": "nJy",
+      "ucd": "phot.flux",
+      "description": "rubin_flux_njy minus expected_rubin_flux_njy."
+    },
+    "departure_significance_propagated": {
+      "unit": "",
+      "ucd": "stat.snr",
+      "description": "Departure over propagated error. Understates uncertainty on bright sources; kept for comparison."
+    },
+    "log_flux_ratio": {
+      "unit": "",
+      "ucd": "arith.ratio",
+      "description": "log10 of flux_ratio."
+    },
+    "field_log_ratio_median": {
+      "unit": "",
+      "ucd": "stat.median",
+      "description": "Median log flux ratio of this source's field."
+    },
+    "field_log_ratio_scatter": {
+      "unit": "",
+      "ucd": "stat.stdev",
+      "description": "Robust scatter of log flux ratio in this field."
+    },
+    "departure_significance": {
+      "unit": "",
+      "ucd": "stat.snr",
+      "description": "USE THIS ONE. Distance from the field's median log flux ratio in units of that field's own measured scatter. No error model to be wrong."
+    },
+    "rubin_snr": {
+      "unit": "",
+      "ucd": "stat.snr",
+      "description": "rubin_flux_njy over its background-RMS error."
+    },
+    "reference_snr": {
+      "unit": "",
+      "ucd": "stat.snr",
+      "description": "As above, for the reference."
+    },
+    "flag_near_edge": {
+      "unit": "",
+      "ucd": "meta.code.qual",
+      "description": "Centroid within 10 pixels of the frame edge."
+    },
+    "flag_negative_reference": {
+      "unit": "",
+      "ucd": "meta.code.qual",
+      "description": "Reference flux is non-positive; ratios are undefined."
+    },
+    "flag_blended": {
+      "unit": "",
+      "ucd": "meta.code.qual",
+      "description": "Segment larger than 500 pixels; deblending may have merged neighbours."
+    }
+  }
+}
