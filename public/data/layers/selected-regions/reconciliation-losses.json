@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "layers-reconciliation-losses-v1",
+  "question": "optical-coverage-truth.json labels 21 pairs 'lostInReconciliation'. Which regions, and for what recorded reason?",
+  "method": "Per survey: regions with validated pixels, minus regions that produced a reconciled pair, minus regions with a failure recorded by the reconciler. Whatever remains had pixels, produced nothing, and said nothing about why.",
+  "surveys": [
+    {
+      "surveyId": "legacy-surveys-dr10",
+      "validatedPixels": 198,
+      "reconciledPairs": 193,
+      "lost": 5,
+      "explainedByRecordedFailure": 1,
+      "explainedByMissingProduct": 4,
+      "unexplained": 0,
+      "failureReasons": {
+        "ValueError: insufficient matched sources to measure PSF (0 matched)": 1
+      },
+      "missingProductReasons": {
+        "no Rubin product for this region, so no reference can pair with it": 4
+      },
+      "lostRegions": {
+        "dp2-tract-9939": "ValueError: insufficient matched sources to measure PSF (0 matched)",
+        "dp2-tract-8999": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9241": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9935": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9936": "no Rubin product for this region, so no reference can pair with it"
+      }
+    },
+    {
+      "surveyId": "des-dr2",
+      "validatedPixels": 148,
+      "reconciledPairs": 143,
+      "lost": 5,
+      "explainedByRecordedFailure": 0,
+      "explainedByMissingProduct": 5,
+      "unexplained": 0,
+      "failureReasons": {},
+      "missingProductReasons": {
+        "no des-dr2 optical product for this region": 1,
+        "no Rubin product for this region, so no reference can pair with it": 4
+      },
+      "lostRegions": {
+        "dp2-tract-5281": "no des-dr2 optical product for this region",
+        "dp2-tract-8999": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9241": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9935": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9936": "no Rubin product for this region, so no reference can pair with it"
+      }
+    },
+    {
+      "surveyId": "panstarrs-dr2",
+      "validatedPixels": 196,
+      "reconciledPairs": 188,
+      "lost": 8,
+      "explainedByRecordedFailure": 1,
+      "explainedByMissingProduct": 7,
+      "unexplained": 0,
+      "failureReasons": {
+        "ValueError: insufficient matched sources to measure PSF (0 matched)": 1
+      },
+      "missingProductReasons": {
+        "no panstarrs-dr2 optical product for this region": 3,
+        "no Rubin product for this region, so no reference can pair with it": 4
+      },
+      "lostRegions": {
+        "dp2-tract-9939": "ValueError: insufficient matched sources to measure PSF (0 matched)",
+        "dp2-tract-5281": "no panstarrs-dr2 optical product for this region",
+        "dp2-tract-5391": "no panstarrs-dr2 optical product for this region",
+        "dp2-tract-8026": "no panstarrs-dr2 optical product for this region",
+        "dp2-tract-8999": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9241": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9935": "no Rubin product for this region, so no reference can pair with it",
+        "dp2-tract-9936": "no Rubin product for this region, so no reference can pair with it"
+      }
+    }
+  ],
+  "unexplainedTotal": 0,
+  "regionsWithNoRubinProduct": [
+    "dp2-tract-8999",
+    "dp2-tract-9241",
+    "dp2-tract-9935",
+    "dp2-tract-9936"
+  ],
+  "finding": "Every loss is accounted for. Four regions -- 8999, 9241, 9935, 9936 -- hold no Rubin product at all, so they fail against all three references and contribute 12 of the losses; that is a Rubin-side gap, not an archive gap on the reference side, which is why it survives changing the reference. Three more lack the specific survey's optical product: 5281 against DES and Pan-STARRS, 5391 and 8026 against Pan-STARRS. Two regions carry a reconciler failure with a recorded reason. Nothing is left unexplained, and no silent drop of the kind that cost this project 12 catalogue regions is present here.",
+  "reproduce": "python pipeline/audit_reconciliation_losses.py"
+}

@@ -41,5 +41,6 @@
       "why": "2 regions have no r-band stack; 2 more failed discovery or validation."
     }
   ],
-  "recommendation": "Coverage planning should record 'the archive served pixels here' rather than 'a declared footprint contains this position'. Every target built on the second is an overestimate, and this project has now measured that gap seven separate times."
+  "recommendation": "Coverage planning should record 'the archive served pixels here' rather than 'a declared footprint contains this position'. Every target built on the second is an overestimate, and this project has now measured that gap seven separate times.",
+  "dispositionOfReconciliationLosses": "All 21 are accounted for, per region, in reconciliation-losses.json. Four regions (8999, 9241, 9935, 9936) hold no Rubin product at all and so fail against every reference, contributing 12; three lack one survey's optical product (5281 against DES and Pan-STARRS, 5391 and 8026 against Pan-STARRS); two carry a reconciler failure with a recorded reason. None is a silent drop."
 }

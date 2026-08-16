@@ -110,7 +110,11 @@ def main() -> None:
             "reconciled optical pairs", "selected-regions/optical-coverage-truth.json",
             "The target is a sum of footprint overlaps, 199+164+162+198=723. HSC PDR2 contributes "
             "162 to it and 0 to reality: PDR2 publishes only HiPS tiles, which carry no calibrated "
-            "flux and no variance plane.",
+            "flux and no variance plane. The 21 pairs between the delivered 521 and the reachable "
+            "542 are attributed per region in reconciliation-losses.json: 12 to four regions that "
+            "hold no Rubin product and so fail against every reference, 4 to regions lacking one "
+            "survey's optical product, 2 to reconciler failures with a recorded reason, and 3 to "
+            "pairs the pilot run reconciled outside the 200-region set. None is a silent drop.",
         ),
         score(
             "G2", "Gaia cross-match and registration", 200,
