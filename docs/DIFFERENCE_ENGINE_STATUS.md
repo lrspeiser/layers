@@ -787,3 +787,63 @@ actually there.
 The recommendation from §15 applies to all three: derive targets from
 archive-served data, not from declared coverage. `dp2-band-availability.json`
 records this one.
+
+## 18. The bandpass, settled: the filters are simple, the scatter is not them
+
+Every quantitative claim in this project has carried the same caveat — bandpass
+transfer is not validated, so a genuine colour difference could produce the
+signal. §3 measured the empirical colour term by regressing observed magnitude
+differences against observed colour and found a reduced χ² of 93.8 over 112
+fields against a single constant, with a field spread of 0.168 mag.
+
+An empirical fit cannot say *why* it scatters. It contains the filter difference
+**and** photometric error, crowding, PSF residuals and calibration structure, all
+at once. Synthetic photometry separates them, because integrating a known
+spectrum through two known filter curves has no observational error in it at all.
+
+`pipeline/measure_synthetic_bandpass.py` integrates 11 CALSPEC HST flux
+standards — the spectrophotometric ladder these surveys calibrate against, and
+real stars rather than blackbodies, which matters because the r band holds Hα and
+the TiO bands — through the SVO official transmission curves, as AB magnitudes
+for a photon-counting detector.
+
+| pair | colour term (per mag of Rubin g−r) | residual rms |
+|---|---|---|
+| Rubin r → DECam r (Legacy, DES) | **−0.0800** | **0.0036 mag** |
+| Rubin r → PS1 r | **+0.0072** | **0.0002 mag** |
+
+Set against the empirical fit for the same pair:
+
+| | value |
+|---|---|
+| empirical term | −0.0677 ± 0.0018 |
+| synthetic term | −0.0800 |
+| difference | 0.0123 per mag |
+| empirical field spread | 0.168 mag |
+| synthetic residual | 0.0036 mag |
+
+**Two conclusions, and the second is the one that matters.**
+
+The empirical term agrees with the synthetic one to 0.012 mag per mag of colour.
+The regression was measuring real filter physics, not an artefact.
+
+But **the filters require no field-to-field variation whatsoever**: a single
+straight line describes the synthetic transfer to 3.6 millimagnitudes across the
+entire colour range of the standards. So the empirical fit's χ² of 93.8, and its
+0.168 mag field spread — a factor of forty larger than the filters allow — are
+**not the bandpass**. They are photometric error, crowding, PSF residuals, or
+spatial structure in a survey's calibration.
+
+That retires the caveat this project has attached to everything, and replaces it
+with a sharper statement: the colour term between Rubin r and DECam r is small
+and linear, so a source needs an extreme colour to shift by much, and anything
+varying field to field has to be explained by something other than filters.
+
+**Rubin r and PS1 r are nearly the same filter** (+0.007 mag per mag, 0.2
+millimag residual). The Pan-STARRS pairing is therefore the cleanest of the three
+for any colour-sensitive question, which is worth knowing before choosing a
+reference.
+
+One limit, stated because it is real: these are stellar spectra. Galaxies
+dominate the source counts, and their shapes and redshifts differ, so the stellar
+prediction is a floor on the transfer's complexity rather than the whole answer.

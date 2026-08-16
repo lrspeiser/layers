@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "layers-synthetic-bandpass-v1",
+  "generatedAt": "2026-08-16T04:34:57.434317+00:00",
+  "question": "What colour term do these filters actually require, independent of any observation?",
+  "method": {
+    "formula": "AB magnitude through a photon-counting bandpass: -2.5 log10(int f_nu T dv/v / int T dv/v) - 48.60",
+    "filters": "SVO Filter Profile Service official transmission curves",
+    "spectra": "CALSPEC HST flux standards -- the spectrophotometric ladder the surveys calibrate against, and real stars rather than blackbodies, which matters because the r band contains Halpha and the TiO bands separating late types.",
+    "coverageRequirement": "A spectrum must span the whole filter or it is skipped; a truncated integral returns a magnitude for a band the star was never measured through."
+  },
+  "counts": {
+    "filtersLoaded": 5,
+    "standardsIntegrated": 11,
+    "pairsFitted": 3
+  },
+  "predictedColourTerms": {
+    "legacy-surveys-dr10": {
+      "referenceFilter": "decam-r",
+      "standards": 11,
+      "colourRange_g_minus_r": [
+        0.2419,
+        0.6012
+      ],
+      "predictedColourTermPerMag": -0.08,
+      "predictedZeropointOffsetMag": 0.00359,
+      "residualRmsMag": 0.00364,
+      "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
+    },
+    "des-dr2": {
+      "referenceFilter": "decam-r",
+      "standards": 11,
+      "colourRange_g_minus_r": [
+        0.2419,
+        0.6012
+      ],
+      "predictedColourTermPerMag": -0.08,
+      "predictedZeropointOffsetMag": 0.00359,
+      "residualRmsMag": 0.00364,
+      "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
+    },
+    "panstarrs-dr2": {
+      "referenceFilter": "ps1-r",
+      "standards": 11,
+      "colourRange_g_minus_r": [
+        0.2419,
+        0.6012
+      ],
+      "predictedColourTermPerMag": 0.00724,
+      "predictedZeropointOffsetMag": -0.00025,
+      "residualRmsMag": 0.00024,
+      "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
+    }
+  },
+  "comparisonToEmpirical": {
+    "pair": "Rubin g-r versus Legacy r",
+    "empiricalTermPerMag": -0.0677220862201912,
+    "syntheticTermPerMag": -0.08,
+    "differencePerMag": 0.01228,
+    "empiricalReducedChiSquare": 93.80308056327335,
+    "empiricalFieldSpread": 0.16835577452223122,
+    "syntheticResidualRms": 0.00364,
+    "reading": "The synthetic term is what the filters alone require, with no observational error in it. The two agree to about 0.012 mag per mag of colour, so the empirical term is measuring real filter physics. What the filters do NOT require is field-to-field variation: a single line fits the synthetic photometry to a few millimagnitudes across the whole colour range. The empirical fit's reduced chi-square of 93.8 and its field spread are therefore not the bandpass. They are photometric error, crowding, PSF residuals or spatial structure in a survey's calibration."
+  },
+  "caveat": "This predicts the term for stellar spectra. Galaxies, which dominate the source counts, have different spectral shapes and redshifts, so the stellar prediction is a floor on the transfer's complexity rather than the whole answer.",
+  "standards": [
+    {
+      "standard": "bd",
+      "magnitudes": {
+        "rubin-r": 9.34936,
+        "rubin-g": 9.61579,
+        "rubin-i": 9.26316,
+        "decam-r": 9.33069,
+        "ps1-r": 9.35114
+      },
+      "rubinColour_g_minus_i": 0.35263,
+      "rubinColour_g_minus_r": 0.26643
+    },
+    {
+      "standard": "hd009051",
+      "magnitudes": {
+        "rubin-r": 8.68864,
+        "rubin-g": 9.28983,
+        "rubin-i": 8.43805,
+        "decam-r": 8.64005,
+        "ps1-r": 8.69299
+      },
+      "rubinColour_g_minus_i": 0.85178,
+      "rubinColour_g_minus_r": 0.60119
+    },
+    {
+      "standard": "hd031128",
+      "magnitudes": {
+        "rubin-r": 9.00976,
+        "rubin-g": 9.31202,
+        "rubin-i": 8.90933,
+        "decam-r": 8.98833,
+        "ps1-r": 9.01175
+      },
+      "rubinColour_g_minus_i": 0.4027,
+      "rubinColour_g_minus_r": 0.30227
+    },
+    {
+      "standard": "hd074000",
+      "magnitudes": {
+        "rubin-r": 9.56346,
+        "rubin-g": 9.80537,
+        "rubin-i": 9.48827,
+        "decam-r": 9.54684,
+        "ps1-r": 9.56499
+      },
+      "rubinColour_g_minus_i": 0.3171,
+      "rubinColour_g_minus_r": 0.2419
+    },
+    {
+      "standard": "hd111980",
+      "magnitudes": {
+        "rubin-r": 8.2356,
+        "rubin-g": 8.5753,
+        "rubin-i": 8.12172,
+        "decam-r": 8.21137,
+        "ps1-r": 8.23781
+      },
+      "rubinColour_g_minus_i": 0.45358,
+      "rubinColour_g_minus_r": 0.3397
+    },
+    {
+      "standard": "hd160617",
+      "magnitudes": {
+        "rubin-r": 8.6092,
+        "rubin-g": 8.89663,
+        "rubin-i": 8.51133,
+        "decam-r": 8.58816,
+        "ps1-r": 8.61112
+      },
+      "rubinColour_g_minus_i": 0.3853,
+      "rubinColour_g_minus_r": 0.28743
+    },
+    {
+      "standard": "hd200654",
+      "magnitudes": {
+        "rubin-r": 8.90123,
+        "rubin-g": 9.35432,
+        "rubin-i": 8.70319,
+        "decam-r": 8.86291,
+        "ps1-r": 8.90467
+      },
+      "rubinColour_g_minus_i": 0.65113,
+      "rubinColour_g_minus_r": 0.45309
+    },
+    {
+      "standard": "p177d",
+      "magnitudes": {
+        "rubin-r": 13.30431,
+        "rubin-g": 13.72941,
+        "rubin-i": 13.17996,
+        "decam-r": 13.27664,
+        "ps1-r": 13.307
+      },
+      "rubinColour_g_minus_i": 0.54945,
+      "rubinColour_g_minus_r": 0.42511
+    },
+    {
+      "standard": "p330e",
+      "magnitudes": {
+        "rubin-r": 12.845,
+        "rubin-g": 13.26529,
+        "rubin-i": 12.71782,
+        "decam-r": 12.81678,
+        "ps1-r": 12.84765
+      },
+      "rubinColour_g_minus_i": 0.54747,
+      "rubinColour_g_minus_r": 0.42029
+    },
+    {
+      "standard": "snap2",
+      "magnitudes": {
+        "rubin-r": 16.03991,
+        "rubin-g": 16.48633,
+        "rubin-i": 15.90702,
+        "decam-r": 16.01174,
+        "ps1-r": 16.04254
+      },
+      "rubinColour_g_minus_i": 0.57931,
+      "rubinColour_g_minus_r": 0.44642
+    },
+    {
+      "standard": "sun",
+      "magnitudes": {
+        "rubin-r": -26.93407,
+        "rubin-g": -26.49116,
+        "rubin-i": -27.04052,
+        "decam-r": -26.95971,
+        "ps1-r": -26.93146
+      },
+      "rubinColour_g_minus_i": 0.54936,
+      "rubinColour_g_minus_r": 0.4429
+    }
+  ]
+}
