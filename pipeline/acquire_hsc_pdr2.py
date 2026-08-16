@@ -60,6 +60,10 @@ BAND = "HSC-R"
 SIZE_ARCMIN = 4.0
 USER_AGENT = "Rubin-Light-Atlas/0.3 (+https://github.com/lrspeiser/rubin-light-atlas)"
 
+class NoCoverage(Exception):
+    """The service answered that it has no coadd here."""
+
+
 RETRIES = 3
 BACKOFF_SECONDS = 4
 TIMEOUT_SECONDS = 180
@@ -159,6 +163,10 @@ def fetch(url: str, user: str, password: str) -> bytes:
             with urllib.request.urlopen(request, timeout=TIMEOUT_SECONDS) as response:
                 return response.read()
         except urllib.error.HTTPError as error:
+            # 404 means the survey has no coadd at this position. That is
+            # coverage, not failure, and retrying cannot change it.
+            if error.code == 404:
+                raise NoCoverage("no PDR2 coadd at this position") from None
             # 401/403 will not improve by retrying, and retrying a bad credential
             # risks locking the account.
             if error.code in (401, 403):
@@ -185,6 +193,34 @@ def inspect(path: Path) -> dict[str, Any]:
                 break
         if image is None:
             raise ValueError("no 2-D image plane")
+        image_like = sum(
+            1 for hdu in handle
+            if hdu.data is not None and getattr(hdu.data, "ndim", 0) == 2
+            and hdu.data.shape == image.shape
+        )
+        filter_name = None
+        for hdu in handle:
+            if "FILTER" in hdu.header:
+                filter_name = str(hdu.header["FILTER"]).strip()
+                break
+        # FLUXMAG0 is the count corresponding to 0 mag AB, and it is what puts
+        # these pixels on an absolute scale. Read it rather than assuming the
+        # release-wide 27.0 zeropoint: a constant taken on faith is how this
+        # project has been wrong six times over.
+        flux_mag0 = None
+        for hdu in handle:
+            for key in ("FLUXMAG0", "MAGZERO", "PHOTFLAM"):
+                if key in hdu.header:
+                    try:
+                        flux_mag0 = float(hdu.header[key])
+                    except (TypeError, ValueError):
+                        continue
+                    if key == "MAGZERO":
+                        # A magnitude zeropoint, not a count: convert.
+                        flux_mag0 = 10.0 ** (flux_mag0 / 2.5)
+                    break
+            if flux_mag0:
+                break
         finite = np.isfinite(image)
         if not finite.any():
             raise ValueError("no finite pixels")
@@ -192,8 +228,19 @@ def inspect(path: Path) -> dict[str, Any]:
             "planes": planes,
             "shape": [int(n) for n in image.shape],
             "validPixelFraction": float(finite.mean()),
-            "hasVariancePlane": any("VAR" in name.upper() for name in planes),
-            "hasMaskPlane": any("MASK" in name.upper() for name in planes),
+            # HSC cutouts return image, mask and variance as HDUs 1-3 with no
+            # EXTNAME, so a name-based check reports "no variance plane" on a file
+            # that has one and every region looks unusable. Detect by structure:
+            # three same-shaped image HDUs after the primary is the convention.
+            "hasVariancePlane": image_like >= 3
+            or any("VAR" in name.upper() for name in planes),
+            "hasMaskPlane": image_like >= 2
+            or any("MASK" in name.upper() for name in planes),
+            "imageLikeHdus": image_like,
+            "planeNamesPresent": any(name.strip() for name in planes[1:]),
+            "filter": filter_name,
+            "fluxMag0": flux_mag0,
+            "absoluteScaleAvailable": flux_mag0 is not None,
             "medianPixel": float(np.median(image[finite])),
         }
 
@@ -250,6 +297,7 @@ def main() -> None:
     args.cache.mkdir(parents=True, exist_ok=True)
     records: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []
+    uncovered: list[str] = []
 
     for index, region in enumerate(regions, 1):
         region_id = region.get("regionId")
@@ -281,6 +329,8 @@ def main() -> None:
                     **checks,
                 }
             )
+        except NoCoverage:
+            uncovered.append(region_id)
         except SystemExit:
             raise
         except Exception as error:  # noqa: BLE001 - one region must not end the run
@@ -300,6 +350,8 @@ def main() -> None:
         "band": args.band,
         "cutoutArcmin": SIZE_ARCMIN,
         "regionsOutsideFootprint": outside,
+        "regionsWithNoCoadd": len(uncovered),
+        "regionsWithNoCoaddIds": uncovered,
         "regionsAttempted": len(regions),
         "regionsValidated": len(records),
         "regions": records,
@@ -328,7 +380,11 @@ def main() -> None:
         print(f"failed {len(failures)}; first few:")
         for item in failures[:5]:
             print(f"  {item['regionId']}: {item['reason'][:90]}")
-    print(f"wrote {args.output.relative_to(ROOT)}")
+    try:
+        shown = args.output.relative_to(ROOT)
+    except ValueError:
+        shown = args.output
+    print(f"wrote {shown}")
 
 
 if __name__ == "__main__":
