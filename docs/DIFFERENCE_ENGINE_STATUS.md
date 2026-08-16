@@ -847,3 +847,51 @@ reference.
 One limit, stated because it is real: these are stellar spectra. Galaxies
 dominate the source counts, and their shapes and redshifts differ, so the stellar
 prediction is a floor on the transfer's complexity rather than the whole answer.
+
+## 19. What the scatter is, and mostly is not
+
+§18 left a well-posed question. If the field-to-field scatter in the colour term
+is forty times larger than the filters permit, it is one of: photometric error,
+crowding, PSF residuals, or spatial calibration structure. Every one of those has
+a covariate already measured per region by another operator, so the question is
+answerable without new data.
+
+`pipeline/diagnose_field_scatter.py` rank-correlates each field's
+|colour term − synthetic prediction| against eight covariates, over 113 g−r
+fields, with a 20,000-shuffle permutation test.
+
+| covariate | suspect | ρ | p |
+|---|---|---|---|
+| **fit's own stated uncertainty** | photometric error | **+0.277** | **0.0028** |
+| colour baseline of the sources | photometric error | −0.127 | 0.177 |
+| compact-source count | crowding | −0.119 | 0.212 |
+| background RMS | photometric error | +0.056 | 0.561 |
+| median source S/N | photometric error | +0.049 | 0.597 |
+| sources used in the fit | photometric error | −0.031 | 0.737 |
+| kernel star residual | PSF residuals | −0.022 | 0.815 |
+| declination | calibration structure | +0.019 | 0.843 |
+
+**One of eight clears the threshold, and it explains about 8% of the rank
+variance.** Fields whose fits declare themselves more uncertain do depart more —
+photometric error contributes. It does not explain: 92% of the ordering is
+something else.
+
+The nulls are the more useful half. **Crowding, the kernel's own residual,
+background noise, source count, colour baseline, signal-to-noise and declination
+all come back flat.** Two of those matter particularly:
+
+- **The kernel residual shows nothing** (ρ = −0.022). Having just replaced the
+  Gaussian PSF match with a fitted one and cut star residuals by 2.5×, this says
+  the remaining PSF error is not what drives the colour-term scatter. That closes
+  off the most tempting explanation.
+- **Crowding shows nothing here** (ρ = −0.119, p 0.21), which is an independent
+  check on §12's crowding attribution — the one recorded as not converged. It
+  does not settle that question, but it does not support it either.
+
+So the honest state is: the filters are simple (§18), photometric error
+contributes weakly, the four mechanisms this project can measure are ruled out as
+dominant, and most of the scatter remains unexplained by anything currently
+recorded.
+
+Stated limit: these covariates correlate with each other, so a null does not
+fully clear a mechanism. What it does is remove it as the *dominant* cause.
