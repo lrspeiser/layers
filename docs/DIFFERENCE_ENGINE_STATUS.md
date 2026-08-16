@@ -1354,3 +1354,69 @@ extrapolation beyond the stellar range, which would inflate scatter — but
 consistency is not confirmation. This is a lead to test on more resolved galaxies
 with full colour support, not a diagnosis to act on.
 `pipeline/diagnose_extended_transfer.py` reproduces the table.
+
+## 28. The three-way optical cross-check: the scatter is shared, the PS1 zeropoint is not
+
+HSC PDR2 is fetched, so for the first time this project has three independent
+optical references measured on identical Rubin pixels. G1's stated purpose was
+never the pair count; it was this test.
+
+**The logic.** Each region yields an empirical compact-source flux ratio, Rubin
+over reference. If the field-to-field spread comes from the reference survey's
+calibration, it shrinks when the reference changes. If it comes from Rubin, it
+does not.
+
+**Across each survey's own footprint** — the wrong comparison, reported because
+it is the trap:
+
+| reference | filter | n | median scale | spread (dex) |
+|---|---|---|---|---|
+| Legacy DR10 | DECam r | 189 | 0.9265 | 0.0880 |
+| DES DR2 | DECam r | 142 | 0.9201 | 0.1120 |
+| Pan-STARRS DR2 | PS1 r | 187 | 1.1568 | 0.0328 |
+| HSC PDR2 | HSC r2 / r | 106 | 0.9320 | 0.0185 |
+
+A **6.05×** range, ordered exactly by filter distance from Rubin r. It reads as
+decisive evidence that the scatter is a reference artefact. It is not.
+
+**On the 106 regions all three measured** — same sky, same Rubin pixels:
+
+| reference | median scale | spread (dex) |
+|---|---|---|
+| Legacy DR10 | 0.9110 | 0.0250 |
+| Pan-STARRS DR2 | 1.1567 | 0.0247 |
+| HSC PDR2 | 0.9320 | **0.0185** |
+
+**1.35×.** Most of the apparent reference-dependence was *which sky each survey
+covers*, not the survey. Comparing surveys on their own footprints answers a
+different question from the one being asked, and answers it wrongly — the ninth
+footprint-versus-reality lesson here, and the first where it would have inverted
+a scientific conclusion rather than inflating a count.
+
+**What the controlled comparison says.**
+
+The spreads are close, so the field-to-field scatter is largely **common** to all
+three references. That points away from any single survey's calibration and
+toward Rubin or the sky itself. HSC is modestly tighter (0.0185 against 0.025),
+consistent with a small reference-side component sitting on a larger shared one.
+
+The medians are the sharper result. **Legacy and HSC independently put Rubin
+about 7–9% faint** — different instruments, different filters, different
+calibration heritage, agreeing. Pan-STARRS is the lone outlier at **+16%**, and
+Pan-STARRS is also the one reference here whose absolute flux chain this project
+has never verified: its conversion rests on an EXPTIME convention read from a
+header (§ the reconcile chain marks it `verified: false`). The simplest reading
+is that the PS1 zeropoint is wrong, not that Rubin is bright.
+
+That matters beyond this table, because PS1 supplied 188 of the reconciled pairs.
+Any aggregate that averaged PS1 in with Legacy has been averaging a likely
+zeropoint error into the result.
+
+**What this does not show.** It is a calibration comparison on compact sources.
+The bandpass blocker is open on all 190 regions (§26), the extended-source
+transfer has never passed QA (§27), and `comparisonReady` is 0. Nothing here is
+an astrophysical claim, and the ~7–9% deficit is a statement about photometric
+calibration between surveys, not about missing light.
+
+`pipeline/compare_three_way_optical.py` reproduces both tables, including the
+uncontrolled one.

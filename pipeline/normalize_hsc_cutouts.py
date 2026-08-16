@@ -53,9 +53,44 @@ DEFAULT_PUBLIC = ROOT / "public/data/layers/hsc-pdr2/normalized.json"
 
 AB_ZERO_POINT_NJY = 3.63078054770e12  # 3631 Jy in nJy
 
-# HSC mask bits that make a pixel unusable for photometry. Anything flagged bad,
-# saturated, or with no data contributes nothing trustworthy to a comparison.
-BAD_MASK_BITS = 0  # 0 means "require a clean mask"; see valid_mask().
+# Mask planes whose bits mean "this pixel's flux is untrustworthy". Read by name
+# from the header's MP_<NAME> keywords rather than by hardcoded bit number,
+# because the assignment is per-file and silently renumbering would be worse than
+# failing.
+#
+# The distinction matters enormously and got this wrong once already. Requiring a
+# completely clean mask (mask == 0) rejected 100% of the brightest 0.5% of pixels
+# in every cutout, because DETECTED is set on every pixel belonging to a source.
+# That is an *informational* plane: it says "a source is here", not "this pixel is
+# broken". Masking it removes exactly the objects the comparison exists to
+# measure, and the symptom was 0 matched sources in all 106 regions -- an image
+# that looks fine, containing nothing but sky.
+#
+# Kept deliberately: DETECTED, DETECTED_NEGATIVE, BRIGHT_OBJECT, NOT_DEBLENDED,
+# INEXACT_PSF, CLIPPED, INTRP, SUSPECT, CROSSTALK. Those flag context or reduced
+# confidence, not unusable flux.
+UNUSABLE_PLANES = (
+    "BAD", "SAT", "CR", "EDGE", "NO_DATA", "UNMASKEDNAN", "SENSOR_EDGE", "REJECTED",
+)
+
+
+def unusable_bitmask(handle: fits.HDUList) -> int:
+    """OR of the bits that make a pixel unusable, resolved by plane name."""
+    planes: dict[str, int] = {}
+    for hdu in handle:
+        planes.update(
+            {k[3:]: int(v) for k, v in hdu.header.items()
+             if k.startswith("MP_") and str(v).lstrip("-").isdigit()}
+        )
+    if not planes:
+        # No plane definitions: fall back to accepting everything rather than
+        # inventing bit numbers, and let the valid fraction speak for itself.
+        return 0
+    bits = 0
+    for name in UNUSABLE_PLANES:
+        if name in planes:
+            bits |= 1 << planes[name]
+    return bits
 
 
 def utc_now() -> str:
@@ -115,7 +150,13 @@ def normalize(source: Path, destination: Path) -> dict[str, Any]:
             else np.zeros(image.shape, dtype=np.int64)
         )
 
-        valid = np.isfinite(image) & np.isfinite(variance) & (variance > 0) & (mask == 0)
+        bad_bits = unusable_bitmask(handle)
+        valid = (
+            np.isfinite(image)
+            & np.isfinite(variance)
+            & (variance > 0)
+            & ((mask & bad_bits) == 0)
+        )
         ivar = np.zeros(image.shape, dtype=np.float32)
         ivar[valid] = (1.0 / variance[valid]).astype(np.float32)
 
@@ -124,7 +165,11 @@ def normalize(source: Path, destination: Path) -> dict[str, Any]:
         image_header["FLUXMAG0"] = float(flux_mag0)
         ivar_header = wcs_header.copy(); ivar_header["BUNIT"] = "1/nJy^2"
         mask_header = wcs_header.copy()
-        mask_header["MASKDEF"] = "1=finite science, positive variance, no HSC mask bit set"
+        mask_header["MASKDEF"] = (
+            "1=finite science, positive variance, no unusable HSC mask bit "
+            "(BAD/SAT/CR/EDGE/NO_DATA/UNMASKEDNAN/SENSOR_EDGE/REJECTED). "
+            "DETECTED is deliberately NOT masked: it marks sources, not defects."
+        )
 
         destination.parent.mkdir(parents=True, exist_ok=True)
         fits.HDUList([
@@ -138,6 +183,9 @@ def normalize(source: Path, destination: Path) -> dict[str, Any]:
             "fluxMag0": float(flux_mag0),
             "njyPerCount": scale,
             "validPixelFraction": float(valid.mean()),
+            "brightPixelsKept": float(
+                valid[image > np.nanpercentile(image, 99.5)].mean()
+            ),
             "shape": [int(n) for n in image.shape],
             "filter": str(header.get("FILTER", "")).strip() or None,
         }

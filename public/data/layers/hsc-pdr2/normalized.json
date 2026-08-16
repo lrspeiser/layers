@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-hsc-normalized-v1",
-  "generatedAt": "2026-08-16T15:11:01.929458+00:00",
+  "generatedAt": "2026-08-16T15:26:48.301268+00:00",
   "surveyId": "hsc-ssp-pdr2",
   "unit": "nJy",
   "conversion": "nJy = count * 3.63078e12 / FLUXMAG0, read per region from the cutout header",
@@ -16,12 +16,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "fcd05ede4fd41aeccd92d3dcf94546b7609cd11c01752eb986a491470b338fb5",
+        "sha256": "353db608be8b920de7f837444831cf9c439d63d5a2d7ce1b2120774360334d0e",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7186075645837717,
+      "validPixelFraction": 0.8242509065462179,
+      "brightPixelsKept": 0.507437854766099,
       "shape": [
         1429,
         1430
@@ -37,12 +38,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "680e385b3ca9e5dd0c0f8db98a935190f6b93ccbd6e22f28bc38efd48eeb2330",
+        "sha256": "67d5f582832a4df190b9b2eb70876d5cd7f332bec3e3cd2625fedaa6477ac4b3",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.795763578618722,
+      "validPixelFraction": 0.9690516621237405,
+      "brightPixelsKept": 0.863671951458211,
       "shape": [
         1429,
         1430
@@ -58,12 +60,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "7da9730dd298da445586274aae40546ccf34898970854746a047e4c400bc4a20",
+        "sha256": "a85c477f0ee15be1c3951869e1454a76adda579c3929d96ae98b949ba17482bf",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8008387693482165,
+      "validPixelFraction": 0.9540585376834502,
+      "brightPixelsKept": 0.9023292229399099,
       "shape": [
         1429,
         1430
@@ -79,12 +82,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "94901493988da19706158e89593928e462dee2c53154ac92c1cf75dbe62ca884",
+        "sha256": "a7274e729f573151b66085559434493717f24c79c319fa0e8db6e5ae149be04b",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5884588469612962,
+      "validPixelFraction": 0.8713746715146296,
+      "brightPixelsKept": 0.6715599921706792,
       "shape": [
         1429,
         1430
@@ -100,12 +104,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "9dfd7ba1ff4ddf54edcac4e0b2f902853e5c2b2baa8e208ede1889cf05a63fe6",
+        "sha256": "71bd6e14ab8ec3429b77f8eb95a5a6a3df50193e761b52faf9a563ba33256575",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.33523467435293886,
+      "validPixelFraction": 0.43929639290031175,
+      "brightPixelsKept": 0.31650029359953025,
       "shape": [
         1429,
         1430
@@ -121,12 +126,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3c899c1611acbe150098c797744b625b9d81eccefa90ad9a06f0948e728b5207",
+        "sha256": "59425f7b9b9121e32e070139763fb72239a24e4c1c3cb77ad0668b4a7e07c2ac",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7454560135455867,
+      "validPixelFraction": 0.9640909824954611,
+      "brightPixelsKept": 0.9095713446858485,
       "shape": [
         1429,
         1430
@@ -142,12 +148,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "65087733b65b905ac3c09f00f670e0a02271289d6c3727a0a85a136f35410d43",
+        "sha256": "4fa5a0d9fcbe682a19fad8ebcadafe41562b1832e86ed948054cda105fb30c74",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.653411598897953,
+      "validPixelFraction": 0.9376031945661057,
+      "brightPixelsKept": 0.8720884713251126,
       "shape": [
         1429,
         1430
@@ -163,12 +170,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "dbd9c11abf60e8d195058fd57a5ba9f3cf9211ff5a293eceeb95a852034798c5",
+        "sha256": "1dbb0ddf713f520b53d2a278f0e07464269640e2584c5dd7b9dda4ea82d1bb4d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.3897238520751467,
+      "validPixelFraction": 0.44757740510014826,
+      "brightPixelsKept": 0.5029359953024075,
       "shape": [
         1429,
         1430
@@ -184,12 +192,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "5af441060a2e004adcf9436ca6240d9c5885e5095743fa253218bab766435ec2",
+        "sha256": "1f0af68e24028aae6ef7a2923cccac1e88dc529d16b9fa24daef8ac98c084b67",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8003469588494081,
+      "validPixelFraction": 0.953738004472784,
+      "brightPixelsKept": 0.9393227637502447,
       "shape": [
         1429,
         1430
@@ -205,12 +214,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "b6dbe47ceb0533d9e0f70e1cf31bd51f8d2641660fbd3ac1dad74296cd3c089a",
+        "sha256": "015b908c5b1f839ea2c66804e645047c116666fcd44a8ccb301df2efca22a312",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7806774750791545,
+      "validPixelFraction": 0.9541363465086348,
+      "brightPixelsKept": 0.8970444313955764,
       "shape": [
         1429,
         1430
@@ -226,12 +236,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "e3d4019503fd07e6f0ceca91aeb1e2404dba754ea3f3c574791118825a0f3274",
+        "sha256": "7e681d1103218917934cb6f4861e43c7fc90971f941d99b1e790a5b8b9f7ce32",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.786241540125375,
+      "validPixelFraction": 0.943426132999261,
+      "brightPixelsKept": 0.7896848698375416,
       "shape": [
         1429,
         1430
@@ -247,12 +258,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "32bc4cdd5449f01c6824f6de45a228468460cc6b7ab6434bc2a258e39795b257",
+        "sha256": "17d4038dd3a82989c3b99ed41340ff69b49a1152f268837a26882943ff1824b7",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7235662867573295,
+      "validPixelFraction": 0.9075254346772891,
+      "brightPixelsKept": 0.8673908788412605,
       "shape": [
         1429,
         1430
@@ -268,12 +280,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "bbdda766b7f9f9f9b9c3ef86d45cafb3ba0fa4d57ae8a0a401597967b5931966",
+        "sha256": "165fe299e89631cf04fb64591b542cbb4686a8ab8b6a66a4a93b36fdfffa95df",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8035415249551009,
+      "validPixelFraction": 0.9303483780040813,
+      "brightPixelsKept": 0.8807985907222549,
       "shape": [
         1429,
         1430
@@ -289,12 +302,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "ac920560483d7f86615ac453cf2360d7343f2e177eec71da0f23fb27f3974402",
+        "sha256": "ab6b422b52384c06c76a698558ee2784a8d09e4ccb9eded727b180c65bdcfb74",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8080661815441381,
+      "validPixelFraction": 0.9630921912237518,
+      "brightPixelsKept": 0.9428459581131337,
       "shape": [
         1429,
         1430
@@ -310,12 +324,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "ce604a011d129ebd0c9f2f43950c108b8690869f6da55e38632b799b1d5eecf6",
+        "sha256": "fe217b4882157169fcc5dc9c56e8d815fb6f688776e349877f1fa654f9bd2959",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7350178862425188,
+      "validPixelFraction": 0.9193303547397319,
+      "brightPixelsKept": 0.9801330984537091,
       "shape": [
         1429,
         1430
@@ -331,12 +346,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "16d89c7aaaec6becc86309990c508dc1db55af8ef137f38daee3ba576f4c6e44",
+        "sha256": "0c5b42e52a38215805dc9face949224093b672dde254f6a91a27df2766af7817",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8407483349400774,
+      "validPixelFraction": 0.9621198255907843,
+      "brightPixelsKept": 0.9774907026815424,
       "shape": [
         1429,
         1430
@@ -352,12 +368,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "2e6f14b90c026c1863b145d8dd475d68698b9e6dc5e96d47f55380f89a8b367b",
+        "sha256": "a7ff9e8d2dbfc8a86f554ab7da2979fe6ef46fa8841e611feecb3ca5f84c8ba4",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8250001223409201,
+      "validPixelFraction": 0.9580918731373594,
+      "brightPixelsKept": 0.9382462321393619,
       "shape": [
         1429,
         1430
@@ -373,12 +390,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3498737ef231167c30bf20ddfd512ae9af29b909e173dfcad8f02e973521e787",
+        "sha256": "f7ffd99ce7769ecb9062e1d393abe663dad148097cbc92e6cc8e0bde506f3eef",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8171727502728202,
+      "validPixelFraction": 0.9508336310295723,
+      "brightPixelsKept": 0.9761205715404189,
       "shape": [
         1429,
         1430
@@ -394,12 +412,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "238b15a824c08110eb2bb53dd93516a8a1a1a26b319bcfc4ad88a10d3a61f2d9",
+        "sha256": "51f94c74152e25998b9719175263465bd2cbb5d025f03aae0b8829d17f91fe5d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8114207695733238,
+      "validPixelFraction": 0.9495588386421137,
+      "brightPixelsKept": 0.9482286161675475,
       "shape": [
         1429,
         1430
@@ -415,12 +434,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "896bbf8312e853392b8123fcffdb8f166a4220a77a8e3341f32d151ea9015f60",
+        "sha256": "7ff003c0269d278b083fbe57128bc199822cb908f3289e78ba07eb169673bb4a",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7124386460285691,
+      "validPixelFraction": 0.7732792749587711,
+      "brightPixelsKept": 0.9674104521432766,
       "shape": [
         1429,
         1430
@@ -436,12 +456,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "1dc99ef91ab146ffb11dcf620bd4f45aecf71b45fc026c1b2488933f2dd3ed17",
+        "sha256": "ad3374264132829edce75079d5d0857a6d1ee377ec4f52eea2caf07093343baf",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5081087561843335,
+      "validPixelFraction": 0.932200130170739,
+      "brightPixelsKept": 0.8114112350753572,
       "shape": [
         1429,
         1430
@@ -457,12 +478,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "dc28b52f0ebe5bed1a7783df075317983fe1fe5869816063d6cbdf5005457597",
+        "sha256": "2a6bf756fd131ec356ab963028911315b963d0d5ae24772d55b31c43f7149f6a",
         "bytes": 18432000
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6633018729522226,
+      "validPixelFraction": 0.9433395276052619,
+      "brightPixelsKept": 0.8150611246943765,
       "shape": [
         1430,
         1430
@@ -478,12 +500,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "5609fe41203089a797ef51b39219f567b587d74b81159bf49594c96b8f8708e6",
+        "sha256": "105c3831cc04a7ff6607a0f8c76fa6dbd86e585497515073d716c82f0503a68b",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8074368598511356,
+      "validPixelFraction": 0.9801430899401509,
+      "brightPixelsKept": 0.9616363280485418,
       "shape": [
         1429,
         1430
@@ -499,12 +522,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "d6b4db1a28c46f36ec3111c4e40d8ff8cbddc794f82b74968769784dfac8910a",
+        "sha256": "9c384765d2108ab8c2121ce13b2c9b93746b0b01e43a426303647dd025053b22",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6206565303136332,
+      "validPixelFraction": 0.9459287388608593,
+      "brightPixelsKept": 0.8423370522607164,
       "shape": [
         1429,
         1430
@@ -520,12 +544,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3d8b9f0aa92d7aac341773cc88602e75dc336401c7a0a244ebbb04dbbf1fd190",
+        "sha256": "aa3a057bda0ecc955cb3b0bb696c12ffb1ab889f2088d69a4638fd225a99093d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7106647026870959,
+      "validPixelFraction": 0.9559558006723857,
+      "brightPixelsKept": 0.7833235466823253,
       "shape": [
         1429,
         1430
@@ -541,12 +566,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "70e99efc63d84040349b29204dd5c4945275ffd95800b9d081c1f86931cf0754",
+        "sha256": "5bff4b23441c644d5d0837188f80183fd5915f071accc908f769dfc7dcdb2a6e",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7318154903179396,
+      "validPixelFraction": 0.9427493430292591,
+      "brightPixelsKept": 0.7849872773536896,
       "shape": [
         1429,
         1430
@@ -562,12 +588,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "09af854aefc808f9eda56ae63ef32f3fc61db48decdd09cb487d91953713edfd",
+        "sha256": "e6befe29324d65c34c4152f586735ecf9ff982411c992969766fd4d8cf058a0a",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8046611890558707,
+      "validPixelFraction": 0.9605504362677211,
+      "brightPixelsKept": 0.957819534155412,
       "shape": [
         1429,
         1430
@@ -583,12 +610,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "6feb2d2d5cbca1750fbf9afe20e2104a80e73adde533da78b68472838ae59310",
+        "sha256": "edf8284408bb6466c4a168d0ae8548f7305c23cc9310c056c2f6377907a6e5ce",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6982010991108262,
+      "validPixelFraction": 0.9189745873440764,
+      "brightPixelsKept": 0.8137600313172833,
       "shape": [
         1429,
         1430
@@ -604,12 +632,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "5196a13d248e0d2588f6f3c47b23efab916f894222d3f5d2eb16ffbb9aa481cc",
+        "sha256": "b360abd2a30e55d597cc66afb800db74ebcd73a3e1edc0005e20e35dde8e0e04",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7709254356560165,
+      "validPixelFraction": 0.9586639392797546,
+      "brightPixelsKept": 0.8559404971618713,
       "shape": [
         1429,
         1430
@@ -625,12 +654,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "75948834ece249b543dc04b370f0351fbdfe6304c35a681c645c7f58c06bce41",
+        "sha256": "2eb864e73407d582e8df1e210822efb0e24445c4c2f0ebb8a80f9fea582bb447",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7628230411995283,
+      "validPixelFraction": 0.9508062266634695,
+      "brightPixelsKept": 0.9016441573693482,
       "shape": [
         1429,
         1430
@@ -646,12 +676,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "1181da35bdfe31b5462304c28464a72b1658b36beaebbcfb5a1071a763ddc8a2",
+        "sha256": "b8425262921e0498a544f5f1e46ca7a10ef3f186b2fb743ab9049146056221f1",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.2342295213533842,
+      "validPixelFraction": 0.953150278692616,
+      "brightPixelsKept": 0.775396359365825,
       "shape": [
         1429,
         1430
@@ -667,12 +698,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "77b5c477ad04da446c728344ccfb360fea44f22579edcdbbcd6b7aea1ebbf976",
+        "sha256": "160873c4686618a4ab8202f2454bd80483fb5b9801b64ddafef9c167ab8c61a2",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.541006718963332,
+      "validPixelFraction": 0.9321389597106882,
+      "brightPixelsKept": 0.731650029359953,
       "shape": [
         1429,
         1430
@@ -688,12 +720,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "166e17e0cb0683b02f144f71805735b891eb4d724dd9c61bc0be78d2d3f985d4",
+        "sha256": "d33b0649f2f1c6a1af0e1a2dc0437bda34819be6c725e0ca04437031a0c5f915",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7567299740147886,
+      "validPixelFraction": 0.9588259186579691,
+      "brightPixelsKept": 0.8853983166960266,
       "shape": [
         1429,
         1430
@@ -709,12 +742,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3867863fb36875f8866febb573476d905936574e34c72d5018afb5d7fc819a36",
+        "sha256": "9b81c10854130b6d1cc15dd0e2896fd8d6787bc54e240acd3722ddc7efbdcb1b",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7195583982148013,
+      "validPixelFraction": 0.9489030913103691,
+      "brightPixelsKept": 0.9064396163632805,
       "shape": [
         1429,
         1430
@@ -730,12 +764,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "8cdb223e12f0cbc110edfbb80e54c25872cf3100f8a30690f632a3d8b1cb16a4",
+        "sha256": "7d76a8f8ddd1f6217fc11085dc7663e652c6b64880f871961b78faddef672efd",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7201319324482376,
+      "validPixelFraction": 0.9624716780769965,
+      "brightPixelsKept": 0.8256018790369936,
       "shape": [
         1429,
         1430
@@ -751,12 +786,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "a00ba3483ebc781f2023bbad2602de85974f46c0cb5beaf759b1311db046e8d8",
+        "sha256": "fe13adae97abcc163e92c5c09b228cef2da3acb4141a68db88b7870133d0213f",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7599729871248415,
+      "validPixelFraction": 0.9616720578232125,
+      "brightPixelsKept": 0.9091798786455275,
       "shape": [
         1429,
         1430
@@ -772,12 +808,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "164293cc529182fbcbe4ae88c0dc417bb85b080490ea4b982b6ec3e53c697bb7",
+        "sha256": "d73424e512b6604ec216a171dedb4a955e9a9e0e50b0b67ccf0ffa933d0f080c",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.824287119458568,
+      "validPixelFraction": 0.9445379672811444,
+      "brightPixelsKept": 0.8328440007829321,
       "shape": [
         1429,
         1430
@@ -793,12 +830,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "95b58f8b2ad5d347a9b4a08ea407bbd284f0104c38162dac94d886404ccec0a1",
+        "sha256": "680c9fcf6def8ca26850ccd0618ade3a11f3beb1e9b7f7b7b5d7c54075d8cf2a",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8343435430909188,
+      "validPixelFraction": 0.9557903957484083,
+      "brightPixelsKept": 0.8852025836758661,
       "shape": [
         1429,
         1430
@@ -814,12 +852,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "92a1c4d9f5eb841b525c5d3c69d6c08e4562b7f190c17258c798531058011051",
+        "sha256": "c1dc41f8c4d7f5788ecfce9b34eb3d80870208d90e4d52f4c6be9d5b3a38b76c",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7996691901520453,
+      "validPixelFraction": 0.9374563854619837,
+      "brightPixelsKept": 0.8895087101193971,
       "shape": [
         1429,
         1430
@@ -835,12 +874,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3aa0babf0c52c3fb101b48ac6b17892da960b445c2c7f8e22738f1eedca72b08",
+        "sha256": "2bdce95b4ddc0f81e90ef95f5451b57f9b0545791f7fea1d0ad410273766f5bb",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.015665999500849046,
+      "validPixelFraction": 0.8863580086813116,
+      "brightPixelsKept": 0.820708553532981,
       "shape": [
         1429,
         1430
@@ -856,12 +896,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "eef1fb9ba30a027396fefc887025fbe6ded08a9620971f621584e3ac3f5878b8",
+        "sha256": "9a2d074a5c89b138d94961d6f82167d3e56e1ec9485d5ddda008ecdebfcc6507",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7833660391393071,
+      "validPixelFraction": 0.9549467327633878,
+      "brightPixelsKept": 0.632021922098258,
       "shape": [
         1429,
         1430
@@ -877,12 +918,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "fb7d11ee2cfcce3f5b1954f2e431a72f90887bb20f1d456e61f8d5172eafb456",
+        "sha256": "12bae7f22369c5b1d532f68892b1bcc291f7d1a3ea95fb4dff3626ad50a0405d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6047923385222196,
+      "validPixelFraction": 0.8862757955830034,
+      "brightPixelsKept": 0.7538657271481699,
       "shape": [
         1429,
         1430
@@ -898,12 +940,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "66281f38dcfa48612d31360d7231b92ea2b36805846d042d4720883ff5107df1",
+        "sha256": "bc8e460b8b23647e459ea853caac422c12bf7a22a64c2b52a550d4dc45157d61",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5763147978683318,
+      "validPixelFraction": 0.903441694764298,
+      "brightPixelsKept": 0.8074965746721472,
       "shape": [
         1429,
         1430
@@ -919,12 +962,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "98d4882492b75f5cf9c3f7032d7dfa635f4cd1bf359646cb36ad53776aebe41f",
+        "sha256": "4b31df56b6c1322b1fa6977f2946c4baa65cc7500c76c696800f8b68f01893f5",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7168071956035567,
+      "validPixelFraction": 0.9339452010550681,
+      "brightPixelsKept": 0.9137796046192993,
       "shape": [
         1429,
         1430
@@ -940,12 +984,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "19462a4135b6fe2e849ae788bdb313ba5c27bebb7c2d5383586be3c8e7dadbe6",
+        "sha256": "ebb4352141cf4685299ff45a27c23979ca403494f41825c1f4859cdee70997cc",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8039946757231572,
+      "validPixelFraction": 0.9709220101102536,
+      "brightPixelsKept": 0.9142689371697005,
       "shape": [
         1429,
         1430
@@ -961,12 +1006,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "188b1084d0203e78524c28bc23d711f0ba1b0d0b81b8c91d92c5001d1ef6156b",
+        "sha256": "a3eb40af3d20b1b7cc972396bddc821a2cbcaf6346e6e870bc89319dcbfbeb80",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6509545038586326,
+      "validPixelFraction": 0.83707859670071,
+      "brightPixelsKept": 0.5425719318849089,
       "shape": [
         1429,
         1430
@@ -982,12 +1028,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "02292f845e2369b099ecd3dfa0f6d6e9ae30949961b6f5e0cb385f9b07f9f457",
+        "sha256": "efc12390eb862eb5e37ffefbf8d72baf7358aa633d1cce785a2e4fbadc7707bf",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.724067884529746,
+      "validPixelFraction": 0.9420167655996907,
+      "brightPixelsKept": 0.8386181248776668,
       "shape": [
         1429,
         1430
@@ -1003,12 +1050,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "e4c5f4899b5c9f484730c9e316a038090201c2f2c77e6fe08f2b370df173dc5f",
+        "sha256": "93bb406841ff520a53290e8ce6acda2aa98463f29bbf1d7217cc1c32c3102a01",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.649865180306048,
+      "validPixelFraction": 0.8550959886859117,
+      "brightPixelsKept": 0.8642423054303078,
       "shape": [
         1429,
         1430
@@ -1024,12 +1072,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "6bc9b40c77570051ea48c1d6950f88222cdfc0b55fb74762992beddee30d44e4",
+        "sha256": "7617139fd688561fa2ddf75310c77b1e42be02efb58cf71620435025b9d24176",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7393688187250118,
+      "validPixelFraction": 0.9131310956363441,
+      "brightPixelsKept": 0.8227637502446663,
       "shape": [
         1429,
         1430
@@ -1045,12 +1094,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "e83fbe10b5afab48c1c4dab3e2314f22e00ce17cf7012a189f0ac0eda43047e4",
+        "sha256": "3d506269e412c01dd6d4e5b0114f04d3c37c90f93cb54881e429336eb5b8afc7",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7458822493112206,
+      "validPixelFraction": 0.9415743808326034,
+      "brightPixelsKept": 0.6225288706204737,
       "shape": [
         1429,
         1430
@@ -1066,12 +1116,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "184a7ec9ca6b1a6d88a55b929975b327435ca49c1d77775859e8aaed36924d6f",
+        "sha256": "90b0f143ecae6baf42a080795366a75011da493d499183cc78c0fc56e8dc5929",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.04599724977611611,
+      "validPixelFraction": 0.8987482077055206,
+      "brightPixelsKept": 0.7938931297709924,
       "shape": [
         1429,
         1430
@@ -1087,12 +1138,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "fa19d8caf37a313a86d4ef5b04cdaeae230b87502e3f51d779b44acd6865d569",
+        "sha256": "8782b9b54582d03259152fa823febf0ff603dd48cd2c9934162fd613fca4ec90",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.697953970452221,
+      "validPixelFraction": 0.9165228753052406,
+      "brightPixelsKept": 0.6865335682129575,
       "shape": [
         1429,
         1430
@@ -1108,12 +1160,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "1dbe81ed3b2fd9d47a2054f7daa30cbd6bea8e53158c39863f81b6a36820a9f3",
+        "sha256": "255e559827cac38f0a0c980d484e5238308fcaf5a715c0b2adff4c6d3452ea75",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5544240923527137,
+      "validPixelFraction": 0.9418919778611871,
+      "brightPixelsKept": 0.8429242513211979,
       "shape": [
         1429,
         1430
@@ -1129,12 +1182,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "6f543934da8376018d223957b1d0d19c8e9733e0599bc04b817a479a2f2bb478",
+        "sha256": "4b37498c3868cd18fd9695e61ed32eb6ce15876bb9b482097404e9e3ba411b99",
         "bytes": 18406080
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6313913383717565,
+      "validPixelFraction": 0.919552056006711,
+      "brightPixelsKept": 0.8460483791989032,
       "shape": [
         1429,
         1429
@@ -1150,12 +1204,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "8b2838c3a816593f45fc74915618581d395bb9542e15b921d0bb8299130e92bb",
+        "sha256": "8ec13bf10c59717cb87b3ea6bdfe9e91ef56494a276bc355786ff8fec5eded68",
         "bytes": 18432000
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5877089344222212,
+      "validPixelFraction": 0.9023590395618367,
+      "brightPixelsKept": 0.5397555012224939,
       "shape": [
         1430,
         1430
@@ -1171,12 +1226,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "ca3e57d5b86416f47445b41f152520e155933ee0fa286b43f8b7dd04f7664c91",
+        "sha256": "42bc1c7b358af82c1960adb2be295dbff46ce41f4cdd610e7c641bd95c9afee7",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6996143814198398,
+      "validPixelFraction": 0.8854541539636012,
+      "brightPixelsKept": 0.8772753963593658,
       "shape": [
         1429,
         1430
@@ -1192,12 +1248,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "11c542546f294719a87fd0d3e60fd14de8aa289aaea2cc97816f5ff963c2a1a8",
+        "sha256": "5dc062692b2308256ac1fe206774a7ae8f12df7fca3ba173c4c21a5617be3c0c",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.39711226492192203,
+      "validPixelFraction": 0.6374167470038709,
+      "brightPixelsKept": 0.6724407907614014,
       "shape": [
         1429,
         1430
@@ -1213,12 +1270,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "4cd59df5357f4aefa75cf1cc6fff26aaed5f86421c0117a6d56b4c3a7d6c5f0b",
+        "sha256": "f5fcfeae18089421b1fdf95499c95c05d6c81e4d6bded385e43ff56b5fedb8fc",
         "bytes": 18432000
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7433473519487506,
+      "validPixelFraction": 0.9164149836177808,
+      "brightPixelsKept": 0.9412224938875305,
       "shape": [
         1430,
         1430
@@ -1234,12 +1292,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "960d2a2acc609f10825da30d59d657013a492eda0e00477dfa6b57cef9675ab6",
+        "sha256": "c3024a95dbd8172f1b78241ff6f779090b1069bf5cbdaba7a818cea6c4a0dcb0",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7438489432191322,
+      "validPixelFraction": 0.9388442208596163,
+      "brightPixelsKept": 0.8854961832061069,
       "shape": [
         1429,
         1430
@@ -1255,12 +1314,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "861aae1c15f76086c740c1cdcabbdc614eeacea0479fa19d43ac71139b194138",
+        "sha256": "cc6e53231bd5504d44264fe8c8267188498959d37878d4028c54be782dabe83f",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5870636711084577,
+      "validPixelFraction": 0.8565660371818524,
+      "brightPixelsKept": 0.7163828537874339,
       "shape": [
         1429,
         1430
@@ -1276,12 +1336,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "b780cde89dc7f55a142468729dedc2e5fd8eccb6c7df140ef26da2e9e8011beb",
+        "sha256": "dd134ea6a174214fa27b6dae92b824d2a5e72552f6d639c466a88b3abb9c5280",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5365799351103759,
+      "validPixelFraction": 0.8095357406763984,
+      "brightPixelsKept": 0.6758661186142102,
       "shape": [
         1429,
         1430
@@ -1297,12 +1358,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "89f7222dc33be8b1abbc8184cab72980eb7002782eb9cbbc17b266c4067887b4",
+        "sha256": "b6bd1c080b147b77f24bf47673a87dea56683dac362b0129aa90dee3bb4299b2",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7255628905733874,
+      "validPixelFraction": 0.9176332414960826,
+      "brightPixelsKept": 0.8981209630064592,
       "shape": [
         1429,
         1430
@@ -1318,12 +1380,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "ea344c22243b793d35c469f43e2bcefe4c1571bd2c2a82cd4f9dfe6bca4b2d14",
+        "sha256": "189d8a6fddd310123ea1a6a7d64cc57dd3ed1ed79e0ca42513b4e821a899d082",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6517369963836024,
+      "validPixelFraction": 0.9410311871473523,
+      "brightPixelsKept": 0.8418477197103151,
       "shape": [
         1429,
         1430
@@ -1339,12 +1402,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "78b836d23af777ae3e47586b539c20daccd0c807a380680e8d9e5b6bbfc9fcb4",
+        "sha256": "c62e205d1c367ebcb2dadcd7be5f784636320598cfad2f7adf2b207c9fbc6971",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5868796703646249,
+      "validPixelFraction": 0.9069974112661306,
+      "brightPixelsKept": 0.6554120180074379,
       "shape": [
         1429,
         1430
@@ -1360,12 +1424,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "8a44048b4f53790b6346a1fa5cf934e326811173173b3044f63dab5fd21b179b",
+        "sha256": "ba45a8a13ec189eca9d76f7d61fda04de9b1f27bc2cb7a621625195cd93bd432",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7073463275702604,
+      "validPixelFraction": 0.927261471908078,
+      "brightPixelsKept": 0.7827363476218439,
       "shape": [
         1429,
         1430
@@ -1381,12 +1446,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c39fd340df0c5d280c926073f1a87793f343afcdaef943b913d4ab1861b83019",
+        "sha256": "828db0cd1cf6607e772c771baf5ce00bc6a57c232e4c7a65a3769f10a34008d6",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7298237801386857,
+      "validPixelFraction": 0.9253025490954112,
+      "brightPixelsKept": 0.9333529066353494,
       "shape": [
         1429,
         1430
@@ -1402,12 +1468,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c80d11b04984310bfb57791658fc0acf6b47351383318ce7c2782c383fac725f",
+        "sha256": "bb8f5cad3a46028926e591315acd6b6901cdc679223006e4dc5dcab60398b159",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.0,
+      "validPixelFraction": 0.8726352723553563,
+      "brightPixelsKept": 0.7309649637893912,
       "shape": [
         1429,
         1430
@@ -1423,12 +1490,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "866151c1b47a1ec13aa0711c461afa4d265d5aa89d8355dd64a5f476f6d48b0d",
+        "sha256": "e9a9d8d31527bc79b95856ede1dbc08f27fa8067a3d036f5dfc2cd548fdabe90",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6334093478250231,
+      "validPixelFraction": 0.7871453948430855,
+      "brightPixelsKept": 0.40624388334312,
       "shape": [
         1429,
         1430
@@ -1444,12 +1512,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "5fed368f1591d71114f3adc1ecf246afccd8b23d92286abad4dc351cb0d5bf02",
+        "sha256": "d4c8bfaae5c334d7c73b854d2d59a40429dc7237a8cc64f8b0e682a41b99e841",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6484895790004257,
+      "validPixelFraction": 0.9183178612849712,
+      "brightPixelsKept": 0.8040712468193384,
       "shape": [
         1429,
         1430
@@ -1465,12 +1534,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "dde89036136d0e97a079742397872511b0384034788220902dbdffbf029b019c",
+        "sha256": "93dcf93092f3902d9f4d623ec7e3e8c53591eb6155ab911ffa5fb861f20a447b",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6686577243610133,
+      "validPixelFraction": 0.9327638771305671,
+      "brightPixelsKept": 0.9102564102564102,
       "shape": [
         1429,
         1430
@@ -1486,12 +1556,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c3eb5bc2aee3a3d13e6134b5b0415df61c498fc8e46d9fab28f9e5baa46b47ba",
+        "sha256": "671776d40394b1ad810bf894003f393f87fdc6f0fe6d532cf4a95bf663257593",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7132725217399815,
+      "validPixelFraction": 0.9152211679153597,
+      "brightPixelsKept": 0.8099432374241534,
       "shape": [
         1429,
         1430
@@ -1507,12 +1578,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "31be478265ad1a98a0a3d7118b59426b08dda4b0198c740e0991a69820d31b55",
+        "sha256": "2c00ebdfa9b5e5b31601e598e4557e7aa4ecf0fa3682cde1e24073e519ab1ee9",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7684663831619745,
+      "validPixelFraction": 0.9320542997939779,
+      "brightPixelsKept": 0.8915639068310824,
       "shape": [
         1429,
         1430
@@ -1528,12 +1600,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "771e65bb688a8c48e0ac55ee4ee06b9b8a43c696d706ed652cb1a580cc5b78d5",
+        "sha256": "361afabec2c810978e55b7b1f483109c15ea6f04a527fad25675deee3109aefd",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7826833768051403,
+      "validPixelFraction": 0.9247427170450263,
+      "brightPixelsKept": 0.8720884713251126,
       "shape": [
         1429,
         1430
@@ -1549,12 +1622,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "950bc531eabe9ae76c326156b0fad4f448a81ac3cd95873aa49a54918abf289d",
+        "sha256": "750519881c3bdae2c1f505276974e974fe64eca4495b8dce9d85db08b6f67925",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6047835299759723,
+      "validPixelFraction": 0.8093948039364415,
+      "brightPixelsKept": 0.7430025445292621,
       "shape": [
         1429,
         1430
@@ -1570,12 +1644,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "e777c873ea9e6b625b7fcc3bf9e5e2eae4abb9de7b3f16488e32112d4428a9f3",
+        "sha256": "eb23a74ba898d45d1fdaf96d05b4dd82aca5f0ffd3f1198b7988ee276d9cf2cf",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.686915883276975,
+      "validPixelFraction": 0.9091608880972072,
+      "brightPixelsKept": 0.9270894499902134,
       "shape": [
         1429,
         1430
@@ -1591,12 +1666,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "812baeac3034b81ff16c2b5fc66fb67b462536a614da29c3e377b634fa027dea",
+        "sha256": "0710346512aa5f4cfeffe29635f64ec8cabe5416253d71f05e3c20fcee1562d5",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6049411050810631,
+      "validPixelFraction": 0.941158421704258,
+      "brightPixelsKept": 0.8331376003131729,
       "shape": [
         1429,
         1430
@@ -1612,12 +1688,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "7ef9fc899bcb075042a147d224ad1b7b2a893140449526bd2c238bb3fbcad18a",
+        "sha256": "400924d546a83f55d0537667d68e5c7d984ae69deb956f2b0b8c5c08a87f960a",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7860521563810577,
+      "validPixelFraction": 0.9707150092734418,
+      "brightPixelsKept": 0.9023292229399099,
       "shape": [
         1429,
         1430
@@ -1633,12 +1710,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "68ae9791f9cfe87276fb469692ce6559ca526ab574fca9d13ab537f4e1bd1916",
+        "sha256": "1fd16597a354e107ee8fe8581fef73d2b9561e5d31d38f467abb3c01c1b5e807",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7983097378478764,
+      "validPixelFraction": 0.9735709357122933,
+      "brightPixelsKept": 0.8420434527304757,
       "shape": [
         1429,
         1430
@@ -1654,12 +1732,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "0f1224f892362ae6d2a670dff4d25b3fcaceb1feea40adca5005c53a5b19799f",
+        "sha256": "12444560938ecff5fe833816e2f618f1f1610c6ef44d4c02aad6bab62cdc12fd",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.684780789539362,
+      "validPixelFraction": 0.949570094006763,
+      "brightPixelsKept": 0.8494813074965747,
       "shape": [
         1429,
         1430
@@ -1675,12 +1754,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "5e090fee4d9214bfa115d96d79fe43c5b289ae491802ca47c82a777a92103a18",
+        "sha256": "b1e9d818a1d4e98b25fbab25c7ce73ca02d4aff56b3a2b8ae6076ccf7cb7cfef",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7418577224035586,
+      "validPixelFraction": 0.9438151771251841,
+      "brightPixelsKept": 0.8896065766294774,
       "shape": [
         1429,
         1430
@@ -1696,12 +1776,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "eb1801d0cca3962735d1167915231e65b83926930a50235f288b48ad40f2b0c5",
+        "sha256": "66fc5150169132cdc44963ff4ac700f0f76d124a3ce51ad10b5d7a930fce76cd",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.4067478357891234,
+      "validPixelFraction": 0.6147978683318082,
+      "brightPixelsKept": 0.5874926600117439,
       "shape": [
         1429,
         1430
@@ -1717,12 +1798,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "36e948850e6343654151963bef1cf139b7d49c7a97d8227a019c738d073d1b15",
+        "sha256": "486b506fff88b457e14cecce066c81a27ebd2c68c877929cd1f0804a6eab0276",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6884123574116576,
+      "validPixelFraction": 0.9456698654739243,
+      "brightPixelsKept": 0.8344098649442161,
       "shape": [
         1429,
         1430
@@ -1738,12 +1820,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "10b49b11460ba49e966a7776e4a089f92a5ec92e0d7c4da7403187edef307274",
+        "sha256": "c4ec9543594909288abc3fdc9aa50260364ffb9e1c1db574bc30f6c1a82d96e3",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.5527812984775896,
+      "validPixelFraction": 0.8275873881192286,
+      "brightPixelsKept": 0.6920140927774515,
       "shape": [
         1429,
         1430
@@ -1759,12 +1842,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c41214974c802be1d65cd64c2451a754a2abaec79464e571506c7082a0cf2619",
+        "sha256": "e0d52312d606d003e556c12a88aab23553f72475cf04f9b4363f3aca684af654",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.8099546359868264,
+      "validPixelFraction": 0.9619793782145076,
+      "brightPixelsKept": 0.8449794480328832,
       "shape": [
         1429,
         1430
@@ -1780,12 +1864,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "af88246749dfd5be38bda9fa11138acfe3e9efe966a20575ac06c6fdd69a0848",
+        "sha256": "bebc7273a932d8cb110a11e04e899bb833e3502dd445a62a2651d11e257cca3e",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7974469896793199,
+      "validPixelFraction": 0.9599798382163672,
+      "brightPixelsKept": 0.8432178508514386,
       "shape": [
         1429,
         1430
@@ -1801,12 +1886,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "d7638bd236c599da67dca7ba1e8a233a6635e5b3d4a0884aa57a82c98f8d74f6",
+        "sha256": "b729e4b1735263e101ffb955688888a24abc72dc67d3a780fa5ec1d2c3de0b7b",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.816996579347874,
+      "validPixelFraction": 0.9193264398302887,
+      "brightPixelsKept": 0.9630064591896653,
       "shape": [
         1429,
         1430
@@ -1822,12 +1908,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c67c0fb53551517785626014e55ebf6977f0552eab9f2baa762b05fe356248c7",
+        "sha256": "331dc2f34ab517b08a6770276971f87945051355d8056671e7d825e71728571c",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7603360949757031,
+      "validPixelFraction": 0.9139140775249942,
+      "brightPixelsKept": 0.9238598551575651,
       "shape": [
         1429,
         1430
@@ -1843,12 +1930,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "677a1260c6aee4e52d3a13e6dda11898d36eb0138412a406645f5b003f4cd1be",
+        "sha256": "294b761876f8b536f867e699d5f712f03a5e3cedc92a572218bbd7d80fc2bb36",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.2147092935056546,
+      "validPixelFraction": 0.2846931934405692,
+      "brightPixelsKept": 0.30025445292620867,
       "shape": [
         1429,
         1430
@@ -1864,12 +1952,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "1818d2a667f9bd5dfc5dc683aae0204199b6f3f06818c23bd0a58bf9c14c388c",
+        "sha256": "bd1d2223fd46c22e3c8a2a72f8058440d92f94e200038f095e5b86d2f3cd33d9",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.08416370193836954,
+      "validPixelFraction": 0.09662926296936095,
+      "brightPixelsKept": 0.8671951458211,
       "shape": [
         1429,
         1430
@@ -1885,12 +1974,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "9fa22afeb562c4d520cd3a9581cc5e3bf2f8a75a646f4b4a484353e79145a343",
+        "sha256": "961a2078fa5d0f35ae89e4c9cb92b93515272aae8695a9967894f7a12e9f1de8",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6865542435171547,
+      "validPixelFraction": 0.9335747527490005,
+      "brightPixelsKept": 0.8504599725973772,
       "shape": [
         1429,
         1430
@@ -1906,12 +1996,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "60ea3bdf172c73dfbc85f6b77165479a13ff42df344e205183ddc8aeaa0e2f62",
+        "sha256": "e9e59e53a07febe854643e169347b47d7dd808af583fb04dfcc7a61420fb3066",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6919396908200267,
+      "validPixelFraction": 0.9540541334103265,
+      "brightPixelsKept": 0.865237815619495,
       "shape": [
         1429,
         1430
@@ -1927,12 +2018,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "991097f553cac9386656e293a2c5988cd9788c82c6353a73b5bd0a5022433aa9",
+        "sha256": "eacf99decc2053e9dfba773ac1944940f0b2361a7ec1975ac8a4bc9deb59a047",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6013604310315297,
+      "validPixelFraction": 0.9555721395469471,
+      "brightPixelsKept": 0.7664905069485222,
       "shape": [
         1430,
         1429
@@ -1948,12 +2040,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "65d5e22b365685097481492ca0050530f8ad811c4e63d8f78041ea7038ac65a5",
+        "sha256": "6527f2cbfd2d570bcfc407645814184fe518b5fde4a51bcc5e40132711827fea",
         "bytes": 18432000
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6086160692454399,
+      "validPixelFraction": 0.9157640960438164,
+      "brightPixelsKept": 0.8309046454767726,
       "shape": [
         1430,
         1430
@@ -1969,12 +2062,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "8c98cb8eddb7df63f2641ae32360ce61c2aae673db3f96108f82742652c1b7e7",
+        "sha256": "2f4c8384daeba84b759ec805afd8ad466d82ea2f685a23c549305b76d91e595d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7386098156567016,
+      "validPixelFraction": 0.9255824651206037,
+      "brightPixelsKept": 0.8448815815228029,
       "shape": [
         1429,
         1430
@@ -1990,12 +2084,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "37584f77689c6abaad110fe568a3a1949ed2efcdb8caad11901dff5bfa0b924b",
+        "sha256": "730d5f3ac15d14f8c4f4b9e6a7ae5826fddbf50ea56c6abc1c724bb12140383f",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6824807802414521,
+      "validPixelFraction": 0.9289713086074177,
+      "brightPixelsKept": 0.8119005676257585,
       "shape": [
         1429,
         1430
@@ -2011,12 +2106,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "b415e0a5aec94312e76ccdb0ec86db38c0f267981d2259d829c4ae62cbb897fa",
+        "sha256": "28c9e1f50e9f823b38a3a577c9d3845bb055e2445586efb15450756769a074e3",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.4080554155431692,
+      "validPixelFraction": 0.5235648186662882,
+      "brightPixelsKept": 0.4343315717361519,
       "shape": [
         1429,
         1430
@@ -2032,12 +2128,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "ccbe1381fc481a2d9ca0f6e66959b21fa028913729bea05e2f5b1442af3e062a",
+        "sha256": "52528d778f99a8dd56bccc0dd1389f02ff987771ec91b5870d93a6769180e036",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7736781063583023,
+      "validPixelFraction": 0.9426152573808277,
+      "brightPixelsKept": 0.8545703660207477,
       "shape": [
         1429,
         1430
@@ -2053,12 +2150,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "af620683802d87af42c2f6d87f246d407f337f7fc092fe469cd63fac50a189ee",
+        "sha256": "b079c1fd40f7a216d1f9e6046ceac0f3e0f28e3c8d6a38da573a23c2df890bc8",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7943395303087395,
+      "validPixelFraction": 0.9513288670741434,
+      "brightPixelsKept": 0.9321785085143863,
       "shape": [
         1429,
         1430
@@ -2074,12 +2172,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "3532a08e97e48305760fd4fe4f8c0b740ee6962f729b1e5e381c56c901bd47ed",
+        "sha256": "9648bf799d24e9ae5003af09cf6ceb15c3833078ceebed704d31bac89d8210eb",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.48544779223575585,
+      "validPixelFraction": 0.6209985955262373,
+      "brightPixelsKept": 0.586709727931102,
       "shape": [
         1429,
         1430
@@ -2095,12 +2194,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "e16204bf2796b1df0ed5bcf55075a4bb06608690c5e47628b91e955e9e991e13",
+        "sha256": "bc0693c2403a1ea9645476e813ef44a38a860e704cc6997d5b3008767c338f9c",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7496894987447822,
+      "validPixelFraction": 0.9689963640278546,
+      "brightPixelsKept": 0.9350166373067137,
       "shape": [
         1429,
         1430
@@ -2116,12 +2216,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "d830acf02827bebbe1181dd25ee872090a27017ad0481c321b63efff2cd189a3",
+        "sha256": "b8d759d84e114a6856212cc0151b4d9768d3dc305dcd51e08258c3111f160911",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7945631695106853,
+      "validPixelFraction": 0.9665074603493078,
+      "brightPixelsKept": 0.8627911528674888,
       "shape": [
         1429,
         1430
@@ -2137,12 +2238,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "a8848babaf7f99838ab026dfdcdef6fee1927818c76873b91e2624e4ed57c0df",
+        "sha256": "f1f77f385daee7ae1f121a12fff813a68ad630f7164918da795697e5f14d163a",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7968333276240904,
+      "validPixelFraction": 0.945623865287966,
+      "brightPixelsKept": 0.9204345273047563,
       "shape": [
         1429,
         1430
@@ -2158,12 +2260,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "a7a8917c952024a797e986875162acd387778c2e6ef06d1aa77dbe816fd41116",
+        "sha256": "767c9f5a7b127f21970c27430d155c01a46865e938e6e6b85af49f0e66614f15",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7673692297905034,
+      "validPixelFraction": 0.9474942132744792,
+      "brightPixelsKept": 0.9446075552945782,
       "shape": [
         1429,
         1430
@@ -2179,12 +2282,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "79d4dde7f08015102ea85d4d0f461af0406976deceec967e77f8ddadf8c53f9c",
+        "sha256": "e3b42fae8d935f1911e1655959781f1faccede78c5c7db9f925d38d3775965a2",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.4969248386323264,
+      "validPixelFraction": 0.624577312121049,
+      "brightPixelsKept": 0.41661773341162656,
       "shape": [
         1429,
         1430
@@ -2200,12 +2304,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "11a2acee9a40fb32c3788d62e4cfb76f8ec0b5d766da287351639e80692583b7",
+        "sha256": "f83e9d1c7ecdb3bb54ebe7da424392d930ad6075092a6778f9d32217b1c6e4b2",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7362070399859063,
+      "validPixelFraction": 0.9535990251875486,
+      "brightPixelsKept": 0.8212957525934625,
       "shape": [
         1429,
         1430
@@ -2221,12 +2326,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "619c362c0dfcc9c0f68c09e8086128ae53cbc6f3433ca4d6103bd8b7744b327d",
+        "sha256": "453ff4a6f4dbad586374c19d77184f0fb1760f77004c2011d885931105cca95d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7572995933387816,
+      "validPixelFraction": 0.9180139664394388,
+      "brightPixelsKept": 0.9185750636132316,
       "shape": [
         1429,
         1430
@@ -2242,12 +2348,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "0851d8c4f4ef7676354b1e5666e741bf0c6a8608247fdf31539d045dfd5ee1a7",
+        "sha256": "62e64e7930af6d68bbe1e44e47c2a32a63091fa46dd7be2c6611eb019cb5e54d",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7186966287736056,
+      "validPixelFraction": 0.9563125467954019,
+      "brightPixelsKept": 0.814053630847524,
       "shape": [
         1429,
         1430
@@ -2263,12 +2370,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "02e9859134872f9be34b62fad0439cb7b0847b92bb7f7aaf01bec61323fc3dcd",
+        "sha256": "978d74cbbb049c5a021b694abcdd5c8087e5c05c403c405bb8aab4534ba71a06",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.6288523932330791,
+      "validPixelFraction": 0.7680484665789075,
+      "brightPixelsKept": 0.937179992122883,
       "shape": [
         1429,
         1430
@@ -2284,12 +2392,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "f3fd64fc8011494de34a640df95744c8db7900226cb5e82ea8c58057f721e3cc",
+        "sha256": "0b0b23dcf97cc0b4161996f4c9c1e2e6a1abd999a6d56dc643a476ee8b95e6a7",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.7210470425305975,
+      "validPixelFraction": 0.9354044835500399,
+      "brightPixelsKept": 0.8926404384419652,
       "shape": [
         1429,
         1430
@@ -2305,12 +2414,13 @@
       "referenceSurvey": "HSC-SSP",
       "referenceRelease": "PDR2",
       "normalizedFits": {
-        "sha256": "c25993e20e43ad76794bd3c13ae04cdb5ec596aedef9b3b6eb3ab453561a7bc9",
+        "sha256": "f3511e13e16a81fee8957e400320d5633f3a32b7cf7d6a778d0385b8fe20c3d1",
         "bytes": 18417600
       },
       "fluxMag0": 63095734448.0194,
       "njyPerCount": 57.54399373369956,
-      "validPixelFraction": 0.2931660362031251,
+      "validPixelFraction": 0.6729768482042799,
+      "brightPixelsKept": 0.8957721667645332,
       "shape": [
         1429,
         1430

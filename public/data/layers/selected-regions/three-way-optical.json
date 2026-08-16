@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "layers-three-way-optical-v1",
+  "question": "Does the field-to-field spread in the Rubin/reference flux ratio come from the reference survey's calibration or from Rubin? A reference artefact shrinks when the reference changes; a Rubin systematic does not.",
+  "references": {
+    "legacy-surveys-dr10": {
+      "filter": "DECam r",
+      "colourTermPerMag": -0.08,
+      "absoluteChainVerified": true
+    },
+    "des-dr2": {
+      "filter": "DECam r",
+      "colourTermPerMag": -0.08,
+      "absoluteChainVerified": true
+    },
+    "panstarrs-dr2": {
+      "filter": "PS1 r",
+      "colourTermPerMag": 0.0072,
+      "absoluteChainVerified": false
+    },
+    "hsc-ssp-pdr2": {
+      "filter": "HSC r2 / r",
+      "colourTermPerMag": 0.0051,
+      "absoluteChainVerified": false
+    }
+  },
+  "ownFootprint": {
+    "legacy-surveys-dr10": {
+      "regions": 189,
+      "medianScale": 0.9264661087394069,
+      "fieldSpreadDex": 0.08803645292756068,
+      "fieldSpreadMag": 0.2200911323189017
+    },
+    "des-dr2": {
+      "regions": 142,
+      "medianScale": 0.9201252966767531,
+      "fieldSpreadDex": 0.11199190947878654,
+      "fieldSpreadMag": 0.27997977369696636
+    },
+    "panstarrs-dr2": {
+      "regions": 187,
+      "medianScale": 1.1568447354965141,
+      "fieldSpreadDex": 0.03278694167321974,
+      "fieldSpreadMag": 0.08196735418304935
+    },
+    "hsc-ssp-pdr2": {
+      "regions": 106,
+      "medianScale": 0.9320031835915423,
+      "fieldSpreadDex": 0.01851145752115095,
+      "fieldSpreadMag": 0.04627864380287738
+    }
+  },
+  "matchedSky": {
+    "legacy-surveys-dr10": {
+      "regions": 106,
+      "medianScale": 0.9110328303697484,
+      "fieldSpreadDex": 0.025041691911541018,
+      "fieldSpreadMag": 0.06260422977885255
+    },
+    "panstarrs-dr2": {
+      "regions": 106,
+      "medianScale": 1.1566612027448193,
+      "fieldSpreadDex": 0.024725945567399318,
+      "fieldSpreadMag": 0.061814863918498296
+    },
+    "hsc-ssp-pdr2": {
+      "regions": 106,
+      "medianScale": 0.9320031835915423,
+      "fieldSpreadDex": 0.01851145752115095,
+      "fieldSpreadMag": 0.04627864380287738
+    }
+  },
+  "matchedRegions": 106,
+  "spreadRatioOwnFootprint": 6.049869890084346,
+  "spreadRatioMatchedSky": 1.3527671650343418,
+  "control": "The unmatched comparison is reported because it is the trap. Across each survey's own regions the spread varies by about 6x and reads as decisively reference-driven. On the sky all three measured it falls to about 1.35x. Most of the apparent reference-dependence was footprint, not survey.",
+  "finding": "On identical sky and identical Rubin pixels the spreads are close, so the field-to-field scatter is largely COMMON to all three references. That points away from any one survey's calibration and toward Rubin or the sky itself. HSC is modestly tighter, consistent with a small reference-side component on top of a larger shared one. The medians are the clearer result: Legacy and HSC independently put Rubin about 7-9% faint, using different instruments, filters and calibrations. Pan-STARRS is the outlier at +16%, and Pan-STARRS is also the one reference here whose absolute flux chain this project has never verified -- its conversion rests on an EXPTIME convention taken from a header. The simplest reading is that the PS1 zeropoint is wrong, not that Rubin is bright.",
+  "doesNotShow": "This does not license an astrophysical claim. It is a calibration comparison on compact sources, the bandpass blocker is still open on every region, and the extended-source transfer has never passed QA.",
+  "reproduce": "python pipeline/compare_three_way_optical.py"
+}

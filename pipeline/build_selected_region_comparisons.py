@@ -238,6 +238,13 @@ def main() -> None:
     parser.add_argument("--public-manifest", type=Path, default=DEFAULT_PUBLIC)
     parser.add_argument("--previews", type=Path, default=DEFAULT_PREVIEWS)
     args = parser.parse_args()
+    # Resolve every path argument against the current directory before use.
+    # relative() calls Path.relative_to(ROOT), which raises on a relative input,
+    # so passing --previews as a relative path failed every region with a
+    # "not in the subpath of" error that looks like a data problem and is not.
+    for name, value in vars(args).items():
+        if isinstance(value, Path):
+            setattr(args, name, value.resolve())
 
     rubin_payload = json.loads(args.rubin_manifest.read_text(encoding="utf-8"))
     legacy_payload = json.loads(args.legacy_manifest.read_text(encoding="utf-8"))
