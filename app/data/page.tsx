@@ -11,6 +11,7 @@ import bias from "@/public/data/layers/selected-regions/aperture-bias.json";
 import covariance from "@/public/data/layers/selected-regions/resampling-covariance-slim.json";
 import segments from "@/public/data/layers/selected-regions/segment-noise-inflation.json";
 import threeWay from "@/public/data/layers/selected-regions/three-way-optical-corrected.json";
+import SiteNav from "@/components/SiteNav";
 
 export const metadata: Metadata = {
   title: "Data access",
@@ -29,23 +30,7 @@ export default function DataPage() {
 
   return (
     <main id="top">
-      <header className="layers-header">
-        <Link className="layers-brand" href="/">
-          <span className="brand-glyph">
-            <i />
-            <b />
-          </span>
-          <strong>Layers</strong>
-          <small>science comparison workspace</small>
-        </Link>
-        <nav>
-          <Link href="/">Full footprint</Link>
-          <Link href="/explorer">Difference explorer</Link>
-          <Link href="/differences">Operators</Link>
-          <Link href="/goals">Goals</Link>
-        </nav>
-        <span className="release-chip">DATA</span>
-      </header>
+      <SiteNav chip="DATA" current="/data" />
 
       <section className={styles.page}>
         <header className={styles.intro}>

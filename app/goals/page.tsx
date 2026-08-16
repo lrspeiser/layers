@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import scorecard from "@/public/data/layers/goal-scorecard.json";
 // Slim companion: the full file carries a per-region block.
 import blockers from "@/public/data/layers/selected-regions/blocker-reassessment-slim.json";
+import SiteNav from "@/components/SiteNav";
 
 export const metadata: Metadata = {
   title: "What was asked, what exists, what was delivered",
@@ -40,23 +41,7 @@ export default function GoalsPage() {
 
   return (
     <main id="top">
-      <header className="layers-header">
-        <Link className="layers-brand" href="/">
-          <span className="brand-glyph">
-            <i />
-            <b />
-          </span>
-          <strong>Layers</strong>
-          <small>science comparison workspace</small>
-        </Link>
-        <nav>
-          <Link href="/">Full footprint</Link>
-          <Link href="/data">Data access</Link>
-          <Link href="/explorer">Difference explorer</Link>
-          <Link href="/differences">Operators</Link>
-        </nav>
-        <span className="release-chip">GOALS</span>
-      </header>
+      <SiteNav chip="GOALS" current="/goals" />
 
       <section className={styles.page}>
         <header className={styles.intro}>

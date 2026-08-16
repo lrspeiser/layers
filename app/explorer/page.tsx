@@ -9,6 +9,7 @@ import {
 import index from "@/public/data/layers/selected-regions/difference-index.json";
 import agreement from "@/public/data/layers/selected-regions/difference-agreement-slim.json";
 import placements from "@/public/data/layers/selected-regions/register-placements.json";
+import SiteNav from "@/components/SiteNav";
 
 // The slim index only. The full difference-maps.json is 0.9 MB and the per-region
 // peak lists are fetched by the client when a region is opened: a 525 KB module
@@ -33,24 +34,7 @@ export default function ExplorerPage() {
 
   return (
     <main id="top">
-      <header className="layers-header">
-        <Link className="layers-brand" href="/">
-          <span className="brand-glyph">
-            <i />
-            <b />
-          </span>
-          <strong>Layers</strong>
-          <small>science comparison workspace</small>
-        </Link>
-        <nav>
-          <Link href="/">Full footprint</Link>
-          <Link href="/data">Download the catalogue</Link>
-          <Link href="/differences">Operators</Link>
-          <Link href="/goals">Goals</Link>
-          <Link href="/coverage">Coverage</Link>
-        </nav>
-        <span className="release-chip">EXPLORER</span>
-      </header>
+      <SiteNav chip="EXPLORER" current="/explorer" />
       <DifferenceExplorer
         regions={regions}
         previewRoot={index.previewRoot}

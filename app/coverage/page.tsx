@@ -23,6 +23,7 @@ import hscPublicProductsData from "@/public/data/coverage/hsc-public-products.js
 import desiDr1ResolutionData from "@/public/data/coverage/desi-dr1-resolution.json";
 import goalAuditData from "@/public/data/coverage/goal-audit.json";
 import surveyRegistryData from "@/public/data/survey-registry.json";
+import SiteNav from "@/components/SiteNav";
 
 export const metadata: Metadata = {
   title: "Full Rubin footprint",
@@ -108,11 +109,14 @@ export default function CoveragePage() {
 
   return (
     <main id="top">
-      <header className="layers-header">
-        <Link className="layers-brand" href="/"><span className="brand-glyph"><i /><b /></span><strong>Layers</strong><small>science comparison workspace</small></Link>
-        <nav><Link href="/data">Download the catalogue</Link><Link href="/explorer">Difference explorer</Link><Link href="/differences">Cross-survey differences</Link><Link href="/pilots">Live multi-survey pilots</Link><Link href="/prototype">Aligned optical prototype</Link><Link href="/workspace">SPARC workspace</Link><a href="#dataset-registry-title">Dataset registry</a><a href="/api/coverage">Coverage API</a></nav>
-        <span className="release-chip">DP2 · TRACT INDEX</span>
-      </header>
+      <SiteNav
+        chip="DP2 · TRACT INDEX"
+        current="/coverage"
+        extras={[
+          { href: "#dataset-registry-title", label: "Dataset registry" },
+          { href: "/api/coverage", label: "Coverage API" },
+        ]}
+      />
       <CoverageExplorer coverage={coverage} surveys={surveys} objectiveAudit={goalAuditData} />
     </main>
   );

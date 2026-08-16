@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { DifferenceIndex, type AnomalyRow, type GateRow, type OperatorCard } from "@/components/DifferenceIndex";
 import summary from "@/public/data/layers/site-summary.json";
+import SiteNav from "@/components/SiteNav";
 
 // The page never imports an analysis manifest. The 190-region reconciliation is
 // 1.4 MB on its own, and a 525 KB module already broke every tract page earlier
@@ -179,25 +180,7 @@ export default function DifferencesPage() {
 
   return (
     <main id="top">
-      <header className="layers-header">
-        <Link className="layers-brand" href="/">
-          <span className="brand-glyph">
-            <i />
-            <b />
-          </span>
-          <strong>Layers</strong>
-          <small>science comparison workspace</small>
-        </Link>
-        <nav>
-          <Link href="/">Full footprint</Link>
-          <Link href="/data">Download the catalogue</Link>
-          <Link href="/explorer">Difference explorer</Link>
-          <Link href="/goals">Goals</Link>
-          <Link href="/pilots">Live multi-survey pilots</Link>
-          <Link href="/prototype">Aligned optical prototype</Link>
-        </nav>
-        <span className="release-chip">DIFFERENCES</span>
-      </header>
+      <SiteNav chip="OPERATORS" current="/differences" />
       <DifferenceIndex
         operators={operators}
         chainFlags={chainFlags}

@@ -102,10 +102,16 @@ test("the data page is reachable from every entry point", async () => {
   }
   assert.ok(pages.length >= 4, "expected several pages");
 
-  // The three pages a scientist actually arrives on must link to the data.
+  // The pages a scientist arrives on must reach the data. That reachability used
+  // to be hand-written into each page's own nav, which is exactly how five pages
+  // ended up with five different maps of the same site. It now comes from one
+  // shared component, so the assertion follows it there rather than grepping
+  // each page for a link that is no longer written per page.
+  const nav = await readFile(join(appDir, "..", "components", "SiteNav.tsx"), "utf8");
+  assert.match(nav, /href: "\/data"/, "the shared nav must reach the catalogue");
   for (const name of ["coverage", "differences", "explorer"]) {
     const found = pages.find(([dir]) => dir === name);
     assert.ok(found, `${name} page is missing`);
-    assert.match(found[1], /href="\/data"/, `${name} does not link to the catalogue`);
+    assert.match(found[1], /<SiteNav/, `${name} should use the shared navigation`);
   }
 });

@@ -55,13 +55,17 @@ test("it repeats that no astrophysical claim stands", async () => {
 });
 
 test("the page is reachable from the other pages", async () => {
-  // A page nobody links to is the same as a manifest nobody renders.
+  // A page nobody links to is the same as a manifest nobody renders. The link
+  // now lives in the shared navigation rather than being repeated per page, so
+  // this checks the one place that decides it.
+  const nav = await readText("components", "SiteNav.tsx");
+  assert.match(nav, /href: "\/goals"/, "the shared nav must reach the goals page");
   for (const parts of [
     ["app", "data", "page.tsx"],
     ["app", "explorer", "page.tsx"],
   ]) {
     const source = await readText(...parts);
-    assert.match(source, /href="\/goals"/, `${parts.join("/")} should link to the goals page`);
+    assert.match(source, /<SiteNav/, `${parts.join("/")} should use the shared navigation`);
   }
 });
 
