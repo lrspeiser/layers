@@ -1474,3 +1474,52 @@ been averaging in a ~0.28 mag zeropoint error, and §28's "the scatter is largel
 common to all three references" was measured with that error present. The
 reconcile chain still reports PS1 as `verified: false`, which was the correct
 label all along — this section is what that label was waiting for.
+
+## 30. Correcting PS1 makes three references agree on the median, and leaves the scatter untouched
+
+§29 measured this project's PS1 zeropoint error on 8 regions. Extended to **63**,
+the offset is **+0.244 mag** (16–84 percentile +0.166 to +0.310), and the
+field-to-field standard deviation of the offset *itself* is 0.063 mag = 0.0255 dex.
+
+That last number looked decisive. §28 had measured PS1's field spread as 0.0247
+dex — the same number to three decimals — which would have meant PS1's entire
+apparent scatter was its own zeropoint wandering, and §28's "the scatter is
+largely common to all three references" was an artefact of leaving one leg
+uncalibrated.
+
+**It was a coincidence, and the hypothesis is wrong.** The two figures were
+computed on different region subsets, so comparing them was apples to oranges.
+
+Re-derived on the 35 regions with all three references and a measured PS1 offset:
+
+| reference | median before | median after | spread before | spread after |
+|---|---|---|---|---|
+| Legacy DR10 | 0.9026 | 0.9026 | 0.0165 | 0.0165 |
+| HSC PDR2 | 0.9208 | 0.9208 | 0.0239 | 0.0239 |
+| Pan-STARRS DR2 | 1.1441 | **0.9144** | 0.0297 | **0.0321** |
+
+**The median result is excellent.** Agreement across the three goes from 0.2415
+to **0.0182** — Legacy, HSC and Pan-STARRS, three instruments with three filters
+and three calibration heritages, now agree that Rubin measures about **8–10% less
+flux** on compact sources, to within 1.8%.
+
+**The scatter result is a clean negative.** PS1's field spread did not shrink; it
+rose slightly, 0.0297 → 0.0321. Correcting per region *added* variance rather
+than removing it, which is what happens when two quantities are independent.
+Measured directly on 62 regions, the PS1 zeropoint offset and the log flux ratio
+are uncorrelated: Pearson −0.132 (p = 0.31), Spearman +0.213 (p = 0.10). And the
+scales rule it out anyway — the offset varies by 0.0255 dex against a flux-ratio
+scatter of 0.1211 dex, so even perfect correlation could account for about 4% of
+the variance.
+
+**So §28 survives, and is now measured with all three legs calibrated.** The
+field-to-field scatter is common across references, it is not any single survey's
+zeropoint, and it remains unexplained. What has changed is that the ~8–10% Rubin
+flux deficit is now corroborated by three independent references agreeing to
+better than 2%, rather than by two agreeing and one contradicting.
+
+**A caution about the numbers above.** They rest on 35 regions, not 106, because
+only 63 PS1 offsets were measured and the three-way intersection shrinks
+accordingly. The medians shift slightly from §28 for that reason alone (Legacy
+0.9026 here against 0.9110 there) — a different subset of sky, not a different
+result.

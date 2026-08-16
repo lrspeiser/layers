@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "layers-three-way-corrected-v1",
+  "question": "Section 28 said the field-to-field scatter is largely common to all three references. It was measured with this project's PS1 chain 0.28 mag out. Does the conclusion survive correcting it per region?",
+  "method": "Apply each region's own measured PS1 zeropoint offset to that region's flux ratio, then recompute median and spread on the sky all three references measured. Regions without a measured offset are dropped rather than given the global median: substituting an average for a missing measurement is precisely what would make a field-dependent effect look constant.",
+  "regionsCompared": 35,
+  "perRegionOffsetsAvailable": 63,
+  "before": {
+    "legacy-surveys-dr10": {
+      "regions": 35,
+      "medianScale": 0.9025964520223559,
+      "fieldSpreadDex": 0.016480010120062026
+    },
+    "hsc-ssp-pdr2": {
+      "regions": 35,
+      "medianScale": 0.9208139214667149,
+      "fieldSpreadDex": 0.023921721058321334
+    },
+    "panstarrs-dr2": {
+      "regions": 35,
+      "medianScale": 1.1440579187111561,
+      "fieldSpreadDex": 0.029690534671012302
+    }
+  },
+  "after": {
+    "legacy-surveys-dr10": {
+      "regions": 35,
+      "medianScale": 0.9025964520223559,
+      "fieldSpreadDex": 0.016480010120062026
+    },
+    "hsc-ssp-pdr2": {
+      "regions": 35,
+      "medianScale": 0.9208139214667149,
+      "fieldSpreadDex": 0.023921721058321334
+    },
+    "panstarrs-dr2": {
+      "regions": 35,
+      "medianScale": 0.9144385472517743,
+      "fieldSpreadDex": 0.03207539409197205
+    }
+  },
+  "spreadRatioBefore": 1.801609007197658,
+  "spreadRatioAfter": 1.9463212618373882,
+  "ps1SpreadReductionDex": -0.002384859420959746,
+  "medianAgreementBefore": 0.2414614666888002,
+  "medianAgreementAfter": 0.01821746944435898,
+  "reproduce": "python pipeline/rederive_three_way_corrected.py"
+}
