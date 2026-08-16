@@ -151,9 +151,11 @@ export default function GoalsPage() {
         <section className={styles.policy}>
           <h2>What actually stands between here and a comparison</h2>
           <p>
-            No comparison has cleared every gate, and the count of what blocks them was written
-            before two of the blockers were worked on. Recomputed against current evidence, per
-            region:
+            {blockers.comparisonReady} of {blockers.regionsAssessed} regions have now cleared
+            every gate, up from none: applying the correlated-noise correction to the released
+            error columns closed that blocker everywhere, and those {blockers.comparisonReady} had
+            nothing else outstanding. It counts gates, not conclusions &mdash; no astrophysical
+            claim stands. What still blocks the rest, per region:
           </p>
           <ul className={styles.blockers}>
             {Object.entries(blockers.blockersRemaining as Record<string, number>)
@@ -165,11 +167,12 @@ export default function GoalsPage() {
               ))}
           </ul>
           <p className={styles.muted}>
-            {blockers.staleBlockersClearedByNewEvidence["bandpass transfer"]} regions now carry a
+            {blockers.staleBlockersClearedByNewEvidence["bandpass transfer"]} regions carry a
             fitted per-region colour term that the reconciliation manifest still counts as
-            blocked. Resampling covariance is the one blocker on every region: it has been
-            measured everywhere and applied nowhere, and a systematic that is known but
-            uncorrected still blocks a quantitative claim.
+            blocked, which is why this is recomputed rather than read off. Injection/recovery QA
+            is now the binding constraint: 24 regions were attempted and 9 produced a
+            measurement, so the method has to work on fainter and more crowded fields before it
+            scales.
           </p>
         </section>
 

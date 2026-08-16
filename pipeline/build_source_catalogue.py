@@ -53,6 +53,41 @@ DEFAULT_OUTPUT = ROOT / "pipeline/results/source-catalogue"
 DEFAULT_SUMMARY = ROOT / "public/data/layers/selected-regions/source-catalogue.json"
 
 DETECT_SIGMA = 3.0
+
+# Correlated-noise correction for the flux errors, loaded from the measurement
+# rather than hardcoded so the two cannot drift apart. See
+# pipeline/measure_segment_noise_inflation.py.
+INFLATION_MANIFEST = ROOT / "public/data/layers/selected-regions/segment-noise-inflation.json"
+INFLATION_MEASURED_TO_PIXELS = 160.0
+
+
+def _inflation_curve() -> tuple[np.ndarray, np.ndarray]:
+    """(median area, variance inflation) per measured area bin, ascending."""
+    if not INFLATION_MANIFEST.is_file():
+        raise SystemExit(
+            "segment-noise-inflation.json is missing; run "
+            "pipeline/measure_segment_noise_inflation.py before building the catalogue"
+        )
+    bins = json.loads(INFLATION_MANIFEST.read_text(encoding="utf-8"))["byArea"]
+    areas = np.array([b["medianAreaPixels"] for b in bins], dtype=np.float64)
+    values = np.array([b["medianVarianceInflation"] for b in bins], dtype=np.float64)
+    order = np.argsort(areas)
+    return areas[order], values[order]
+
+
+def noise_inflation(area_pixels: np.ndarray) -> np.ndarray:
+    """Variance inflation for each source, interpolated on the measured curve.
+
+    Held flat outside the measured range rather than extrapolated. The curve is
+    still rising at 160 pixels, so holding it flat *understates* the correction
+    for the largest sources -- which is the conservative direction, and those
+    rows carry flag_inflation_extrapolated so they can be dropped instead.
+    """
+    areas, values = _inflation_curve()
+    finite = np.isfinite(area_pixels)
+    out = np.full(np.shape(area_pixels), values[0], dtype=np.float64)
+    out[finite] = np.interp(area_pixels[finite], areas, values)
+    return out
 MIN_PIXELS = 5
 DEBLEND_LEVELS = 32
 DEBLEND_CONTRAST = 0.001
@@ -214,6 +249,27 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
     difference_flux = np.asarray(difference_catalogue.segment_flux, dtype=np.float64)
     rubin_error = np.asarray(rubin_catalogue.segment_fluxerr, dtype=np.float64)
     reference_error = np.asarray(reference_catalogue.segment_fluxerr, dtype=np.float64)
+
+    # photutils' segment_fluxerr sums the background RMS in quadrature over the
+    # segment, which is sigma*sqrt(N) -- the variance of a sum of N *independent*
+    # pixels. They are not independent: lag-1 noise autocorrelation is 0.68 in
+    # Rubin and 0.76 in the resampled reference, so a real aperture sum scatters
+    # far more than that. Measured on 9,780 of this catalogue's own segment
+    # footprints translated around blank sky, the variance is 2.9x to 6.2x higher
+    # depending on area, so these error bars are about twice too small.
+    #
+    # Correcting them here rather than leaving a factor for the reader: an error
+    # bar known to be wrong is worse than one that is inconvenient to compute.
+    # See pipeline/measure_segment_noise_inflation.py for the curve, which is
+    # measured to 160 pixels and covers 94.9% of rows; beyond that the factor is
+    # held flat rather than extrapolated, and the row is flagged.
+    area_pixels = np.asarray(rows["area_pixels"], dtype=np.float64)
+    inflation = noise_inflation(area_pixels)
+    scale = np.sqrt(inflation)
+    rows["noise_inflation_factor"] = inflation
+    rows["flag_inflation_extrapolated"] = area_pixels > INFLATION_MEASURED_TO_PIXELS
+    rubin_error = rubin_error * scale
+    reference_error = reference_error * scale
 
     rows["rubin_flux_njy"] = rubin_flux
     rows["rubin_flux_err_njy"] = rubin_error

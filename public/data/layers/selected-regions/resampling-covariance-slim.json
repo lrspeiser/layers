@@ -94,5 +94,9 @@
     ],
     "why": "photutils' segment_fluxerr sums the background RMS in quadrature over a segment, which is sigma*sqrt(N) -- the variance of a sum of N independent pixels. The pixels are not independent, so those errors are too small by the measured factor and the S/N columns are too large by it. departure_significance divides by the field's own measured 16th-to-84th percentile scatter rather than by a propagated error, so it never assumed independence and is unaffected. That is the column the release recommends, and it survives this for the same reason the empirical nulls have survived every other uncertainty failure in this project."
   },
-  "headline": "Quoted flux uncertainties are too small by about a factor of two, measured: 1.9x at a 1.5-pixel aperture rising to 2.7x at 6 pixels, from an aperture-sum variance 3.7 to 7.1 times what independent pixels would give. This is an independent confirmation of the previously measured fact that the products' variance planes understate the truth by about seven -- the same order, reached from noise autocorrelation rather than from the planes."
+  "headline": "Quoted flux uncertainties are too small by about a factor of two, measured: 1.9x at a 1.5-pixel aperture rising to 2.7x at 6 pixels, from an aperture-sum variance 3.7 to 7.1 times what independent pixels would give. This is an independent confirmation of the previously measured fact that the products' variance planes understate the truth by about seven -- the same order, reached from noise autocorrelation rather than from the planes.",
+  "appliedToReleasedColumns": true,
+  "appliedOn": "2026-08-16",
+  "appliedHow": "rubin_flux_err_njy and reference_flux_err_njy multiplied by the square root of the per-source inflation, the _snr columns divided by it. The factor ships as noise_inflation_factor so the uncorrected values are recoverable exactly. Rows above the 160-pixel measured range hold the factor flat, which understates the correction, and carry flag_inflation_extrapolated (5.1% of rows).",
+  "note": ""
 }

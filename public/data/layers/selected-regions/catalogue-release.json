@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-catalogue-release-v1",
-  "generatedAt": "2026-08-16T05:42:04.267856+00:00",
+  "generatedAt": "2026-08-16T06:37:24.942236+00:00",
   "published": true,
   "rows": 70910,
   "rowsInBulkFiles": 70910,
@@ -9,14 +9,14 @@
   "files": {
     "parquet": {
       "path": "/data/catalogue/rubin-reference-sources.parquet",
-      "bytes": 16748155,
-      "sha256": "2476055fb06af9b83f12d633c810f81fd6b983247b278254c5df2dd17ba3dc87",
+      "bytes": 16817479,
+      "sha256": "2f0cfb55b7383c09d82d807e9f209a9219dff05eddefd5717b60be129af50a6b",
       "use": "bulk analysis; read with pandas, polars or pyarrow"
     },
     "votableGzip": {
       "path": "/data/catalogue/rubin-reference-sources.vot.gz",
-      "bytes": 18085714,
-      "sha256": "f1e3fd3f588fdacaefae1d1f53c262210a9e7ea0329a2159a3d4be7c279f583b",
+      "bytes": 18650402,
+      "sha256": "6d1f1dc8de21fa1ac5d9ffd0e8f094268c3a16124583afa4947fef6b17813d56",
       "use": "opens directly in TOPCAT, pyvo and astroquery"
     }
   },
@@ -27,7 +27,7 @@
       "root": "/data/catalogue/tiles",
       "scheme": "one-degree bins in RA and Dec, named RRR_sDD",
       "count": 206,
-      "totalBytes": 28473222,
+      "totalBytes": 33417705,
       "why": "A serverless route cannot hold 50,000 rows per request, and sending the whole table to answer a positional query wastes the reader's bandwidth. A cone of any sane radius touches one or a few tiles."
     }
   },
@@ -39,6 +39,8 @@
     "note": "Multiply a flagged count by the rate to estimate how many are noise. Where no false positive was observed the 95% upper limit is used, since zero events does not mean a zero rate. The remainder is an upper bound on what could be astrophysical, not a count of it."
   },
   "whichSignificance": "Cut on departure_significance, and cut on the compact half of the field. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",
+  "correlatedNoiseCorrection": "The flux errors here are corrected for correlated image noise and are not raw photutils values. segment_fluxerr sums the background RMS in quadrature over a segment, which is sigma*sqrt(N) and assumes independent pixels; they are not independent, with lag-1 autocorrelation 0.68 in Rubin and 0.76 in the resampled reference. Measured by translating 9,780 of this catalogue's own segment footprints around blank sky, the variance of a real aperture sum is 2.9x to 6.2x higher depending on area, so raw errors were about half what they should be. Every error column has been multiplied by the square root of noise_inflation_factor and the S/N columns divided by it. The curve is measured to 160 pixels, covering 94.9% of rows; beyond that it is held flat rather than extrapolated and the row carries flag_inflation_extrapolated. Divide by the square root of noise_inflation_factor to recover the uncorrected values.",
+  "extendedSourceBias": "Measured, unexplained, and the reason to restrict a search to compact sources. The flux ratio of extended sources sits below that of compact ones in nearly every field, and by three times as much where the PSF-matching kernel convolved Rubin rather than the reference (medians -0.144 against -0.043 across 186 regions, Kruskal-Wallis p = 2.8e-08). Which frame is convolved is an implementation detail chosen by residual size, so no part of this can be astrophysical. Two explanations were tested and both fail: dividing out the fitted kernel normalisation separates the groups further, and Kron apertures fix compact sources while reversing the asymmetry above S/N 50. Until it is understood, treat a large departure on an extended source as unexplained instrument systematics. Reproduce with pipeline/diagnose_aperture_bias.py.",
   "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against Pan-STARRS, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the field-to-field scatter, forty times larger than the filters permit, and a size-dependent bias that makes extended sources unreliable.",
   "columns": {
     "source_id": {
@@ -200,7 +202,16 @@
       "unit": "",
       "ucd": "meta.code.qual",
       "description": "Segment larger than 500 pixels; deblending may have merged neighbours."
+    },
+    "noise_inflation_factor": {
+      "unit": "",
+      "ucd": "stat.fit.param",
+      "description": "Variance inflation already applied to the flux errors, because image noise is correlated and sigma*sqrt(N) understates a real aperture sum. Measured on 9,780 of this catalogue's own segment footprints. Divide the error columns by its square root to recover the uncorrected values."
+    },
+    "flag_inflation_extrapolated": {
+      "unit": "",
+      "ucd": "meta.code.qual",
+      "description": "Segment larger than the 160 pixels the inflation curve was measured to. The factor is held flat rather than extrapolated, which understates the correction, and the curve was still rising. About 5% of rows, and the same extended sources that carry a separate unexplained size bias."
     }
-  },
-  "extendedSourceBias": "Measured, unexplained, and the reason to restrict a search to compact sources. The flux ratio of extended sources sits below that of compact ones in nearly every field, and by three times as much where the PSF-matching kernel convolved Rubin rather than the reference (medians -0.144 against -0.043 across 186 regions, Kruskal-Wallis p = 2.8e-08). Which frame is convolved is an implementation detail chosen by residual size, so no part of this can be astrophysical. Two explanations were tested and both fail: dividing out the fitted kernel normalisation separates the groups further, and Kron apertures fix compact sources while reversing the asymmetry above S/N 50. Until it is understood, treat a large departure on an extended source as unexplained instrument systematics. Reproduce with pipeline/diagnose_aperture_bias.py."
+  }
 }

@@ -50,9 +50,13 @@ def load_catalogue() -> dict[str, np.ndarray]:
     def column(name: str) -> np.ndarray:
         return np.array([np.nan if v is None else v for v in table[name]], dtype=float)
 
+    # Name the quality flags rather than globbing flag_*. A glob quietly absorbs
+    # any flag added later, and flag_inflation_extrapolated marks the *largest*
+    # segments -- excluding those from a size-bias measurement would delete the
+    # very population being measured, and the result would still look plausible.
     clean = np.ones(len(table["source_id"]), dtype=bool)
-    for name in table:
-        if name.startswith("flag_"):
+    for name in ("flag_near_edge", "flag_negative_reference", "flag_blended"):
+        if name in table:
             clean &= ~np.array([bool(v) for v in table[name]])
 
     return {

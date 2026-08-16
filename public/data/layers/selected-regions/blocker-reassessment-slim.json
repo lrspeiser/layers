@@ -1,25 +1,35 @@
 {
   "schemaVersion": "layers-blocker-reassessment-v1",
   "question": "The reconciliation manifest lists three blockers on all 190 regions and was written before two of them were worked on. Which of them actually still stand?",
-  "method": "Per region, each retained blocker is checked against a named artefact. Bandpass transfer clears only where that region's own colour term was fitted, not because the filters were characterised globally. Injection/recovery clears only where a run yielded a measurement for that region. Resampling covariance does not clear on being measured, because the released error columns still carry uncorrected values -- knowing an error bar is twice too small is not fixing it.",
+  "method": "Per region, each retained blocker is checked against a named artefact. Bandpass transfer clears only where that region's own colour term was fitted, not because the filters were characterised globally. Injection/recovery clears only where a run yielded a measurement for that region. Resampling covariance clears only where the correction has been applied to the released columns, not where it has merely been measured -- knowing an error bar is twice too small is not fixing it. It was applied on 2026-08-16, which is why it now clears.",
   "regionsAssessed": 190,
   "staleBlockersClearedByNewEvidence": {
+    "resampling covariance": 190,
     "bandpass transfer": 156,
     "injection/recovery QA": 9
   },
   "blockersRemaining": {
     "bandpass transfer": 34,
-    "resampling covariance": 190,
     "injection/recovery QA": 181,
     "background matching": 27,
     "flux-unit transfer": 42,
     "PSF matching": 1
   },
-  "comparisonReady": 0,
-  "finding": "The manifest overstates what is left. Bandpass transfer is listed against all 190 regions but 156 of them have a fitted per-region colour term. What genuinely remains is narrower and more specific: injection/recovery QA on 181 regions, and a resampling-covariance correction that has been measured everywhere and applied nowhere. comparisonReady stays 0, which is the correct answer -- this reassessment exists to say what the remaining work is, not to shrink it.",
+  "comparisonReady": 7,
+  "finding": "The manifest overstates what is left. Bandpass transfer is listed against all 190 regions but 156 of them have a fitted per-region colour term. What genuinely remains is narrower and more specific: injection/recovery QA on 181 regions. comparisonReady is 7. It was 0 until the correlated-noise correction was applied to the released error columns, which cleared resampling covariance on every region; the 7 that follow are those where nothing else was outstanding either. That is a statement about acquisition and measurement, not a licence for an astrophysical claim -- the reconciliation policy still sets scienceClaimAllowed false, and a region clearing every gate this pipeline defines only means the gates are cleared.",
+  "comparisonReadyRegions": [
+    "dp2-tract-10689",
+    "dp2-tract-5063",
+    "dp2-tract-9227",
+    "dp2-tract-9464",
+    "dp2-tract-9712",
+    "dp2-tract-9943",
+    "dp2-tract-9953"
+  ],
+  "scienceClaimAllowed": false,
   "whatWouldClearTheRest": {
     "injection/recovery QA": "Run injection/recovery on the regions that lack it. 24 were attempted and 9 yielded a measurement, so the method needs to work on fainter and more crowded fields before this scales to 190.",
-    "resampling covariance": "Apply the measured factor to rubin_flux_err_njy, reference_flux_err_njy and the _snr columns, then republish. The factor is size-dependent rather than constant, so this changes every row and the release checksums with it."
+    "resampling covariance": "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, reference_flux_err_njy and the _snr columns and the catalogue republished; noise_inflation_factor ships alongside so the uncorrected values remain recoverable. This is what moved comparisonReady off zero."
   },
   "reproduce": "python pipeline/reassess_comparison_blockers.py"
 }

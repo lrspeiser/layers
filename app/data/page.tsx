@@ -9,6 +9,7 @@ import bias from "@/public/data/layers/selected-regions/aperture-bias.json";
 // The slim companion: the full file carries a per-region block and is ~750 kB,
 // which a page import would ship straight into the worker bundle.
 import covariance from "@/public/data/layers/selected-regions/resampling-covariance-slim.json";
+import segments from "@/public/data/layers/selected-regions/segment-noise-inflation.json";
 
 export const metadata: Metadata = {
   title: "Data access",
@@ -127,30 +128,37 @@ tbl.sort("departure_significance")`}</code>
             </dl>
           </article>
 
-          <article className={styles.card} data-tone="caution">
-            <h2>The error columns are too small</h2>
-            <p>{covariance.headline}</p>
+          <article className={styles.card}>
+            <h2>Errors corrected for correlated noise</h2>
+            <p>
+              These flux errors are not raw photutils values. <code>segment_fluxerr</code> is
+              &sigma;&middot;&radic;N, which assumes independent pixels; image noise is correlated
+              (lag-1 {covariance.summary.reference.medianLag1Autocorrelation?.toFixed(2)} in the
+              resampled reference), so a real aperture sum scatters far more. Measured by
+              translating {segments.segmentsMeasured.toLocaleString()} of this catalogue&rsquo;s own
+              segment footprints around blank sky, then applied.
+            </p>
             <dl className={styles.stats}>
               <div>
-                <dt>flux errors understated by</dt>
-                <dd>
-                  &times;
-                  {covariance.summary.reference.byRadius[
-                    "r3.0"
-                  ].medianErrorBarUnderstatedBy.toFixed(1)}
-                </dd>
+                <dt>errors raised by</dt>
+                <dd>&times;{segments.overall.medianErrorBarUnderstatedBy.toFixed(2)}</dd>
               </div>
               <div>
-                <dt>regions measured</dt>
-                <dd>{covariance.regionsMeasured}</dd>
+                <dt>within measured range</dt>
+                <dd>
+                  {(segments.coverage.catalogueFractionWithinMeasuredRange * 100).toFixed(1)}%
+                </dd>
               </div>
             </dl>
             <p className={styles.muted}>
-              Affects <code>rubin_flux_err_njy</code>, <code>reference_flux_err_njy</code> and both{" "}
-              <code>_snr</code> columns. It does <em>not</em> affect{" "}
-              <code>departure_significance</code>, which divides by the field&rsquo;s own measured
-              scatter and never assumed independent pixels &mdash; the same reason the empirical
-              nulls have survived every other uncertainty failure here.
+              The factor rises with segment area, so it is applied per source and recorded in{" "}
+              <code>noise_inflation_factor</code> &mdash; divide the error columns by its square
+              root to recover the uncorrected values. Above{" "}
+              {segments.coverage.largestAreaMeasuredPixels} pixels the curve is held flat rather
+              than extrapolated, which understates the correction, and those rows carry{" "}
+              <code>flag_inflation_extrapolated</code>. <code>departure_significance</code> was
+              never affected: it divides by the field&rsquo;s own measured scatter and never
+              assumed independent pixels.
             </p>
           </article>
 

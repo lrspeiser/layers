@@ -51,7 +51,7 @@
       "medianErrorBarUnderstatedBy": 2.4879526445086606
     }
   ],
-  "appliedToReleasedColumns": false,
+  "appliedToReleasedColumns": true,
   "note": "Measured, not applied. This is the curve a correction needs; multiplying rubin_flux_err_njy and reference_flux_err_njy by sqrt of the inflation at each source's area, and dividing the _snr columns by it, would rewrite every row of the release and its checksums. That is a publishing decision, not a measurement.",
   "reproduce": "python pipeline/measure_segment_noise_inflation.py",
   "coverage": {
@@ -59,5 +59,7 @@
     "catalogueFractionWithinMeasuredRange": 0.9493,
     "limitation": "The curve is measured to 160 pixels because a larger footprint cannot be placed on clean sky often enough to get a stable scatter -- there is not that much blank sky in a 512x512 cutout. Segments above that would have to extrapolate, and they are the extended sources section 21 already shows carry a separate, unexplained bias. Any correction should be applied within the measured range and the remainder flagged rather than extrapolated."
   },
-  "pilotAgreement": "A 6-region pilot gave the same direction and a steeper large-area end (x10.3 against the full run's x5.8 at 40-80 px). Direction held this time; magnitude at the sparse end did not. Two earlier pilots this session reversed outright, so the full run is the number."
+  "pilotAgreement": "A 6-region pilot gave the same direction and a steeper large-area end (x10.3 against the full run's x5.8 at 40-80 px). Direction held this time; magnitude at the sparse end did not. Two earlier pilots this session reversed outright, so the full run is the number.",
+  "appliedOn": "2026-08-16",
+  "appliedHow": "rubin_flux_err_njy and reference_flux_err_njy multiplied by the square root of the per-source inflation, the _snr columns divided by it. The factor ships as noise_inflation_factor so the uncorrected values are recoverable exactly. Rows above the 160-pixel measured range hold the factor flat, which understates the correction, and carry flag_inflation_extrapolated (5.1% of rows)."
 }

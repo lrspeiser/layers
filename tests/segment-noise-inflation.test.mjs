@@ -53,13 +53,37 @@ test("it agrees with the circular measurement in magnitude", () => {
   );
 });
 
-test("it is explicitly not applied to the release", () => {
-  assert.equal(inflation.appliedToReleasedColumns, false);
-  assert.match(inflation.note, /publishing decision/);
-  // And the blocker reassessment must still count it as outstanding.
+test("it has been applied, and the blocker cleared as a result", () => {
+  assert.equal(inflation.appliedToReleasedColumns, true);
+  assert.ok(inflation.appliedHow, "applying it has to say what was done to which columns");
+
   const blockers = read("public/data/layers/selected-regions/blocker-reassessment-slim.json");
+  // Measuring a systematic does not clear it; applying it does. The blocker may
+  // only be absent from the remaining list because the correction shipped.
   assert.ok(
-    blockers.blockersRemaining["resampling covariance"] > 0,
-    "measuring a systematic does not clear it; applying it does",
+    !blockers.blockersRemaining["resampling covariance"],
+    "resampling covariance should be cleared now the correction is in the released columns",
   );
+  assert.equal(blockers.staleBlockersClearedByNewEvidence["resampling covariance"], 190);
+});
+
+test("clearing gates is not licence for a claim", () => {
+  const blockers = read("public/data/layers/selected-regions/blocker-reassessment-slim.json");
+  assert.ok(blockers.comparisonReady > 0, "the correction moved this off zero");
+  assert.equal(
+    blockers.scienceClaimAllowed,
+    false,
+    "comparisonReady counts gates, not conclusions",
+  );
+  const scorecard = read("public/data/layers/goal-scorecard.json");
+  assert.equal(scorecard.policy.astrophysicalClaimsStanding, 0);
+});
+
+test("the correction is recoverable, so nothing is destroyed", () => {
+  // noise_inflation_factor must ship, or applying the correction would be a
+  // one-way edit to published measurements.
+  const release = read("public/data/layers/selected-regions/catalogue-release.json");
+  assert.ok(release.columns.noise_inflation_factor, "the factor must be a published column");
+  assert.ok(release.columns.flag_inflation_extrapolated);
+  assert.match(release.correlatedNoiseCorrection, /recover the uncorrected values/);
 });

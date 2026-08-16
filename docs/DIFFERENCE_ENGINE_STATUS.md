@@ -1166,3 +1166,53 @@ and its checksums. That is a publishing decision. What has changed is that it is
 now a well-defined one: the factor is measured on the real apertures, over the
 range covering 95% of the rows, with the remainder identified rather than
 guessed.
+
+## 24. The correction is applied, and comparisonReady is no longer zero
+
+§23 left the correction measured and unapplied, and called applying it a
+publishing decision. On reflection that was the wrong place to stop. The reason
+for holding — that applying it needed an interpolation assumption made
+unilaterally on published rows — had already been retired by §23's own
+measurement: the factor is measured on 9,780 real segment footprints covering
+94.9% of the catalogue. Weighed against that, continuing to publish error bars
+demonstrated to be about half their true size is the worse outcome for anyone
+using the data.
+
+**What was done.** `rubin_flux_err_njy` and `reference_flux_err_njy` multiplied
+by √inflation at each source's own segment area; `rubin_snr` and `reference_snr`
+divided by the same. The catalogue was rebuilt over all 190 regions and
+republished: 189 regions, 70,910 sources, 67,182 clean — identical counts,
+because the correction changes uncertainties and not detections. Median Rubin S/N
+falls from 16.8 to 7.23.
+
+**Nothing is destroyed.** `noise_inflation_factor` ships as a column, so dividing
+the error columns by its square root returns the raw photutils values exactly.
+`flag_inflation_extrapolated` marks the 5.1% of rows above the 160-pixel measured
+range, where the factor is held flat rather than extrapolated — which
+*understates* the correction, the conservative direction, on the sources §21
+shows carry a separate bias.
+
+**Two checks that mattered.**
+
+`departure_significance` had to be untouched, since it divides by measured
+scatter rather than a propagated error. Verified: 561 high / 214 low above 5σ on
+clean rows, identical to the pre-correction release. So is the §21 aperture-bias
+result, which reproduces to four decimals.
+
+The second check found a real bug. Adding `flag_inflation_extrapolated` silently
+changed every script that ANDs together all columns matching `flag_*` —
+including `diagnose_aperture_bias.py`, which would have dropped the 3,598
+*largest* segments from a **size**-bias measurement and still produced a
+plausible-looking answer. That glob is now an explicit list of the three quality
+flags. The general lesson: a new flag column is not additive when downstream code
+discovers flags by pattern.
+
+**The blocker moved because the work was done.** Resampling covariance clears on
+all 190 regions, and `comparisonReady` goes from 0 to **7** — the regions where
+nothing else was outstanding either. Injection/recovery QA is now the binding
+constraint at 181 regions: 24 attempted, 9 yielded a measurement, so the method
+has to work on fainter and more crowded fields before it scales.
+
+`comparisonReady` counts gates, not conclusions. `scienceClaimAllowed` is still
+false and no astrophysical claim stands. Seven regions clearing every gate this
+pipeline defines means exactly that and nothing more.

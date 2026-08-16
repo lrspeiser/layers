@@ -14,15 +14,25 @@ not clear anything on the grounds that work was attempted -- each blocker is
 checked against a specific artefact, and the rule for clearing it is stated in
 CHECKS below so it can be argued with rather than trusted.
 
-The expected result is that `comparisonReady` stays 0. Two blockers genuinely
-remain: injection/recovery QA yielded a measurement for 9 regions of 24
-attempted, not 190, and the resampling-covariance factor has been measured but
-not applied to the released error columns. A measured systematic that nobody has
-corrected still blocks a quantitative claim -- knowing an error bar is twice too
-small is not the same as fixing it.
+When first run this returned `comparisonReady` 0, and correctly: the
+resampling-covariance factor had been measured everywhere and applied nowhere,
+and a measured systematic that nobody has corrected still blocks a quantitative
+claim. Knowing an error bar is twice too small is not the same as fixing it.
 
-The point is not to move the number. It is to make the remaining work legible:
-which blocker, on how many regions, and what specifically would clear it.
+It has since been fixed. On 2026-08-16 the correction was applied to the released
+error columns and the catalogue republished, which clears that blocker on every
+region and takes `comparisonReady` to 7 -- the regions where nothing else was
+outstanding either. The number moved because the work was done, not because the
+rule was loosened; the rule is still that each blocker clears only against a
+named artefact.
+
+Injection/recovery QA is now the binding constraint, outstanding on 181 regions:
+24 were attempted and 9 yielded a measurement, so the method has to work on
+fainter and more crowded fields before it scales.
+
+`comparisonReady` counts gates, not conclusions. The reconciliation policy still
+sets `scienceClaimAllowed` false, and a region clearing every gate this pipeline
+defines means exactly that and nothing more.
 """
 
 from __future__ import annotations
@@ -154,9 +164,10 @@ def main() -> None:
             "Per region, each retained blocker is checked against a named artefact. Bandpass "
             "transfer clears only where that region's own colour term was fitted, not because "
             "the filters were characterised globally. Injection/recovery clears only where a "
-            "run yielded a measurement for that region. Resampling covariance does not clear "
-            "on being measured, because the released error columns still carry uncorrected "
-            "values -- knowing an error bar is twice too small is not fixing it."
+            "run yielded a measurement for that region. Resampling covariance clears only "
+            "where the correction has been applied to the released columns, not where it has "
+            "merely been measured -- knowing an error bar is twice too small is not fixing it. "
+            "It was applied on 2026-08-16, which is why it now clears."
         ),
         "regionsAssessed": len(assessed),
         "staleBlockersClearedByNewEvidence": dict(stale),
@@ -166,11 +177,17 @@ def main() -> None:
             f"The manifest overstates what is left. Bandpass transfer is listed against all "
             f"190 regions but {stale.get('bandpass transfer', 0)} of them have a fitted "
             f"per-region colour term. What genuinely remains is narrower and more specific: "
-            f"injection/recovery QA on {remaining.get('injection/recovery QA', 0)} regions, "
-            f"and a resampling-covariance correction that has been measured everywhere and "
-            f"applied nowhere. comparisonReady stays {ready}, which is the correct answer -- "
-            f"this reassessment exists to say what the remaining work is, not to shrink it."
+            f"injection/recovery QA on {remaining.get('injection/recovery QA', 0)} regions. "
+            f"comparisonReady is {ready}. It was 0 until the correlated-noise correction was "
+            f"applied to the released error columns, which cleared resampling covariance on every "
+            f"region; the {ready} that follow are those where nothing else was outstanding "
+            f"either. That is a statement about acquisition and measurement, not a licence for an "
+            f"astrophysical claim -- the reconciliation policy still sets scienceClaimAllowed "
+            f"false, and a region clearing every gate this pipeline defines only means the gates "
+            f"are cleared."
         ),
+        "comparisonReadyRegions": [r["regionId"] for r in assessed if r["comparisonReady"]],
+        "scienceClaimAllowed": False,
         "whatWouldClearTheRest": {
             "injection/recovery QA": (
                 "Run injection/recovery on the regions that lack it. 24 were attempted and 9 "
@@ -178,9 +195,10 @@ def main() -> None:
                 "crowded fields before this scales to 190."
             ),
             "resampling covariance": (
-                "Apply the measured factor to rubin_flux_err_njy, reference_flux_err_njy and "
-                "the _snr columns, then republish. The factor is size-dependent rather than "
-                "constant, so this changes every row and the release checksums with it."
+                "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, "
+                "reference_flux_err_njy and the _snr columns and the catalogue republished; "
+                "noise_inflation_factor ships alongside so the uncorrected values remain "
+                "recoverable. This is what moved comparisonReady off zero."
             ),
         },
         "reproduce": "python pipeline/reassess_comparison_blockers.py",

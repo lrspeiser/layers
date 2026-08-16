@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-source-catalogue-v1",
-  "generatedAt": "2026-08-16T05:42:01.006593+00:00",
+  "generatedAt": "2026-08-16T06:36:48.712798+00:00",
   "purpose": "One row per detected source with Rubin and reference flux measured on identical pixels, so the comparison produces something that can be cross-matched, queried and checked rather than only looked at.",
   "method": {
     "detection": "photutils detect_sources at 3.0 sigma, npixels 5, then deblend_sources -- run on the SUM of both background-subtracted frames. Detecting on Rubin alone selected sources that scattered bright in Rubin and measured the reference without that selection, which made 876 of 880 flagged sources Rubin-brighter, with the asymmetry running from 67:3 at high signal-to-noise to 417:0 below ten. The sum is symmetric between the frames.",
@@ -15,16 +15,16 @@
     "sources": 70910,
     "clean": 67182,
     "flaggedNearEdge": 3605,
-    "medianRubinSnr": 15.818180134408623,
+    "medianRubinSnr": 7.227047651464348,
     "flaggedNegativeReference": 137,
-    "cleanAbove5SigmaFromZero": 17379,
+    "cleanAbove5SigmaFromZero": 6698,
     "cleanAbove5SigmaFromFieldRatio": 777
   },
   "products": {
     "parquetFile": "rubin-reference-sources.parquet",
     "votableFile": "rubin-reference-sources.vot",
-    "parquetBytes": 16748155,
-    "votableBytes": 75932800,
+    "parquetBytes": 16817479,
+    "votableBytes": 79641787,
     "published": false,
     "note": "These files are not published in this repository: they are analysis products built from access-restricted Rubin pixels. Rebuild them with pipeline/build_source_catalogue.py. VOTable opens directly in TOPCAT, pyvo and astroquery; Parquet is the columnar form for bulk work."
   },
@@ -45,7 +45,7 @@
       "backgroundRmsMedianNjy": 6.498189621732013,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 16.83108983085091
+      "medianRubinSnr": 7.7405112088867005
     },
     {
       "regionId": "dp2-tract-10054",
@@ -58,7 +58,7 @@
       "backgroundRmsMedianNjy": 5.029413011830959,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 17.66050880677468
+      "medianRubinSnr": 8.193747672288072
     },
     {
       "regionId": "dp2-tract-10055",
@@ -71,7 +71,7 @@
       "backgroundRmsMedianNjy": 1.3007395634829813,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 29,
-      "medianRubinSnr": 34.68236564347239
+      "medianRubinSnr": 14.572101122690338
     },
     {
       "regionId": "dp2-tract-10056",
@@ -84,7 +84,7 @@
       "backgroundRmsMedianNjy": 7.516832785812609,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 16.775467426938622
+      "medianRubinSnr": 7.654498217215145
     },
     {
       "regionId": "dp2-tract-10079",
@@ -97,7 +97,7 @@
       "backgroundRmsMedianNjy": 2.2734555220732164,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 44.12653520812752
+      "medianRubinSnr": 18.6733632200868
     },
     {
       "regionId": "dp2-tract-10215",
@@ -110,7 +110,7 @@
       "backgroundRmsMedianNjy": 11.604732071516288,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 18.49038633512063
+      "medianRubinSnr": 8.303970662106416
     },
     {
       "regionId": "dp2-tract-10321",
@@ -123,7 +123,7 @@
       "backgroundRmsMedianNjy": 0.9996338493685457,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 4,
-      "medianRubinSnr": 73.01278454989614
+      "medianRubinSnr": 30.299575298968513
     },
     {
       "regionId": "dp2-tract-10689",
@@ -136,7 +136,7 @@
       "backgroundRmsMedianNjy": 8.039279171400942,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 13.541412423481855
+      "medianRubinSnr": 6.1036092419326415
     },
     {
       "regionId": "dp2-tract-10805",
@@ -149,7 +149,7 @@
       "backgroundRmsMedianNjy": 1.2145137435132467,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 75.71881412522302
+      "medianRubinSnr": 31.954994061012176
     },
     {
       "regionId": "dp2-tract-11162",
@@ -162,7 +162,7 @@
       "backgroundRmsMedianNjy": 4.8807307868843,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 11.074674099724152
+      "medianRubinSnr": 5.534955044047193
     },
     {
       "regionId": "dp2-tract-11411",
@@ -175,7 +175,7 @@
       "backgroundRmsMedianNjy": 15.049848935558849,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 12.639629575854421
+      "medianRubinSnr": 6.0306629437186405
     },
     {
       "regionId": "dp2-tract-12814",
@@ -188,7 +188,7 @@
       "backgroundRmsMedianNjy": 15.837344328819345,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 2,
-      "medianRubinSnr": 17.479970530691737
+      "medianRubinSnr": 7.731518339504199
     },
     {
       "regionId": "dp2-tract-2397",
@@ -201,7 +201,7 @@
       "backgroundRmsMedianNjy": 6.314080378403192,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 14.357319215788818
+      "medianRubinSnr": 6.521517436505115
     },
     {
       "regionId": "dp2-tract-3233",
@@ -214,7 +214,7 @@
       "backgroundRmsMedianNjy": 10.665681611003532,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 13.591149781671277
+      "medianRubinSnr": 6.157089962956383
     },
     {
       "regionId": "dp2-tract-4636",
@@ -227,7 +227,7 @@
       "backgroundRmsMedianNjy": 7.167913899235676,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 12.24295330518656
+      "medianRubinSnr": 5.7120566490614255
     },
     {
       "regionId": "dp2-tract-4637",
@@ -240,7 +240,7 @@
       "backgroundRmsMedianNjy": 7.237577914117578,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 13.449108009285455
+      "medianRubinSnr": 6.075640975260452
     },
     {
       "regionId": "dp2-tract-4638",
@@ -253,7 +253,7 @@
       "backgroundRmsMedianNjy": 6.527017793916782,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 14.112541792736412
+      "medianRubinSnr": 6.383163610062239
     },
     {
       "regionId": "dp2-tract-4848",
@@ -266,7 +266,7 @@
       "backgroundRmsMedianNjy": 4.2529545864653375,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 33,
-      "medianRubinSnr": 14.560125464419826
+      "medianRubinSnr": 6.9075886968238285
     },
     {
       "regionId": "dp2-tract-4849",
@@ -279,7 +279,7 @@
       "backgroundRmsMedianNjy": 4.053539444483518,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 18.69681228185105
+      "medianRubinSnr": 8.696243028976522
     },
     {
       "regionId": "dp2-tract-4850",
@@ -292,7 +292,7 @@
       "backgroundRmsMedianNjy": 7.573122622875632,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 13.615999398427583
+      "medianRubinSnr": 6.4200632766460775
     },
     {
       "regionId": "dp2-tract-5061",
@@ -305,7 +305,7 @@
       "backgroundRmsMedianNjy": 8.412271339593037,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 13.971069809956898
+      "medianRubinSnr": 6.4344923112913595
     },
     {
       "regionId": "dp2-tract-5062",
@@ -318,7 +318,7 @@
       "backgroundRmsMedianNjy": 4.034390328505259,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 28,
-      "medianRubinSnr": 17.776604657311037
+      "medianRubinSnr": 8.099774880520874
     },
     {
       "regionId": "dp2-tract-5063",
@@ -331,7 +331,7 @@
       "backgroundRmsMedianNjy": 4.042790476317512,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 40,
-      "medianRubinSnr": 15.871248172855545
+      "medianRubinSnr": 7.189604801300374
     },
     {
       "regionId": "dp2-tract-5064",
@@ -344,7 +344,7 @@
       "backgroundRmsMedianNjy": 3.9345353621529933,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 31,
-      "medianRubinSnr": 18.8160588080292
+      "medianRubinSnr": 8.496265431173494
     },
     {
       "regionId": "dp2-tract-5065",
@@ -357,7 +357,7 @@
       "backgroundRmsMedianNjy": 7.713952907028803,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 15.225939380622425
+      "medianRubinSnr": 6.924638099684225
     },
     {
       "regionId": "dp2-tract-5214",
@@ -370,7 +370,7 @@
       "backgroundRmsMedianNjy": 6.042035068201449,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 35.26626010637991
+      "medianRubinSnr": 15.597173750581796
     },
     {
       "regionId": "dp2-tract-5279",
@@ -383,7 +383,7 @@
       "backgroundRmsMedianNjy": 6.974306508299351,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 13.74596750363336
+      "medianRubinSnr": 6.325183662435393
     },
     {
       "regionId": "dp2-tract-5280",
@@ -396,7 +396,7 @@
       "backgroundRmsMedianNjy": 7.18383814015594,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 14.820313255644823
+      "medianRubinSnr": 6.642711848222785
     },
     {
       "regionId": "dp2-tract-5282",
@@ -409,7 +409,7 @@
       "backgroundRmsMedianNjy": 7.396161981144456,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 13.00099397447891
+      "medianRubinSnr": 6.105593943988313
     },
     {
       "regionId": "dp2-tract-5670",
@@ -422,7 +422,7 @@
       "backgroundRmsMedianNjy": 4.272330278205513,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 4,
-      "medianRubinSnr": 21.475315679185034
+      "medianRubinSnr": 11.274665372719092
     },
     {
       "regionId": "dp2-tract-6509",
@@ -435,7 +435,7 @@
       "backgroundRmsMedianNjy": 9.573502456726853,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 17.193143971145027
+      "medianRubinSnr": 7.665679971212294
     },
     {
       "regionId": "dp2-tract-6524",
@@ -448,7 +448,7 @@
       "backgroundRmsMedianNjy": 13.934721632332526,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 36,
-      "medianRubinSnr": 15.792229591367146
+      "medianRubinSnr": 7.15569782689403
     },
     {
       "regionId": "dp2-tract-7939",
@@ -461,7 +461,7 @@
       "backgroundRmsMedianNjy": 8.675709871178256,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 7,
-      "medianRubinSnr": 21.983782394314815
+      "medianRubinSnr": 10.184510327464107
     },
     {
       "regionId": "dp2-tract-8259",
@@ -474,7 +474,7 @@
       "backgroundRmsMedianNjy": 4.698300252943647,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 15.490303181691587
+      "medianRubinSnr": 7.1428510453778316
     },
     {
       "regionId": "dp2-tract-8272",
@@ -487,7 +487,7 @@
       "backgroundRmsMedianNjy": 6.968064980625043,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 5,
-      "medianRubinSnr": 13.08794860475807
+      "medianRubinSnr": 5.907332929807907
     },
     {
       "regionId": "dp2-tract-8642",
@@ -500,7 +500,7 @@
       "backgroundRmsMedianNjy": 1.3419623052790168,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 58.29775605563137
+      "medianRubinSnr": 24.56959825185584
     },
     {
       "regionId": "dp2-tract-8708",
@@ -513,7 +513,7 @@
       "backgroundRmsMedianNjy": 6.100293204217817,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 26.600268034837427
+      "medianRubinSnr": 11.271151605026251
     },
     {
       "regionId": "dp2-tract-8883",
@@ -526,7 +526,7 @@
       "backgroundRmsMedianNjy": 1.9471931050807498,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 13,
-      "medianRubinSnr": 39.494677302496214
+      "medianRubinSnr": 17.444335167469703
     },
     {
       "regionId": "dp2-tract-8884",
@@ -539,7 +539,7 @@
       "backgroundRmsMedianNjy": 2.3634526247938368,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 30.01678925359772
+      "medianRubinSnr": 13.156007251998178
     },
     {
       "regionId": "dp2-tract-8984",
@@ -552,7 +552,7 @@
       "backgroundRmsMedianNjy": 4.195136503101363,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 16.73887853602659
+      "medianRubinSnr": 7.59440886069756
     },
     {
       "regionId": "dp2-tract-8985",
@@ -565,7 +565,7 @@
       "backgroundRmsMedianNjy": 7.988886269073239,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 13.070226408487953
+      "medianRubinSnr": 6.177700103727476
     },
     {
       "regionId": "dp2-tract-8986",
@@ -578,7 +578,7 @@
       "backgroundRmsMedianNjy": 7.14195536996559,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 12.449171239637138
+      "medianRubinSnr": 5.863779203895293
     },
     {
       "regionId": "dp2-tract-8994",
@@ -591,7 +591,7 @@
       "backgroundRmsMedianNjy": 6.5409926048515405,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 8,
-      "medianRubinSnr": 9.936866023023804
+      "medianRubinSnr": 4.718784182331569
     },
     {
       "regionId": "dp2-tract-8995",
@@ -604,7 +604,7 @@
       "backgroundRmsMedianNjy": 12.139026838318616,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 8,
-      "medianRubinSnr": 13.567589643324046
+      "medianRubinSnr": 6.128785331962348
     },
     {
       "regionId": "dp2-tract-8996",
@@ -617,7 +617,7 @@
       "backgroundRmsMedianNjy": 13.02311165010558,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 12.121908327636387
+      "medianRubinSnr": 5.888835632914571
     },
     {
       "regionId": "dp2-tract-8997",
@@ -630,7 +630,7 @@
       "backgroundRmsMedianNjy": 12.25408479125354,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 14.301960455967015
+      "medianRubinSnr": 6.360859394957679
     },
     {
       "regionId": "dp2-tract-8998",
@@ -643,7 +643,7 @@
       "backgroundRmsMedianNjy": 11.00562657587427,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 14.382833813049132
+      "medianRubinSnr": 6.464474496930676
     },
     {
       "regionId": "dp2-tract-9125",
@@ -656,7 +656,7 @@
       "backgroundRmsMedianNjy": 5.05007491725469,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 13,
-      "medianRubinSnr": 24.137213427307657
+      "medianRubinSnr": 10.965904101975553
     },
     {
       "regionId": "dp2-tract-9126",
@@ -669,7 +669,7 @@
       "backgroundRmsMedianNjy": 6.1770429970367635,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 14.283371994142623
+      "medianRubinSnr": 6.924679146100953
     },
     {
       "regionId": "dp2-tract-9207",
@@ -682,7 +682,7 @@
       "backgroundRmsMedianNjy": 5.561757396153191,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 17.591733243287592
+      "medianRubinSnr": 8.044690844976945
     },
     {
       "regionId": "dp2-tract-9209",
@@ -695,7 +695,7 @@
       "backgroundRmsMedianNjy": 5.461457298340118,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 15.920249527662577
+      "medianRubinSnr": 7.3168361988513695
     },
     {
       "regionId": "dp2-tract-9210",
@@ -708,7 +708,7 @@
       "backgroundRmsMedianNjy": 7.496148311329895,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 13.666613605385697
+      "medianRubinSnr": 6.499578611845884
     },
     {
       "regionId": "dp2-tract-9212",
@@ -721,7 +721,7 @@
       "backgroundRmsMedianNjy": 4.602637113922945,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 23.052944391571778
+      "medianRubinSnr": 10.366843915573067
     },
     {
       "regionId": "dp2-tract-9214",
@@ -734,7 +734,7 @@
       "backgroundRmsMedianNjy": 4.349436385088499,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 23.342709901972384
+      "medianRubinSnr": 10.41126275427051
     },
     {
       "regionId": "dp2-tract-9217",
@@ -747,7 +747,7 @@
       "backgroundRmsMedianNjy": 2.9418375702400144,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 24.40951596347048
+      "medianRubinSnr": 10.768153714046031
     },
     {
       "regionId": "dp2-tract-9218",
@@ -760,7 +760,7 @@
       "backgroundRmsMedianNjy": 3.3436735450764745,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 24,
-      "medianRubinSnr": 20.712519272470548
+      "medianRubinSnr": 9.166503706219016
     },
     {
       "regionId": "dp2-tract-9219",
@@ -773,7 +773,7 @@
       "backgroundRmsMedianNjy": 4.231102478026684,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 19.748447543751027
+      "medianRubinSnr": 8.655725239626484
     },
     {
       "regionId": "dp2-tract-9220",
@@ -786,7 +786,7 @@
       "backgroundRmsMedianNjy": 2.9873815339611465,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 23.841766208959452
+      "medianRubinSnr": 10.52572234472811
     },
     {
       "regionId": "dp2-tract-9221",
@@ -799,7 +799,7 @@
       "backgroundRmsMedianNjy": 3.31508646510575,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 28.94515448295134
+      "medianRubinSnr": 12.637207633856796
     },
     {
       "regionId": "dp2-tract-9222",
@@ -812,7 +812,7 @@
       "backgroundRmsMedianNjy": 3.823751771164333,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 19,
-      "medianRubinSnr": 21.104716032868872
+      "medianRubinSnr": 9.493585064913383
     },
     {
       "regionId": "dp2-tract-9223",
@@ -825,7 +825,7 @@
       "backgroundRmsMedianNjy": 3.670991338940122,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 22.45189968076579
+      "medianRubinSnr": 9.859392218937877
     },
     {
       "regionId": "dp2-tract-9226",
@@ -838,7 +838,7 @@
       "backgroundRmsMedianNjy": 7.008610472139146,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 12.164045599086924
+      "medianRubinSnr": 5.703559817811796
     },
     {
       "regionId": "dp2-tract-9227",
@@ -851,7 +851,7 @@
       "backgroundRmsMedianNjy": 6.266052059320581,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 15.941551512443965
+      "medianRubinSnr": 7.237473507851114
     },
     {
       "regionId": "dp2-tract-9228",
@@ -864,7 +864,7 @@
       "backgroundRmsMedianNjy": 7.714987243106026,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 12.643926864628058
+      "medianRubinSnr": 6.126627501304142
     },
     {
       "regionId": "dp2-tract-9229",
@@ -877,7 +877,7 @@
       "backgroundRmsMedianNjy": 8.172552998323816,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 13.404139241983081
+      "medianRubinSnr": 6.235656438680513
     },
     {
       "regionId": "dp2-tract-9230",
@@ -890,7 +890,7 @@
       "backgroundRmsMedianNjy": 8.860522623908746,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 15.067568710194985
+      "medianRubinSnr": 6.633275570894523
     },
     {
       "regionId": "dp2-tract-9231",
@@ -903,7 +903,7 @@
       "backgroundRmsMedianNjy": 9.618376362975024,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 11.429530941965039
+      "medianRubinSnr": 5.509828914720103
     },
     {
       "regionId": "dp2-tract-9232",
@@ -916,7 +916,7 @@
       "backgroundRmsMedianNjy": 7.9592918555911965,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 13.069848003955201
+      "medianRubinSnr": 6.211663536816777
     },
     {
       "regionId": "dp2-tract-9233",
@@ -929,7 +929,7 @@
       "backgroundRmsMedianNjy": 6.096438806181814,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 13.703453864239364
+      "medianRubinSnr": 6.168716596194115
     },
     {
       "regionId": "dp2-tract-9236",
@@ -942,7 +942,7 @@
       "backgroundRmsMedianNjy": 6.844269780794793,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 7,
-      "medianRubinSnr": 16.897646110057565
+      "medianRubinSnr": 7.5306588540328265
     },
     {
       "regionId": "dp2-tract-9237",
@@ -955,7 +955,7 @@
       "backgroundRmsMedianNjy": 4.614939327381087,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 11.974811656643563
+      "medianRubinSnr": 5.308875059729934
     },
     {
       "regionId": "dp2-tract-9238",
@@ -968,7 +968,7 @@
       "backgroundRmsMedianNjy": 5.0638722770022175,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 10.536387891844017
+      "medianRubinSnr": 5.025633870084994
     },
     {
       "regionId": "dp2-tract-9239",
@@ -981,7 +981,7 @@
       "backgroundRmsMedianNjy": 5.953246071839411,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 10.43934702406535
+      "medianRubinSnr": 5.1735341857020485
     },
     {
       "regionId": "dp2-tract-9240",
@@ -994,7 +994,7 @@
       "backgroundRmsMedianNjy": 4.494872475946972,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 10.319061356135787
+      "medianRubinSnr": 4.7624209376691455
     },
     {
       "regionId": "dp2-tract-9242",
@@ -1007,7 +1007,7 @@
       "backgroundRmsMedianNjy": 7.185835800303201,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 14.24409621000854
+      "medianRubinSnr": 6.559656637578203
     },
     {
       "regionId": "dp2-tract-9245",
@@ -1020,7 +1020,7 @@
       "backgroundRmsMedianNjy": 8.07342355168409,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 15.939564545640541
+      "medianRubinSnr": 6.948377598145301
     },
     {
       "regionId": "dp2-tract-9327",
@@ -1033,7 +1033,7 @@
       "backgroundRmsMedianNjy": 5.274219398699486,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 15.19914119513202
+      "medianRubinSnr": 6.745343343842629
     },
     {
       "regionId": "dp2-tract-9328",
@@ -1046,7 +1046,7 @@
       "backgroundRmsMedianNjy": 6.333552783254502,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 17.553076058615986
+      "medianRubinSnr": 7.464234450927343
     },
     {
       "regionId": "dp2-tract-9448",
@@ -1059,7 +1059,7 @@
       "backgroundRmsMedianNjy": 6.487098507328087,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 12.34168984344534
+      "medianRubinSnr": 5.686617888288097
     },
     {
       "regionId": "dp2-tract-9449",
@@ -1072,7 +1072,7 @@
       "backgroundRmsMedianNjy": 7.626744835044269,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 14.4299902729052
+      "medianRubinSnr": 6.822463112679909
     },
     {
       "regionId": "dp2-tract-9450",
@@ -1085,7 +1085,7 @@
       "backgroundRmsMedianNjy": 6.709241209625841,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 13.61387423883787
+      "medianRubinSnr": 6.42265044207995
     },
     {
       "regionId": "dp2-tract-9451",
@@ -1098,7 +1098,7 @@
       "backgroundRmsMedianNjy": 6.810365463177446,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 15.482005867992278
+      "medianRubinSnr": 7.15480964175181
     },
     {
       "regionId": "dp2-tract-9452",
@@ -1111,7 +1111,7 @@
       "backgroundRmsMedianNjy": 7.051084471177409,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 14.176357214586302
+      "medianRubinSnr": 6.630893187891562
     },
     {
       "regionId": "dp2-tract-9453",
@@ -1124,7 +1124,7 @@
       "backgroundRmsMedianNjy": 8.631863279487405,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 11.965477637210078
+      "medianRubinSnr": 5.785322871365381
     },
     {
       "regionId": "dp2-tract-9454",
@@ -1137,7 +1137,7 @@
       "backgroundRmsMedianNjy": 6.9016399700742515,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 14.44782970001538
+      "medianRubinSnr": 6.773753489570819
     },
     {
       "regionId": "dp2-tract-9455",
@@ -1150,7 +1150,7 @@
       "backgroundRmsMedianNjy": 7.701049476763312,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 14.481422447360526
+      "medianRubinSnr": 6.705597681082212
     },
     {
       "regionId": "dp2-tract-9456",
@@ -1163,7 +1163,7 @@
       "backgroundRmsMedianNjy": 6.012886790191171,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 24,
-      "medianRubinSnr": 14.331864237965277
+      "medianRubinSnr": 6.882470773829581
     },
     {
       "regionId": "dp2-tract-9457",
@@ -1176,7 +1176,7 @@
       "backgroundRmsMedianNjy": 7.21833735943426,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 34,
-      "medianRubinSnr": 13.030424918339737
+      "medianRubinSnr": 6.315231425598561
     },
     {
       "regionId": "dp2-tract-9458",
@@ -1189,7 +1189,7 @@
       "backgroundRmsMedianNjy": 7.318470082838213,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 13.849803742803072
+      "medianRubinSnr": 6.576139756582307
     },
     {
       "regionId": "dp2-tract-9459",
@@ -1202,7 +1202,7 @@
       "backgroundRmsMedianNjy": 6.7732604527519245,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 36,
-      "medianRubinSnr": 14.020075794002668
+      "medianRubinSnr": 6.5252175053380075
     },
     {
       "regionId": "dp2-tract-9460",
@@ -1215,7 +1215,7 @@
       "backgroundRmsMedianNjy": 5.077617547050701,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 16.646542389111456
+      "medianRubinSnr": 7.575514623816241
     },
     {
       "regionId": "dp2-tract-9461",
@@ -1228,7 +1228,7 @@
       "backgroundRmsMedianNjy": 4.433841787262484,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 15.70052814643668
+      "medianRubinSnr": 7.187672638145422
     },
     {
       "regionId": "dp2-tract-9462",
@@ -1241,7 +1241,7 @@
       "backgroundRmsMedianNjy": 6.861657438515298,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 19,
-      "medianRubinSnr": 13.956656907429283
+      "medianRubinSnr": 6.31693254077708
     },
     {
       "regionId": "dp2-tract-9463",
@@ -1254,7 +1254,7 @@
       "backgroundRmsMedianNjy": 8.430490598423455,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 14.539844188898016
+      "medianRubinSnr": 6.65933377992217
     },
     {
       "regionId": "dp2-tract-9464",
@@ -1267,7 +1267,7 @@
       "backgroundRmsMedianNjy": 4.776886351123785,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 28,
-      "medianRubinSnr": 14.537516388359718
+      "medianRubinSnr": 6.800948019167252
     },
     {
       "regionId": "dp2-tract-9465",
@@ -1280,7 +1280,7 @@
       "backgroundRmsMedianNjy": 4.406348398080784,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 16.817142361427013
+      "medianRubinSnr": 7.532450481471629
     },
     {
       "regionId": "dp2-tract-9466",
@@ -1293,7 +1293,7 @@
       "backgroundRmsMedianNjy": 6.687360130280525,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 15.089443441557258
+      "medianRubinSnr": 6.803912724965905
     },
     {
       "regionId": "dp2-tract-9467",
@@ -1306,7 +1306,7 @@
       "backgroundRmsMedianNjy": 4.532279605514981,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 24,
-      "medianRubinSnr": 17.093642431728476
+      "medianRubinSnr": 7.810763323056007
     },
     {
       "regionId": "dp2-tract-9468",
@@ -1319,7 +1319,7 @@
       "backgroundRmsMedianNjy": 4.387421924533292,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 17.54495317142901
+      "medianRubinSnr": 7.907950006827102
     },
     {
       "regionId": "dp2-tract-9469",
@@ -1332,7 +1332,7 @@
       "backgroundRmsMedianNjy": 6.503930691552549,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 35,
-      "medianRubinSnr": 16.03218701391507
+      "medianRubinSnr": 7.509703150021796
     },
     {
       "regionId": "dp2-tract-9470",
@@ -1345,7 +1345,7 @@
       "backgroundRmsMedianNjy": 8.06062403747006,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 14.272115212246824
+      "medianRubinSnr": 6.691511495966184
     },
     {
       "regionId": "dp2-tract-9471",
@@ -1358,7 +1358,7 @@
       "backgroundRmsMedianNjy": 7.356281943337711,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 35,
-      "medianRubinSnr": 13.438159761702224
+      "medianRubinSnr": 6.320367396723213
     },
     {
       "regionId": "dp2-tract-9472",
@@ -1371,7 +1371,7 @@
       "backgroundRmsMedianNjy": 9.078088146789767,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 11.52344516621481
+      "medianRubinSnr": 5.590873685141176
     },
     {
       "regionId": "dp2-tract-9473",
@@ -1384,7 +1384,7 @@
       "backgroundRmsMedianNjy": 13.448531339232577,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 11.48248155286184
+      "medianRubinSnr": 5.453564536454754
     },
     {
       "regionId": "dp2-tract-9474",
@@ -1397,7 +1397,7 @@
       "backgroundRmsMedianNjy": 10.450772357066507,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 16.105380498106772
+      "medianRubinSnr": 7.052930428552736
     },
     {
       "regionId": "dp2-tract-9475",
@@ -1410,7 +1410,7 @@
       "backgroundRmsMedianNjy": 6.486895210213571,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 14.134788986299712
+      "medianRubinSnr": 6.222788836866041
     },
     {
       "regionId": "dp2-tract-9476",
@@ -1423,7 +1423,7 @@
       "backgroundRmsMedianNjy": 6.60856821790267,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 8,
-      "medianRubinSnr": 15.811697529888924
+      "medianRubinSnr": 6.776065596089035
     },
     {
       "regionId": "dp2-tract-9479",
@@ -1436,7 +1436,7 @@
       "backgroundRmsMedianNjy": 5.1609131915827025,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 8.55875541955022
+      "medianRubinSnr": 4.313745854048016
     },
     {
       "regionId": "dp2-tract-9480",
@@ -1449,7 +1449,7 @@
       "backgroundRmsMedianNjy": 7.403012339033198,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 11.508826770980907
+      "medianRubinSnr": 5.3874460364941505
     },
     {
       "regionId": "dp2-tract-9481",
@@ -1462,7 +1462,7 @@
       "backgroundRmsMedianNjy": 8.684357468761508,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 12.004272180849444
+      "medianRubinSnr": 5.523320372396913
     },
     {
       "regionId": "dp2-tract-9482",
@@ -1475,7 +1475,7 @@
       "backgroundRmsMedianNjy": 3.33710445851787,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 11.84227384778352
+      "medianRubinSnr": 5.436005484006002
     },
     {
       "regionId": "dp2-tract-9483",
@@ -1488,7 +1488,7 @@
       "backgroundRmsMedianNjy": 6.323328990935915,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 12.39042168129367
+      "medianRubinSnr": 5.819997566705269
     },
     {
       "regionId": "dp2-tract-9484",
@@ -1501,7 +1501,7 @@
       "backgroundRmsMedianNjy": 8.95749563666413,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 12.393422533528435
+      "medianRubinSnr": 6.023561376630046
     },
     {
       "regionId": "dp2-tract-9485",
@@ -1514,7 +1514,7 @@
       "backgroundRmsMedianNjy": 6.450741562453642,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 13.276323143350066
+      "medianRubinSnr": 6.257329791250521
     },
     {
       "regionId": "dp2-tract-9488",
@@ -1527,7 +1527,7 @@
       "backgroundRmsMedianNjy": 10.353247878971452,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 11.825560809127142
+      "medianRubinSnr": 5.6688413671039655
     },
     {
       "regionId": "dp2-tract-9489",
@@ -1540,7 +1540,7 @@
       "backgroundRmsMedianNjy": 14.72758524805059,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 7,
-      "medianRubinSnr": 15.24763194687932
+      "medianRubinSnr": 6.736149369844049
     },
     {
       "regionId": "dp2-tract-9569",
@@ -1553,7 +1553,7 @@
       "backgroundRmsMedianNjy": 9.723019265913651,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 12.691243128187505
+      "medianRubinSnr": 6.213979827317621
     },
     {
       "regionId": "dp2-tract-9570",
@@ -1566,7 +1566,7 @@
       "backgroundRmsMedianNjy": 1.4753223440663474,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 41,
-      "medianRubinSnr": 43.49154728791109
+      "medianRubinSnr": 18.27625873211906
     },
     {
       "regionId": "dp2-tract-9571",
@@ -1579,7 +1579,7 @@
       "backgroundRmsMedianNjy": 1.8601667764459617,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 36,
-      "medianRubinSnr": 23.694135789589538
+      "medianRubinSnr": 10.442284087843465
     },
     {
       "regionId": "dp2-tract-9572",
@@ -1592,7 +1592,7 @@
       "backgroundRmsMedianNjy": 5.146592003715336,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 12.688864946482568
+      "medianRubinSnr": 5.746593959004302
     },
     {
       "regionId": "dp2-tract-9691",
@@ -1605,7 +1605,7 @@
       "backgroundRmsMedianNjy": 6.174009277905596,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 4,
-      "medianRubinSnr": 16.45555868364675
+      "medianRubinSnr": 7.139635684066158
     },
     {
       "regionId": "dp2-tract-9692",
@@ -1618,7 +1618,7 @@
       "backgroundRmsMedianNjy": 6.075735962739361,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 10.115826524684117
+      "medianRubinSnr": 5.174484638310983
     },
     {
       "regionId": "dp2-tract-9693",
@@ -1631,7 +1631,7 @@
       "backgroundRmsMedianNjy": 6.143163794128322,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 15.050933306400841
+      "medianRubinSnr": 6.871364754067137
     },
     {
       "regionId": "dp2-tract-9694",
@@ -1644,7 +1644,7 @@
       "backgroundRmsMedianNjy": 7.921747201549374,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 11.235867068612183
+      "medianRubinSnr": 5.488264987156598
     },
     {
       "regionId": "dp2-tract-9695",
@@ -1657,7 +1657,7 @@
       "backgroundRmsMedianNjy": 9.159790247453412,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 18.08499549279528
+      "medianRubinSnr": 8.078415080489776
     },
     {
       "regionId": "dp2-tract-9696",
@@ -1670,7 +1670,7 @@
       "backgroundRmsMedianNjy": 9.487690484504746,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 12.315041555416268
+      "medianRubinSnr": 6.171912770773579
     },
     {
       "regionId": "dp2-tract-9697",
@@ -1683,7 +1683,7 @@
       "backgroundRmsMedianNjy": 8.195773388045016,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 11.780784143671784
+      "medianRubinSnr": 5.767064109587798
     },
     {
       "regionId": "dp2-tract-9698",
@@ -1696,7 +1696,7 @@
       "backgroundRmsMedianNjy": 4.986948302690061,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 16.980328332749963
+      "medianRubinSnr": 7.562948634345673
     },
     {
       "regionId": "dp2-tract-9699",
@@ -1709,7 +1709,7 @@
       "backgroundRmsMedianNjy": 5.608407510199456,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 36,
-      "medianRubinSnr": 14.580899848888327
+      "medianRubinSnr": 6.745034751637164
     },
     {
       "regionId": "dp2-tract-9700",
@@ -1722,7 +1722,7 @@
       "backgroundRmsMedianNjy": 6.718250742972016,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 13.581402113224055
+      "medianRubinSnr": 6.43371415996142
     },
     {
       "regionId": "dp2-tract-9701",
@@ -1735,7 +1735,7 @@
       "backgroundRmsMedianNjy": 10.077742728884981,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 13.988965983896005
+      "medianRubinSnr": 6.585478031451096
     },
     {
       "regionId": "dp2-tract-9702",
@@ -1748,7 +1748,7 @@
       "backgroundRmsMedianNjy": 6.408695423904959,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 32,
-      "medianRubinSnr": 14.276864304614774
+      "medianRubinSnr": 6.632792558780201
     },
     {
       "regionId": "dp2-tract-9703",
@@ -1761,7 +1761,7 @@
       "backgroundRmsMedianNjy": 5.305741547253622,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 41,
-      "medianRubinSnr": 14.4416008390665
+      "medianRubinSnr": 6.730931335137226
     },
     {
       "regionId": "dp2-tract-9704",
@@ -1774,7 +1774,7 @@
       "backgroundRmsMedianNjy": 8.861879794753502,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 12.053245483751285
+      "medianRubinSnr": 5.980662642322667
     },
     {
       "regionId": "dp2-tract-9705",
@@ -1787,7 +1787,7 @@
       "backgroundRmsMedianNjy": 6.205564708220399,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 35,
-      "medianRubinSnr": 13.246252939437648
+      "medianRubinSnr": 6.411727432016789
     },
     {
       "regionId": "dp2-tract-9706",
@@ -1800,7 +1800,7 @@
       "backgroundRmsMedianNjy": 5.142765096167052,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 24,
-      "medianRubinSnr": 15.651851992834185
+      "medianRubinSnr": 7.296720344261022
     },
     {
       "regionId": "dp2-tract-9707",
@@ -1813,7 +1813,7 @@
       "backgroundRmsMedianNjy": 6.730157813558053,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 12.791581099541169
+      "medianRubinSnr": 6.232371484875394
     },
     {
       "regionId": "dp2-tract-9708",
@@ -1826,7 +1826,7 @@
       "backgroundRmsMedianNjy": 5.989502884637325,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 13.138478387897239
+      "medianRubinSnr": 6.192742840640499
     },
     {
       "regionId": "dp2-tract-9709",
@@ -1839,7 +1839,7 @@
       "backgroundRmsMedianNjy": 5.286901707125805,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 17.705583158245258
+      "medianRubinSnr": 8.00282431299349
     },
     {
       "regionId": "dp2-tract-9710",
@@ -1852,7 +1852,7 @@
       "backgroundRmsMedianNjy": 7.4908529157673875,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 38,
-      "medianRubinSnr": 13.000315377658367
+      "medianRubinSnr": 6.140989371281765
     },
     {
       "regionId": "dp2-tract-9711",
@@ -1865,7 +1865,7 @@
       "backgroundRmsMedianNjy": 4.304420251457554,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 17.252484806014557
+      "medianRubinSnr": 7.717604982285298
     },
     {
       "regionId": "dp2-tract-9712",
@@ -1878,7 +1878,7 @@
       "backgroundRmsMedianNjy": 5.059495379347486,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 40,
-      "medianRubinSnr": 17.266914432921794
+      "medianRubinSnr": 7.879292711828725
     },
     {
       "regionId": "dp2-tract-9713",
@@ -1891,7 +1891,7 @@
       "backgroundRmsMedianNjy": 8.19949537342652,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 13.731320646180045
+      "medianRubinSnr": 6.353685240388438
     },
     {
       "regionId": "dp2-tract-9714",
@@ -1904,7 +1904,7 @@
       "backgroundRmsMedianNjy": 8.407874866317101,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 16.16411964254843
+      "medianRubinSnr": 7.5382047180309755
     },
     {
       "regionId": "dp2-tract-9715",
@@ -1917,7 +1917,7 @@
       "backgroundRmsMedianNjy": 10.975262413129816,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 11.898527557092462
+      "medianRubinSnr": 5.7111281439730375
     },
     {
       "regionId": "dp2-tract-9716",
@@ -1930,7 +1930,7 @@
       "backgroundRmsMedianNjy": 9.312566371015052,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 8,
-      "medianRubinSnr": 11.734357678341832
+      "medianRubinSnr": 5.515704054732987
     },
     {
       "regionId": "dp2-tract-9717",
@@ -1943,7 +1943,7 @@
       "backgroundRmsMedianNjy": 9.844374494363821,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 26,
-      "medianRubinSnr": 13.17259199419513
+      "medianRubinSnr": 6.177455891798733
     },
     {
       "regionId": "dp2-tract-9718",
@@ -1956,7 +1956,7 @@
       "backgroundRmsMedianNjy": 13.039917574569238,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 10.99156064204668
+      "medianRubinSnr": 5.26895986953149
     },
     {
       "regionId": "dp2-tract-9719",
@@ -1969,7 +1969,7 @@
       "backgroundRmsMedianNjy": 10.464722245802886,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 14.480682325781435
+      "medianRubinSnr": 6.608366787734746
     },
     {
       "regionId": "dp2-tract-9722",
@@ -1982,7 +1982,7 @@
       "backgroundRmsMedianNjy": 6.530872992346808,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 18,
-      "medianRubinSnr": 11.716781517809096
+      "medianRubinSnr": 5.519269435795519
     },
     {
       "regionId": "dp2-tract-9723",
@@ -1995,7 +1995,7 @@
       "backgroundRmsMedianNjy": 9.727022485838564,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 11.830114174915641
+      "medianRubinSnr": 5.392644662495601
     },
     {
       "regionId": "dp2-tract-9724",
@@ -2008,7 +2008,7 @@
       "backgroundRmsMedianNjy": 12.165165975832405,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 4,
-      "medianRubinSnr": 14.418030419673528
+      "medianRubinSnr": 6.4326581898510025
     },
     {
       "regionId": "dp2-tract-9725",
@@ -2021,7 +2021,7 @@
       "backgroundRmsMedianNjy": 5.683545405403814,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 10.314919432143684
+      "medianRubinSnr": 4.950357526960226
     },
     {
       "regionId": "dp2-tract-9726",
@@ -2034,7 +2034,7 @@
       "backgroundRmsMedianNjy": 10.176684042265503,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 11.105635011088031
+      "medianRubinSnr": 5.362539805511289
     },
     {
       "regionId": "dp2-tract-9727",
@@ -2047,7 +2047,7 @@
       "backgroundRmsMedianNjy": 9.81006237638708,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 13.196650326105534
+      "medianRubinSnr": 6.270763699371707
     },
     {
       "regionId": "dp2-tract-9728",
@@ -2060,7 +2060,7 @@
       "backgroundRmsMedianNjy": 9.339693659472495,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 12.179990063862492
+      "medianRubinSnr": 5.863322651673371
     },
     {
       "regionId": "dp2-tract-9731",
@@ -2073,7 +2073,7 @@
       "backgroundRmsMedianNjy": 7.17685341297007,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 11.22681909600736
+      "medianRubinSnr": 5.283099817091028
     },
     {
       "regionId": "dp2-tract-9732",
@@ -2086,7 +2086,7 @@
       "backgroundRmsMedianNjy": 7.193272656366343,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 13.023021166722332
+      "medianRubinSnr": 5.959401428937966
     },
     {
       "regionId": "dp2-tract-9811",
@@ -2099,7 +2099,7 @@
       "backgroundRmsMedianNjy": 10.491867556638356,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 15,
-      "medianRubinSnr": 14.68520528985616
+      "medianRubinSnr": 6.730495345110889
     },
     {
       "regionId": "dp2-tract-9812",
@@ -2112,7 +2112,7 @@
       "backgroundRmsMedianNjy": 1.319384065887583,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 39.496640412286524
+      "medianRubinSnr": 17.06941412787993
     },
     {
       "regionId": "dp2-tract-9813",
@@ -2125,7 +2125,7 @@
       "backgroundRmsMedianNjy": 1.471552502160323,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 50,
-      "medianRubinSnr": 33.69167460304548
+      "medianRubinSnr": 14.558400667889485
     },
     {
       "regionId": "dp2-tract-9814",
@@ -2138,7 +2138,7 @@
       "backgroundRmsMedianNjy": 1.9074180929072937,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 26.393741007603964
+      "medianRubinSnr": 11.412843685495629
     },
     {
       "regionId": "dp2-tract-9934",
@@ -2151,7 +2151,7 @@
       "backgroundRmsMedianNjy": 9.412466760687183,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 2,
-      "medianRubinSnr": 12.53109703580353
+      "medianRubinSnr": 5.764731732724863
     },
     {
       "regionId": "dp2-tract-9937",
@@ -2164,7 +2164,7 @@
       "backgroundRmsMedianNjy": 7.531670866937791,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 12.632133251232492
+      "medianRubinSnr": 6.172068689877228
     },
     {
       "regionId": "dp2-tract-9940",
@@ -2177,7 +2177,7 @@
       "backgroundRmsMedianNjy": 4.800737473944123,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 14.661028984109269
+      "medianRubinSnr": 6.502227805151434
     },
     {
       "regionId": "dp2-tract-9943",
@@ -2190,7 +2190,7 @@
       "backgroundRmsMedianNjy": 4.596972074173208,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 17,
-      "medianRubinSnr": 20.963050710928375
+      "medianRubinSnr": 9.18318089000279
     },
     {
       "regionId": "dp2-tract-9944",
@@ -2203,7 +2203,7 @@
       "backgroundRmsMedianNjy": 6.178702514231144,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 22,
-      "medianRubinSnr": 17.75595445606983
+      "medianRubinSnr": 7.984677501374776
     },
     {
       "regionId": "dp2-tract-9945",
@@ -2216,7 +2216,7 @@
       "backgroundRmsMedianNjy": 4.589473499945916,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 19,
-      "medianRubinSnr": 22.921404610318415
+      "medianRubinSnr": 10.276848434633637
     },
     {
       "regionId": "dp2-tract-9947",
@@ -2229,7 +2229,7 @@
       "backgroundRmsMedianNjy": 5.727744571294991,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 17.239555144305335
+      "medianRubinSnr": 7.907609734219156
     },
     {
       "regionId": "dp2-tract-9948",
@@ -2242,7 +2242,7 @@
       "backgroundRmsMedianNjy": 4.027143052220711,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 18.133931451164422
+      "medianRubinSnr": 8.186805000071022
     },
     {
       "regionId": "dp2-tract-9950",
@@ -2255,7 +2255,7 @@
       "backgroundRmsMedianNjy": 3.5817668787018917,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 18.527798765935884
+      "medianRubinSnr": 8.22358005447985
     },
     {
       "regionId": "dp2-tract-9951",
@@ -2268,7 +2268,7 @@
       "backgroundRmsMedianNjy": 5.412269945716199,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 11,
-      "medianRubinSnr": 20.198787545674097
+      "medianRubinSnr": 9.150043660967137
     },
     {
       "regionId": "dp2-tract-9952",
@@ -2281,7 +2281,7 @@
       "backgroundRmsMedianNjy": 4.449222699792117,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 30,
-      "medianRubinSnr": 16.79603666099706
+      "medianRubinSnr": 7.800498544184155
     },
     {
       "regionId": "dp2-tract-9953",
@@ -2294,7 +2294,7 @@
       "backgroundRmsMedianNjy": 3.6851062167576063,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 21.78358266158984
+      "medianRubinSnr": 9.738250784295087
     },
     {
       "regionId": "dp2-tract-9954",
@@ -2307,7 +2307,7 @@
       "backgroundRmsMedianNjy": 6.681261237293684,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 12.132028516736504
+      "medianRubinSnr": 5.9043135103324005
     },
     {
       "regionId": "dp2-tract-9955",
@@ -2320,7 +2320,7 @@
       "backgroundRmsMedianNjy": 7.58035302700844,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 15.622838846625733
+      "medianRubinSnr": 7.047768835555293
     },
     {
       "regionId": "dp2-tract-9956",
@@ -2333,7 +2333,7 @@
       "backgroundRmsMedianNjy": 7.0092656792794985,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 11.278155708020941
+      "medianRubinSnr": 5.480214874216302
     },
     {
       "regionId": "dp2-tract-9957",
@@ -2346,7 +2346,7 @@
       "backgroundRmsMedianNjy": 9.211431553314632,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 14,
-      "medianRubinSnr": 12.144043686223716
+      "medianRubinSnr": 5.683358535035072
     },
     {
       "regionId": "dp2-tract-9958",
@@ -2359,7 +2359,7 @@
       "backgroundRmsMedianNjy": 7.900274409677554,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 27,
-      "medianRubinSnr": 11.765584496621365
+      "medianRubinSnr": 5.683623090832337
     },
     {
       "regionId": "dp2-tract-9959",
@@ -2372,7 +2372,7 @@
       "backgroundRmsMedianNjy": 8.063443003240607,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 12.160490754972319
+      "medianRubinSnr": 5.794198205253599
     },
     {
       "regionId": "dp2-tract-9960",
@@ -2385,7 +2385,7 @@
       "backgroundRmsMedianNjy": 10.194158588477576,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 13,
-      "medianRubinSnr": 14.889989975971133
+      "medianRubinSnr": 6.800232903111841
     },
     {
       "regionId": "dp2-tract-9964",
@@ -2398,7 +2398,7 @@
       "backgroundRmsMedianNjy": 7.606719302569823,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 21,
-      "medianRubinSnr": 15.587331269295985
+      "medianRubinSnr": 6.873909738013763
     },
     {
       "regionId": "dp2-tract-9965",
@@ -2411,7 +2411,7 @@
       "backgroundRmsMedianNjy": 8.709905451656407,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 19,
-      "medianRubinSnr": 13.439850443093928
+      "medianRubinSnr": 6.058702642053111
     },
     {
       "regionId": "dp2-tract-9966",
@@ -2424,7 +2424,7 @@
       "backgroundRmsMedianNjy": 6.400418385528468,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 23,
-      "medianRubinSnr": 9.535805986996225
+      "medianRubinSnr": 4.5635987530081765
     },
     {
       "regionId": "dp2-tract-9967",
@@ -2437,7 +2437,7 @@
       "backgroundRmsMedianNjy": 15.37534799325729,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 9,
-      "medianRubinSnr": 15.226634009530441
+      "medianRubinSnr": 6.868136061744347
     },
     {
       "regionId": "dp2-tract-9968",
@@ -2450,7 +2450,7 @@
       "backgroundRmsMedianNjy": 7.741175039789865,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 13,
-      "medianRubinSnr": 16.55168658351235
+      "medianRubinSnr": 7.181181360173464
     },
     {
       "regionId": "dp2-tract-9969",
@@ -2463,7 +2463,7 @@
       "backgroundRmsMedianNjy": 7.447181330074725,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 16,
-      "medianRubinSnr": 13.827545966025706
+      "medianRubinSnr": 6.313379340618822
     },
     {
       "regionId": "dp2-tract-9973",
@@ -2476,7 +2476,7 @@
       "backgroundRmsMedianNjy": 7.874833150256311,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 7,
-      "medianRubinSnr": 13.086175404427662
+      "medianRubinSnr": 5.876957607486189
     },
     {
       "regionId": "dp2-tract-9974",
@@ -2489,7 +2489,7 @@
       "backgroundRmsMedianNjy": 8.621013337924575,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 12.020988219272757
+      "medianRubinSnr": 5.507908246432994
     }
   ]
 }

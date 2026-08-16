@@ -58,6 +58,7 @@ TILE_COLUMNS = [
     "rubin_mag_ab", "reference_mag_ab", "rubin_snr",
     "flux_ratio", "departure_significance",
     "flag_near_edge", "flag_negative_reference", "flag_blended",
+    "noise_inflation_factor", "flag_inflation_extrapolated",
 ]
 
 COLUMN_DICTIONARY: dict[str, dict[str, str]] = {
@@ -98,6 +99,24 @@ COLUMN_DICTIONARY: dict[str, dict[str, str]] = {
     "flag_near_edge": {"unit": "", "ucd": "meta.code.qual", "description": "Centroid within 10 pixels of the frame edge."},
     "flag_negative_reference": {"unit": "", "ucd": "meta.code.qual", "description": "Reference flux is non-positive; ratios are undefined."},
     "flag_blended": {"unit": "", "ucd": "meta.code.qual", "description": "Segment larger than 500 pixels; deblending may have merged neighbours."},
+    "noise_inflation_factor": {
+        "unit": "", "ucd": "stat.fit.param",
+        "description": (
+            "Variance inflation already applied to the flux errors, because image noise is "
+            "correlated and sigma*sqrt(N) understates a real aperture sum. Measured on 9,780 of "
+            "this catalogue's own segment footprints. Divide the error columns by its square "
+            "root to recover the uncorrected values."
+        ),
+    },
+    "flag_inflation_extrapolated": {
+        "unit": "", "ucd": "meta.code.qual",
+        "description": (
+            "Segment larger than the 160 pixels the inflation curve was measured to. The factor "
+            "is held flat rather than extrapolated, which understates the correction, and the "
+            "curve was still rising. About 5% of rows, and the same extended sources that carry "
+            "a separate unexplained size bias."
+        ),
+    },
 }
 
 
@@ -266,6 +285,20 @@ def main() -> None:
             "difference_significance is dominated by the roughly 7% offset between Rubin and these "
             "references and flags most bright sources; "
             "departure_significance_propagated divides by an error that omits source Poisson noise."
+        ),
+        "correlatedNoiseCorrection": (
+            "The flux errors here are corrected for correlated image noise and are not raw "
+            "photutils values. segment_fluxerr sums the background RMS in quadrature over a "
+            "segment, which is sigma*sqrt(N) and assumes independent pixels; they are not "
+            "independent, with lag-1 autocorrelation 0.68 in Rubin and 0.76 in the resampled "
+            "reference. Measured by translating 9,780 of this catalogue's own segment "
+            "footprints around blank sky, the variance of a real aperture sum is 2.9x to 6.2x "
+            "higher depending on area, so raw errors were about half what they should be. Every "
+            "error column has been multiplied by the square root of noise_inflation_factor and "
+            "the S/N columns divided by it. The curve is measured to 160 pixels, covering 94.9% "
+            "of rows; beyond that it is held flat rather than extrapolated and the row carries "
+            "flag_inflation_extrapolated. Divide by the square root of noise_inflation_factor to "
+            "recover the uncorrected values."
         ),
         "extendedSourceBias": (
             "Measured, unexplained, and the reason to restrict a search to compact sources. The "
