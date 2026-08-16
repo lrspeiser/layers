@@ -2054,3 +2054,45 @@ than on one of its symptoms.
 it was wrong — which is the fourth time in this document that making something
 checkable immediately found something broken, after the leak test, the checksum
 guard and the shrink guard.
+
+## 43. G8 rebuilt from the MAST cache: exactly one, and it is the right one
+
+G8's claim is unusually sharp: of every anomaly candidate this project produced,
+**exactly one** sits where a high-resolution instrument has ever looked. That is
+easy to state and easy to get wrong, so it is worth rebuilding.
+
+The follow-up cache holds one MAST VOTable per candidate position, 42 in all. A
+position is verifiable only if its query returned at least one observation; an
+empty table means no high-resolution instrument has visited it.
+
+| | count |
+|---|---|
+| candidate positions queried | 42 |
+| **with ≥1 MAST observation** | **1** |
+| with none | 41 |
+| unreadable | 0 |
+
+The single hit is an `xray-counterpart` position, which matches the published
+outcome naming the eRASS1 X-ray source in `dp2-tract-5063`. The claim reproduces,
+and reproduces on the *right object* rather than merely on the right count —
+19 radio, 12 SED-departure and 9 variability positions all come back empty.
+
+That is the sharpest form this project's recurring lesson takes. G8's stated goal
+was 229 pairs, "small but high value". The footprints overlap 229 tracts; the
+number of candidate positions any of those instruments actually observed is one.
+Overlap is not observation, at the level of a single pointing.
+
+**Standing verification status:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G4, G7, G8, and 69% of G9** |
+| discrepancy explained but not closed | G3, G6 |
+| checked against own evidence only | G5, rest of G9 |
+| render bug found and fixed, now guarded | G10 |
+
+Seven of eleven figures now rest on inputs rather than on the pipeline's own
+reporting. What remains is G5, whose lensing maps are cached but whose 466 pairs
+would need the convergence-to-light correlation recomputed; G9's pixel-residual
+term, whose intermediates were not retained; and the parts of G3 and G6 that need
+their operators' selection logic reimplemented rather than read.

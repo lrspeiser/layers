@@ -208,6 +208,33 @@ def hi_detections_from_catalogues() -> tuple[int, int, str]:
     return testable, int(inside_any.sum()), "hicat + nhicat, tract footprints, finite W50"
 
 
+def highres_from_cache() -> tuple[int, int, str]:
+    """G8: how many candidate positions actually have high-resolution pixels.
+
+    One cached MAST VOTable per candidate position. A position is verifiable only
+    if its query returned at least one observation; an empty table is a position
+    no high-resolution instrument has visited.
+    """
+    import re
+    from astropy.table import Table
+
+    cache = RESULTS / "highres-followup/cache"
+    if not cache.is_dir():
+        return -1, 0, "cache missing"
+    with_observation = 0
+    queried = 0
+    for path in sorted(cache.glob("*.vot")):
+        if path.name == "hla-probe.vot":
+            continue
+        queried += 1
+        try:
+            if len(Table.read(path, format="votable")) > 0:
+                with_observation += 1
+        except Exception:  # noqa: BLE001
+            continue
+    return with_observation, queried, "candidate positions with >=1 MAST observation"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -266,10 +293,18 @@ def main() -> None:
     if testable != published.get("G4"):
         failures.append("G4")
 
+    verifiable, queried, _highres_how = highres_from_cache()
+    match = "OK" if verifiable == published.get("G8") else "DISAGREES"
+    print(f"\n  G8  candidate positions with high-res pixels  : {verifiable:6d}  "
+          f"published {published.get('G8')}  {match}")
+    print(f"      of {queried} candidate positions queried against MAST")
+    if verifiable != published.get("G8"):
+        failures.append("G8")
+
     print("\nNot rebuildable from raw inputs here:")
     print("  G9 pixel-residual (1147)  the per-region scan outputs for the 200-set were not")
     print("                            retained; only anomalies-hsc remains on disk")
-    print("  G3 G5 G6 G8               raw inputs are external archive queries; rebuilding")
+    print("  G5                        raw inputs are external archive queries; rebuilding")
     print("                            means re-querying, not re-reading")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
