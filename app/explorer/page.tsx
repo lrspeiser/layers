@@ -4,9 +4,11 @@ import {
   DifferenceExplorer,
   type ConfirmedPosition,
   type DifferenceRegion,
+  type RegisterCandidate,
 } from "@/components/DifferenceExplorer";
 import index from "@/public/data/layers/selected-regions/difference-index.json";
 import agreement from "@/public/data/layers/selected-regions/difference-agreement-slim.json";
+import placements from "@/public/data/layers/selected-regions/register-placements.json";
 
 // The slim index only. The full difference-maps.json is 0.9 MB and the per-region
 // peak lists are fetched by the client when a region is opened: a 525 KB module
@@ -27,6 +29,7 @@ export default function ExplorerPage() {
   // TypeScript infers each entry's seenIn as its own literal shape, since the
   // references present differ per position, so the JSON needs one cast here.
   const confirmed = agreement.confirmed as unknown as ConfirmedPosition[];
+  const byRegion = placements.byRegion as unknown as Record<string, RegisterCandidate[]>;
 
   return (
     <main id="top">
@@ -55,6 +58,8 @@ export default function ExplorerPage() {
         peakClassification={index.peakClassification}
         confirmed={confirmed}
         agreementCaveat={agreement.caveat}
+        placements={byRegion}
+        placementMeaning={placements.meaning}
       />
     </main>
   );

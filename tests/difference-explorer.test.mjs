@@ -123,3 +123,42 @@ test("a confirmed difference names the references that saw it", async () => {
     assert.equal(item.directionsAgree, true);
   }
 });
+
+// Candidate markers are placed by WCS onto the same frames the previews came
+// from. A marker outside the frame implies coverage that does not exist, and a
+// marker on a region with no image cannot be drawn at all.
+test("multi-wavelength candidates land inside frames that exist", async () => {
+  const placements = await readJson(
+    "public", "data", "layers", "selected-regions", "register-placements.json",
+  );
+  const index = await readJson("public", "data", "layers", "selected-regions", "difference-index.json");
+  const rendered = new Map(index.regions.map((r) => [r.regionId, r]));
+
+  let drawn = 0;
+  for (const [regionId, items] of Object.entries(placements.byRegion)) {
+    const region = rendered.get(regionId);
+    assert.ok(region, `${regionId} has candidates but no rendered frame`);
+    await access(join(root, "public", index.previewRoot.slice(1), regionId, `rubin-${region.rubinBand}.png`));
+    for (const item of items) {
+      assert.ok(item.x >= 0 && item.x <= 1, `${regionId} candidate x out of frame: ${item.x}`);
+      assert.ok(item.y >= 0 && item.y <= 1, `${regionId} candidate y out of frame: ${item.y}`);
+      assert.ok(Number.isFinite(item.sky.raDeg) && Number.isFinite(item.sky.decDeg));
+      assert.ok(item.operator && item.operator.length > 0);
+      drawn += 1;
+    }
+  }
+  assert.equal(drawn, placements.counts.placed);
+
+  // Candidates that could not be placed must be recorded with a reason, never
+  // dropped: a shrinking marker count with no explanation reads as "fewer
+  // anomalies" rather than "less coverage".
+  assert.equal(placements.counts.unplaced, placements.unplaced.length);
+  for (const item of placements.unplaced) {
+    assert.ok(item.reason && item.reason.length > 0);
+  }
+  assert.equal(
+    placements.counts.placed + placements.counts.unplaced,
+    placements.counts.candidates,
+  );
+  assert.match(placements.meaning, /not that anything is there/i);
+});

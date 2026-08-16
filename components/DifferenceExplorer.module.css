@@ -484,3 +484,41 @@
   background: rgba(118, 189, 236, 0.18);
   color: var(--blue);
 }
+
+.candidate {
+  position: absolute;
+  width: 0.95rem;
+  height: 0.95rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px solid var(--amber, #e0a84c);
+  background: rgba(224, 168, 76, 0.15);
+  cursor: pointer;
+  padding: 0;
+}
+
+.candidate[data-operator="xray-counterpart"] {
+  border-color: #f2766a;
+  background: rgba(242, 118, 106, 0.18);
+}
+
+.candidate[data-operator="radio-counterpart"] {
+  border-color: #76bdec;
+  background: rgba(118, 189, 236, 0.18);
+}
+
+.candidate[data-active="true"] {
+  box-shadow: 0 0 0 3px rgba(244, 241, 232, 0.35);
+}
+
+.candidateToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.76rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.peakCard[data-candidate="true"] {
+  border-color: rgba(224, 168, 76, 0.45);
+}

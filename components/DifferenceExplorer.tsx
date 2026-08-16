@@ -39,6 +39,16 @@ export type ConfirmedPosition = {
   directionsAgree: boolean;
 };
 
+export type RegisterCandidate = {
+  operator: string;
+  what: string | null;
+  detail: string | null;
+  significance: number | null;
+  sky: { raDeg: number; decDeg: number };
+  x: number;
+  y: number;
+};
+
 export type PairingIndex = {
   pairing: string;
   previewRoot: string;
@@ -70,6 +80,8 @@ export function DifferenceExplorer({
   peakClassification,
   confirmed = [],
   agreementCaveat,
+  placements = {},
+  placementMeaning,
 }: {
   regions: DifferenceRegion[];
   previewRoot: string;
@@ -79,6 +91,8 @@ export function DifferenceExplorer({
   peakClassification: { onSource: string; offSource: string };
   confirmed?: ConfirmedPosition[];
   agreementCaveat?: string;
+  placements?: Record<string, RegisterCandidate[]>;
+  placementMeaning?: string;
 }) {
   // The other pairings are fetched when chosen rather than imported: three
   // indexes is 131 KB of route payload for something most visits never switch.
@@ -94,6 +108,8 @@ export function DifferenceExplorer({
   const [peaks, setPeaks] = useState<DifferencePeak[]>([]);
   const [activePeak, setActivePeak] = useState<number | null>(null);
   const [blinkOnRubin, setBlinkOnRubin] = useState(true);
+  const [showCandidates, setShowCandidates] = useState(true);
+  const [activeCandidate, setActiveCandidate] = useState<number | null>(null);
   const [loadingPeaks, setLoadingPeaks] = useState(false);
 
   useEffect(() => {
@@ -197,6 +213,9 @@ export function DifferenceExplorer({
         : rubinImage;
 
   const shownPeaks = peaks.filter((peak) => !onlyOffSource || !peak.onSource);
+  // Candidate positions are tied to the sky, not to a pairing, so the same
+  // markers apply whichever reference is being viewed.
+  const candidates = showCandidates ? (placements[selectedId] ?? []) : [];
 
   return (
     <section className={styles.explorer}>
@@ -373,6 +392,18 @@ export function DifferenceExplorer({
                   aria-label={`peak ${peak.sigma} sigma`}
                 />
               ))}
+              {candidates.map((candidate, index) => (
+                <button
+                  key={`${candidate.operator}-${candidate.sky.raDeg}-${index}`}
+                  type="button"
+                  className={styles.candidate}
+                  data-operator={candidate.operator}
+                  data-active={activeCandidate === index}
+                  style={{ left: `${candidate.x * 100}%`, top: `${(1 - candidate.y) * 100}%` }}
+                  onClick={() => setActiveCandidate(activeCandidate === index ? null : index)}
+                  aria-label={candidate.what ?? candidate.operator}
+                />
+              ))}
               <figcaption>
                 {mode === "blink"
                   ? blinkOnRubin
@@ -395,6 +426,18 @@ export function DifferenceExplorer({
                 onChange={(event) => setOpacity(Number(event.target.value))}
               />
               <span>{Math.round(opacity * 100)}%</span>
+            </label>
+          )}
+
+          {(placements[selectedId] ?? []).length > 0 && (
+            <label className={styles.candidateToggle}>
+              <input
+                type="checkbox"
+                checked={showCandidates}
+                onChange={(event) => setShowCandidates(event.target.checked)}
+              />
+              Show the {(placements[selectedId] ?? []).length} multi-wavelength candidate
+              {(placements[selectedId] ?? []).length === 1 ? "" : "s"} in this frame
             </label>
           )}
 
@@ -465,6 +508,19 @@ export function DifferenceExplorer({
                   {shownPeaks.length} marker{shownPeaks.length === 1 ? "" : "s"} on the frame. Click
                   one for its position and reading.
                 </p>
+              )}
+              {activeCandidate !== null && candidates[activeCandidate] && (
+                <div className={styles.peakCard} data-candidate="true">
+                  <strong>{candidates[activeCandidate].what ?? candidates[activeCandidate].operator}</strong>
+                  <p>
+                    {candidates[activeCandidate].sky.raDeg.toFixed(5)},{" "}
+                    {candidates[activeCandidate].sky.decDeg.toFixed(5)}
+                  </p>
+                  {candidates[activeCandidate].detail && (
+                    <p className={styles.muted}>{candidates[activeCandidate].detail}</p>
+                  )}
+                  {placementMeaning && <p className={styles.muted}>{placementMeaning}</p>}
+                </div>
               )}
               <a className={styles.link} href={`/overlay/${selected.tract}`}>
                 Open the full multi-survey overlay →
