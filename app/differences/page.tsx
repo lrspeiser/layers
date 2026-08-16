@@ -192,6 +192,7 @@ export default function DifferencesPage() {
           <Link href="/">Full footprint</Link>
           <Link href="/data">Download the catalogue</Link>
           <Link href="/explorer">Difference explorer</Link>
+          <Link href="/goals">Goals</Link>
           <Link href="/pilots">Live multi-survey pilots</Link>
           <Link href="/prototype">Aligned optical prototype</Link>
         </nav>

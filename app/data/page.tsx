@@ -37,6 +37,7 @@ export default function DataPage() {
           <Link href="/">Full footprint</Link>
           <Link href="/explorer">Difference explorer</Link>
           <Link href="/differences">Operators</Link>
+          <Link href="/goals">Goals</Link>
         </nav>
         <span className="release-chip">DATA</span>
       </header>
