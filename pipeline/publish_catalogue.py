@@ -152,6 +152,7 @@ def main() -> None:
     count = len(columns["ra_deg"])
 
     tiles: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    skipped_without_position = 0
     for index in range(count):
         row = {}
         for name, values in columns.items():
@@ -162,7 +163,15 @@ def main() -> None:
                 else:
                     value = round(value, 6)
             row[name] = value
-        tiles[tile_key(columns["ra_deg"][index], columns["dec_deg"][index])].append(row)
+        # Key on the *stored* position, not the raw one. Rounding to six decimals
+        # can carry a value across a degree boundary -- RA 2.9999996 is written as
+        # 3.000000 -- and a tile whose name disagrees with the coordinates inside
+        # it sends a cone search to the wrong file.
+        ra, dec = row.get("ra_deg"), row.get("dec_deg")
+        if ra is None or dec is None:
+            skipped_without_position += 1
+            continue
+        tiles[tile_key(ra, dec)].append(row)
 
     tile_dir = args.public / "tiles"
     if tile_dir.exists():
@@ -174,6 +183,7 @@ def main() -> None:
         )
 
     tile_bytes = sum(p.stat().st_size for p in tile_dir.glob("*.json"))
+    tiled_rows = sum(len(v) for v in tiles.values())
     summary_source = json.loads(
         (ROOT / "public/data/layers/selected-regions/source-catalogue.json").read_text(encoding="utf-8")
     )
@@ -184,7 +194,9 @@ def main() -> None:
         "schemaVersion": "layers-catalogue-release-v1",
         "generatedAt": utc_now(),
         "published": True,
-        "rows": count,
+        "rows": tiled_rows,
+        "rowsInBulkFiles": count,
+        "skippedWithoutPosition": skipped_without_position,
         "regions": summary_source.get("counts", {}).get("regions"),
         "files": {
             "parquet": {

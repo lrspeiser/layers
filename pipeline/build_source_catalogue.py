@@ -106,8 +106,28 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
         mask=invalid,
         bkg_estimator=MedianBackground(),
     )
-    detection_image = rubin - background.background
-    threshold = DETECT_SIGMA * background.background_rms
+    reference_background = Background2D(
+        reference,
+        box_size=BACKGROUND_BOX,
+        filter_size=3,
+        mask=invalid,
+        bkg_estimator=MedianBackground(),
+    )
+
+    # Detect on the sum of both frames, not on Rubin alone.
+    #
+    # Detecting on one frame selects sources that scattered bright *in that
+    # frame*, then measures the other without that selection, so every noise
+    # excursion becomes a "Rubin brighter" departure. Measured on the first
+    # build: 876 of 880 flagged sources were Rubin-brighter, and the asymmetry
+    # ran from 67:3 at high signal-to-noise to 417:0 below ten -- the exact
+    # gradient a selection effect must have and astrophysics has no reason to.
+    #
+    # The sum is symmetric between the two frames, so a source scattering bright
+    # in either is equally likely to be detected, and the residual asymmetry is
+    # whatever is actually there.
+    detection_image = (rubin - background.background) + (reference - reference_background.background)
+    threshold = DETECT_SIGMA * np.hypot(background.background_rms, reference_background.background_rms)
 
     segments = detect_sources(detection_image, threshold, npixels=MIN_PIXELS, mask=invalid)
     if segments is None:
@@ -120,20 +140,31 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
         nlevels=DEBLEND_LEVELS, contrast=DEBLEND_CONTRAST, progress_bar=False,
     )
 
+    # Measured on Rubin itself; only the segmentation comes from the sum.
     rubin_catalogue = SourceCatalog(
-        detection_image, segments, wcs=wcs, background=background.background,
+        rubin - background.background, segments, wcs=wcs, background=background.background,
         error=background.background_rms, mask=invalid,
     )
     # The same segmentation on the reference frame, so a row's two fluxes come
     # from identical pixels and no cross-match error enters the difference.
     reference_catalogue = SourceCatalog(
-        reference, segments, wcs=wcs, error=background.background_rms, mask=invalid,
+        reference - reference_background.background, segments, wcs=wcs,
+        error=reference_background.background_rms, mask=invalid,
     )
     difference_catalogue = SourceCatalog(
         difference, segments, wcs=wcs, error=background.background_rms, mask=invalid,
     )
 
     sky = rubin_catalogue.sky_centroid
+    # A segment whose flux is negative has no defined centroid, so it comes back
+    # with a NaN position. That is not a source and cannot be cone-searched;
+    # 21 of 64,910 on the first symmetric-detection build, all tiny and negative.
+    # Dropped here rather than worked around downstream, and counted.
+    positioned = np.isfinite(np.asarray(sky.ra.deg, dtype=float)) & np.isfinite(
+        np.asarray(sky.dec.deg, dtype=float)
+    )
+    dropped_without_position = int((~positioned).sum())
+
     rows = Table()
     rows["region_id"] = [path.parent.name] * len(rubin_catalogue)
     rows["source_id"] = [f"{path.parent.name}-{label}" for label in rubin_catalogue.labels]
@@ -235,9 +266,14 @@ def measure_region(path: Path) -> tuple[Table, dict[str, Any]] | None:
         rows["rubin_snr"] = np.where(rubin_error > 0, rubin_flux / rubin_error, np.nan)
         rows["reference_snr"] = np.where(reference_error > 0, reference_flux / reference_error, np.nan)
 
+    # One filter, on the finished table. Masking column by column is how the
+    # lengths diverged the first time; this cannot get out of step.
+    rows = rows[positioned]
+
     meta = {
         "regionId": path.parent.name,
         "sources": len(rows),
+        "droppedWithoutPosition": dropped_without_position,
         "pixelScaleArcsec": round(pixel_scale, 4),
         "differencePlane": difference_plane,
         "backgroundRmsMedianNjy": float(np.median(background.background_rms)),
@@ -304,8 +340,14 @@ def main() -> None:
             "checked rather than only looked at."
         ),
         "method": {
-            "detection": f"photutils detect_sources at {DETECT_SIGMA} sigma over a Background2D sky, "
-                         f"npixels {MIN_PIXELS}, then deblend_sources",
+            "detection": (
+                f"photutils detect_sources at {DETECT_SIGMA} sigma, npixels {MIN_PIXELS}, then "
+                "deblend_sources -- run on the SUM of both background-subtracted frames. Detecting "
+                "on Rubin alone selected sources that scattered bright in Rubin and measured the "
+                "reference without that selection, which made 876 of 880 flagged sources "
+                "Rubin-brighter, with the asymmetry running from 67:3 at high signal-to-noise to "
+                "417:0 below ten. The sum is symmetric between the frames."
+            ),
             "photometry": "segment flux on a shared segmentation, so both frames measure the same pixels",
             "uncertainty": (
                 "empirical Background2D RMS propagated over each segment, never the propagated "
@@ -321,6 +363,12 @@ def main() -> None:
                 "departure_significance_propagated divides by photutils' segment_fluxerr, which is "
                 "background RMS only and omits the source's own Poisson noise; it is kept for "
                 "comparison and understates the uncertainty on bright sources."
+            ),
+            "howToGetACleanSample": (
+                "Require signal-to-noise in BOTH frames, not just Rubin: a source detected only "
+                "because it is bright in one frame has its other flux measured without that "
+                "selection. Then cut on area_pixels, because the residual excess above S/N 20 is "
+                "extended sources whose flux Rubin concentrates inside a shared segment."
             ),
             "flagsNotFiltering": (
                 "Rows that should be distrusted are flagged and kept. A filtered catalogue hides "
@@ -357,6 +405,26 @@ def main() -> None:
                 "built from access-restricted Rubin pixels. Rebuild them with "
                 "pipeline/build_source_catalogue.py. VOTable opens directly in TOPCAT, pyvo and "
                 "astroquery; Parquet is the columnar form for bulk work."
+            ),
+        },
+        "twoSelectionEffectsFound": {
+            "asymmetricDetection": (
+                "FIXED. Detecting on Rubin alone selected sources that scattered bright in Rubin "
+                "and measured the reference without that selection: 876 of 880 flagged sources "
+                "were Rubin-brighter, running from 67:3 at high signal-to-noise to 417:0 below "
+                "ten. Detection now runs on the sum of both frames. The ratio is 2.2:1, and the "
+                "recovered negatives are exactly the mirror population -- median Rubin S/N 2.1 "
+                "against reference S/N 10.0, sources the old detector could not see."
+            ),
+            "extendedSourceAperture": (
+                "NOT FIXED, and it is why a high-signal-to-noise cut makes the asymmetry worse "
+                "rather than better: 2.2:1 overall but 18:1 above S/N 20. The flagged sources "
+                "there are extended -- median segment area 134 pixels against 33 for unflagged, "
+                "with the flag rate rising from 1 in 8,415 compact sources to 25 in 2,856 large "
+                "ones. Segments are defined on the summed frame, and Rubin's sharper PSF "
+                "concentrates more of an extended source inside that segment than the broader "
+                "reference PSF does. Cut on area_pixels or use PSF-model photometry before "
+                "treating an extended-source departure as real."
             ),
         },
         "caveat": (

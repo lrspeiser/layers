@@ -1,1923 +1,2117 @@
 {
   "schemaVersion": "layers-source-catalogue-v1",
-  "generatedAt": "2026-08-16T04:19:53.437052+00:00",
+  "generatedAt": "2026-08-16T05:30:38.634972+00:00",
   "purpose": "One row per detected source with Rubin and reference flux measured on identical pixels, so the comparison produces something that can be cross-matched, queried and checked rather than only looked at.",
   "method": {
-    "detection": "photutils detect_sources at 3.0 sigma over a Background2D sky, npixels 5, then deblend_sources",
+    "detection": "photutils detect_sources at 3.0 sigma, npixels 5, then deblend_sources -- run on the SUM of both background-subtracted frames. Detecting on Rubin alone selected sources that scattered bright in Rubin and measured the reference without that selection, which made 876 of 880 flagged sources Rubin-brighter, with the asymmetry running from 67:3 at high signal-to-noise to 417:0 below ten. The sum is symmetric between the frames.",
     "photometry": "segment flux on a shared segmentation, so both frames measure the same pixels",
     "uncertainty": "empirical Background2D RMS propagated over each segment, never the propagated variance planes: those understate the truth on these products by a median factor of about seven",
     "whichSignificanceToUse": "departure_significance is the one to use. It measures how far a source's flux ratio sits from its own field's median, in units of the field's own measured scatter, so no error model can be wrong. difference_significance measures departure from zero and is dominated by the roughly 7% offset between Rubin and these references, so it flags most bright sources. departure_significance_propagated divides by photutils' segment_fluxerr, which is background RMS only and omits the source's own Poisson noise; it is kept for comparison and understates the uncertainty on bright sources.",
+    "howToGetACleanSample": "Require signal-to-noise in BOTH frames, not just Rubin: a source detected only because it is bright in one frame has its other flux measured without that selection. Then cut on area_pixels, because the residual excess above S/N 20 is extended sources whose flux Rubin concentrates inside a shared segment.",
     "flagsNotFiltering": "Rows that should be distrusted are flagged and kept. A filtered catalogue hides how much was removed; a flagged one lets the reader choose and count. Signal-to-noise is published as a column rather than a flag, because the obvious flag never fired: detection at 3 sigma over 5 pixels already guarantees a higher integrated ratio."
   },
   "counts": {
     "regions": 189,
-    "sources": 50233,
-    "clean": 46574,
-    "flaggedNearEdge": 2636,
-    "medianRubinSnr": 22.782187899637027,
-    "flaggedNegativeReference": 1116,
-    "cleanAbove5SigmaFromZero": 12674,
-    "cleanAbove5SigmaFromFieldRatio": 880
+    "sources": 64889,
+    "clean": 61422,
+    "flaggedNearEdge": 3330,
+    "medianRubinSnr": 15.855656317758365,
+    "flaggedNegativeReference": 148,
+    "cleanAbove5SigmaFromZero": 10794,
+    "cleanAbove5SigmaFromFieldRatio": 622
   },
   "products": {
     "parquetFile": "rubin-reference-sources.parquet",
     "votableFile": "rubin-reference-sources.vot",
-    "parquetBytes": 11786660,
-    "votableBytes": 53683701,
+    "parquetBytes": 15297396,
+    "votableBytes": 69437199,
     "published": false,
     "note": "These files are not published in this repository: they are analysis products built from access-restricted Rubin pixels. Rebuild them with pipeline/build_source_catalogue.py. VOTable opens directly in TOPCAT, pyvo and astroquery; Parquet is the columnar form for bulk work."
   },
-  "caveat": "A large difference_significance is not a detection. Bandpass transfer between these surveys is not validated, so a genuine colour difference produces the same signal.",
+  "twoSelectionEffectsFound": {
+    "asymmetricDetection": "FIXED. Detecting on Rubin alone selected sources that scattered bright in Rubin and measured the reference without that selection: 876 of 880 flagged sources were Rubin-brighter, running from 67:3 at high signal-to-noise to 417:0 below ten. Detection now runs on the sum of both frames. The ratio is 2.2:1, and the recovered negatives are exactly the mirror population -- median Rubin S/N 2.1 against reference S/N 10.0, sources the old detector could not see.",
+    "extendedSourceAperture": "NOT FIXED, and it is why a high-signal-to-noise cut makes the asymmetry worse rather than better: 2.2:1 overall but 18:1 above S/N 20. The flagged sources there are extended -- median segment area 134 pixels against 33 for unflagged, with the flag rate rising from 1 in 8,415 compact sources to 25 in 2,856 large ones. Segments are defined on the summed frame, and Rubin's sharper PSF concentrates more of an extended source inside that segment than the broader reference PSF does. Cut on area_pixels or use PSF-model photometry before treating an extended-source departure as real."
+  },
+  "caveat": "A large departure is not a detection. The filter colour term is measured at -0.080 mag per mag of Rubin g-r against DECam and +0.007 against PS1, linear to under 4 millimagnitudes, so colour alone moves a source very little. What remains unexplained is the empirical field-to-field scatter, which is forty times larger than the filters permit and is therefore photometric error, crowding, PSF residuals or calibration structure.",
   "regions": [
     {
       "regionId": "dp2-tract-10053",
-      "sources": 173,
+      "sources": 228,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.762216565905298,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.996879701972098
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 15.437072700558709
     },
     {
       "regionId": "dp2-tract-10054",
-      "sources": 270,
+      "sources": 250,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.029413011830959,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 19.331481215308543
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 19.386637095402847
     },
     {
       "regionId": "dp2-tract-10055",
-      "sources": 612,
+      "sources": 607,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.3007395634829813,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 33,
-      "medianRubinSnr": 33.743936121019445
+      "flaggedNearEdge": 30,
+      "medianRubinSnr": 32.47364068270563
     },
     {
       "regionId": "dp2-tract-10056",
-      "sources": 253,
+      "sources": 267,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.516832785812609,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 22.351762887250853
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 18.307141774027716
     },
     {
       "regionId": "dp2-tract-10079",
-      "sources": 574,
+      "sources": 453,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 2.2734555220732164,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 27,
-      "medianRubinSnr": 40.45819906734971
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 50.75452381211808
     },
     {
       "regionId": "dp2-tract-10215",
-      "sources": 88,
+      "sources": 115,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 11.604732071516288,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 24.66084327012082
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 18.49038633512063
     },
     {
       "regionId": "dp2-tract-10321",
-      "sources": 586,
+      "sources": 352,
+      "droppedWithoutPosition": 2,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 0.9996338493685457,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 44.44334123161009
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 68.91827496895893
     },
     {
       "regionId": "dp2-tract-10689",
-      "sources": 140,
+      "sources": 215,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.34467793453122,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 18.460329124300422
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 13.201639871799385
     },
     {
       "regionId": "dp2-tract-10805",
-      "sources": 607,
+      "sources": 352,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.2145137435132467,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 14,
-      "medianRubinSnr": 44.87125785673707
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 80.64690777416897
     },
     {
       "regionId": "dp2-tract-11162",
-      "sources": 278,
+      "sources": 416,
+      "droppedWithoutPosition": 6,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 4.8807307868843,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 19.5762347477911
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 11.074674099724152
     },
     {
       "regionId": "dp2-tract-11411",
-      "sources": 81,
+      "sources": 112,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 15.049848935558849,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.00475173776365
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 12.514351979599066
     },
     {
       "regionId": "dp2-tract-12814",
-      "sources": 63,
+      "sources": 81,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 15.837344328819345,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 2,
-      "medianRubinSnr": 24.718553810043925
+      "medianRubinSnr": 17.479970530691737
     },
     {
       "regionId": "dp2-tract-2397",
-      "sources": 255,
+      "sources": 367,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.541480982816672,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 19.959053275389195
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 12.66907461383392
     },
     {
       "regionId": "dp2-tract-3233",
-      "sources": 187,
+      "sources": 270,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 14.637648667849277,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 25.157504900514205
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 15.752583759500785
     },
     {
       "regionId": "dp2-tract-4636",
-      "sources": 194,
+      "sources": 324,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.54878305206277,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 17.52547130458064
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 11.3543265009295
     },
     {
       "regionId": "dp2-tract-4637",
-      "sources": 133,
+      "sources": 224,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.383840704373942,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 4,
-      "medianRubinSnr": 18.694288404855765
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 12.163205794623352
     },
     {
       "regionId": "dp2-tract-4638",
-      "sources": 248,
+      "sources": 383,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.514278093713017,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 7,
-      "medianRubinSnr": 17.280543999491904
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 12.837328539253097
     },
     {
       "regionId": "dp2-tract-4848",
-      "sources": 490,
+      "sources": 663,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 4.2529545864653375,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 28,
-      "medianRubinSnr": 18.94739796393108
+      "flaggedNearEdge": 33,
+      "medianRubinSnr": 14.560125464419826
     },
     {
       "regionId": "dp2-tract-4849",
-      "sources": 521,
+      "sources": 623,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 4.053539444483518,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 21.555311289653453
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 18.69681228185105
     },
     {
       "regionId": "dp2-tract-4850",
-      "sources": 203,
+      "sources": 316,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.77995680357455,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 19.24073324176959
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 13.10939388218949
     },
     {
       "regionId": "dp2-tract-5061",
-      "sources": 277,
+      "sources": 431,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.398507429482727,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 20.30895842954026
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 12.670504244485787
     },
     {
       "regionId": "dp2-tract-5062",
-      "sources": 461,
+      "sources": 550,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.034390328505259,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 25,
-      "medianRubinSnr": 22.302392083750266
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 17.683841033646907
     },
     {
       "regionId": "dp2-tract-5063",
-      "sources": 534,
+      "sources": 735,
+      "droppedWithoutPosition": 2,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 4.042790476317512,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 32,
-      "medianRubinSnr": 24.283003511297622
+      "flaggedNearEdge": 40,
+      "medianRubinSnr": 15.871248172855545
     },
     {
       "regionId": "dp2-tract-5064",
-      "sources": 472,
+      "sources": 569,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.9345353621529933,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 26,
-      "medianRubinSnr": 24.475537620508806
+      "flaggedNearEdge": 30,
+      "medianRubinSnr": 19.403216885673306
     },
     {
       "regionId": "dp2-tract-5065",
-      "sources": 225,
+      "sources": 336,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.492775359521058,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 18.67449478114732
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 13.12486974440403
     },
     {
       "regionId": "dp2-tract-5214",
-      "sources": 367,
+      "sources": 402,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.209982000772518,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 26,
-      "medianRubinSnr": 42.55923624685097
+      "flaggedNearEdge": 29,
+      "medianRubinSnr": 34.69561801378978
     },
     {
       "regionId": "dp2-tract-5279",
-      "sources": 168,
+      "sources": 265,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.198540015540477,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.59193218055963
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 12.636296891830005
     },
     {
       "regionId": "dp2-tract-5280",
-      "sources": 247,
+      "sources": 373,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.245816207638837,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 19.813009149442845
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 13.438132491052055
     },
     {
       "regionId": "dp2-tract-5282",
-      "sources": 191,
+      "sources": 307,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.993839929740313,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 19.923460316988425
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 12.36760580841514
     },
     {
       "regionId": "dp2-tract-5670",
       "sources": 75,
+      "droppedWithoutPosition": 2,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.385341168195474,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 20.966442995262298
+      "flaggedNearEdge": 2,
+      "medianRubinSnr": 19.29096206290114
     },
     {
       "regionId": "dp2-tract-6509",
-      "sources": 194,
+      "sources": 274,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.22467719167215,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 28.623029083659887
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 16.43285039205837
     },
     {
       "regionId": "dp2-tract-6524",
-      "sources": 303,
+      "sources": 514,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.934721632332526,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 45.01219062977947
+      "flaggedNearEdge": 37,
+      "medianRubinSnr": 13.682272933200798
     },
     {
       "regionId": "dp2-tract-7939",
-      "sources": 146,
+      "sources": 160,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.76297962879075,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 27.717051632581935
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 22.754357038116684
     },
     {
       "regionId": "dp2-tract-8259",
-      "sources": 329,
+      "sources": 443,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.698300252943647,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 20,
-      "medianRubinSnr": 20.82739389343576
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 15.471926905262332
     },
     {
       "regionId": "dp2-tract-8272",
-      "sources": 102,
+      "sources": 144,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 22.388861525245588,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 2,
-      "medianRubinSnr": 18.669880647112787
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 13.872721294467517
     },
     {
       "regionId": "dp2-tract-8642",
-      "sources": 512,
+      "sources": 339,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.3419623052790168,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 20,
-      "medianRubinSnr": 41.5132055588044
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 61.54014560650362
     },
     {
       "regionId": "dp2-tract-8708",
-      "sources": 159,
+      "sources": 176,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.5802692155826,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 10,
-      "medianRubinSnr": 32.6851556833133
+      "medianRubinSnr": 25.705770182524947
     },
     {
       "regionId": "dp2-tract-8883",
-      "sources": 470,
+      "sources": 305,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.9471931050807498,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 14,
-      "medianRubinSnr": 34.906768844553405
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 45.82983493426057
     },
     {
       "regionId": "dp2-tract-8884",
-      "sources": 392,
+      "sources": 295,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 2.3634526247938368,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 30.0946406417413
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 35.65824821884044
     },
     {
       "regionId": "dp2-tract-8984",
-      "sources": 339,
+      "sources": 398,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.195136503101363,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 21.046817363817887
+      "flaggedNearEdge": 24,
+      "medianRubinSnr": 16.471294314178465
     },
     {
       "regionId": "dp2-tract-8985",
-      "sources": 263,
+      "sources": 412,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 7.988886269073239,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 18.25584364991957
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 13.070226408487953
     },
     {
       "regionId": "dp2-tract-8986",
-      "sources": 209,
+      "sources": 354,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.244390695552768,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 19.056369585418466
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 12.23840759886908
     },
     {
       "regionId": "dp2-tract-8994",
-      "sources": 91,
+      "sources": 132,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 22.704181375060752,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 23.92531369125368
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 16.20458398397963
     },
     {
       "regionId": "dp2-tract-8995",
-      "sources": 105,
+      "sources": 149,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 29.86861055871048,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 6,
-      "medianRubinSnr": 22.088652086368526
+      "medianRubinSnr": 14.546388171088859
     },
     {
       "regionId": "dp2-tract-8996",
-      "sources": 179,
+      "sources": 248,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 26.387670483624593,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 19.934153678909972
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 14.066990532724194
     },
     {
       "regionId": "dp2-tract-8997",
-      "sources": 114,
+      "sources": 140,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 41.450280652680846,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 17.435356309790286
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 14.538554656177363
     },
     {
       "regionId": "dp2-tract-8998",
-      "sources": 161,
+      "sources": 201,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 24.969133571461292,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 25.354600499612378
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 16.81079645240767
     },
     {
       "regionId": "dp2-tract-9125",
-      "sources": 276,
+      "sources": 226,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.05007491725469,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 23.490619585432114
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 25.426047653250574
     },
     {
       "regionId": "dp2-tract-9126",
-      "sources": 111,
+      "sources": 109,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.1770429970367635,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 7,
-      "medianRubinSnr": 16.480669010215696
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 15.668712330819002
     },
     {
       "regionId": "dp2-tract-9207",
-      "sources": 326,
+      "sources": 375,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.561757396153191,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 22.48603449983939
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 18.3330340984671
     },
     {
       "regionId": "dp2-tract-9209",
-      "sources": 280,
+      "sources": 324,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.461457298340118,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 20.81378986539148
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 16.040808457996118
     },
     {
       "regionId": "dp2-tract-9210",
-      "sources": 321,
+      "sources": 437,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.496148311329895,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 19.249622182358813
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 14.274815412173824
     },
     {
       "regionId": "dp2-tract-9212",
-      "sources": 410,
+      "sources": 406,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.602637113922945,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 27,
-      "medianRubinSnr": 29.57488426417562
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 29.11688429332333
     },
     {
       "regionId": "dp2-tract-9214",
-      "sources": 344,
+      "sources": 294,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.349436385088499,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 23.915579604397795
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 26.721773815699024
     },
     {
       "regionId": "dp2-tract-9217",
-      "sources": 338,
+      "sources": 343,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 2.9418375702400144,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 29.135881263347986
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 26.677915887441596
     },
     {
       "regionId": "dp2-tract-9218",
-      "sources": 396,
+      "sources": 405,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.3436735450764745,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 26,
-      "medianRubinSnr": 23.915254083598658
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 21.17437875416666
     },
     {
       "regionId": "dp2-tract-9219",
-      "sources": 368,
+      "sources": 436,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.231102478026684,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 24.884772062716806
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 20.21896131320667
     },
     {
       "regionId": "dp2-tract-9220",
-      "sources": 358,
+      "sources": 334,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 2.9873815339611465,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 26.269813792797105
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 25.177706525570514
     },
     {
       "regionId": "dp2-tract-9221",
-      "sources": 386,
+      "sources": 390,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.31508646510575,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 33.07268488083575
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 30.895762717087976
     },
     {
       "regionId": "dp2-tract-9222",
-      "sources": 389,
+      "sources": 403,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.823751771164333,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 25.176342627251042
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 22.13763445947147
     },
     {
       "regionId": "dp2-tract-9223",
-      "sources": 372,
+      "sources": 393,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.670991338940122,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 25,
-      "medianRubinSnr": 25.473687229702215
+      "medianRubinSnr": 22.370066536389743
     },
     {
       "regionId": "dp2-tract-9226",
-      "sources": 214,
+      "sources": 352,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.008610472139146,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 20.137796470688546
+      "flaggedNearEdge": 24,
+      "medianRubinSnr": 12.176473319358266
     },
     {
       "regionId": "dp2-tract-9227",
-      "sources": 361,
+      "sources": 461,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.266052059320581,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 20.891521093750757
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 15.784307978384803
     },
     {
       "regionId": "dp2-tract-9228",
-      "sources": 210,
+      "sources": 331,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.401738927833485,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 18.194383846401777
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 12.185525594765366
     },
     {
       "regionId": "dp2-tract-9229",
-      "sources": 268,
+      "sources": 399,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.172552998323816,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 19.785287116805783
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 13.479814814754391
     },
     {
       "regionId": "dp2-tract-9230",
-      "sources": 188,
+      "sources": 291,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.501954178079702,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 20.319226078190333
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 12.78330106914892
     },
     {
       "regionId": "dp2-tract-9231",
-      "sources": 223,
+      "sources": 385,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 9.618376362975024,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 14,
-      "medianRubinSnr": 20.78850504166086
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 11.429530941965039
     },
     {
       "regionId": "dp2-tract-9232",
-      "sources": 287,
+      "sources": 443,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 7.9592918555911965,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 23.298111596115493
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 13.069848003955201
     },
     {
       "regionId": "dp2-tract-9233",
-      "sources": 191,
+      "sources": 329,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.149456494624191,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 18.814892241403495
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 11.715880274161488
     },
     {
       "regionId": "dp2-tract-9236",
-      "sources": 196,
+      "sources": 230,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 21.984922521701364,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 4,
-      "medianRubinSnr": 21.216722466427843
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 18.32863293623821
     },
     {
       "regionId": "dp2-tract-9237",
-      "sources": 211,
+      "sources": 295,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 21.0354621506662,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 18.220574204074136
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 13.74368593698507
     },
     {
       "regionId": "dp2-tract-9238",
-      "sources": 157,
+      "sources": 218,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 24.786155014142935,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.629045841338574
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 13.81394648048081
     },
     {
       "regionId": "dp2-tract-9239",
-      "sources": 204,
+      "sources": 277,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 23.822769297343413,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 21.19918692106291
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 14.811078048694522
     },
     {
       "regionId": "dp2-tract-9240",
-      "sources": 152,
+      "sources": 197,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 30.57529030709533,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.773255267224073
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 14.336752277346834
     },
     {
       "regionId": "dp2-tract-9242",
-      "sources": 295,
+      "sources": 435,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.476724718041066,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 19.013033638498822
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 13.548228438045625
     },
     {
       "regionId": "dp2-tract-9245",
-      "sources": 100,
+      "sources": 134,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 23.634935095456868,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 24.948086767753523
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 18.752555932499327
     },
     {
       "regionId": "dp2-tract-9327",
-      "sources": 199,
+      "sources": 311,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 12.361817507995418,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 19.45423064908465
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 12.94749592272606
     },
     {
       "regionId": "dp2-tract-9328",
-      "sources": 233,
+      "sources": 331,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.595486521177836,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 20.621688522045524
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 13.69119094685587
     },
     {
       "regionId": "dp2-tract-9448",
-      "sources": 95,
+      "sources": 147,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.77407344734138,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 25.69278437815614
+      "flaggedNearEdge": 4,
+      "medianRubinSnr": 13.796948409085363
     },
     {
       "regionId": "dp2-tract-9449",
-      "sources": 267,
+      "sources": 378,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.626744835044269,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 25.154162697190337
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 14.818133521745363
     },
     {
       "regionId": "dp2-tract-9450",
-      "sources": 306,
+      "sources": 404,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.709241209625841,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 23,
-      "medianRubinSnr": 21.498943772915382
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 14.121359141943923
     },
     {
       "regionId": "dp2-tract-9451",
-      "sources": 320,
+      "sources": 441,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.810365463177446,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 22.82512211400462
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 15.466930206559596
     },
     {
       "regionId": "dp2-tract-9452",
-      "sources": 269,
+      "sources": 399,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.051084471177409,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 22.936035559084527
+      "flaggedNearEdge": 24,
+      "medianRubinSnr": 14.082244165775016
     },
     {
       "regionId": "dp2-tract-9453",
-      "sources": 224,
+      "sources": 364,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.631863279487405,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 20.302722206673323
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 11.965477637210078
     },
     {
       "regionId": "dp2-tract-9454",
-      "sources": 334,
+      "sources": 452,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.9016399700742515,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 20.995488879550784
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 14.45871128697908
     },
     {
       "regionId": "dp2-tract-9455",
-      "sources": 288,
+      "sources": 411,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 7.701049476763312,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 17,
-      "medianRubinSnr": 20.860284886053467
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 14.481422447360526
     },
     {
       "regionId": "dp2-tract-9456",
-      "sources": 306,
+      "sources": 404,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.012886790191171,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 21.133972913144472
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 15.11430827162851
     },
     {
       "regionId": "dp2-tract-9457",
-      "sources": 372,
+      "sources": 506,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.21833735943426,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 31,
-      "medianRubinSnr": 17.39086893885211
+      "flaggedNearEdge": 33,
+      "medianRubinSnr": 12.97018786769424
     },
     {
       "regionId": "dp2-tract-9458",
-      "sources": 298,
+      "sources": 429,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 7.318470082838213,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 21.578804169757067
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 13.849803742803072
     },
     {
       "regionId": "dp2-tract-9459",
-      "sources": 360,
+      "sources": 517,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 6.7732604527519245,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 25,
-      "medianRubinSnr": 17.714610501418242
+      "flaggedNearEdge": 36,
+      "medianRubinSnr": 14.020075794002668
     },
     {
       "regionId": "dp2-tract-9460",
-      "sources": 387,
+      "sources": 485,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.077617547050701,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 22.875861423854698
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 16.851496196139145
     },
     {
       "regionId": "dp2-tract-9461",
-      "sources": 347,
+      "sources": 451,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.433841787262484,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 21.20725530116142
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 16.196134016431152
     },
     {
       "regionId": "dp2-tract-9462",
-      "sources": 273,
+      "sources": 413,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 6.861657438515298,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 19.296892957464873
+      "flaggedNearEdge": 19,
+      "medianRubinSnr": 13.956656907429283
     },
     {
       "regionId": "dp2-tract-9463",
-      "sources": 251,
+      "sources": 381,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.430490598423455,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 17,
-      "medianRubinSnr": 27.542598639407668
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 14.539844188898016
     },
     {
       "regionId": "dp2-tract-9464",
-      "sources": 382,
+      "sources": 496,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.776886351123785,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 25,
-      "medianRubinSnr": 20.446609915951917
+      "flaggedNearEdge": 29,
+      "medianRubinSnr": 14.74260649962321
     },
     {
       "regionId": "dp2-tract-9465",
-      "sources": 330,
+      "sources": 403,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.406348398080784,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 22.64921585096439
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 17.444508908518966
     },
     {
       "regionId": "dp2-tract-9466",
-      "sources": 263,
+      "sources": 372,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 6.687360130280525,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 20.511968952192195
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 15.089443441557258
     },
     {
       "regionId": "dp2-tract-9467",
-      "sources": 351,
+      "sources": 411,
+      "droppedWithoutPosition": 2,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.532279605514981,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 20.34701875441536
+      "flaggedNearEdge": 23,
+      "medianRubinSnr": 17.135115352701874
     },
     {
       "regionId": "dp2-tract-9468",
-      "sources": 381,
+      "sources": 471,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.387421924533292,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 24,
-      "medianRubinSnr": 23.05826878225371
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 17.94805477380765
     },
     {
       "regionId": "dp2-tract-9469",
-      "sources": 372,
+      "sources": 494,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.503930691552549,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 22.9077447215735
+      "flaggedNearEdge": 36,
+      "medianRubinSnr": 16.61670581680346
     },
     {
       "regionId": "dp2-tract-9470",
-      "sources": 246,
+      "sources": 363,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.717272007964922,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 19.657271796852037
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 13.865159496906715
     },
     {
       "regionId": "dp2-tract-9471",
-      "sources": 265,
+      "sources": 426,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.813184525873943,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 20.956285500085645
+      "flaggedNearEdge": 31,
+      "medianRubinSnr": 12.738846795417352
     },
     {
       "regionId": "dp2-tract-9472",
-      "sources": 195,
+      "sources": 324,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 9.078088146789767,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 18.466185315761837
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 11.52344516621481
     },
     {
       "regionId": "dp2-tract-9473",
-      "sources": 170,
+      "sources": 297,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 13.448531339232577,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 18.91964757615759
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 11.48248155286184
     },
     {
       "regionId": "dp2-tract-9474",
-      "sources": 209,
+      "sources": 326,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 12.557988492539263,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 24.04865096910442
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 14.642460096554732
     },
     {
       "regionId": "dp2-tract-9475",
-      "sources": 185,
+      "sources": 285,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.974232356379686,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 19.002535148223263
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 12.770486840920212
     },
     {
       "regionId": "dp2-tract-9476",
-      "sources": 182,
+      "sources": 294,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 12.714941425567496,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 20.406306246127212
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 13.25844831476445
     },
     {
       "regionId": "dp2-tract-9479",
-      "sources": 210,
+      "sources": 312,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 18.009946192609974,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 15.5617689620069
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 10.764914196151201
     },
     {
       "regionId": "dp2-tract-9480",
-      "sources": 123,
+      "sources": 210,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 20.67550963362077,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 4,
-      "medianRubinSnr": 26.843174118971003
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 13.56431090915818
     },
     {
       "regionId": "dp2-tract-9481",
-      "sources": 101,
+      "sources": 131,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 30.44904377099354,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 22.162856307790406
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 14.614752572539999
     },
     {
       "regionId": "dp2-tract-9482",
-      "sources": 180,
+      "sources": 233,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 24.742236470825205,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 19.41328316628429
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 15.766159343915533
     },
     {
       "regionId": "dp2-tract-9483",
-      "sources": 177,
+      "sources": 224,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 29.130627193620285,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 21.216138649911503
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 17.001898259619033
     },
     {
       "regionId": "dp2-tract-9484",
-      "sources": 252,
+      "sources": 397,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.95749563666413,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 17,
-      "medianRubinSnr": 19.09340910124412
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 12.393422533528435
     },
     {
       "regionId": "dp2-tract-9485",
-      "sources": 260,
+      "sources": 395,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.094286738297038,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 16.80486621035722
+      "flaggedNearEdge": 22,
+      "medianRubinSnr": 12.095842421049875
     },
     {
       "regionId": "dp2-tract-9488",
-      "sources": 133,
+      "sources": 207,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 22.970210750957122,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 4,
-      "medianRubinSnr": 18.951336358633853
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 12.536275102941945
     },
     {
       "regionId": "dp2-tract-9489",
-      "sources": 153,
+      "sources": 213,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 25.311172997636884,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 22.606282313747656
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 16.329628807241857
     },
     {
       "regionId": "dp2-tract-9569",
-      "sources": 35,
+      "sources": 50,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 9.723019265913651,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 0,
-      "medianRubinSnr": 23.18969171045385
+      "flaggedNearEdge": 6,
+      "medianRubinSnr": 12.691243128187505
     },
     {
       "regionId": "dp2-tract-9570",
-      "sources": 675,
+      "sources": 559,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.4753223440663474,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 41,
-      "medianRubinSnr": 38.4329235427667
+      "flaggedNearEdge": 34,
+      "medianRubinSnr": 48.96013913665667
     },
     {
       "regionId": "dp2-tract-9571",
-      "sources": 555,
+      "sources": 659,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.8601667764459617,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 34,
-      "medianRubinSnr": 28.974378803187957
+      "flaggedNearEdge": 37,
+      "medianRubinSnr": 22.99933503837903
     },
     {
       "regionId": "dp2-tract-9572",
-      "sources": 150,
+      "sources": 249,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.110939798099436,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 2,
-      "medianRubinSnr": 19.570644880224336
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 12.116608166195165
     },
     {
       "regionId": "dp2-tract-9691",
-      "sources": 149,
+      "sources": 251,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.7952614029829626,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 4,
-      "medianRubinSnr": 20.92763863684819
+      "flaggedNearEdge": 5,
+      "medianRubinSnr": 11.864532761886178
     },
     {
       "regionId": "dp2-tract-9692",
-      "sources": 186,
+      "sources": 363,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.075735962739361,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 19.962852563244716
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 10.097906221830113
     },
     {
       "regionId": "dp2-tract-9693",
-      "sources": 252,
+      "sources": 400,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.143163794128322,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 19.218483201670768
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 12.780405762905147
     },
     {
       "regionId": "dp2-tract-9694",
-      "sources": 114,
+      "sources": 235,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.921747201549374,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 18.716943588560746
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 10.54947938691099
     },
     {
       "regionId": "dp2-tract-9695",
-      "sources": 332,
+      "sources": 462,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 10.33073000141869,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 27.227702311501915
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 16.6938521228544
     },
     {
       "regionId": "dp2-tract-9696",
-      "sources": 94,
+      "sources": 153,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.15862695847649,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 20.089783307792707
+      "flaggedNearEdge": 14,
+      "medianRubinSnr": 12.498785303269209
     },
     {
       "regionId": "dp2-tract-9697",
-      "sources": 231,
+      "sources": 370,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.195773388045016,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 18.828691282653804
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 11.780784143671784
     },
     {
       "regionId": "dp2-tract-9698",
-      "sources": 408,
+      "sources": 552,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.768951012648666,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 20.228851051893137
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 15.094644186519869
     },
     {
       "regionId": "dp2-tract-9699",
-      "sources": 384,
+      "sources": 537,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.608407510199456,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 27,
-      "medianRubinSnr": 20.64975433340462
+      "flaggedNearEdge": 37,
+      "medianRubinSnr": 14.390117383048658
     },
     {
       "regionId": "dp2-tract-9700",
-      "sources": 239,
+      "sources": 370,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 6.718250742972016,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 22.77032772086654
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 13.581402113224055
     },
     {
       "regionId": "dp2-tract-9701",
-      "sources": 250,
+      "sources": 334,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 10.077742728884981,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 17,
-      "medianRubinSnr": 21.81592526830648
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 13.988965983896005
     },
     {
       "regionId": "dp2-tract-9702",
-      "sources": 304,
+      "sources": 436,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.408695423904959,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 21.221302639573203
+      "flaggedNearEdge": 32,
+      "medianRubinSnr": 14.179577961176058
     },
     {
       "regionId": "dp2-tract-9703",
-      "sources": 323,
+      "sources": 448,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.305741547253622,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 28,
-      "medianRubinSnr": 19.892793415161297
+      "flaggedNearEdge": 40,
+      "medianRubinSnr": 14.373986876969088
     },
     {
       "regionId": "dp2-tract-9704",
-      "sources": 253,
+      "sources": 393,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.861879794753502,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 18.633611321680394
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 12.053245483751285
     },
     {
       "regionId": "dp2-tract-9705",
-      "sources": 304,
+      "sources": 432,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.205564708220399,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 23,
-      "medianRubinSnr": 18.62875714494168
+      "flaggedNearEdge": 33,
+      "medianRubinSnr": 13.218275488743462
     },
     {
       "regionId": "dp2-tract-9706",
-      "sources": 330,
+      "sources": 409,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.142765096167052,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 21.607523100297616
+      "flaggedNearEdge": 25,
+      "medianRubinSnr": 16.89097825176786
     },
     {
       "regionId": "dp2-tract-9707",
-      "sources": 263,
+      "sources": 390,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 6.730157813558053,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 15,
-      "medianRubinSnr": 20.585323599024502
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 12.791581099541169
     },
     {
       "regionId": "dp2-tract-9708",
-      "sources": 322,
+      "sources": 453,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.989502884637325,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 20.065608860265833
+      "flaggedNearEdge": 26,
+      "medianRubinSnr": 13.07783018513179
     },
     {
       "regionId": "dp2-tract-9709",
-      "sources": 373,
+      "sources": 492,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.286901707125805,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 19,
-      "medianRubinSnr": 22.490232545742376
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 17.39007169390887
     },
     {
       "regionId": "dp2-tract-9710",
-      "sources": 284,
+      "sources": 448,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.4908529157673875,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 25,
-      "medianRubinSnr": 20.967723973378767
+      "flaggedNearEdge": 35,
+      "medianRubinSnr": 12.970797085933741
     },
     {
       "regionId": "dp2-tract-9711",
-      "sources": 392,
+      "sources": 464,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.304420251457554,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 29,
-      "medianRubinSnr": 20.997330086197234
+      "medianRubinSnr": 17.892861896831114
     },
     {
       "regionId": "dp2-tract-9712",
-      "sources": 384,
+      "sources": 470,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.059495379347486,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 32,
-      "medianRubinSnr": 21.119191453662175
+      "flaggedNearEdge": 38,
+      "medianRubinSnr": 17.729011981459173
     },
     {
       "regionId": "dp2-tract-9713",
-      "sources": 245,
+      "sources": 362,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 8.19949537342652,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 19.693733831923222
+      "flaggedNearEdge": 30,
+      "medianRubinSnr": 13.731320646180045
     },
     {
       "regionId": "dp2-tract-9714",
-      "sources": 278,
+      "sources": 364,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.407874866317101,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 20,
-      "medianRubinSnr": 24.148024943632553
+      "flaggedNearEdge": 24,
+      "medianRubinSnr": 16.480641571197413
     },
     {
       "regionId": "dp2-tract-9715",
-      "sources": 202,
+      "sources": 335,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 10.975262413129816,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 23.30031283047706
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 11.898527557092462
     },
     {
       "regionId": "dp2-tract-9716",
-      "sources": 134,
+      "sources": 248,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 12.292006795119649,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 19.61198754853463
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 10.795681387184688
     },
     {
       "regionId": "dp2-tract-9717",
-      "sources": 249,
+      "sources": 391,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.844374494363821,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 20.112510253115012
+      "flaggedNearEdge": 28,
+      "medianRubinSnr": 13.086955609502862
     },
     {
       "regionId": "dp2-tract-9718",
-      "sources": 102,
+      "sources": 199,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.039917574569238,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 17.923483677586788
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 10.762438719309872
     },
     {
       "regionId": "dp2-tract-9719",
-      "sources": 115,
+      "sources": 179,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.3169052688506,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 20.48251323305227
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 14.248331941712111
     },
     {
       "regionId": "dp2-tract-9722",
-      "sources": 201,
+      "sources": 273,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 18.50466578805826,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 11,
-      "medianRubinSnr": 18.06968353912479
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 13.240006187218096
     },
     {
       "regionId": "dp2-tract-9723",
-      "sources": 198,
+      "sources": 285,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 31.12915832047807,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 20.914020901276448
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 13.20266286087974
     },
     {
       "regionId": "dp2-tract-9724",
-      "sources": 73,
+      "sources": 111,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 30.49085462951151,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 1,
-      "medianRubinSnr": 19.16197572003969
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 13.674448241226651
     },
     {
       "regionId": "dp2-tract-9725",
-      "sources": 120,
+      "sources": 149,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 40.3562886302915,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 18.23465630963093
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 14.082064003185025
     },
     {
       "regionId": "dp2-tract-9726",
-      "sources": 149,
+      "sources": 279,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 14.486101547216865,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 17.123630092168785
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 10.918955941465889
     },
     {
       "regionId": "dp2-tract-9727",
-      "sources": 272,
+      "sources": 399,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 9.81006237638708,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 18.490788323806612
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 13.196650326105534
     },
     {
       "regionId": "dp2-tract-9728",
-      "sources": 264,
+      "sources": 414,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.339693659472495,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 13,
-      "medianRubinSnr": 17.80991551833118
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 12.136793353246606
     },
     {
       "regionId": "dp2-tract-9731",
-      "sources": 119,
+      "sources": 196,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.987445767808662,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 16.337432883367107
+      "flaggedNearEdge": 8,
+      "medianRubinSnr": 10.888763742536945
     },
     {
       "regionId": "dp2-tract-9732",
-      "sources": 187,
+      "sources": 302,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.430706558821637,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 16.636328932452102
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 12.110087345242464
     },
     {
       "regionId": "dp2-tract-9811",
-      "sources": 182,
+      "sources": 256,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 10.491867556638356,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 19.526420466316992
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 14.68520528985616
     },
     {
       "regionId": "dp2-tract-9812",
-      "sources": 566,
+      "sources": 427,
+      "droppedWithoutPosition": 1,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.319384065887583,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 22,
-      "medianRubinSnr": 36.95924941036767
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 44.62350920226608
     },
     {
       "regionId": "dp2-tract-9813",
-      "sources": 777,
+      "sources": 792,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.471552502160323,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 49,
-      "medianRubinSnr": 35.22294937682827
+      "flaggedNearEdge": 45,
+      "medianRubinSnr": 34.01109297846716
     },
     {
       "regionId": "dp2-tract-9814",
-      "sources": 430,
+      "sources": 418,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 1.9074180929072937,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 26,
-      "medianRubinSnr": 28.06767697618458
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 25.569300895781943
     },
     {
       "regionId": "dp2-tract-9934",
-      "sources": 111,
+      "sources": 196,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 9.412466760687183,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 3,
-      "medianRubinSnr": 18.945927171819744
+      "flaggedNearEdge": 0,
+      "medianRubinSnr": 10.719826897308096
     },
     {
       "regionId": "dp2-tract-9937",
-      "sources": 140,
+      "sources": 218,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.531670866937791,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 6,
-      "medianRubinSnr": 18.97440392982878
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 12.894306661413662
     },
     {
       "regionId": "dp2-tract-9940",
-      "sources": 283,
+      "sources": 426,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 7.692081083372019,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 17.743473261461656
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 12.791140620846178
     },
     {
       "regionId": "dp2-tract-9943",
-      "sources": 360,
+      "sources": 381,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.596972074173208,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 12,
-      "medianRubinSnr": 28.006983728993333
+      "medianRubinSnr": 23.759855979106156
     },
     {
       "regionId": "dp2-tract-9944",
-      "sources": 305,
+      "sources": 368,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.178702514231144,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 14,
-      "medianRubinSnr": 24.60019855610806
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 17.787038464631486
     },
     {
       "regionId": "dp2-tract-9945",
-      "sources": 312,
+      "sources": 264,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.589473499945916,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 16,
-      "medianRubinSnr": 23.770867820542882
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 26.313340151116186
     },
     {
       "regionId": "dp2-tract-9947",
-      "sources": 325,
+      "sources": 345,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.727744571294991,
       "detectionSigma": 3.0,
       "flaggedNearEdge": 20,
-      "medianRubinSnr": 19.77269970683351
+      "medianRubinSnr": 17.715939787542947
     },
     {
       "regionId": "dp2-tract-9948",
-      "sources": 400,
+      "sources": 467,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.027143052220711,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 21,
-      "medianRubinSnr": 22.847274176936615
+      "flaggedNearEdge": 20,
+      "medianRubinSnr": 18.99645394540619
     },
     {
       "regionId": "dp2-tract-9950",
-      "sources": 325,
+      "sources": 392,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.5817668787018917,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 20,
-      "medianRubinSnr": 23.232394962299757
+      "flaggedNearEdge": 21,
+      "medianRubinSnr": 17.873466544213862
     },
     {
       "regionId": "dp2-tract-9951",
-      "sources": 283,
+      "sources": 315,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 5.412269945716199,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 26.309012221581707
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 21.97781154635622
     },
     {
       "regionId": "dp2-tract-9952",
-      "sources": 373,
+      "sources": 422,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 4.449222699792117,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 28,
-      "medianRubinSnr": 19.962309349237316
+      "flaggedNearEdge": 29,
+      "medianRubinSnr": 17.87973557700184
     },
     {
       "regionId": "dp2-tract-9953",
-      "sources": 330,
+      "sources": 265,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 3.6851062167576063,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 17,
-      "medianRubinSnr": 22.85723863346411
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 22.51874823553051
     },
     {
       "regionId": "dp2-tract-9954",
-      "sources": 216,
+      "sources": 350,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 6.681261237293684,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 20.13759004894853
+      "flaggedNearEdge": 18,
+      "medianRubinSnr": 11.78287319150061
     },
     {
       "regionId": "dp2-tract-9955",
-      "sources": 236,
+      "sources": 336,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.79871673385113,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 19.568828734579697
+      "flaggedNearEdge": 9,
+      "medianRubinSnr": 14.563769315093861
     },
     {
       "regionId": "dp2-tract-9956",
-      "sources": 213,
+      "sources": 383,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.606544442552966,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 15.270940582093354
+      "flaggedNearEdge": 15,
+      "medianRubinSnr": 10.736134625781565
     },
     {
       "regionId": "dp2-tract-9957",
-      "sources": 173,
+      "sources": 294,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 11.037972457447797,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 17.454225615550484
+      "flaggedNearEdge": 11,
+      "medianRubinSnr": 11.193579935785074
     },
     {
       "regionId": "dp2-tract-9958",
-      "sources": 222,
+      "sources": 375,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 7.900274409677554,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 18,
-      "medianRubinSnr": 18.252657427148698
+      "flaggedNearEdge": 27,
+      "medianRubinSnr": 11.765584496621365
     },
     {
       "regionId": "dp2-tract-9959",
-      "sources": 217,
+      "sources": 354,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 8.063443003240607,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 12,
-      "medianRubinSnr": 15.681642318597156
+      "flaggedNearEdge": 16,
+      "medianRubinSnr": 11.63274578889627
     },
     {
       "regionId": "dp2-tract-9960",
-      "sources": 223,
+      "sources": 320,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "DIFFERENCE",
       "backgroundRmsMedianNjy": 10.194158588477576,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 24.633239094727017
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 14.889989975971133
     },
     {
       "regionId": "dp2-tract-9964",
-      "sources": 282,
+      "sources": 352,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 23.056879905403402,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 10,
-      "medianRubinSnr": 29.76198084901933
+      "flaggedNearEdge": 17,
+      "medianRubinSnr": 22.276306557669294
     },
     {
       "regionId": "dp2-tract-9965",
-      "sources": 202,
+      "sources": 279,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 21.953163881588075,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 9,
-      "medianRubinSnr": 19.34445905755742
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 14.608511230763321
     },
     {
       "regionId": "dp2-tract-9966",
-      "sources": 122,
+      "sources": 182,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 29.584967996415514,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 23.31050508214757
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 13.371898152774833
     },
     {
       "regionId": "dp2-tract-9967",
-      "sources": 132,
+      "sources": 168,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 44.68161494154016,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 18.481327420707135
+      "flaggedNearEdge": 10,
+      "medianRubinSnr": 15.006432479491231
     },
     {
       "regionId": "dp2-tract-9968",
-      "sources": 243,
+      "sources": 341,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 12.831990346189622,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 8,
-      "medianRubinSnr": 19.896237151899513
+      "flaggedNearEdge": 12,
+      "medianRubinSnr": 14.316237702135243
     },
     {
       "regionId": "dp2-tract-9969",
-      "sources": 230,
+      "sources": 330,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 14.453437898728533,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 7,
-      "medianRubinSnr": 21.591264086029234
+      "flaggedNearEdge": 13,
+      "medianRubinSnr": 13.560021553248092
     },
     {
       "regionId": "dp2-tract-9973",
-      "sources": 177,
+      "sources": 295,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 13.067617703494673,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 5,
-      "medianRubinSnr": 22.478963290575518
+      "flaggedNearEdge": 7,
+      "medianRubinSnr": 12.219134346750694
     },
     {
       "regionId": "dp2-tract-9974",
-      "sources": 127,
+      "sources": 208,
+      "droppedWithoutPosition": 0,
       "pixelScaleArcsec": 0.4,
       "differencePlane": "KERNEL_DIFFERENCE",
       "backgroundRmsMedianNjy": 14.939967346040135,
       "detectionSigma": 3.0,
-      "flaggedNearEdge": 1,
-      "medianRubinSnr": 18.62209181285372
+      "flaggedNearEdge": 3,
+      "medianRubinSnr": 12.271293906459604
     }
   ]
 }

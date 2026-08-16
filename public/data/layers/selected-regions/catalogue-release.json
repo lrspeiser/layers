@@ -1,20 +1,22 @@
 {
   "schemaVersion": "layers-catalogue-release-v1",
-  "generatedAt": "2026-08-16T05:18:24.661775+00:00",
+  "generatedAt": "2026-08-16T05:30:41.651441+00:00",
   "published": true,
-  "rows": 50233,
+  "rows": 64889,
+  "rowsInBulkFiles": 64889,
+  "skippedWithoutPosition": 0,
   "regions": 189,
   "files": {
     "parquet": {
       "path": "/data/catalogue/rubin-reference-sources.parquet",
-      "bytes": 11786660,
-      "sha256": "1ea4646ffba271c79e6e7b7982cf418fb15a7a2507dbb5d0308b043c1149b32c",
+      "bytes": 15297396,
+      "sha256": "465a4c4c2c58189da40e0c9ba89e2646262ca3649bfb550db96a4314af085e78",
       "use": "bulk analysis; read with pandas, polars or pyarrow"
     },
     "votableGzip": {
       "path": "/data/catalogue/rubin-reference-sources.vot.gz",
-      "bytes": 12423738,
-      "sha256": "a0947e4b901fa81144bb39b1f4f604b57c36e80a0be5f5b118a5308c04142b84",
+      "bytes": 16543224,
+      "sha256": "0e7ada4cef5a4742d78f3c47e5b5f02ae25146ae816c9c878898724fc7ea62fc",
       "use": "opens directly in TOPCAT, pyvo and astroquery"
     }
   },
@@ -25,7 +27,7 @@
       "root": "/data/catalogue/tiles",
       "scheme": "one-degree bins in RA and Dec, named RRR_sDD",
       "count": 206,
-      "totalBytes": 20186083,
+      "totalBytes": 26066999,
       "why": "A serverless route cannot hold 50,000 rows per request, and sending the whole table to answer a positional query wastes the reader's bandwidth. A cone of any sane radius touches one or a few tiles."
     }
   },
