@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "layers-ps1-flux-chain-verification-v1",
+  "question": "Section 28 found Pan-STARRS the lone outlier, putting Rubin 16% bright while Legacy and HSC put it 7-9% faint. PS1 is also the only reference whose absolute flux chain was never verified. Is the chain wrong?",
+  "method": "Measure compact sources in the same normalized PS1 pixels the reconciliation used, convert with the same documented chain, and compare to PS1 DR2 rMeanPSFMag from MAST for the same stars within 1 arcsec. A correct chain gives zero offset.",
+  "regions": [
+    {
+      "regionId": "dp2-tract-10056",
+      "matchedStars": 8,
+      "medianOffsetMagVsR": 0.3083681695547913,
+      "medianOffsetMagVsI": 0.7087101301079421,
+      "scatterMagVsR": 0.22994011059683667,
+      "scatterMagVsI": 0.3777519234874998
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "matchedStars": 9,
+      "medianOffsetMagVsR": 0.38717180878326474,
+      "medianOffsetMagVsI": 0.5296045861595644,
+      "scatterMagVsR": 0.23031637775769645,
+      "scatterMagVsI": 0.37240495922566447
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "matchedStars": 11,
+      "medianOffsetMagVsR": 0.20775111729711426,
+      "medianOffsetMagVsI": 0.6072510104855908,
+      "scatterMagVsR": 0.27476840786690865,
+      "scatterMagVsI": 0.24759213600043067
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "matchedStars": 11,
+      "medianOffsetMagVsR": 0.24286764530498672,
+      "medianOffsetMagVsI": 0.6108597896641932,
+      "scatterMagVsR": 0.2090732192132023,
+      "scatterMagVsI": 0.29282159322114737
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "matchedStars": 9,
+      "medianOffsetMagVsR": 0.2909741512381956,
+      "medianOffsetMagVsI": 1.0620094723355962,
+      "scatterMagVsR": 0.22858512423121266,
+      "scatterMagVsI": 0.46816452126066366
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "matchedStars": 9,
+      "medianOffsetMagVsR": 0.27364918375585745,
+      "medianOffsetMagVsI": 0.5017905593252685,
+      "scatterMagVsR": 0.3180275260850184,
+      "scatterMagVsI": 0.413990813893221
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "matchedStars": 9,
+      "medianOffsetMagVsR": 0.35180931756020684,
+      "medianOffsetMagVsI": 0.5495546701470282,
+      "scatterMagVsR": 0.3247943302917511,
+      "scatterMagVsI": 0.633239040302129
+    },
+    {
+      "regionId": "dp2-tract-5192",
+      "matchedStars": 94,
+      "medianOffsetMagVsR": 0.19074544684555583,
+      "medianOffsetMagVsI": 0.9919145225345947,
+      "scatterMagVsR": 0.12896618069838764,
+      "scatterMagVsI": 0.26330291895891567
+    }
+  ],
+  "medianOffsetMagVsR": 0.2823116674970265,
+  "medianOffsetMagVsI": 0.609055400074892,
+  "bandTheDataMatches": "r",
+  "impliedFluxRatio": 0.7710372020762021,
+  "chainVerified": false,
+  "reading": "Our chain reproduces PS1's own magnitudes to +0.282 mag (flux ratio 0.7710). That is a real zeropoint error in this project's PS1 conversion, and it propagates into all 188 PS1 reconciled pairs.",
+  "reproduce": "python pipeline/verify_ps1_flux_chain.py"
+}

@@ -1420,3 +1420,57 @@ calibration between surveys, not about missing light.
 
 `pipeline/compare_three_way_optical.py` reproduces both tables, including the
 uncontrolled one.
+
+## 29. The Pan-STARRS outlier was our own zeropoint, and correcting it makes three references agree
+
+§28 predicted this: Pan-STARRS was the lone reference putting Rubin *bright*
+(1.157) while Legacy and HSC put it faint (0.911, 0.932), and PS1 was also the
+only one whose absolute flux chain had never been verified. The prediction was
+that the PS1 zeropoint was wrong. It is.
+
+`verify_ps1_flux_chain.py` measures compact sources in the same normalized PS1
+pixels the reconciliation used, converts them with the same documented chain, and
+compares to PS1 DR2's own `rMeanPSFMag` from MAST for the same stars. No
+credentials; the PS1 catalogue is public.
+
+**Our chain is 0.282 mag too faint** — a flux ratio of 0.771, so it underestimates
+PS1 flux by about 23%. Correcting it:
+
+| reference | Rubin/reference | |
+|---|---|---|
+| Pan-STARRS, as published here | 1.1567 | the outlier |
+| **Pan-STARRS, corrected** | **0.8919** | |
+| Legacy DR10 (matched sky) | 0.9110 | |
+| HSC PDR2 (matched sky) | 0.9320 | |
+
+The three-reference spread falls from **24.6% to 4.0%**. All three now agree that
+Rubin measures roughly 7–11% less flux than these references on compact sources.
+
+**Two methodological points, because the first measurement was not good enough.**
+
+Run on everything a 5σ detection finds, the offset was +0.665 mag with a scatter
+of 0.5–0.7 mag. That scatter is ten times too large to measure a zeropoint, and
+the median was biased: segment flux is not PSF magnitude, and at the faint end
+only upward noise excursions get detected. Restricting to bright (15 < r < 20),
+isolated (no neighbour within 5″), unsaturated stars drops the scatter to
+0.13–0.33 mag and the offset to +0.282. The first number was not a weaker version
+of the second; it was a different quantity.
+
+The offset is not perfectly constant — it ranges 0.19 to 0.39 mag across regions,
+and the best-measured field (94 stars, scatter 0.129) gives +0.191. So this is a
+zeropoint error of roughly 0.2–0.3 mag with real field dependence on top, not a
+single clean constant.
+
+**A band question, settled in passing.** The normalized PS1 files are named
+`-panstarrs-i.fits`, which raised the possibility that r-band comparisons had been
+run against i-band pixels. They had not: the builder hardcodes `-i` into the
+filename regardless of content. Measured against both catalogue bands, the pixels
+match r (+0.28) far better than i (+0.5 to +1.1) in every region tested. The
+filename is a mislabel, not a data error.
+
+**What this changes.** PS1 supplied 188 of the reconciled pairs, the largest
+single block in the project. Every aggregate that averaged PS1 in with Legacy has
+been averaging in a ~0.28 mag zeropoint error, and §28's "the scatter is largely
+common to all three references" was measured with that error present. The
+reconcile chain still reports PS1 as `verified: false`, which was the correct
+label all along — this section is what that label was waiting for.
