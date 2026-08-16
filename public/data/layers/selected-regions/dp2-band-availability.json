@@ -13,11 +13,13 @@
   },
   "regionsWithAtLeastTwoBands": 173,
   "regionsWithExactlyOneBand": 27,
-  "secondBandValidated": 167,
+  "secondBandValidated": 161,
   "target": 180,
   "reachableCeiling": 173,
-  "finding": "DP2 offers two or more bands for 173 of 200 regions in this set. The goal's target of 180 exceeds that ceiling by 7, so it was unreachable before any pixels were fetched. Every region with an untried band has now been attempted.",
+  "finding": "DP2 offers two or more bands for 173 of 200 regions in this set. The goal's target of 180 exceeds that ceiling by 7, so it was unreachable before any pixels were fetched. Of the 173 reachable, 161 have a validated second band and 12 were attempted on every band DP2 holds and failed pixel validation.",
   "secondBandExhausted": true,
-  "unreachableAfterAcquisition": 6,
-  "dispositionOfShortfall": "Three acquisition passes ran: 157 regions at the start, +8 from regions with a band never tried, +2 by retrying regions whose first alternative failed validation (tract 5391 in g, tract 5281 in z after g failed). The remaining 6 failed pixel validation on every band DP2 holds for them, so the shortfall against the 173 ceiling is exhausted rather than outstanding."
+  "unreachableAfterAcquisition": 12,
+  "dispositionOfShortfall": "Corrected 2026-08-16 by recounting from the acquisition manifests. This file previously published 167 validated and 6 unreachable. Both summed to the 173 ceiling, which is why the error survived every consistency check: 167 was derived as 173 minus 6 rather than counted, and an inferred number is always consistent with the numbers it was inferred from. Counted from the manifests the split is 161 and 12. Three acquisition passes ran: the primary run, then +11 regions with a band never tried, then +3 and +1 by retrying regions whose first alternative failed. The 12 remaining failed validation on every band DP2 holds for them, so the shortfall is exhausted rather than outstanding, and the 26 regions with a single validated band were never given a second attempt because the cached SIA discovery responses show DP2 holds exactly one band for each.",
+  "countedFrom": "the per-band Rubin acquisition manifests, counting entries whose status is complete",
+  "verify": "python pipeline/verify_second_band_count.py --check"
 }

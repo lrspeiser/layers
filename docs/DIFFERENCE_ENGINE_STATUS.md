@@ -1657,3 +1657,50 @@ holds their positive controls — a null result without one is indistinguishable
 from a broken lookup, which nearly happened when the motion check first read
 `ra`/`dec` where the scanner writes `raDeg`/`decDeg` and confidently reported
 "0 of 0".
+
+## 34. G0's delivered count was inferred, not counted, and was wrong by six
+
+`dp2-band-availability.json` published `secondBandValidated: 167` and
+`unreachableAfterAcquisition: 6`, and the goal scorecard reported G0 as 167 of a
+173 ceiling. Recounted from the acquisition manifests, the split is **161
+validated and 12 failed**.
+
+**Why it survived.** 167 + 6 = 173, and 161 + 12 = 173. Both are internally
+consistent with the measured ceiling, so every check that added the numbers back
+up passed. The likely origin is that 167 was computed as *173 minus 6* rather
+than counted — and a number inferred from two others is always consistent with
+them. That is the seventh instance in this project of an inherited number that
+was never re-measured, and the first where the inference itself was the error
+rather than a stale measurement.
+
+**What the recount shows**, across the primary run and all three gap passes,
+counting regions with two distinct bands at `status: "complete"`:
+
+| | regions |
+|---|---|
+| validated two-band | **161** |
+| one band, second band attempted and failed | **12** |
+| one band, DP2 holds only one | **26** |
+| ceiling check | 161 + 12 = **173** ✓ |
+
+The 26 were never given a second attempt, and the audit's claim that every region
+with an untried band had been attempted is correct: the cached SIA discovery
+responses show DP2 holds exactly one band for each of them. That was verified
+rather than assumed, with a positive control — the same extraction finds all six
+bands for tract 5280, which has two validated.
+
+**The distinction that matters.** "Never attempted" and "attempted and failed"
+are different claims about the archive. The first says the data does not exist;
+the second says our validation rejected it. Collapsing them into a single
+shortfall number hid twelve regions where a second band exists in DP2 and this
+pipeline could not use it — which is a pipeline result, not an archive limit, and
+worth knowing given §31 found a mask-convention bug that made good HSC pixels
+look empty.
+
+**Corrected and pinned.** Both manifests now carry 161 and 12.
+`pipeline/verify_second_band_count.py --check` recounts from the manifests and
+exits non-zero if the published figures drift again. The regression floor in
+`tests/attribution-claims.test.mjs` moved from 167 to 161 with the reason written
+into the test, because lowering a threshold to make a suite pass is exactly the
+move that should not go unexplained — nothing was un-acquired, a number that was
+never measured was replaced by one that was.

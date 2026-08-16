@@ -21,13 +21,13 @@
       "archiveCeiling": 173,
       "ceilingBasis": "independently measured from the archive",
       "ceilingIsIndependentOfResult": true,
-      "delivered": 167,
+      "delivered": 161,
       "unit": "regions with a validated second band",
       "targetExceedsCeilingBy": 7,
-      "fractionOfCeiling": 0.9653,
+      "fractionOfCeiling": 0.9306,
       "status": "below-ceiling",
       "evidence": "selected-regions/dp2-band-availability.json",
-      "note": "27 of the 200 regions carry exactly one band in the entire DP2 release, so no acquisition strategy yields a second one for them. The 6 between the delivered 167 and the reachable 173 are not unattempted: acquisition ran three passes, and each of those 6 failed pixel validation on every band DP2 holds for it. There is no further pass to run, so 167 is where this goal stops rather than where it paused."
+      "note": "27 of the 200 regions carry exactly one band in the entire DP2 release, so no acquisition strategy yields a second one for them. Of the 173 reachable regions, 161 have a validated second band and 12 failed pixel validation on every band DP2 holds. Delivered was published as 167 until 2026-08-16, when recounting from the acquisition manifests showed 167 had been inferred as 173 minus 6 rather than counted."
     },
     {
       "id": "G1",

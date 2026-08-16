@@ -134,7 +134,15 @@ test("the goal scorecard cannot claim more than it measured", async () => {
 
   // Delivered numbers are a floor: these regress only if something broke.
   const byId = Object.fromEntries(card.goals.map((g) => [g.id, g]));
-  assert.ok(byId.G0.delivered >= 167, "second-band regions regressed");
+  // G0's floor was 167 until 2026-08-16, when recounting from the acquisition
+  // manifests showed the delivered figure had been *inferred* as the 173 ceiling
+  // minus 6 failures rather than counted. The true split is 161 validated and 12
+  // failed, which still sums to 173 -- which is precisely why the wrong number
+  // passed every consistency check for so long. This floor was lowered because
+  // the old one was never measured, not because delivery got worse; nothing was
+  // un-acquired. `pipeline/verify_second_band_count.py --check` recounts from the
+  // manifests and fails if the published figures drift from it again.
+  assert.ok(byId.G0.delivered >= 161, "second-band regions regressed");
   assert.ok(byId.G1.delivered >= 521, "reconciled optical pairs regressed");
   assert.ok(byId.G9.delivered >= 12713, "comparisons evaluated regressed");
 
