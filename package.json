@@ -10,7 +10,7 @@
     "build": "vinext build",
     "build:vercel": "node scripts/vercel-build.mjs",
     "start": "vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/family-evidence.test.mjs tests/conservative-subset-evidence.test.mjs tests/large-footprint-resolution.test.mjs tests/desi-dr1-resolution.test.mjs tests/hsc-public-products.test.mjs tests/goal-audit.test.mjs tests/tract-product-index.test.mjs tests/attribution-claims.test.mjs tests/difference-explorer.test.mjs tests/source-catalogue.test.mjs tests/scs-endpoint.test.mjs",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/family-evidence.test.mjs tests/conservative-subset-evidence.test.mjs tests/large-footprint-resolution.test.mjs tests/desi-dr1-resolution.test.mjs tests/hsc-public-products.test.mjs tests/goal-audit.test.mjs tests/tract-product-index.test.mjs tests/attribution-claims.test.mjs tests/difference-explorer.test.mjs tests/source-catalogue.test.mjs tests/scs-endpoint.test.mjs tests/coverage-moc.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "data:catalog": ".venv\\Scripts\\python.exe pipeline\\build_layers_catalog.py",

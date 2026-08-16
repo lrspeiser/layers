@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "layers-coverage-moc-v1",
+  "generatedAt": "2026-08-16T04:26:17.950170+00:00",
+  "purpose": "Where this project actually has pixels, as an IVOA MOC, next to what footprint overlap claimed. The gap between the two is the error this project has measured seven separate times, published so nobody has to measure it again.",
+  "mocOrder": 14,
+  "cellArcsec": 12.9,
+  "regionRadiusDeg": 0.028416666666666666,
+  "howToUse": "Load a .fits MOC in Aladin, or read it with mocpy: MOC.load('served.fits', format='fits'). Intersect it with your own MOC to find where both projects have data before fetching anything.",
+  "claimedVsServed": "claimed comes from the region planner's confirmedSurveyIds, which is footprint overlap. served comes from a manifest recording that an archive returned validated pixels. Only the second is evidence.",
+  "counts": {
+    "surveys": 17,
+    "surveysWithServedCoverageMeasured": 5,
+    "surveysClaimedOnly": 12,
+    "wiredButYieldedNoRegions": 0,
+    "regionsClaimedWithoutPixels": 94
+  },
+  "wiredButYieldedNoRegions": [],
+  "surveys": [
+    {
+      "surveyId": "2mass",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/2mass-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "des-dr2",
+      "claimedRegions": 164,
+      "claimedAreaSqDeg": 0.4902,
+      "claimedMoc": "/data/moc/des-dr2-claimed.fits",
+      "servedRegions": 143,
+      "servedAreaSqDeg": 0.4273,
+      "servedMoc": "/data/moc/des-dr2-served.fits",
+      "servedMeasured": true,
+      "servedEvidence": "public/data/layers/selected-regions/rubin-des-reconciliation.json",
+      "regionsClaimedWithoutPixels": 21
+    },
+    {
+      "surveyId": "erosita-erass1",
+      "claimedRegions": 45,
+      "claimedAreaSqDeg": 0.1339,
+      "claimedMoc": "/data/moc/erosita-erass1-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "euclid-q1",
+      "claimedRegions": 14,
+      "claimedAreaSqDeg": 0.0415,
+      "claimedMoc": "/data/moc/euclid-q1-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "gaia-dr3",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/gaia-dr3-claimed.fits",
+      "servedRegions": 147,
+      "servedAreaSqDeg": 0.4391,
+      "servedMoc": "/data/moc/gaia-dr3-served.fits",
+      "servedMeasured": true,
+      "servedEvidence": "public/data/layers/gaia-crossmatch/comparison.json",
+      "regionsClaimedWithoutPixels": 53
+    },
+    {
+      "surveyId": "galex-gr6-7",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/galex-gr6-7-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "hipass",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/hipass-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "hsc-ssp-pdr2",
+      "claimedRegions": 162,
+      "claimedAreaSqDeg": 0.4843,
+      "claimedMoc": "/data/moc/hsc-ssp-pdr2-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "hst",
+      "claimedRegions": 198,
+      "claimedAreaSqDeg": 0.5914,
+      "claimedMoc": "/data/moc/hst-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "jwst",
+      "claimedRegions": 12,
+      "claimedAreaSqDeg": 0.0357,
+      "claimedMoc": "/data/moc/jwst-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "legacy-surveys-dr10",
+      "claimedRegions": 199,
+      "claimedAreaSqDeg": 0.5944,
+      "claimedMoc": "/data/moc/legacy-surveys-dr10-claimed.fits",
+      "servedRegions": 190,
+      "servedAreaSqDeg": 0.5676,
+      "servedMoc": "/data/moc/legacy-surveys-dr10-served.fits",
+      "servedMeasured": true,
+      "servedEvidence": "public/data/layers/selected-regions/rubin-reference-reconciliation-200.json",
+      "regionsClaimedWithoutPixels": 9
+    },
+    {
+      "surveyId": "lotss-dr2",
+      "claimedRegions": 2,
+      "claimedAreaSqDeg": 0.0059,
+      "claimedMoc": "/data/moc/lotss-dr2-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "panstarrs-dr2",
+      "claimedRegions": 198,
+      "claimedAreaSqDeg": 0.5914,
+      "claimedMoc": "/data/moc/panstarrs-dr2-claimed.fits",
+      "servedRegions": 188,
+      "servedAreaSqDeg": 0.5616,
+      "servedMoc": "/data/moc/panstarrs-dr2-served.fits",
+      "servedMeasured": true,
+      "servedEvidence": "public/data/layers/selected-regions/rubin-ps1-reconciliation.json",
+      "regionsClaimedWithoutPixels": 10
+    },
+    {
+      "surveyId": "planck-2018",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/planck-2018-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "unwise",
+      "claimedRegions": 200,
+      "claimedAreaSqDeg": 0.5974,
+      "claimedMoc": "/data/moc/unwise-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    },
+    {
+      "surveyId": "vlass",
+      "claimedRegions": 199,
+      "claimedAreaSqDeg": 0.5944,
+      "claimedMoc": "/data/moc/vlass-claimed.fits",
+      "servedRegions": 198,
+      "servedAreaSqDeg": 0.5914,
+      "servedMoc": "/data/moc/vlass-served.fits",
+      "servedMeasured": true,
+      "servedEvidence": "public/data/layers/selected-regions/vlass.json",
+      "regionsClaimedWithoutPixels": 1
+    },
+    {
+      "surveyId": "ztf-dr",
+      "claimedRegions": 192,
+      "claimedAreaSqDeg": 0.5736,
+      "claimedMoc": "/data/moc/ztf-dr-claimed.fits",
+      "servedRegions": null,
+      "servedAreaSqDeg": null,
+      "servedMeasured": false,
+      "note": "No served-coverage manifest is wired for this survey, so this row states what was claimed and makes no claim about what was served."
+    }
+  ]
+}
