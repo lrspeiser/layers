@@ -38,7 +38,11 @@ test("server-renders the calibrated comparison workspace", async () => {
 });
 
 test("the primary product indexes every live Rubin tract and distinguishes coverage from pixels", async () => {
-  const response = await render();
+  // This used to render "/" because the home page was a re-export of the
+  // coverage viewer. The home page is now the narrative entry point, and the
+  // tract index lives at its own route -- so the assertion follows the page
+  // rather than the position.
+  const response = await render("/coverage");
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /TRACT-FIRST DATA INDEX/);

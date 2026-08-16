@@ -1,0 +1,201 @@
+.page {
+  --ink: #f2efe6;
+  --muted: #a5a49d;
+  --line: rgba(238, 232, 215, 0.14);
+  --lime: #c6f765;
+  --amber: #e0a84c;
+  --paper: #0d100f;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  padding: 0 1.5rem 5rem;
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.hero {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 5rem 0 3rem;
+}
+
+.eyebrow {
+  margin: 0 0 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero h1 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2rem, 5.5vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  max-width: 16ch;
+}
+
+.standfirst {
+  margin: 0 0 1.6rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  line-height: 1.62;
+  color: #ddd9cd;
+}
+
+.meta {
+  margin: 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.thread {
+  max-width: 42rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 3.4rem;
+}
+
+.beat h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.beat p {
+  margin: 0 0 1rem;
+}
+
+.beat code {
+  font-size: 0.9em;
+  background: rgba(198, 247, 101, 0.09);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.aside {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* The click-to-open detail. Native details/summary: no JavaScript, keyboard
+   accessible, and it degrades to plain visible text if styling fails. */
+.detail {
+  margin: 1.3rem 0 0;
+  border-left: 2px solid rgba(198, 247, 101, 0.35);
+  padding-left: 1.1rem;
+}
+
+.detail summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--lime);
+  list-style: none;
+  padding: 0.15rem 0;
+}
+
+.detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.detail summary::before {
+  content: "+ ";
+  font-variant-numeric: tabular-nums;
+}
+
+.detail[open] summary::before {
+  content: "− ";
+}
+
+.detail summary:hover {
+  color: #d9ff8a;
+}
+
+.detail p {
+  margin: 0.8rem 0 0;
+  font-size: 0.94rem;
+  color: #cfccc2;
+}
+
+.ledger {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem 2.6rem;
+  margin: 1.4rem 0;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ledger div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ledger dt {
+  font-size: 0.74rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ledger dd {
+  margin: 0;
+  font-size: 1.55rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--lime);
+}
+
+.exits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.exits a {
+  font-size: 0.88rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.exits a:hover {
+  border-color: rgba(198, 247, 101, 0.55);
+  color: var(--lime);
+}
+
+.foot {
+  max-width: 42rem;
+  margin: 4rem auto 0;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.foot p {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .thread {
+    gap: 2.6rem;
+  }
+}

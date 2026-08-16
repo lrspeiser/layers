@@ -1,0 +1,1588 @@
+{
+  "schemaVersion": "layers-difference-vetting-v1",
+  "purpose": "The difference explorer ranks by raw disagreeing area and does not filter. This records, per region and reference, whether the anomaly scanner trusted the field enough to look for candidates in it, so a high rank and an unvetted field can be told apart.",
+  "note": "A refused region is not uninteresting. It is unvetted: the scanner could not verify something it needs before a residual means anything, most often the flux calibration. Tract 11411 ranks 4th of 190 against Legacy and was refused for exactly that reason, on 15 matched stars against a floor of 20.",
+  "counts": {
+    "scanned": 225,
+    "refused": 72,
+    "byReason": {
+      "flux transfer not corroborated": 66,
+      "ValueError: no calibrated noise scale available for this region": 3,
+      "PSF matching failed": 1,
+      "no injection/recovery calibration": 2
+    }
+  },
+  "regions": {
+    "dp2-tract-10053": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10054": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10055": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10056": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10079": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10215": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10321": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10689": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-10805": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-11162": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-12814": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-2397": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4636": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4637": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4638": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4848": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4849": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-4850": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5061": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5062": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5064": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5065": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5279": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-5282": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-6509": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8259": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8642": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8883": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8884": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8984": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8985": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-8986": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9125": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9126": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9207": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9209": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9210": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9212": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9214": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9217": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9218": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9219": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9220": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9221": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9222": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9223": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9226": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9227": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9228": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9229": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9230": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9231": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9232": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9233": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9242": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9327": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9328": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9448": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9449": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9450": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9451": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9452": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9453": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9454": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9455": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9456": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9457": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9458": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9459": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9460": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9461": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9462": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9463": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9464": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9465": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9466": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9467": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9468": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9469": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "ValueError: no calibrated noise scale available for this region"
+      }
+    },
+    "dp2-tract-9470": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9471": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9472": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9473": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9474": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9475": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9476": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9484": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9485": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9570": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9571": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9572": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9695": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9696": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "ValueError: no calibrated noise scale available for this region"
+      }
+    },
+    "dp2-tract-9697": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9698": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9699": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9700": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9701": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9702": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9703": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9704": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9705": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9706": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9707": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "PSF matching failed"
+      }
+    },
+    "dp2-tract-9708": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9709": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9710": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "ValueError: no calibrated noise scale available for this region"
+      }
+    },
+    "dp2-tract-9711": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9712": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9713": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9714": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9715": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9716": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9717": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9718": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9719": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9726": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9727": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9728": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9731": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9732": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9811": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9812": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9813": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9814": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9940": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9943": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9944": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9945": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9947": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9948": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9950": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9951": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9952": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9953": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9954": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9955": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9956": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9957": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9958": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9959": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9960": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9968": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9969": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9973": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-9974": {
+      "legacy": {
+        "verdict": "scanned",
+        "candidates": 0
+      },
+      "hsc": {
+        "verdict": "scanned",
+        "candidates": 0
+      }
+    },
+    "dp2-tract-11411": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-12112": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-3233": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-5063": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "no injection/recovery calibration"
+      }
+    },
+    "dp2-tract-5214": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-5280": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "no injection/recovery calibration"
+      }
+    },
+    "dp2-tract-5670": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-6524": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-7939": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8272": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8708": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8994": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8995": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8996": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8997": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-8998": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9236": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9237": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9238": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9239": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9240": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9245": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9479": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9480": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9481": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9482": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9483": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9488": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9489": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9569": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9691": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9692": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9693": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9694": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9722": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9723": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9724": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9725": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9934": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9937": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      },
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9964": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9965": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9966": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9967": {
+      "legacy": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    },
+    "dp2-tract-9939": {
+      "hsc": {
+        "verdict": "refused",
+        "reason": "flux transfer not corroborated"
+      }
+    }
+  },
+  "reproduce": "python pipeline/build_difference_vetting.py"
+}
