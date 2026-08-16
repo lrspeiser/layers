@@ -1,0 +1,557 @@
+{
+  "schemaVersion": "layers-selected-region-comparisons-v1",
+  "generatedAt": "2026-08-16T15:09:52.162794+00:00",
+  "method": "Rubin r-band bilinear reprojection to each validated Legacy or Pan-STARRS native grid for display; masks use nearest-neighbor reprojection.",
+  "counts": {
+    "selectedRegions": 50,
+    "rubinScienceInputs": 193,
+    "referenceScienceInputs": 110,
+    "displayAligned": 0,
+    "sameNamedBand": 0,
+    "comparisonReady": 0,
+    "failed": 107
+  },
+  "policy": {
+    "displayAlignmentAllowed": true,
+    "scienceClaimAllowed": false,
+    "comparisonReady": false
+  },
+  "failures": [
+    {
+      "regionId": "dp2-tract-10054",
+      "tract": 10054,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-10054\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "tract": 10055,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-10055\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "tract": 10056,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-10056\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "tract": 9226,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9226\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9227\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9228\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9229\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "tract": 9230,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9230\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9231\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9232\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "tract": 9237,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9237\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9238\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9239\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "tract": 9240,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9240\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9245\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "tract": 9327,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9327\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "tract": 9328,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9328\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9449\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9450\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9451\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9452\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9453\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9454\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "tract": 9455,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9455\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9456\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9457\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9458\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "tract": 9459,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9459\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9460\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "tract": 9461,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9461\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "tract": 9462,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9462\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9463\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9464\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "tract": 9465,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9465\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "tract": 9466,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9466\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9467\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9468\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "tract": 9469,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9469\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9470\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "tract": 9471,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9471\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9472\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9473\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "tract": 9474,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9474\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9480\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9481\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "tract": 9482,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "tract": 9483,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "tract": 9569,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "tract": 9571,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "tract": 9572,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "tract": 9692,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "tract": 9693,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "tract": 9698,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "tract": 9699,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "tract": 9700,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "tract": 9704,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "tract": 9706,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "tract": 9707,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "tract": 9708,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "tract": 9709,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "tract": 9711,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "tract": 9712,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "tract": 9716,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "tract": 9717,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "tract": 9723,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "error": "ValueError: 'public\\\\layer-previews\\\\selected-regions-hsc\\\\dp2-tract-9725\\\\rubin-r.png' is not in the subpath of 'C:\\\\Users\\\\henry\\\\Documents\\\\Codex\\\\2026-08-03\\\\lrspeiser-rubin-light-atlas-https-github\\\\work\\\\rubin-light-atlas'"
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "tract": 9731,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "tract": 9732,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "tract": 9811,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "tract": 9814,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "tract": 9937,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9939",
+      "tract": 9939,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "tract": 9940,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "tract": 9948,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "tract": 9951,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "tract": 9952,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "error": "ValueError: input checksum mismatch"
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "error": "ValueError: input checksum mismatch"
+    }
+  ],
+  "regions": []
+}

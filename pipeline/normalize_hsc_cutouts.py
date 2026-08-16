@@ -44,7 +44,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = ROOT / "public/data/layers/hsc-pdr2/manifest.json"
 DEFAULT_CACHE = ROOT / "pipeline/results/hsc-pdr2"
 DEFAULT_PRODUCTS = ROOT / "pipeline/results/selected-region-comparisons"
-DEFAULT_OUTPUT = ROOT / "public/data/layers/hsc-pdr2/normalized.json"
+# Two manifests on purpose. The working one keeps local paths so the
+# comparison builder can find the files; the published one carries only
+# checksum and size, because no manifest under public/ may contain a local
+# path -- there is a repo-wide test that enforces it, and it caught this.
+DEFAULT_OUTPUT = ROOT / "pipeline/results/hsc-pdr2-normalized.json"
+DEFAULT_PUBLIC = ROOT / "public/data/layers/hsc-pdr2/normalized.json"
 
 AB_ZERO_POINT_NJY = 3.63078054770e12  # 3631 Jy in nJy
 
@@ -144,6 +149,7 @@ def main() -> None:
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--products", type=Path, default=DEFAULT_PRODUCTS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--public", type=Path, default=DEFAULT_PUBLIC)
     parser.add_argument("--limit", type=int, default=0)
     args = parser.parse_args()
 
@@ -206,6 +212,17 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
+    # Published copy with every local path stripped. Nothing under public/ may
+    # carry a pipeline/results path; a repo-wide test enforces it and caught this
+    # file doing exactly that.
+    public = json.loads(json.dumps(payload))
+    for record in public["regions"]:
+        record["normalizedFits"] = {
+            key: value for key, value in record["normalizedFits"].items() if key != "path"
+        }
+    args.public.parent.mkdir(parents=True, exist_ok=True)
+    args.public.write_text(json.dumps(public, indent=2) + "\n", encoding="utf-8")
+
     print(f"\nnormalized {len(records)} of {len(regions)} regions into nJy")
     if failures:
         print(f"failed {len(failures)}: {failures[0]['reason'][:80]}")
@@ -213,7 +230,8 @@ def main() -> None:
         shown = args.output.relative_to(ROOT)
     except ValueError:
         shown = args.output
-    print(f"wrote {shown}")
+    print(f"wrote {shown} (working, with paths)")
+    print(f"wrote {args.public.relative_to(ROOT)} (published, paths stripped)")
 
 
 if __name__ == "__main__":
