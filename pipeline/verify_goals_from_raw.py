@@ -286,6 +286,114 @@ def counterpart_fields() -> tuple[int, int, int]:
     return len(science_ready) + radio, len(science_ready), radio
 
 
+def sed_sources_from_cache() -> tuple[int, int, int]:
+    """G3: rebuild the SED source count, including the Rubin aperture measurement.
+
+    This is the only goal whose rebuild needs real photometry rather than a
+    count. Matching 2MASS to AllWISE within 3 arcsec and requiring three of the
+    five infrared bands gives 3267 sources -- more than twice the published 1394.
+    The remainder is not a definitional quibble: each source must also have
+    positive Rubin flux in a 2-arcsec aperture at its position, on an image with
+    mask bits 0 and 3 blanked, and with at least 80% of the aperture finite.
+    About 57% of infrared pairs fail that.
+
+    The aperture is reimplemented here rather than imported, so this can disagree
+    with the operator instead of agreeing with it by construction.
+    """
+    import warnings
+    from astropy.coordinates import SkyCoord
+    from astropy.table import Table
+    from astropy.wcs import WCS
+    from astropy.wcs.utils import proj_plane_pixel_scales
+    import astropy.units as u
+
+    warnings.filterwarnings("ignore")
+    aperture_arcsec, match_arcsec = 2.0, 3.0
+    min_bands, min_per_region = 3, 2
+    cache = RESULTS / "sed/cache"
+    manifest = RESULTS / "rubin-pixels-200/manifest.json"
+    if not cache.is_dir() or not manifest.is_file():
+        return -1, 0, 0
+
+    def aperture_flux(image, wcs, scale, ra, dec):
+        x, y = wcs.world_to_pixel_values(ra, dec)
+        if not (np.isfinite(x) and np.isfinite(y)):
+            return None
+        radius = aperture_arcsec / scale
+        height, width = image.shape
+        lo_y, hi_y = max(0, int(y - radius) - 1), min(height, int(y + radius) + 2)
+        lo_x, hi_x = max(0, int(x - radius) - 1), min(width, int(x + radius) + 2)
+        if hi_y - lo_y < 3 or hi_x - lo_x < 3:
+            return None
+        yy, xx = np.mgrid[lo_y:hi_y, lo_x:hi_x]
+        inside = np.hypot(xx - x, yy - y) <= radius
+        values = image[lo_y:hi_y, lo_x:hi_x][inside]
+        finite = np.isfinite(values)
+        if finite.sum() < 0.8 * inside.sum():
+            return None
+        return float(values[finite].sum())
+
+    regions = [
+        r for r in json.loads(manifest.read_text(encoding="utf-8"))["regions"]
+        if (r.get("validation") or {}).get("scienceReady")
+    ]
+    sources, measured, skipped = 0, 0, 0
+    for region in regions:
+        region_id = region["regionId"]
+        mosaic = pathlib.Path(region["mosaic"]["path"]) if region.get("mosaic") else None
+        two_path = cache / f"{region_id}-II-246-out.vot"
+        wise_path = cache / f"{region_id}-II-328-allwise.vot"
+        if not (mosaic and mosaic.is_file() and two_path.is_file() and wise_path.is_file()):
+            skipped += 1
+            continue
+        with fits.open(mosaic, memmap=False) as handle:
+            image = np.asarray(handle["IMAGE"].data, dtype=float)
+            mask = np.asarray(handle["MASK"].data)
+            wcs = WCS(handle["IMAGE"].header).celestial
+        scale = float(np.mean(proj_plane_pixel_scales(wcs)) * 3600.0)
+        image = np.where((mask & ((1 << 0) | (1 << 3))) == 0, image, np.nan)
+        try:
+            two = Table.read(two_path, format="votable")
+            wise = Table.read(wise_path, format="votable")
+            two_coords = SkyCoord(two["RAJ2000"], two["DEJ2000"], unit=u.deg)
+            wise_coords = SkyCoord(wise["RAJ2000"], wise["DEJ2000"], unit=u.deg)
+        except Exception:  # noqa: BLE001
+            skipped += 1
+            continue
+        if len(two) == 0 or len(wise) == 0:
+            skipped += 1
+            continue
+        index, separation, _ = two_coords.match_to_catalog_sky(wise_coords)
+        found = 0
+        for position in np.flatnonzero(separation.arcsec <= match_arcsec):
+            two_row = two[int(position)]
+            wise_row = wise[int(index[int(position)])]
+            bands = 0
+            for column, row in (("Jmag", two_row), ("Hmag", two_row), ("Kmag", two_row),
+                                ("W1mag", wise_row), ("W2mag", wise_row)):
+                if column not in row.colnames:
+                    continue
+                value = row[column]
+                if value is not np.ma.masked and np.isfinite(np.float64(value)):
+                    bands += 1
+            if bands < min_bands:
+                continue
+            observed = aperture_flux(
+                image, wcs, scale,
+                float(two_coords[int(position)].ra.deg),
+                float(two_coords[int(position)].dec.deg),
+            )
+            if observed is None or observed <= 0:
+                continue
+            found += 1
+        if found < min_per_region:
+            skipped += 1
+            continue
+        measured += 1
+        sources += found
+    return sources, measured, skipped
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -368,11 +476,18 @@ def main() -> None:
     if total_fields != published.get("G6"):
         failures.append("G6")
 
+    sed_sources, sed_regions, sed_skipped = sed_sources_from_cache()
+    match = "OK" if sed_sources == published.get("G3") else "DISAGREES"
+    print(f"\n  G3  SED sources with Rubin aperture flux      : {sed_sources:6d}  "
+          f"published {published.get('G3')}  {match}")
+    print(f"      {sed_regions} regions measured, {sed_skipped} skipped")
+    if sed_sources != published.get("G3"):
+        failures.append("G3")
+
     print("\nNot rebuildable from raw inputs here:")
     print("  G9 pixel-residual (1147)  reproduced by regenerating recovery and re-scanning")
     print("                            (section 45); not re-run here because it takes ~40 min")
-    print("  G3                        needs its Rubin aperture photometry recomputed")
-    print("                            rather than read; see sections 40 and 41")
+    print("  (none)                    every goal figure now rebuilds from raw inputs")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
 

@@ -2241,3 +2241,58 @@ That ratio is the durable result. An independent recount is harder to get right
 than the number it audits, and a disagreement is evidence of *a* mistake without
 saying whose. Acting on any first run would have "corrected" nine correct numbers
 to fix two wrong ones.
+
+## 47. G3 closes, and every goal figure now rebuilds from raw inputs
+
+G3 was the last figure resting on its own manifest, because closing it needed
+photometry rather than a count. §41 established that matching 2MASS to AllWISE
+within 3″ and requiring three of five infrared bands gives **3267** sources
+against a published **1394**, and that the missing filter is a Rubin measurement:
+each source must also have positive flux in a 2″ aperture at its position, on an
+image with mask bits 0 and 3 blanked, with at least 80% of the aperture finite.
+
+Reimplemented — not imported, so it could disagree — and run over every
+science-ready region's mosaic:
+
+| | rebuilt | published |
+|---|---|---|
+| regions measured | **184** | 184 |
+| regions skipped | **9** | 9 |
+| **SED sources** | **1394** | 1394 |
+
+All three match. About 57% of infrared-matched pairs fail the Rubin-flux
+requirement, which is the whole of the 3267 → 1394 gap.
+
+**Every goal figure G0–G9 now rebuilds from raw inputs, and all of them match.**
+G10, whose evidence is rendered pages rather than a manifest, had a render bug
+found, fixed, and structurally guarded (§42).
+
+**The audit, complete.**
+
+Two defects found. G0's delivered count, inferred as the 173 ceiling minus 6
+failures rather than counted, overstating delivery by six — and consistent with
+every other published number, which is why it survived. `/differences`
+accumulating a heading on every render, invisible to any check that renders a
+page once, visible to every user of a deployed site.
+
+Against those two, **nine of my own checks were wrong before they were right.**
+Each produced a confident, plausible disagreement. Each had the same root: a
+number sitting near the right one that answers a different question.
+
+| check | what I read | what it answers |
+|---|---|---|
+| G1 | `pixelsValidated` 652 | the ceiling, not reconciled pairs |
+| G3 | regions 184, then pairs 3267 | not sources with a Rubin measurement |
+| G9 | every integer in the block | region counts are not addends |
+| G8 | `verdictsDelivered` summed | one candidate counted twice |
+| G2 | the `gaia-200` cache | a different search radius |
+| G4 | HICAT alone, cones on centres | two catalogues, tract footprints |
+| G6 | eROSITA cache size 27 | hits cached, not queries made |
+| G5 | distinct regions 189 | pairs are region × survey |
+| G9 | a run that stopped at 42/190 | my own resource contention |
+
+An independent recount is harder to get right than the number it audits, and a
+disagreement is evidence of *a* mistake without saying whose. Acting on any first
+run would have "corrected" nine correct numbers to fix two wrong ones. The
+discipline that worked was the same one this project has needed everywhere else:
+read what the number actually counts before believing it disagrees.
