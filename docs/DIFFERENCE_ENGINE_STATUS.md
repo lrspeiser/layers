@@ -1967,3 +1967,46 @@ rather than left to be mistaken for a result.
 | rebuilt from raw inputs | **G0, G1, G2, G4, G7, and 69% of G9** |
 | checked against own evidence only | G3, G5, G6, G8, rest of G9 |
 | not machine-checkable here | G10 |
+
+## 41. G3 and G6: the caches show the shape of the answer, not the answer
+
+§40 corrected the claim that G3, G5, G6 and G8 need external re-queries — their
+raw inputs are cached. Working through them shows that "cached" and "rebuildable"
+are not the same thing either.
+
+**G6.** The caches hold 199 regions with a VLASS SIA query and 27 with eROSITA
+files, against published `fieldsSearched: 191` and `regionsQueried: 193`. The
+radio count exceeds the published figure, which is the familiar
+attempted-versus-passed pattern; the eROSITA count falls far below it, which is
+the opposite and means those queries are not stored one file per region. Neither
+number verifies the published one without applying the operator's own selection.
+
+**G3.** Reproducing the documented pairing from the cached 2MASS and AllWISE
+VOTables — matched within 3″, each source needing three of J, H, Ks, W1, W2 —
+gives **3267** sources across 196 regions, against a published **1394** across
+184.
+
+The difference is explained, and by reading the builder rather than guessing: a
+source also has to have **positive Rubin aperture flux measured at its position**,
+and the power-law fit has to converge. Roughly 57% of infrared-matched pairs fail
+one of those. That is not an edge case or a definitional quibble; it is a
+substantive filter I left out, and 3267 is the count of a different quantity —
+infrared pairs — not a competing value for the same one.
+
+Reproducing 1394 exactly means opening each Rubin mosaic and doing aperture
+photometry at every 2MASS position, which is re-running the operator rather than
+checking it. That is a legitimate thing to do and it is not what was done here.
+
+**So G3 and G6 are recorded as explained, not verified.** The distinction matters
+because the alternative was to report 3267 and 226 as disagreements, which they
+are not — they are the answers to questions I asked instead of the published one,
+which is the same mistake this section has now made seven times.
+
+**Standing verification status, unchanged from §40:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | G0, G1, G2, G4, G7, and 69% of G9 |
+| discrepancy explained but not closed | G3, G6 |
+| checked against own evidence only | G5, G8, rest of G9 |
+| not machine-checkable here | G10 |
