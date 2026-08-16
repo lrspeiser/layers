@@ -16,5 +16,8 @@
   "secondBandValidated": 167,
   "target": 180,
   "reachableCeiling": 173,
-  "finding": "DP2 offers two or more bands for 173 of 200 regions in this set. The goal's target of 180 exceeds that ceiling by 7, so it was unreachable before any pixels were fetched. Every region with an untried band has now been attempted."
+  "finding": "DP2 offers two or more bands for 173 of 200 regions in this set. The goal's target of 180 exceeds that ceiling by 7, so it was unreachable before any pixels were fetched. Every region with an untried band has now been attempted.",
+  "secondBandExhausted": true,
+  "unreachableAfterAcquisition": 6,
+  "dispositionOfShortfall": "Three acquisition passes ran: 157 regions at the start, +8 from regions with a band never tried, +2 by retrying regions whose first alternative failed validation (tract 5391 in g, tract 5281 in z after g failed). The remaining 6 failed pixel validation on every band DP2 holds for them, so the shortfall against the 173 ceiling is exhausted rather than outstanding."
 }

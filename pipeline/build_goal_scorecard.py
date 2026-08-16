@@ -98,7 +98,11 @@ def main() -> None:
             "regions with a validated second band",
             "selected-regions/dp2-band-availability.json",
             "27 of the 200 regions carry exactly one band in the entire DP2 release, so no "
-            "acquisition strategy yields a second one for them.",
+            "acquisition strategy yields a second one for them. The 6 between the delivered "
+            "167 and the reachable 173 are not unattempted: acquisition ran three passes, and "
+            "each of those 6 failed pixel validation on every band DP2 holds for it. There is "
+            "no further pass to run, so 167 is where this goal stops rather than where it "
+            "paused.",
         ),
         score(
             "G1", "Same-band optical across the reference surveys", 727,

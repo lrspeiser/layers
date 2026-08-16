@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-goal-scorecard-v1",
-  "generatedAt": "2026-08-15T06:19:46.742237+00:00",
+  "generatedAt": "2026-08-16T06:03:11.010893+00:00",
   "purpose": "Per goal: what was asked, what the archives can supply, and what was delivered. A target above the ceiling was unreachable when written, and that is reported as a quantity rather than argued in prose.",
   "counts": {
     "met": 6,
@@ -27,7 +27,7 @@
       "fractionOfCeiling": 0.9653,
       "status": "below-ceiling",
       "evidence": "selected-regions/dp2-band-availability.json",
-      "note": "27 of the 200 regions carry exactly one band in the entire DP2 release, so no acquisition strategy yields a second one for them."
+      "note": "27 of the 200 regions carry exactly one band in the entire DP2 release, so no acquisition strategy yields a second one for them. The 6 between the delivered 167 and the reachable 173 are not unattempted: acquisition ran three passes, and each of those 6 failed pixel validation on every band DP2 holds for it. There is no further pass to run, so 167 is where this goal stops rather than where it paused."
     },
     {
       "id": "G1",
