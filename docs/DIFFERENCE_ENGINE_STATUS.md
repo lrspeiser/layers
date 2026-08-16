@@ -2187,3 +2187,57 @@ exactly the G3 and G6 selections §41 left explained but not closed.
 | rebuilt from raw inputs | **G0, G1, G2, G4, G5, G7, G8, G9 (86%)** |
 | explained, needs the operator reimplemented | G3, G6 |
 | render bug found, fixed, structurally guarded | G10 |
+
+## 46. G6 closes: both counterpart terms rebuild from the manifests
+
+G6's 384 is two counts of *attempts*, each with its own eligibility rule, which is
+why §41's file-counting did not answer it.
+
+| term | rule | rebuilt | published |
+|---|---|---|---|
+| X-ray | Rubin regions with `validation.scienceReady` | **193** | 193 |
+| radio | VLASS `scienceReady` ∩ Rubin science-ready with a mosaic | **191** | 191 |
+| | | **384** | 384 |
+
+§41 read the eROSITA cache and found 27 entries against a published 193, which
+looked like a collapse. It is not: the cache stores only queries that returned
+rows, so its size measures how many regions *have* an X-ray source, not how many
+were asked. `regionsSkipped: 0` says every one of the 193 queries succeeded.
+
+The radio rule needed both manifests. VLASS marks 198 of 200 regions
+science-ready; 193 Rubin regions are science-ready with a mosaic; the
+intersection is 191. Counting either side alone gives 198 or 193 and misses.
+
+**Every goal figure that can be rebuilt without re-running an operator has now
+been rebuilt, and all of them match:**
+
+| verification | goals |
+|---|---|
+| rebuilt from raw inputs | **G0, G1, G2, G4, G5, G6, G7, G8, G9** |
+| needs its Rubin aperture photometry recomputed | G3 |
+| render bug found, fixed, structurally guarded | G10 |
+
+G3 is the only figure still resting on its own manifest. Its 1394 requires
+positive Rubin aperture flux at each of 3267 infrared-matched positions, so
+closing it means opening every Rubin mosaic and measuring — re-running the
+operator, not auditing it.
+
+**What the audit produced, end to end.** Two defects: G0's delivered count,
+inferred as 173 − 6 rather than counted and overstating by six; and `/differences`
+accumulating a heading on every render, invisible to any check that renders a
+page once. Nine of eleven figures now rest on inputs rather than on the
+pipeline's own reporting.
+
+Against two real findings, **nine of my own checks were wrong before they were
+right.** Every one produced a confident, plausible disagreement, and every one had
+the same root: a number that sits near the right one and answers a different
+question — a ceiling read as a pair count, regions read as sources, region counts
+summed as comparisons, verdicts double-counted across surveys, the wrong Gaia
+cache, one catalogue instead of two, cones instead of tract footprints, infrared
+pairs without the Rubin-flux requirement, and a cache of hits read as a cache of
+queries.
+
+That ratio is the durable result. An independent recount is harder to get right
+than the number it audits, and a disagreement is evidence of *a* mistake without
+saying whose. Acting on any first run would have "corrected" nine correct numbers
+to fix two wrong ones.

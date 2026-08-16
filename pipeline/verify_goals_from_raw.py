@@ -253,6 +253,39 @@ def lensing_pairs_from_products() -> tuple[int, int, int]:
     return products - skipped, products, skipped
 
 
+def counterpart_fields() -> tuple[int, int, int]:
+    """G6: reproduce the searched-field counts for the X-ray and radio operators.
+
+    Both are counts of regions *attempted*, and each uses its own eligibility
+    rule, which is why the caches do not answer this directly. The eROSITA cache
+    holds 27 entries against 193 regions queried, because it stores only queries
+    that returned rows -- reading file counts gives 27 and looks like a collapse.
+
+      X-ray: Rubin regions with validation.scienceReady. 193.
+      Radio: VLASS regions marked scienceReady whose region also appears in the
+             Rubin manifest as scienceReady with a mosaic. 191.
+    """
+    rubin = json.loads(
+        (RESULTS / "rubin-pixels-200/manifest.json").read_text(encoding="utf-8")
+    )["regions"]
+    science_ready = {
+        r["regionId"] for r in rubin if (r.get("validation") or {}).get("scienceReady")
+    }
+    eligible_for_radio = {
+        r["regionId"] for r in rubin
+        if (r.get("validation") or {}).get("scienceReady") and r.get("mosaic")
+    }
+    vlass_path = RESULTS / "vlass/manifest.json"
+    radio = 0
+    if vlass_path.is_file():
+        vlass = json.loads(vlass_path.read_text(encoding="utf-8"))["regions"]
+        radio = sum(
+            1 for r in vlass
+            if r.get("scienceReady") and r["regionId"] in eligible_for_radio
+        )
+    return len(science_ready) + radio, len(science_ready), radio
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
@@ -327,10 +360,18 @@ def main() -> None:
     if pairs != published.get("G5"):
         failures.append("G5")
 
+    total_fields, xray_fields, radio_fields = counterpart_fields()
+    match = "OK" if total_fields == published.get("G6") else "DISAGREES"
+    print(f"\n  G6  counterpart fields searched               : {total_fields:6d}  "
+          f"published {published.get('G6')}  {match}")
+    print(f"      xray {xray_fields} science-ready regions + radio {radio_fields} eligible VLASS")
+    if total_fields != published.get("G6"):
+        failures.append("G6")
+
     print("\nNot rebuildable from raw inputs here:")
-    print("  G9 pixel-residual (1147)  the per-region scan outputs for the 200-set were not")
-    print("                            retained; only anomalies-hsc remains on disk")
-    print("  G3 G6                     need their operators' selection logic reimplemented")
+    print("  G9 pixel-residual (1147)  reproduced by regenerating recovery and re-scanning")
+    print("                            (section 45); not re-run here because it takes ~40 min")
+    print("  G3                        needs its Rubin aperture photometry recomputed")
     print("                            rather than read; see sections 40 and 41")
     print("  G10                       evidence is rendered pages, not a manifest")
     print("\n  These are unverified by this script, which is weaker than correct.")
