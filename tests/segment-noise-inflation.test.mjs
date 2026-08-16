@@ -67,9 +67,25 @@ test("it has been applied, and the blocker cleared as a result", () => {
   assert.equal(blockers.staleBlockersClearedByNewEvidence["resampling covariance"], 190);
 });
 
+test("a compact-source colour term does not clear the bandpass blocker", () => {
+  // This test replaces one that asserted comparisonReady > 0. That assertion
+  // encoded a bug: the reassessment had been clearing bandpass transfer wherever
+  // a per-region colour term existed, against the explicit clearsBandpassBlocker
+  // policy of the manifest it was reading. Point-source calibration passing has
+  // already coexisted with resolved-galaxy transfer failing by 5-13x tolerance.
+  const bandpass = read("public/data/layers/selected-regions/bandpass-transfer-200.json");
+  const blockers = read("public/data/layers/selected-regions/blocker-reassessment-slim.json");
+  assert.equal(bandpass.policy.clearsBandpassBlocker, false);
+  assert.ok(bandpass.counts.measured > 100, "many regions do have a compact-source fit");
+  assert.equal(
+    blockers.blockersRemaining["bandpass transfer"],
+    blockers.regionsAssessed,
+    "bandpass transfer must block every region until an extended-source transfer passes QA",
+  );
+});
+
 test("clearing gates is not licence for a claim", () => {
   const blockers = read("public/data/layers/selected-regions/blocker-reassessment-slim.json");
-  assert.ok(blockers.comparisonReady > 0, "the correction moved this off zero");
   assert.equal(
     blockers.scienceClaimAllowed,
     false,

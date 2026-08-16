@@ -1259,3 +1259,54 @@ orders of magnitude. The common feature is not carelessness but *inheritance* �
 each was a number written once, used thereafter, and never re-measured. The
 defence that has actually worked, every time, is running the full thing and
 comparing.
+
+## 26. Correction: comparisonReady never moved off zero
+
+§24 reported `comparisonReady` rising 0 → 7, and §25 reported 7 → 54. **Both
+numbers were wrong.** It is 0, and has been throughout. The error was mine and it
+is the most important thing in these five sections, because it is the one place
+where this project's own discipline was applied to everything except the thing
+doing the checking.
+
+`reassess_comparison_blockers.py` cleared "bandpass transfer" for the 156 regions
+that have a fitted per-region colour term. But `bandpass-transfer-200.json` — the
+very manifest it reads to get those 156 — sets `clearsBandpassBlocker: false`, and
+says why in the same object:
+
+> A compact-source transfer never clears the bandpass blocker on its own. The
+> pilots already passed point-source colour calibration and still failed the
+> resolved-galaxy transfer by 5 to 13 times the tolerance.
+
+Every extended-source transfer attempted is `qa-failed` or `blocked`. So the
+script read a manifest, ignored the policy stated inside it, and substituted its
+own assumption that a fit means a pass. That is precisely the "work was attempted,
+so call it done" move the script was written to prevent, committed by the script
+itself. The rule is now that a blocker clears against the artefact's *own* stated
+policy, read from the file rather than assumed.
+
+**Bandpass transfer blocks all 190 regions**, and only a passing extended-source
+transfer moves it. That connects directly to §21: the extended-source photometry
+carries a size-dependent bias whose cause is still unknown, and the same weakness
+is what keeps the resolved-galaxy colour transfer failing. One unsolved problem,
+surfacing in two places.
+
+**What did genuinely change, and still stands:**
+
+- Resampling covariance cleared on all 190 — measured on real segment footprints
+  and *applied* to the released error columns, with the catalogue republished.
+  A real fix to real data (§22–§24).
+- Injection/recovery went from 9 measured regions to 79, and replaced a
+  zero-event upper limit of 0.14% with a measured false-positive rate of 0.016%
+  (§25).
+
+Both are progress on blockers. Neither is progress on readiness. Conflating those
+two is exactly what produced 7 and then 54, and the distinction is now stated in
+the manifest, the script's docstring, the site copy, and a test that pins bandpass
+transfer at all 190 regions so this cannot silently regress.
+
+**The count of unverified inherited numbers is now six** (§25 listed five). The
+sixth is different in kind: it was not inherited. I wrote it this session, in a
+tool built specifically to stop this class of error, and it survived two rounds of
+reporting before a check of an unrelated question exposed it. The lesson §25 drew
+— that the defence which works is running the full thing and comparing — needs
+one addition: *including against the sources you are already reading.*

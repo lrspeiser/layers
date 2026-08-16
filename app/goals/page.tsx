@@ -151,12 +151,12 @@ export default function GoalsPage() {
         <section className={styles.policy}>
           <h2>What actually stands between here and a comparison</h2>
           <p>
-            {blockers.comparisonReady} of {blockers.regionsAssessed} regions have now cleared
-            every gate, up from none. Two things moved it: applying the correlated-noise
-            correction to the released error columns, which closed that blocker everywhere, and
-            running injection/recovery over the whole set instead of a 24-region sample, which
-            took it from 9 regions to 79. It counts gates, not conclusions &mdash; no
-            astrophysical claim stands. What still blocks the rest, per region:
+            {blockers.comparisonReady} of {blockers.regionsAssessed} regions have cleared every
+            gate. Two blockers did genuinely close &mdash; resampling covariance on all 190 once
+            the correlated-noise correction was applied to the released error columns, and
+            injection/recovery on 79 regions once the full pass replaced a 24-region sample
+            &mdash; but bandpass transfer still blocks every region, so readiness has not moved.
+            Progress on blockers is not progress on readiness. What blocks each region:
           </p>
           <ul className={styles.blockers}>
             {Object.entries(blockers.blockersRemaining as Record<string, number>)
@@ -168,13 +168,13 @@ export default function GoalsPage() {
               ))}
           </ul>
           <p className={styles.muted}>
-            {blockers.staleBlockersClearedByNewEvidence["bandpass transfer"]} regions carry a
-            fitted per-region colour term that the reconciliation manifest still counts as
-            blocked, which is why this is recomputed rather than read off. Injection/recovery
-            remains the largest item: all 190 regions were attempted, but a region needs 20
-            detected sources with positive flux in both frames and 30% valid area to define its
-            own flux ratio, and 111 are too sparse or too heavily masked to qualify. That is a
-            property of those fields, not a pass nobody ran.
+            Bandpass transfer is the binding one, and a fitted colour term does not clear it:
+            156 regions have one, but point-source calibration passing has already coexisted with
+            resolved-galaxy transfer failing by 5 to 13 times tolerance, and no extended-source
+            transfer has yet passed QA. Injection/recovery is next at 111 &mdash; all 190 regions
+            were attempted, but a region needs 20 detected sources with positive flux in both
+            frames and 30% valid area to define its own flux ratio, and those are too sparse or
+            too heavily masked. A property of the fields, not a pass nobody ran.
           </p>
         </section>
 

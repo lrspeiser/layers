@@ -1,52 +1,46 @@
 """Re-evaluate each region's comparison blockers against the evidence that now exists.
 
-`comparisonReady` is 0 across all 190 reconciled regions, and the reconciliation
-manifest lists three blockers retained on every one of them: bandpass transfer,
-injection/recovery QA, and resampling covariance.
+The reconciliation manifest was written on 2026-08-14 and lists three blockers on
+all 190 regions. Work has happened since and the manifest has not been
+regenerated, so it misreports what is left. This recomputes the state per region.
 
-That list was written on 2026-08-14. All three have been worked on since, and the
-manifest has not been regenerated, so it now misreports what is actually left.
-"Bandpass transfer blocks all 190 regions" is simply not true any more, and a
-scientist reading it to decide what this dataset needs gets the wrong answer.
+The rule is that a blocker clears only against a named artefact, and that the
+artefact's own stated policy decides what clearing means -- not this script's
+guess about it.
 
-This recomputes the blocker state per region from the current evidence. It does
-not clear anything on the grounds that work was attempted -- each blocker is
-checked against a specific artefact, and the rule for clearing it is stated in
-CHECKS below so it can be argued with rather than trusted.
+**A correction, kept here because the mistake is instructive.** An earlier
+version of this script cleared "bandpass transfer" for the 156 regions with a
+fitted per-region colour term, and reported comparisonReady rising 0 -> 7 -> 54.
+That was wrong. `bandpass-transfer-200.json` sets `clearsBandpassBlocker: false`
+and explains why in the same breath: the pilots passed point-source colour
+calibration and still failed the resolved-galaxy transfer by 5 to 13 times
+tolerance. Every extended-source transfer attempted so far is `qa-failed` or
+`blocked`. The script was reading that manifest and overrode its explicit policy
+with an assumption -- exactly the "work was attempted, so call it done" move it
+was written to prevent.
 
-When first run this returned `comparisonReady` 0, and correctly: the
-resampling-covariance factor had been measured everywhere and applied nowhere,
-and a measured systematic that nobody has corrected still blocks a quantitative
-claim. Knowing an error bar is twice too small is not the same as fixing it.
+comparisonReady is **0**, and has been throughout. Bandpass transfer blocks all
+190 regions and only a passing extended-source transfer will move it.
 
-It has since been fixed. On 2026-08-16 the correction was applied to the released
-error columns and the catalogue republished, which clears that blocker on every
-region and takes `comparisonReady` to 7 -- the regions where nothing else was
-outstanding either. The number moved because the work was done, not because the
-rule was loosened; the rule is still that each blocker clears only against a
-named artefact.
+What did genuinely change:
 
-Injection/recovery QA was the next constraint, and most of it turned out to be
-unspent compute. measure_catalogue_reliability.py defaulted to 24 regions on the
-stated grounds that a full pass "would take hours". That was never timed and is
-wrong by two orders of magnitude: it is about 2.3 seconds a region, so the whole
-set runs in minutes. 166 regions had never been attempted because a help string
-asserted a cost nobody checked.
+- Resampling covariance cleared on all 190. The correlated-noise correction was
+  measured on real segment footprints and applied to the released error columns
+  on 2026-08-16; the catalogue was republished. That is a real fix to real data.
+- Injection/recovery went from 9 measured regions to 79. It had defaulted to 24
+  regions on the stated grounds that a full pass "would take hours" -- never
+  timed, and wrong by two orders of magnitude at 2.3 seconds a region. The full
+  pass also replaced a zero-event 95% upper limit of 0.14% with a measured
+  false-positive rate of 0.016%.
+- The 111 injection/recovery regions still outstanding were attempted and
+  genuinely do not qualify: each needs 20 detected sources with positive flux in
+  both frames and 30% valid area to define its own flux ratio.
 
-Running it properly took the measured regions from 9 to 79 and comparisonReady
-from 7 to 54. The 111 that remain were attempted and genuinely do not qualify --
-a region needs 20 detected sources with positive flux in both frames and 30%
-valid area to define its own flux ratio, and those are too sparse or too heavily
-masked. That part is a property of the fields.
+Both of those are progress on the blockers without being progress on readiness,
+and conflating the two is what produced the wrong number in the first place.
 
-It also changed a published number. The 24-region sample saw zero false
-positives, so the release quoted a 95% upper limit of 0.14%. The full pass found
-three, giving a *measured* rate of 0.016% -- about nine times tighter than the
-bound it replaces. More data made the claim stronger and more honest at once.
-
-`comparisonReady` counts gates, not conclusions. The reconciliation policy still
-sets `scienceClaimAllowed` false, and a region clearing every gate this pipeline
-defines means exactly that and nothing more.
+`comparisonReady` counts gates, not conclusions. The reconciliation policy sets
+`scienceClaimAllowed` false and no astrophysical claim stands.
 """
 
 from __future__ import annotations
@@ -79,6 +73,9 @@ def evidence() -> dict[str, set[str] | dict]:
             r["regionId"] for r in (bandpass.get("regions") or []) if r.get("regionId")
         },
         "bandpassGlobal": bool(synthetic.get("predictedColourTerms")),
+        # The bandpass manifest states its own clearing rule. Read it rather than
+        # inventing one: compactSourceOnly transfers do not clear the blocker.
+        "extendedTransferValidated": bool(bandpass.get("policy", {}).get("clearsBandpassBlocker")),
         # Injection/recovery is per region and most regions have none.
         "injectionRegions": {
             r["regionId"] for r in (reliability.get("regions") or []) if r.get("regionId")
@@ -99,12 +96,28 @@ def assess(region: dict, ev: dict) -> dict:
 
     for blocker in retained:
         if blocker == "bandpass transfer":
-            if region_id in ev["bandpassRegions"]:
+            # A fitted per-region colour term does NOT clear this, and an earlier
+            # version of this script wrongly assumed it did -- clearing 156
+            # regions against the explicit policy of the very manifest it was
+            # reading. bandpass-transfer-200.json sets clearsBandpassBlocker
+            # false and says why: the pilots passed point-source colour
+            # calibration and still failed the resolved-galaxy transfer by 5 to
+            # 13 times tolerance. Every extended-source transfer attempted is
+            # qa-failed or blocked, so nothing clears this yet.
+            if ev["extendedTransferValidated"]:
                 now_cleared.append(blocker)
+            elif region_id in ev["bandpassRegions"]:
+                still[blocker] = (
+                    "compact-source colour term fitted for this field, which the bandpass "
+                    "manifest explicitly says does not clear the blocker: point-source "
+                    "calibration passing has already coexisted with resolved-galaxy transfer "
+                    "failing by 5 to 13 times tolerance. The extended-source test is what "
+                    "clears this, and no attempt has yet passed QA"
+                )
             else:
                 still[blocker] = (
-                    "no per-region colour-term fit; the filters are characterised globally "
-                    "but this field's own transfer was never measured"
+                    "no per-region colour-term fit either; 32 of the 34 skipped regions have "
+                    "no validated second Rubin band, so no colour can be formed at all"
                     if ev["bandpassGlobal"]
                     else "not measured"
                 )
@@ -196,13 +209,17 @@ def main() -> None:
             f"190 regions but {stale.get('bandpass transfer', 0)} of them have a fitted "
             f"per-region colour term. What genuinely remains is narrower and more specific: "
             f"injection/recovery QA on {remaining.get('injection/recovery QA', 0)} regions. "
-            f"comparisonReady is {ready}. It was 0 until the correlated-noise correction was "
-            f"applied to the released error columns, which cleared resampling covariance on every "
-            f"region; the {ready} that follow are those where nothing else was outstanding "
-            f"either. That is a statement about acquisition and measurement, not a licence for an "
-            f"astrophysical claim -- the reconciliation policy still sets scienceClaimAllowed "
-            f"false, and a region clearing every gate this pipeline defines only means the gates "
-            f"are cleared."
+            f"comparisonReady is {ready}. An earlier version of this script reported 7 and then "
+            f"54 by clearing bandpass transfer wherever a per-region colour term had been "
+            f"fitted; bandpass-transfer-200.json sets clearsBandpassBlocker false and explains "
+            f"that point-source calibration passing has already coexisted with resolved-galaxy "
+            f"transfer failing by 5 to 13 times tolerance. Overriding a manifest's stated policy "
+            f"with an assumption is the exact failure this script exists to prevent. Two "
+            f"blockers did genuinely clear -- resampling covariance on all 190 once the "
+            f"correction was applied to the released columns, and injection/recovery on 79 "
+            f"regions once the full pass was run instead of a 24-region sample -- but progress "
+            f"on blockers is not progress on readiness, and conflating them is what produced "
+            f"the wrong number."
         ),
         "comparisonReadyRegions": [r["regionId"] for r in assessed if r["comparisonReady"]],
         "scienceClaimAllowed": False,
