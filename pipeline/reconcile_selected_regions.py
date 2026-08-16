@@ -112,7 +112,6 @@ def reference_flux_chain(
     record: dict[str, Any],
     ps1_evidence: dict[str, dict[str, Any]],
     grid_scale_arcsec: float,
-    hsc_evidence: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Return the documented native-unit to nJy conversion for one reference.
 
@@ -206,43 +205,29 @@ def reference_flux_chain(
             ),
         }
     if survey == "hsc-ssp-pdr2":
-        # HSC coadd pixels are calibrated so that FLUXMAG0 counts correspond to
-        # 0 mag AB. PDR2 uses a fixed 27.0 mag zeropoint, which makes one count
-        # about 57.5 nJy -- but the zeropoint is read from the header rather than
-        # assumed, because "the release uses 27.0" is exactly the kind of
-        # inherited constant this project has been wrong about six times.
-        fluxmag0 = ((hsc_evidence or {}).get(record["regionId"]) or {}).get("fluxMag0")
-        if not fluxmag0:
-            return {
-                "surveyId": survey,
-                "nativeUnit": "HSC coadd count",
-                "scale": None,
-                "verified": False,
-                "formula": None,
-                "reference": (
-                    "No FLUXMAG0 recorded for this cutout, so the count cannot be placed on an "
-                    "absolute scale. The acquisition records it per region when the header "
-                    "carries it."
-                ),
-            }
-        scale = AB_ZERO_POINT_NJY / float(fluxmag0)
+        # normalize_hsc_cutouts.py already applied FLUXMAG0, so these pixels
+        # arrive in nJy and no further conversion applies -- exactly as DES does.
+        # An earlier draft of this branch re-applied FLUXMAG0 here, which would
+        # have multiplied every HSC reference by 57.5 a second time. The unit
+        # conversion lives in one place on purpose.
+        #
+        # No pixel-area factor either: the HSC cutout service returns coadd
+        # pixels on the coadd grid, like DES and unlike the Legacy viewer.
         return {
             "surveyId": survey,
-            "nativeUnit": "HSC coadd count",
-            "scale": scale,
-            "unitScale": scale,
-            # The cutout service returns coadd pixels at the coadd scale, as DES
-            # does and unlike the Legacy viewer, so no pixel-area factor applies.
+            "nativeUnit": "nJy",
+            "scale": 1.0,
+            "unitScale": 1.0,
             "pixelAreaFactor": 1.0,
             "valuePixelScaleArcsec": grid_scale_arcsec,
             "gridPixelScaleArcsec": grid_scale_arcsec,
             "verified": False,
-            "formula": "nJy = count * 3.63078e12 / FLUXMAG0, from m = -2.5 log10(count / FLUXMAG0)",
+            "formula": "already nJy; applied upstream as count * 3.63078e12 / FLUXMAG0",
             "reference": (
-                "HSC-SSP coadd convention: FLUXMAG0 counts equal 0 mag AB. Read from the "
-                "cutout header rather than assumed. Reported unverified until this project has "
-                "checked it against a calibrated HSC photometric catalogue, so the empirical "
-                "scale governs -- the same standing this project gives Pan-STARRS."
+                "FLUXMAG0 read per region from the cutout header (63095734448.0194 across the "
+                "fetched set, an AB zeropoint of exactly 27.0 mag). Reported unverified until "
+                "checked against a calibrated HSC photometric catalogue, the same standing "
+                "Pan-STARRS has, so the empirical scale governs."
             ),
         }
     return {

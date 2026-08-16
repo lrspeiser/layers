@@ -1,0 +1,2431 @@
+{
+  "schemaVersion": "layers-hsc-normalized-v1",
+  "generatedAt": "2026-08-16T15:07:28.458739+00:00",
+  "surveyId": "hsc-ssp-pdr2",
+  "unit": "nJy",
+  "conversion": "nJy = count * 3.63078e12 / FLUXMAG0, read per region from the cutout header",
+  "regionsNormalized": 110,
+  "regions": [
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9245-hsc-r.fits",
+        "sha256": "18ceeb4c1b1fa04abd891aafd26f947439130c0a9f9631a171f47a43b76e0adb",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7186075645837717,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9456-hsc-r.fits",
+        "sha256": "6c8122fe645c86f6913b3d3cafb9b544dc704a393e6f6718a72f41e388eee26a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.795763578618722,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9475-hsc-r.fits",
+        "sha256": "ec73469f04d866e2482ac54f63dc886e65eeeafe36bd8a420ae60cbf0dffaece",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8008387693482165,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9705-hsc-r.fits",
+        "sha256": "6eac80b9bb24b61044244704db245d329bb26e1f07887fecfc0d1b358c76d8fa",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5884588469612962,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9718-hsc-r.fits",
+        "sha256": "54b780af7a1717cf5a43b041b45cebfe92db8277570d5c140bd81634838cc7d6",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.33523467435293886,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9726-hsc-r.fits",
+        "sha256": "b5225def0894c24b4915880ca85bb482aa8cc3ca6b83398f0dec2542a950355a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7454560135455867,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9813-hsc-r.fits",
+        "sha256": "f12deec998edb7de1ce4a1fac4b33a5cfa3cd870261afbdfac334631cb7a06bd",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.653411598897953,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9953-hsc-r.fits",
+        "sha256": "a1ad18ffa60bc24d1cf110140181f7e1cddd64a2913e7007bdea1f85880c9544",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.3897238520751467,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "tract": 9226,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9226-hsc-r.fits",
+        "sha256": "1996b347f40c43635a6bc8c2434f048cb36de306e87e7dd5b23711ada88c45c9",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8003469588494081,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9227-hsc-r.fits",
+        "sha256": "3596efead7c49b05335bf94b40d79ce6dcc86ad2fc553d7efc14acbf44598b92",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7806774750791545,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9228-hsc-r.fits",
+        "sha256": "37050ccffb53e83332813084e55ba40338678c8e6ee52a04252ed65305f79e39",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.786241540125375,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9229-hsc-r.fits",
+        "sha256": "704fd9dd3e60b076849b0d0d13933fd138c3dbb0dd193aa205732512bc5bc159",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7235662867573295,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "tract": 9230,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9230-hsc-r.fits",
+        "sha256": "9a87b664ef0cd2da6e2a6c1198e48d087ac8cf1d952e1224f9cb18af58e646f3",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8035415249551009,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9231-hsc-r.fits",
+        "sha256": "5e6f382dc663d442fb1f67543c2fcd89841f9f58c6d90469651c7445ec74c443",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8080661815441381,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9232-hsc-r.fits",
+        "sha256": "4e81a4fd794f076caaa36e197d65918be9d0afe94ed15821296033b0f51cfa70",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7350178862425188,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "tract": 9237,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9237-hsc-r.fits",
+        "sha256": "61289620f90036e2dba383751b183e512669bb7a6a8f47c7149f1fa2d2ad4d3d",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8407483349400774,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9238-hsc-r.fits",
+        "sha256": "29aad316b2bb2be90f8069c041489c8091f26f0c8779fbd5d4b2c5d168edf798",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8250001223409201,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9239-hsc-r.fits",
+        "sha256": "81fad281b9c569fa9b78a351b1a66bd8198aa7b55a9fe73f38395036ded23e0e",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8171727502728202,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "tract": 9240,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9240-hsc-r.fits",
+        "sha256": "2dd23a520a99846ac83f7d78bec9bb475d59a9d6fdf0dad4d76522a364966ea4",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8114207695733238,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9241",
+      "tract": 9241,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9241-hsc-r.fits",
+        "sha256": "a6f8d8727db7d034e89d23bfa05adfa6eee64f696e763b2ac58100d89b509993",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7124386460285691,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "tract": 9327,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9327-hsc-r.fits",
+        "sha256": "2b5c581d0c0d1b5092d391ab796f7950835eb8c75650763d26c3d4ed3d4aa0b4",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5081087561843335,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "tract": 9328,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9328-hsc-r.fits",
+        "sha256": "30c5ff088575d90ae40ef8716eebf70fc7269f1dbeb8f16deaa5cc8f9446d325",
+        "bytes": 18432000
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6633018729522226,
+      "shape": [
+        1430,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9449-hsc-r.fits",
+        "sha256": "d8ddaee17840c75956dc5b2c73455ee50ed10b0060951d12712f741f0ffb4fcd",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8074368598511356,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9450-hsc-r.fits",
+        "sha256": "e0ebf2e1939b8ba52490881a2bd581d22de6c9d4bb3ca9db715d1cc737faa052",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6206565303136332,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9451-hsc-r.fits",
+        "sha256": "8c5df719144dcc68934f8aea8a3843d1940e28a0e5a9b63a9e2a6aa5cb1d3a87",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7106647026870959,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9452-hsc-r.fits",
+        "sha256": "567fc2ca810241180a78235e906378f940b928807f0f9737c807a7448b4154e9",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7318154903179396,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9453-hsc-r.fits",
+        "sha256": "0a1c1802a153f8117922e65cc7edca9e90a9a626cfd2154f1b162732a0f5a36f",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8046611890558707,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9454-hsc-r.fits",
+        "sha256": "2162590bd007f55f8dbfef18f45b6f6702a2600f36408bd1c115d6fa924461ee",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6982010991108262,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "tract": 9455,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9455-hsc-r.fits",
+        "sha256": "158e285e6a78ff4a8e051a10636025cd22e2e67d397c5ce42a910b7ed3eb5b55",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7709254356560165,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9457-hsc-r.fits",
+        "sha256": "0adfce6cfa1058b45d34392d532058e33095edb9fe01b10639ffc7b3104e603f",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7628230411995283,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9458-hsc-r.fits",
+        "sha256": "89e9f5062a344043b7d280efa233043719d0cba843b80a77a48fcb17c9f94f80",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.2342295213533842,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "tract": 9459,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9459-hsc-r.fits",
+        "sha256": "a99c3142155ed85596a652688b23ab426105ac035a0a36b110a97f8727813f32",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.541006718963332,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9460-hsc-r.fits",
+        "sha256": "b862e521de0348d7d3c18252d322d2c3a540858ce66cdacf43edf5346f3d4332",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7567299740147886,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "tract": 9461,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9461-hsc-r.fits",
+        "sha256": "6d74501f747d6464bde64ce4a0831df220e87784b2469a8cf299709e85b2516b",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7195583982148013,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "tract": 9462,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9462-hsc-r.fits",
+        "sha256": "bccb9b50c836e590afdb17bb23da3769cbe792f61817fd294bc7b6210fcbac6b",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7201319324482376,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9463-hsc-r.fits",
+        "sha256": "ebd99b5bdb32b2eeab4218343918874544489366989243997aeb368cbba5bfa8",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7599729871248415,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9464-hsc-r.fits",
+        "sha256": "5775aff5356c48a375c19953a99618d80ef2f0ce5ab6bd7285b36fa663377a98",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.824287119458568,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "tract": 9465,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9465-hsc-r.fits",
+        "sha256": "122d529345ba4bc28ab76e9265ce2acf932c0ed85c6dd1bca28c941ff5d9c591",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8343435430909188,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "tract": 9466,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9466-hsc-r.fits",
+        "sha256": "ffc62d3de0fa1057409a8bfcf55949f3159b6ff1f2c1021a5335cea7cb96e958",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7996691901520453,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9467-hsc-r.fits",
+        "sha256": "78069c8a336288e9f835d8c59a6a93675e50d997c0fb5bfc4335ae4e7215683f",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.015665999500849046,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9468-hsc-r.fits",
+        "sha256": "855cdb082e5163feba1c1743a7be820872c87d9b99db99ac69778ea1bbeff248",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7833660391393071,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "tract": 9469,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9469-hsc-r.fits",
+        "sha256": "08564e52aac5be5c6c97b6a951f5c357de1907a1f1b8457048d4a994d1e1b200",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6047923385222196,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9470-hsc-r.fits",
+        "sha256": "6af5a28f866fc4a7644b4a2555ca16d2df36efa77fd974b9fc386d9997ae5d37",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5763147978683318,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "tract": 9471,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9471-hsc-r.fits",
+        "sha256": "0f5d164403219cdc0fec8effe7f6f91649cadf11a52326ded608c33e9e09498e",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7168071956035567,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9472-hsc-r.fits",
+        "sha256": "c286dcc5c73495e158c39f9e4f7e432bf1e7a67be0a5497e5d55c01ee5ce8156",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8039946757231572,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9473-hsc-r.fits",
+        "sha256": "1c5bf612b3f7b14b2d4a8b3bced178e13abd8f4fd1223bf7c378ade50d1a122a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6509545038586326,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "tract": 9474,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9474-hsc-r.fits",
+        "sha256": "3e8e83e0afbce866a7485d8015a7bd7fc027d1d5b4aef20e0b566284f1a8172d",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.724067884529746,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9480-hsc-r.fits",
+        "sha256": "bef2d08c22b4ecae2f69d07ef771b7ed8caa54b92d640d37a5f21333d41fa6ba",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.649865180306048,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9481-hsc-r.fits",
+        "sha256": "d8c85227307ef95b48924fd459277d86aca6afe26302c57da44817af8bea946c",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7393688187250118,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "tract": 9482,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9482-hsc-r.fits",
+        "sha256": "5bfa76bd577d6ce21ce27eb2cccd461292abe0b206569cb9a44ae9e4d5dbd2b5",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7458822493112206,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "tract": 9483,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9483-hsc-r.fits",
+        "sha256": "a8b6ebaed61b860d76dc7ec27ab24fde5e23e9245922bbfb70a75e93faf2dcfb",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.04599724977611611,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9484-hsc-r.fits",
+        "sha256": "59a802c29e2ced1e76c3ce5ff04027c1bdea83e60aa429a1cd4263c3c063d3db",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.697953970452221,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9489-hsc-r.fits",
+        "sha256": "44152d0f71ef34e73f803e0611e826f398be128440da2c729445a233397d33f6",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5544240923527137,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "tract": 9569,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9569-hsc-r.fits",
+        "sha256": "bffd92a9139eff1f1a427462f2d9564804aa30c8f2fdc77c04480d2bc482ad02",
+        "bytes": 18406080
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6313913383717565,
+      "shape": [
+        1429,
+        1429
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9570-hsc-r.fits",
+        "sha256": "8232e8a494d7fa9b466fe2417d98fa69c387f68c09cb71b92ec595937776e94b",
+        "bytes": 18432000
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5877089344222212,
+      "shape": [
+        1430,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "tract": 9571,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9571-hsc-r.fits",
+        "sha256": "3c2a16bb2225f7f82c875706ac8ed7cdb71cf1fa9efdaef84d326a68756c9a2d",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6996143814198398,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "tract": 9572,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9572-hsc-r.fits",
+        "sha256": "a8e0672d5d83f02328a6f7cc1476ed7b44ba94e028f2a600172304b3e3eacb32",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.39711226492192203,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "tract": 9692,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9692-hsc-r.fits",
+        "sha256": "f10061309b91f5ef3a023947b610a0ccd1b226b42f8ff5cd3388c57264acadde",
+        "bytes": 18432000
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7433473519487506,
+      "shape": [
+        1430,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "tract": 9693,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9693-hsc-r.fits",
+        "sha256": "61be90a71e09e601863aabed27190b748cbcdf301b4c4f3342dd785da4e3e4f8",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7438489432191322,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9694-hsc-r.fits",
+        "sha256": "5d806bba6d5525f76c1737863f2f447a22b8ee7d6502146afeb3e9c7fea86f56",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5870636711084577,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9695-hsc-r.fits",
+        "sha256": "d3ea884082f03e2061227aae6783abbde11d0b70b5056583dc7b0219641f648b",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5365799351103759,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9696-hsc-r.fits",
+        "sha256": "3e65e37d09b361e1b44fb431ce3a755a0f96d975e3c477b0972152671ba4d22d",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7255628905733874,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9697-hsc-r.fits",
+        "sha256": "37a34e6707aceac7709b2565c18e25309201abfdf6796164be76d576d5f8f4ae",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6517369963836024,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "tract": 9698,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9698-hsc-r.fits",
+        "sha256": "21b279383cd758d4962d95bd777ddc006aedc3da1b39a6bf297f867768c95948",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5868796703646249,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "tract": 9699,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9699-hsc-r.fits",
+        "sha256": "fcd72fd24511e6bea5bb8fe773aeff02f1cdb97e049fa3ac2567004c4cd914c9",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7073463275702604,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "tract": 9700,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9700-hsc-r.fits",
+        "sha256": "a26c6e02335ef61dbfcb60a0d417ec7d270dcce14851b885de3ace685ae1d254",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7298237801386857,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9701-hsc-r.fits",
+        "sha256": "2bbb2619af01ab71320891ffbb47b2e9bc00e8b6660c4657c67b451c74be44a7",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.0,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9702-hsc-r.fits",
+        "sha256": "e93dea18a88a7acd654700eb664ac003d7ee05d046da24f60acbf5deca4bf9c2",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6334093478250231,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9703-hsc-r.fits",
+        "sha256": "216ea579935b0f84f47857828b4e882cdfa0cdf26c533a79a906884dae6b79dc",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6484895790004257,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "tract": 9704,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9704-hsc-r.fits",
+        "sha256": "0720252f90bd827b3b881e6bf0f16b6514f2553a24a21c5c996d715e29264606",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6686577243610133,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "tract": 9706,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9706-hsc-r.fits",
+        "sha256": "f4c436b607a1293b50eceee55f8c9f811e8ff901eae3062f3488f90e90e7a3c3",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7132725217399815,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "tract": 9707,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9707-hsc-r.fits",
+        "sha256": "d9aaeb611b791d6794d3530be6385a7c034bccd3ef9a87db592bbc96333dea52",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7684663831619745,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "tract": 9708,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9708-hsc-r.fits",
+        "sha256": "c781416c9cdf41ab083ef87101d1f4a2e02796cf22d070c02ffe9c08734bef59",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7826833768051403,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "tract": 9709,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9709-hsc-r.fits",
+        "sha256": "73b052265276f0edf34560c1e15a9cd4ffcdecfd02b796760cda249ed506faaf",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6047835299759723,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9710-hsc-r.fits",
+        "sha256": "d2b8e9495e0340b51b6068c1098c166cfda7c9cd6bd2e23ad094a6dda7b05499",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.686915883276975,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "tract": 9711,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9711-hsc-r.fits",
+        "sha256": "1ad54852086543860134aee7d707092cd3e2d4f01adc6471c0f3ac4b4379a12e",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6049411050810631,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "tract": 9712,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9712-hsc-r.fits",
+        "sha256": "6af3ee4daa1ee0871fd9c0a96f4d4a30878f2fcfb500d2d33999013025489365",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7860521563810577,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9713-hsc-r.fits",
+        "sha256": "ebf492ad5d1f53728e1184e082c8bf3d40a046d706c001adb207585d5a93633e",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7983097378478764,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9714-hsc-r.fits",
+        "sha256": "55258cc2403a3fcab77f7a82d3322cd6fc730c9222bc0697ce99fee6a31101ac",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.684780789539362,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9715-hsc-r.fits",
+        "sha256": "84260550da38f0a43713e4faf3dafc3d85e7429861162f495edb2586a87838c0",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7418577224035586,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "tract": 9716,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9716-hsc-r.fits",
+        "sha256": "7750ccec20f0ebb0e900c8a2c82658a68245d5d1616d84f3f0845c7055382516",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.4067478357891234,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "tract": 9717,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9717-hsc-r.fits",
+        "sha256": "4f14ebe9692c8e748e721d205eb5d6f4463a511ecfcecb66576c5ef9abcfd72b",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6884123574116576,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "tract": 9723,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9723-hsc-r.fits",
+        "sha256": "9b8c3ada78f2cae2fac6e954101f58beb28035ddee1590ba70a93471f8af7526",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.5527812984775896,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9724-hsc-r.fits",
+        "sha256": "a21fceb15a14a8f311ce18824f1a8c8cf64e4640497d0006c0a84c68802acb6f",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.8099546359868264,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9725-hsc-r.fits",
+        "sha256": "758a2ad0596809b50f210bba2e4b281584f30e170a07f68544c98b16916fffb7",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7974469896793199,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9727-hsc-r.fits",
+        "sha256": "c522e8d37449c6276bdeaefd81b583a7e920ce49c6a34105850b730b62afc3f8",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.816996579347874,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "tract": 9731,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9731-hsc-r.fits",
+        "sha256": "bc1c144283625e703e5cc0cc776c403d891dd5aaee1b66beb68233bc301144bc",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7603360949757031,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "tract": 9732,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9732-hsc-r.fits",
+        "sha256": "4cc08f7a5986b47cb2ceeebc51970e341a46cab68d5e55c8d005ab7f36e28b75",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.2147092935056546,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "tract": 9811,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9811-hsc-r.fits",
+        "sha256": "d2cb2a99182dad60a5e2163a20920cb11793dfebe85e1df6148bb9e476e9d386",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.08416370193836954,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9812-hsc-r.fits",
+        "sha256": "9cc73761598d2e56ed95716b54d1088a5bb25db6ce30746b7f3828cc731be633",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6865542435171547,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "tract": 9814,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9814-hsc-r.fits",
+        "sha256": "50ac9dbb22ef876818279504895d40d85e138d4f330e83ff5f40f9082c8e2973",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6919396908200267,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9934-hsc-r.fits",
+        "sha256": "ca098158d2d736ef9f2048bc5cf6bdb058021a4be9ea11a2562c19fefe837f98",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6013604310315297,
+      "shape": [
+        1430,
+        1429
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9935",
+      "tract": 9935,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9935-hsc-r.fits",
+        "sha256": "737dfc30fa72a6c2a51089d21919c38b31deb381d4edd0051bf3eb86439cec99",
+        "bytes": 18432000
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6086160692454399,
+      "shape": [
+        1430,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9936",
+      "tract": 9936,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9936-hsc-r.fits",
+        "sha256": "b71133094097b72bcf27050a4023c8e20e71e98f67620cf35a53a610796b8306",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7386098156567016,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "tract": 9937,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9937-hsc-r.fits",
+        "sha256": "e25c118ea0600bb480bef9e4b987932f0de506284114cd782b5f4564389c8c94",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6824807802414521,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9939",
+      "tract": 9939,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9939-hsc-r.fits",
+        "sha256": "e2e3d393d9ae76d4b8b0532b10476569b5078712b82912d0edb8993bfa26a674",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.4080554155431692,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "tract": 9940,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9940-hsc-r.fits",
+        "sha256": "48af61d83cb2613bf2dd4c45758d7cc664aeac6bf2df6f278aa7db0f6d9fee44",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7736781063583023,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9943-hsc-r.fits",
+        "sha256": "695c37b89eb593bfd8fad7e96fb7c5ee43b4e7d4bdf6cfe93927716b88aa816e",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7943395303087395,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9944-hsc-r.fits",
+        "sha256": "598944c75b7203be7bbfdf48b2d8d60fc6e63354c3a202d711be5dbf0d6a2033",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.48544779223575585,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9945-hsc-r.fits",
+        "sha256": "aa2fb392af2a675ee8307c22cc7205a34740dad6d51bd878bc17041c57d67571",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7496894987447822,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9947-hsc-r.fits",
+        "sha256": "923e46d2916ae69436e80bbcb90a22d97715ceed251c91dd61c283bf747b1f8a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7945631695106853,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "tract": 9948,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9948-hsc-r.fits",
+        "sha256": "b2e365a672cd9e4ad59d709348c9d0f13dd8c277d0483b3a6ad52b29f4ba7859",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7968333276240904,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9950-hsc-r.fits",
+        "sha256": "1cff06e1ace79d05a086b190c9e65804b18d39f34ed29211b7bd1959e02ce38a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7673692297905034,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "tract": 9951,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9951-hsc-r.fits",
+        "sha256": "3de18f8ddd562e2847f49fd021a72f8999c921835d0447b3042e8e9dcd7b2563",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.4969248386323264,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "tract": 9952,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9952-hsc-r.fits",
+        "sha256": "d6084b819d657544c28f17aabfd1e558ac7311e3051c99268c3d27cf21d3be44",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7362070399859063,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9973-hsc-r.fits",
+        "sha256": "165834dae47116d96f8e1a756e971c10c62a069c22a25d3e34a3ee36c342f2f0",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7572995933387816,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-9974-hsc-r.fits",
+        "sha256": "f6468e98155d0aa5545b3740aa37457265a8fbb1758926d424fe81c742bd304a",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7186966287736056,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "tract": 10054,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-10054-hsc-r.fits",
+        "sha256": "0fb47d9b6d478a26c30d429375896ca229419d17646573ad5bd404965069442d",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.6288523932330791,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "tract": 10055,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-10055-hsc-r.fits",
+        "sha256": "95ede4e90de103f1b3e0260ac0e398585b1a051757f1dce193ac15ac1ae8501f",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.7210470425305975,
+      "shape": [
+        1429,
+        1430
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "tract": 10056,
+      "band": "r",
+      "unit": "nJy",
+      "scienceReady": true,
+      "referenceSurveyId": "hsc-ssp-pdr2",
+      "referenceSurvey": "HSC-SSP",
+      "referenceRelease": "PDR2",
+      "normalizedFits": {
+        "path": "pipeline/results/selected-region-comparisons/hsc-normalized/dp2-tract-10056-hsc-r.fits",
+        "sha256": "689bf62b4b928d3d3e14ffb2328cf16a7691dd8c847d9b447b12d420e1cdf78c",
+        "bytes": 18417600
+      },
+      "fluxMag0": 63095734448.0194,
+      "njyPerCount": 57.54399373369956,
+      "validPixelFraction": 0.2931660362031251,
+      "shape": [
+        1429,
+        1430
+      ]
+    }
+  ],
+  "failures": []
+}
