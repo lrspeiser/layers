@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
 import scorecard from "@/public/data/layers/goal-scorecard.json";
+// Slim companion: the full file carries a per-region block.
+import blockers from "@/public/data/layers/selected-regions/blocker-reassessment-slim.json";
 
 export const metadata: Metadata = {
   title: "What was asked, what exists, what was delivered",
@@ -145,6 +147,31 @@ export default function GoalsPage() {
             );
           })}
         </ol>
+
+        <section className={styles.policy}>
+          <h2>What actually stands between here and a comparison</h2>
+          <p>
+            No comparison has cleared every gate, and the count of what blocks them was written
+            before two of the blockers were worked on. Recomputed against current evidence, per
+            region:
+          </p>
+          <ul className={styles.blockers}>
+            {Object.entries(blockers.blockersRemaining as Record<string, number>)
+              .sort((a, b) => b[1] - a[1])
+              .map(([name, count]) => (
+                <li key={name}>
+                  <strong>{count}</strong> <span>{name}</span>
+                </li>
+              ))}
+          </ul>
+          <p className={styles.muted}>
+            {blockers.staleBlockersClearedByNewEvidence["bandpass transfer"]} regions now carry a
+            fitted per-region colour term that the reconciliation manifest still counts as
+            blocked. Resampling covariance is the one blocker on every region: it has been
+            measured everywhere and applied nowhere, and a systematic that is known but
+            uncorrected still blocks a quantitative claim.
+          </p>
+        </section>
 
         <footer className={styles.policy}>
           <h2>What none of this means</h2>

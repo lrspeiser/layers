@@ -1,0 +1,3034 @@
+{
+  "schemaVersion": "layers-blocker-reassessment-v1",
+  "question": "The reconciliation manifest lists three blockers on all 190 regions and was written before two of them were worked on. Which of them actually still stand?",
+  "method": "Per region, each retained blocker is checked against a named artefact. Bandpass transfer clears only where that region's own colour term was fitted, not because the filters were characterised globally. Injection/recovery clears only where a run yielded a measurement for that region. Resampling covariance does not clear on being measured, because the released error columns still carry uncorrected values -- knowing an error bar is twice too small is not fixing it.",
+  "regionsAssessed": 190,
+  "staleBlockersClearedByNewEvidence": {
+    "bandpass transfer": 156,
+    "injection/recovery QA": 9
+  },
+  "blockersRemaining": {
+    "bandpass transfer": 34,
+    "resampling covariance": 190,
+    "injection/recovery QA": 181,
+    "background matching": 27,
+    "flux-unit transfer": 42,
+    "PSF matching": 1
+  },
+  "comparisonReady": 0,
+  "finding": "The manifest overstates what is left. Bandpass transfer is listed against all 190 regions but 156 of them have a fitted per-region colour term. What genuinely remains is narrower and more specific: injection/recovery QA on 181 regions, and a resampling-covariance correction that has been measured everywhere and applied nowhere. comparisonReady stays 0, which is the correct answer -- this reassessment exists to say what the remaining work is, not to shrink it.",
+  "whatWouldClearTheRest": {
+    "injection/recovery QA": "Run injection/recovery on the regions that lack it. 24 were attempted and 9 yielded a measurement, so the method needs to work on fainter and more crowded fields before this scales to 190.",
+    "resampling covariance": "Apply the measured factor to rubin_flux_err_njy, reference_flux_err_njy and the _snr columns, then republish. The factor is size-dependent rather than constant, so this changes every row and the release checksums with it."
+  },
+  "reproduce": "python pipeline/reassess_comparison_blockers.py",
+  "regions": [
+    {
+      "regionId": "dp2-tract-10053",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10215",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "clearedPreviously": [
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "PSF matching": "unchanged",
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8984",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8986",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8994",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8995",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8996",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-8998",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9125",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9126",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9209",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9212",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9217",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9233",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9236",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9448",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9479",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9488",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9691",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9719",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9722",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "clearedPreviously": [
+        "PSF matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9728",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "clearedPreviously": [
+        "PSF matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "background matching": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer",
+        "injection/recovery QA"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9954",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9955",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9956",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9957",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9958",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9959",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9960",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9965",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9966",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching"
+      ],
+      "clearedByNewEvidence": [],
+      "stillBlocked": {
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
+        "flux-unit transfer": "unchanged",
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9968",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9969",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "clearedPreviously": [
+        "PSF matching",
+        "background matching",
+        "flux-unit transfer"
+      ],
+      "clearedByNewEvidence": [
+        "bandpass transfer"
+      ],
+      "stillBlocked": {
+        "resampling covariance": "measured but not corrected: flux errors are understated by about a factor of two and the released columns still carry the old values",
+        "injection/recovery QA": "no injection/recovery run yielded a measurement for this region"
+      },
+      "comparisonReady": false
+    }
+  ]
+}
