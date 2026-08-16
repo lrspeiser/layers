@@ -21,5 +21,13 @@
   "unreachableAfterAcquisition": 12,
   "dispositionOfShortfall": "Corrected 2026-08-16 by recounting from the acquisition manifests. This file previously published 167 validated and 6 unreachable. Both summed to the 173 ceiling, which is why the error survived every consistency check: 167 was derived as 173 minus 6 rather than counted, and an inferred number is always consistent with the numbers it was inferred from. Counted from the manifests the split is 161 and 12. Three acquisition passes ran: the primary run, then +11 regions with a band never tried, then +3 and +1 by retrying regions whose first alternative failed. The 12 remaining failed validation on every band DP2 holds for them, so the shortfall is exhausted rather than outstanding, and the 26 regions with a single validated band were never given a second attempt because the cached SIA discovery responses show DP2 holds exactly one band for each.",
   "countedFrom": "the per-band Rubin acquisition manifests, counting entries whose status is complete",
-  "verify": "python pipeline/verify_second_band_count.py --check"
+  "verify": "python pipeline/verify_second_band_count.py --check",
+  "failedBandsInspected": {
+    "attempts": 18,
+    "regions": 12,
+    "allZeroFinitePixels": true,
+    "finding": "Every failed second-band mosaic contains zero finite pixels. The image, variance and mask planes are present, the shapes agree, the WCS is present and the checksum verifies -- the science array is simply all NaN. This was checked because a mask-convention bug elsewhere in this project made perfectly good HSC pixels report a valid fraction of zero, and the symptom here is identical. It is not the same cause: those HSC images held real flux behind an over-aggressive mask, and these hold nothing.",
+    "consequence": "DP2 listing a band for a tract does not mean the band covers a given position within it. The SIA discovery response is per tract; the coadd patches overlapping a 4-arcmin cutout can be empty in that band. So the 12 are an archive limit rather than a pipeline failure, and G0's 161 is genuinely exhausted against the 173 ceiling.",
+    "verify": "python pipeline/verify_second_band_count.py"
+  }
 }

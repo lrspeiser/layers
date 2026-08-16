@@ -1704,3 +1704,32 @@ exits non-zero if the published figures drift again. The regression floor in
 into the test, because lowering a threshold to make a suite pass is exactly the
 move that should not go unexplained — nothing was un-acquired, a number that was
 never measured was replaced by one that was.
+
+## 35. The twelve failed second bands are empty, not masked
+
+§34 separated G0's shortfall into 26 regions where DP2 holds a single band and 12
+where a second band exists and validation rejected it, and flagged the second
+group as "a pipeline result, not an archive limit". That was worth suspecting:
+§31 found a mask-convention bug that made good HSC pixels report a valid fraction
+of exactly zero, and these 12 carry the same symptom — `validPixelFraction: 0.0`
+with image, variance and mask planes all present, shapes agreeing, WCS present
+and checksum verified.
+
+**It is not the same cause.** All 18 failed attempts across those 12 regions have
+**zero finite pixels**. The science array is entirely NaN. The HSC images held
+real flux behind an over-aggressive mask; these hold nothing.
+
+So the validation was right, and G0's 161 is genuinely exhausted against the 173
+ceiling. The suspicion was worth testing and the answer is no.
+
+**What it does reveal.** DP2 listing a band for a tract does not mean that band
+covers a given position within it. The SIA discovery response is per tract, while
+the coadd patches overlapping a 4-arcmin cutout can be empty in that band. That
+is the tenth instance in this project of declared coverage overstating measured
+coverage, and the first at sub-tract granularity — the previous nine were all
+survey-level footprint claims.
+
+It also means `dp2-band-availability.json`'s ceiling of 173, derived from the
+per-tract SIA responses, is itself an upper bound rather than a count of usable
+data. The true number of regions where a second band is *fetchable at our
+positions* is 161, and the 12 are the measured difference.
