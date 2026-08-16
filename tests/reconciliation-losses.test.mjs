@@ -23,7 +23,13 @@ test("the audit reproduces the established validated counts", () => {
   // If it cannot reproduce these it is measuring something else, and its loss
   // counts mean nothing. An earlier version counted 200 DES regions against a
   // true 148 and invented 57 losses.
-  const expected = { "legacy-surveys-dr10": 198, "des-dr2": 148, "panstarrs-dr2": 196 };
+  // HSC added 2026-08-16 once PDR2 science coadds were fetched with data rights.
+  const expected = {
+    "legacy-surveys-dr10": 198,
+    "des-dr2": 148,
+    "panstarrs-dr2": 196,
+    "hsc-ssp-pdr2": 110,
+  };
   for (const survey of losses.surveys) {
     assert.equal(
       survey.validatedPixels,
@@ -58,9 +64,19 @@ test("the four Rubin-side gaps are named, since they are not an archive gap", ()
     "dp2-tract-9935",
     "dp2-tract-9936",
   ]);
-  for (const survey of losses.surveys) {
-    for (const region of losses.regionsWithNoRubinProduct) {
-      assert.ok(region in survey.lostRegions, `${region} should be lost for ${survey.surveyId} too`);
+  // A Rubin-side gap can only show up as a loss for a survey that actually
+  // reached that region. HSC covers 110 of the 200 and never attempted 8999, so
+  // requiring it there would assert a loss that could not have happened. The
+  // claim being tested is that these regions fail against every reference that
+  // *tried* them, and that at least two independent references did.
+  for (const region of losses.regionsWithNoRubinProduct) {
+    const attempted = losses.surveys.filter((s) => region in s.lostRegions);
+    assert.ok(
+      attempted.length >= 2,
+      `${region} should fail against at least two references, not ${attempted.length}`,
+    );
+    for (const survey of attempted) {
+      assert.match(survey.lostRegions[region], /no Rubin product/);
     }
   }
 });
