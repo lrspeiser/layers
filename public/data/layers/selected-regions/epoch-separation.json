@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "layers-epoch-separation-v1",
+  "question": "The difference maps compare Rubin against surveys taken years earlier. How many years, and what can that alone produce?",
+  "rubinEpochJyear": 2025.5,
+  "rubinEpochScatterYears": 0.37065,
+  "rubinEpochBasis": "Fitted from Gaia proper motions rather than read from a header. The cutouts carry no usable observation date: Rubin's DATE is when the file was written, HSC's DATE-OBS is a J2000 placeholder, and the Legacy cutouts have no date keyword at all. The field-to-field scatter of 0.37 yr is the evidence the fit measures an epoch, and it agrees with DP2's stated April 2025 to January 2026 window.",
+  "pairs": {
+    "legacy-surveys-dr10": {
+      "label": "Legacy Surveys DR10",
+      "spanFrom": 2014.0,
+      "spanTo": 2019.0,
+      "basis": "DECaLS, BASS and MzLS observing seasons feeding DR10",
+      "referenceMidpointJyear": 2016.5,
+      "yearsFromRubin": 9.0,
+      "properMotionMovingHalfAPsfMasPerYear": 44.4
+    },
+    "panstarrs-dr2": {
+      "label": "Pan-STARRS1 DR2",
+      "spanFrom": 2010.0,
+      "spanTo": 2014.0,
+      "basis": "PS1 3-pi survey observing span",
+      "referenceMidpointJyear": 2012.0,
+      "yearsFromRubin": 13.5,
+      "properMotionMovingHalfAPsfMasPerYear": 29.6
+    },
+    "hsc-ssp-pdr2": {
+      "label": "HSC-SSP PDR2",
+      "spanFrom": 2014.0,
+      "spanTo": 2019.0,
+      "basis": "HSC-SSP wide observing seasons through PDR2",
+      "referenceMidpointJyear": 2016.5,
+      "yearsFromRubin": 9.0,
+      "properMotionMovingHalfAPsfMasPerYear": 44.4
+    },
+    "des-dr2": {
+      "label": "DES DR2",
+      "spanFrom": 2013.0,
+      "spanTo": 2019.0,
+      "basis": "DES six-year survey",
+      "referenceMidpointJyear": 2016.0,
+      "yearsFromRubin": 9.5,
+      "properMotionMovingHalfAPsfMasPerYear": 42.1
+    }
+  },
+  "whatTimeAloneProduces": [
+    {
+      "cause": "proper motion",
+      "effect": "A moving star is in two places. Differencing a shifted point source gives a dipole -- bright on one side, dark on the other -- which is a distinctive signature and is not a change in brightness."
+    },
+    {
+      "cause": "variability",
+      "effect": "An intrinsically variable star is genuinely a different brightness in the two epochs. This is a real change on the sky and not an instrumental artefact, but it is also not evidence that the two surveys disagree."
+    },
+    {
+      "cause": "moving objects",
+      "effect": "An asteroid is present in one epoch and absent in the other."
+    }
+  ],
+  "consequence": "The anomaly scanner's boring explanations are proximity to a mask edge and wing residuals on a bright source. Neither covers time. A variable star, a high-proper-motion star or an asteroid would currently be ranked as having no boring explanation, which is the highest-interest category. Nothing in the candidate lists should be read as a discovery until an epoch check is applied.",
+  "reproduce": "python pipeline/measure_epoch_separation.py"
+}
