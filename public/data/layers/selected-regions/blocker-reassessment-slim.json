@@ -28,7 +28,7 @@
   ],
   "scienceClaimAllowed": false,
   "whatWouldClearTheRest": {
-    "injection/recovery QA": "Run injection/recovery on the regions that lack it. 24 were attempted and 9 yielded a measurement, so the method needs to work on fainter and more crowded fields before this scales to 190.",
+    "injection/recovery QA": "Run it per region. This is compute, not method: measure_catalogue_reliability.py defaults to --regions 24, sampled evenly across the sky, because the *global* rate converges long before 190 and a full pass takes hours. Of those 24, 9 yielded a measurement; the other 15 are genuinely too sparse or too heavily masked to define their own flux ratio. The remaining 166 were never attempted. A per-region completeness is the right standard for a per-region readiness flag -- depth, seeing and crowding all vary by field -- so the fix is to run the full pass, not to relax the rule.",
     "resampling covariance": "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, reference_flux_err_njy and the _snr columns and the catalogue republished; noise_inflation_factor ships alongside so the uncorrected values remain recoverable. This is what moved comparisonReady off zero."
   },
   "reproduce": "python pipeline/reassess_comparison_blockers.py"

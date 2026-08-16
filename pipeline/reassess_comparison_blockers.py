@@ -26,9 +26,18 @@ outstanding either. The number moved because the work was done, not because the
 rule was loosened; the rule is still that each blocker clears only against a
 named artefact.
 
-Injection/recovery QA is now the binding constraint, outstanding on 181 regions:
-24 were attempted and 9 yielded a measurement, so the method has to work on
-fainter and more crowded fields before it scales.
+Injection/recovery QA is now the binding constraint, outstanding on 181 regions,
+and the reason is narrower than it first looked. It is compute, not method:
+measure_catalogue_reliability.py samples 24 regions evenly by default, because
+the *global* completeness and false-positive rate converge long before 190 and a
+full pass takes hours. Of those 24, 9 produced a measurement and 15 are genuinely
+too sparse or too heavily masked to define their own flux ratio. The other 166
+were never attempted at all.
+
+A per-region completeness is the right standard for a per-region readiness flag,
+since depth, seeing and crowding all vary by field. So the fix is to run the full
+pass rather than to relax the rule -- and the honest statement is that most of
+this blocker is unspent compute, not an unsolved problem.
 
 `comparisonReady` counts gates, not conclusions. The reconciliation policy still
 sets `scienceClaimAllowed` false, and a region clearing every gate this pipeline
@@ -99,7 +108,10 @@ def assess(region: dict, ev: dict) -> dict:
                 now_cleared.append(blocker)
             else:
                 still[blocker] = (
-                    "no injection/recovery run yielded a measurement for this region"
+                    "no per-region injection/recovery measurement: the QA samples 24 regions "
+                    "evenly by default because the global rate converges long before 190 and "
+                    "a full pass takes hours, so most regions were never attempted rather "
+                    "than attempted and failed. Compute, not method."
                 )
         elif blocker == "resampling covariance":
             if ev["covarianceMeasured"] and ev["covarianceApplied"]:
@@ -190,9 +202,14 @@ def main() -> None:
         "scienceClaimAllowed": False,
         "whatWouldClearTheRest": {
             "injection/recovery QA": (
-                "Run injection/recovery on the regions that lack it. 24 were attempted and 9 "
-                "yielded a measurement, so the method needs to work on fainter and more "
-                "crowded fields before this scales to 190."
+                "Run it per region. This is compute, not method: measure_catalogue_reliability.py "
+                "defaults to --regions 24, sampled evenly across the sky, because the *global* "
+                "rate converges long before 190 and a full pass takes hours. Of those 24, 9 "
+                "yielded a measurement; the other 15 are genuinely too sparse or too heavily "
+                "masked to define their own flux ratio. The remaining 166 were never attempted. "
+                "A per-region completeness is the right standard for a per-region readiness flag "
+                "-- depth, seeing and crowding all vary by field -- so the fix is to run the full "
+                "pass, not to relax the rule."
             ),
             "resampling covariance": (
                 "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, "
