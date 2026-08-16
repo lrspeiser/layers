@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-synthetic-bandpass-v1",
-  "generatedAt": "2026-08-16T04:34:57.434317+00:00",
+  "generatedAt": "2026-08-16T15:03:26.307452+00:00",
   "question": "What colour term do these filters actually require, independent of any observation?",
   "method": {
     "formula": "AB magnitude through a photon-counting bandpass: -2.5 log10(int f_nu T dv/v / int T dv/v) - 48.60",
@@ -9,9 +9,9 @@
     "coverageRequirement": "A spectrum must span the whole filter or it is skipped; a truncated integral returns a magnitude for a band the star was never measured through."
   },
   "counts": {
-    "filtersLoaded": 5,
+    "filtersLoaded": 7,
     "standardsIntegrated": 11,
-    "pairsFitted": 3
+    "pairsFitted": 5
   },
   "predictedColourTerms": {
     "legacy-surveys-dr10": {
@@ -49,6 +49,30 @@
       "predictedZeropointOffsetMag": -0.00025,
       "residualRmsMag": 0.00024,
       "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
+    },
+    "hsc-ssp-pdr2": {
+      "referenceFilter": "hsc-r2",
+      "standards": 11,
+      "colourRange_g_minus_r": [
+        0.2419,
+        0.6012
+      ],
+      "predictedColourTermPerMag": 0.00509,
+      "predictedZeropointOffsetMag": -0.00015,
+      "residualRmsMag": 0.00051,
+      "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
+    },
+    "hsc-ssp-pdr2-original-r": {
+      "referenceFilter": "hsc-r",
+      "standards": 11,
+      "colourRange_g_minus_r": [
+        0.2419,
+        0.6012
+      ],
+      "predictedColourTermPerMag": 0.00321,
+      "predictedZeropointOffsetMag": -8e-05,
+      "residualRmsMag": 0.00048,
+      "meaning": "The magnitude difference these two filters must produce for a real stellar spectrum, with no observational error in it. Slope is the colour term; intercept is the offset at zero Rubin g-r."
     }
   },
   "comparisonToEmpirical": {
@@ -70,7 +94,9 @@
         "rubin-g": 9.61579,
         "rubin-i": 9.26316,
         "decam-r": 9.33069,
-        "ps1-r": 9.35114
+        "ps1-r": 9.35114,
+        "hsc-r": 9.35014,
+        "hsc-r2": 9.35058
       },
       "rubinColour_g_minus_i": 0.35263,
       "rubinColour_g_minus_r": 0.26643
@@ -82,7 +108,9 @@
         "rubin-g": 9.28983,
         "rubin-i": 8.43805,
         "decam-r": 8.64005,
-        "ps1-r": 8.69299
+        "ps1-r": 8.69299,
+        "hsc-r": 8.68983,
+        "hsc-r2": 8.69086
       },
       "rubinColour_g_minus_i": 0.85178,
       "rubinColour_g_minus_r": 0.60119
@@ -94,7 +122,9 @@
         "rubin-g": 9.31202,
         "rubin-i": 8.90933,
         "decam-r": 8.98833,
-        "ps1-r": 9.01175
+        "ps1-r": 9.01175,
+        "hsc-r": 9.01051,
+        "hsc-r2": 9.01101
       },
       "rubinColour_g_minus_i": 0.4027,
       "rubinColour_g_minus_r": 0.30227
@@ -106,7 +136,9 @@
         "rubin-g": 9.80537,
         "rubin-i": 9.48827,
         "decam-r": 9.54684,
-        "ps1-r": 9.56499
+        "ps1-r": 9.56499,
+        "hsc-r": 9.56393,
+        "hsc-r2": 9.5643
       },
       "rubinColour_g_minus_i": 0.3171,
       "rubinColour_g_minus_r": 0.2419
@@ -118,7 +150,9 @@
         "rubin-g": 8.5753,
         "rubin-i": 8.12172,
         "decam-r": 8.21137,
-        "ps1-r": 8.23781
+        "ps1-r": 8.23781,
+        "hsc-r": 8.23641,
+        "hsc-r2": 8.23696
       },
       "rubinColour_g_minus_i": 0.45358,
       "rubinColour_g_minus_r": 0.3397
@@ -130,7 +164,9 @@
         "rubin-g": 8.89663,
         "rubin-i": 8.51133,
         "decam-r": 8.58816,
-        "ps1-r": 8.61112
+        "ps1-r": 8.61112,
+        "hsc-r": 8.60987,
+        "hsc-r2": 8.61035
       },
       "rubinColour_g_minus_i": 0.3853,
       "rubinColour_g_minus_r": 0.28743
@@ -142,7 +178,9 @@
         "rubin-g": 9.35432,
         "rubin-i": 8.70319,
         "decam-r": 8.86291,
-        "ps1-r": 8.90467
+        "ps1-r": 8.90467,
+        "hsc-r": 8.90225,
+        "hsc-r2": 8.90309
       },
       "rubinColour_g_minus_i": 0.65113,
       "rubinColour_g_minus_r": 0.45309
@@ -154,7 +192,9 @@
         "rubin-g": 13.72941,
         "rubin-i": 13.17996,
         "decam-r": 13.27664,
-        "ps1-r": 13.307
+        "ps1-r": 13.307,
+        "hsc-r": 13.30587,
+        "hsc-r2": 13.30658
       },
       "rubinColour_g_minus_i": 0.54945,
       "rubinColour_g_minus_r": 0.42511
@@ -166,7 +206,9 @@
         "rubin-g": 13.26529,
         "rubin-i": 12.71782,
         "decam-r": 12.81678,
-        "ps1-r": 12.84765
+        "ps1-r": 12.84765,
+        "hsc-r": 12.8463,
+        "hsc-r2": 12.84698
       },
       "rubinColour_g_minus_i": 0.54747,
       "rubinColour_g_minus_r": 0.42029
@@ -178,7 +220,9 @@
         "rubin-g": 16.48633,
         "rubin-i": 15.90702,
         "decam-r": 16.01174,
-        "ps1-r": 16.04254
+        "ps1-r": 16.04254,
+        "hsc-r": 16.04162,
+        "hsc-r2": 16.04236
       },
       "rubinColour_g_minus_i": 0.57931,
       "rubinColour_g_minus_r": 0.44642
@@ -190,7 +234,9 @@
         "rubin-g": -26.49116,
         "rubin-i": -27.04052,
         "decam-r": -26.95971,
-        "ps1-r": -26.93146
+        "ps1-r": -26.93146,
+        "hsc-r": -26.93163,
+        "hsc-r2": -26.93077
       },
       "rubinColour_g_minus_i": 0.54936,
       "rubinColour_g_minus_r": 0.4429

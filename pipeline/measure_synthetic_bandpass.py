@@ -58,12 +58,24 @@ FILTERS = {
     "rubin-i": "LSST/LSST.i",
     "decam-r": "CTIO/DECam.r",
     "ps1-r": "PAN-STARRS/PS1.r",
+    # HSC PDR2 wide carries BOTH r filters: the original and the r2
+    # replacement, 53 and 57 of the 110 fetched regions respectively. One
+    # colour term for "HSC r" would be wrong for whichever half it did not
+    # describe, so both are measured and applied per region by filter.
+    "hsc-r": "Subaru/HSC.r",
+    "hsc-r2": "Subaru/HSC.r2_filter",
 }
 # Reference r filters, keyed by the survey ids this project already uses.
 PAIRS = {
     "legacy-surveys-dr10": "decam-r",
     "des-dr2": "decam-r",
     "panstarrs-dr2": "ps1-r",
+    # Nominal pairing; the per-region filter in the HSC manifest decides which
+    # of hsc-r / hsc-r2 actually applies to a given field.
+    "hsc-ssp-pdr2": "hsc-r2",
+    # The 53 regions whose coadds carry the original r rather than r2. Keyed
+    # separately so both terms exist and the per-region filter picks one.
+    "hsc-ssp-pdr2-original-r": "hsc-r",
 }
 # A spread of spectral types, so the colour term is sampled across the range of
 # real sources rather than fitted at one colour.

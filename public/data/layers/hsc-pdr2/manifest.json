@@ -1,0 +1,3817 @@
+{
+  "schemaVersion": "layers-hsc-pdr2-v1",
+  "generatedAt": "2026-08-16T15:02:36.103801+00:00",
+  "surveyId": "hsc-ssp-pdr2",
+  "release": "PDR2",
+  "rerun": "pdr2_wide",
+  "band": "HSC-R",
+  "cutoutArcmin": 4.0,
+  "regionsOutsideFootprint": 38,
+  "regionsWithNoCoadd": 52,
+  "regionsWithNoCoaddIds": [
+    "dp2-tract-10079",
+    "dp2-tract-10321",
+    "dp2-tract-9207",
+    "dp2-tract-9476",
+    "dp2-tract-8984",
+    "dp2-tract-8985",
+    "dp2-tract-8986",
+    "dp2-tract-8994",
+    "dp2-tract-8995",
+    "dp2-tract-8996",
+    "dp2-tract-8997",
+    "dp2-tract-8998",
+    "dp2-tract-8999",
+    "dp2-tract-9125",
+    "dp2-tract-9126",
+    "dp2-tract-9209",
+    "dp2-tract-9210",
+    "dp2-tract-9212",
+    "dp2-tract-9214",
+    "dp2-tract-9217",
+    "dp2-tract-9218",
+    "dp2-tract-9219",
+    "dp2-tract-9220",
+    "dp2-tract-9221",
+    "dp2-tract-9222",
+    "dp2-tract-9223",
+    "dp2-tract-9233",
+    "dp2-tract-9236",
+    "dp2-tract-9242",
+    "dp2-tract-9448",
+    "dp2-tract-9479",
+    "dp2-tract-9485",
+    "dp2-tract-9488",
+    "dp2-tract-9691",
+    "dp2-tract-9719",
+    "dp2-tract-9722",
+    "dp2-tract-9728",
+    "dp2-tract-9954",
+    "dp2-tract-9955",
+    "dp2-tract-9956",
+    "dp2-tract-9957",
+    "dp2-tract-9958",
+    "dp2-tract-9959",
+    "dp2-tract-9960",
+    "dp2-tract-9964",
+    "dp2-tract-9965",
+    "dp2-tract-9966",
+    "dp2-tract-9967",
+    "dp2-tract-9968",
+    "dp2-tract-9969",
+    "dp2-tract-10053",
+    "dp2-tract-10215"
+  ],
+  "regionsAttempted": 162,
+  "regionsValidated": 110,
+  "regions": [
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "center": [
+        28.14812,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "deb05323cb3df51401991bfff66c819a65ef51002ceccb8b3771f1239f5bddcc",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.011360542848706245
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "center": [
+        340.740713,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9f26d4e93f70a1e1f42493ac0de7016a68709836089a5e24ef6e666be1db3dc2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008599817752838135
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "center": [
+        8.888861,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "59357b20b878962d8112cc26d779d38c8ec48d00ea4a8039ada77105ecc60447",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007175372214987874
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "center": [
+        349.629602,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "b592e7444524f81f1da91da3286998fa65abd8ff8c6337600e6eaeabfb1c5fe2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.012239136267453432
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "center": [
+        8.925592,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "478c27426bc0c85b7f1e2c09a070f337fbcae40c960875f8cf29e12a45aab21b",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.02260099072009325
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "center": [
+        20.826418,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "23d8cb299bb69bddfabb21b2e1434c1a0e9a1f06de55e512e21f1222552c99e3",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010518654249608517
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "center": [
+        150.247906,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "dd348ef1d996bb903b4cca6f5830a79c5f8a8a6972006eee221456a3812af0ec",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00923354597762227
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "center": [
+        358.512369,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "89a8425e66dc0791de407b5a26c96396ed49f5fb86a384981d2ac60bb88ae229",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.012628109194338322
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "tract": 9226,
+      "center": [
+        359.999972,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "42e56010e723b946a4dc9958ef4f78e1aa502173c5bbe61df8047e19411346d3",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005992862628772855
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "center": [
+        1.481454,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "b64c3c5fd8612f2e64b5c3b99af3c1376efe27fea1aaf818c9393f43345a6b7b",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00996215594932437
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "center": [
+        2.962935,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "a23ab7eb16fecd44a6b6750f37e1209e011f2c953bf940013a9476cac919c9fa",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.013345739338546991
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "center": [
+        4.444417,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "67275d82b2a97ce96fa116342adc94ae53131526c09419caa62d2b93bb69e692",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015571870375424623
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "tract": 9230,
+      "center": [
+        5.925898,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "3d9a1ab972560a7d3b7cd21f6acef06e939bbde1af772c211351a9297c472c27",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008373691700398922
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "center": [
+        7.40738,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "453376f66d3f77f04e3bf291aeba5c94690a9583b4d6cb9e1070ab7f69a6f9b9",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.0066274411510676146
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "center": [
+        8.888861,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "b2451a060285e676541c8aad9049e58f95786fc4aab8e71a5385c2f5ebacff21",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015950853005051613
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "tract": 9237,
+      "center": [
+        16.296269,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9df7d2ea8a5df20943084a10060a8b7418bc78f49c94c6912a704f62018070d4",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006670266389846802
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "center": [
+        17.77775,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "c96f53085378356fa35897cf816531268c89f0bf28e60e08bd5855ea8ce3dedd",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005538856377825141
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "center": [
+        19.259231,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "8ee5724541b32ac1177d3f1c904f199dd590dc381e0b5a13cf3d37a560dc1ce4",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.0055760962422937155
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "tract": 9240,
+      "center": [
+        20.740713,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "7b76d7221d71dd7392213e44996ee4d9ec2ff955cb31d67fc6df58891e5ddd6f",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006589295109733939
+    },
+    {
+      "regionId": "dp2-tract-9241",
+      "tract": 9241,
+      "center": [
+        22.222194,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "a3eeee0b6842d1cee0ce5b490f4a567e0256f109326c1b170ed1a732a2a38424",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010396264493465424
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "tract": 9327,
+      "center": [
+        150.133962,
+        -0.274479
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9b3a7003acc2b56b05165fcabb851cd39b3923a0301a977aceb4272ac72b19b3",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.014021094422787428
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "tract": 9328,
+      "center": [
+        151.111083,
+        -0.396072
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9c8a65d65d17266f7efa6d37c73bc69a4ed0820d6132061dea4a823ca0593227",
+      "bytes": 24566400,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1430,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.016232257708907127
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "center": [
+        330.370343,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "ea1b77bef83ac5df9886e2afbf001ea7ee5745a019084d97aa0c6582ae0954f3",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007797241443768144
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "center": [
+        331.851824,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "7bf555d925abbdf0432408285bf85980bf6ae6b0b4e0cdd74b0ca4f392fd97e9",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.011143132578581572
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "center": [
+        333.333306,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "8c3d4ff53c3d0fc0cc219a4ae13d1ab8699e50cae4e6d931c3623966946b6ac2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.013263659551739693
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "center": [
+        334.814787,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "42bb66986206cc3cc3a7cb57c596fb73f5b81280297b6715614c13a10799beb0",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009056766983121634
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "center": [
+        336.296269,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e6fe2f9e63455e2cd9964d4a694aa5ba63de45c9c618e55c8c9e3194df937ef4",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005836833734065294
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "center": [
+        337.77775,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "b8a747293d425f1af34d4f6a9e20cfa9e3a7c3cde262253f179f8aced0403d26",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.01221205573529005
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "tract": 9455,
+      "center": [
+        339.259231,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "4d7f4ecf41186c72b9dc2ebc89becce1d0b7b3f31a5cb10702ff24c30c63c56e",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00969763332977891
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "center": [
+        342.222194,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "f61f77fee616b17cfc962fe886475ea7c671565dcb47cb187a705db771346adc",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005718352505937219
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "center": [
+        343.703676,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "090c8a335ff486df68d424aeea3fb1690d5a7dab7574dfd613fb55da7611035f",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.018094735220074654
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "tract": 9459,
+      "center": [
+        345.185157,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "1cb9c4483f91c40fe0611e4a2c7b59cb8777898a97e7e38cd8c1e6225eee76cf",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.03576403670012951
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "center": [
+        346.666639,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "994adbc0ef1bb2f9ed9805dce204c357abd90ab45be04376b1a6673267467e9d",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008414363022893667
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "tract": 9461,
+      "center": [
+        348.14812,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e6b6adc4b2e1d154a5e79e97fba98cb9bd801575b410730bb872e8353d06b028",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005769550101831555
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "tract": 9462,
+      "center": [
+        349.629602,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2d3c39faab84b92dd964da9bb27610bc39486d1c99260e7640ff06b5a33bd7af",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010029670782387257
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "center": [
+        351.111083,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "f2adf65f72248f8e8639ada0588d795f8c9b95069753c2793c38b8fdbbc83c05",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010019521228969097
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "center": [
+        352.592565,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "80bfc02b6f3b3d05e9fc82217a19931a8c43b7de8be98d8b1d73b2644b3d97e5",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.004120106343179941
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "tract": 9465,
+      "center": [
+        354.074046,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "96b74686935597b56afd58d871a7bba036e70517721943e189b73150c31a1e5a",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.004805188626050949
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "tract": 9466,
+      "center": [
+        355.555528,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "6aeefe63196febe86336a3bf4cb04fdbac1432f1bbc031981692aa10334378e2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006674374686554074
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "center": [
+        357.037009,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e93a8ae0bf69ee44f8e950aa9fe0e256fe9a15816f7f0153a0acc77410e75670",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.1345347836613655
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "center": [
+        358.518491,
+        -0.743748
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "20dcbd1a252e8a6cae64789bfea25848dbcdb17578ae0fd2aa8fcf67ae5e11ef",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010826396755874157
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "tract": 9469,
+      "center": [
+        359.999972,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "818965eb42d4727457b0f198cbc1b93ed8fff1e7ee856a2c376729c9fb2b88d2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015524727758020163
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "center": [
+        1.481454,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "cef6ce0e9bb7fc4376491ee6739ccc09e6f9fe3a70072dfe6fc4cfa77e67be86",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.011871763970702887
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "tract": 9471,
+      "center": [
+        2.962935,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "8207db8b686cd7327ded872bf39747a63328ab6aff74786980b212de4a559d8c",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.011327967513352633
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "center": [
+        4.444417,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "27703b724ff83a7b5b9a1e6be8a048f24e666ddbe44fad822387642e951eb9ab",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007142655085772276
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "center": [
+        5.925898,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2ce15300a5ef53d9d67967a2e5bad2a55225c54f2963fd6a39b6473d51697283",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009257258381694555
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "tract": 9474,
+      "center": [
+        7.40738,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "06ded8191a32268d8127b70ef60aea94418ffaee28eef5fd4ad222446fda1d7a",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009955393616110086
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "center": [
+        16.296269,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "6762891ff3bd14f6c97b4dd6ba8312d8f246b77f985f546482d2a1bb7aab9eb0",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00819385051727295
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "center": [
+        17.77775,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "868ba15e7a8e8ec5cf47595a89ae0c5786da5ec8622e08b688046a46d68f7057",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.0054165704641491175
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "tract": 9482,
+      "center": [
+        19.259231,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9282361fd04a97c4f140e30e498077f08658d71a04c8df9a471d7ea26c7084ee",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008501979056745768
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "tract": 9483,
+      "center": [
+        20.740713,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "188d2d400f2a2e162f2caf7cb6d156ee4f115b7f1cdc3dc4aef05186d5deadcd",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.03185788914561272
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "center": [
+        22.222194,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "bc7a26ce40809c8253cc296a0e0734c09c848434032980401c7689e713d7aa50",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.013965005986392498
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "center": [
+        29.629602,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "eb613d34665bfb1c343d7c40deec687bb97660193bb2c30f385b685d5b76bb9d",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.059940826147794724
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "tract": 9569,
+      "center": [
+        148.176627,
+        0.93677
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "6fb15783d8761723cd94fa8f9e1413277246b1270d737024bab9013013807fa7",
+      "bytes": 24531840,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1429
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007478812243789434
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "center": [
+        149.650433,
+        0.77505
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "567064e4d4343de75f224d6f5e27c0d13b741c7ce04ba0266425369ce6b15e0e",
+      "bytes": 24566400,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1430,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.01663951948285103
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "tract": 9571,
+      "center": [
+        151.111083,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "20aca4143849729e304bfcb23dc9136933d50a63d7dd6e2ff2acda7d9af4aa08",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006886157905682921
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "tract": 9572,
+      "center": [
+        152.499656,
+        0.798398
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "8e601d809973c86509a128b753222e1cf21189a168d30c8572d7d482d4cb690c",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010579614900052547
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "tract": 9692,
+      "center": [
+        330.39639,
+        0.714294
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2efa2e72001270ecc89a22e4d9e943667950b157ea8d26242d484015ee3c9ff6",
+      "bytes": 24566400,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1430,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.024401476606726646
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "tract": 9693,
+      "center": [
+        331.851824,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "3f46a69a389aa1912fca2b6ecc60a7b1cd0928df24e3fa390d216cc552361919",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009011812973767519
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "center": [
+        333.333306,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "13091bad4190de30f23b44e2f549924d3011300b997544e38eeb44d4e2787c2e",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.01050260430201888
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "center": [
+        334.814787,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "f500113d71b6ae1411f5e5508db33c3182fc7ff534fd43bfeae4854db4960fe7",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.014205396175384521
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "center": [
+        336.296269,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "efe587b2232b388ce06005536de47b65a46d6a40ce944f1b7111617a82e65b1e",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010859145317226648
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "center": [
+        337.77775,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "5a13a2c9ac83a54f16e35ef32a15c8e2b0c167d9d277215d2466cd9d51f0e613",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005743272136896849
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "tract": 9698,
+      "center": [
+        339.259231,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "af1f5721fb61ea83100703fc90e7adcf3dee0c3f85b1ab623cc2eba0b036182f",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015097206458449364
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "tract": 9699,
+      "center": [
+        340.740713,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "60698abc30b229361def5747a15f0acaf1f2c0ac13e0b6f303453ffa88278d2f",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007123695220798254
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "tract": 9700,
+      "center": [
+        342.222194,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "094798ffabc05f0009ffc0c46f73b21a60b2a7154006758c3fdf71bc7e536148",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015625135973095894
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "center": [
+        343.703676,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "17b8f73cc31ea31336925dad9f236211b350206fd5057885a1d8c63af40d5bef",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.055835869163274765
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "center": [
+        345.185157,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "8840d1db5f3b96c4eb437c7bdc9961dbc9ece832b1e52b5c697408e419eda8c2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00855330191552639
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "center": [
+        346.666639,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "43723d9712c3bafd22b49fe6e4c46bbe3b3b9cb4e9f94b6b2ac5e77535858263",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008038854226469994
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "tract": 9704,
+      "center": [
+        348.14812,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "0015df6ad4192161686bebc52cb5fc69eee0116680a2a408f761b1a55c8e7b80",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007754272315651178
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "tract": 9706,
+      "center": [
+        351.111083,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "bd878a5c93d155a41b330963f14d65853c751648e45a5faf74e1c712e583b6d6",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006391511298716068
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "tract": 9707,
+      "center": [
+        352.592565,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "7a1ac25127807b50e3b5e2ec99894af34ff9139f45e0721550c1dc3f55717b66",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.004405256127938628
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "tract": 9708,
+      "center": [
+        354.074046,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "df4c8e987dc4c9fa1c119b7377af2fa0c73ab9401c49f91baa61ea2b000a43ec",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006515420973300934
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "tract": 9709,
+      "center": [
+        355.555528,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2bf861fa1cd1df13482360e0fe9051d25cf36e39e2b26657e9f42439207e6276",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005250644171610475
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "center": [
+        357.037009,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "132ce328279028a2d208293ac7df642ed438dff44f65652946d4b084b7e237df",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.006634191144257784
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "tract": 9711,
+      "center": [
+        358.518491,
+        0.743803
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "30f1556669bc9dd2afc7211d1c57a96ce276129006e22904eb5290178955f014",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010470215696841478
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "tract": 9712,
+      "center": [
+        359.999972,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2afe34bdabc07ce5eff37bee21d809b2b51ab25b479388844fda6c84d15468f6",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009471200872212648
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "center": [
+        1.487576,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "2f513cded177dc4f2d2c950979921d4ac2d13489d84adf219a3250726c7cef80",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009405683260411024
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "center": [
+        2.975179,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "f32caee816c5b00fab2cc9611be99227f4d29661955bdfc4628e044521df5e32",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.025654684752225876
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "center": [
+        4.462782,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "960f2a63b01ce36c488d8adf198d886cab3b06242e3762a8922221b156457b6b",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008193112444132566
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "tract": 9716,
+      "center": [
+        5.950385,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "5881427d786d528023e4c93f2dca1c2a647abb577305cf5f987148eb7ae04f62",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009454323910176754
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "tract": 9717,
+      "center": [
+        7.437989,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e2262722e382933538c7687213065a7d8fa7bad6279476de9e6450609012c360",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.017697990871965885
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "tract": 9723,
+      "center": [
+        16.363609,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "c7af7e2488019e3642d093bbddf553d87dbba5352c0f9267c4cba8bc853420d2",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.018462758511304855
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "center": [
+        17.851212,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "aecff440be782e908eba42905139179083b2665d944af9c8b0887cc7da7c135c",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007177505176514387
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "center": [
+        19.338815,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "52987ceed5d426534b4babd8928ec196fd5251ef40ce6e7fec85520a10790579",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005687764147296548
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "center": [
+        22.314022,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "84f74f1dc481702714c45aef0d4665b66c79b30037b927e8943138e50215c7e6",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005501947831362486
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "tract": 9731,
+      "center": [
+        28.264435,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "535b6306406534c6afd3f3d6ac165fa396ea7225fa869167dd82e0c2aec157e1",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.012022379785776138
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "tract": 9732,
+      "center": [
+        29.752038,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "efb4b69586464eecd103fc1a63025d91b2b48ff3cdc3299350971a63e26bbce5",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007798842154443264
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "tract": 9811,
+      "center": [
+        147.272699,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "c7f9e5f69ded7de726f88a586cca283267a8cc45ad6932b56f773fb0aea4b84c",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.02618848904967308
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "center": [
+        148.760303,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "9e71dcf51841f8e397a8c47f12827ade5f0cb5131e43411df3a085c4a6fce571",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008472440764307976
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "tract": 9814,
+      "center": [
+        151.735509,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "015b33c50a11ab12253171f3012500d1ab0437fcae4b2d795884f904a880b149",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.01828911155462265
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "center": [
+        330.686945,
+        1.636948
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "14f63a8d098789afaf83c32a0bedefa493e842e02364b6bc291806a6500bf28d",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1430,
+        1429
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.02333463728427887
+    },
+    {
+      "regionId": "dp2-tract-9935",
+      "tract": 9935,
+      "center": [
+        331.764514,
+        1.785738
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "b9773d5d7b6e987066050914ff30f95696dd2c5dc76a8679983a57e0682d7eef",
+      "bytes": 24566400,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1430,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00880355853587389
+    },
+    {
+      "regionId": "dp2-tract-9936",
+      "tract": 9936,
+      "center": [
+        333.19352,
+        1.69643
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e9e6849d9528d1d546878156eab637b817d8e6fa0bc47adbdfc64a3c3dd0008d",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007947887759655714
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "tract": 9937,
+      "center": [
+        334.848297,
+        2.098253
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "aa3ff87d49b9d4260819338dce8c4d93a9ef96423a70ac1ca6ee6737a25bd179",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.012090614065527916
+    },
+    {
+      "regionId": "dp2-tract-9939",
+      "tract": 9939,
+      "center": [
+        337.685923,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "1f72fd792e04767e3ebdb71d02cbc86667f0f908d01a9c324c74193a1ce15124",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005041997181251645
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "tract": 9940,
+      "center": [
+        339.173526,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "ed21e31d2ee5405fe8cd060eccc344b565dee1021d42c6ef344cea8030e1c926",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.005727503448724747
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "center": [
+        343.636336,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "ebe42b0be16d5b7cbc3242276bfa692f2d6533e83480533ca0329ab0dfce5428",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00623655435629189
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "center": [
+        345.123939,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "62fe6c0a324b6f0e1df59abfe260399fdb14b107c3ca9b81a241d1bb9bfaafb5",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.012338792905211449
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "center": [
+        346.611542,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "04e1e1e7d4177a7b5e7438787f9497b15001ad20f4c439a0a6dfcf4005cfc128",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008798951748758554
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "center": [
+        349.586749,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e2ca2a83234649b659abec1544e68cc2b2ece2d5e9a503352e0f7b3066cb242f",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008180803153663874
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "tract": 9948,
+      "center": [
+        351.074352,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "50f38d080a4c42dec86a438f8f2181b7405a8cdce11ab3e326014a512d8ef347",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008494670037180185
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "center": [
+        354.049559,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "e477ae4ac0ba4d6d8deb2219fd4b9bded9d326646b431512e22f0683f5549890",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00667371042072773
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "tract": 9951,
+      "center": [
+        355.537162,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "a052b355f1a9e031215018c60a2cf97e245dffee688cba3cd0851eaa182383ae",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.013020596466958523
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "tract": 9952,
+      "center": [
+        357.024766,
+        2.231355
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "76269e0bf3fbe81df597d297cf93235404b6b1aa459dcb720c3e840ab7e4a139",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.010110266041010618
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "center": [
+        28.264435,
+        3.718906
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "5ff5a39bc98765aeba44cfcc38af8d803228b38ba0b4af906c37750b632c4e4d",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.007461228407919407
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "center": [
+        29.752038,
+        3.718906
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "4bbe21eb45f9aa7f4a891ffd753322a2be332636b0e41d74bac72cf39de29d4a",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.009646487887948751
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "tract": 10054,
+      "center": [
+        148.760303,
+        3.718906
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "1ddaf2dbcb73f7eb6b2b379bd7e8bc0e3fcd252befd71dee830e5a8f8f76d6a9",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.00989709421992302
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "tract": 10055,
+      "center": [
+        150.247906,
+        3.718906
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "998f7033043858066787dcf7de032bf92b6b47af07fc12b24d8c205dd06f59d1",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.008735437877476215
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "tract": 10056,
+      "center": [
+        151.735509,
+        3.718906
+      ],
+      "surveyId": "hsc-ssp-pdr2",
+      "band": "HSC-R",
+      "rerun": "pdr2_wide",
+      "status": "validated-science-input",
+      "sourcePixelsValidated": true,
+      "sha256": "a03cf9ae7541085ba3e02ad4000355588d1fdf2c0020c2eb73157afb443c19a8",
+      "bytes": 24549120,
+      "planes": [
+        "PRIMARY",
+        "",
+        "",
+        ""
+      ],
+      "shape": [
+        1429,
+        1430
+      ],
+      "validPixelFraction": 1.0,
+      "hasVariancePlane": true,
+      "hasMaskPlane": true,
+      "imageLikeHdus": 3,
+      "planeNamesPresent": false,
+      "filter": "r2",
+      "fluxMag0": 63095734448.0194,
+      "absoluteScaleAvailable": true,
+      "medianPixel": 0.015206607058644295
+    }
+  ],
+  "failures": [],
+  "credentials": {
+    "required": true,
+    "source": "HSC_USERNAME / HSC_PASSWORD from the environment",
+    "serialized": false,
+    "why": "PDR2 science coadds need a STARS account. Everything PDR2 serves without one is HiPS, which carries no calibrated flux and no variance plane, which is why this survey contributed 162 regions to the goal's footprint count and zero to reality."
+  },
+  "reproducibility": "A third party cannot re-run this fetch without their own PDR2 account. The per-region SHA-256 checksums let them verify what was fetched even so."
+}

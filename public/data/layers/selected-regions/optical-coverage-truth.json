@@ -9,7 +9,13 @@
     "reconciledPairs": 521,
     "lostToFootprintOverstatement": 181,
     "lostInReconciliation": 21,
-    "fractionOfReachableCeilingDelivered": 0.9613
+    "fractionOfReachableCeilingDelivered": 0.9613,
+    "hscResolved": {
+      "claimedByFootprint": 162,
+      "pixelsValidated": 110,
+      "insideFootprintButNoCoadd": 52,
+      "note": "Fetched with data rights on 2026-08-16; see public/data/layers/hsc-pdr2/manifest.json."
+    }
   },
   "surveys": [
     {
@@ -29,9 +35,9 @@
     {
       "surveyId": "hsc-ssp-pdr2",
       "claimedByFootprint": 162,
-      "pixelsValidated": 0,
+      "pixelsValidated": 110,
       "reconciledPairs": 0,
-      "why": "HSC PDR2 publishes only HiPS tiles without credentials. Those are display products with no calibrated flux and no variance plane, so no science pixels exist to fetch."
+      "why": "Resolved 2026-08-16. PDR2 science coadds need a STARS account; everything served without one is HiPS, with no calibrated flux and no variance plane, which is why this contributed 162 to the footprint count and 0 to reality. With credentials, 110 of the 162 claimed regions return a coadd. The other 52 sit inside the claimed HiPS footprint and the wide coadd does not cover them -- footprint overstating reality for the eighth time in this project, this time within a single survey's own published products."
     },
     {
       "surveyId": "panstarrs-dr2",
