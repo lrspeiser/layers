@@ -360,8 +360,12 @@ def main() -> None:
             ),
         },
         "caveat": (
-            "A large difference_significance is not a detection. Bandpass transfer between these "
-            "surveys is not validated, so a genuine colour difference produces the same signal."
+            "A large departure is not a detection. The filter colour term is measured at -0.080 "
+            "mag per mag of Rubin g-r against DECam and +0.007 against PS1, linear to under 4 "
+            "millimagnitudes, so colour alone moves a source very little. What remains unexplained "
+            "is the empirical field-to-field scatter, which is forty times larger than the filters "
+            "permit and is therefore photometric error, crowding, PSF residuals or calibration "
+            "structure."
         ),
         "regions": per_region,
     }

@@ -17,10 +17,12 @@ circular. Positions are matched on the sky, not in pixels: the three pairings si
 on different grids (0.4, 0.263 and 0.25 arcsec) and a pixel offset means a
 different angle in each.
 
-This does not turn a confirmed peak into a detection. Every pairing shares the
-same unvalidated bandpass transfer, so a genuine colour difference would appear
-in all three and be "confirmed" by this test. What the test removes is the much
-larger population of per-reference artefacts.
+This does not turn a confirmed peak into a detection. The filter colour term is
+now measured directly and is small -- -0.080 mag per mag of Rubin g-r against
+DECam, +0.007 against PS1 -- so a shared colour effect explains less than it once
+appeared to. What the pairings still share is the aperture method and the Rubin
+frame itself. The test removes the much larger population of per-reference
+artefacts, which is worth doing and is not the same as confirming physics.
 """
 
 from __future__ import annotations
@@ -150,10 +152,11 @@ def main() -> None:
             "regionsWithAConfirmedPosition": len(multi),
         },
         "caveat": (
-            "Confirmation across references is not a detection. Every pairing shares the same "
-            "unvalidated bandpass transfer, so a genuine colour difference would appear in all of "
-            "them and be confirmed here. What this removes is the larger population of "
-            "per-reference artefacts."
+            "Confirmation across references is not a detection. The filter colour term is now "
+            "measured and small -- -0.080 mag per mag against DECam, +0.007 against PS1, linear to "
+            "under 4 millimagnitudes -- so a shared colour effect is a weaker explanation than it "
+            "was, but the pairings still share the aperture method and the Rubin frame itself. "
+            "What this test removes is the larger population of per-reference artefacts."
         ),
         "regions": records,
     }

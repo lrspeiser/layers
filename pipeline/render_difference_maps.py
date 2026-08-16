@@ -24,10 +24,12 @@ All three are written at the same 512x512 geometry as the existing
 ``rubin-r.png`` and ``reference-r.png``, so the browser can stack them without
 knowing any WCS.
 
-**What a bright pixel here is not.** Bandpass transfer is not validated for
-these pairs -- a single linear colour term does not describe it (reduced
-chi-square 93.8 over 112 fields) -- so a real colour difference between two
-surveys produces exactly this signal. These maps show where the two images
+**What a bright pixel here is not.** The filter colour term between these pairs
+is measured, small and linear -- -0.080 mag per mag of Rubin g-r against DECam,
++0.007 against PS1, to under 4 millimagnitudes -- so colour alone moves a source
+very little. What is not explained is the empirical field-to-field scatter, forty
+times larger than the filters permit, which is photometric error, crowding, PSF
+residuals or calibration structure. These maps show where the two images
 disagree. They do not show where the sky is unusual.
 """
 
@@ -344,10 +346,12 @@ def main() -> None:
             "labels them so a large difference is not mistaken for an interesting one."
         ),
         "caveat": (
-            "Bandpass transfer is not validated for these pairs: a single linear colour term does "
-            "not describe it, with a reduced chi-square of 93.8 over 112 fields. A genuine colour "
-            "difference between two surveys produces exactly this signal. These maps show where "
-            "two images disagree, not where the sky is unusual."
+            "The colour term between these filters is now measured directly from CALSPEC spectra and official transmission curves: -0.080 mag per mag of Rubin g-r against DECam, +0.007 against PS1, linear to under 4 millimagnitudes. So a source needs an extreme colour to shift much, and the empirical fit's field-to-field scatter -- forty times larger than the filters permit -- is photometric error, crowding, PSF residuals or calibration structure, not the bandpass. A difference here is still not a detection, but the reason is no longer the filters. These maps show where two images disagree, not where the sky is unusual."
+        ),
+        "caveatSupersedes": (
+            "This previously read that bandpass transfer was unvalidated and a colour difference "
+            "produced the signal. Synthetic photometry has since measured the filter term, and it "
+            "is small and linear; see section 18 of docs/DIFFERENCE_ENGINE_STATUS.md."
         ),
         "regions": regions,
     }

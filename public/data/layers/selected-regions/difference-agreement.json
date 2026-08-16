@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-difference-agreement-v1",
-  "generatedAt": "2026-08-16T04:11:07.029639+00:00",
+  "generatedAt": "2026-08-16T04:40:56.878435+00:00",
   "purpose": "Which difference peaks appear against more than one independent reference. Rubin is the only term the pairings share, so a repeated peak is on the Rubin side and a solitary one belongs to the reference that shows it.",
   "matchRadiusArcsec": 2.0,
   "matchedOnSky": "Positions are matched in sky coordinates, not pixels: the pairings sit on 0.4, 0.263 and 0.25 arcsec grids, so the same pixel offset is a different angle in each.",
@@ -12,7 +12,7 @@
     "confirmedWithAgreeingDirection": 6,
     "regionsWithAConfirmedPosition": 6
   },
-  "caveat": "Confirmation across references is not a detection. Every pairing shares the same unvalidated bandpass transfer, so a genuine colour difference would appear in all of them and be confirmed here. What this removes is the larger population of per-reference artefacts.",
+  "caveat": "Confirmation across references is not a detection. The filter colour term is now measured and small -- -0.080 mag per mag against DECam, +0.007 against PS1, linear to under 4 millimagnitudes -- so a shared colour effect is a weaker explanation than it was, but the pairings still share the aperture method and the Rubin frame itself. What this test removes is the larger population of per-reference artefacts.",
   "regions": [
     {
       "regionId": "dp2-tract-10053",

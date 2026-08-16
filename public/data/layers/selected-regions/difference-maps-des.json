@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-difference-maps-v1",
-  "generatedAt": "2026-08-16T04:09:10.515590+00:00",
+  "generatedAt": "2026-08-16T04:39:11.204270+00:00",
   "pairing": "des",
   "purpose": "Where Rubin and the reference disagree, rendered so it can be viewed over the star image rather than inferred by comparing two frames by eye.",
   "scaling": {
@@ -30,7 +30,8 @@
     "regionsWithAnOffSourcePeak": 55
   },
   "crossBandNote": "A few regions compare Rubin against a reference in a different filter -- r against z in one case. Those frames disagree everywhere for a trivial reason, and the explorer labels them so a large difference is not mistaken for an interesting one.",
-  "caveat": "Bandpass transfer is not validated for these pairs: a single linear colour term does not describe it, with a reduced chi-square of 93.8 over 112 fields. A genuine colour difference between two surveys produces exactly this signal. These maps show where two images disagree, not where the sky is unusual.",
+  "caveat": "The colour term between these filters is now measured directly from CALSPEC spectra and official transmission curves: -0.080 mag per mag of Rubin g-r against DECam, +0.007 against PS1, linear to under 4 millimagnitudes. So a source needs an extreme colour to shift much, and the empirical fit's field-to-field scatter -- forty times larger than the filters permit -- is photometric error, crowding, PSF residuals or calibration structure, not the bandpass. A difference here is still not a detection, but the reason is no longer the filters. These maps show where two images disagree, not where the sky is unusual.",
+  "caveatSupersedes": "This previously read that bandpass transfer was unvalidated and a colour difference produced the signal. Synthetic photometry has since measured the filter term, and it is small and linear; see section 18 of docs/DIFFERENCE_ENGINE_STATUS.md.",
   "regions": [
     {
       "differencePlane": "KERNEL_DIFFERENCE",

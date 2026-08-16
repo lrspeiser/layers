@@ -79,8 +79,11 @@ export function DifferenceIndex({
       <p className={styles.truth} role="note">
         <strong>None of this is a detection.</strong>
         <span>
-          Bandpass transfer is not validated, so a colour difference alone can produce a residual of
-          the size listed below. Candidates are ranked places to look, each carrying the tests that
+          The filter colour term is now measured from CALSPEC spectra and official transmission
+          curves &mdash; &minus;0.080 mag per mag of Rubin g&minus;r against DECam, +0.007 against
+          Pan-STARRS, linear to under 4 millimagnitudes &mdash; so colour alone moves a source very
+          little. What remains unexplained is the field-to-field scatter, forty times larger than
+          the filters permit. Candidates are ranked places to look, each carrying the tests that
           would rule it out.
         </span>
       </p>
