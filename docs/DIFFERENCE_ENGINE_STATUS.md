@@ -1733,3 +1733,54 @@ It also means `dp2-band-availability.json`'s ceiling of 173, derived from the
 per-tract SIA responses, is itself an upper bound rather than a count of usable
 data. The true number of regions where a second band is *fetchable at our
 positions* is 161, and the 12 are the measured difference.
+
+## 36. Recounting every goal: one wrong figure, and four wrong ways to check it
+
+§34 found G0's delivered figure had been inferred (173 ceiling − 6 failures)
+rather than counted, and was wrong by six. That failure mode is not specific to
+G0, so `verify_scorecard_counts.py` now opens each goal's cited evidence file and
+counts.
+
+**Result: 10 of 11 goals recounted, every one matches.**
+
+| goal | published | counted from |
+|---|---|---|
+| G0 | 161 | regions with two complete bands |
+| G1 | 628 | reconciled regions, 190+143+188+107 |
+| G2 | 147 | regions measured |
+| G3 | 1394 | `counts.sedSources` |
+| G4 | 622 | `counts.attempted` |
+| G5 | 466 | `counts.pairs` |
+| G6 | 384 | xray 193 + radio 191 |
+| G7 | 185 | `counts.measured` |
+| G8 | 1 | distinct candidates verifiable at high resolution |
+| G9 | 12954 | `comparisonsEvaluated`, parts re-summed |
+| G10 | 13 | not recountable — rendered pages, not a manifest |
+
+G0 was the only error in the scorecard.
+
+**The more useful finding is about the checking.** Four of my recount rules were
+wrong before they were right, and each produced a confident, plausible-looking
+disagreement:
+
+- **G1** — summed `pixelsValidated` (652) against a figure whose unit is
+  *reconciled pairs* (628). 652 is the ceiling, a real number sitting one column
+  away from the right one.
+- **G3** — counted regions (184) against a figure whose unit is *sources with an
+  SED* (1394).
+- **G9** — summed every integer in `comparisonsEvaluated`, including
+  `pixel-residual-regions` and `gaia-crossmatch-regions`. Those are region counts
+  recorded beside the comparison counts, not addends. They contribute exactly the
+  293 discrepancy.
+- **G8** — summed `verdictsDelivered` across survey groups to get 2, when both
+  groups return a verdict on the *same* single candidate.
+
+So the verifier reported five disagreements in total and four were its own fault.
+The ratio matters: an independent recount is not automatically more trustworthy
+than the number it audits, and a recount that disagrees is evidence of *a*
+mistake without saying whose. Every rule now names the unit it counts, which is
+the thing that was actually missing — `delivered` figures carry a `unit` field
+and the first version of this script ignored it.
+
+`--check` exits non-zero on disagreement, so the scorecard cannot drift from its
+evidence again without failing.
