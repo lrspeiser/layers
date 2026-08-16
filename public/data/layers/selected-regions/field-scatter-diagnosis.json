@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-field-scatter-diagnosis-v1",
-  "generatedAt": "2026-08-16T04:43:48.219781+00:00",
+  "generatedAt": "2026-08-16T05:43:40.703534+00:00",
   "question": "The empirical colour term scatters forty times more than the filters permit. Which of photometric error, crowding, PSF residuals or calibration structure is it?",
   "syntheticColourTermPerMag": -0.08,
   "method": "Rank correlation of each field's |colour term - synthetic prediction| against covariates measured independently by other operators, with a two-sided permutation test over 20,000 shuffles. Rank because none of these is expected to be linear.",
@@ -14,8 +14,8 @@
     "fitUncertainty",
     "colourSpan",
     "matchedSources",
-    "backgroundRmsNjy",
     "medianSnr",
+    "backgroundRmsNjy",
     "usedSources",
     "kernelResidualSigma",
     "decDeg"
@@ -24,8 +24,8 @@
     "fitUncertainty": 0.0768,
     "colourSpan": 0.0162,
     "matchedSources": 0.0141,
-    "backgroundRmsNjy": 0.0032,
-    "medianSnr": 0.0024,
+    "medianSnr": 0.0049,
+    "backgroundRmsNjy": 0.0023,
     "usedSources": 0.001,
     "kernelResidualSigma": 0.0005,
     "decDeg": 0.0004
@@ -80,16 +80,16 @@
     },
     "backgroundRmsNjy": {
       "n": 113,
-      "rho": 0.0562,
-      "pValue": 0.5614,
+      "rho": 0.0484,
+      "pValue": 0.6133,
       "significant": false,
       "describes": "measured sky noise",
       "suspect": "photometric error"
     },
     "medianSnr": {
       "n": 113,
-      "rho": 0.0493,
-      "pValue": 0.59695,
+      "rho": 0.0703,
+      "pValue": 0.44795,
       "significant": false,
       "describes": "median source signal-to-noise",
       "suspect": "photometric error"
@@ -115,7 +115,7 @@
       "matchedSources": 141,
       "kernelResidualSigma": 1.1,
       "backgroundRmsNjy": 1.3007395634829813,
-      "medianSnr": 33.743936121019445,
+      "medianSnr": 34.68236564347239,
       "raDeg": 150.247906,
       "decDeg": 3.718906
     },
@@ -130,7 +130,7 @@
       "matchedSources": 108,
       "kernelResidualSigma": 2.7,
       "backgroundRmsNjy": 2.2734555220732164,
-      "medianSnr": 40.45819906734971,
+      "medianSnr": 44.12653520812752,
       "raDeg": 185.89726,
       "decDeg": 3.994139
     },
@@ -145,7 +145,7 @@
       "matchedSources": 65,
       "kernelResidualSigma": 1.5,
       "backgroundRmsNjy": 0.9996338493685457,
-      "medianSnr": 44.44334123161009,
+      "medianSnr": 73.01278454989614,
       "raDeg": 185.950385,
       "decDeg": 5.206457
     },
@@ -160,7 +160,7 @@
       "matchedSources": 65,
       "kernelResidualSigma": 1.0,
       "backgroundRmsNjy": 1.2145137435132467,
-      "medianSnr": 44.87125785673707,
+      "medianSnr": 75.71881412522302,
       "raDeg": 188.984509,
       "decDeg": 8.181567
     },
@@ -175,7 +175,7 @@
       "matchedSources": 47,
       "kernelResidualSigma": 2.4,
       "backgroundRmsNjy": 4.8807307868843,
-      "medianSnr": 19.5762347477911,
+      "medianSnr": 11.074674099724152,
       "raDeg": 4.5188,
       "decDeg": 11.156658
     },
@@ -189,8 +189,8 @@
       "residualScatterMag": 0.050326634552704766,
       "matchedSources": 58,
       "kernelResidualSigma": 2.8,
-      "backgroundRmsNjy": 10.541480982816672,
-      "medianSnr": 19.959053275389195,
+      "backgroundRmsNjy": 6.314080378403192,
+      "medianSnr": 14.357319215788818,
       "raDeg": 65.853617,
       "decDeg": -48.344831
     },
@@ -204,8 +204,8 @@
       "residualScatterMag": 0.13065835125766304,
       "matchedSources": 75,
       "kernelResidualSigma": 2.6,
-      "backgroundRmsNjy": 14.637648667849277,
-      "medianSnr": 25.157504900514205,
+      "backgroundRmsNjy": 10.665681611003532,
+      "medianSnr": 13.591149781671277,
       "raDeg": 5.837801,
       "decDeg": -40.90733
     },
@@ -220,7 +220,7 @@
       "matchedSources": 144,
       "kernelResidualSigma": 7.2,
       "backgroundRmsNjy": 4.2529545864653375,
-      "medianSnr": 18.94739796393108,
+      "medianSnr": 14.560125464419826,
       "raDeg": 52.149501,
       "decDeg": -29.007128
     },
@@ -235,7 +235,7 @@
       "matchedSources": 133,
       "kernelResidualSigma": 7.3,
       "backgroundRmsNjy": 4.053539444483518,
-      "medianSnr": 21.555311289653453,
+      "medianSnr": 18.69681228185105,
       "raDeg": 53.831744,
       "decDeg": -29.007128
     },
@@ -250,7 +250,7 @@
       "matchedSources": 133,
       "kernelResidualSigma": 5.6,
       "backgroundRmsNjy": 4.034390328505259,
-      "medianSnr": 22.302392083750266,
+      "medianSnr": 17.776604657311037,
       "raDeg": 51.42854,
       "decDeg": -27.519591
     },
@@ -265,7 +265,7 @@
       "matchedSources": 159,
       "kernelResidualSigma": 11.6,
       "backgroundRmsNjy": 4.042790476317512,
-      "medianSnr": 24.283003511297622,
+      "medianSnr": 15.871248172855545,
       "raDeg": 53.087526,
       "decDeg": -27.519591
     },
@@ -280,7 +280,7 @@
       "matchedSources": 108,
       "kernelResidualSigma": 3.3,
       "backgroundRmsNjy": 3.9345353621529933,
-      "medianSnr": 24.475537620508806,
+      "medianSnr": 18.8160588080292,
       "raDeg": 54.746512,
       "decDeg": -27.519591
     },
@@ -294,8 +294,8 @@
       "residualScatterMag": 0.032742700763584695,
       "matchedSources": 97,
       "kernelResidualSigma": 14.5,
-      "backgroundRmsNjy": 8.209982000772518,
-      "medianSnr": 42.55923624685097,
+      "backgroundRmsNjy": 6.042035068201449,
+      "medianSnr": 35.26626010637991,
       "raDeg": 303.594439,
       "decDeg": -27.519591
     },
@@ -310,7 +310,7 @@
       "matchedSources": 127,
       "kernelResidualSigma": 91.9,
       "backgroundRmsNjy": 13.934721632332526,
-      "medianSnr": 45.01219062977947,
+      "medianSnr": 15.792229591367146,
       "raDeg": 241.558412,
       "decDeg": -18.594341
     },
@@ -324,8 +324,8 @@
       "residualScatterMag": 0.11219583637766098,
       "matchedSources": 44,
       "kernelResidualSigma": 6.7,
-      "backgroundRmsNjy": 13.76297962879075,
-      "medianSnr": 27.717051632581935,
+      "backgroundRmsNjy": 8.675709871178256,
+      "medianSnr": 21.983782394314815,
       "raDeg": 239.999972,
       "decDeg": -9.669053
     },
@@ -340,7 +340,7 @@
       "matchedSources": 90,
       "kernelResidualSigma": 3.1,
       "backgroundRmsNjy": 4.698300252943647,
-      "medianSnr": 20.82739389343576,
+      "medianSnr": 15.490303181691587,
       "raDeg": 359.999972,
       "decDeg": -6.693952
     },
@@ -355,7 +355,7 @@
       "matchedSources": 65,
       "kernelResidualSigma": 1.8,
       "backgroundRmsNjy": 1.3419623052790168,
-      "medianSnr": 41.5132055588044,
+      "medianSnr": 58.29775605563137,
       "raDeg": 211.239642,
       "decDeg": -5.206402
     },
@@ -370,7 +370,7 @@
       "matchedSources": 69,
       "kernelResidualSigma": 2.5,
       "backgroundRmsNjy": 4.195136503101363,
-      "medianSnr": 21.046817363817887,
+      "medianSnr": 16.73887853602659,
       "raDeg": 359.999972,
       "decDeg": -2.231299
     },
@@ -385,7 +385,7 @@
       "matchedSources": 84,
       "kernelResidualSigma": 2.8,
       "backgroundRmsNjy": 7.988886269073239,
-      "medianSnr": 18.25584364991957,
+      "medianSnr": 13.070226408487953,
       "raDeg": 1.487576,
       "decDeg": -2.231299
     },
@@ -399,8 +399,8 @@
       "residualScatterMag": 0.08052238356287302,
       "matchedSources": 77,
       "kernelResidualSigma": 2.1,
-      "backgroundRmsNjy": 9.244390695552768,
-      "medianSnr": 19.056369585418466,
+      "backgroundRmsNjy": 7.14195536996559,
+      "medianSnr": 12.449171239637138,
       "raDeg": 2.975179,
       "decDeg": -2.231299
     },
@@ -415,7 +415,7 @@
       "matchedSources": 90,
       "kernelResidualSigma": 4.3,
       "backgroundRmsNjy": 5.561757396153191,
-      "medianSnr": 22.48603449983939,
+      "medianSnr": 17.591733243287592,
       "raDeg": 331.735509,
       "decDeg": -2.231299
     },
@@ -430,7 +430,7 @@
       "matchedSources": 81,
       "kernelResidualSigma": 2.3,
       "backgroundRmsNjy": 5.461457298340118,
-      "medianSnr": 20.81378986539148,
+      "medianSnr": 15.920249527662577,
       "raDeg": 334.710716,
       "decDeg": -2.231299
     },
@@ -445,7 +445,7 @@
       "matchedSources": 89,
       "kernelResidualSigma": 4.8,
       "backgroundRmsNjy": 7.496148311329895,
-      "medianSnr": 19.249622182358813,
+      "medianSnr": 13.666613605385697,
       "raDeg": 336.198319,
       "decDeg": -2.231299
     },
@@ -460,7 +460,7 @@
       "matchedSources": 90,
       "kernelResidualSigma": 3.0,
       "backgroundRmsNjy": 4.602637113922945,
-      "medianSnr": 29.57488426417562,
+      "medianSnr": 23.052944391571778,
       "raDeg": 339.173526,
       "decDeg": -2.231299
     },
@@ -475,7 +475,7 @@
       "matchedSources": 63,
       "kernelResidualSigma": 7.1,
       "backgroundRmsNjy": 4.349436385088499,
-      "medianSnr": 23.915579604397795,
+      "medianSnr": 23.342709901972384,
       "raDeg": 342.148733,
       "decDeg": -2.231299
     },
@@ -490,7 +490,7 @@
       "matchedSources": 91,
       "kernelResidualSigma": 5.2,
       "backgroundRmsNjy": 2.9418375702400144,
-      "medianSnr": 29.135881263347986,
+      "medianSnr": 24.40951596347048,
       "raDeg": 346.611542,
       "decDeg": -2.231299
     },
@@ -505,7 +505,7 @@
       "matchedSources": 79,
       "kernelResidualSigma": 1.7,
       "backgroundRmsNjy": 3.3436735450764745,
-      "medianSnr": 23.915254083598658,
+      "medianSnr": 20.712519272470548,
       "raDeg": 348.099146,
       "decDeg": -2.231299
     },
@@ -520,7 +520,7 @@
       "matchedSources": 92,
       "kernelResidualSigma": 2.2,
       "backgroundRmsNjy": 4.231102478026684,
-      "medianSnr": 24.884772062716806,
+      "medianSnr": 19.748447543751027,
       "raDeg": 349.586749,
       "decDeg": -2.231299
     },
@@ -535,7 +535,7 @@
       "matchedSources": 68,
       "kernelResidualSigma": 2.9,
       "backgroundRmsNjy": 2.9873815339611465,
-      "medianSnr": 26.269813792797105,
+      "medianSnr": 23.841766208959452,
       "raDeg": 351.074352,
       "decDeg": -2.231299
     },
@@ -550,7 +550,7 @@
       "matchedSources": 118,
       "kernelResidualSigma": 1.6,
       "backgroundRmsNjy": 3.31508646510575,
-      "medianSnr": 33.07268488083575,
+      "medianSnr": 28.94515448295134,
       "raDeg": 352.561956,
       "decDeg": -2.231299
     },
@@ -565,7 +565,7 @@
       "matchedSources": 92,
       "kernelResidualSigma": 2.4,
       "backgroundRmsNjy": 3.823751771164333,
-      "medianSnr": 25.176342627251042,
+      "medianSnr": 21.104716032868872,
       "raDeg": 354.049559,
       "decDeg": -2.231299
     },
@@ -580,7 +580,7 @@
       "matchedSources": 86,
       "kernelResidualSigma": 2.0,
       "backgroundRmsNjy": 3.670991338940122,
-      "medianSnr": 25.473687229702215,
+      "medianSnr": 22.45189968076579,
       "raDeg": 355.537162,
       "decDeg": -2.231299
     },
@@ -595,7 +595,7 @@
       "matchedSources": 71,
       "kernelResidualSigma": 3.5,
       "backgroundRmsNjy": 7.008610472139146,
-      "medianSnr": 20.137796470688546,
+      "medianSnr": 12.164045599086924,
       "raDeg": 359.999972,
       "decDeg": -0.743748
     },
@@ -610,7 +610,7 @@
       "matchedSources": 104,
       "kernelResidualSigma": 5.0,
       "backgroundRmsNjy": 6.266052059320581,
-      "medianSnr": 20.891521093750757,
+      "medianSnr": 15.941551512443965,
       "raDeg": 1.481454,
       "decDeg": -0.743748
     },
@@ -624,8 +624,8 @@
       "residualScatterMag": 0.04997335189681119,
       "matchedSources": 49,
       "kernelResidualSigma": 3.1,
-      "backgroundRmsNjy": 9.401738927833485,
-      "medianSnr": 18.194383846401777,
+      "backgroundRmsNjy": 7.714987243106026,
+      "medianSnr": 12.643926864628058,
       "raDeg": 2.962935,
       "decDeg": -0.743748
     },
@@ -640,7 +640,7 @@
       "matchedSources": 76,
       "kernelResidualSigma": 3.7,
       "backgroundRmsNjy": 8.172552998323816,
-      "medianSnr": 19.785287116805783,
+      "medianSnr": 13.404139241983081,
       "raDeg": 4.444417,
       "decDeg": -0.743748
     },
@@ -654,8 +654,8 @@
       "residualScatterMag": 0.0748014657563666,
       "matchedSources": 59,
       "kernelResidualSigma": 2.4,
-      "backgroundRmsNjy": 11.501954178079702,
-      "medianSnr": 20.319226078190333,
+      "backgroundRmsNjy": 8.860522623908746,
+      "medianSnr": 15.067568710194985,
       "raDeg": 5.925898,
       "decDeg": -0.743748
     },
@@ -670,7 +670,7 @@
       "matchedSources": 70,
       "kernelResidualSigma": 4.7,
       "backgroundRmsNjy": 9.618376362975024,
-      "medianSnr": 20.78850504166086,
+      "medianSnr": 11.429530941965039,
       "raDeg": 7.40738,
       "decDeg": -0.743748
     },
@@ -685,7 +685,7 @@
       "matchedSources": 101,
       "kernelResidualSigma": 4.0,
       "backgroundRmsNjy": 7.9592918555911965,
-      "medianSnr": 23.298111596115493,
+      "medianSnr": 13.069848003955201,
       "raDeg": 8.888861,
       "decDeg": -0.743748
     },
@@ -699,8 +699,8 @@
       "residualScatterMag": 0.08735443105542173,
       "matchedSources": 45,
       "kernelResidualSigma": 2.4,
-      "backgroundRmsNjy": 11.77407344734138,
-      "medianSnr": 25.69278437815614,
+      "backgroundRmsNjy": 6.487098507328087,
+      "medianSnr": 12.34168984344534,
       "raDeg": 328.912055,
       "decDeg": -0.761788
     },
@@ -715,7 +715,7 @@
       "matchedSources": 94,
       "kernelResidualSigma": 2.9,
       "backgroundRmsNjy": 7.626744835044269,
-      "medianSnr": 25.154162697190337,
+      "medianSnr": 14.4299902729052,
       "raDeg": 330.370343,
       "decDeg": -0.743748
     },
@@ -730,7 +730,7 @@
       "matchedSources": 80,
       "kernelResidualSigma": 3.3,
       "backgroundRmsNjy": 6.709241209625841,
-      "medianSnr": 21.498943772915382,
+      "medianSnr": 13.61387423883787,
       "raDeg": 331.851824,
       "decDeg": -0.743748
     },
@@ -745,7 +745,7 @@
       "matchedSources": 92,
       "kernelResidualSigma": 4.9,
       "backgroundRmsNjy": 6.810365463177446,
-      "medianSnr": 22.82512211400462,
+      "medianSnr": 15.482005867992278,
       "raDeg": 333.333306,
       "decDeg": -0.743748
     },
@@ -760,7 +760,7 @@
       "matchedSources": 89,
       "kernelResidualSigma": 5.6,
       "backgroundRmsNjy": 7.051084471177409,
-      "medianSnr": 22.936035559084527,
+      "medianSnr": 14.176357214586302,
       "raDeg": 334.814787,
       "decDeg": -0.743748
     },
@@ -775,7 +775,7 @@
       "matchedSources": 73,
       "kernelResidualSigma": 8.8,
       "backgroundRmsNjy": 8.631863279487405,
-      "medianSnr": 20.302722206673323,
+      "medianSnr": 11.965477637210078,
       "raDeg": 336.296269,
       "decDeg": -0.743748
     },
@@ -790,7 +790,7 @@
       "matchedSources": 99,
       "kernelResidualSigma": 5.8,
       "backgroundRmsNjy": 6.9016399700742515,
-      "medianSnr": 20.995488879550784,
+      "medianSnr": 14.44782970001538,
       "raDeg": 337.77775,
       "decDeg": -0.743748
     },
@@ -805,7 +805,7 @@
       "matchedSources": 75,
       "kernelResidualSigma": 5.6,
       "backgroundRmsNjy": 7.701049476763312,
-      "medianSnr": 20.860284886053467,
+      "medianSnr": 14.481422447360526,
       "raDeg": 339.259231,
       "decDeg": -0.743748
     },
@@ -820,7 +820,7 @@
       "matchedSources": 89,
       "kernelResidualSigma": 4.0,
       "backgroundRmsNjy": 6.012886790191171,
-      "medianSnr": 21.133972913144472,
+      "medianSnr": 14.331864237965277,
       "raDeg": 340.740713,
       "decDeg": -0.743748
     },
@@ -835,7 +835,7 @@
       "matchedSources": 90,
       "kernelResidualSigma": 4.8,
       "backgroundRmsNjy": 7.21833735943426,
-      "medianSnr": 17.39086893885211,
+      "medianSnr": 13.030424918339737,
       "raDeg": 342.222194,
       "decDeg": -0.743748
     },
@@ -850,7 +850,7 @@
       "matchedSources": 96,
       "kernelResidualSigma": 3.7,
       "backgroundRmsNjy": 7.318470082838213,
-      "medianSnr": 21.578804169757067,
+      "medianSnr": 13.849803742803072,
       "raDeg": 343.703676,
       "decDeg": -0.743748
     },
@@ -865,7 +865,7 @@
       "matchedSources": 85,
       "kernelResidualSigma": 3.2,
       "backgroundRmsNjy": 6.7732604527519245,
-      "medianSnr": 17.714610501418242,
+      "medianSnr": 14.020075794002668,
       "raDeg": 345.185157,
       "decDeg": -0.743748
     },
@@ -880,7 +880,7 @@
       "matchedSources": 119,
       "kernelResidualSigma": 6.4,
       "backgroundRmsNjy": 5.077617547050701,
-      "medianSnr": 22.875861423854698,
+      "medianSnr": 16.646542389111456,
       "raDeg": 346.666639,
       "decDeg": -0.743748
     },
@@ -895,7 +895,7 @@
       "matchedSources": 86,
       "kernelResidualSigma": 2.9,
       "backgroundRmsNjy": 4.433841787262484,
-      "medianSnr": 21.20725530116142,
+      "medianSnr": 15.70052814643668,
       "raDeg": 348.14812,
       "decDeg": -0.743748
     },
@@ -910,7 +910,7 @@
       "matchedSources": 69,
       "kernelResidualSigma": 3.9,
       "backgroundRmsNjy": 6.861657438515298,
-      "medianSnr": 19.296892957464873,
+      "medianSnr": 13.956656907429283,
       "raDeg": 349.629602,
       "decDeg": -0.743748
     },
@@ -925,7 +925,7 @@
       "matchedSources": 94,
       "kernelResidualSigma": 9.3,
       "backgroundRmsNjy": 8.430490598423455,
-      "medianSnr": 27.542598639407668,
+      "medianSnr": 14.539844188898016,
       "raDeg": 351.111083,
       "decDeg": -0.743748
     },
@@ -940,7 +940,7 @@
       "matchedSources": 96,
       "kernelResidualSigma": 5.8,
       "backgroundRmsNjy": 4.776886351123785,
-      "medianSnr": 20.446609915951917,
+      "medianSnr": 14.537516388359718,
       "raDeg": 352.592565,
       "decDeg": -0.743748
     },
@@ -955,7 +955,7 @@
       "matchedSources": 78,
       "kernelResidualSigma": 3.1,
       "backgroundRmsNjy": 4.406348398080784,
-      "medianSnr": 22.64921585096439,
+      "medianSnr": 16.817142361427013,
       "raDeg": 354.074046,
       "decDeg": -0.743748
     },
@@ -970,7 +970,7 @@
       "matchedSources": 78,
       "kernelResidualSigma": 10.1,
       "backgroundRmsNjy": 6.687360130280525,
-      "medianSnr": 20.511968952192195,
+      "medianSnr": 15.089443441557258,
       "raDeg": 355.555528,
       "decDeg": -0.743748
     },
@@ -985,7 +985,7 @@
       "matchedSources": 78,
       "kernelResidualSigma": 3.7,
       "backgroundRmsNjy": 4.532279605514981,
-      "medianSnr": 20.34701875441536,
+      "medianSnr": 17.093642431728476,
       "raDeg": 357.037009,
       "decDeg": -0.743748
     },
@@ -1000,7 +1000,7 @@
       "matchedSources": 93,
       "kernelResidualSigma": 1.8,
       "backgroundRmsNjy": 4.387421924533292,
-      "medianSnr": 23.05826878225371,
+      "medianSnr": 17.54495317142901,
       "raDeg": 358.518491,
       "decDeg": -0.743748
     },
@@ -1015,7 +1015,7 @@
       "matchedSources": 91,
       "kernelResidualSigma": 4.2,
       "backgroundRmsNjy": 6.503930691552549,
-      "medianSnr": 22.9077447215735,
+      "medianSnr": 16.03218701391507,
       "raDeg": 359.999972,
       "decDeg": 0.743803
     },
@@ -1029,8 +1029,8 @@
       "residualScatterMag": 0.04319498525798024,
       "matchedSources": 83,
       "kernelResidualSigma": 2.9,
-      "backgroundRmsNjy": 9.717272007964922,
-      "medianSnr": 19.657271796852037,
+      "backgroundRmsNjy": 8.06062403747006,
+      "medianSnr": 14.272115212246824,
       "raDeg": 1.481454,
       "decDeg": 0.743803
     },
@@ -1044,8 +1044,8 @@
       "residualScatterMag": 0.09057016606526107,
       "matchedSources": 85,
       "kernelResidualSigma": 2.6,
-      "backgroundRmsNjy": 8.813184525873943,
-      "medianSnr": 20.956285500085645,
+      "backgroundRmsNjy": 7.356281943337711,
+      "medianSnr": 13.438159761702224,
       "raDeg": 2.962935,
       "decDeg": 0.743803
     },
@@ -1060,7 +1060,7 @@
       "matchedSources": 53,
       "kernelResidualSigma": 10.9,
       "backgroundRmsNjy": 9.078088146789767,
-      "medianSnr": 18.466185315761837,
+      "medianSnr": 11.52344516621481,
       "raDeg": 4.444417,
       "decDeg": 0.743803
     },
@@ -1075,7 +1075,7 @@
       "matchedSources": 58,
       "kernelResidualSigma": 5.0,
       "backgroundRmsNjy": 13.448531339232577,
-      "medianSnr": 18.91964757615759,
+      "medianSnr": 11.48248155286184,
       "raDeg": 5.925898,
       "decDeg": 0.743803
     },
@@ -1089,8 +1089,8 @@
       "residualScatterMag": 0.03075339608138933,
       "matchedSources": 65,
       "kernelResidualSigma": 2.2,
-      "backgroundRmsNjy": 12.557988492539263,
-      "medianSnr": 24.04865096910442,
+      "backgroundRmsNjy": 10.450772357066507,
+      "medianSnr": 16.105380498106772,
       "raDeg": 7.40738,
       "decDeg": 0.743803
     },
@@ -1104,8 +1104,8 @@
       "residualScatterMag": 0.05724978975377933,
       "matchedSources": 57,
       "kernelResidualSigma": 2.7,
-      "backgroundRmsNjy": 10.974232356379686,
-      "medianSnr": 19.002535148223263,
+      "backgroundRmsNjy": 6.486895210213571,
+      "medianSnr": 14.134788986299712,
       "raDeg": 8.888861,
       "decDeg": 0.743803
     },
@@ -1120,7 +1120,7 @@
       "matchedSources": 119,
       "kernelResidualSigma": 6.6,
       "backgroundRmsNjy": 1.4753223440663474,
-      "medianSnr": 38.4329235427667,
+      "medianSnr": 43.49154728791109,
       "raDeg": 149.650433,
       "decDeg": 0.77505
     },
@@ -1135,7 +1135,7 @@
       "matchedSources": 150,
       "kernelResidualSigma": 2.0,
       "backgroundRmsNjy": 1.8601667764459617,
-      "medianSnr": 28.974378803187957,
+      "medianSnr": 23.694135789589538,
       "raDeg": 151.111083,
       "decDeg": 0.743803
     },
@@ -1149,8 +1149,8 @@
       "residualScatterMag": 0.03108571041055339,
       "matchedSources": 116,
       "kernelResidualSigma": 6.1,
-      "backgroundRmsNjy": 10.33073000141869,
-      "medianSnr": 27.227702311501915,
+      "backgroundRmsNjy": 9.159790247453412,
+      "medianSnr": 18.08499549279528,
       "raDeg": 334.814787,
       "decDeg": 0.743803
     },
@@ -1164,8 +1164,8 @@
       "residualScatterMag": 0.02194448677923834,
       "matchedSources": 33,
       "kernelResidualSigma": 2.7,
-      "backgroundRmsNjy": 13.15862695847649,
-      "medianSnr": 20.089783307792707,
+      "backgroundRmsNjy": 9.487690484504746,
+      "medianSnr": 12.315041555416268,
       "raDeg": 336.296269,
       "decDeg": 0.743803
     },
@@ -1180,7 +1180,7 @@
       "matchedSources": 67,
       "kernelResidualSigma": 5.1,
       "backgroundRmsNjy": 8.195773388045016,
-      "medianSnr": 18.828691282653804,
+      "medianSnr": 11.780784143671784,
       "raDeg": 337.77775,
       "decDeg": 0.743803
     },
@@ -1194,8 +1194,8 @@
       "residualScatterMag": 0.07156883825421219,
       "matchedSources": 92,
       "kernelResidualSigma": 2.1,
-      "backgroundRmsNjy": 6.768951012648666,
-      "medianSnr": 20.228851051893137,
+      "backgroundRmsNjy": 4.986948302690061,
+      "medianSnr": 16.980328332749963,
       "raDeg": 339.259231,
       "decDeg": 0.743803
     },
@@ -1210,7 +1210,7 @@
       "matchedSources": 104,
       "kernelResidualSigma": 3.5,
       "backgroundRmsNjy": 5.608407510199456,
-      "medianSnr": 20.64975433340462,
+      "medianSnr": 14.580899848888327,
       "raDeg": 340.740713,
       "decDeg": 0.743803
     },
@@ -1225,7 +1225,7 @@
       "matchedSources": 80,
       "kernelResidualSigma": 11.6,
       "backgroundRmsNjy": 6.718250742972016,
-      "medianSnr": 22.77032772086654,
+      "medianSnr": 13.581402113224055,
       "raDeg": 342.222194,
       "decDeg": 0.743803
     },
@@ -1240,7 +1240,7 @@
       "matchedSources": 58,
       "kernelResidualSigma": 4.2,
       "backgroundRmsNjy": 10.077742728884981,
-      "medianSnr": 21.81592526830648,
+      "medianSnr": 13.988965983896005,
       "raDeg": 343.703676,
       "decDeg": 0.743803
     },
@@ -1255,7 +1255,7 @@
       "matchedSources": 102,
       "kernelResidualSigma": 3.4,
       "backgroundRmsNjy": 6.408695423904959,
-      "medianSnr": 21.221302639573203,
+      "medianSnr": 14.276864304614774,
       "raDeg": 345.185157,
       "decDeg": 0.743803
     },
@@ -1270,7 +1270,7 @@
       "matchedSources": 80,
       "kernelResidualSigma": 6.3,
       "backgroundRmsNjy": 5.305741547253622,
-      "medianSnr": 19.892793415161297,
+      "medianSnr": 14.4416008390665,
       "raDeg": 346.666639,
       "decDeg": 0.743803
     },
@@ -1285,7 +1285,7 @@
       "matchedSources": 78,
       "kernelResidualSigma": 5.1,
       "backgroundRmsNjy": 8.861879794753502,
-      "medianSnr": 18.633611321680394,
+      "medianSnr": 12.053245483751285,
       "raDeg": 348.14812,
       "decDeg": 0.743803
     },
@@ -1300,7 +1300,7 @@
       "matchedSources": 79,
       "kernelResidualSigma": 2.7,
       "backgroundRmsNjy": 6.205564708220399,
-      "medianSnr": 18.62875714494168,
+      "medianSnr": 13.246252939437648,
       "raDeg": 349.629602,
       "decDeg": 0.743803
     },
@@ -1315,7 +1315,7 @@
       "matchedSources": 79,
       "kernelResidualSigma": 4.7,
       "backgroundRmsNjy": 5.142765096167052,
-      "medianSnr": 21.607523100297616,
+      "medianSnr": 15.651851992834185,
       "raDeg": 351.111083,
       "decDeg": 0.743803
     },
@@ -1330,7 +1330,7 @@
       "matchedSources": 72,
       "kernelResidualSigma": 4.0,
       "backgroundRmsNjy": 6.730157813558053,
-      "medianSnr": 20.585323599024502,
+      "medianSnr": 12.791581099541169,
       "raDeg": 352.592565,
       "decDeg": 0.743803
     },
@@ -1345,7 +1345,7 @@
       "matchedSources": 85,
       "kernelResidualSigma": 2.9,
       "backgroundRmsNjy": 5.989502884637325,
-      "medianSnr": 20.065608860265833,
+      "medianSnr": 13.138478387897239,
       "raDeg": 354.074046,
       "decDeg": 0.743803
     },
@@ -1360,7 +1360,7 @@
       "matchedSources": 103,
       "kernelResidualSigma": 3.5,
       "backgroundRmsNjy": 5.286901707125805,
-      "medianSnr": 22.490232545742376,
+      "medianSnr": 17.705583158245258,
       "raDeg": 355.555528,
       "decDeg": 0.743803
     },
@@ -1375,7 +1375,7 @@
       "matchedSources": 83,
       "kernelResidualSigma": 4.8,
       "backgroundRmsNjy": 7.4908529157673875,
-      "medianSnr": 20.967723973378767,
+      "medianSnr": 13.000315377658367,
       "raDeg": 357.037009,
       "decDeg": 0.743803
     },
@@ -1390,7 +1390,7 @@
       "matchedSources": 106,
       "kernelResidualSigma": 3.0,
       "backgroundRmsNjy": 4.304420251457554,
-      "medianSnr": 20.997330086197234,
+      "medianSnr": 17.252484806014557,
       "raDeg": 358.518491,
       "decDeg": 0.743803
     },
@@ -1405,7 +1405,7 @@
       "matchedSources": 105,
       "kernelResidualSigma": 3.6,
       "backgroundRmsNjy": 5.059495379347486,
-      "medianSnr": 21.119191453662175,
+      "medianSnr": 17.266914432921794,
       "raDeg": 359.999972,
       "decDeg": 2.231355
     },
@@ -1420,7 +1420,7 @@
       "matchedSources": 78,
       "kernelResidualSigma": 4.0,
       "backgroundRmsNjy": 8.19949537342652,
-      "medianSnr": 19.693733831923222,
+      "medianSnr": 13.731320646180045,
       "raDeg": 1.487576,
       "decDeg": 2.231355
     },
@@ -1435,7 +1435,7 @@
       "matchedSources": 94,
       "kernelResidualSigma": 4.1,
       "backgroundRmsNjy": 8.407874866317101,
-      "medianSnr": 24.148024943632553,
+      "medianSnr": 16.16411964254843,
       "raDeg": 2.975179,
       "decDeg": 2.231355
     },
@@ -1450,7 +1450,7 @@
       "matchedSources": 74,
       "kernelResidualSigma": 4.1,
       "backgroundRmsNjy": 10.975262413129816,
-      "medianSnr": 23.30031283047706,
+      "medianSnr": 11.898527557092462,
       "raDeg": 4.462782,
       "decDeg": 2.231355
     },
@@ -1464,8 +1464,8 @@
       "residualScatterMag": 0.08781901824652104,
       "matchedSources": 49,
       "kernelResidualSigma": 2.5,
-      "backgroundRmsNjy": 12.292006795119649,
-      "medianSnr": 19.61198754853463,
+      "backgroundRmsNjy": 9.312566371015052,
+      "medianSnr": 11.734357678341832,
       "raDeg": 5.950385,
       "decDeg": 2.231355
     },
@@ -1480,7 +1480,7 @@
       "matchedSources": 70,
       "kernelResidualSigma": 3.1,
       "backgroundRmsNjy": 9.844374494363821,
-      "medianSnr": 20.112510253115012,
+      "medianSnr": 13.17259199419513,
       "raDeg": 7.437989,
       "decDeg": 2.231355
     },
@@ -1495,7 +1495,7 @@
       "matchedSources": 26,
       "kernelResidualSigma": 2.6,
       "backgroundRmsNjy": 13.039917574569238,
-      "medianSnr": 17.923483677586788,
+      "medianSnr": 10.99156064204668,
       "raDeg": 8.925592,
       "decDeg": 2.231355
     },
@@ -1510,7 +1510,7 @@
       "matchedSources": 89,
       "kernelResidualSigma": 1.8,
       "backgroundRmsNjy": 1.319384065887583,
-      "medianSnr": 36.95924941036767,
+      "medianSnr": 39.496640412286524,
       "raDeg": 148.760303,
       "decDeg": 2.231355
     },
@@ -1525,7 +1525,7 @@
       "matchedSources": 166,
       "kernelResidualSigma": 2.3,
       "backgroundRmsNjy": 1.471552502160323,
-      "medianSnr": 35.22294937682827,
+      "medianSnr": 33.69167460304548,
       "raDeg": 150.247906,
       "decDeg": 2.231355
     },
@@ -1540,7 +1540,7 @@
       "matchedSources": 70,
       "kernelResidualSigma": 2.1,
       "backgroundRmsNjy": 1.9074180929072937,
-      "medianSnr": 28.06767697618458,
+      "medianSnr": 26.393741007603964,
       "raDeg": 151.735509,
       "decDeg": 2.231355
     },
@@ -1554,8 +1554,8 @@
       "residualScatterMag": 0.06260956342230024,
       "matchedSources": 83,
       "kernelResidualSigma": 1.9,
-      "backgroundRmsNjy": 7.692081083372019,
-      "medianSnr": 17.743473261461656,
+      "backgroundRmsNjy": 4.800737473944123,
+      "medianSnr": 14.661028984109269,
       "raDeg": 339.173526,
       "decDeg": 2.231355
     },
@@ -1570,7 +1570,7 @@
       "matchedSources": 101,
       "kernelResidualSigma": 2.2,
       "backgroundRmsNjy": 4.596972074173208,
-      "medianSnr": 28.006983728993333,
+      "medianSnr": 20.963050710928375,
       "raDeg": 343.636336,
       "decDeg": 2.231355
     },
@@ -1585,7 +1585,7 @@
       "matchedSources": 102,
       "kernelResidualSigma": 2.8,
       "backgroundRmsNjy": 6.178702514231144,
-      "medianSnr": 24.60019855610806,
+      "medianSnr": 17.75595445606983,
       "raDeg": 345.123939,
       "decDeg": 2.231355
     },
@@ -1600,7 +1600,7 @@
       "matchedSources": 56,
       "kernelResidualSigma": 3.5,
       "backgroundRmsNjy": 4.589473499945916,
-      "medianSnr": 23.770867820542882,
+      "medianSnr": 22.921404610318415,
       "raDeg": 346.611542,
       "decDeg": 2.231355
     },
@@ -1615,7 +1615,7 @@
       "matchedSources": 60,
       "kernelResidualSigma": 2.0,
       "backgroundRmsNjy": 5.727744571294991,
-      "medianSnr": 19.77269970683351,
+      "medianSnr": 17.239555144305335,
       "raDeg": 349.586749,
       "decDeg": 2.231355
     },
@@ -1630,7 +1630,7 @@
       "matchedSources": 101,
       "kernelResidualSigma": 1.7,
       "backgroundRmsNjy": 4.027143052220711,
-      "medianSnr": 22.847274176936615,
+      "medianSnr": 18.133931451164422,
       "raDeg": 351.074352,
       "decDeg": 2.231355
     },
@@ -1645,7 +1645,7 @@
       "matchedSources": 86,
       "kernelResidualSigma": 4.9,
       "backgroundRmsNjy": 3.5817668787018917,
-      "medianSnr": 23.232394962299757,
+      "medianSnr": 18.527798765935884,
       "raDeg": 354.049559,
       "decDeg": 2.231355
     },
@@ -1660,7 +1660,7 @@
       "matchedSources": 84,
       "kernelResidualSigma": 6.3,
       "backgroundRmsNjy": 5.412269945716199,
-      "medianSnr": 26.309012221581707,
+      "medianSnr": 20.198787545674097,
       "raDeg": 355.537162,
       "decDeg": 2.231355
     },
@@ -1675,7 +1675,7 @@
       "matchedSources": 75,
       "kernelResidualSigma": 1.7,
       "backgroundRmsNjy": 4.449222699792117,
-      "medianSnr": 19.962309349237316,
+      "medianSnr": 16.79603666099706,
       "raDeg": 357.024766,
       "decDeg": 2.231355
     },
@@ -1690,7 +1690,7 @@
       "matchedSources": 59,
       "kernelResidualSigma": 1.9,
       "backgroundRmsNjy": 3.6851062167576063,
-      "medianSnr": 22.85723863346411,
+      "medianSnr": 21.78358266158984,
       "raDeg": 358.512369,
       "decDeg": 2.231355
     },
@@ -1705,7 +1705,7 @@
       "matchedSources": 76,
       "kernelResidualSigma": 3.2,
       "backgroundRmsNjy": 6.681261237293684,
-      "medianSnr": 20.13759004894853,
+      "medianSnr": 12.132028516736504,
       "raDeg": 359.999972,
       "decDeg": 3.718906
     },
@@ -1719,8 +1719,8 @@
       "residualScatterMag": 0.0653550359027172,
       "matchedSources": 73,
       "kernelResidualSigma": 2.4,
-      "backgroundRmsNjy": 8.79871673385113,
-      "medianSnr": 19.568828734579697,
+      "backgroundRmsNjy": 7.58035302700844,
+      "medianSnr": 15.622838846625733,
       "raDeg": 1.487575,
       "decDeg": 3.718906
     },
@@ -1734,8 +1734,8 @@
       "residualScatterMag": 0.06898345843835543,
       "matchedSources": 63,
       "kernelResidualSigma": 2.5,
-      "backgroundRmsNjy": 8.606544442552966,
-      "medianSnr": 15.270940582093354,
+      "backgroundRmsNjy": 7.0092656792794985,
+      "medianSnr": 11.278155708020941,
       "raDeg": 2.975179,
       "decDeg": 3.718906
     },
@@ -1749,8 +1749,8 @@
       "residualScatterMag": 0.35504892520902803,
       "matchedSources": 47,
       "kernelResidualSigma": 2.4,
-      "backgroundRmsNjy": 11.037972457447797,
-      "medianSnr": 17.454225615550484,
+      "backgroundRmsNjy": 9.211431553314632,
+      "medianSnr": 12.144043686223716,
       "raDeg": 4.462782,
       "decDeg": 3.718906
     },
@@ -1765,7 +1765,7 @@
       "matchedSources": 73,
       "kernelResidualSigma": 5.8,
       "backgroundRmsNjy": 7.900274409677554,
-      "medianSnr": 18.252657427148698,
+      "medianSnr": 11.765584496621365,
       "raDeg": 5.950385,
       "decDeg": 3.718906
     },
@@ -1780,7 +1780,7 @@
       "matchedSources": 45,
       "kernelResidualSigma": 2.3,
       "backgroundRmsNjy": 8.063443003240607,
-      "medianSnr": 15.681642318597156,
+      "medianSnr": 12.160490754972319,
       "raDeg": 7.437989,
       "decDeg": 3.718906
     },
@@ -1795,7 +1795,7 @@
       "matchedSources": 86,
       "kernelResidualSigma": 4.1,
       "backgroundRmsNjy": 10.194158588477576,
-      "medianSnr": 24.633239094727017,
+      "medianSnr": 14.889989975971133,
       "raDeg": 8.925592,
       "decDeg": 3.718906
     }
