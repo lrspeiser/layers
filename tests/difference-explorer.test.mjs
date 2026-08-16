@@ -79,3 +79,47 @@ test("peak markers carry coordinates a browser can place, and honest labelling",
   assert.ok(index.counts.offSourcePeaks > 0);
   assert.ok(index.counts.offSourcePeaks < index.counts.totalPeaks);
 });
+
+// The explorer can switch reference survey, which means it fetches two more
+// indexes and their peak files at runtime. Those paths are checked here for the
+// same reason as the legacy set: a missing file is a blank frame, silently.
+test("every reference pairing the explorer can switch to resolves", async () => {
+  for (const file of ["difference-index-des.json", "difference-index-ps1.json"]) {
+    const index = await readJson("public", "data", "layers", "selected-regions", file);
+    assert.ok(index.regions.length > 100, `${file} looks empty`);
+    assert.ok(index.pairing && index.pairing !== "legacy");
+    for (const region of index.regions.slice(0, 30)) {
+      for (const name of [
+        `rubin-${region.rubinBand}`,
+        `reference-${region.referenceBand}`,
+        "difference",
+        "difference-overlay",
+      ]) {
+        await access(join(root, "public", index.previewRoot.slice(1), region.regionId, `${name}.png`));
+      }
+      await access(join(root, "public", index.peakRoot.slice(1), `${region.regionId}.json`));
+    }
+  }
+});
+
+test("a confirmed difference names the references that saw it", async () => {
+  const agreement = await readJson(
+    "public", "data", "layers", "selected-regions", "difference-agreement-slim.json",
+  );
+  assert.ok(agreement.counts.distinctOffSourcePositions > 0);
+  // Confirmation must be rarer than the raw population, or the filter is not
+  // filtering anything.
+  assert.ok(agreement.counts.confirmedByTwoOrMore < agreement.counts.distinctOffSourcePositions);
+  assert.match(agreement.caveat, /bandpass|colour/i);
+
+  for (const item of agreement.confirmed) {
+    const names = Object.keys(item.seenIn);
+    // Two references, or the word "confirmed" is doing work it has not earned.
+    assert.ok(names.length >= 2, `${item.regionId} claims confirmation from ${names.length}`);
+    assert.equal(item.referenceCount, names.length);
+    const signs = new Set(Object.values(item.seenIn).map((v) => Math.sign(v)));
+    assert.equal(item.directionsAgree, signs.size === 1);
+    // One reference brighter and another fainter at the same spot confirms nothing.
+    assert.equal(item.directionsAgree, true);
+  }
+});

@@ -1,0 +1,5890 @@
+{
+  "schemaVersion": "layers-difference-agreement-v1",
+  "generatedAt": "2026-08-16T02:05:05.122943+00:00",
+  "purpose": "Which difference peaks appear against more than one independent reference. Rubin is the only term the pairings share, so a repeated peak is on the Rubin side and a solitary one belongs to the reference that shows it.",
+  "matchRadiusArcsec": 2.0,
+  "matchedOnSky": "Positions are matched in sky coordinates, not pixels: the pairings sit on 0.4, 0.263 and 0.25 arcsec grids, so the same pixel offset is a different angle in each.",
+  "onSourceExcluded": "Only off-source peaks are cross-matched. A peak on a bright source is a PSF-match residual that appears in every pairing by construction, so confirming one would mean nothing.",
+  "counts": {
+    "regionsWithTwoOrMorePairings": 190,
+    "distinctOffSourcePositions": 224,
+    "confirmedByTwoOrMore": 3,
+    "confirmedWithAgreeingDirection": 3,
+    "regionsWithAConfirmedPosition": 3
+  },
+  "caveat": "Confirmation across references is not a detection. Every pairing shares the same unvalidated bandpass transfer, so a genuine colour difference would appear in all of them and be confirmed here. What this removes is the larger population of per-reference artefacts.",
+  "regions": [
+    {
+      "regionId": "dp2-tract-10053",
+      "tract": 10053,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-10054",
+      "tract": 10054,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "tract": 10055,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 150.216406,
+            "decDeg": 3.748408
+          },
+          "seenIn": {
+            "ps1": -11.86
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "tract": 10056,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 151.739783,
+            "decDeg": 3.696341
+          },
+          "seenIn": {
+            "ps1": -13.77
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "tract": 10079,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 185.919755,
+            "decDeg": 4.014073
+          },
+          "seenIn": {
+            "ps1": -9.98
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 185.902237,
+            "decDeg": 4.009539
+          },
+          "seenIn": {
+            "ps1": -9.81
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10215",
+      "tract": 10215,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 0,
+        "ps1": 3
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 28.266276,
+            "decDeg": 5.183401
+          },
+          "seenIn": {
+            "legacy": -4.21
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.255306,
+            "decDeg": 5.190537
+          },
+          "seenIn": {
+            "ps1": -8.23
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.271618,
+            "decDeg": 5.228031
+          },
+          "seenIn": {
+            "ps1": -7.67
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.235921,
+            "decDeg": 5.206643
+          },
+          "seenIn": {
+            "ps1": -6.8
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10321",
+      "tract": 10321,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "tract": 10689,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 14.976058,
+            "decDeg": 8.165999
+          },
+          "seenIn": {
+            "ps1": -10.96
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 15.021847,
+            "decDeg": 8.160653
+          },
+          "seenIn": {
+            "ps1": 9.05
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10805",
+      "tract": 10805,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "tract": 11162,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 7,
+        "ps1": 3
+      },
+      "distinctPositions": 10,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 4.54468,
+            "decDeg": 11.179157
+          },
+          "seenIn": {
+            "legacy": -11.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.546152,
+            "decDeg": 11.180601
+          },
+          "seenIn": {
+            "legacy": -10.76
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.541622,
+            "decDeg": 11.176157
+          },
+          "seenIn": {
+            "legacy": -6.25
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.54015,
+            "decDeg": 11.182824
+          },
+          "seenIn": {
+            "legacy": -6.2
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.54502,
+            "decDeg": 11.181824
+          },
+          "seenIn": {
+            "legacy": -6.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.540602,
+            "decDeg": 11.175379
+          },
+          "seenIn": {
+            "legacy": -6.05
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.541508,
+            "decDeg": 11.172602
+          },
+          "seenIn": {
+            "legacy": 5.93
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.547077,
+            "decDeg": 11.188299
+          },
+          "seenIn": {
+            "ps1": -6.41
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.549977,
+            "decDeg": 11.187392
+          },
+          "seenIn": {
+            "ps1": -6.13
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.535598,
+            "decDeg": 11.178531
+          },
+          "seenIn": {
+            "ps1": 5.85
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11411",
+      "tract": 11411,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 4,
+        "ps1": 0
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 19.748458,
+            "decDeg": 12.661929
+          },
+          "seenIn": {
+            "legacy": -11.06
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 19.741853,
+            "decDeg": 12.664929
+          },
+          "seenIn": {
+            "legacy": -8.84
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 19.740259,
+            "decDeg": 12.662929
+          },
+          "seenIn": {
+            "legacy": -8.04
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 19.738892,
+            "decDeg": 12.661929
+          },
+          "seenIn": {
+            "legacy": -7.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12112",
+      "tract": 12112,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 10.62278,
+            "decDeg": 16.626293
+          },
+          "seenIn": {
+            "ps1": 4.58
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.611817,
+            "decDeg": 16.635972
+          },
+          "seenIn": {
+            "ps1": -4.4
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-12814",
+      "tract": 12814,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "ps1": 1
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 25.458164,
+            "decDeg": 21.449986
+          },
+          "seenIn": {
+            "legacy": -4.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 25.437228,
+            "decDeg": 21.430208
+          },
+          "seenIn": {
+            "ps1": -7.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-2397",
+      "tract": 2397,
+      "pairingsAvailable": [
+        "legacy",
+        "des"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-3233",
+      "tract": 3233,
+      "pairingsAvailable": [
+        "legacy",
+        "des"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-4636",
+      "tract": 4636,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 3
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 51.156647,
+            "decDeg": -30.486946
+          },
+          "seenIn": {
+            "ps1": -6.39
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 51.194452,
+            "decDeg": -30.496226
+          },
+          "seenIn": {
+            "ps1": -5.41
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 51.19599,
+            "decDeg": -30.489478
+          },
+          "seenIn": {
+            "ps1": 5.18
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4637",
+      "tract": 4637,
+      "pairingsAvailable": [
+        "legacy",
+        "des"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-4638",
+      "tract": 4638,
+      "pairingsAvailable": [
+        "legacy",
+        "des"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "tract": 4848,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 52.122507,
+            "decDeg": -28.991736
+          },
+          "seenIn": {
+            "legacy": -36.71
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "tract": 4849,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-4850",
+      "tract": 4850,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 5
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 55.507185,
+            "decDeg": -29.037612
+          },
+          "seenIn": {
+            "ps1": -10.84
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 55.521928,
+            "decDeg": -28.996563
+          },
+          "seenIn": {
+            "ps1": -8.24
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 55.533553,
+            "decDeg": -29.000795
+          },
+          "seenIn": {
+            "ps1": -7.16
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 55.492091,
+            "decDeg": -29.036801
+          },
+          "seenIn": {
+            "ps1": -6.74
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 55.509253,
+            "decDeg": -29.038016
+          },
+          "seenIn": {
+            "ps1": -6.37
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "tract": 5061,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 49.779262,
+            "decDeg": -27.548686
+          },
+          "seenIn": {
+            "ps1": -6.9
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 49.777362,
+            "decDeg": -27.547041
+          },
+          "seenIn": {
+            "ps1": -6.56
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "tract": 5062,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 4
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 51.404666,
+            "decDeg": -27.486646
+          },
+          "seenIn": {
+            "des": -27.15,
+            "ps1": -9.38
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 51.408421,
+            "decDeg": -27.515604
+          },
+          "seenIn": {
+            "ps1": -15.59
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 51.458501,
+            "decDeg": -27.508142
+          },
+          "seenIn": {
+            "ps1": 9.07
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 51.399273,
+            "decDeg": -27.486795
+          },
+          "seenIn": {
+            "ps1": -8.11
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5063",
+      "tract": 5063,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-5064",
+      "tract": 5064,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-5065",
+      "tract": 5065,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 56.415119,
+            "decDeg": -27.499255
+          },
+          "seenIn": {
+            "ps1": -6.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 56.426326,
+            "decDeg": -27.552323
+          },
+          "seenIn": {
+            "ps1": -5.26
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "tract": 5214,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-5279",
+      "tract": 5279,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-5280",
+      "tract": 5280,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 3
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 52.638541,
+            "decDeg": -26.00225
+          },
+          "seenIn": {
+            "ps1": -8.7
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 52.60066,
+            "decDeg": -26.031748
+          },
+          "seenIn": {
+            "ps1": -8.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 52.601822,
+            "decDeg": -26.028415
+          },
+          "seenIn": {
+            "ps1": -8.08
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5282",
+      "tract": 5282,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 55.894319,
+            "decDeg": -26.052265
+          },
+          "seenIn": {
+            "des": -5.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "tract": 5670,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 329.157193,
+            "decDeg": -24.455708
+          },
+          "seenIn": {
+            "legacy": -13.61
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6509",
+      "tract": 6509,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 217.623822,
+            "decDeg": -18.125271
+          },
+          "seenIn": {
+            "ps1": 32.03
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "tract": 6524,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "tract": 7939,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "tract": 8259,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 359.978082,
+            "decDeg": -6.687258
+          },
+          "seenIn": {
+            "ps1": 5.92
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8272",
+      "tract": 8272,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8642",
+      "tract": 8642,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "tract": 8708,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "tract": 8883,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 4
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 209.742914,
+            "decDeg": -3.725188
+          },
+          "seenIn": {
+            "ps1": 8.97
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 209.784188,
+            "decDeg": -3.720043
+          },
+          "seenIn": {
+            "ps1": 8.94
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 209.736243,
+            "decDeg": -3.725548
+          },
+          "seenIn": {
+            "ps1": 8.46
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 209.759412,
+            "decDeg": -3.686181
+          },
+          "seenIn": {
+            "ps1": -7.87
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "tract": 8884,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 211.198419,
+            "decDeg": -3.77448
+          },
+          "seenIn": {
+            "ps1": -10.37
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8984",
+      "tract": 8984,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 0.004309,
+            "decDeg": -2.245137
+          },
+          "seenIn": {
+            "ps1": -6.44
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "tract": 8985,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 4
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 1.497793,
+            "decDeg": -2.233157
+          },
+          "seenIn": {
+            "des": -131.72
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.484863,
+            "decDeg": -2.213353
+          },
+          "seenIn": {
+            "ps1": -7.45
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.50167,
+            "decDeg": -2.213267
+          },
+          "seenIn": {
+            "ps1": -7.16
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.502709,
+            "decDeg": -2.211114
+          },
+          "seenIn": {
+            "ps1": -6.69
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.493331,
+            "decDeg": -2.208069
+          },
+          "seenIn": {
+            "ps1": -6.65
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8986",
+      "tract": 8986,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 2
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 2.981459,
+            "decDeg": -2.208389
+          },
+          "seenIn": {
+            "des": -16.56
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.976624,
+            "decDeg": -2.244641
+          },
+          "seenIn": {
+            "ps1": 5.95
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.944307,
+            "decDeg": -2.263364
+          },
+          "seenIn": {
+            "ps1": 5.37
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8994",
+      "tract": 8994,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8995",
+      "tract": 8995,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8996",
+      "tract": 8996,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 17.827425,
+            "decDeg": -2.224099
+          },
+          "seenIn": {
+            "des": -239.05
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "tract": 8997,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-8998",
+      "tract": 8998,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9125",
+      "tract": 9125,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9126",
+      "tract": 9126,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 4
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 210.807472,
+            "decDeg": -2.804618
+          },
+          "seenIn": {
+            "ps1": -10.65
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 210.809625,
+            "decDeg": -2.805384
+          },
+          "seenIn": {
+            "ps1": -10.32
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 210.830682,
+            "decDeg": -2.804156
+          },
+          "seenIn": {
+            "ps1": 7.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 210.831794,
+            "decDeg": -2.803948
+          },
+          "seenIn": {
+            "ps1": 7.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "tract": 9207,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9209",
+      "tract": 9209,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "tract": 9210,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9212",
+      "tract": 9212,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "tract": 9214,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9217",
+      "tract": 9217,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 1
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 346.634357,
+            "decDeg": -2.25046
+          },
+          "seenIn": {
+            "des": -184.77
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 346.6236,
+            "decDeg": -2.239422
+          },
+          "seenIn": {
+            "ps1": -12.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "tract": 9218,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "tract": 9219,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "tract": 9220,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 351.067364,
+            "decDeg": -2.22406
+          },
+          "seenIn": {
+            "des": -128.1
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "tract": 9221,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "tract": 9222,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "tract": 9223,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9226",
+      "tract": 9226,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 5
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 0.005902,
+            "decDeg": -0.776575
+          },
+          "seenIn": {
+            "ps1": 5.62
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 359.998889,
+            "decDeg": -0.765746
+          },
+          "seenIn": {
+            "ps1": -5.56
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 359.989446,
+            "decDeg": -0.774562
+          },
+          "seenIn": {
+            "ps1": -5.5
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 359.990487,
+            "decDeg": -0.773937
+          },
+          "seenIn": {
+            "ps1": -5.4
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 359.990001,
+            "decDeg": -0.776575
+          },
+          "seenIn": {
+            "ps1": -5.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "tract": 9227,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 0
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 1.49607,
+            "decDeg": -0.775353
+          },
+          "seenIn": {
+            "des": -160.4
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.474663,
+            "decDeg": -0.774477
+          },
+          "seenIn": {
+            "des": -95.82
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9228",
+      "tract": 9228,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 0
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 2.986784,
+            "decDeg": -0.714131
+          },
+          "seenIn": {
+            "des": -23.52
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.989268,
+            "decDeg": -0.712597
+          },
+          "seenIn": {
+            "des": -21.12
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9229",
+      "tract": 9229,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 4.44119,
+            "decDeg": -0.736704
+          },
+          "seenIn": {
+            "des": -130.82
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9230",
+      "tract": 9230,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 5.939454,
+            "decDeg": -0.753376
+          },
+          "seenIn": {
+            "ps1": -8.15
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9231",
+      "tract": 9231,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 7.398221,
+            "decDeg": -0.774175
+          },
+          "seenIn": {
+            "des": -26.77
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9232",
+      "tract": 9232,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9233",
+      "tract": 9233,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9236",
+      "tract": 9236,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9237",
+      "tract": 9237,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9238",
+      "tract": 9238,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9239",
+      "tract": 9239,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9240",
+      "tract": 9240,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9242",
+      "tract": 9242,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 23.693214,
+            "decDeg": -0.724505
+          },
+          "seenIn": {
+            "des": -31.64
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9245",
+      "tract": 9245,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9327",
+      "tract": 9327,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9328",
+      "tract": 9328,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9448",
+      "tract": 9448,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 328.917889,
+            "decDeg": -0.746399
+          },
+          "seenIn": {
+            "legacy": -67.28
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 328.909507,
+            "decDeg": -0.748646
+          },
+          "seenIn": {
+            "ps1": -8.29
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9449",
+      "tract": 9449,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "tract": 9450,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "tract": 9451,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9452",
+      "tract": 9452,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9453",
+      "tract": 9453,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9454",
+      "tract": 9454,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "tract": 9455,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 339.234994,
+            "decDeg": -0.725093
+          },
+          "seenIn": {
+            "des": -117.92
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "tract": 9456,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "tract": 9457,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9458",
+      "tract": 9458,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 343.718792,
+            "decDeg": -0.767264
+          },
+          "seenIn": {
+            "ps1": 14.48
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "tract": 9459,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "tract": 9460,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 3
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 346.647847,
+            "decDeg": -0.714669
+          },
+          "seenIn": {
+            "ps1": -13.5
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 346.644379,
+            "decDeg": -0.712309
+          },
+          "seenIn": {
+            "ps1": -13.15
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 346.6484,
+            "decDeg": -0.717792
+          },
+          "seenIn": {
+            "ps1": -11.79
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9461",
+      "tract": 9461,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 348.170086,
+            "decDeg": -0.776729
+          },
+          "seenIn": {
+            "des": -122.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9462",
+      "tract": 9462,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "tract": 9463,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9464",
+      "tract": 9464,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9465",
+      "tract": 9465,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9466",
+      "tract": 9466,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 355.530647,
+            "decDeg": -0.715666
+          },
+          "seenIn": {
+            "des": -46.93
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9467",
+      "tract": 9467,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "tract": 9468,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 358.530491,
+            "decDeg": -0.721878
+          },
+          "seenIn": {
+            "des": -232.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "tract": 9469,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9470",
+      "tract": 9470,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 1.469224,
+            "decDeg": 0.73797
+          },
+          "seenIn": {
+            "des": -50.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9471",
+      "tract": 9471,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9472",
+      "tract": 9472,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 3,
+        "ps1": 3
+      },
+      "distinctPositions": 6,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 4.466825,
+            "decDeg": 0.753892
+          },
+          "seenIn": {
+            "des": -20.23
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.448558,
+            "decDeg": 0.715027
+          },
+          "seenIn": {
+            "des": -14.94
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.461854,
+            "decDeg": 0.711374
+          },
+          "seenIn": {
+            "des": -12.82
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.472425,
+            "decDeg": 0.775021
+          },
+          "seenIn": {
+            "ps1": -6.1
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.435552,
+            "decDeg": 0.758297
+          },
+          "seenIn": {
+            "ps1": 5.92
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.471591,
+            "decDeg": 0.772939
+          },
+          "seenIn": {
+            "ps1": -5.36
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9473",
+      "tract": 9473,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 0
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 5.950171,
+            "decDeg": 0.769303
+          },
+          "seenIn": {
+            "des": -18.1
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.893402,
+            "decDeg": 0.736212
+          },
+          "seenIn": {
+            "des": -17.65
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9474",
+      "tract": 9474,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 7.383989,
+            "decDeg": 0.719636
+          },
+          "seenIn": {
+            "legacy": -20.52,
+            "des": -25.96
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9475",
+      "tract": 9475,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 8.902579,
+            "decDeg": 0.773355
+          },
+          "seenIn": {
+            "ps1": -6.93
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.902232,
+            "decDeg": 0.774674
+          },
+          "seenIn": {
+            "ps1": -6.59
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9476",
+      "tract": 9476,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 2
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 10.386252,
+            "decDeg": 0.736355
+          },
+          "seenIn": {
+            "des": -309.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.348104,
+            "decDeg": 0.716098
+          },
+          "seenIn": {
+            "ps1": -14.17
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.353865,
+            "decDeg": 0.713949
+          },
+          "seenIn": {
+            "ps1": -13.7
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9479",
+      "tract": 9479,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 14.839696,
+            "decDeg": 0.769962
+          },
+          "seenIn": {
+            "ps1": -13.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9480",
+      "tract": 9480,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 16.271419,
+            "decDeg": 0.736363
+          },
+          "seenIn": {
+            "des": -29.32
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9481",
+      "tract": 9481,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9482",
+      "tract": 9482,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9483",
+      "tract": 9483,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9484",
+      "tract": 9484,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 1,
+        "ps1": 4
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 1,
+      "confirmedAndDirectionsAgree": 1,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 22.193923,
+            "decDeg": 0.717295
+          },
+          "seenIn": {
+            "des": -17.23,
+            "ps1": -25.57
+          },
+          "referenceCount": 2,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 22.19947,
+            "decDeg": 0.719081
+          },
+          "seenIn": {
+            "legacy": -9.26
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 22.199363,
+            "decDeg": 0.728252
+          },
+          "seenIn": {
+            "ps1": 8.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 22.203055,
+            "decDeg": 0.714447
+          },
+          "seenIn": {
+            "ps1": -8.15
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 22.197991,
+            "decDeg": 0.714792
+          },
+          "seenIn": {
+            "ps1": -6.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9485",
+      "tract": 9485,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 23.69088,
+            "decDeg": 0.770247
+          },
+          "seenIn": {
+            "ps1": -6.78
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9488",
+      "tract": 9488,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9489",
+      "tract": 9489,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9569",
+      "tract": 9569,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 4,
+        "ps1": 2
+      },
+      "distinctPositions": 6,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 148.180905,
+            "decDeg": 0.96227
+          },
+          "seenIn": {
+            "legacy": -5.93
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 148.180905,
+            "decDeg": 0.964048
+          },
+          "seenIn": {
+            "legacy": -5.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 148.15868,
+            "decDeg": 0.948714
+          },
+          "seenIn": {
+            "legacy": -4.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 148.153235,
+            "decDeg": 0.946159
+          },
+          "seenIn": {
+            "legacy": -4.11
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 148.148261,
+            "decDeg": 0.968372
+          },
+          "seenIn": {
+            "ps1": 5.27
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 148.162843,
+            "decDeg": 0.960874
+          },
+          "seenIn": {
+            "ps1": -4.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9570",
+      "tract": 9570,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "tract": 9571,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9572",
+      "tract": 9572,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 152.502561,
+            "decDeg": 0.7889
+          },
+          "seenIn": {
+            "ps1": -7.59
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 152.504227,
+            "decDeg": 0.787303
+          },
+          "seenIn": {
+            "ps1": -6.46
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9691",
+      "tract": 9691,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9692",
+      "tract": 9692,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9693",
+      "tract": 9693,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9694",
+      "tract": 9694,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "tract": 9695,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9696",
+      "tract": 9696,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9697",
+      "tract": 9697,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 337.782097,
+            "decDeg": 0.774534
+          },
+          "seenIn": {
+            "ps1": -18.23
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "tract": 9698,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 3
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 339.25466,
+            "decDeg": 0.77054
+          },
+          "seenIn": {
+            "ps1": -40.61
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 339.253203,
+            "decDeg": 0.769499
+          },
+          "seenIn": {
+            "ps1": -34.51
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 339.250149,
+            "decDeg": 0.76818
+          },
+          "seenIn": {
+            "ps1": -26.78
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "tract": 9699,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9700",
+      "tract": 9700,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 342.190874,
+            "decDeg": 0.752877
+          },
+          "seenIn": {
+            "ps1": -17.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "tract": 9701,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9702",
+      "tract": 9702,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 345.176543,
+            "decDeg": 0.767598
+          },
+          "seenIn": {
+            "ps1": 21.11
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "tract": 9703,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9704",
+      "tract": 9704,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9705",
+      "tract": 9705,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "tract": 9706,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9707",
+      "tract": 9707,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9708",
+      "tract": 9708,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "tract": 9709,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 1
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 355.553441,
+            "decDeg": 0.742134
+          },
+          "seenIn": {
+            "des": -65.74
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 355.526899,
+            "decDeg": 0.713456
+          },
+          "seenIn": {
+            "ps1": 6.26
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9710",
+      "tract": 9710,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 357.007784,
+            "decDeg": 0.733733
+          },
+          "seenIn": {
+            "des": -76.34
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "tract": 9711,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 358.48799,
+            "decDeg": 0.726136
+          },
+          "seenIn": {
+            "des": -99.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "tract": 9712,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 0.008409,
+            "decDeg": 2.19861
+          },
+          "seenIn": {
+            "ps1": -25.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9713",
+      "tract": 9713,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "tract": 9714,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 2.974088,
+            "decDeg": 2.234563
+          },
+          "seenIn": {
+            "des": -75.34
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9715",
+      "tract": 9715,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 4.475476,
+            "decDeg": 2.225424
+          },
+          "seenIn": {
+            "des": -11.49
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9716",
+      "tract": 9716,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 4
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 5.924956,
+            "decDeg": 2.217605
+          },
+          "seenIn": {
+            "des": -8.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.980795,
+            "decDeg": 2.25386
+          },
+          "seenIn": {
+            "ps1": 5.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.924384,
+            "decDeg": 2.216041
+          },
+          "seenIn": {
+            "ps1": -4.87
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.968391,
+            "decDeg": 2.213971
+          },
+          "seenIn": {
+            "ps1": 4.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.974408,
+            "decDeg": 2.253036
+          },
+          "seenIn": {
+            "ps1": -4.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "tract": 9717,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "tract": 9718,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 3,
+        "des": 1,
+        "ps1": 1
+      },
+      "distinctPositions": 5,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 8.935544,
+            "decDeg": 2.232633
+          },
+          "seenIn": {
+            "legacy": -6.03
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.935544,
+            "decDeg": 2.235188
+          },
+          "seenIn": {
+            "legacy": -5.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.939769,
+            "decDeg": 2.231966
+          },
+          "seenIn": {
+            "legacy": -5.19
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.899368,
+            "decDeg": 2.221237
+          },
+          "seenIn": {
+            "des": -70.96
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.902557,
+            "decDeg": 2.24965
+          },
+          "seenIn": {
+            "ps1": -21.56
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9719",
+      "tract": 9719,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 2,
+        "des": 1,
+        "ps1": 3
+      },
+      "distinctPositions": 6,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 10.439382,
+            "decDeg": 2.253633
+          },
+          "seenIn": {
+            "legacy": -4.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.427595,
+            "decDeg": 2.213522
+          },
+          "seenIn": {
+            "legacy": -4.41
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.40737,
+            "decDeg": 2.260904
+          },
+          "seenIn": {
+            "des": -12.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.445225,
+            "decDeg": 2.264235
+          },
+          "seenIn": {
+            "ps1": -11.06
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.4462,
+            "decDeg": 2.26132
+          },
+          "seenIn": {
+            "ps1": -9.85
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 10.438705,
+            "decDeg": 2.255759
+          },
+          "seenIn": {
+            "ps1": 6.08
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9722",
+      "tract": 9722,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 6,
+        "ps1": 0
+      },
+      "distinctPositions": 6,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 14.887567,
+            "decDeg": 2.200882
+          },
+          "seenIn": {
+            "des": -138.21
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.893635,
+            "decDeg": 2.200445
+          },
+          "seenIn": {
+            "des": -136.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.891588,
+            "decDeg": 2.20059
+          },
+          "seenIn": {
+            "des": -133.67
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.895171,
+            "decDeg": 2.200299
+          },
+          "seenIn": {
+            "des": -125.02
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.898388,
+            "decDeg": 2.20008
+          },
+          "seenIn": {
+            "des": -110.71
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 14.902116,
+            "decDeg": 2.199861
+          },
+          "seenIn": {
+            "des": -99.81
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9723",
+      "tract": 9723,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9724",
+      "tract": 9724,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "tract": 9725,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9726",
+      "tract": 9726,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 2,
+        "des": 3,
+        "ps1": 1
+      },
+      "distinctPositions": 6,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 20.839372,
+            "decDeg": 2.251299
+          },
+          "seenIn": {
+            "legacy": -7.03
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.836036,
+            "decDeg": 2.222077
+          },
+          "seenIn": {
+            "legacy": -6.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.854668,
+            "decDeg": 2.2087
+          },
+          "seenIn": {
+            "des": -166.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.831203,
+            "decDeg": 2.262105
+          },
+          "seenIn": {
+            "des": -107.49
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.81285,
+            "decDeg": 2.230035
+          },
+          "seenIn": {
+            "des": -30.71
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.858708,
+            "decDeg": 2.237039
+          },
+          "seenIn": {
+            "ps1": -6.76
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9727",
+      "tract": 9727,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9728",
+      "tract": 9728,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 7
+      },
+      "distinctPositions": 7,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 23.819935,
+            "decDeg": 2.234015
+          },
+          "seenIn": {
+            "ps1": -13.72
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.811038,
+            "decDeg": 2.248667
+          },
+          "seenIn": {
+            "ps1": 8.62
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.816879,
+            "decDeg": 2.217974
+          },
+          "seenIn": {
+            "ps1": -8.36
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.818268,
+            "decDeg": 2.222002
+          },
+          "seenIn": {
+            "ps1": -7.83
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.817642,
+            "decDeg": 2.22346
+          },
+          "seenIn": {
+            "ps1": -6.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.831543,
+            "decDeg": 2.211934
+          },
+          "seenIn": {
+            "ps1": 6.35
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 23.815279,
+            "decDeg": 2.227696
+          },
+          "seenIn": {
+            "ps1": 5.93
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9731",
+      "tract": 9731,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 5
+      },
+      "distinctPositions": 7,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 28.261633,
+            "decDeg": 2.260391
+          },
+          "seenIn": {
+            "des": -18.21
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.255865,
+            "decDeg": 2.226931
+          },
+          "seenIn": {
+            "des": -9.02
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.235387,
+            "decDeg": 2.252688
+          },
+          "seenIn": {
+            "ps1": -6.17
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.282988,
+            "decDeg": 2.234971
+          },
+          "seenIn": {
+            "ps1": -5.91
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.282503,
+            "decDeg": 2.239902
+          },
+          "seenIn": {
+            "ps1": -5.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.28917,
+            "decDeg": 2.21754
+          },
+          "seenIn": {
+            "ps1": -5.55
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.287921,
+            "decDeg": 2.22636
+          },
+          "seenIn": {
+            "ps1": 5.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9732",
+      "tract": 9732,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 2
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 29.759446,
+            "decDeg": 2.225704
+          },
+          "seenIn": {
+            "des": -16.91
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 29.722198,
+            "decDeg": 2.264184
+          },
+          "seenIn": {
+            "ps1": -7.04
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 29.748764,
+            "decDeg": 2.238956
+          },
+          "seenIn": {
+            "ps1": -5.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "tract": 9811,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "tract": 9812,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9813",
+      "tract": 9813,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "tract": 9814,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9934",
+      "tract": 9934,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9937",
+      "tract": 9937,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9940",
+      "tract": 9940,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 339.165003,
+            "decDeg": 2.198617
+          },
+          "seenIn": {
+            "des": -63.08
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "tract": 9943,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 343.650382,
+            "decDeg": 2.201398
+          },
+          "seenIn": {
+            "des": -59.8
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "tract": 9944,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "tract": 9945,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "tract": 9947,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 349.616988,
+            "decDeg": 2.25431
+          },
+          "seenIn": {
+            "ps1": -60.05
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "tract": 9948,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "tract": 9950,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 1
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 354.08238,
+            "decDeg": 2.249087
+          },
+          "seenIn": {
+            "ps1": 9.6
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "tract": 9951,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "tract": 9952,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 357.043305,
+            "decDeg": 2.228796
+          },
+          "seenIn": {
+            "ps1": -21.01
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 357.038654,
+            "decDeg": 2.235118
+          },
+          "seenIn": {
+            "ps1": -17.66
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9953",
+      "tract": 9953,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9954",
+      "tract": 9954,
+      "pairingsAvailable": [
+        "legacy",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 359.967168,
+            "decDeg": 3.68611
+          },
+          "seenIn": {
+            "ps1": 5.47
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 359.974402,
+            "decDeg": 3.720038
+          },
+          "seenIn": {
+            "ps1": 5.3
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9955",
+      "tract": 9955,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 1
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 1.482933,
+            "decDeg": 3.690907
+          },
+          "seenIn": {
+            "des": -75.72
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.47056,
+            "decDeg": 3.702521
+          },
+          "seenIn": {
+            "des": -32.58
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 1.489486,
+            "decDeg": 3.709144
+          },
+          "seenIn": {
+            "ps1": -8.8
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9956",
+      "tract": 9956,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 1,
+        "des": 2,
+        "ps1": 4
+      },
+      "distinctPositions": 7,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 2.974455,
+            "decDeg": 3.730962
+          },
+          "seenIn": {
+            "legacy": -4.88
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.959047,
+            "decDeg": 3.686014
+          },
+          "seenIn": {
+            "des": -10.19
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.942793,
+            "decDeg": 3.731089
+          },
+          "seenIn": {
+            "des": -6.73
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.968064,
+            "decDeg": 3.703898
+          },
+          "seenIn": {
+            "ps1": -7.61
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 3.004159,
+            "decDeg": 3.695267
+          },
+          "seenIn": {
+            "ps1": 7.42
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.983718,
+            "decDeg": 3.689625
+          },
+          "seenIn": {
+            "ps1": -5.21
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 2.967297,
+            "decDeg": 3.706394
+          },
+          "seenIn": {
+            "ps1": -4.9
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9957",
+      "tract": 9957,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 2
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 4.452621,
+            "decDeg": 3.739904
+          },
+          "seenIn": {
+            "ps1": -10.12
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 4.439615,
+            "decDeg": 3.743102
+          },
+          "seenIn": {
+            "ps1": -10.06
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9958",
+      "tract": 9958,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 4
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 5.959934,
+            "decDeg": 3.733748
+          },
+          "seenIn": {
+            "ps1": -145.55
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.981494,
+            "decDeg": 3.75145
+          },
+          "seenIn": {
+            "ps1": -16.88
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.979687,
+            "decDeg": 3.751246
+          },
+          "seenIn": {
+            "ps1": -15.09
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 5.982602,
+            "decDeg": 3.748535
+          },
+          "seenIn": {
+            "ps1": -13.75
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9959",
+      "tract": 9959,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9960",
+      "tract": 9960,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 3,
+        "ps1": 0
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 8.949823,
+            "decDeg": 3.7331
+          },
+          "seenIn": {
+            "des": -44.3
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.945272,
+            "decDeg": 3.686712
+          },
+          "seenIn": {
+            "des": -35.77
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 8.892784,
+            "decDeg": 3.690889
+          },
+          "seenIn": {
+            "des": -34.25
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9964",
+      "tract": 9964,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9965",
+      "tract": 9965,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9966",
+      "tract": 9966,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 17.834075,
+            "decDeg": 3.711349
+          },
+          "seenIn": {
+            "des": -260.22
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "tract": 9967,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 0,
+        "ps1": 0
+      },
+      "distinctPositions": 0,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": []
+    },
+    {
+      "regionId": "dp2-tract-9968",
+      "tract": 9968,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 1
+      },
+      "distinctPositions": 3,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 20.845236,
+            "decDeg": 3.749645
+          },
+          "seenIn": {
+            "des": -116.43
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.839306,
+            "decDeg": 3.737883
+          },
+          "seenIn": {
+            "des": -50.32
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 20.809703,
+            "decDeg": 3.744782
+          },
+          "seenIn": {
+            "ps1": -7.67
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9969",
+      "tract": 9969,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 0
+      },
+      "distinctPositions": 1,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 22.331308,
+            "decDeg": 3.713117
+          },
+          "seenIn": {
+            "des": -19.76
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9973",
+      "tract": 9973,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 2,
+        "ps1": 2
+      },
+      "distinctPositions": 4,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 28.261029,
+            "decDeg": 3.733904
+          },
+          "seenIn": {
+            "des": -67.38
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.276038,
+            "decDeg": 3.736676
+          },
+          "seenIn": {
+            "des": -45.54
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.277335,
+            "decDeg": 3.733663
+          },
+          "seenIn": {
+            "ps1": -10.37
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 28.268702,
+            "decDeg": 3.689955
+          },
+          "seenIn": {
+            "ps1": -8.08
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9974",
+      "tract": 9974,
+      "pairingsAvailable": [
+        "legacy",
+        "des",
+        "ps1"
+      ],
+      "offSourcePeaksByPairing": {
+        "legacy": 0,
+        "des": 1,
+        "ps1": 1
+      },
+      "distinctPositions": 2,
+      "confirmedByTwoOrMore": 0,
+      "confirmedAndDirectionsAgree": 0,
+      "positions": [
+        {
+          "sky": {
+            "raDeg": 29.73669,
+            "decDeg": 3.68604
+          },
+          "seenIn": {
+            "des": -144.48
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        },
+        {
+          "sky": {
+            "raDeg": 29.764739,
+            "decDeg": 3.728057
+          },
+          "seenIn": {
+            "ps1": -8.97
+          },
+          "referenceCount": 1,
+          "directionsAgree": true
+        }
+      ]
+    }
+  ]
+}

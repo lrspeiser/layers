@@ -229,8 +229,20 @@ def main() -> None:
     parser.add_argument("--products", type=Path, default=DEFAULT_PRODUCTS)
     parser.add_argument("--previews", type=Path, default=DEFAULT_PREVIEWS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--pairing", default="legacy",
+                        help="Which reference this run compares Rubin against.")
+    # No URL argument. A leading-slash value passed on a Git Bash command line is
+    # rewritten to a Windows path -- "/layer-previews/..." arrived as
+    # "C:/Program Files/Git/layer-previews/..." and was written into the manifest.
+    # Deriving the URL from the previews directory removes the failure mode.
+    parser.add_argument("--peaks-dir-name", default="difference-peaks")
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
+
+    try:
+        preview_url_root = "/" + args.previews.resolve().relative_to(ROOT / "public").as_posix()
+    except ValueError as error:
+        raise SystemExit(f"--previews must live under public/: {args.previews}") from error
 
     paths = sorted(p for region in sorted(args.products.iterdir()) if region.is_dir()
                    for p in region.glob("*.fits"))
@@ -249,7 +261,7 @@ def main() -> None:
             continue
         result["regionId"] = region_id
         result["tract"] = int(region_id.rsplit("-", 1)[-1])
-        base = f"/layer-previews/selected-regions-200/comparisons/{region_id}"
+        base = f"{preview_url_root}/{region_id}"
         result["previews"] = {
             "rubin": f"{base}/rubin-{result['rubinBand']}.png",
             "reference": f"{base}/reference-{result['referenceBand']}.png",
@@ -279,6 +291,7 @@ def main() -> None:
     payload = {
         "schemaVersion": "layers-difference-maps-v1",
         "generatedAt": utc_now(),
+        "pairing": args.pairing,
         "purpose": (
             "Where Rubin and the reference disagree, rendered so it can be viewed over the star "
             "image rather than inferred by comparing two frames by eye."
@@ -336,7 +349,7 @@ def main() -> None:
     # already broke every tract route once by pushing its worker chunk past what
     # the runtime would load. So the page imports a slim index, and a region's
     # peaks are fetched from a static file only when that region is opened.
-    peaks_dir = args.output.parent.parent / "difference-peaks"
+    peaks_dir = args.output.parent.parent / args.peaks_dir_name
     peaks_dir.mkdir(parents=True, exist_ok=True)
     for region in regions:
         (peaks_dir / f"{region['regionId']}.json").write_text(
@@ -362,8 +375,9 @@ def main() -> None:
         "peakClassification": payload["peakClassification"],
         "counts": payload["counts"],
         "caveat": payload["caveat"],
-        "previewRoot": "/layer-previews/selected-regions-200/comparisons",
-        "peakRoot": "/data/layers/difference-peaks",
+        "pairing": args.pairing,
+        "previewRoot": preview_url_root,
+        "peakRoot": f"/data/layers/{args.peaks_dir_name}",
         "regions": [
             {
                 "regionId": item["regionId"],
@@ -382,7 +396,8 @@ def main() -> None:
             for item in regions
         ],
     }
-    index_path = args.output.parent / "difference-index.json"
+    suffix = "" if args.pairing == "legacy" else f"-{args.pairing}"
+    index_path = args.output.parent / f"difference-index{suffix}.json"
     index_path.write_text(json.dumps(index, separators=(",", ":")) + "\n", encoding="utf-8")
 
     print(f"\n{json.dumps(payload['counts'], indent=2)}")

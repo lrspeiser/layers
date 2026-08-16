@@ -385,3 +385,102 @@
   background: rgba(224, 168, 76, 0.18);
   color: #e0a84c;
 }
+
+.confirmed {
+  padding: 1.1rem 1.8rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(198, 247, 101, 0.06);
+}
+
+.confirmed h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.confirmed p {
+  margin: 0 0 0.7rem;
+  max-width: 70ch;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.confirmed ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+}
+
+.confirmed button {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(198, 247, 101, 0.35);
+  border-radius: 0.5rem;
+  background: var(--panel);
+  color: inherit;
+  cursor: pointer;
+}
+
+.confirmed button:hover {
+  background: var(--panel-raised);
+}
+
+.confirmed button span {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.confirmed button em {
+  font-style: normal;
+  font-size: 0.7rem;
+  color: var(--lime);
+}
+
+.pairings {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  padding: 0.8rem 1.8rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.pairings button {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  color: var(--muted);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.76rem;
+  cursor: pointer;
+}
+
+.pairings button[data-active="true"] {
+  color: #0d100f;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.confirmedBadge {
+  font-style: normal;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+  background: rgba(118, 189, 236, 0.18);
+  color: var(--blue);
+}

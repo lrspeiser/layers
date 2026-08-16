@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DifferenceExplorer, type DifferenceRegion } from "@/components/DifferenceExplorer";
+import {
+  DifferenceExplorer,
+  type ConfirmedPosition,
+  type DifferenceRegion,
+} from "@/components/DifferenceExplorer";
 import index from "@/public/data/layers/selected-regions/difference-index.json";
+import agreement from "@/public/data/layers/selected-regions/difference-agreement-slim.json";
 
 // The slim index only. The full difference-maps.json is 0.9 MB and the per-region
 // peak lists are fetched by the client when a region is opened: a 525 KB module
@@ -16,6 +21,12 @@ export const metadata: Metadata = {
 
 export default function ExplorerPage() {
   const regions = (index.regions ?? []) as DifferenceRegion[];
+  // Counts the confirmed panel quotes come from the agreement build, not the
+  // per-pairing index, so they travel together.
+  const counts = { ...index.counts, ...agreement.counts } as unknown as Record<string, number>;
+  // TypeScript infers each entry's seenIn as its own literal shape, since the
+  // references present differ per position, so the JSON needs one cast here.
+  const confirmed = agreement.confirmed as unknown as ConfirmedPosition[];
 
   return (
     <main id="top">
@@ -39,9 +50,11 @@ export default function ExplorerPage() {
         regions={regions}
         previewRoot={index.previewRoot}
         peakRoot={index.peakRoot}
-        counts={index.counts as unknown as Record<string, number>}
+        counts={counts}
         caveat={index.caveat}
         peakClassification={index.peakClassification}
+        confirmed={confirmed}
+        agreementCaveat={agreement.caveat}
       />
     </main>
   );

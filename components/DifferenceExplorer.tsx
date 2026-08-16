@@ -30,6 +30,29 @@ export type DifferencePeak = {
 
 type ViewMode = "overlay" | "rubin" | "reference" | "difference" | "blink";
 
+export type ConfirmedPosition = {
+  regionId: string;
+  tract: number;
+  sky: { raDeg: number; decDeg: number };
+  seenIn: Record<string, number>;
+  referenceCount: number;
+  directionsAgree: boolean;
+};
+
+export type PairingIndex = {
+  pairing: string;
+  previewRoot: string;
+  peakRoot: string;
+  counts: Record<string, number>;
+  regions: DifferenceRegion[];
+};
+
+const PAIRINGS: Array<{ id: string; label: string; file: string }> = [
+  { id: "legacy", label: "Legacy DR10", file: "difference-index.json" },
+  { id: "des", label: "DES DR2", file: "difference-index-des.json" },
+  { id: "ps1", label: "Pan-STARRS", file: "difference-index-ps1.json" },
+];
+
 const MODES: Array<{ id: ViewMode; label: string; hint: string }> = [
   { id: "overlay", label: "Overlay", hint: "Difference laid over the Rubin frame" },
   { id: "blink", label: "Blink", hint: "Alternate Rubin and the reference" },
@@ -45,6 +68,8 @@ export function DifferenceExplorer({
   counts,
   caveat,
   peakClassification,
+  confirmed = [],
+  agreementCaveat,
 }: {
   regions: DifferenceRegion[];
   previewRoot: string;
@@ -52,7 +77,16 @@ export function DifferenceExplorer({
   counts: Record<string, number>;
   caveat: string;
   peakClassification: { onSource: string; offSource: string };
+  confirmed?: ConfirmedPosition[];
+  agreementCaveat?: string;
 }) {
+  // The other pairings are fetched when chosen rather than imported: three
+  // indexes is 131 KB of route payload for something most visits never switch.
+  const [pairing, setPairing] = useState("legacy");
+  const [loaded, setLoaded] = useState<Record<string, PairingIndex>>({
+    legacy: { pairing: "legacy", previewRoot, peakRoot, counts, regions },
+  });
+  const active = loaded[pairing];
   const [onlyOffSource, setOnlyOffSource] = useState(false);
   const [selectedId, setSelectedId] = useState(regions[0]?.regionId ?? "");
   const [mode, setMode] = useState<ViewMode>("overlay");
@@ -62,9 +96,32 @@ export function DifferenceExplorer({
   const [blinkOnRubin, setBlinkOnRubin] = useState(true);
   const [loadingPeaks, setLoadingPeaks] = useState(false);
 
+  useEffect(() => {
+    if (loaded[pairing]) return;
+    const entry = PAIRINGS.find((p) => p.id === pairing);
+    if (!entry) return;
+    let cancelled = false;
+    fetch(`/data/layers/selected-regions/${entry.file}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+      .then((data: PairingIndex) => {
+        if (!cancelled) setLoaded((current) => ({ ...current, [pairing]: data }));
+      })
+      .catch(() => {
+        if (!cancelled) setPairing("legacy");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [pairing, loaded]);
+
+  const activeRegions = active?.regions ?? [];
   const visible = useMemo(
-    () => (onlyOffSource ? regions.filter((r) => r.offSourcePeakCount > 0) : regions),
-    [regions, onlyOffSource],
+    () => (onlyOffSource ? activeRegions.filter((r) => r.offSourcePeakCount > 0) : activeRegions),
+    [activeRegions, onlyOffSource],
+  );
+  const confirmedTracts = useMemo(
+    () => new Set(confirmed.map((item) => item.regionId)),
+    [confirmed],
   );
 
   // Keep the selection inside the filtered list, or the viewer shows a region
@@ -76,8 +133,8 @@ export function DifferenceExplorer({
   }, [visible, selectedId]);
 
   const selected = useMemo(
-    () => regions.find((r) => r.regionId === selectedId) ?? null,
-    [regions, selectedId],
+    () => activeRegions.find((r) => r.regionId === selectedId) ?? null,
+    [activeRegions, selectedId],
   );
 
   // Peaks are fetched per region rather than bundled: all of them together are
@@ -88,7 +145,8 @@ export function DifferenceExplorer({
     let cancelled = false;
     setLoadingPeaks(true);
     setActivePeak(null);
-    fetch(`${peakRoot}/${selectedId}.json`)
+    if (!active) return;
+    fetch(`${active.peakRoot}/${selectedId}.json`)
       .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
       .then((data) => {
         if (!cancelled) setPeaks(data.peaks ?? []);
@@ -102,7 +160,7 @@ export function DifferenceExplorer({
     return () => {
       cancelled = true;
     };
-  }, [selectedId, peakRoot]);
+  }, [selectedId, active]);
 
   const blinkTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
@@ -119,8 +177,8 @@ export function DifferenceExplorer({
   }, [mode]);
 
   const src = useCallback(
-    (name: string) => `${previewRoot}/${selectedId}/${name}.png`,
-    [previewRoot, selectedId],
+    (name: string) => `${active?.previewRoot ?? previewRoot}/${selectedId}/${name}.png`,
+    [active, previewRoot, selectedId],
   );
 
   // The band is part of the filename and is not always r: a few regions compare
@@ -173,6 +231,58 @@ export function DifferenceExplorer({
         <strong>A bright patch here is a disagreement, not a discovery.</strong> {caveat}
       </p>
 
+      {confirmed.length > 0 && (
+        <div className={styles.confirmed}>
+          <h2>Seen against more than one reference</h2>
+          <p>
+            {confirmed.length} position{confirmed.length === 1 ? "" : "s"} of{" "}
+            {counts.distinctOffSourcePositions ?? "—"} off-source ones appear against two
+            independent references. Rubin is the only term those comparisons share, so a repeated
+            peak sits on the Rubin side and a solitary one belongs to the reference that shows it.
+          </p>
+          <ul>
+            {confirmed.map((item) => (
+              <li key={`${item.regionId}-${item.sky.raDeg}`}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const owner = Object.keys(item.seenIn)[0];
+                    if (owner && owner !== pairing) setPairing(owner);
+                    setSelectedId(item.regionId);
+                  }}
+                >
+                  <strong>Tract {item.tract}</strong>
+                  <span>
+                    {item.sky.raDeg.toFixed(4)}, {item.sky.decDeg.toFixed(4)}
+                  </span>
+                  <em>
+                    {Object.entries(item.seenIn)
+                      .map(([name, value]) => `${name} ${Math.abs(value).toFixed(0)}σ`)
+                      .join(" · ")}
+                  </em>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {agreementCaveat && <p className={styles.muted}>{agreementCaveat}</p>}
+        </div>
+      )}
+
+      <div className={styles.pairings} role="group" aria-label="Reference survey">
+        <span>Compare Rubin against</span>
+        {PAIRINGS.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            data-active={pairing === item.id}
+            onClick={() => setPairing(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+        {!active && <em>loading…</em>}
+      </div>
+
       <div className={styles.body}>
         <aside className={styles.list}>
           <label className={styles.filter}>
@@ -207,11 +317,14 @@ export function DifferenceExplorer({
                   <span className={styles.metric}>
                     {((region.fractionAbove5Sigma ?? 0) * 100).toFixed(2)}% of pixels above 5&sigma;
                   </span>
-                  {region.offSourcePeakCount > 0 && (
-                    <em className={styles.badge}>
-                      {region.offSourcePeakCount} off-source
-                    </em>
-                  )}
+                  <span className={styles.tags}>
+                    {region.offSourcePeakCount > 0 && (
+                      <em className={styles.badge}>{region.offSourcePeakCount} off-source</em>
+                    )}
+                    {confirmedTracts.has(region.regionId) && (
+                      <em className={styles.confirmedBadge}>confirmed</em>
+                    )}
+                  </span>
                 </button>
               </li>
             ))}
