@@ -1523,3 +1523,38 @@ only 63 PS1 offsets were measured and the three-way intersection shrinks
 accordingly. The medians shift slightly from §28 for that reason alone (Legacy
 0.9026 here against 0.9110 there) — a different subset of sky, not a different
 result.
+
+## 31. HSC through the full chain: recovery, anomaly scan, and what the gates refused
+
+G1's outcome names a chain, not just a pair count: reconcile → recovery →
+anomaly. HSC's 107 reconciled pairs have now been through all of it.
+
+**Recovery: 107 measured, 0 failed.** The median ratio of empirical to formal
+noise is **5.42** — an independent corroboration of §22–24 from a different
+direction. That work measured aperture-sum variance inflated by 4.2× on real
+segment footprints; this stage, using injected diffuse structure rather than
+blank-sky apertures, lands in the same place. Two methods, same conclusion: the
+formal errors on these products understate the truth by a factor of several.
+
+**Anomaly scan: 79 regions scanned, 28 skipped, 213 candidates, 3 without a
+boring explanation.** The sign balance is 1 Rubin-excess against 2
+reference-excess, imbalance 0.0σ — no population systematic, which is what a
+healthy matching produces.
+
+**The skips are the informative part.** 24 regions were refused for "flux
+transfer not corroborated" and 1 for failed PSF matching. The scanner will not
+look for anomalies in a field whose calibration it cannot vouch for, which is the
+correct behaviour and the reason the candidate list is worth anything.
+
+**A mistake worth recording, because the failure mode was silent-looking.** The
+first run reported 0 scanned, 107 skipped, every one of them "no
+injection/recovery calibration" — which reads exactly like the injection/recovery
+blocker of §25 and would have been easy to file under a known limitation.
+It was not. `--recovery` takes the output *directory* and I passed it the
+manifest *file*, so the scanner looked for
+`recovery-hsc/manifest.json/<region>/diffuse-recovery.json` and correctly found
+nothing. A wrong path produced a plausible, familiar-sounding diagnosis. The tell
+was that it applied to 107 of 107 regions rather than to some.
+
+With this, all four optical references have completed the chain G1 specifies.
+The delivered count stands at 628 reconciled pairs of a measured ceiling of 652.
