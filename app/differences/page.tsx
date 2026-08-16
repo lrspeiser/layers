@@ -190,6 +190,7 @@ export default function DifferencesPage() {
         </Link>
         <nav>
           <Link href="/">Full footprint</Link>
+          <Link href="/explorer">Difference explorer</Link>
           <Link href="/pilots">Live multi-survey pilots</Link>
           <Link href="/prototype">Aligned optical prototype</Link>
         </nav>
