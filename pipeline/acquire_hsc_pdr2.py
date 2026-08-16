@@ -41,12 +41,16 @@ from pathlib import Path
 from typing import Any
 
 import numpy as np
+import astropy.units as u
+from astropy.coordinates import SkyCoord
 from astropy.io import fits
+from mocpy import MOC
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGIONS = ROOT / "public/data/layers/selected-regions/legacy-dr10-200.json"
 DEFAULT_OUTPUT = ROOT / "public/data/layers/hsc-pdr2/manifest.json"
 DEFAULT_CACHE = ROOT / "pipeline/results/hsc-pdr2"
+DEFAULT_MOC = ROOT / "public/data/moc/hsc-ssp-pdr2-claimed.fits"
 
 # The PDR2 cutout endpoint. rerun is the PDR2 wide coadd; band names are HSC-*.
 CUTOUT_URL = "https://hsc-release.mtk.nao.ac.jp/das_cutout/pdr2/cgi-bin/cutout"
@@ -59,6 +63,29 @@ USER_AGENT = "Rubin-Light-Atlas/0.3 (+https://github.com/lrspeiser/rubin-light-a
 RETRIES = 3
 BACKOFF_SECONDS = 4
 TIMEOUT_SECONDS = 180
+
+
+def inside_footprint(regions: list[dict], moc_path: Path) -> tuple[list[dict], int]:
+    """Keep only regions inside the PDR2 footprint, and say how many were dropped.
+
+    Requesting a cutout outside the survey wastes a round trip and returns the
+    service's HTML miss page, which is indistinguishable in a summary count from
+    a region that failed for an interesting reason.
+    """
+    if not moc_path.is_file():
+        return regions, 0
+    moc = MOC.from_fits(moc_path)
+    keep, dropped = [], 0
+    coords = SkyCoord(
+        [float(r["center"][0]) for r in regions] * u.deg,
+        [float(r["center"][1]) for r in regions] * u.deg,
+    )
+    for region, contained in zip(regions, moc.contains_skycoords(coords)):
+        if contained:
+            keep.append(region)
+        else:
+            dropped += 1
+    return keep, dropped
 
 
 def utc_now() -> str:
@@ -178,6 +205,10 @@ def main() -> None:
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--env", type=Path, default=ROOT / ".env")
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--moc", type=Path, default=DEFAULT_MOC)
+    parser.add_argument("--all-regions", action="store_true",
+                        help="Skip the footprint filter and try every region, including "
+                             "the 38 outside the PDR2 footprint.")
     parser.add_argument("--band", default=BAND)
     parser.add_argument(
         "--check-endpoint",
@@ -206,6 +237,13 @@ def main() -> None:
     secrets = (password, user)
 
     regions = json.loads(args.regions.read_text(encoding="utf-8"))["regions"]
+    outside = 0
+    if not args.all_regions:
+        # Restrict to the PDR2 footprint before spending requests. 162 of the 200
+        # regions are inside it, and the first five in file order include three
+        # that are not -- so an unfiltered --limit 5 returns 2 of 5 and reads like
+        # a credential failure when it is only coverage.
+        regions, outside = inside_footprint(regions, args.moc)
     if args.limit:
         regions = regions[: args.limit]
 
@@ -261,6 +299,7 @@ def main() -> None:
         "rerun": RERUN,
         "band": args.band,
         "cutoutArcmin": SIZE_ARCMIN,
+        "regionsOutsideFootprint": outside,
         "regionsAttempted": len(regions),
         "regionsValidated": len(records),
         "regions": records,
