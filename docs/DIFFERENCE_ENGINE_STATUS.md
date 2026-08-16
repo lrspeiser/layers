@@ -2010,3 +2010,47 @@ which is the same mistake this section has now made seven times.
 | discrepancy explained but not closed | G3, G6 |
 | checked against own evidence only | G5, G8, rest of G9 |
 | not machine-checkable here | G10 |
+
+## 42. Making G10 checkable found a bug that only existed on a running server
+
+G10 was the one goal recorded as "not machine-checkable", because its evidence is
+rendered pages rather than a manifest. That was a gap in the checking, not a
+property of the goal — a page either renders its operator results or it does not.
+
+Checking it found a defect immediately. `/differences` rendered the heading **"Is
+the Rubin flux deficit an aperture effect or a zeropoint?" ten times.**
+
+**The cause.** The page built its attribution list as
+
+```js
+const attribution = (summary.crossCheck?.findings ?? [])
+```
+
+and then `attribution.push(...)` to append the curve-of-growth result. `summary`
+is an imported JSON module, and Node caches those, so the list is not a fresh
+array per render — it is the module's own array. Each render appended another
+entry to it permanently. Ten headings meant the server had rendered that page ten
+times since starting.
+
+**Why nothing caught it.** A fresh build renders once and looks perfect. Every
+existing test reads either the source file or a single fresh render, and both
+show exactly one entry. The bug is invisible to any check that does not render
+the same page twice in one process — which is precisely what a user of a deployed
+site does, and what no test did.
+
+Fixed by copying: `const attribution = [...(…)]`. Verified by rendering six times
+against a running server, where the heading now appears once instead of six times.
+
+A repository-wide sweep for the same pattern found one other `.push` onto a
+collection, in `/coverage`, which builds its own object literal per render and is
+safe.
+
+`tests/rendered-operators.test.mjs` catches the class structurally: anything
+pushed onto must be initialised by a copy, not a reference. That is a stronger
+guard than asserting the heading count, because it fails on the mistake rather
+than on one of its symptoms.
+
+**G10 is no longer "not machine-checkable."** It is checkable, it was checked, and
+it was wrong — which is the fourth time in this document that making something
+checkable immediately found something broken, after the leak test, the checksum
+guard and the shrink guard.

@@ -125,11 +125,17 @@ export default function DifferencesPage() {
   ];
 
   const rows: AnomalyRow[] = (summary.topAnomalies ?? []) as unknown as AnomalyRow[];
-  const attribution = (summary.crossCheck?.findings ?? []) as Array<{
+  // Copy, do not alias. This list is appended to below, and `summary` is an
+  // imported JSON module: Node caches it, so a bare reference means .push()
+  // mutates the module object and every subsequent render of this page adds
+  // another entry to it. The symptom was the curve-of-growth question rendering
+  // ten times on a running server -- once per render since process start --
+  // while looking perfectly correct in a fresh build.
+  const attribution = [...((summary.crossCheck?.findings ?? []) as Array<{
     question: string;
     verdict: string;
     basis: string;
-  }>;
+  }>)];
 
   // The curve of growth answers the one question the two-reference test could
   // not: whether the deficit is aperture or calibration. It reads as a fourth
