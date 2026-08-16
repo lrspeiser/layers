@@ -6,29 +6,76 @@
   "staleBlockersClearedByNewEvidence": {
     "resampling covariance": 190,
     "bandpass transfer": 156,
-    "injection/recovery QA": 9
+    "injection/recovery QA": 79
   },
   "blockersRemaining": {
     "bandpass transfer": 34,
-    "injection/recovery QA": 181,
+    "injection/recovery QA": 111,
     "background matching": 27,
     "flux-unit transfer": 42,
     "PSF matching": 1
   },
-  "comparisonReady": 7,
-  "finding": "The manifest overstates what is left. Bandpass transfer is listed against all 190 regions but 156 of them have a fitted per-region colour term. What genuinely remains is narrower and more specific: injection/recovery QA on 181 regions. comparisonReady is 7. It was 0 until the correlated-noise correction was applied to the released error columns, which cleared resampling covariance on every region; the 7 that follow are those where nothing else was outstanding either. That is a statement about acquisition and measurement, not a licence for an astrophysical claim -- the reconciliation policy still sets scienceClaimAllowed false, and a region clearing every gate this pipeline defines only means the gates are cleared.",
+  "comparisonReady": 54,
+  "finding": "The manifest overstates what is left. Bandpass transfer is listed against all 190 regions but 156 of them have a fitted per-region colour term. What genuinely remains is narrower and more specific: injection/recovery QA on 111 regions. comparisonReady is 54. It was 0 until the correlated-noise correction was applied to the released error columns, which cleared resampling covariance on every region; the 54 that follow are those where nothing else was outstanding either. That is a statement about acquisition and measurement, not a licence for an astrophysical claim -- the reconciliation policy still sets scienceClaimAllowed false, and a region clearing every gate this pipeline defines only means the gates are cleared.",
   "comparisonReadyRegions": [
+    "dp2-tract-10054",
     "dp2-tract-10689",
+    "dp2-tract-4848",
+    "dp2-tract-4849",
+    "dp2-tract-5061",
+    "dp2-tract-5062",
     "dp2-tract-5063",
+    "dp2-tract-5064",
+    "dp2-tract-8259",
+    "dp2-tract-8984",
+    "dp2-tract-8985",
+    "dp2-tract-9207",
+    "dp2-tract-9209",
+    "dp2-tract-9210",
+    "dp2-tract-9214",
+    "dp2-tract-9218",
+    "dp2-tract-9219",
+    "dp2-tract-9222",
+    "dp2-tract-9223",
     "dp2-tract-9227",
+    "dp2-tract-9450",
+    "dp2-tract-9451",
+    "dp2-tract-9455",
+    "dp2-tract-9456",
+    "dp2-tract-9457",
+    "dp2-tract-9459",
+    "dp2-tract-9460",
+    "dp2-tract-9461",
+    "dp2-tract-9463",
     "dp2-tract-9464",
+    "dp2-tract-9465",
+    "dp2-tract-9467",
+    "dp2-tract-9468",
+    "dp2-tract-9469",
+    "dp2-tract-9695",
+    "dp2-tract-9699",
+    "dp2-tract-9701",
+    "dp2-tract-9703",
+    "dp2-tract-9706",
+    "dp2-tract-9709",
+    "dp2-tract-9711",
     "dp2-tract-9712",
+    "dp2-tract-9714",
+    "dp2-tract-9717",
+    "dp2-tract-9718",
     "dp2-tract-9943",
+    "dp2-tract-9944",
+    "dp2-tract-9945",
+    "dp2-tract-9947",
+    "dp2-tract-9948",
+    "dp2-tract-9950",
+    "dp2-tract-9951",
+    "dp2-tract-9952",
     "dp2-tract-9953"
   ],
   "scienceClaimAllowed": false,
   "whatWouldClearTheRest": {
-    "injection/recovery QA": "Run it per region. This is compute, not method: measure_catalogue_reliability.py defaults to --regions 24, sampled evenly across the sky, because the *global* rate converges long before 190 and a full pass takes hours. Of those 24, 9 yielded a measurement; the other 15 are genuinely too sparse or too heavily masked to define their own flux ratio. The remaining 166 were never attempted. A per-region completeness is the right standard for a per-region readiness flag -- depth, seeing and crowding all vary by field -- so the fix is to run the full pass, not to relax the rule.",
+    "injection/recovery QA": "The full pass has been run: all 190 regions attempted, 79 measured, up from 9. The 111 outstanding were attempted and do not qualify -- each needs 20 detected sources with positive flux in both frames and 30% valid area to define its own flux ratio, and these are too sparse or too heavily masked. Clearing them means either deeper detection in those fields or a readiness rule that does not require a per-region flux ratio, and the second would be loosening the standard rather than meeting it.",
     "resampling covariance": "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, reference_flux_err_njy and the _snr columns and the catalogue republished; noise_inflation_factor ships alongside so the uncorrected values remain recoverable. This is what moved comparisonReady off zero."
   },
   "reproduce": "python pipeline/reassess_comparison_blockers.py",
@@ -45,7 +92,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -58,12 +105,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-10055",
@@ -73,11 +119,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -89,11 +135,11 @@
         "flux-unit transfer"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured"
       },
       "comparisonReady": false
     },
@@ -105,11 +151,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -125,7 +171,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -141,7 +187,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -172,7 +218,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -184,11 +230,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -204,7 +250,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -220,7 +266,7 @@
         "PSF matching": "unchanged",
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -236,7 +282,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -252,7 +298,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -268,7 +314,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -284,7 +330,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -300,7 +346,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -316,7 +362,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -329,12 +375,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-4849",
@@ -345,12 +390,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-4850",
@@ -364,7 +408,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -377,12 +421,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-5062",
@@ -393,12 +436,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-5063",
@@ -424,12 +466,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-5065",
@@ -443,7 +484,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -455,11 +496,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -475,7 +516,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -491,7 +532,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -507,7 +548,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -519,11 +560,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -539,7 +580,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -551,11 +592,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -567,11 +608,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -584,12 +625,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-8272",
@@ -603,7 +643,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -619,7 +659,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -631,11 +671,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -646,12 +686,12 @@
         "flux-unit transfer"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -680,12 +720,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-8985",
@@ -696,12 +735,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-8986",
@@ -715,7 +753,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -731,7 +769,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -747,7 +785,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -763,7 +801,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -774,12 +812,12 @@
         "background matching"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -795,7 +833,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -807,11 +845,11 @@
         "flux-unit transfer"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured"
       },
       "comparisonReady": false
     },
@@ -823,11 +861,11 @@
         "flux-unit transfer"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured"
       },
       "comparisonReady": false
     },
@@ -840,12 +878,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9209",
@@ -856,12 +893,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9210",
@@ -872,12 +908,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9212",
@@ -887,11 +922,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -904,12 +939,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9217",
@@ -936,12 +970,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9219",
@@ -952,12 +985,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9220",
@@ -967,11 +999,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -983,11 +1015,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -1000,12 +1032,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9223",
@@ -1016,12 +1047,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9226",
@@ -1035,7 +1065,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1066,7 +1096,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1082,7 +1112,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1098,7 +1128,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1114,7 +1144,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1130,7 +1160,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1146,7 +1176,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1162,7 +1192,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1178,7 +1208,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1194,7 +1224,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1210,7 +1240,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1226,7 +1256,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1242,7 +1272,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1258,7 +1288,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1274,7 +1304,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1290,7 +1320,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1306,7 +1336,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1322,7 +1352,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1335,12 +1365,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9451",
@@ -1351,12 +1380,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9452",
@@ -1370,7 +1398,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1386,7 +1414,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1402,7 +1430,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1415,12 +1443,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9456",
@@ -1431,12 +1458,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9457",
@@ -1447,12 +1473,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9458",
@@ -1466,7 +1491,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1479,12 +1504,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9460",
@@ -1495,12 +1519,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9461",
@@ -1511,12 +1534,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9462",
@@ -1530,7 +1552,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1543,12 +1565,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9464",
@@ -1574,12 +1595,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9466",
@@ -1593,7 +1613,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1606,12 +1626,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9468",
@@ -1622,12 +1641,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9469",
@@ -1638,12 +1656,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9470",
@@ -1657,7 +1674,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1673,7 +1690,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1689,7 +1706,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1705,7 +1722,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1721,7 +1738,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1737,7 +1754,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1753,7 +1770,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1769,7 +1786,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1785,7 +1802,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1801,7 +1818,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1817,7 +1834,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1833,7 +1850,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1849,7 +1866,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1865,7 +1882,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1881,7 +1898,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1897,7 +1914,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1913,7 +1930,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1929,7 +1946,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1941,11 +1958,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -1961,7 +1978,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1977,7 +1994,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -1993,7 +2010,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2009,7 +2026,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2025,7 +2042,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2038,12 +2055,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9696",
@@ -2057,7 +2073,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2073,7 +2089,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2085,11 +2101,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -2102,12 +2118,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9700",
@@ -2121,7 +2136,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2134,12 +2149,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9702",
@@ -2153,7 +2167,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2166,12 +2180,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9704",
@@ -2185,7 +2198,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2201,7 +2214,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2214,12 +2227,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9707",
@@ -2233,7 +2245,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2249,7 +2261,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2262,12 +2274,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9710",
@@ -2281,7 +2292,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2294,12 +2305,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9712",
@@ -2328,7 +2338,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2341,12 +2351,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9715",
@@ -2360,7 +2369,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2376,7 +2385,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2389,12 +2398,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9718",
@@ -2405,12 +2413,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9719",
@@ -2424,7 +2431,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2440,7 +2447,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2456,7 +2463,7 @@
       "stillBlocked": {
         "background matching": "unchanged",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2472,7 +2479,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2483,12 +2490,12 @@
         "background matching"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -2504,7 +2511,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2520,7 +2527,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2536,7 +2543,7 @@
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2552,7 +2559,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2568,7 +2575,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2580,11 +2587,11 @@
         "flux-unit transfer"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured"
       },
       "comparisonReady": false
     },
@@ -2596,11 +2603,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -2616,7 +2623,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2628,11 +2635,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
-        "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "background matching": "unchanged"
       },
       "comparisonReady": false
     },
@@ -2648,7 +2655,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2664,7 +2671,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2680,7 +2687,7 @@
       ],
       "stillBlocked": {
         "background matching": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2708,12 +2715,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9945",
@@ -2724,12 +2730,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9947",
@@ -2740,12 +2745,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9948",
@@ -2756,12 +2760,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9950",
@@ -2772,12 +2775,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9951",
@@ -2788,12 +2790,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9952",
@@ -2804,12 +2805,11 @@
       ],
       "clearedByNewEvidence": [
         "bandpass transfer",
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
-      "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
-      },
-      "comparisonReady": false
+      "stillBlocked": {},
+      "comparisonReady": true
     },
     {
       "regionId": "dp2-tract-9953",
@@ -2838,7 +2838,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2854,7 +2854,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2870,7 +2870,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2886,7 +2886,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2902,7 +2902,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2918,7 +2918,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2934,7 +2934,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2950,7 +2950,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2966,7 +2966,7 @@
       ],
       "stillBlocked": {
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2982,7 +2982,7 @@
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
         "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -2993,12 +2993,12 @@
         "background matching"
       ],
       "clearedByNewEvidence": [
-        "resampling covariance"
+        "resampling covariance",
+        "injection/recovery QA"
       ],
       "stillBlocked": {
         "bandpass transfer": "no per-region colour-term fit; the filters are characterised globally but this field's own transfer was never measured",
-        "flux-unit transfer": "unchanged",
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "flux-unit transfer": "unchanged"
       },
       "comparisonReady": false
     },
@@ -3014,7 +3014,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -3030,7 +3030,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -3046,7 +3046,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     },
@@ -3062,7 +3062,7 @@
         "resampling covariance"
       ],
       "stillBlocked": {
-        "injection/recovery QA": "no per-region injection/recovery measurement: the QA samples 24 regions evenly by default because the global rate converges long before 190 and a full pass takes hours, so most regions were never attempted rather than attempted and failed. Compute, not method."
+        "injection/recovery QA": "injection/recovery was attempted here and did not yield a measurement: a region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. This one is too sparse or too heavily masked. A property of the field, not unspent compute."
       },
       "comparisonReady": false
     }

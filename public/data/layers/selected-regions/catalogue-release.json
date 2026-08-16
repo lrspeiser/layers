@@ -1,6 +1,6 @@
 {
   "schemaVersion": "layers-catalogue-release-v1",
-  "generatedAt": "2026-08-16T06:37:24.942236+00:00",
+  "generatedAt": "2026-08-16T07:02:47.814996+00:00",
   "published": true,
   "rows": 70910,
   "rowsInBulkFiles": 70910,
@@ -16,7 +16,7 @@
     "votableGzip": {
       "path": "/data/catalogue/rubin-reference-sources.vot.gz",
       "bytes": 18650402,
-      "sha256": "6d1f1dc8de21fa1ac5d9ffd0e8f094268c3a16124583afa4947fef6b17813d56",
+      "sha256": "a013249b7bdfa783776a68be102a6d5f00f7480c48dc0310db03195c17e6f16c",
       "use": "opens directly in TOPCAT, pyvo and astroquery"
     }
   },
@@ -33,9 +33,9 @@
   },
   "reliability": {
     "median90PercentCompleteMagAB": 24.0,
-    "falsePositiveRate": 0.0,
-    "falsePositiveRate95UpperLimit": 0.00139,
-    "rateIsAnUpperLimit": true,
+    "falsePositiveRate": 0.00016,
+    "falsePositiveRate95UpperLimit": 0.00016,
+    "rateIsAnUpperLimit": false,
     "note": "Multiply a flagged count by the rate to estimate how many are noise. Where no false positive was observed the 95% upper limit is used, since zero events does not mean a zero rate. The remainder is an upper bound on what could be astrophysical, not a count of it."
   },
   "whichSignificance": "Cut on departure_significance, and cut on the compact half of the field. It measures distance from the field's own median flux ratio in units of that field's own scatter, so no error model can be wrong. difference_significance is dominated by the roughly 7% offset between Rubin and these references and flags most bright sources; departure_significance_propagated divides by an error that omits source Poisson noise.",

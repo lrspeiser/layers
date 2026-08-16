@@ -1,169 +1,169 @@
 {
   "schemaVersion": "layers-catalogue-reliability-v1",
-  "generatedAt": "2026-08-16T05:40:08.599007+00:00",
+  "generatedAt": "2026-08-16T07:01:32.614388+00:00",
   "question": "How complete is the source catalogue, and how many of its 5-sigma departures are false positives?",
   "method": {
     "completeness": "Synthetic Gaussians at the frame's own measured PSF width are injected at blank positions across a magnitude ladder, detection is re-run exactly as the catalogue runs it -- on the SUM of both frames -- and the recovered fraction is reported per bin. Matching the catalogue's detection is not optional: measuring recovery against a different detector reports the selection function of a pipeline nobody is using.",
     "falsePositives": "The same sources are injected into both frames with the field's own median flux ratio, so they carry no departure by construction. Any recovered injection measuring above the 5-sigma cut is a false positive with known truth, which measures the cut's reliability without needing a noise model.",
     "departureCut": 5.0,
-    "sampledRegions": 9,
+    "sampledRegions": 79,
     "whySampled": "Injection is expensive and the rate converges long before 190 regions; the sample is spread evenly through the set rather than taken from the front."
   },
   "counts": {
-    "regions": 9,
-    "injected": 2420,
-    "recovered": 2157,
-    "overallCompleteness": 0.8913,
-    "falsePositives": 0,
-    "falsePositiveRate": 0.0,
-    "falsePositiveRate95UpperLimit": 0.00139,
-    "rateIsAnUpperLimit": true,
+    "regions": 79,
+    "injected": 21199,
+    "recovered": 18725,
+    "overallCompleteness": 0.8833,
+    "falsePositives": 3,
+    "falsePositiveRate": 0.00016,
+    "falsePositiveRate95UpperLimit": 0.00016,
+    "rateIsAnUpperLimit": false,
     "median90PercentCompleteMagAB": 24.0,
-    "regionsAttempted": 24,
-    "regionsYieldingAMeasurement": 9,
+    "regionsAttempted": 190,
+    "regionsYieldingAMeasurement": 79,
     "whySomeRegionsDropOut": "A region needs at least 20 detected sources with positive flux in both frames to define its own flux ratio, and at least 30% valid area. Sparse or heavily masked regions do not qualify and are excluded rather than measured against a ratio derived from too little."
   },
   "completenessByMagnitude": [
     {
       "magAB": 19.0,
-      "injected": 157,
-      "recovered": 157,
+      "injected": 1533,
+      "recovered": 1533,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 19.5,
-      "injected": 185,
-      "recovered": 185,
+      "injected": 1513,
+      "recovered": 1513,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 20.0,
-      "injected": 174,
-      "recovered": 174,
+      "injected": 1518,
+      "recovered": 1518,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 20.5,
-      "injected": 179,
-      "recovered": 179,
+      "injected": 1585,
+      "recovered": 1585,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 21.0,
-      "injected": 179,
-      "recovered": 179,
+      "injected": 1518,
+      "recovered": 1518,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 21.5,
-      "injected": 181,
-      "recovered": 181,
+      "injected": 1485,
+      "recovered": 1485,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 22.0,
-      "injected": 177,
-      "recovered": 177,
+      "injected": 1520,
+      "recovered": 1520,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 22.5,
-      "injected": 177,
-      "recovered": 177,
+      "injected": 1520,
+      "recovered": 1520,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 23.0,
-      "injected": 177,
-      "recovered": 177,
+      "injected": 1519,
+      "recovered": 1519,
       "completeness": 1.0,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 23.5,
-      "injected": 182,
-      "recovered": 182,
-      "completeness": 1.0,
+      "injected": 1507,
+      "recovered": 1495,
+      "completeness": 0.992,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 24.0,
-      "injected": 174,
-      "recovered": 167,
-      "completeness": 0.9598,
+      "injected": 1480,
+      "recovered": 1440,
+      "completeness": 0.973,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 24.5,
-      "injected": 160,
-      "recovered": 111,
-      "completeness": 0.6937,
+      "injected": 1540,
+      "recovered": 1173,
+      "completeness": 0.7617,
       "falsePositiveRate": 0.0
     },
     {
       "magAB": 25.0,
-      "injected": 160,
-      "recovered": 60,
-      "completeness": 0.375,
-      "falsePositiveRate": 0.0
+      "injected": 1476,
+      "recovered": 589,
+      "completeness": 0.3991,
+      "falsePositiveRate": 0.0017
     },
     {
       "magAB": 25.5,
-      "injected": 158,
-      "recovered": 51,
-      "completeness": 0.3228,
-      "falsePositiveRate": 0.0
+      "injected": 1485,
+      "recovered": 317,
+      "completeness": 0.2135,
+      "falsePositiveRate": 0.00631
     }
   ],
   "applicationToCatalogue": {
     "cleanSources": 67182,
     "flaggedAbove5Sigma": 777,
-    "falsePositiveRate": 0.0,
-    "rateUsed": 0.00139,
-    "rateIsUpperLimit": true,
-    "expectedFalsePositives": 93.4,
-    "excessOverNoise": 683.6,
-    "reading": "At most about 93 of the 777 flagged sources are consistent with noise, leaving at least roughly 684 in excess. No false positive was seen in the injection test, so this uses the 95% upper limit of three over the number recovered rather than a rate of zero, which the sample cannot support. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
+    "falsePositiveRate": 0.00016,
+    "rateUsed": 0.00016,
+    "rateIsUpperLimit": false,
+    "expectedFalsePositives": 10.8,
+    "excessOverNoise": 766.2,
+    "reading": "At most about 11 of the 777 flagged sources are consistent with noise, leaving at least roughly 766 in excess. Excess is not the same as real: this test injects sources with identical colours in both frames, so it cannot produce a bandpass-driven departure, and the bandpass transfer between these surveys is unvalidated. The excess is an upper bound on what could be astrophysical, not a count of it."
   },
   "howToReadIt": "Multiply the catalogue's flagged count by the false-positive rate to estimate how many of its outliers are noise. The remainder is not thereby real: the bandpass transfer between these surveys is unvalidated, so a genuine colour difference produces a departure that this test, which injects identical colours, cannot create.",
   "regions": [
     {
-      "regionId": "dp2-tract-10689",
+      "regionId": "dp2-tract-10054",
       "pixelScaleArcsec": 0.4,
-      "psfSigmaPixels": 1.774,
-      "fieldFluxRatio": 1.3127,
+      "psfSigmaPixels": 1.989,
+      "fieldFluxRatio": 0.9293,
       "faintest90PercentCompleteMagAB": 24.0,
-      "injectedTotal": 287,
-      "recoveredTotal": 229,
+      "injectedTotal": 350,
+      "recoveredTotal": 289,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
-          "injected": 20,
-          "recovered": 20,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 19.5,
-          "injected": 20,
-          "recovered": 20,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 20.0,
-          "injected": 22,
-          "recovered": 22,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -176,29 +176,29 @@
         },
         {
           "magAB": 21.0,
-          "injected": 12,
-          "recovered": 12,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 21.5,
-          "injected": 17,
-          "recovered": 17,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 22.0,
-          "injected": 20,
-          "recovered": 20,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 22.5,
-          "injected": 23,
-          "recovered": 23,
+          "injected": 25,
+          "recovered": 25,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -211,30 +211,474 @@
         },
         {
           "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 14,
+          "completeness": 0.56,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10055",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.759,
+      "fieldFluxRatio": 0.9207,
+      "faintest90PercentCompleteMagAB": 25.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 329,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 23,
+          "completeness": 0.92,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 6,
+          "completeness": 0.24,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10056",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.95,
+      "fieldFluxRatio": 0.9458,
+      "faintest90PercentCompleteMagAB": 23.5,
+      "injectedTotal": 288,
+      "recoveredTotal": 235,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
           "injected": 19,
           "recovered": 19,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 24.0,
-          "injected": 20,
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 18,
           "recovered": 18,
-          "completeness": 0.9,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 18,
+          "recovered": 15,
+          "completeness": 0.8333,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.5,
-          "injected": 22,
-          "recovered": 8,
-          "completeness": 0.3636,
+          "injected": 25,
+          "recovered": 7,
+          "completeness": 0.28,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
-          "injected": 23,
+          "injected": 16,
           "recovered": 0,
           "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 17,
+          "recovered": 1,
+          "completeness": 0.0588,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10079",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.595,
+      "fieldFluxRatio": 1.0492,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 284,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 24,
+          "completeness": 0.96,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 9,
+          "completeness": 0.36,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-10689",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.774,
+      "fieldFluxRatio": 1.3127,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 294,
+      "recoveredTotal": 245,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 23,
+          "recovered": 22,
+          "completeness": 0.9565,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 12,
+          "completeness": 0.48,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 17,
+          "recovered": 1,
+          "completeness": 0.0588,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -242,6 +686,484 @@
           "injected": 19,
           "recovered": 0,
           "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-11162",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.093,
+      "fieldFluxRatio": 1.1592,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 349,
+      "recoveredTotal": 349,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4848",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.989,
+      "fieldFluxRatio": 1.0479,
+      "faintest90PercentCompleteMagAB": 25.0,
+      "injectedTotal": 303,
+      "recoveredTotal": 291,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 17,
+          "recovered": 5,
+          "completeness": 0.2941,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-4849",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.244,
+      "fieldFluxRatio": 1.0565,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 314,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 14,
+          "completeness": 0.56,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5061",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.702,
+      "fieldFluxRatio": 1.1494,
+      "faintest90PercentCompleteMagAB": 23.0,
+      "injectedTotal": 39,
+      "recoveredTotal": 39,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5062",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.967,
+      "fieldFluxRatio": 0.9578,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 319,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 17,
+          "completeness": 0.68,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 2,
+          "completeness": 0.08,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -358,13 +1280,13 @@
       ]
     },
     {
-      "regionId": "dp2-tract-8884",
+      "regionId": "dp2-tract-5064",
       "pixelScaleArcsec": 0.4,
-      "psfSigmaPixels": 2.56,
-      "fieldFluxRatio": 0.9511,
-      "faintest90PercentCompleteMagAB": 25.5,
+      "psfSigmaPixels": 2.133,
+      "fieldFluxRatio": 0.9809,
+      "faintest90PercentCompleteMagAB": 24.5,
       "injectedTotal": 350,
-      "recoveredTotal": 349,
+      "recoveredTotal": 317,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -441,8 +1363,1719 @@
         {
           "magAB": 24.0,
           "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 13,
+          "completeness": 0.52,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 4,
+          "completeness": 0.16,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5214",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.28,
+      "fieldFluxRatio": 2.7192,
+      "faintest90PercentCompleteMagAB": 23.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 261,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 10,
+          "completeness": 0.4,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-5670",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.908,
+      "fieldFluxRatio": 3.5918,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 163,
+      "recoveredTotal": 163,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-6524",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.671,
+      "fieldFluxRatio": 0.4387,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 307,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 7,
+          "completeness": 0.28,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-7939",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.963,
+      "fieldFluxRatio": 3.1706,
+      "faintest90PercentCompleteMagAB": 23.5,
+      "injectedTotal": 173,
+      "recoveredTotal": 135,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 12,
+          "recovered": 11,
+          "completeness": 0.9167,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 16,
+          "recovered": 4,
+          "completeness": 0.25,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 13,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 12,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8259",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.186,
+      "fieldFluxRatio": 1.0132,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 77,
+      "recoveredTotal": 65,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 1,
+          "completeness": 0.0769,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8708",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.982,
+      "fieldFluxRatio": 1.2534,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 288,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 11,
+          "completeness": 0.44,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 2,
+          "completeness": 0.08,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8883",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.869,
+      "fieldFluxRatio": 0.9842,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8884",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.56,
+      "fieldFluxRatio": 0.9511,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8984",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.19,
+      "fieldFluxRatio": 0.9554,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 309,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 9,
+          "completeness": 0.36,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8985",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.738,
+      "fieldFluxRatio": 1.0285,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 118,
+      "recoveredTotal": 110,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 13,
+          "recovered": 5,
+          "completeness": 0.3846,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-8997",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.376,
+      "fieldFluxRatio": 2.8123,
+      "faintest90PercentCompleteMagAB": 21.5,
+      "injectedTotal": 37,
+      "recoveredTotal": 24,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9125",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.097,
+      "fieldFluxRatio": 1.0103,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9126",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.682,
+      "fieldFluxRatio": 0.9852,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 302,
+      "recoveredTotal": 260,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 24,
           "recovered": 24,
-          "completeness": 0.96,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 20,
+          "recovered": 19,
+          "completeness": 0.95,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 22,
+          "recovered": 3,
+          "completeness": 0.1364,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 22,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9207",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.033,
+      "fieldFluxRatio": 0.951,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 298,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 22,
+          "completeness": 0.88,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9209",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.001,
+      "fieldFluxRatio": 0.8777,
+      "faintest90PercentCompleteMagAB": 23.5,
+      "injectedTotal": 13,
+      "recoveredTotal": 13,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 23.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9210",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.055,
+      "fieldFluxRatio": 0.962,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 295,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 19,
+          "completeness": 0.76,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9212",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.303,
+      "fieldFluxRatio": 1.0127,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 290,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 10,
+          "completeness": 0.4,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 5,
+          "completeness": 0.2,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9214",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.284,
+      "fieldFluxRatio": 0.9627,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -559,8 +3192,1324 @@
         {
           "magAB": 24.5,
           "injected": 25,
+          "recovered": 16,
+          "completeness": 0.64,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 7,
+          "completeness": 0.28,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9218",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.533,
+      "fieldFluxRatio": 0.9249,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 291,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 16,
+          "completeness": 0.64,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9219",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.408,
+      "fieldFluxRatio": 0.9409,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 291,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 11,
+          "completeness": 0.44,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 5,
+          "completeness": 0.2,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9220",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.364,
+      "fieldFluxRatio": 0.9702,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 306,
+      "falsePositives": 1,
+      "falsePositiveRate": 0.00327,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 5,
+          "completeness": 0.2,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 1
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9221",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.587,
+      "fieldFluxRatio": 0.8775,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9222",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.512,
+      "fieldFluxRatio": 0.9031,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 290,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 14,
+          "completeness": 0.56,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9223",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.337,
+      "fieldFluxRatio": 0.8642,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 293,
+      "falsePositives": 1,
+      "falsePositiveRate": 0.00341,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 15,
+          "completeness": 0.6,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 3,
+          "completeness": 0.12,
+          "recoveredFlaggedAboveCut": 1
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9227",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.442,
+      "fieldFluxRatio": 0.9501,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 116,
+      "recoveredTotal": 93,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 16,
+          "recovered": 4,
+          "completeness": 0.25,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 12,
+          "recovered": 1,
+          "completeness": 0.0833,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9450",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.847,
+      "fieldFluxRatio": 0.9376,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 197,
+      "recoveredTotal": 175,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 16,
+          "recovered": 6,
+          "completeness": 0.375,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 14,
+          "recovered": 2,
+          "completeness": 0.1429,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9451",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.041,
+      "fieldFluxRatio": 0.9526,
+      "faintest90PercentCompleteMagAB": 20.5,
+      "injectedTotal": 12,
+      "recoveredTotal": 12,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9455",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.901,
+      "fieldFluxRatio": 1.0604,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 224,
+      "recoveredTotal": 199,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 19,
           "recovered": 19,
-          "completeness": 0.76,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 18,
+          "recovered": 8,
+          "completeness": 0.4444,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 16,
+          "recovered": 1,
+          "completeness": 0.0625,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9456",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.831,
+      "fieldFluxRatio": 0.9588,
+      "faintest90PercentCompleteMagAB": 21.0,
+      "injectedTotal": 12,
+      "recoveredTotal": 12,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9457",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.992,
+      "fieldFluxRatio": 1.007,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 306,
+      "recoveredTotal": 264,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 24,
+          "recovered": 22,
+          "completeness": 0.9167,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 18,
+          "recovered": 3,
+          "completeness": 0.1667,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9459",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.923,
+      "fieldFluxRatio": 1.0875,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 321,
+      "recoveredTotal": 293,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 13,
+          "completeness": 0.52,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 18,
+          "recovered": 2,
+          "completeness": 0.1111,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9460",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.301,
+      "fieldFluxRatio": 0.9375,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 341,
+      "recoveredTotal": 292,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 24,
+          "recovered": 22,
+          "completeness": 0.9167,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -573,55 +4522,62 @@
         {
           "magAB": 25.5,
           "injected": 25,
-          "recovered": 1,
-          "completeness": 0.04,
+          "recovered": 0,
+          "completeness": 0.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
     },
     {
-      "regionId": "dp2-tract-9227",
+      "regionId": "dp2-tract-9461",
       "pixelScaleArcsec": 0.4,
-      "psfSigmaPixels": 2.442,
-      "fieldFluxRatio": 0.9501,
-      "faintest90PercentCompleteMagAB": 24.0,
-      "injectedTotal": 109,
-      "recoveredTotal": 108,
+      "psfSigmaPixels": 1.973,
+      "fieldFluxRatio": 0.9068,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 179,
+      "recoveredTotal": 160,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
         {
-          "magAB": 19.5,
-          "injected": 12,
-          "recovered": 12,
+          "magAB": 19.0,
+          "injected": 18,
+          "recovered": 18,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 20.5,
-          "injected": 13,
-          "recovered": 13,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 0
-        },
-        {
-          "magAB": 21.0,
+          "magAB": 20.0,
           "injected": 15,
           "recovered": 15,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
           "magAB": 21.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
           "injected": 13,
           "recovered": 13,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 22.0,
-          "injected": 14,
-          "recovered": 14,
+          "magAB": 22.5,
+          "injected": 15,
+          "recovered": 15,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -634,16 +4590,57 @@
         },
         {
           "magAB": 23.5,
-          "injected": 13,
-          "recovered": 13,
+          "injected": 19,
+          "recovered": 19,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
           "injected": 16,
-          "recovered": 15,
-          "completeness": 0.9375,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 16,
+          "recovered": 9,
+          "completeness": 0.5625,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 14,
+          "recovered": 2,
+          "completeness": 0.1429,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9463",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.419,
+      "fieldFluxRatio": 0.9905,
+      "faintest90PercentCompleteMagAB": 22.0,
+      "injectedTotal": 13,
+      "recoveredTotal": 13,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 22.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
@@ -654,11 +4651,18 @@
       "psfSigmaPixels": 2.139,
       "fieldFluxRatio": 0.9828,
       "faintest90PercentCompleteMagAB": 24.5,
-      "injectedTotal": 170,
-      "recoveredTotal": 156,
+      "injectedTotal": 159,
+      "recoveredTotal": 138,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
         {
           "magAB": 19.5,
           "injected": 12,
@@ -667,37 +4671,30 @@
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 20.0,
-          "injected": 15,
-          "recovered": 15,
+          "magAB": 20.5,
+          "injected": 17,
+          "recovered": 17,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 20.5,
+          "magAB": 21.0,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
           "injected": 16,
           "recovered": 16,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 21.0,
-          "injected": 14,
-          "recovered": 14,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 0
-        },
-        {
-          "magAB": 21.5,
-          "injected": 12,
-          "recovered": 12,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 0
-        },
-        {
           "magAB": 22.0,
-          "injected": 18,
-          "recovered": 18,
+          "injected": 13,
+          "recovered": 13,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -710,56 +4707,49 @@
         },
         {
           "magAB": 23.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
           "injected": 14,
           "recovered": 14,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 23.5,
-          "injected": 12,
-          "recovered": 12,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 0
-        },
-        {
-          "magAB": 24.0,
-          "injected": 13,
-          "recovered": 13,
-          "completeness": 1.0,
-          "recoveredFlaggedAboveCut": 0
-        },
-        {
-          "magAB": 24.5,
-          "injected": 13,
-          "recovered": 13,
-          "completeness": 1.0,
+          "magAB": 25.0,
+          "injected": 16,
+          "recovered": 7,
+          "completeness": 0.4375,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.5,
-          "injected": 14,
-          "recovered": 0,
-          "completeness": 0.0,
+          "injected": 13,
+          "recovered": 1,
+          "completeness": 0.0769,
           "recoveredFlaggedAboveCut": 0
         }
       ]
     },
     {
-      "regionId": "dp2-tract-9712",
+      "regionId": "dp2-tract-9465",
       "pixelScaleArcsec": 0.4,
-      "psfSigmaPixels": 2.139,
-      "fieldFluxRatio": 0.9505,
-      "faintest90PercentCompleteMagAB": 23.5,
-      "injectedTotal": 104,
-      "recoveredTotal": 95,
+      "psfSigmaPixels": 2.251,
+      "fieldFluxRatio": 0.9141,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 139,
+      "recoveredTotal": 113,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
         {
           "magAB": 19.0,
-          "injected": 12,
-          "recovered": 12,
+          "injected": 13,
+          "recovered": 13,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -772,15 +4762,22 @@
         },
         {
           "magAB": 20.0,
-          "injected": 12,
-          "recovered": 12,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 14,
+          "recovered": 14,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 21.0,
-          "injected": 13,
-          "recovered": 13,
+          "injected": 12,
+          "recovered": 12,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
@@ -792,36 +4789,43 @@
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 22.5,
-          "injected": 12,
-          "recovered": 12,
+          "magAB": 23.0,
+          "injected": 15,
+          "recovered": 15,
           "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
-          "magAB": 23.5,
+          "magAB": 24.5,
           "injected": 13,
-          "recovered": 13,
-          "completeness": 1.0,
+          "recovered": 12,
+          "completeness": 0.9231,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
-          "injected": 12,
+          "injected": 15,
           "recovered": 3,
-          "completeness": 0.25,
+          "completeness": 0.2,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 0,
+          "completeness": 0.0,
           "recoveredFlaggedAboveCut": 0
         }
       ]
     },
     {
-      "regionId": "dp2-tract-9943",
+      "regionId": "dp2-tract-9467",
       "pixelScaleArcsec": 0.4,
-      "psfSigmaPixels": 2.149,
-      "fieldFluxRatio": 0.9543,
-      "faintest90PercentCompleteMagAB": 24.0,
+      "psfSigmaPixels": 2.057,
+      "fieldFluxRatio": 0.9669,
+      "faintest90PercentCompleteMagAB": 25.5,
       "injectedTotal": 350,
-      "recoveredTotal": 295,
+      "recoveredTotal": 350,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -905,15 +4909,2704 @@
         {
           "magAB": 24.5,
           "injected": 25,
-          "recovered": 17,
-          "completeness": 0.68,
+          "recovered": 25,
+          "completeness": 1.0,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 25.0,
           "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9468",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.258,
+      "fieldFluxRatio": 0.9683,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 298,
+      "recoveredTotal": 271,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 21,
+          "recovered": 12,
+          "completeness": 0.5714,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 20,
+          "recovered": 2,
+          "completeness": 0.1,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9469",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.46,
+      "fieldFluxRatio": 1.0001,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 290,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 13,
+          "completeness": 0.52,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 2,
+          "completeness": 0.08,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9571",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.171,
+      "fieldFluxRatio": 0.8558,
+      "faintest90PercentCompleteMagAB": 25.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 340,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 15,
+          "completeness": 0.6,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9695",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.933,
+      "fieldFluxRatio": 0.9903,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 296,
+      "recoveredTotal": 257,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 15,
+          "recovered": 13,
+          "completeness": 0.8667,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 21,
+          "recovered": 1,
+          "completeness": 0.0476,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 17,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9698",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.857,
+      "fieldFluxRatio": 1.2346,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 271,
+      "recoveredTotal": 254,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 22,
+          "recovered": 17,
+          "completeness": 0.7727,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 1,
+          "completeness": 0.0769,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9699",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.864,
+      "fieldFluxRatio": 0.9733,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 321,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 17,
+          "completeness": 0.68,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 4,
+          "completeness": 0.16,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9701",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.772,
+      "fieldFluxRatio": 1.053,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 303,
+      "recoveredTotal": 303,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9703",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.013,
+      "fieldFluxRatio": 0.9257,
+      "faintest90PercentCompleteMagAB": 22.5,
+      "injectedTotal": 24,
+      "recoveredTotal": 24,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9706",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.011,
+      "fieldFluxRatio": 0.9713,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 159,
+      "recoveredTotal": 159,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 17,
+          "recovered": 17,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9709",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.249,
+      "fieldFluxRatio": 0.9236,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 296,
+      "recoveredTotal": 257,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 19,
+          "recovered": 19,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 18,
+          "recovered": 18,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 22,
+          "completeness": 0.88,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 21,
+          "recovered": 2,
+          "completeness": 0.0952,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 17,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9711",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.19,
+      "fieldFluxRatio": 0.9578,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 306,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 24,
+          "completeness": 0.96,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 6,
+          "completeness": 0.24,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9712",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.139,
+      "fieldFluxRatio": 0.9505,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 157,
+      "recoveredTotal": 138,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 13,
+          "recovered": 12,
+          "completeness": 0.9231,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 12,
+          "recovered": 5,
+          "completeness": 0.4167,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 12,
+          "recovered": 1,
+          "completeness": 0.0833,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9714",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.049,
+      "fieldFluxRatio": 1.0179,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 294,
+      "falsePositives": 1,
+      "falsePositiveRate": 0.0034,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 14,
+          "completeness": 0.56,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 4,
+          "completeness": 0.16,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 1
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9717",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.858,
+      "fieldFluxRatio": 1.012,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 141,
+      "recoveredTotal": 125,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 16,
+          "recovered": 13,
+          "completeness": 0.8125,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9718",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.571,
+      "fieldFluxRatio": 1.0704,
+      "faintest90PercentCompleteMagAB": 23.0,
+      "injectedTotal": 81,
+      "recoveredTotal": 68,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 13,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9725",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.441,
+      "fieldFluxRatio": 3.0123,
+      "faintest90PercentCompleteMagAB": 23.0,
+      "injectedTotal": 37,
+      "recoveredTotal": 25,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 22.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 12,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9811",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.491,
+      "fieldFluxRatio": 1.2031,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 137,
+      "recoveredTotal": 127,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 15,
+          "recovered": 15,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 13,
+          "recovered": 3,
+          "completeness": 0.2308,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9812",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.631,
+      "fieldFluxRatio": 0.941,
+      "faintest90PercentCompleteMagAB": 25.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 350,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9814",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.638,
+      "fieldFluxRatio": 0.9258,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 301,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 20,
+          "completeness": 0.8,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 6,
+          "completeness": 0.24,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9943",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.149,
+      "fieldFluxRatio": 0.9543,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 293,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 14,
+          "completeness": 0.56,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 4,
+          "completeness": 0.16,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9944",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.191,
+      "fieldFluxRatio": 0.936,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 325,
+      "recoveredTotal": 263,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 20,
+          "recovered": 20,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 23,
+          "recovered": 23,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 22,
+          "recovered": 22,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 21,
+          "recovered": 21,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 24,
+          "recovered": 24,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 9,
+          "completeness": 0.36,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 23,
+          "recovered": 1,
+          "completeness": 0.0435,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 24,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9945",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.128,
+      "fieldFluxRatio": 1.033,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 287,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 11,
+          "completeness": 0.44,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9947",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.131,
+      "fieldFluxRatio": 0.9921,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 290,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 13,
+          "completeness": 0.52,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9948",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.246,
+      "fieldFluxRatio": 0.8603,
+      "faintest90PercentCompleteMagAB": 24.5,
+      "injectedTotal": 350,
+      "recoveredTotal": 310,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 24,
+          "completeness": 0.96,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 8,
+          "completeness": 0.32,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
           "recovered": 3,
           "completeness": 0.12,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9950",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.462,
+      "fieldFluxRatio": 0.9206,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 308,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 22,
+          "completeness": 0.88,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 9,
+          "completeness": 0.36,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 2,
+          "completeness": 0.08,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9951",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.435,
+      "fieldFluxRatio": 1.0127,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 278,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 24,
+          "completeness": 0.96,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 3,
+          "completeness": 0.12,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.5,
+          "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9952",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 2.48,
+      "fieldFluxRatio": 0.9751,
+      "faintest90PercentCompleteMagAB": 24.0,
+      "injectedTotal": 350,
+      "recoveredTotal": 291,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.0,
+          "injected": 25,
+          "recovered": 25,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 25,
+          "recovered": 15,
+          "completeness": 0.6,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 25,
+          "recovered": 1,
+          "completeness": 0.04,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -932,7 +7625,7 @@
       "fieldFluxRatio": 0.873,
       "faintest90PercentCompleteMagAB": 23.5,
       "injectedTotal": 350,
-      "recoveredTotal": 277,
+      "recoveredTotal": 272,
       "falsePositives": 0,
       "falsePositiveRate": 0.0,
       "bins": [
@@ -1009,15 +7702,15 @@
         {
           "magAB": 24.0,
           "injected": 25,
-          "recovered": 22,
-          "completeness": 0.88,
+          "recovered": 18,
+          "completeness": 0.72,
           "recoveredFlaggedAboveCut": 0
         },
         {
           "magAB": 24.5,
           "injected": 25,
-          "recovered": 4,
-          "completeness": 0.16,
+          "recovered": 3,
+          "completeness": 0.12,
           "recoveredFlaggedAboveCut": 0
         },
         {
@@ -1030,6 +7723,96 @@
         {
           "magAB": 25.5,
           "injected": 25,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        }
+      ]
+    },
+    {
+      "regionId": "dp2-tract-9967",
+      "pixelScaleArcsec": 0.4,
+      "psfSigmaPixels": 1.736,
+      "fieldFluxRatio": 3.133,
+      "faintest90PercentCompleteMagAB": 22.5,
+      "injectedTotal": 149,
+      "recoveredTotal": 111,
+      "falsePositives": 0,
+      "falsePositiveRate": 0.0,
+      "bins": [
+        {
+          "magAB": 19.0,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 19.5,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 20.5,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.0,
+          "injected": 12,
+          "recovered": 12,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 21.5,
+          "injected": 16,
+          "recovered": 16,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.0,
+          "injected": 14,
+          "recovered": 14,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 22.5,
+          "injected": 13,
+          "recovered": 13,
+          "completeness": 1.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 23.5,
+          "injected": 14,
+          "recovered": 3,
+          "completeness": 0.2143,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 24.5,
+          "injected": 14,
+          "recovered": 0,
+          "completeness": 0.0,
+          "recoveredFlaggedAboveCut": 0
+        },
+        {
+          "magAB": 25.0,
+          "injected": 13,
           "recovered": 0,
           "completeness": 0.0,
           "recoveredFlaggedAboveCut": 0

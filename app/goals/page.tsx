@@ -152,10 +152,11 @@ export default function GoalsPage() {
           <h2>What actually stands between here and a comparison</h2>
           <p>
             {blockers.comparisonReady} of {blockers.regionsAssessed} regions have now cleared
-            every gate, up from none: applying the correlated-noise correction to the released
-            error columns closed that blocker everywhere, and those {blockers.comparisonReady} had
-            nothing else outstanding. It counts gates, not conclusions &mdash; no astrophysical
-            claim stands. What still blocks the rest, per region:
+            every gate, up from none. Two things moved it: applying the correlated-noise
+            correction to the released error columns, which closed that blocker everywhere, and
+            running injection/recovery over the whole set instead of a 24-region sample, which
+            took it from 9 regions to 79. It counts gates, not conclusions &mdash; no
+            astrophysical claim stands. What still blocks the rest, per region:
           </p>
           <ul className={styles.blockers}>
             {Object.entries(blockers.blockersRemaining as Record<string, number>)
@@ -169,10 +170,11 @@ export default function GoalsPage() {
           <p className={styles.muted}>
             {blockers.staleBlockersClearedByNewEvidence["bandpass transfer"]} regions carry a
             fitted per-region colour term that the reconciliation manifest still counts as
-            blocked, which is why this is recomputed rather than read off. Injection/recovery QA
-            is now the binding constraint: 24 regions were attempted and 9 produced a
-            measurement, so the method has to work on fainter and more crowded fields before it
-            scales.
+            blocked, which is why this is recomputed rather than read off. Injection/recovery
+            remains the largest item: all 190 regions were attempted, but a region needs 20
+            detected sources with positive flux in both frames and 30% valid area to define its
+            own flux ratio, and 111 are too sparse or too heavily masked to qualify. That is a
+            property of those fields, not a pass nobody ran.
           </p>
         </section>
 

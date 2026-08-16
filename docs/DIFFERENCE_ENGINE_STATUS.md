@@ -1216,3 +1216,46 @@ has to work on fainter and more crowded fields before it scales.
 `comparisonReady` counts gates, not conclusions. `scienceClaimAllowed` is still
 false and no astrophysical claim stands. Seven regions clearing every gate this
 pipeline defines means exactly that and nothing more.
+
+## 25. A help string blocked 166 regions, and the full pass changed a published number
+
+§24 named injection/recovery QA as the binding constraint at 181 regions and said
+the method "needs to work on fainter and more crowded fields before it scales".
+That was wrong, and worth recording as an error rather than quietly fixing.
+
+`measure_catalogue_reliability.py` defaulted to `--regions 24`, justified in its
+own help text: *every region would take hours and the rate converges long before
+that*. The convergence claim is true for the **global** rate. The timing claim
+was never measured. It is **2.3 seconds a region** — the whole set runs in about
+seven minutes. 166 regions had never been attempted because a comment asserted a
+cost nobody checked, and the blocker reassessment then faithfully reported them
+as outstanding: correct bookkeeping over a false premise.
+
+**What the full pass gave.** 190 regions attempted, **79 measured**, up from 9.
+`comparisonReady` **7 → 54**. The 111 still outstanding were attempted and
+genuinely do not qualify: a region needs 20 detected sources with positive flux
+in both frames and 30% valid area to define its own flux ratio, and these are too
+sparse or too heavily masked. That part is a property of the fields, and clearing
+it means either deeper detection or a readiness rule that does not require a
+per-region flux ratio — the second would be loosening the standard rather than
+meeting it.
+
+**It also changed a published claim, in the good direction.** The 24-region
+sample saw **zero** false positives, so the release quoted the 95% upper limit,
+`< 0.14%`. The full pass, with 21,199 injections, found **three** — a *measured*
+rate of **0.016%**, about nine times tighter than the bound it replaced. Applied
+to the 777 flagged sources, expected false positives fall from 93 to **11**, and
+the excess over noise rises from 684 to **766**.
+
+That is the shape worth noticing: more data turned "we saw none, so here is a
+bound" into "we saw three, and here is a rate", and the rate is far better than
+the bound. Zero events never meant a zero rate, which is why §-earlier used the
+rule of three rather than quoting 0.00%; this is that caution being repaid.
+
+**The pattern across §21–§25.** Five numbers this project trusted turned out to
+be unverified: two pilot results that reversed at full scale, a variance plane
+wrong by seven, an error bar wrong by two, and now a timing claim wrong by two
+orders of magnitude. The common feature is not carelessness but *inheritance* —
+each was a number written once, used thereafter, and never re-measured. The
+defence that has actually worked, every time, is running the full thing and
+comparing.

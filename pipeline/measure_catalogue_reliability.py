@@ -269,9 +269,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--products", type=Path, default=DEFAULT_PRODUCTS)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--regions", type=int, default=24,
-                        help="How many regions to inject into. Every region would take hours "
-                             "and the rate converges long before that.")
+    parser.add_argument("--regions", type=int, default=190,
+                        help="How many regions to inject into, sampled evenly across the sky. "
+                             "This defaulted to 24 on the grounds that a full pass would take "
+                             "hours; that was never timed and is wrong -- it is about 2.3 "
+                             "seconds a region, so the whole set runs in minutes. The global "
+                             "rate does converge early, but per-region readiness needs a "
+                             "per-region measurement, and the cost of getting one is small.")
     args = parser.parse_args()
 
     rng = np.random.default_rng(RANDOM_SEED)

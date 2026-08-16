@@ -26,18 +26,23 @@ outstanding either. The number moved because the work was done, not because the
 rule was loosened; the rule is still that each blocker clears only against a
 named artefact.
 
-Injection/recovery QA is now the binding constraint, outstanding on 181 regions,
-and the reason is narrower than it first looked. It is compute, not method:
-measure_catalogue_reliability.py samples 24 regions evenly by default, because
-the *global* completeness and false-positive rate converge long before 190 and a
-full pass takes hours. Of those 24, 9 produced a measurement and 15 are genuinely
-too sparse or too heavily masked to define their own flux ratio. The other 166
-were never attempted at all.
+Injection/recovery QA was the next constraint, and most of it turned out to be
+unspent compute. measure_catalogue_reliability.py defaulted to 24 regions on the
+stated grounds that a full pass "would take hours". That was never timed and is
+wrong by two orders of magnitude: it is about 2.3 seconds a region, so the whole
+set runs in minutes. 166 regions had never been attempted because a help string
+asserted a cost nobody checked.
 
-A per-region completeness is the right standard for a per-region readiness flag,
-since depth, seeing and crowding all vary by field. So the fix is to run the full
-pass rather than to relax the rule -- and the honest statement is that most of
-this blocker is unspent compute, not an unsolved problem.
+Running it properly took the measured regions from 9 to 79 and comparisonReady
+from 7 to 54. The 111 that remain were attempted and genuinely do not qualify --
+a region needs 20 detected sources with positive flux in both frames and 30%
+valid area to define its own flux ratio, and those are too sparse or too heavily
+masked. That part is a property of the fields.
+
+It also changed a published number. The 24-region sample saw zero false
+positives, so the release quoted a 95% upper limit of 0.14%. The full pass found
+three, giving a *measured* rate of 0.016% -- about nine times tighter than the
+bound it replaces. More data made the claim stronger and more honest at once.
 
 `comparisonReady` counts gates, not conclusions. The reconciliation policy still
 sets `scienceClaimAllowed` false, and a region clearing every gate this pipeline
@@ -108,10 +113,11 @@ def assess(region: dict, ev: dict) -> dict:
                 now_cleared.append(blocker)
             else:
                 still[blocker] = (
-                    "no per-region injection/recovery measurement: the QA samples 24 regions "
-                    "evenly by default because the global rate converges long before 190 and "
-                    "a full pass takes hours, so most regions were never attempted rather "
-                    "than attempted and failed. Compute, not method."
+                    "injection/recovery was attempted here and did not yield a measurement: a "
+                    "region needs at least 20 detected sources with positive flux in both "
+                    "frames to define its own flux ratio, and at least 30% valid area. This "
+                    "one is too sparse or too heavily masked. A property of the field, not "
+                    "unspent compute."
                 )
         elif blocker == "resampling covariance":
             if ev["covarianceMeasured"] and ev["covarianceApplied"]:
@@ -202,14 +208,13 @@ def main() -> None:
         "scienceClaimAllowed": False,
         "whatWouldClearTheRest": {
             "injection/recovery QA": (
-                "Run it per region. This is compute, not method: measure_catalogue_reliability.py "
-                "defaults to --regions 24, sampled evenly across the sky, because the *global* "
-                "rate converges long before 190 and a full pass takes hours. Of those 24, 9 "
-                "yielded a measurement; the other 15 are genuinely too sparse or too heavily "
-                "masked to define their own flux ratio. The remaining 166 were never attempted. "
-                "A per-region completeness is the right standard for a per-region readiness flag "
-                "-- depth, seeing and crowding all vary by field -- so the fix is to run the full "
-                "pass, not to relax the rule."
+                "The full pass has been run: all 190 regions attempted, 79 measured, up from 9. "
+                "The 111 outstanding were attempted and do not qualify -- each needs 20 detected "
+                "sources with positive flux in both frames and 30% valid area to define its own "
+                "flux ratio, and these are too sparse or too heavily masked. Clearing them means "
+                "either deeper detection in those fields or a readiness rule that does not "
+                "require a per-region flux ratio, and the second would be loosening the standard "
+                "rather than meeting it."
             ),
             "resampling covariance": (
                 "Done on 2026-08-16. The measured factor was applied to rubin_flux_err_njy, "
