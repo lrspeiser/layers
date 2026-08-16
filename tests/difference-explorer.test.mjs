@@ -162,3 +162,63 @@ test("multi-wavelength candidates land inside frames that exist", async () => {
   );
   assert.match(placements.meaning, /not that anything is there/i);
 });
+
+// The overlay is drawn on top of the sky image. If it were mostly opaque it
+// would hide what it is annotating; if it were fully transparent it would show
+// nothing. Neither failure raises an error anywhere, and neither is visible in
+// the JSON, so the pixels are checked directly.
+test("the difference overlay annotates the sky without hiding it", async () => {
+  const sharp = (await import("sharp")).default;
+  const index = await readJson("public", "data", "layers", "selected-regions", "difference-index.json");
+  const previews = join(root, "public", index.previewRoot.slice(1));
+
+  let maxOpaque = 0;
+  let sawSignal = false;
+  for (const region of index.regions.slice(0, 12)) {
+    const overlay = join(previews, region.regionId, "difference-overlay.png");
+    const { data, info } = await sharp(overlay)
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    const pixels = info.width * info.height;
+    let opaque = 0;
+    let clear = 0;
+    for (let i = 3; i < data.length; i += info.channels) {
+      if (data[i] > 127) opaque += 1;
+      else if (data[i] === 0) clear += 1;
+    }
+    const opaqueFraction = opaque / pixels;
+    maxOpaque = Math.max(maxOpaque, opaqueFraction);
+    if (opaqueFraction > 0) sawSignal = true;
+    // Mostly transparent, or the star image underneath is lost.
+    assert.ok(
+      clear / pixels > 0.5,
+      `${region.regionId} overlay is only ${((clear / pixels) * 100).toFixed(1)}% clear`,
+    );
+  }
+  assert.ok(maxOpaque < 0.35, `overlay covers up to ${(maxOpaque * 100).toFixed(1)}% of the frame`);
+  assert.ok(sawSignal, "no overlay marked anything at all");
+});
+
+test("the difference map diverges in both directions", async () => {
+  const sharp = (await import("sharp")).default;
+  const index = await readJson("public", "data", "layers", "selected-regions", "difference-index.json");
+  const previews = join(root, "public", index.previewRoot.slice(1));
+
+  // Red means Rubin brighter and blue means the reference brighter. A map with
+  // only one of them would mean the colour key is lying.
+  for (const region of index.regions.slice(0, 8)) {
+    const { data, info } = await sharp(join(previews, region.regionId, "difference.png"))
+      .removeAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    let red = 0;
+    let blue = 0;
+    for (let i = 0; i < data.length; i += info.channels) {
+      if (data[i] > data[i + 2] + 20) red += 1;
+      else if (data[i + 2] > data[i] + 20) blue += 1;
+    }
+    assert.ok(red > 0, `${region.regionId} has no Rubin-brighter pixels`);
+    assert.ok(blue > 0, `${region.regionId} has no reference-brighter pixels`);
+  }
+});
