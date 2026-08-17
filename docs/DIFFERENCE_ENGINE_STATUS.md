@@ -2336,3 +2336,40 @@ all of it — to move one count from 161 to about 186.
 Not worth doing to satisfy a count. Worth doing if the science wants deeper
 multi-band coverage for its own sake, in which case the fix is one line in the
 selection step, not more acquisition effort against the current set.
+
+## 49. The 24 "reconciliation losses" itemised: 20 + 4, and nobody recorded any of them
+
+G1 delivers 628 reconciled pairs against 652 regions with validated reference
+pixels. That 24-region gap has been called "reconciliation losses" throughout
+this document and never itemised, which is a polite way of saying nobody checked.
+
+| survey | validated | aligned | reconciled | lost building grids | lost at reconcile |
+|---|---|---|---|---|---|
+| Legacy DR10 | 198 | 193 | 190 | 5 | 3 |
+| DES DR2 | 148 | 143 | 143 | 5 | 0 |
+| Pan-STARRS DR2 | 196 | 189 | 188 | 7 | 1 |
+| HSC PDR2 | 110 | 107 | 107 | 3 | 0 |
+| **total** | **652** | **632** | **628** | **20** | **4** |
+
+**Failures recorded by any stage: zero.** These regions do not appear in a
+`failures` list, a `skipped` list, or a log line. They are simply absent from the
+next stage's output.
+
+That is the actual defect. A silent drop is indistinguishable from work that was
+never attempted — which is precisely the confusion that let G0's inferred count
+stand as a measured one for weeks, and precisely what made §41's interrupted run
+look like a pipeline failure.
+
+**Some of the loss is legitimate.** `dp2-tract-9939` carries a valid-pixel
+fraction of **0.032**; there is almost nothing there to compare, and both Legacy
+and Pan-STARRS correctly drop it. Dropping it is right. Not saying so is not.
+
+**Two are not explained.** `dp2-tract-5192` and `dp2-tract-6530` hold **91.5%**
+and **96.1%** valid Rubin pixels, aligned successfully, and produced no reconciled
+pair with no reason recorded anywhere. Whether they are recoverable is unknown;
+what is certain is that nothing in the pipeline claims to have rejected them.
+
+`pipeline/audit_pair_attrition.py --check` itemises the gap and exits non-zero
+while any loss remains unexplained. It does not fix the attrition — it makes it
+counted, so the next reader of "628 of 652" knows which 24 and how many are
+accounted for.

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "layers-pair-attrition-v1",
+  "question": "G1 delivers 628 pairs from 652 validated regions. Which 24, and why?",
+  "perSurvey": {
+    "legacy-surveys-dr10": {
+      "pixelsValidated": 198,
+      "aligned": 193,
+      "reconciled": 190,
+      "lostBuildingGrids": 5,
+      "lostAtReconcile": 3,
+      "failuresRecordedByGridBuilder": 0,
+      "lostAtReconcileDetail": [
+        {
+          "regionId": "dp2-tract-5192",
+          "rubinValidPixelFraction": 0.9150770833333334,
+          "explained": false,
+          "reason": "no reason recorded by any stage"
+        },
+        {
+          "regionId": "dp2-tract-6530",
+          "rubinValidPixelFraction": 0.9609770833333333,
+          "explained": false,
+          "reason": "no reason recorded by any stage"
+        },
+        {
+          "regionId": "dp2-tract-9939",
+          "rubinValidPixelFraction": 0.032211111111111114,
+          "explained": true,
+          "reason": "Rubin region is nearly empty; nothing to compare"
+        }
+      ]
+    },
+    "des-dr2": {
+      "pixelsValidated": 148,
+      "aligned": 143,
+      "reconciled": 143,
+      "lostBuildingGrids": 5,
+      "lostAtReconcile": 0,
+      "failuresRecordedByGridBuilder": 0,
+      "lostAtReconcileDetail": []
+    },
+    "panstarrs-dr2": {
+      "pixelsValidated": 196,
+      "aligned": 189,
+      "reconciled": 188,
+      "lostBuildingGrids": 7,
+      "lostAtReconcile": 1,
+      "failuresRecordedByGridBuilder": 0,
+      "lostAtReconcileDetail": [
+        {
+          "regionId": "dp2-tract-9939",
+          "rubinValidPixelFraction": 0.032211111111111114,
+          "explained": true,
+          "reason": "Rubin region is nearly empty; nothing to compare"
+        }
+      ]
+    },
+    "hsc-ssp-pdr2": {
+      "pixelsValidated": 110,
+      "aligned": 107,
+      "reconciled": 107,
+      "lostBuildingGrids": 3,
+      "lostAtReconcile": 0,
+      "failuresRecordedByGridBuilder": 0,
+      "lostAtReconcileDetail": []
+    }
+  },
+  "totals": {
+    "pixelsValidated": 652,
+    "reconciled": 628,
+    "lostBuildingGrids": 20,
+    "lostAtReconcile": 4
+  },
+  "unexplained": [
+    {
+      "survey": "legacy-surveys-dr10",
+      "regionId": "dp2-tract-5192",
+      "rubinValidPixelFraction": 0.9150770833333334,
+      "explained": false,
+      "reason": "no reason recorded by any stage"
+    },
+    {
+      "survey": "legacy-surveys-dr10",
+      "regionId": "dp2-tract-6530",
+      "rubinValidPixelFraction": 0.9609770833333333,
+      "explained": false,
+      "reason": "no reason recorded by any stage"
+    }
+  ],
+  "finding": "The 24-region gap is 20 regions dropped while building comparison grids and 4 dropped during reconciliation. No stage records a single failure for any of them: they are absent from the next stage's output rather than reported as skipped. A silent drop is indistinguishable from work never attempted, which is the same confusion that let an inferred count stand as a measured one.",
+  "reproduce": "python pipeline/audit_pair_attrition.py --check"
+}
