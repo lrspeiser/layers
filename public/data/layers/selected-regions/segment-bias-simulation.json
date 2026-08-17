@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "layers-segment-bias-simulation-v1",
+  "question": "Three explanations for the size-dependent flux-ratio bias have been refuted, all of them defects in the PSF matching. Does the bias appear anyway when the kernel is exact?",
+  "setup": {
+    "psfA": 1.6,
+    "psfB": 2.4,
+    "kernel": "exact Gaussian taking PSF A to PSF B; no fitting, no residual",
+    "detection": "on the sum of both frames, as build_source_catalogue does",
+    "photometry": "identical segmentation applied to both frames",
+    "noise": 1.0,
+    "trialsPerSize": 200,
+    "seed": 20260816
+  },
+  "rows": [
+    {
+      "intrinsicSize": 0.01,
+      "medianSegmentArea": 176.0,
+      "medianRatio": 0.9992125240751522,
+      "scatter": 0.0018193563192971873,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 0.5,
+      "medianSegmentArea": 183.0,
+      "medianRatio": 0.9988160314471299,
+      "scatter": 0.001763507965872717,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 1.0,
+      "medianSegmentArea": 203.0,
+      "medianRatio": 0.9991055084856149,
+      "scatter": 0.001838157428129473,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 1.5,
+      "medianSegmentArea": 229.0,
+      "medianRatio": 0.9984217061553431,
+      "scatter": 0.002057780955946533,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 2.0,
+      "medianSegmentArea": 268.0,
+      "medianRatio": 0.998689688951438,
+      "scatter": 0.002394134590216838,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 3.0,
+      "medianSegmentArea": 367.0,
+      "medianRatio": 0.9978492333770963,
+      "scatter": 0.002680691730108511,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 4.0,
+      "medianSegmentArea": 488.0,
+      "medianRatio": 0.9962643625218135,
+      "scatter": 0.0030340618108895398,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 5.0,
+      "medianSegmentArea": 622.5,
+      "medianRatio": 0.9950388685896983,
+      "scatter": 0.0033402811524431792,
+      "trials": 200
+    },
+    {
+      "intrinsicSize": 6.0,
+      "medianSegmentArea": 764.0,
+      "medianRatio": 0.9933819025281148,
+      "scatter": 0.003532068693741993,
+      "trials": 200
+    }
+  ],
+  "extendedMinusCompact": -0.004066639895916602,
+  "trendSpearmanRho": -0.9666666666666667,
+  "trendPValue": 2.155031274835773e-05,
+  "mechanismPresent": true,
+  "observedCatalogueBias": -0.144,
+  "fractionOfObservedExplained": 0.02824055483275418,
+  "reading": "The mechanism is real and too small. With an exact kernel, no calibration error, no sky and no crowding, the ratio falls monotonically from 0.99921 at point-like to 0.99338 at the largest size -- a decline of 0.00407. So segment photometry on PSF-matched frames does produce a size-dependent ratio, by construction and with nothing else to blame. But the catalogue shows 0.144, roughly 35 times larger. This accounts for about 3% of the observed bias and cannot be the whole of it.",
+  "reproduce": "python pipeline/simulate_segment_bias.py"
+}

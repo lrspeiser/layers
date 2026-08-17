@@ -2495,3 +2495,47 @@ known profiles with a known kernel, measure through fixed segments, and see
 whether the size-dependent ratio appears. If it does, the fix is model
 photometry rather than better matching. If it does not, all four candidates are
 gone and the cause is something not yet imagined.
+
+## 53. The segment mechanism is real, and explains 3% of the bias
+
+§52 left one candidate: that the size-dependent flux-ratio bias is not a defect in
+the PSF matching at all, but what segment photometry does to matched frames.
+Convolution conserves total flux and redistributes it, so within a *fixed*
+boundary the flux changes, and how much crosses depends on the profile.
+
+Simulated with an **exact** kernel — Gaussian sources, frame A convolved to
+frame B's PSF by the analytic kernel that does it, detection on the sum,
+photometry through identical segments, no calibration error, no sky, no crowding:
+
+| intrinsic size | segment area | median ratio |
+|---|---|---|
+| 0.01 | 176 | 0.99921 |
+| 1.00 | 203 | 0.99911 |
+| 2.00 | 268 | 0.99869 |
+| 4.00 | 488 | 0.99626 |
+| 6.00 | 764 | **0.99338** |
+
+Spearman ρ = **−0.967**, p = 2×10⁻⁵ over 200 trials per size.
+
+**The mechanism exists.** With every instrumental cause excluded by construction,
+segment photometry on PSF-matched frames still produces a ratio that falls with
+source size. No improvement to the kernel can remove it, because the kernel here
+is perfect.
+
+**And it is far too small.** The decline is 0.0041. The catalogue shows 0.144.
+This accounts for **2.8%** of the observed bias, and roughly 9% of the smaller
+reference-convolved figure. It is a real contributor and cannot be the cause.
+
+**So four explanations are now tested.** Kernel normalisation: refuted. Aperture
+light fraction: refuted, and Kron makes it worse. Spatial PSF variation: refuted,
+no radial gradient. Segment photometry itself: real, 3%. The remaining ~97% has
+no candidate, which is a more honest position than any of the three plausible
+stories that were checked and failed.
+
+**A note on the test.** The first run reported "does not reproduce" because it
+asked one question with a single threshold — is the effect *large* — when there
+were two: does the mechanism exist, and is it big enough. The second run then
+reported the trend as non-monotonic because 0.99882 → 0.99911 rises by 3×10⁻⁴,
+inside the noise. A rank correlation is the right test for a noisy trend and
+gives ρ = −0.967. Both corrections were to the *question*, not the data, which is
+the same failure mode as every wrong check in the audit thread.
