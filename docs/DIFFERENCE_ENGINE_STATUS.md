@@ -2373,3 +2373,44 @@ what is certain is that nothing in the pipeline claims to have rejected them.
 while any loss remains unexplained. It does not fix the attrition — it makes it
 counted, so the next reader of "628 of 652" knows which 24 and how many are
 accounted for.
+
+## 50. Correction to §49: the reconcile losses were recorded all along
+
+§49 stated, in bold, "**Failures recorded by any stage: zero.** These regions do
+not appear in a `failures` list, a `skipped` list, or a log line." That is false,
+and it is the only wrong claim this audit published rather than caught before
+publishing.
+
+The reconciliation manifests carry every reconcile-stage loss by region id with
+an explicit reason:
+
+| region | recorded reason |
+|---|---|
+| dp2-tract-5192 | no documented flux chain for panstarrs-dr2 |
+| dp2-tract-6530 | no documented flux chain for panstarrs-dr2 |
+| dp2-tract-9939 | insufficient matched sources |
+
+Four losses, four recorded, and the count agrees with `counts.failed` in each
+manifest. §49 also called 5192 and 6530 "not explained" on the strength of their
+91.5% and 96.1% valid-pixel fractions. Their pixels were never the problem; their
+flux chain was.
+
+**Why the claim was wrong.** The audit read the `failures` list from the
+*comparison-grid* manifest and found it empty, then reported that nothing anywhere
+recorded these losses. Wrong file. "Nothing is recorded" is a claim about where
+you looked, and I did not check a second place before publishing it in bold.
+
+That is the tenth check in this thread that was wrong before it was right, and
+the first that reached the document. The nine before it were caught because a
+disagreement prompted a second look; this one was not, because it agreed with
+what I already believed about silent failures — the pipeline had produced three
+genuine silent-drop bugs today, so a fourth was easy to accept.
+
+**What actually remains unaccounted.** The 20 regions lost while building
+comparison grids. That stage records zero failures for them, and unlike the
+reconcile stage it has not been shown to record them anywhere else. The corrected
+audit reports reconcile losses as 4 of 4 accounted for and leaves grid-building
+attrition explicitly open rather than asserting it is silent.
+
+`pipeline/audit_pair_attrition.py` now reads both manifests, and its docstring
+carries the mistake so the next reader does not repeat it.
