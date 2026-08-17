@@ -2296,3 +2296,43 @@ disagreement is evidence of *a* mistake without saying whose. Acting on any firs
 run would have "corrected" nine correct numbers to fix two wrong ones. The
 discipline that worked was the same one this project has needed everywhere else:
 read what the number actually counts before believing it disagrees.
+
+## 48. G0's shortfall is the selection, not the archive — measured, not asserted
+
+Across §34, §35 and §38 the G0 shortfall was attributed to archive limits, with a
+standing claim that a different tract selection would be needed to reach 180.
+That claim was never measured. It is now.
+
+**Sampling 30 unselected DP2 tracts by deterministic stride across the 1991 not
+in our set: 26 have two or more bands, 87%.** Our 200 gave 173, 86.5%.
+Statistically identical. The selection was not unlucky — it is representative.
+
+But the distribution is lopsided rather than uniform. Most tracts carry five or
+six bands; a minority carry exactly one. So the shortfall is not scarcity, it is
+that **the selection never filtered on band count**, and a SIA query answers that
+per tract before a single pixel is fetched.
+
+| strategy | availability | fetchability | delivered |
+|---|---|---|---|
+| unfiltered, as done | 0.867 | 0.931 | **161** |
+| filtered on ≥2 bands | 1.000 | 0.931 | **≈186** |
+
+The fetchability factor is measured, not assumed: §35 established that 12 of 173
+available second bands return all-NaN pixels at our positions. About 1726 of the
+unselected tracts carry two or more bands, so a filtered pool of 200 exists many
+times over.
+
+**So 180 was reachable, and the reason it was missed is a selection step that
+did not use information freely available before acquisition.** That is a better
+answer than "the archive does not hold it", and it is the opposite of what §34
+and §35 implied.
+
+**What it would cost to act on.** Reselecting invalidates every downstream
+comparison: G1 through G9 are all measured on these 200 regions, and this session
+rebuilt nine of their figures from raw inputs. A new selection means re-acquiring
+about 14 GB, re-running reconcile, recovery and the anomaly scan, and re-verifying
+all of it — to move one count from 161 to about 186.
+
+Not worth doing to satisfy a count. Worth doing if the science wants deeper
+multi-band coverage for its own sake, in which case the fix is one line in the
+selection step, not more acquisition effort against the current set.

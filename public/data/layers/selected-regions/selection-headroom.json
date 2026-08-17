@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "layers-selection-headroom-v1",
+  "question": "G0's target of 180 two-band regions was not met at 161. Is that a limit of DP2, or of how these 200 tracts were chosen?",
+  "answer": "Of how they were chosen.",
+  "measured": {
+    "dp2TractsInFootprint": 2191,
+    "tractsSelected": 200,
+    "unselectedPool": 1991,
+    "sampledUnselectedTracts": 30,
+    "sampledWithTwoOrMoreBands": 26,
+    "availabilityInPool": 0.867,
+    "availabilityInOurSet": 0.865,
+    "fetchabilityOnceAvailable": 0.931
+  },
+  "finding": "Band availability in the unselected pool is 87%, statistically identical to the 86.5% in the chosen 200. The selection was not unlucky; it is representative. But the distribution is lopsided rather than uniform -- most tracts carry five or six bands and a minority carry one -- so the shortfall is not scarcity, it is that the selection never filtered on band count. A SIA query answers that per tract before any pixels are fetched.",
+  "projection": {
+    "unfilteredSelection": 161,
+    "filteredOnTwoBands": 186,
+    "target": 180,
+    "candidatePoolWithTwoBands": 1726,
+    "note": "200 x 1.00 availability x 0.931 fetchability = 186, which clears the 180 target. The fetchability factor is measured, not assumed: 12 of 173 available second bands returned all-NaN pixels at our positions."
+  },
+  "cost": "Reselecting tracts invalidates every downstream comparison. G1 through G9 are all measured on these 200 regions, and this session verified nine of their figures against raw inputs. A new selection means re-acquiring roughly 14 GB, re-running reconcile, recovery and the anomaly scan, and re-verifying everything -- to raise one count from 161 to about 186.",
+  "recommendation": "Not worth doing to satisfy a count. Worth doing if the science wants deeper multi-band coverage for its own sake, in which case filter on measured band availability at the selection step rather than after acquisition.",
+  "reproduce": "see section 48; the sample is a deterministic stride over the unselected pool"
+}
