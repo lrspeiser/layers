@@ -2414,3 +2414,46 @@ attrition explicitly open rather than asserting it is silent.
 
 `pipeline/audit_pair_attrition.py` now reads both manifests, and its docstring
 carries the mistake so the next reader does not repeat it.
+
+## 51. The 24 losses, finally accounted: none of them silent
+
+§49 claimed the 24-region gap was unrecorded. §50 corrected half of that — the
+four reconcile-stage losses are recorded by region id with reasons. This closes
+the other half, and the answer is that there was never anything missing.
+
+**The error was the denominator.** A comparison needs a validated reference *and*
+a science-ready Rubin frame, and Rubin supplies 193 of 200. Counting losses
+against the reference alone charges Rubin's shortfall to the grid builder.
+
+Against the intersection of the two sets:
+
+| survey | reference ∩ Rubin-ready | aligned | unexplained |
+|---|---|---|---|
+| Legacy DR10 | 193 | 193 | **0** |
+| DES DR2 | 143 | 143 | **0** |
+| Pan-STARRS DR2 | 189 | 189 | **0** |
+| HSC PDR2 | 107 | 107 | **0** |
+
+**Nothing is lost at grid-building. Every region that could be aligned was.**
+
+So the full accounting of 652 → 628:
+
+- **20** regions where the reference has pixels but Rubin has no science-ready
+  frame. Not a loss — those pairs were never possible.
+- **4** reconcile-stage failures, each recorded with a reason: two for "no
+  documented flux chain for panstarrs-dr2", one for "insufficient matched
+  sources", one more in the Pan-STARRS manifest.
+
+`audit_pair_attrition.py --check` now exits zero.
+
+**Three wrong versions of this audit before the right one**, all from the same
+error in different clothes: comparing a number against a denominator that answers
+a different question. First the wrong manifest for failures, then reference count
+instead of the intersection, then `min()` of two counts instead of the actual
+intersection — which is only equal when the sets are nested, and they are not.
+
+That is the eleventh, twelfth and thirteenth wrong check in this thread. The
+pattern has not varied once: **every single one was a denominator or a field that
+sat next to the right one and answered a different question.** Not arithmetic
+slips, not typos — always a category error about what a number counts. If this
+project keeps one methodological lesson, that is it.

@@ -23,9 +23,21 @@ So the reconcile stage is not silent. It reports each loss and the count agrees
 with `counts.failed`. This script now reads that list, and the losses it reports
 as unexplained are only those the pipeline genuinely does not account for.
 
-Grid-building attrition is the remaining question: 20 regions with validated
-reference pixels never reach a comparison grid, and that stage's manifest does
-carry a failures list, so the same check applies there.
+Grid-building attrition looked like the remaining question -- 20 regions with
+validated reference pixels never reaching a comparison grid -- and that was also
+an artefact of the wrong denominator. A comparison needs BOTH a validated
+reference and a science-ready Rubin frame, and Rubin supplies 193 of 200.
+Counting against the reference alone charges the Rubin shortfall to the grid
+builder.
+
+Against the correct denominator, the intersection of the two:
+
+    legacy      193 possible, 193 aligned, 0 unexplained
+    des         143 possible, 143 aligned, 0 unexplained
+    panstarrs   189 possible, 189 aligned, 0 unexplained
+    hsc         107 possible, 107 aligned, 0 unexplained
+
+Nothing is lost at grid-building. Every region that could be aligned was.
 """
 
 from __future__ import annotations
@@ -39,6 +51,16 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "pipeline/results"
 SELECTED = ROOT / "public/data/layers/selected-regions"
 OUTPUT = SELECTED / "pair-attrition.json"
+
+# Where each reference's own validated region list lives. Needed because the
+# alignable set is the intersection with Rubin's science-ready regions, and a
+# min() of the two counts is not that intersection -- it overstates the loss
+# whenever the two sets are not nested.
+REFERENCE_MANIFESTS = {
+    "des-dr2": ("pipeline/results/des-dr2/manifest.json", "validated-science-input"),
+    "panstarrs-dr2": ("public/data/layers/panstarrs-200-r/manifest.json", None),
+    "hsc-ssp-pdr2": ("pipeline/results/hsc-pdr2-normalized.json", None),
+}
 
 # reference label -> (comparison-grid manifest, reconciliation manifest)
 STAGES = {
@@ -78,6 +100,11 @@ def main() -> None:
     args = parser.parse_args()
 
     validation = rubin_validation()
+    # A comparison needs a science-ready Rubin frame as well as a reference, and
+    # Rubin supplies 193 of 200. The honest denominator is the intersection.
+    rubin_ready = {
+        region_id for region_id, v in validation.items() if v.get("scienceReady")
+    }
     truth = json.loads((SELECTED / "optical-coverage-truth.json").read_text(encoding="utf-8"))
     validated = {
         s["surveyId"]: s.get("pixelsValidated") or 0
@@ -105,6 +132,26 @@ def main() -> None:
         }
         aligned = {r["regionId"] for r in grid.get("regions", [])}
         reconciled = {r["regionId"] for r in recon.get("regions", [])}
+
+        # The alignable set: this reference's validated regions intersected with
+        # Rubin's science-ready ones.
+        alignable = None
+        spec = REFERENCE_MANIFESTS.get(survey)
+        if spec:
+            ref_path, required_status = spec
+            ref_file = ROOT / ref_path
+            if ref_file.is_file():
+                rows = json.loads(ref_file.read_text(encoding="utf-8")).get("regions") or []
+                ref_ids = {
+                    r["regionId"] for r in rows
+                    if isinstance(r, dict) and r.get("regionId")
+                    and (required_status is None or r.get("status") == required_status)
+                }
+                alignable = len(ref_ids & rubin_ready)
+        if alignable is None:
+            # Legacy has no separate reference manifest here; Rubin is the binding
+            # constraint for it, which the aligned count already reflects.
+            alignable = min(validated.get(survey) or 0, len(rubin_ready))
         lost_at_reconcile = sorted(aligned - reconciled)
 
         detail = []
@@ -130,7 +177,9 @@ def main() -> None:
             "pixelsValidated": validated.get(survey),
             "aligned": len(aligned),
             "reconciled": len(reconciled),
-            "lostBuildingGrids": (validated.get(survey) or 0) - len(aligned),
+            "rubinScienceReady": len(rubin_ready),
+            "alignableGivenRubin": alignable,
+            "lostBuildingGrids": max(0, alignable - len(aligned)),
             "lostAtReconcile": len(lost_at_reconcile),
             "failuresRecordedByGridBuilder": len(grid.get("failures") or []),
             "failuresRecordedByReconcile": len(recon.get("failures") or []),
