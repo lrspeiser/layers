@@ -2457,3 +2457,41 @@ pattern has not varied once: **every single one was a denominator or a field tha
 sat next to the right one and answered a different question.** Not arithmetic
 slips, not typos — always a category error about what a number counts. If this
 project keeps one methodological lesson, that is it.
+
+## 52. The extended-source bias: a third hypothesis falsified
+
+§21 refuted two explanations for the size-dependent flux-ratio bias — kernel
+normalisation and aperture light fraction — and named a third as the obvious
+remaining candidate: that a spatially constant matching kernel cannot follow a
+PSF that varies across the field, so the match is good at the centre and poor at
+the edges.
+
+**That predicts a radial gradient, and there is none.** Measured per region on
+186 fields, using each source's own pixel position and splitting at that field's
+median source area:
+
+| | regions | median Spearman rho | Wilcoxon p |
+|---|---|---|---|
+| extended sources | 186 | **−0.018** | 0.29 |
+| compact sources | 186 | **+0.003** | 0.72 |
+
+Neither differs from zero, and they do not differ from each other. A kernel
+failing at the field edges would have shown a clear negative rho for extended
+sources and a shallower one for compact — the signature is absent.
+
+This matters practically: a spatially varying kernel is the expensive fix, and
+§21 pointed at it. It would not have worked.
+
+**What is left.** Three explanations tested, three refuted. The candidate not yet
+excluded is that the effect is intrinsic to segment photometry itself:
+convolution conserves total flux but redistributes it across any fixed boundary,
+and the fraction that crosses depends on the source profile. If that is the
+cause, the bias is a property of measuring PSF-matched frames through a fixed
+segment rather than a defect in the matching — and it should reproduce in
+simulation with a perfect, known kernel.
+
+That is a decisive test and it needs no new data: convolve a synthetic field of
+known profiles with a known kernel, measure through fixed segments, and see
+whether the size-dependent ratio appears. If it does, the fix is model
+photometry rather than better matching. If it does not, all four candidates are
+gone and the cause is something not yet imagined.

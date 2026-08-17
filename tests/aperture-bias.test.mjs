@@ -35,7 +35,14 @@ test("extended sources sit low in every group, not just one", () => {
 test("the falsified explanations stay recorded as falsified", () => {
   // Both were plausible enough to act on. Recording the refutation is what stops
   // either being retried as though it were untested.
-  assert.equal(bias.falsifiedHypotheses.length, 2);
+  // A floor, not an exact count. This asserted exactly 2 and fired when a third
+  // explanation was refuted -- correct behaviour from a wrong assertion, since
+  // refuting another candidate is progress. What must not happen is a
+  // falsification quietly disappearing, so the floor rises as they accumulate.
+  assert.ok(
+    bias.falsifiedHypotheses.length >= 3,
+    `expected at least 3 falsified explanations, found ${bias.falsifiedHypotheses.length}`,
+  );
   for (const item of bias.falsifiedHypotheses) {
     assert.equal(item.verdict, "falsified");
     assert.ok(item.evidence.length > 20, "a verdict without evidence is an assertion");

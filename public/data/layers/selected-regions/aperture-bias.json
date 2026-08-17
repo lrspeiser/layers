@@ -34,8 +34,14 @@
       "hypothesis": "the segment is the wrong aperture for extended sources",
       "verdict": "falsified",
       "evidence": "Kron apertures fix compact sources (ratio 1.0016 vs 0.9542) but worsen extended ones and reverse the asymmetry above S/N 50"
+    },
+    {
+      "hypothesis": "a spatially constant kernel cannot follow a spatially varying PSF",
+      "verdict": "falsified",
+      "evidence": "If the single fitted kernel matched well at the field centre and badly at the edges, the flux ratio would degrade with distance from centre, and more steeply for extended sources. Measured per region on 186 fields using each source's pixel position: extended sources give a median Spearman rho of -0.018 (Wilcoxon p = 0.29), compact sources +0.003 (p = 0.72). Neither differs from zero, and the two do not differ from each other. There is no radial gradient to explain."
     }
   ],
   "consequence": "departure_significance is not trustworthy for extended sources. The compact-source result is unaffected: the bias is a size-dependent term and vanishes for the compact half of each field.",
-  "reproduce": "python pipeline/diagnose_aperture_bias.py --explain"
+  "reproduce": "python pipeline/diagnose_aperture_bias.py --explain",
+  "remainingCandidates": "Three explanations have now been tested and refuted: kernel normalisation, aperture light fraction, and spatial PSF variation. What is not yet excluded is that the bias is intrinsic to how a segment-summed flux responds to convolution -- convolution conserves total flux but moves it across any fixed boundary, and the fraction moved depends on the profile. That would make the effect a property of segment photometry on PSF-matched frames rather than a defect in the matching, and would predict it is reproducible in simulation with a perfect kernel. That is the next test, and it needs no new data."
 }
